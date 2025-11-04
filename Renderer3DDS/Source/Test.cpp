@@ -1,8 +1,6 @@
 #include <Test.hpp>
-#define GLEW_STATIC
-#include <GL/glew.h>
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
+#include <Core.hpp>
+
 void Test(void) {
 	printf("This is a test function.\n");
 

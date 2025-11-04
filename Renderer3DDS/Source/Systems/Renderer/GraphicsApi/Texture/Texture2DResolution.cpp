@@ -1,0 +1,53 @@
+#include "Texture2DResolution.hpp"
+
+#include <glad/gl.h>
+
+namespace Game{
+    Texture2DResolution::Texture2DResolution(const u32& width  , const u32& height  , const TextureInternalFormat& format ){
+        SetWidth(width);
+        SetHeight(height);
+        SetFormat(format);
+        m_BadW = m_BadH =  false;
+    }
+
+    void Texture2DResolution::SetWidth (const u32&                   width ){
+        if (width > GetMaxWidth()){
+            m_Width = GetMaxWidth();
+            m_BadW = true;
+            ASSERT(0 , "Width Greater that the maximum one !!!");
+            return;
+        }
+        m_BadW = false;
+        m_Width = width;
+
+    }
+    void Texture2DResolution::SetHeight(const u32&                   height){
+        if (height > GetMaxHeight()){
+            m_Height = GetMaxHeight();
+            m_BadH = true;
+            ASSERT(0 , "Height Greater that the maximum one !!!");
+            return;
+        }
+        m_BadH = false;
+        m_Height = height;
+    }
+    void Texture2DResolution::SetFormat(const TextureInternalFormat& format){
+        m_Format = format;
+    }
+
+    u32                   Texture2DResolution::GetWidth (void) const{
+        ASSERT(!m_BadW , "Width has set to the maximum value ");
+        return m_Width;
+    }
+    u32                   Texture2DResolution::GetHeight(void) const{
+        ASSERT(!m_BadH , "Height has set to the maximum value ");
+        return m_Height;
+    }
+    TextureInternalFormat Texture2DResolution::GetFormat(void) const{
+        return m_Format;
+    }
+
+    //TODO - Ask opengl implemantation specific about the maximum height and width 
+    u32 Texture2DResolution::GetMaxWidth(void)  { return 1024 * 8 ; }
+    u32 Texture2DResolution::GetMaxHeight(void) { return 1024 * 8 ; }
+}
