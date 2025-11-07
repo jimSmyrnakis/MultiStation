@@ -20,7 +20,6 @@ float GetTimeSeconds() {
 // Window dimensions
 const GLint WIDTH = 800, HEIGHT = 600;
 
-GLuint VBO, VAO, shader;
 
 // Vertex Shader code
 static const char* vShader = "                                                \n\
@@ -67,68 +66,7 @@ void CreateTriangle()
 	
 }
 
-void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
-{
-	GLuint theShader = glCreateShader(shaderType);
 
-	const GLchar* theCode[1];
-	theCode[0] = shaderCode;
-
-	GLint codeLength[1];
-	codeLength[0] = strlen(shaderCode);
-
-	glShaderSource(theShader, 1, theCode, codeLength);
-	glCompileShader(theShader);
-
-	GLint result = 0;
-	GLchar eLog[1024] = { 0 };
-
-	glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
-	if (!result)
-	{
-		glGetShaderInfoLog(theShader, 1024, NULL, eLog);
-		fprintf(stderr, "Error compiling the %d shader: '%s'\n", shaderType, eLog);
-		return;
-	}
-
-	glAttachShader(theProgram, theShader);
-}
-
-void CompileShaders()
-{
-	shader = glCreateProgram();
-
-	if (!shader)
-	{
-		printf("Failed to create shader\n");
-		return;
-	}
-
-	AddShader(shader, vShader, GL_VERTEX_SHADER);
-	AddShader(shader, fShader, GL_FRAGMENT_SHADER);
-
-	GLint result = 0;
-	GLchar eLog[1024] = { 0 };
-
-	glLinkProgram(shader);
-	glGetProgramiv(shader, GL_LINK_STATUS, &result);
-	if (!result)
-	{
-		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
-		printf("Error linking program: '%s'\n", eLog);
-		return;
-	}
-
-	glValidateProgram(shader);
-	glGetProgramiv(shader, GL_VALIDATE_STATUS, &result);
-	if (!result)
-	{
-		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
-		printf("Error validating program: '%s'\n", eLog);
-		return;
-	}
-
-}
 
 int Test(void)
 {
