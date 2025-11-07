@@ -164,57 +164,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Defs.cpp" />
-    <ClCompile Include="Source\Model\Model.cpp" />
-    <ClCompile Include="Source\Model\Model3D.cpp" />
     <ClCompile Include="Source\Projection\Projection.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Allocators\AllocationRequest.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Allocators\IndicesAllocator.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\FBuffer\FBuffer.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Format\Format.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\IBuffer\IBuffer.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\FShader.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\Shader.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\VShader.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2D.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2DResolution.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\UBuffer\UBuffer.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VABuffer\VABuffer.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VLayout.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\Materials\InitMaterials.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\Materials\Material.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\Materials\Resolution.cpp" />
-    <ClCompile Include="Source\Systems\Renderer\RenderCommand\RenderCommand.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Format\Format.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.cpp" />
     <ClCompile Include="Source\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Renderer3DDS.hpp" />
-    <ClInclude Include="Source\Cameras\Camera.hpp" />
     <ClInclude Include="Source\Core.hpp" />
     <ClInclude Include="Source\Defs.hpp" />
-    <ClInclude Include="Source\Model\Model.hpp" />
     <ClInclude Include="Source\Projection\Projection.hpp" />
-    <ClInclude Include="Source\Systems\Events\Event.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\AllocationRequest.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\GAllocator.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\IndicesAllocator.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\FBuffer\FBuffer.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Format\Format.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\IBuffer\IBuffer.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\FShader.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\Shader.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\VShader.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2D.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2DResolution.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\UBuffer\UBuffer.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VABuffer\VABuffer.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer2.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VLayout.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\Materials\ImageFormat.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\Materials\Material.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\Mesh\Mesh.hpp" />
-    <ClInclude Include="Source\Systems\Renderer\RenderCommand\RenderCommand.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Format\Format.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp" />
     <ClInclude Include="Source\Test.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

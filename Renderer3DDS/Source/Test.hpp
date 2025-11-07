@@ -2,4 +2,4 @@
 
 #include <stdio.h>
 
-void Test(void);
+int Test(void);

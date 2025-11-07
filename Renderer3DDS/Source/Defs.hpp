@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <memory>
+#include <vector>
+#include <string>
 
 namespace Renderer3DDS {
 

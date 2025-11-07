@@ -1,8 +1,7 @@
 #include "IBuffer.hpp"
-#include <glad/gl.h>
-#include <memory.h>
+#include <GL/glew.h>
 
-namespace Game{
+namespace MultiStation{
     IBuffer::IBuffer(void){
         m_Data = nullptr;
         m_Size = 0;
@@ -15,7 +14,7 @@ namespace Game{
         GLCALL( glDeleteBuffers(1 , &m_BufferId) );
     }
 
-    void IBuffer::SetData(u32* data , u32 count){
+    void IBuffer::SetData(uint32_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -23,11 +22,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(u32);
+        m_Size = count * sizeof(uint32_t);
         m_Type = Type::UINT;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -44,7 +43,7 @@ namespace Game{
         //GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , old) );
     }
 
-    void IBuffer::SetData(i32* data , u32 count){
+    void IBuffer::SetData(int32_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -52,11 +51,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(i32);
+        m_Size = count * sizeof(int32_t);
         m_Type = Type::INT;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -73,7 +72,7 @@ namespace Game{
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , old) );
     }
 
-    void IBuffer::SetData(u16* data , u32 count){
+    void IBuffer::SetData(uint16_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -81,11 +80,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(u16);
+        m_Size = count * sizeof(uint16_t);
         m_Type = Type::USHORT;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -102,7 +101,7 @@ namespace Game{
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , old) );
     }
 
-    void IBuffer::SetData(i16* data , u32 count){
+    void IBuffer::SetData(int16_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -110,11 +109,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(i16);
+        m_Size = count * sizeof(int16_t);
         m_Type = Type::SHORT;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -131,7 +130,7 @@ namespace Game{
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , old) );
     }
 
-    void IBuffer::SetData( u8* data , u32 count){
+    void IBuffer::SetData( uint8_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -139,11 +138,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(u8);
+        m_Size = count * sizeof(uint8_t);
         m_Type = Type::UBYTE;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -160,7 +159,7 @@ namespace Game{
         //GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , old) );
     }
 
-    void IBuffer::SetData( i8* data , u32 count){
+    void IBuffer::SetData( int8_t* data , uint32_t count){
         if (count == 0){
             ASSERT(0 , "Index Buffer Data count is zero (0) !!!");
             return;
@@ -168,11 +167,11 @@ namespace Game{
         
 
         m_Data = data;
-        m_Size = count * sizeof(i8);
+        m_Size = count * sizeof(int8_t);
         m_Type = Type::BYTE;
 
         
-        i32 old = 0;
+        int32_t old = 0;
         //GLCALL( glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER , GL_ELEMENT_ARRAY_BUFFER_BINDING , &old) );
 
         GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , m_BufferId) );
@@ -193,7 +192,7 @@ namespace Game{
 
     void IBuffer::Unbind(void)  const { GLCALL( glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , 0         ) ); }
 
-    u32  IBuffer::GetCount(void) const { return m_Size / sizeof(u32); }
+    uint32_t  IBuffer::GetCount(void) const { return m_Size / sizeof(uint32_t); }
 
     IBuffer::Type IBuffer::GetType(void) const { return m_Type; }
 }

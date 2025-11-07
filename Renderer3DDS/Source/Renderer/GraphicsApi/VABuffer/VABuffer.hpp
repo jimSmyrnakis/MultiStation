@@ -5,7 +5,7 @@
 #include "../IBuffer/IBuffer.hpp"
 #include <vector>
 
-namespace Game{
+namespace MultiStation {
     IBuffer& NullIBuffer(void);
     class VABuffer{
         public:
@@ -19,7 +19,7 @@ namespace Game{
             IBuffer& GetIndexBuffer(void) const ;
             
         private:
-            u32                    m_BufferId;
+            uint32_t               m_BufferId;
             std::vector<VBuffer*>  m_VBuffers;
             IBuffer*               m_IBuffer;
     };

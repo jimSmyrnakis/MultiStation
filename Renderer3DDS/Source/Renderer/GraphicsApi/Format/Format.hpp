@@ -1,9 +1,9 @@
 #pragma once
 
 #include <Defs.hpp>
-#include <glad/gl.h>
 
-namespace Game{
+
+namespace MultiStation {
     enum class TextureInternalFormat{
         RGB4        ,
         RGB8        ,
@@ -42,7 +42,7 @@ namespace Game{
         RGB32F      
     };
     
-    u32 GetOpenGLInternalTextureFormat(TextureInternalFormat  format);
+    uint32_t GetOpenGLInternalTextureFormat(TextureInternalFormat  format);
 
     
     enum class TextureExternalFormat{
@@ -83,20 +83,20 @@ namespace Game{
         RGBA32I_RAW     
     };
 
-    u32 GetOpenGLExternalTextureFormat(TextureExternalFormat  format);
-    u32 GetOpenGLExternalTextureType(TextureExternalFormat format );
+    uint32_t GetOpenGLExternalTextureFormat(TextureExternalFormat  format);
+    uint32_t GetOpenGLExternalTextureType(TextureExternalFormat format );
 
     enum class DepthFormat{
         DEPTH16 , DEPTH24 , DEPTH32
     };
 
-    u32 GetOpenGLDepthFormat(DepthFormat format);
+    uint32_t GetOpenGLDepthFormat(DepthFormat format);
 
     enum class Filter{
-        LINEAR , NEAREST
+        LINEAR , NEAREST , BILINEAR
     };
 
-    u32 GetOpenGLFilter(Filter filter);
+    uint32_t GetOpenGLFilter(Filter filter);
 
     enum class ShaderDataType{
         FLOAT       ,
@@ -120,14 +120,11 @@ namespace Game{
         NONE
     };
 
-    u32             SizeOfShaderDataType            (ShaderDataType type    );
-    GLenum          ShaderDataTypeToOpenGLDataType  (ShaderDataType type    );
-    ShaderDataType  OpenGLDataTypeToShaderDataType  (GLenum         ogltype );
+    uint32_t        SizeOfShaderDataType            (ShaderDataType type    );
+    uint32_t        ShaderDataTypeToOpenGLDataType  (ShaderDataType type    );
+    ShaderDataType  OpenGLDataTypeToShaderDataType  (uint32_t       ogltype );
 
     // Special for attributes
-    GLenum OpenGLAttributeDataTypeFromShaderDataType(ShaderDataType type    );
+    uint32_t OpenGLAttributeDataTypeFromShaderDataType(ShaderDataType type    );
 
-    enum class AttributesDataType{
-
-    };
 }

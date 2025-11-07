@@ -22,6 +22,7 @@ namespace Game{
         m_ZNear = 0.1f;
         m_ZFar  = 100.0f;
         m_Update = true;
+        m_Projection = glm::mat4(1.0f);
     }
     Perspective3D::Perspective3D(const Perspective3D& copy){
         m_Fov           = copy.m_Fov        ;

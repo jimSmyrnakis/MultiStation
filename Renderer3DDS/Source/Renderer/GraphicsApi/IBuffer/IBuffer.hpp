@@ -2,7 +2,7 @@
 #include <Defs.hpp>
 
 
-namespace Game{
+namespace MultiStation{
     class IBuffer{
         public:
             enum class Type{
@@ -18,23 +18,23 @@ namespace Game{
             IBuffer(void);
             ~IBuffer(void);
 
-            void SetData(u32* data , u32 count);
-            void SetData(i32* data , u32 count);
-            void SetData(u16* data , u32 count);
-            void SetData(i16* data , u32 count);
-            void SetData( u8* data , u32 count);
-            void SetData( i8* data , u32 count);
+            void SetData(uint32_t* data , uint32_t count);
+            void SetData(int32_t* data , uint32_t count);
+            void SetData(uint16_t* data , uint32_t count);
+            void SetData(int16_t* data , uint32_t count);
+            void SetData( uint8_t* data , uint32_t count);
+            void SetData( int8_t* data , uint32_t count);
 
-            u32  GetCount(void) const;
+            uint32_t  GetCount(void) const;
             Type GetType(void) const;
 
             void Bind(void) const;
             void Unbind(void) const;
 
         private:
-            u32     m_BufferId;
+            uint32_t     m_BufferId;
             void*   m_Data;
-            u32     m_Size;
+            uint32_t     m_Size;
             Type    m_Type;
 
             

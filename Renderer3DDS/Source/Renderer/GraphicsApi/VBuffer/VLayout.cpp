@@ -1,6 +1,6 @@
 #include "VLayout.hpp"
 
-namespace Game{
+namespace MultiStation {
     
     #define ShaderDataTypeToOpenGLType ShaderDataTypeToOpenGLDataType
 
@@ -10,13 +10,17 @@ namespace Game{
         ==================================================================================================================================
     */
 
-    VertexAttribute::VertexAttribute( ShaderDataType type , bool Norm)
-        :   Type(type) , Size(0) , Offs(0) , Normallized(Norm) {
+    VertexAttribute::VertexAttribute( ShaderDataType type , bool Norm , bool packed)
+        :   Type(type) , Size(0) , Offs(0) , Normallized(Norm) , Packed(packed) {
         Size = SizeOfShaderDataType(Type);
 
     }
 
-    u32 VertexAttribute::GetComponentCount(void) const{
+	VertexAttribute::VertexAttribute(void) : Type(ShaderDataType::FLOAT), Size(SizeOfShaderDataType(ShaderDataType::FLOAT)),
+        Offs(0), Normallized(true), Packed(false) {
+	}
+
+    uint32_t VertexAttribute::GetComponentCount(void) const{
 
         switch(Type){
             case ShaderDataType::FLOAT      : return 1  ;
@@ -52,21 +56,47 @@ namespace Game{
     
     const std::vector<VertexAttribute>& VertexLayout::GetAttributes(void) const { return m_Attributes; }
     
-    u32 VertexLayout::GetStride(void) const { return m_Stride; }
 
     void VertexLayout::AddAttribute(const VertexAttribute& attribute){
         m_Attributes.push_back(attribute);
-        CalculateOffsetsAndStride();
+        if (attribute.Packed) {
+			if (m_AttributeGroups.size() == 0 || !m_AttributeGroups.back().Attributes.back().Packed) {
+				// Create a new group
+				AttributeGroup newGroup;
+				newGroup.Attributes.push_back(attribute);
+				m_AttributeGroups.push_back(newGroup);
+			}
+			else {
+				// Add to the existing group
+				m_AttributeGroups.back().Attributes.push_back(attribute);
+			}
+		}
+        else {
+			// Non-packed attribute, create a new group for it
+			AttributeGroup newGroup;
+			newGroup.Attributes.push_back(attribute);
+            m_AttributeGroups.push_back(newGroup);
+        }
+
+        CalculateOffsetsAndStrides();
     }
 
-    void VertexLayout::CalculateOffsetsAndStride(void){
+    void VertexLayout::CalculateOffsetsAndStrides(void){
         ASSERT(m_Attributes.size() , "Vertex Buffer Layout has not Vertex Attributes specified!");
-        uint32_t Offset = 0;
-        for (VertexAttribute& attribute : m_Attributes){
-            attribute.Offs = Offset;
-            Offset += attribute.Size;
+		
+        for (AttributeGroup& Group : m_AttributeGroups){
+			uint32_t GroupOffset = 0;
+            for (VertexAttribute& attr : Group.Attributes) {
+                attr.Offs = GroupOffset;
+                GroupOffset += attr.Size;
+            }
+			Group.Stride = GroupOffset;
         }
-        m_Stride = Offset;
     }
+
+    const std::vector<AttributeGroup> VertexLayout::GetAttributeGroups(void) const {
+        return m_AttributeGroups;
+    }
+
     
 }

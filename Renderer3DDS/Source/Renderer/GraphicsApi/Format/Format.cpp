@@ -1,11 +1,11 @@
 #include "Format.hpp"
-#include <glad/gl.h>
+#include <GL/glew.h>
 
 
 
-namespace Game{
+namespace MultiStation {
 
-    u32 GetOpenGLInternalTextureFormat(TextureInternalFormat  format){
+    uint32_t GetOpenGLInternalTextureFormat(TextureInternalFormat  format){
         
         switch (format){
             case TextureInternalFormat::RGB4    :   return GL_RGB4      ;
@@ -28,7 +28,7 @@ namespace Game{
         return 0;
     }
 
-    u32 GetOpenGLExternalTextureFormat(TextureExternalFormat  format){
+    uint32_t GetOpenGLExternalTextureFormat(TextureExternalFormat  format){
         switch (format){
             case TextureExternalFormat::RGB4        :   return GL_RGB           ;
             case TextureExternalFormat::RGB8        :   return GL_RGB           ;
@@ -72,7 +72,7 @@ namespace Game{
         return 0;
     }
 
-    u32 GetOpenGLExternalTextureType(TextureExternalFormat format ){
+    uint32_t GetOpenGLExternalTextureType(TextureExternalFormat format ){
         switch (format){
             case TextureExternalFormat::RGB8        :   return GL_UNSIGNED_BYTE     ;
             case TextureExternalFormat::RGB16       :   return GL_UNSIGNED_SHORT    ;
@@ -104,7 +104,7 @@ namespace Game{
 
     
 
-    u32 GetOpenGLDepthFormat(DepthFormat format){
+    uint32_t GetOpenGLDepthFormat(DepthFormat format){
         switch(format){
             case DepthFormat::DEPTH16 : return GL_DEPTH_COMPONENT16;
             case DepthFormat::DEPTH24 : return GL_DEPTH_COMPONENT24;
@@ -117,7 +117,7 @@ namespace Game{
     }
 
 
-    u32 GetOpenGLFilter(Filter filter){
+    uint32_t GetOpenGLFilter(Filter filter){
         switch (filter){
             case Filter::LINEAR : return GL_LINEAR;
             case Filter::NEAREST: return GL_NEAREST;
@@ -129,7 +129,7 @@ namespace Game{
     }
 
 
-    u32 SizeOfShaderDataType(ShaderDataType type){
+    uint32_t SizeOfShaderDataType(ShaderDataType type){
         switch(type){
             case ShaderDataType::FLOAT      :   return sizeof(float)            ;
             case ShaderDataType::VEC2F      :   return sizeof(float) * 2        ;
@@ -138,19 +138,19 @@ namespace Game{
             case ShaderDataType::MAT3F_T    :   return sizeof(float) * 3 * 3    ;
             case ShaderDataType::MAT4F_T    :   return sizeof(float) * 4 * 4    ;
 
-            case ShaderDataType::INT        :   return sizeof(i32)              ;
-            case ShaderDataType::VEC2I      :   return sizeof(i32) * 2          ;
-            case ShaderDataType::VEC3I      :   return sizeof(i32) * 3          ;
-            case ShaderDataType::VEC4I      :   return sizeof(i32) * 4          ;
+            case ShaderDataType::INT        :   return sizeof(int32_t)              ;
+            case ShaderDataType::VEC2I      :   return sizeof(int32_t) * 2          ;
+            case ShaderDataType::VEC3I      :   return sizeof(int32_t) * 3          ;
+            case ShaderDataType::VEC4I      :   return sizeof(int32_t) * 4          ;
 
-            case ShaderDataType::UINT       :   return sizeof(u32)              ;
-            case ShaderDataType::VEC2UI     :   return sizeof(u32) * 2          ;
-            case ShaderDataType::VEC3UI     :   return sizeof(u32) * 3          ;
-            case ShaderDataType::VEC4UI     :   return sizeof(u32) * 4          ;
+            case ShaderDataType::UINT       :   return sizeof(uint32_t)              ;
+            case ShaderDataType::VEC2UI     :   return sizeof(uint32_t) * 2          ;
+            case ShaderDataType::VEC3UI     :   return sizeof(uint32_t) * 3          ;
+            case ShaderDataType::VEC4UI     :   return sizeof(uint32_t) * 4          ;
 
-            case ShaderDataType::SAMPLER_2D :   return sizeof(i32)              ;
-            case ShaderDataType::ISAMPLER_2D:   return sizeof(i32)              ;
-            case ShaderDataType::USAMPLER_2D:   return sizeof(i32)              ;
+            case ShaderDataType::SAMPLER_2D :   return sizeof(int32_t)              ;
+            case ShaderDataType::ISAMPLER_2D:   return sizeof(int32_t)              ;
+            case ShaderDataType::USAMPLER_2D:   return sizeof(int32_t)              ;
 
 
             default : ASSERT(0 , "Undefined Shader Data Type !!!"); return 0;
@@ -158,7 +158,7 @@ namespace Game{
         return 0;
     }
 
-    GLenum ShaderDataTypeToOpenGLDataType(ShaderDataType type){
+    uint32_t ShaderDataTypeToOpenGLDataType(ShaderDataType type){
         switch(type){
             case ShaderDataType::FLOAT      :   return GL_FLOAT                     ;
             case ShaderDataType::VEC2F      :   return GL_FLOAT_VEC2                ;
@@ -188,7 +188,7 @@ namespace Game{
 
     
 
-    ShaderDataType OpenGLDataTypeToShaderDataType(GLenum oglType){
+    ShaderDataType OpenGLDataTypeToShaderDataType(uint32_t oglType){
         switch(oglType){
             case GL_FLOAT                   :   return  ShaderDataType::FLOAT               ;
             case GL_FLOAT_VEC2              :   return  ShaderDataType::VEC2F               ;
@@ -216,7 +216,7 @@ namespace Game{
         return ShaderDataType::NONE;
     }
 
-    GLenum OpenGLAttributeDataTypeFromShaderDataType(ShaderDataType type    ){
+    uint32_t OpenGLAttributeDataTypeFromShaderDataType(ShaderDataType type    ){
         switch(type){
             case ShaderDataType::FLOAT      :   return GL_FLOAT                     ;
             case ShaderDataType::VEC2F      :   return GL_FLOAT                     ;

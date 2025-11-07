@@ -24,64 +24,19 @@
     <ClCompile Include="Source\Projection\Projection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Model\Model.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Model\Model3D.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VLayout.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\VABuffer\VABuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\UBuffer\UBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2DResolution.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\FShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Shader\VShader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\IBuffer\IBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Format\Format.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\FBuffer\FBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Allocators\AllocationRequest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\GraphicsApi\Allocators\IndicesAllocator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\Materials\Resolution.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\Materials\InitMaterials.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\Materials\Material.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Systems\Renderer\RenderCommand\RenderCommand.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\Format\Format.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,73 +53,19 @@
     <ClInclude Include="Source\Projection\Projection.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Model\Model.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cameras\Camera.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VLayout.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VBuffer\VBuffer2.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\VABuffer\VABuffer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\UBuffer\UBuffer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2DResolution.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Texture\Texture2D.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\VShader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\FShader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Shader\Shader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\IBuffer\IBuffer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Format\Format.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\FBuffer\FBuffer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\IndicesAllocator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\AllocationRequest.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\GraphicsApi\Allocators\GAllocator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\Materials\ImageFormat.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\Materials\Material.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\Mesh\Mesh.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Renderer\RenderCommand\RenderCommand.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Systems\Events\Event.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\Format\Format.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core.hpp">

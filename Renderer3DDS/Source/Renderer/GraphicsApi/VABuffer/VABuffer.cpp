@@ -1,7 +1,7 @@
 #include "VABuffer.hpp"
-#include <glad/gl.h>
+#include <GL/glew.h>
 
-namespace Game{
+namespace MultiStation{
 
     IBuffer& NullIBuffer(void){
         static IBuffer nullibuffer;
@@ -43,29 +43,18 @@ namespace Game{
     
     void VABuffer::AddVertexBuffer(const VBuffer& vo) {
         ASSERT(vo.GetLayout().GetAttributes().size() , "Vertex Buffer has no layout !");
+		uint32_t old = 0;
+        //get old vao
+		GLCALL(glGetIntegerv(GL_VERTEX_ARRAY_BUFFER_BINDING, (GLint*)&old));
+
         GLCALL( glBindVertexArray(m_BufferId) );
         vo.Bind();
     
-        u32 layout_index = 0;
-    
-        VertexAttribute attribute = vo.GetLayout().GetAttributes().at(layout_index);
-    
-        for (layout_index = 0 ; layout_index < vo.GetLayout().GetAttributes().size(); layout_index++){
-    
-            GLCALL( glEnableVertexAttribArray(layout_index) );
-            attribute = vo.GetLayout().GetAttributes().at(layout_index);
-            GLCALL( glVertexAttribPointer(
-                layout_index ,
-                attribute.GetComponentCount(),
-                OpenGLAttributeDataTypeFromShaderDataType(attribute.Type) ,
-                attribute.Normallized ? GL_FALSE : GL_TRUE ,
-                vo.GetLayout().GetStride() ,
-                (const void*)attribute.Offs 
-            ) );
-            
-        }
+
     
         m_VBuffers.push_back((VBuffer*)&vo);
+
+		GLCALL(glBindVertexArray(old));
 
     }
 

@@ -1,71 +1,190 @@
 #include <Test.hpp>
 #include <Core.hpp>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <string.h>
+#include <Renderer/GraphicsApi/VBuffer/VBuffer.hpp>
+// Window dimensions
+const GLint WIDTH = 800, HEIGHT = 600;
 
-void Test(void) {
-	printf("This is a test function.\n");
+GLuint VBO, VAO, shader;
 
-	// Initialize GLFW
-	if (!glfwInit()) {
-		printf("Failed to initialize GLFW\n");
-		return;
-	}
+// Vertex Shader code
+static const char* vShader = "                                                \n\
+#version 330                                                                  \n\
+                                                                              \n\
+layout (location = 0) in vec3 pos;											  \n\
+                                                                              \n\
+void main()                                                                   \n\
+{                                                                             \n\
+    gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0);				  \n\
+}";
 
-	printf("GLFW initialized successfully.\n");
-
-	// Set up GLFW window hints (optional)
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	// Allow Forward Compatibility on OpenGL
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
-	printf("GLFW window hints set.\n");
-
-	// Create a GLFW window
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Test Window", NULL, NULL);
-	if (!window) {
-		printf("Failed to create GLFW window\n");
-		glfwTerminate();
-		return;
-	}
-
-	//Get Window frame buffer width , height
-	int FrameBufferWidth, FrameBufferHeight;
-	glfwGetFramebufferSize(window, &FrameBufferWidth, &FrameBufferHeight);
-
-	//make window context current
-	glfwMakeContextCurrent(window);
-
-	//allow modern extension features
-	glewExperimental = GL_TRUE;
-
-	// initiallize glew
-	if (glewInit() != GLEW_OK) {
-		printf("Failed to initialize GLEW\n");
-		glfwDestroyWindow(window);
-		glfwTerminate();
-
-		return;
-	}
-
-	// Set the viewport size
-
-	glViewport(0, 0, FrameBufferWidth, FrameBufferHeight);
-
-	printf("GLFW window created successfully.\n");
-
-	// now loop while window is not closed
-	while (!glfwWindowShouldClose(window)) {
-		// Poll for and process events
-		glfwPollEvents();
-		// Clear the color buffer
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-		// Swap front and back buffers
-		glfwSwapBuffers(window);
-	}
+// Fragment Shader
+static const char* fShader = "                                                \n\
+#version 330                                                                  \n\
+                                                                              \n\
+out vec4 colour;                                                               \n\
+                                                                              \n\
+void main()                                                                   \n\
+{                                                                             \n\
+    colour = vec4(1.0, 0.0, 0.0, 1.0);                                         \n\
+}";
+MultiStation::VBuffer vertexBuffer;
+void CreateTriangle()
+{
+	GLfloat vertices[] = {
+		-1.0f, -1.0f, 0.0f,
+		1.0f, -1.0f, 0.0f,
+		0.0f, 1.0f, 0.0f
+	};
 
 	
+	MultiStation::VertexLayout layout;
+	layout.AddAttribute(MultiStation::VertexAttribute(MultiStation::ShaderDataType::VEC3F, false));
+	vertexBuffer.SetLayout(layout);
+	vertexBuffer.SetData(vertices, sizeof(vertices), 0);
 
 
+	
+}
+
+void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType)
+{
+	GLuint theShader = glCreateShader(shaderType);
+
+	const GLchar* theCode[1];
+	theCode[0] = shaderCode;
+
+	GLint codeLength[1];
+	codeLength[0] = strlen(shaderCode);
+
+	glShaderSource(theShader, 1, theCode, codeLength);
+	glCompileShader(theShader);
+
+	GLint result = 0;
+	GLchar eLog[1024] = { 0 };
+
+	glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
+	if (!result)
+	{
+		glGetShaderInfoLog(theShader, 1024, NULL, eLog);
+		fprintf(stderr, "Error compiling the %d shader: '%s'\n", shaderType, eLog);
+		return;
+	}
+
+	glAttachShader(theProgram, theShader);
+}
+
+void CompileShaders()
+{
+	shader = glCreateProgram();
+
+	if (!shader)
+	{
+		printf("Failed to create shader\n");
+		return;
+	}
+
+	AddShader(shader, vShader, GL_VERTEX_SHADER);
+	AddShader(shader, fShader, GL_FRAGMENT_SHADER);
+
+	GLint result = 0;
+	GLchar eLog[1024] = { 0 };
+
+	glLinkProgram(shader);
+	glGetProgramiv(shader, GL_LINK_STATUS, &result);
+	if (!result)
+	{
+		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
+		printf("Error linking program: '%s'\n", eLog);
+		return;
+	}
+
+	glValidateProgram(shader);
+	glGetProgramiv(shader, GL_VALIDATE_STATUS, &result);
+	if (!result)
+	{
+		glGetProgramInfoLog(shader, sizeof(eLog), NULL, eLog);
+		printf("Error validating program: '%s'\n", eLog);
+		return;
+	}
+
+}
+
+int Test(void)
+{
+	// Initialise GLFW
+	if (!glfwInit())
+	{
+		printf("GLFW initialisation failed!");
+		glfwTerminate();
+		return 1;
+	}
+
+	// Setup GLFW window properties
+	// OpenGL version
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	// Core Profile
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// Allow Forward Compatbility
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+	// Create the window
+	GLFWwindow* mainWindow = glfwCreateWindow(WIDTH, HEIGHT, "Test Window", NULL, NULL);
+	if (!mainWindow)
+	{
+		printf("GLFW window creation failed!");
+		glfwTerminate();
+		return 1;
+	}
+
+	// Get Buffer Size information
+	int bufferWidth, bufferHeight;
+	glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
+
+	// Set context for GLEW to use
+	glfwMakeContextCurrent(mainWindow);
+
+	// Allow modern extension features
+	glewExperimental = GL_TRUE;
+
+	if (glewInit() != GLEW_OK)
+	{
+		printf("GLEW initialisation failed!");
+		glfwDestroyWindow(mainWindow);
+		glfwTerminate();
+		return 1;
+	}
+
+	// Setup Viewport size
+	glViewport(0, 0, bufferWidth, bufferHeight);
+
+	CreateTriangle();
+	CompileShaders();
+
+	// Loop until window closed
+	while (!glfwWindowShouldClose(mainWindow))
+	{
+		// Get + Handle user input events
+		glfwPollEvents();
+
+		// Clear window
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glUseProgram(shader);
+
+		//glBindVertexArray(VAO);
+		vertexBuffer.Bind();
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		vertexBuffer.Unbind();
+
+		glUseProgram(0);
+
+		glfwSwapBuffers(mainWindow);
+	}
+
+	return 0;
 }
