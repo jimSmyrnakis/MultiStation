@@ -47,6 +47,7 @@ namespace MultiStation{
                 /**/
                 bool AddUniform(UniformType type , char* name , uint32_t length , void* data );
                 
+				void RedirectUniformPointerByName(const char* name, void* newPointer) const;
              
                 void*       GetUniformPointerByName(const char* name) const;
                 UniformType GetUniformTypeByName(const char* name) const;
@@ -54,6 +55,7 @@ namespace MultiStation{
                 // TODO - make GetUniformIdByName public and make a method GetUniformNameById 
                 const char* GetUniformNameById(const uint32_t& id) const;
                 uint32_t GetUniformIdByName(const char* name) const;
+
         private:
             mutable void*       m_UniformsMemory;   // The contigues memory with all uniform variables
             // plus is mutable so a const class type of this still can change the internal data but not add

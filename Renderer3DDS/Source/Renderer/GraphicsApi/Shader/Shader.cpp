@@ -207,8 +207,8 @@ namespace MultiStation{
             case ShaderDataType::VEC2F      :   GLCALL(glUniform2fv(location , 1 , ((float*)data) ));                   break;
             case ShaderDataType::VEC3F      :   GLCALL(glUniform3fv(location , 1 , ((float*)data) ));                   break;
             case ShaderDataType::VEC4F      :   GLCALL(glUniform4fv(location , 1 , ((float*)data) ));                   break;
-            case ShaderDataType::MAT3F_T    :   GLCALL(glUniformMatrix3fv(location , 1 , GL_TRUE ,  ((float*)data) ));  break;
-            case ShaderDataType::MAT4F_T    :   GLCALL(glUniformMatrix4fv(location , 1 , GL_TRUE ,  ((float*)data) ));  break;
+            case ShaderDataType::MAT3F_T    :   GLCALL(glUniformMatrix3fv(location , 1 , GL_FALSE,  ((float*)data) ));  break;
+            case ShaderDataType::MAT4F_T    :   GLCALL(glUniformMatrix4fv(location , 1 , GL_FALSE ,  ((float*)data) ));  break;
 
             case ShaderDataType::INT        :   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
             case ShaderDataType::VEC2I      :   GLCALL(glUniform2iv(location , 1 , ((int32_t*)data) ));                     break;

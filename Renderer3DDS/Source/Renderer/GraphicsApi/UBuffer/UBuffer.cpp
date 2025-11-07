@@ -375,6 +375,26 @@ namespace MultiStation{
 
         return m_UniformsNames[id];
     }
+
+    void UBuffer::RedirectUniformPointerByName(const char* name, void* newPointer) const {
+		uint32_t id = GetUniformIdByName(name);
+		if (id == 0xFFFFFFFF) {
+			ASSERT(0, "Uniform Can't found !!!");
+			return;
+		}
+		if (m_UniformsPointers == nullptr) {
+			ASSERT(0, "No Memory !!!");
+			return;
+		}
+
+		if (newPointer == nullptr) {
+			ASSERT(0, "Can't redirect to nullptr !!!");
+			return;
+		}
+
+        
+		m_UniformsPointers[id] = (uintptr_t)newPointer;
+    }
                 
 }
 
