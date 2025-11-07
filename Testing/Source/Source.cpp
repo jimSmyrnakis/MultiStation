@@ -1,9 +1,9 @@
 #include <Renderer3DDS.hpp>
 #include <stdio.h>
 
+
 int main() {
-	setvbuf(stdout, NULL, _IONBF, 0);
-	printf("fggfgf\n");
-	Test();
+	printf("Hello, World!\n");
+	//Test();
 	return 0;
 }

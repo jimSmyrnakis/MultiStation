@@ -1,9 +1,22 @@
 #include <Test.hpp>
 #include <Core.hpp>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <string.h>
+#include <time.h>
 #include <Renderer/GraphicsApi/VBuffer/VBuffer.hpp>
+#include <Renderer/GraphicsApi/Shader/Shader.hpp>
+#include <Renderer/GraphicsApi/UBuffer/UBuffer.hpp>
+
+#include <chrono>
+
+float GetTimeSeconds() {
+	using namespace std::chrono;
+	static auto start = high_resolution_clock::now();
+	auto now = high_resolution_clock::now();
+	duration<float> elapsed = now - start;
+	return elapsed.count(); // επιστρέφει float σε δευτερόλεπτα (με κλάσματα)
+}
+
+
 // Window dimensions
 const GLint WIDTH = 800, HEIGHT = 600;
 
@@ -15,9 +28,11 @@ static const char* vShader = "                                                \n
                                                                               \n\
 layout (location = 0) in vec3 pos;											  \n\
                                                                               \n\
+uniform float xMove;                                                          \n\
+                                                                              \n\
 void main()                                                                   \n\
 {                                                                             \n\
-    gl_Position = vec4(0.4 * pos.x, 0.4 * pos.y, pos.z, 1.0);				  \n\
+    gl_Position = vec4(0.4 * pos.x + xMove, 0.4 * pos.y, pos.z, 1.0);				  \n\
 }";
 
 // Fragment Shader
@@ -30,7 +45,8 @@ void main()                                                                   \n
 {                                                                             \n\
     colour = vec4(1.0, 0.0, 0.0, 1.0);                                         \n\
 }";
-MultiStation::VBuffer vertexBuffer;
+
+MultiStation::VBuffer* vertexBuffer;
 void CreateTriangle()
 {
 	GLfloat vertices[] = {
@@ -41,9 +57,11 @@ void CreateTriangle()
 
 	
 	MultiStation::VertexLayout layout;
-	layout.AddAttribute(MultiStation::VertexAttribute(MultiStation::ShaderDataType::VEC3F, false));
-	vertexBuffer.SetLayout(layout);
-	vertexBuffer.SetData(vertices, sizeof(vertices), 0);
+	MultiStation::VertexAttribute attr(MultiStation::ShaderDataType::VEC3F, false);
+	vertexBuffer = new MultiStation::VBuffer();
+	layout.AddAttribute(attr);
+	vertexBuffer->SetLayout(layout);
+	vertexBuffer->SetData(vertices, sizeof(vertices), 0);
 
 
 	
@@ -121,7 +139,7 @@ int Test(void)
 		glfwTerminate();
 		return 1;
 	}
-
+	printf("Ti sto putso !!!\n");
 	// Setup GLFW window properties
 	// OpenGL version
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -162,8 +180,15 @@ int Test(void)
 	glViewport(0, 0, bufferWidth, bufferHeight);
 
 	CreateTriangle();
-	CompileShaders();
-
+	MultiStation::FShader fshad(fShader);
+	MultiStation::VShader vshad(vShader);
+	MultiStation::Shader sha(vshad ,fshad ) ;
+	
+	float* uni = (float*)sha.GetUniforms()->GetUniformPointerByName("xMove");
+	*uni = 0.01f;
+	//Com pileShaders();
+	
+	float timeStep = 0.0f , prevTime = GetTimeSeconds();
 	// Loop until window closed
 	while (!glfwWindowShouldClose(mainWindow))
 	{
@@ -174,16 +199,21 @@ int Test(void)
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glUseProgram(shader);
-
+		//glUseProgram(shader);
+		*uni += 0.01f * timeStep;
+		sha.Bind();
 		//glBindVertexArray(VAO);
-		vertexBuffer.Bind();
+		vertexBuffer->Bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-		vertexBuffer.Unbind();
+		vertexBuffer->Unbind();
 
-		glUseProgram(0);
+		sha.Unbind();
 
 		glfwSwapBuffers(mainWindow);
+
+		float curr = GetTimeSeconds();
+		timeStep = curr - prevTime;
+		prevTime = curr;
 	}
 
 	return 0;

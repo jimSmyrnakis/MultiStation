@@ -1,6 +1,5 @@
 #include "VBuffer.hpp"
 #include <GL/glew.h>
-#include <memory.h>
 
 namespace MultiStation{
     VBuffer::VBuffer(void){
@@ -75,6 +74,7 @@ namespace MultiStation{
 			for (uint32_t index = 0; index < group.Attributes.size(); index++) {
 				VertexAttribute& attribute = group.Attributes.at(index);
 				GLCALL(glEnableVertexAttribArray(location));
+				
 				GLCALL(glVertexAttribPointer(
 					location,
 					attribute.GetComponentCount(),

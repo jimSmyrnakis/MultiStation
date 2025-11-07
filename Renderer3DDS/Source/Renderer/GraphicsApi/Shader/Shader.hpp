@@ -6,7 +6,7 @@
 #include "FShader.hpp"
 #include <stdlib.h>
 
-namespace Game{
+namespace MultiStation{
 
 
     class Shader{
@@ -21,7 +21,7 @@ namespace Game{
 
             UBuffer* GetUniforms(void) ;
 
-            i32 MaxUniformNameLength(void) const;
+            int32_t MaxUniformNameLength(void) const;
 
 
         private:
@@ -31,16 +31,16 @@ namespace Game{
             void UpdateUniforms(void);
             
         private:
-            u32             m_ProgramId         ;   // id of the program
+            uint32_t        m_ProgramId         ;   // id of the program
             VShader*        m_Vertex            ;   // Vertex Shader
             FShader*        m_Fragment          ;   // Fragment Shader
             bool            m_HasProgram        ;   // Used to define if a program has created (usefull for CreateProgram method)  
 
             UBuffer*        m_Uniforms          ;   // a uniform's buffer for this program 
 
-            u32             m_AttributesCount   ;   // Number of input attributes to the vertex shader -- TODO
+            uint32_t        m_AttributesCount   ;   // Number of input attributes to the vertex shader -- TODO
             char**          m_AttributeNames    ;   // The Names of the attributes -- TODO
-            u32*            m_AttributesLoc     ;   // The Location of each attribute -- TODO
+            uint32_t*       m_AttributesLoc     ;   // The Location of each attribute -- TODO
             
 
             alloc           m_Malloc            ;   // memory allocation function

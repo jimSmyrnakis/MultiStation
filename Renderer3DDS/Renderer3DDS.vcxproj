@@ -166,8 +166,10 @@
     <ClCompile Include="Source\Defs.cpp" />
     <ClCompile Include="Source\Projection\Projection.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Format\Format.cpp" />
-    <ClCompile Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.cpp" />
-    <ClCompile Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Shader\FShader.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Shader\VShader.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\UBuffer\UBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.cpp" />
     <ClCompile Include="Source\Test.cpp" />
@@ -178,8 +180,10 @@
     <ClInclude Include="Source\Defs.hpp" />
     <ClInclude Include="Source\Projection\Projection.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Format\Format.hpp" />
-    <ClInclude Include="Source\Renderer\GraphicsApi\IBuffer\IBuffer.hpp" />
-    <ClInclude Include="Source\Renderer\GraphicsApi\VABuffer\VABuffer.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Shader\FShader.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Shader\Shader.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Shader\VShader.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\UBuffer\UBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp" />
     <ClInclude Include="Source\Test.hpp" />

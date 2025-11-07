@@ -1,7 +1,7 @@
 #include "FShader.hpp"
-#include <glad/gl.h>
+#include <GL/glew.h>
 
-namespace Game{
+namespace MultiStation {
     FShader::FShader(const char* source){
         //Create Shader
         GLCALL( m_Id = glCreateShader(GL_FRAGMENT_SHADER) );
@@ -16,11 +16,11 @@ namespace Game{
         if (ShaderCompiled == GL_FALSE){
             // if compilation failed
             char message[1024];
-            i32  len = 1024;
+            int32_t  len = 1024;
             GLCALL( glGetShaderInfoLog(m_Id, 1024, &len, message) );
             ASSERT(0 , (const char*)message);
             m_HasCompile = false;
-            
+             
         }
         else m_HasCompile = true;
 
@@ -30,7 +30,7 @@ namespace Game{
         glDeleteShader(m_Id);
     }
 
-    u32 FShader::GetId(void) const { return m_Id; }
+    uint32_t FShader::GetId(void) const { return m_Id; }
 
     bool FShader::HasCompiled(void) const { return m_HasCompile; }
 }

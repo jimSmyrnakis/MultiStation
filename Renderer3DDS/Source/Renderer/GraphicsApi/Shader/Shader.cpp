@@ -1,9 +1,7 @@
 #include "Shader.hpp"
-#include "VShader.cpp"
-#include "FShader.cpp"
-#include <glad/gl.h>
+#include <GL/glew.h>
 
-namespace Game{
+namespace MultiStation{
 
     
 
@@ -11,7 +9,14 @@ namespace Game{
         m_Fragment  = nullptr;
         m_Vertex    = nullptr;
         m_Uniforms  = nullptr;
+		m_AttributeNames = nullptr;
+		m_AttributesLoc = nullptr;
+		m_ProgramId = 0;
+		m_AttributesCount = 0;
+		m_Free = nullptr;
+		m_Malloc = nullptr;
 
+        
         ASSERT(Malloc , "nullptr for memory allocator function !!!");
         if (Malloc == nullptr)
             Malloc = malloc;
@@ -54,6 +59,7 @@ namespace Game{
             glGetProgramInfoLog(m_ProgramId, 1024, &log_length, message);
             ASSERT(0 , message);
             m_HasProgram = false;
+			m_ProgramId = 0;
             return;
         }
 
@@ -84,7 +90,9 @@ namespace Game{
             GLCALL( glDetachShader(m_ProgramId , m_Vertex->GetId()) );
         }
 
-        GLCALL( glDeleteProgram(m_ProgramId));
+		if (m_ProgramId != 0)
+            GLCALL( glDeleteProgram(m_ProgramId));
+
         if (m_Uniforms)
             delete m_Uniforms;
         
@@ -113,26 +121,26 @@ namespace Game{
 
     //TODO - Need's better handling in memory allocation's and free's of them 
     void Shader::FindUniforms(void){
-        u32 UniformsCount;
+        uint32_t UniformsCount;
         if (m_HasProgram == false){
             ASSERT(m_HasProgram , "No Program is Created !!!");
             return;
         }
         
         //Get the number of all uniforms
-        i32 NumOfUniforms = 0;
+        int32_t NumOfUniforms = 0;
         glGetProgramiv(m_ProgramId , GL_ACTIVE_UNIFORMS , &NumOfUniforms);
         if (NumOfUniforms == 0){
-            ASSERT(0 , "No Uniforms !!!");
+            //ASSERT(0 , "No Uniforms !!!");
             return;
         }
         
         //Set the variable for the type of each uniform
-        i32 *UniformsTypes = (i32*)m_Malloc(NumOfUniforms * sizeof(i32));
+        int32_t *UniformsTypes = (int32_t*)m_Malloc(NumOfUniforms * sizeof(int32_t));
         CheckAllocation(UniformsTypes);
 
         //Set the variable for the lengths of character of each name of the uniforms
-        u32* UniformLengths = (u32*)m_Malloc(NumOfUniforms * sizeof(u32));
+        uint32_t* UniformLengths = (uint32_t*)m_Malloc(NumOfUniforms * sizeof(uint32_t));
         CheckAllocation(UniformLengths);
 
         //set the variable with all the names with size of the maximum uniform name just to be sure
@@ -140,7 +148,7 @@ namespace Game{
         CheckAllocation(UniformsNames);
         
         //find the maximum name size
-        i32 maxName;
+        int32_t maxName;
         glGetProgramiv(m_ProgramId , GL_ACTIVE_UNIFORM_MAX_LENGTH , &maxName);
         if (maxName ==0){
             ASSERT(0 , "Something Is Wrong !@!!!!");
@@ -154,11 +162,11 @@ namespace Game{
         }
 
         //set a variable for having all the size's of exh uniform
-        i32* UniformsSizes = (i32*)m_Malloc(NumOfUniforms * sizeof(i32));
+        int32_t* UniformsSizes = (int32_t*)m_Malloc(NumOfUniforms * sizeof(int32_t));
         CheckAllocation(UniformsSizes );
 
         //now get all the uniforms details
-        u32 TotalSize = 0;
+        uint32_t TotalSize = 0;
         for (int i = 0; i < NumOfUniforms; i++){
             GLCALL( glGetActiveUniform(
                 m_ProgramId , i , maxName + 1 , (GLsizei*)&UniformLengths[i] , 
@@ -191,30 +199,30 @@ namespace Game{
 
     }
 
-    static void SetUniformDataBasedOnType(UniformType type , u32 location , void* data ){
+    static void SetUniformDataBasedOnType(UniformType type , uint32_t location , void* data ){
         GLenum Utype = GetOpenGLUniformTypeFromUniformType(type);
         
         switch(type){
-            case ShaderDataType::FLOAT      :   glUniform1f(location , *((float*)data) );                       break;
-            case ShaderDataType::VEC2F      :   glUniform2fv(location , 1 , ((float*)data) );                   break;
-            case ShaderDataType::VEC3F      :   glUniform3fv(location , 1 , ((float*)data) );                   break;
-            case ShaderDataType::VEC4F      :   glUniform4fv(location , 1 , ((float*)data) );                   break;
-            case ShaderDataType::MAT3F_T    :   glUniformMatrix3fv(location , 1 , GL_TRUE ,  ((float*)data) );  break;
-            case ShaderDataType::MAT4F_T    :   glUniformMatrix4fv(location , 1 , GL_TRUE ,  ((float*)data) );  break;
+            case ShaderDataType::FLOAT      :   GLCALL(glUniform1f(location , *((float*)data) ));                       break;
+            case ShaderDataType::VEC2F      :   GLCALL(glUniform2fv(location , 1 , ((float*)data) ));                   break;
+            case ShaderDataType::VEC3F      :   GLCALL(glUniform3fv(location , 1 , ((float*)data) ));                   break;
+            case ShaderDataType::VEC4F      :   GLCALL(glUniform4fv(location , 1 , ((float*)data) ));                   break;
+            case ShaderDataType::MAT3F_T    :   GLCALL(glUniformMatrix3fv(location , 1 , GL_TRUE ,  ((float*)data) ));  break;
+            case ShaderDataType::MAT4F_T    :   GLCALL(glUniformMatrix4fv(location , 1 , GL_TRUE ,  ((float*)data) ));  break;
 
-            case ShaderDataType::INT        :   glUniform1i(location , *((i32*)data) );                         break;
-            case ShaderDataType::VEC2I      :   glUniform2iv(location , 1 , ((i32*)data) );                     break;
-            case ShaderDataType::VEC3I      :   glUniform3iv(location , 1 , ((i32*)data) );                     break;
-            case ShaderDataType::VEC4I      :   glUniform4iv(location , 1 , ((i32*)data) );                     break;
+            case ShaderDataType::INT        :   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::VEC2I      :   GLCALL(glUniform2iv(location , 1 , ((int32_t*)data) ));                     break;
+            case ShaderDataType::VEC3I      :   GLCALL(glUniform3iv(location , 1 , ((int32_t*)data) ));                     break;
+            case ShaderDataType::VEC4I      :   GLCALL(glUniform4iv(location , 1 , ((int32_t*)data) ));                     break;
 
-            case ShaderDataType::UINT       :   glUniform1ui(location , *((u32*)data) );                        break;
-            case ShaderDataType::VEC2UI     :   glUniform2uiv(location , 1 , ((u32*)data) );                    break;
-            case ShaderDataType::VEC3UI     :   glUniform3uiv(location , 1 , ((u32*)data) );                    break;
-            case ShaderDataType::VEC4UI     :   glUniform4uiv(location , 1 , ((u32*)data) );                    break;
+            case ShaderDataType::UINT       :   GLCALL(glUniform1ui(location , *((uint32_t*)data) ));                        break;
+            case ShaderDataType::VEC2UI     :   GLCALL(glUniform2uiv(location , 1 , ((uint32_t*)data) ));                    break;
+            case ShaderDataType::VEC3UI     :   GLCALL(glUniform3uiv(location , 1 , ((uint32_t*)data) ));                    break;
+            case ShaderDataType::VEC4UI     :   GLCALL(glUniform4uiv(location , 1 , ((uint32_t*)data) ));                    break;
 
-            case ShaderDataType::SAMPLER_2D :   glUniform1i(location , *((i32*)data) );                         break;
-            case ShaderDataType::ISAMPLER_2D:   glUniform1i(location , *((i32*)data) );                         break;
-            case ShaderDataType::USAMPLER_2D:   glUniform1i(location , *((i32*)data) );                         break;
+            case ShaderDataType::SAMPLER_2D :   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::ISAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::USAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
 
             default : ASSERT(0 , "Undefined Shader Data Type !!!"); return ;
         }
@@ -229,16 +237,17 @@ namespace Game{
         for (int i = 0; i < unfs ; i++ ){
             m_Uniforms->GetUniformNameByIndex(i , name , 100);
             int loc = glGetUniformLocation(m_ProgramId , name);
-            SetUniformDataBasedOnType(m_Uniforms->GetUniformTypeByName(name) , loc , m_Uniforms->GetUniformPointerByName(name));
+			void* data = m_Uniforms->GetUniformPointerByName(name);
+            SetUniformDataBasedOnType(m_Uniforms->GetUniformTypeByName(name) , loc , data);
         }
     }
 
-    i32 Shader::MaxUniformNameLength(void) const {
+    int32_t Shader::MaxUniformNameLength(void) const {
         if (m_HasProgram == false){
             ASSERT(m_HasProgram , "No Program is Created !!!");
             return 0;
         }
-        i32 maxName = 0;
+        int32_t maxName = 0;
         glGetProgramiv(m_ProgramId , GL_ACTIVE_UNIFORM_MAX_LENGTH , &maxName);
         return maxName;
     }
@@ -250,7 +259,7 @@ namespace Game{
         }
 
         //Get the number of all attributes
-        i32 NumOfAttributes = 0;
+        int32_t NumOfAttributes = 0;
         glGetProgramiv(m_ProgramId , GL_ACTIVE_ATTRIBUTES , &NumOfAttributes);
         if (NumOfAttributes == 0){
             ASSERT(0 , "No Attributes !!!");

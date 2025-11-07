@@ -1,6 +1,8 @@
 #pragma once
 
 #include <stdint.h>
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,23 +10,10 @@
 #include <vector>
 #include <string>
 
-namespace Renderer3DDS {
 
-        typedef  int32_t i32;
-        typedef uint32_t u32;
+typedef void* (*alloc)(size_t);
+typedef void  (*dalloc)(void*);
 
-        typedef  int16_t i16;
-        typedef uint16_t u16;
-
-        typedef  int8_t i8;
-        typedef uint8_t u8;
-
-        typedef  int64_t i64;
-        typedef uint64_t u64;
-
-        typedef void* (*alloc)(size_t size);
-        typedef void  (*dalloc)(void* ptr);  
-}
 #ifdef _MSC_VER
     #define __break_point_ __debugbreak()
 #else 

@@ -1,11 +1,9 @@
 #pragma once
 
-#include "../../../../Defs.hpp"
-#include <stdio.h>
-#include <stdlib.h>
-#include "../Format/Format.hpp"
+#include<Defs.hpp>
+#include <Renderer/GraphicsApi/Format/Format.hpp>
 
-namespace Game{
+namespace MultiStation{
 
 
     typedef ShaderDataType UniformType;
@@ -19,8 +17,8 @@ namespace Game{
         public:
 
             UBuffer(
-                u32     count                       , 
-                u32     size                        ,  
+                uint32_t     count                       , 
+                uint32_t     size                        ,  
                 alloc   allocateFunction = malloc   , 
                 dalloc  dallocateFunction = free    );
 
@@ -39,36 +37,36 @@ namespace Game{
             UBuffer& operator=(UBuffer&& move);
 
         public:
-                u32 GetUniformsCount(void) const;
+                uint32_t GetUniformsCount(void) const;
                 /*return the total uniforms this ubuffer can have*/
-                u32 GetDefinedUniformsCount(void) const;
+                uint32_t GetDefinedUniformsCount(void) const;
                 /*return the total uniforms this ubuffer have take*/
-                u32 GetUndefinedUniformsCount(void) const;
+                uint32_t GetUndefinedUniformsCount(void) const;
                 /*return the total uniforms this ubuffer can take*/
-                void GetUniformNameByIndex(const u32& index , char* name , u32 maxLength );
+                void GetUniformNameByIndex(const uint32_t& index , char* name , uint32_t maxLength );
                 /**/
-                bool AddUniform(UniformType type , char* name , u32 length , void* data );
+                bool AddUniform(UniformType type , char* name , uint32_t length , void* data );
                 
              
                 void*       GetUniformPointerByName(const char* name) const;
                 UniformType GetUniformTypeByName(const char* name) const;
 
                 // TODO - make GetUniformIdByName public and make a method GetUniformNameById 
-                const char* GetUniformNameById(const u32& id) const;
-                u32 GetUniformIdByName(const char* name) const;
+                const char* GetUniformNameById(const uint32_t& id) const;
+                uint32_t GetUniformIdByName(const char* name) const;
         private:
             mutable void*       m_UniformsMemory;   // The contigues memory with all uniform variables
             // plus is mutable so a const class type of this still can change the internal data but not add
             // or remove uniforms only change their contents
             mutable void*       m_MemCurrent;
             // defines the first free byte address after each time we add a uniform
-            u32                 m_Size;             // The size of thos memory in bytes
-            u32                 m_CountUniforms;    // The total number of uniforms 
-            u32                 m_SpecifiedUniforms;// The number of uniforms that have already added
+            uint32_t            m_Size;             // The size of thos memory in bytes
+            uint32_t            m_CountUniforms;    // The total number of uniforms 
+            uint32_t            m_SpecifiedUniforms;// The number of uniforms that have already added
             UniformType*        m_UniformsTypes;    // Each uniform type (a type defines the total number of elements and the size of element )
-            u64*                m_UniformsPointers; // For Each Uniform where is the first byte of it
+            uintptr_t*           m_UniformsPointers; // For Each Uniform where is the first byte of it
             char**              m_UniformsNames;    // For each Uniform the name in the shader
-            u32*                m_NamesLength;      // The total number of characters for each name (0 means null terminated string)
+            uint32_t*           m_NamesLength;      // The total number of characters for each name (0 means null terminated string)
             alloc               m_Malloc;           // a function pointer to a given malloc like function
             dalloc              m_Free;             // a function pointer to a given free like function
             bool                m_HasMoved;         // becames true only when this instance moved its data to other instance

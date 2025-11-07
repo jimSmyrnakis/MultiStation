@@ -1,8 +1,11 @@
 #include "VShader.hpp"
-#include <glad/gl.h>
+#include <GL/glew.h>
 
-namespace Game{
+namespace MultiStation {
     VShader::VShader(const char* source){
+		m_HasCompile = false;
+		m_Id = 0;
+        m_Source = (char*)source;
         //Create Shader
         GLCALL( m_Id = glCreateShader(GL_VERTEX_SHADER) );
         //Set Shader Source
@@ -16,7 +19,7 @@ namespace Game{
         if (ShaderCompiled == GL_FALSE){
             // if compilation failed
             char message[1024];
-            i32  len = 1024;
+            int32_t  len = 1024;
             GLCALL( glGetShaderInfoLog(m_Id, 1024, &len, message) );
             ASSERT(0 , (const char*)message);
             m_HasCompile = false;
@@ -30,7 +33,7 @@ namespace Game{
         glDeleteShader(m_Id);
     }
 
-    u32 VShader::GetId(void) const { return m_Id; }
+    uint32_t VShader::GetId(void) const { return m_Id; }
 
     bool VShader::HasCompiled(void) const { return m_HasCompile; }
 }

@@ -1,14 +1,13 @@
 #include "UBuffer.hpp"
-#include <memory.h>
-#include <string.h>
+
 
 /*==================================================================================
 /*==================================================================================*/
 /*==================================================================================*/
-namespace Game{
+namespace MultiStation{
     UBuffer::UBuffer(
-              u32  count                , 
-              u32  size                 ,  
+              uint32_t  count                , 
+              uint32_t  size                 ,  
         alloc allocateFunction          , 
         dalloc dallocateFunction        )
     {
@@ -65,7 +64,7 @@ namespace Game{
         }
 
         // allocate count uniform offset's for define with each uniform add method 
-        m_UniformsPointers = (u64*)m_Malloc(m_CountUniforms*sizeof(u64));
+        m_UniformsPointers = (uintptr_t*)m_Malloc(m_CountUniforms*sizeof(uintptr_t));
         if (m_UniformsPointers == nullptr){
             ASSERT(0 , "No memory !");
             m_Free(m_UniformsMemory);
@@ -92,8 +91,8 @@ namespace Game{
             return ;
         }
 
-        // allocate count u32 number's for each uniform name length
-        m_NamesLength = (u32*)m_Malloc(m_CountUniforms*sizeof(u32));
+        // allocate count uint32_t number's for each uniform name length
+        m_NamesLength = (uint32_t*)m_Malloc(m_CountUniforms*sizeof(uint32_t));
         if (m_NamesLength == nullptr){
             ASSERT(0 , "No memory !");
             m_Free(m_UniformsMemory);
@@ -216,20 +215,20 @@ namespace Game{
 
 
 
-namespace Game{
+namespace MultiStation{
     
-    u32 UBuffer::GetUniformsCount(void) const{
+    uint32_t UBuffer::GetUniformsCount(void) const{
         return m_CountUniforms;
     }
     /*return the total uniforms this ubuffer can have*/
-    u32 UBuffer::GetDefinedUniformsCount(void) const{
+    uint32_t UBuffer::GetDefinedUniformsCount(void) const{
         return m_SpecifiedUniforms;
     }
     /*return the total uniforms this ubuffer have take*/
-    u32 UBuffer::GetUndefinedUniformsCount(void) const{
+    uint32_t UBuffer::GetUndefinedUniformsCount(void) const{
         return m_CountUniforms - m_SpecifiedUniforms;
     }
-    void UBuffer::GetUniformNameByIndex(const u32& index , char* name , u32 maxLength ){
+    void UBuffer::GetUniformNameByIndex(const uint32_t& index , char* name , uint32_t maxLength ){
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return;
@@ -245,11 +244,11 @@ namespace Game{
             return ;
         }
 
-        strncpy(name , m_UniformsNames[index] , maxLength);
+        strncpy_s(name , maxLength , m_UniformsNames[index] , maxLength);
 
     }
     /*return the total uniforms this ubuffer can take*/
-    bool UBuffer::AddUniform(UniformType type , char* name , u32 length , void* data ){
+    bool UBuffer::AddUniform(UniformType type , char* name , uint32_t length , void* data ){
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return false;
@@ -266,32 +265,32 @@ namespace Game{
         }
 
         void* alligmentPos  = m_MemCurrent;
-        u64   TypeSize      = GetUniformTypeSize(type);
-        u64   Modulo        = ((u64)alligmentPos) % TypeSize;
-        u64   ExtraCount    = (Modulo) ? (TypeSize - Modulo) : 0;
-        alligmentPos        = m_MemCurrent + ExtraCount;
-        if ((alligmentPos + TypeSize) >= (m_UniformsMemory + m_Size)){
+        uintptr_t   TypeSize      = GetUniformTypeSize(type);
+        uintptr_t   Modulo        = ((uintptr_t)alligmentPos) % TypeSize;
+        uintptr_t   ExtraCount    = (Modulo) ? (TypeSize - Modulo) : 0;
+        alligmentPos        = (void*) ( (uintptr_t)m_MemCurrent + ExtraCount);
+        if (((uintptr_t)alligmentPos + TypeSize) >= ((uintptr_t)m_UniformsMemory + m_Size)){
             ASSERT(0 , "No Enough Uniform Data Space to add a new uniform !!!");
             return false;
         }
-        m_MemCurrent = alligmentPos + TypeSize; 
+        m_MemCurrent = (void*)((uintptr_t)alligmentPos + TypeSize);
         if (data != nullptr)
             memcpy(alligmentPos , data , TypeSize);
         
         
         m_SpecifiedUniforms++;
 
-        m_UniformsPointers[m_SpecifiedUniforms - 1] = (u64)alligmentPos;
+        m_UniformsPointers[m_SpecifiedUniforms - 1] = (uintptr_t)alligmentPos;
 
         m_NamesLength[m_SpecifiedUniforms - 1] =(length) ? (length+1) : (strlen(name) + 1);
-        u32 maxlen = m_NamesLength[m_SpecifiedUniforms - 1];
+        uint32_t maxlen = m_NamesLength[m_SpecifiedUniforms - 1];
         
         m_UniformsNames[m_SpecifiedUniforms - 1] 
         = (char*)m_Malloc(maxlen );
 
-        strncpy(
-            m_UniformsNames[m_SpecifiedUniforms - 1] , name ,
-            maxlen - 1 );
+        strncpy_s(
+            m_UniformsNames[m_SpecifiedUniforms - 1] , maxlen  , name ,
+            maxlen  );
 
         char* Uname = m_UniformsNames[m_SpecifiedUniforms - 1];
         Uname[maxlen - 1] = '\0'; // null terminated character
@@ -302,7 +301,7 @@ namespace Game{
     }
 
 
-    u32 UBuffer::GetUniformIdByName(const char* name) const{
+    uint32_t UBuffer::GetUniformIdByName(const char* name) const{
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return 0xFFFFFFFF;
@@ -318,8 +317,8 @@ namespace Game{
             return 0xFFFFFFFF;
         }
 
-        u32 id = 0xFFFFFFFF;
-        for(u32 i = 0; i < m_SpecifiedUniforms; i++){
+        uint32_t id = 0xFFFFFFFF;
+        for(uint32_t i = 0; i < m_SpecifiedUniforms; i++){
             
             if (strcmp(m_UniformsNames[i] , name) == 0){
                 id = i;
@@ -332,7 +331,7 @@ namespace Game{
         return id;
     }
     void* UBuffer::GetUniformPointerByName(const char* name) const{
-        u32 id = GetUniformIdByName(name);
+        uint32_t id = GetUniformIdByName(name);
 
         if (id == 0xFFFFFFFF){
             ASSERT(0 , "Uniform Can't found !!!");
@@ -343,7 +342,7 @@ namespace Game{
     }
 
     UniformType UBuffer::GetUniformTypeByName(const char* name) const{
-        u32 id = GetUniformIdByName(name);
+        uint32_t id = GetUniformIdByName(name);
 
         if (id == 0xFFFFFFFF){
             ASSERT(0 , "Uniform Can't found !!!");
@@ -353,7 +352,7 @@ namespace Game{
         return m_UniformsTypes[id];
     }
 
-    const char* UBuffer::GetUniformNameById(const u32& id) const{
+    const char* UBuffer::GetUniformNameById(const uint32_t& id) const{
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return nullptr;
