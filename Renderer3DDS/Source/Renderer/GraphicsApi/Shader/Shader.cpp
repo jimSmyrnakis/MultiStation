@@ -220,7 +220,7 @@ namespace MultiStation{
             case ShaderDataType::VEC3UI     :   GLCALL(glUniform3uiv(location , 1 , ((uint32_t*)data) ));                    break;
             case ShaderDataType::VEC4UI     :   GLCALL(glUniform4uiv(location , 1 , ((uint32_t*)data) ));                    break;
 
-            case ShaderDataType::SAMPLER_2D :   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::SAMPLER_2D:   break;//GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
             case ShaderDataType::ISAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
             case ShaderDataType::USAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
 

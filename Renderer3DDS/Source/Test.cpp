@@ -5,6 +5,10 @@
 #include <Renderer/GraphicsApi/VBuffer/VBuffer.hpp>
 #include <Renderer/GraphicsApi/Shader/Shader.hpp>
 #include <Renderer/GraphicsApi/UBuffer/UBuffer.hpp>
+#include <Renderer/GraphicsApi/Texture/Texture2D.hpp>
+#include <Renderer/GraphicsApi/FBuffer/FBuffer.hpp>
+#include <Renderer/GraphicsApi/Init.hpp>
+#include <Renderer/GraphicsApi/Draw/Draw.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <chrono>
 
@@ -20,58 +24,71 @@ float GetTimeSeconds() {
 // Window dimensions
 const GLint WIDTH = 800, HEIGHT = 600;
 
-bool direction = true;
-float triOffset = 0.0f;
-float triMaxOffset = 0.7f;
-float triIncrement = 0.0005f;
-const float toRadians = 3.14159265f / 180.0f;
-float curAngle = 0.0f;
-
-bool sizeDirection = true;
-float curSize = 0.4f;
-float maxSize = 0.8f;
-float minSize = 0.1f;
 
 // Vertex Shader code
 static const char* vShader = "                                                \n\
 #version 330                                                                  \n\
                                                                               \n\
 layout (location = 0) in vec3 pos;											  \n\
-                                                                              \n\
+layout (location = 1) in vec2 textCord;                                       \n\
+out vec2 TexCoord;															  \n\
 uniform mat4 model;                                                           \n\
                                                                               \n\
 void main()                                                                   \n\
 {                                                                             \n\
+    TexCoord = textCord.xy;                                                   \n\
     gl_Position = model * vec4(pos, 1.0);									  \n\
 }";
 
 // Fragment Shader
-static const char* fShader = "                                                \n\
-#version 330                                                                  \n\
-                                                                              \n\
-out vec4 colour;                                                              \n\
-                                                                              \n\
-void main()                                                                   \n\
-{                                                                             \n\
-    colour = vec4(1.0, 0.0, 0.0, 1.0);                                        \n\
-}";
+static const char* fShader = R"(
+#version 330 core
+
+in vec2 TexCoord;         // Από το vertex shader
+out vec4 colour;          // Το τελικό χρώμα pixel
+
+uniform sampler2D tex;    // Η 2D texture
+
+void main()
+{
+    colour = texture(tex, TexCoord);
+}
+)";
 MultiStation::VBuffer* vertexBuffer;
-void CreateTriangle()
+MultiStation::Texture2D* texture;
+void CreateShape()
 {
 	GLfloat vertices[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
+		-1.0f, 1.0f, 0.0f ,
+		1.0f, -1.0f, 0.0f,
+		-1.0f, 1.0f, 0.0f ,
+		1.0f , 1.0f , 0.0f
+
+	};
+
+	GLfloat texCoords[] = {
+		0.0f, 0.0f,
+		1.0f, 0.0f,
+		0.0f, 1.0f,
+		1.0f, 0.0f,
+		0.0f, 1.0f,
+		1.0f, 1.0f
 	};
 
 	
 	MultiStation::VertexLayout layout;
 	MultiStation::VertexAttribute attr(MultiStation::ShaderDataType::VEC3F, false);
+	MultiStation::VertexAttribute attr2(MultiStation::ShaderDataType::VEC2F, false);
 	vertexBuffer = new MultiStation::VBuffer();
 	layout.AddAttribute(attr);
+	layout.AddAttribute(attr2);
 	vertexBuffer->SetLayout(layout);
 	vertexBuffer->SetData(vertices, sizeof(vertices), 0);
-
+	vertexBuffer->SetData(texCoords, sizeof(texCoords), 1);
+	texture = new MultiStation::Texture2D(0, MultiStation::Texture2DResolution(256, 256, MultiStation::TextureInternalFormat::RGBA8));
+	texture->SetUnit(0);
 
 	
 }
@@ -89,8 +106,8 @@ int Test(void)
 	}
 	// Setup GLFW window properties
 	// OpenGL version
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	// Core Profile
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	// Allow Forward Compatbility
@@ -112,10 +129,8 @@ int Test(void)
 	// Set context for GLEW to use
 	glfwMakeContextCurrent(mainWindow);
 
-	// Allow modern extension features
-	glewExperimental = GL_TRUE;
 
-	if (glewInit() != GLEW_OK)
+	if (MultiStation::InitGraphicsApi(bufferWidth , bufferHeight) == false)
 	{
 		printf("GLEW initialisation failed!");
 		glfwDestroyWindow(mainWindow);
@@ -123,10 +138,7 @@ int Test(void)
 		return 1;
 	}
 
-	// Setup Viewport size
-	glViewport(0, 0, bufferWidth, bufferHeight);
-
-	CreateTriangle();
+	CreateShape();
 	MultiStation::FShader fshad(fShader);
 	MultiStation::VShader vshad(vShader);
 	MultiStation::Shader sha(vshad ,fshad ) ;
@@ -134,69 +146,53 @@ int Test(void)
 	sha.GetUniforms()->RedirectUniformPointerByName("model", &model[0][0]);
 	float* mat = (float*)sha.GetUniforms()->GetUniformPointerByName("model");
 	
-	//Com pileShaders();
-	
+	MultiStation::FBuffer frameBuffer(
+		MultiStation::Texture2DResolution(1024, 1024, MultiStation::TextureInternalFormat::RGBA8));
+	MultiStation::DrawParams params;
+	params.Mode = MultiStation::DrawMode::TRIANGLES;
+	params.Count = 6;
+	params.Start = 0;
+	params.FrameBuffer = &frameBuffer;
+	params.ShaderProgram = &sha;
+	params.VertexBuffer = vertexBuffer;
+	params.DrawToSurface = false;
+	MultiStation::PipelineSettings settings;
+	settings.BlendEnabled = false;
+	settings.DepthTestEnabled = false;
+	settings.Cull.CullFaceEnabled = false;
+
+	MultiStation::Texture2D* frameBufTex = frameBuffer.GetColorBuffer(0);
+
 	float timeStep = 0.0f , prevTime = GetTimeSeconds();
 	// Loop until window closed
+	float radians = 0.0f;
 	while (!glfwWindowShouldClose(mainWindow))
 	{
 		// Get + Handle user input events
 		glfwPollEvents();
-		// Clear window// Clear window
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+		frameBuffer.ClearColorBuffer(0, glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+		
 
 
-		if (direction)
-		{
-			triOffset += triIncrement;
-		}
-		else {
-			triOffset -= triIncrement;
-		}
-
-		if (abs(triOffset) >= triMaxOffset)
-		{
-			direction = !direction;
-		}
-
-		curAngle += 0.1f;
-		if (curAngle >= 360)
-		{
-			curAngle -= 360;
-		}
-
-		if (direction)
-		{
-			curSize += 0.001f;
-		}
-		else {
-			curSize -= 0.001f;
-		}
-
-		if (curSize >= maxSize || curSize <= minSize)
-		{
-			sizeDirection = !sizeDirection;
-		}
-
-
+		
 		
 		
 		model = glm::mat4(1.0f);
-		model = glm::rotate(model, curAngle * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::translate(model, glm::vec3(triOffset, 0.0f, 0.0f));
+		radians += (2.0f * 3.141592f) * timeStep;
+		model = glm::rotate(model, radians, glm::vec3(0.0f, 0.0f, 1.0f));
 
-		model = glm::scale(model, glm::vec3(curSize, curSize, 0.0f));
+		params.FrameBuffer = &frameBuffer;
+		texture->Bind();
+		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
 
-		//memcpy(mat, &model[0][0], 16 * 4);
+		glViewport(0, 0, bufferWidth, bufferHeight);
+		params.FrameBuffer = nullptr;
+		frameBufTex->Bind();
+		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
 		
-		sha.Bind();
-		vertexBuffer->Bind();
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		vertexBuffer->Unbind();
-
-		sha.Unbind();
-
+		// swap Buffers and draw
 		glfwSwapBuffers(mainWindow);
 
 		float curr = GetTimeSeconds();

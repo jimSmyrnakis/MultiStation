@@ -1,15 +1,16 @@
 #include "Texture2D.hpp"
 
-namespace Game{
+#include <GL/glew.h>
+namespace MultiStation {
     #define DEFAULT_TEX2D_DIM 2048
 
-    u32 DefaultTexture2D[DEFAULT_TEX2D_DIM][DEFAULT_TEX2D_DIM] = {0xFF0000FF};
+    uint32_t DefaultTexture2D[DEFAULT_TEX2D_DIM][DEFAULT_TEX2D_DIM] = {0xFF0000FF};
 
     //TODO - Request the maximum number of texture units that can be active at a draw
-    u32 GetMaxTextureUnits(void) { return 16; } // for moment 16 is sure the maximum of a shader stage
+    uint32_t GetMaxTextureUnits(void) { return 16; } // for moment 16 is sure the maximum of a shader stage
     
-    Texture2D::Texture2D(u32 Unit  ,const Texture2DResolution& MaxResolution)  {
-        
+    Texture2D::Texture2D(uint32_t Unit  ,const Texture2DResolution& MaxResolution)  {
+		ASSERT(Unit < GetMaxTextureUnits(), "Texture Unit greater than the maximum supported texture units !!!");
 
 
         SetUnit(Unit);
@@ -36,7 +37,8 @@ namespace Game{
         GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_MAG_FILTER , GL_LINEAR));
 
         //default values for the pixel unpack buffer 
-        GLCALL( glBufferData( GL_PIXEL_UNPACK_BUFFER , sizeof(DefaultTexture2D) , DefaultTexture2D , GL_STATIC_DRAW ) );
+        uint32_t trash;
+        GLCALL( glBufferData( GL_PIXEL_UNPACK_BUFFER , sizeof(DefaultTexture2D) , GetDefaultTexture2DData(&trash , &trash), GL_STATIC_DRAW));
 
 
         AllocateStorage();
@@ -59,9 +61,9 @@ namespace Game{
             1                                                       , 
             GetOpenGLInternalTextureFormat(m_MaxResolution.GetFormat())  ,
             m_MaxResolution.GetWidth() , m_MaxResolution.GetHeight()          ) );
-        i32 TextureWidth , TextureHeight;
-        glTextureParameteriv(m_ObjectId , GL_TEXTURE_WIDTH  , &TextureWidth );
-        glTextureParameteriv(m_ObjectId , GL_TEXTURE_HEIGHT , &TextureHeight);
+        int32_t TextureWidth , TextureHeight;
+        GLCALL( glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &TextureWidth) );
+        GLCALL( glGetTexLevelParameteriv(GL_PROXY_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &TextureHeight));
         if ((TextureHeight == 0) || (TextureWidth == 0)){
             m_ProxyRequest = false;
             ASSERT(0 , "No Available space for the texture !!!");
@@ -79,7 +81,7 @@ namespace Game{
         // set the default data 
         GLCALL( glBufferData(GL_PIXEL_UNPACK_BUFFER , sizeof(DefaultTexture2D) , DefaultTexture2D , GL_STATIC_DRAW ) );
         //Load a default data for the texture 
-        u32 width , height ;
+        uint32_t width , height ;
         width = height = DEFAULT_TEX2D_DIM ;
         if (m_MaxResolution.GetWidth() < DEFAULT_TEX2D_DIM)
             width = m_MaxResolution.GetWidth();
@@ -107,7 +109,7 @@ namespace Game{
     }
 
     
-    u32  Texture2D::GetUnit(void) const{
+    uint32_t  Texture2D::GetUnit(void) const{
         return m_TextureUnit - GL_TEXTURE0;
     }
 
@@ -130,7 +132,7 @@ namespace Game{
         GLCALL( glBindBuffer(GL_PIXEL_UNPACK_BUFFER , 0) );
     }
 
-    void Texture2D::SetSubImage(void* data , u32 x , u32 y , u32 width , u32 height , TextureExternalFormat format){
+    void Texture2D::SetSubImage(void* data , uint32_t x , uint32_t y , uint32_t width , uint32_t height , TextureExternalFormat format){
         if (!m_ProxyRequest){
             ASSERT(0 , "Texture2D has no space on vram !!!");
             return;
@@ -145,7 +147,7 @@ namespace Game{
 
         GLCALL(glActiveTexture(m_TextureUnit));
         GLCALL(glBindTexture(GL_TEXTURE_2D , m_ObjectId));
-        u32 ExternalFormat , DataType ;
+        uint32_t ExternalFormat , DataType ;
         ExternalFormat = GetOpenGLExternalTextureFormat(format);
         DataType = GetOpenGLExternalTextureType(format);
         
@@ -157,7 +159,7 @@ namespace Game{
 
     bool Texture2D::HasAllocated(void) const { return m_ProxyRequest; }
 
-    void Texture2D::SetUnit(u32 TextureUnit) { 
+    void Texture2D::SetUnit(uint32_t TextureUnit) { 
         if (TextureUnit >= GetMaxTextureUnits()){
             ASSERT(0 , "No more texture units can supplied :( !!!");
             m_TextureUnit = GL_TEXTURE0 + GetMaxTextureUnits() - 1;
@@ -176,8 +178,8 @@ namespace Game{
             "Minification Filter is not a valid 2D Texture Filter !");
 
         
-        GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_MIN_FILTER , GetOpenGLFilter(MagnificationFilter)));
-        GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_MAG_FILTER , GetOpenGLFilter(MinificationFilter)));
+        GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_MAG_FILTER , GetOpenGLFilter(MagnificationFilter)));
+        GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_MIN_FILTER , GetOpenGLFilter(MinificationFilter)));
 
     }
 
@@ -191,14 +193,20 @@ namespace Game{
         }
         
         GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_WRAP_S , gl_wrap) );
-        GLCALL( glSamplerParameterf(m_Sampler2DId , GL_TEXTURE_WRAP_T , gl_wrap) );
+        GLCALL( glSamplerParameteri(m_Sampler2DId , GL_TEXTURE_WRAP_T , gl_wrap) );
     }
 
-    u32* GetDefaultTexture2DData(u32* width , u32* height){
+	static bool isInitiallized = false;
+    uint32_t* GetDefaultTexture2DData(uint32_t* width , uint32_t* height){
         (*width) = (*height) = DEFAULT_TEX2D_DIM;
-        return (u32*)DefaultTexture2D;
+		if (isInitiallized == false)
+            for (uint32_t y = 0; y < DEFAULT_TEX2D_DIM; ++y)
+                for (uint32_t x = 0; x < DEFAULT_TEX2D_DIM; ++x)
+                    DefaultTexture2D[y][x] = x * y * 1024;
+		isInitiallized = true;
+        return (uint32_t*)DefaultTexture2D;
     }
 
-    u32  Texture2D::GetId(void) const { return m_ObjectId; }
+    uint32_t  Texture2D::GetId(void) const { return m_ObjectId; }
 
 }

@@ -5,17 +5,20 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Renderer3DDS", "Renderer3DDS\Renderer3DDS.vcxproj", "{76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApplication", "TestApplication\TestApplication.vcxproj", "{472FE8BB-7502-4897-86E3-DBB62B9CC83B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestRenderer", "TestApplication\TestApplication.vcxproj", "{472FE8BB-7502-4897-86E3-DBB62B9CC83B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F} = {76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externals", "Externals", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Testing", "Testing\Testing.vcxproj", "{E9F42AB2-6875-4469-B9C3-6298FB375315}"
-	ProjectSection(ProjectDependencies) = postProject
-		{76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F} = {76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F}
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{02BD2943-F563-477A-83DF-00F550B1953F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Materials", "Materials", "{2C862A3D-677A-4ABF-BAEC-157BD47E8639}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shaders", "Shaders", "{52D78580-26E8-494E-BAEC-6E14CBC2B276}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{9BA41262-6F9D-4E48-8634-7484B84AAF1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,17 +44,14 @@ Global
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x64.Build.0 = Release|x64
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x86.ActiveCfg = Release|Win32
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x86.Build.0 = Release|Win32
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Debug|x64.ActiveCfg = Debug|x64
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Debug|x64.Build.0 = Debug|x64
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Debug|x86.ActiveCfg = Debug|Win32
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Debug|x86.Build.0 = Debug|Win32
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Release|x64.ActiveCfg = Release|x64
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Release|x64.Build.0 = Release|x64
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Release|x86.ActiveCfg = Release|Win32
-		{E9F42AB2-6875-4469-B9C3-6298FB375315}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C862A3D-677A-4ABF-BAEC-157BD47E8639} = {02BD2943-F563-477A-83DF-00F550B1953F}
+		{52D78580-26E8-494E-BAEC-6E14CBC2B276} = {2C862A3D-677A-4ABF-BAEC-157BD47E8639}
+		{9BA41262-6F9D-4E48-8634-7484B84AAF1C} = {02BD2943-F563-477A-83DF-00F550B1953F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5717BA3D-CA15-4F74-B3C3-35D83CA345A0}

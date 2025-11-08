@@ -5,7 +5,7 @@
 #include "../Texture/Texture2D.hpp"
 #include <glm/glm.hpp>
 
-namespace Game{
+namespace MultiStation{
     
     class FBuffer{
 
@@ -14,7 +14,7 @@ namespace Game{
             FBuffer(
                 const Texture2DResolution& maxResolution , 
                 const DepthFormat& depthFormat = DepthFormat::DEPTH32 , 
-                const u32& ActiveColorBuffers = 1 ,
+                const uint32_t& ActiveColorBuffers = 1 ,
                 alloc       AllocateFunc  = malloc,
                 dalloc      FreeFunc = free
             );
@@ -26,19 +26,19 @@ namespace Game{
             FBuffer& operator=(FBuffer&& move)      = delete;
 
             
-            u32 GetId(void) const;
+            uint32_t GetId(void) const;
 
-            u32 GetColorBuffersCount(void) const;
+            uint32_t GetColorBuffersCount(void) const;
 
             void Bind(void) const;
             void Unbind(void) const;
 
-            void ClearColorBuffer(const u32& ActiveColorBuffer , const glm::vec4& rgba) const;
+            void ClearColorBuffer(const uint32_t& ActiveColorBuffer , const glm::vec4& rgba) const;
             void ClearDepthBuffer(const float& clampValue) const;
 
-            void SetResolution(const u32& width , const u32& height);
+            void SetResolution(const uint32_t& width , const uint32_t& height);
 
-            Texture2D* GetColorBuffer(const u32& ActiveColorBuffer) const;
+            Texture2D* GetColorBuffer(const uint32_t& ActiveColorBuffer) const;
 
         private:
             void InitBuffers(void) ;
@@ -48,11 +48,11 @@ namespace Game{
             DepthFormat             m_DepthFormat;          // The Format of the Deapth Render Buffer
             glm::vec4               m_ViewPort;             // The Viewport of this frame buffer
 
-            u32                     m_ObjectId;             // The Frame Buffer Id 
-            u32                     m_DepthId;              // The Depth Render Buffer Id
+            uint32_t                     m_ObjectId;             // The Frame Buffer Id 
+            uint32_t                     m_DepthId;              // The Depth Render Buffer Id
             
             Texture2D**             m_ColorBuffers;         // Textures that are used as color buffer attachment's
-            u32                     m_ActiveColorBuffers;   // The number of active color buffer attachments
+            uint32_t                     m_ActiveColorBuffers;   // The number of active color buffer attachments
             
             alloc                   m_Malloc;               // Allocation Function
             dalloc                  m_Free ;                // Free memory function 

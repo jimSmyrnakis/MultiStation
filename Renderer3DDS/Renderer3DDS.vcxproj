@@ -165,10 +165,15 @@
   <ItemGroup>
     <ClCompile Include="Source\Defs.cpp" />
     <ClCompile Include="Source\Projection\Projection.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Draw\Draw.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Format\Format.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Init.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Shader\FShader.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Shader\Shader.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Shader\VShader.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Texture\Texture2D.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Texture\Texture2DResolution.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\UBuffer\UBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.cpp" />
@@ -179,10 +184,15 @@
     <ClInclude Include="Source\Core.hpp" />
     <ClInclude Include="Source\Defs.hpp" />
     <ClInclude Include="Source\Projection\Projection.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Draw\Draw.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Format\Format.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Init.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Shader\FShader.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Shader\Shader.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Shader\VShader.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Texture\Texture2D.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Texture\Texture2DResolution.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\UBuffer\UBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp" />

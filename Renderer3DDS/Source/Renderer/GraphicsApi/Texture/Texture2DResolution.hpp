@@ -3,27 +3,27 @@
 #include <Defs.hpp>
 #include "../Format/Format.hpp"
 
-namespace Game{
+namespace MultiStation{
     class Texture2DResolution{
         public:
-            Texture2DResolution(const u32& width = 1024 , const u32& height = 1024 , const TextureInternalFormat& format = TextureInternalFormat::RGBA8);
+            Texture2DResolution(const uint32_t& width = 1024 , const uint32_t& height = 1024 , const TextureInternalFormat& format = TextureInternalFormat::RGBA8);
 
-            void SetWidth (const u32&                   width );
-            void SetHeight(const u32&                   height);
+            void SetWidth (const uint32_t&                   width );
+            void SetHeight(const uint32_t&                   height);
             void SetFormat(const TextureInternalFormat& format);
 
-            u32                   GetWidth (void) const;
-            u32                   GetHeight(void) const;
+            uint32_t                   GetWidth (void) const;
+            uint32_t                   GetHeight(void) const;
             TextureInternalFormat GetFormat(void) const;
 
 
         public:
-            static u32 GetMaxWidth(void);
-            static u32 GetMaxHeight(void);
+            static uint32_t GetMaxWidth(void);
+            static uint32_t GetMaxHeight(void);
 
         private:
-            u32                         m_Width     ;
-            u32                         m_Height    ;
+            uint32_t                    m_Width     ;
+            uint32_t                    m_Height    ;
             TextureInternalFormat       m_Format    ;
             bool                        m_BadW      ;
             bool                        m_BadH      ;              

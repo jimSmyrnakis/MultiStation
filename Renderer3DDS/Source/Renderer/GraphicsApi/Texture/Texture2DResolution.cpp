@@ -1,16 +1,16 @@
 #include "Texture2DResolution.hpp"
 
-#include <glad/gl.h>
+#include <GL/glew.h>
 
-namespace Game{
-    Texture2DResolution::Texture2DResolution(const u32& width  , const u32& height  , const TextureInternalFormat& format ){
+namespace MultiStation{
+    Texture2DResolution::Texture2DResolution(const uint32_t& width  , const uint32_t& height  , const TextureInternalFormat& format ){
         SetWidth(width);
         SetHeight(height);
         SetFormat(format);
         m_BadW = m_BadH =  false;
     }
 
-    void Texture2DResolution::SetWidth (const u32&                   width ){
+    void Texture2DResolution::SetWidth (const uint32_t&                   width ){
         if (width > GetMaxWidth()){
             m_Width = GetMaxWidth();
             m_BadW = true;
@@ -21,7 +21,7 @@ namespace Game{
         m_Width = width;
 
     }
-    void Texture2DResolution::SetHeight(const u32&                   height){
+    void Texture2DResolution::SetHeight(const uint32_t&                   height){
         if (height > GetMaxHeight()){
             m_Height = GetMaxHeight();
             m_BadH = true;
@@ -35,11 +35,11 @@ namespace Game{
         m_Format = format;
     }
 
-    u32                   Texture2DResolution::GetWidth (void) const{
+    uint32_t                   Texture2DResolution::GetWidth (void) const{
         ASSERT(!m_BadW , "Width has set to the maximum value ");
         return m_Width;
     }
-    u32                   Texture2DResolution::GetHeight(void) const{
+    uint32_t                   Texture2DResolution::GetHeight(void) const{
         ASSERT(!m_BadH , "Height has set to the maximum value ");
         return m_Height;
     }
@@ -48,6 +48,6 @@ namespace Game{
     }
 
     //TODO - Ask opengl implemantation specific about the maximum height and width 
-    u32 Texture2DResolution::GetMaxWidth(void)  { return 1024 * 8 ; }
-    u32 Texture2DResolution::GetMaxHeight(void) { return 1024 * 8 ; }
+    uint32_t Texture2DResolution::GetMaxWidth(void)  { return 1024 * 8 ; }
+    uint32_t Texture2DResolution::GetMaxHeight(void) { return 1024 * 8 ; }
 }
