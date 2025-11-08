@@ -163,7 +163,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Defs.cpp" />
     <ClCompile Include="Source\Projection\Projection.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Draw\Draw.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.cpp" />

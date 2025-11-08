@@ -27,12 +27,24 @@
     <ClInclude Include="Source\Time\Time.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Image\Image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Image\bmp\bmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Allocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window\GLFW\GLFWWin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Time\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Image\bmp\bmp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

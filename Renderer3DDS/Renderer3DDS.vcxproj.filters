@@ -18,9 +18,6 @@
     <ClCompile Include="Source\Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Defs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Projection\Projection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

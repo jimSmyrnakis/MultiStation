@@ -1,0 +1,24 @@
+﻿  Binarization.cpp
+  Blur.cpp
+  Converters.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Converters.cpp(82,30): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Convolution.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(40,46): warning C4244: 'argument': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(82,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(83,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(89,27): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(89,56): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(98,57): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+  Extras.cpp
+  GammaTransform.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\GammaTransform.cpp(45,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Histogram.cpp
+  Inverse.cpp
+  Operations.cpp
+  Rotation.cpp
+  Sepia.cpp
+  main.cpp
+  TestAll.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestAll.cpp(65,49): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+  ImageProcessing.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\x64\Debug\ImageProcessing.exe

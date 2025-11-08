@@ -172,11 +172,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Platform.hpp" />
+    <ClInclude Include="Source\Allocator.h" />
     <ClInclude Include="Source\Definitions.hpp" />
+    <ClInclude Include="Source\Image\bmp\bmp.h" />
+    <ClInclude Include="Source\Image\Image.h" />
     <ClInclude Include="Source\Time\Time.hpp" />
     <ClInclude Include="Source\Window\Window.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Image\bmp\bmp.cpp" />
     <ClCompile Include="Source\Time\Time.cpp" />
     <ClCompile Include="Source\Window\GLFW\GLFWWin.cpp" />
   </ItemGroup>

@@ -114,7 +114,7 @@ int Test(void)
 	float* mat = (float*)sha.GetUniforms()->GetUniformPointerByName("model");
 	
 	MultiStation::FBuffer frameBuffer(
-		MultiStation::Texture2DResolution(1024, 1024, MultiStation::TextureInternalFormat::RGBA8));
+		MultiStation::Texture2DResolution(1024, 1024, MultiStation::TextureInternalFormat::RGBA4));
 	MultiStation::DrawParams params;
 	params.Mode = MultiStation::DrawMode::TRIANGLES;
 	params.Count = 6;
@@ -137,9 +137,9 @@ int Test(void)
 	{
 		mainWindow->PollEvents();
 
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
-		frameBuffer.ClearColorBuffer(0, glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+		frameBuffer.ClearColorBuffer(0, glm::vec4(0.4f, 0.4f, 0.4f, 1.0f));
 		
 
 
@@ -152,6 +152,7 @@ int Test(void)
 
 		params.FrameBuffer = &frameBuffer;
 		texture->Bind();
+		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
 		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
 
 		glViewport(0, 0, bufferWidth, bufferHeight);

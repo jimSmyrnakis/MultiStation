@@ -18,3 +18,20 @@
 #endif
 
 #define ASSERT(x , ...) if (!(x)) { fprintf(stderr , __VA_ARGS__ ); __break_point_;}
+
+#ifndef __cplusplus 
+#include <stdbool.h>
+
+#endif 
+
+#ifdef _MSC_VER
+
+#define PACKED_STRUCT(decl) \
+              __pragma(pack(push, 1)) decl __pragma(pack(pop))
+#define breakpoint() __debugbreak()
+#else
+#define PACKED_STRUCT(decl) \
+              decl __attribute__((__packed__))
+#define breakpoint() __builtin_trap()
+#endif
+

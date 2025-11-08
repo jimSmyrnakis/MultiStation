@@ -1,0 +1,13 @@
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Binarization.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Binarization.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Blur.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Blur.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Converters.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Converters.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Convolution.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Extras.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Extras.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\GammaTransform.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\GammaTransform.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Histogram.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Histogram.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Inverse.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Inverse.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Operations.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Operations.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Rotation.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Rotation.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Sepia.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\Sepia.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\main.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\main.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestAll.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\x64\Debug\TestAll.obj
