@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Renderer3DDS", "Renderer3DDS\Renderer3DDS.vcxproj", "{76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72BBC878-6245-4316-98DF-B3148EDB2919} = {72BBC878-6245-4316-98DF-B3148EDB2919}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestRenderer", "TestApplication\TestApplication.vcxproj", "{472FE8BB-7502-4897-86E3-DBB62B9CC83B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -19,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shaders", "Shaders", "{52D78580-26E8-494E-BAEC-6E14CBC2B276}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{9BA41262-6F9D-4E48-8634-7484B84AAF1C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Platform", "Platform\Platform.vcxproj", "{72BBC878-6245-4316-98DF-B3148EDB2919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +49,14 @@ Global
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x64.Build.0 = Release|x64
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x86.ActiveCfg = Release|Win32
 		{472FE8BB-7502-4897-86E3-DBB62B9CC83B}.Release|x86.Build.0 = Release|Win32
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Debug|x64.ActiveCfg = Debug|x64
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Debug|x64.Build.0 = Debug|x64
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Debug|x86.ActiveCfg = Debug|Win32
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Debug|x86.Build.0 = Debug|Win32
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Release|x64.ActiveCfg = Release|x64
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Release|x64.Build.0 = Release|x64
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Release|x86.ActiveCfg = Release|Win32
+		{72BBC878-6245-4316-98DF-B3148EDB2919}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

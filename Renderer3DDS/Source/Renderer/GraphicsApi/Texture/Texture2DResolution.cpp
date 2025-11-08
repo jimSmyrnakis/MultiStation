@@ -1,5 +1,5 @@
 #include "Texture2DResolution.hpp"
-
+#include "../Init.hpp"
 #include <GL/glew.h>
 
 namespace MultiStation{

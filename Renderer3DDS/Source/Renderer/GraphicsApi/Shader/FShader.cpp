@@ -1,5 +1,6 @@
 #include "FShader.hpp"
 #include <GL/glew.h>
+#include "../Init.hpp"
 
 namespace MultiStation {
     FShader::FShader(const char* source){

@@ -1,5 +1,6 @@
 #include "Draw.hpp"
 #include <GL/glew.h>
+#include "../Init.hpp"
 namespace MultiStation {
 	
 

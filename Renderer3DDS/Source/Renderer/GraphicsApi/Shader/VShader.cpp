@@ -1,6 +1,6 @@
 #include "VShader.hpp"
 #include <GL/glew.h>
-
+#include "../Init.hpp"
 namespace MultiStation {
     VShader::VShader(const char* source){
 		m_HasCompile = false;

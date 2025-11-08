@@ -9,16 +9,9 @@
 #include <Renderer/GraphicsApi/FBuffer/FBuffer.hpp>
 #include <Renderer/GraphicsApi/Init.hpp>
 #include <Renderer/GraphicsApi/Draw/Draw.hpp>
+#include <Platform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include <chrono>
 
-float GetTimeSeconds() {
-	using namespace std::chrono;
-	static auto start = high_resolution_clock::now();
-	auto now = high_resolution_clock::now();
-	duration<float> elapsed = now - start;
-	return elapsed.count(); // επιστρέφει float σε δευτερόλεπτα (με κλάσματα)
-}
 
 
 // Window dimensions
@@ -97,44 +90,18 @@ void CreateShape()
 
 int Test(void)
 {
-	// Initialise GLFW
-	if (!glfwInit())
-	{
-		printf("GLFW initialisation failed!");
-		glfwTerminate();
-		return 1;
-	}
-	// Setup GLFW window properties
-	// OpenGL version
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-	// Core Profile
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	// Allow Forward Compatbility
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
-	// Create the window
-	GLFWwindow* mainWindow = glfwCreateWindow(WIDTH, HEIGHT, "Test Window", NULL, NULL);
-	if (!mainWindow)
-	{
-		printf("GLFW window creation failed!");
-		glfwTerminate();
-		return 1;
-	}
-
+	
+	MultiStation::Window* mainWindow = new MultiStation::Window();
 	// Get Buffer Size information
 	int bufferWidth, bufferHeight;
-	glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
+	bufferHeight = mainWindow->GetSurfaceHeight();
+	bufferWidth = mainWindow->GetSurfaceWidth();
 
-	// Set context for GLEW to use
-	glfwMakeContextCurrent(mainWindow);
 
 
 	if (MultiStation::InitGraphicsApi(bufferWidth , bufferHeight) == false)
 	{
-		printf("GLEW initialisation failed!");
-		glfwDestroyWindow(mainWindow);
-		glfwTerminate();
+		delete mainWindow;
 		return 1;
 	}
 
@@ -163,13 +130,13 @@ int Test(void)
 
 	MultiStation::Texture2D* frameBufTex = frameBuffer.GetColorBuffer(0);
 
-	float timeStep = 0.0f , prevTime = GetTimeSeconds();
+	float timeStep = 0.0f , prevTime = MultiStation::Time::GetTimeInSeconds();
 	// Loop until window closed
 	float radians = 0.0f;
-	while (!glfwWindowShouldClose(mainWindow))
+	while (!mainWindow->ShouldClose())
 	{
-		// Get + Handle user input events
-		glfwPollEvents();
+		mainWindow->PollEvents();
+
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		frameBuffer.ClearColorBuffer(0, glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
@@ -193,9 +160,9 @@ int Test(void)
 		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
 		
 		// swap Buffers and draw
-		glfwSwapBuffers(mainWindow);
+		mainWindow->SwapBuffers();
 
-		float curr = GetTimeSeconds();
+		float curr = MultiStation::Time::GetTimeInSeconds();
 		timeStep = curr - prevTime;
 		prevTime = curr;
 	}

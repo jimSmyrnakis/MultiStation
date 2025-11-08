@@ -1,4 +1,5 @@
 #include "VBuffer.hpp"
+#include "../Init.hpp"
 #include <GL/glew.h>
 
 namespace MultiStation{

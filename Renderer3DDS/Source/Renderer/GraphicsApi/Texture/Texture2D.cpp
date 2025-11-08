@@ -1,5 +1,5 @@
 #include "Texture2D.hpp"
-
+#include "../Init.hpp"
 #include <GL/glew.h>
 namespace MultiStation {
     #define DEFAULT_TEX2D_DIM 2048
