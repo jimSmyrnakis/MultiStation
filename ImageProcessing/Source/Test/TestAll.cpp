@@ -1,9 +1,12 @@
 #include "inc.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
+#include <iostream>
+
 int TestAll(void) {
 	struct bmpImage image;
-	if (bmp_load("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\goldhill.bmp", &image)) {
+	if (bmp_load(".//Application//Assets//goldhill.bmp", &image)) {
 		printf("Loaded BMP image: %dx%d, Channels: %d\n", image.width, image.height, image.channels);
 		// Successfully loaded the BMP image
 		// Process the image as needed
@@ -13,6 +16,13 @@ int TestAll(void) {
 	else {
 		// Failed to load the BMP image
 		printf("Loaded BMP image: failed :(\n");
+		// print procees directory
+		printf("Current working directory: ");
+
+		char buffer[MAX_PATH];
+		GetCurrentDirectoryA(MAX_PATH, buffer);
+		std::cout << "Current directory: " << buffer << std::endl;
+		return 0;
 		return 1;
 	}
 
@@ -114,91 +124,91 @@ int TestAll(void) {
 
 
 	// store a copy image to another file
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\grayscale.bmp", &grayImage)) {
+	if (bmp_store(".//Application//Assets//grayscale.bmp", &grayImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\GrayScaleBinarized.bmp", &binaryImage)) {
+	if (bmp_store(".//Application//Assets//GrayScaleBinarized.bmp", &binaryImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\GrayScaleBright.bmp", &brightGrayScaleImage)) {
+	if (bmp_store(".//Application//Assets//GrayScaleBright.bmp", &brightGrayScaleImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\OriginalBright.bmp", &brightOriginalImage)) {
+	if (bmp_store(".//Application//Assets//OriginalBright.bmp", &brightOriginalImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\OriginalDarker.bmp", &darkerOriginalImage)) {
+	if (bmp_store(".//Application//Assets//OriginalDarker.bmp", &darkerOriginalImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\gamma.bmp", &gammaImage)) {
+	if (bmp_store(".//Application//Assets//gamma.bmp", &gammaImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\HistogramEquallized.bmp", &equalizedImage)) {
+	if (bmp_store(".//Application//Assets//HistogramEquallized.bmp", &equalizedImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\rotatedImage.bmp", &rotatedImage)) {
+	if (bmp_store(".//Application//Assets//rotatedImage.bmp", &rotatedImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\HistogramEquallized2.bmp", &equalizedImage2)) {
+	if (bmp_store(".//Application//Assets//HistogramEquallized2.bmp", &equalizedImage2)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\InvertedImage.bmp", &InvImage)) {
+	if (bmp_store(".//Application//Assets//InvertedImage.bmp", &InvImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\BlurredImage.bmp", &blurredImage)) {
+	if (bmp_store(".//Application//Assets//BlurredImage.bmp", &blurredImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\SepiaImage.bmp", &sepiaImage)) {
+	if (bmp_store(".//Application//Assets//SepiaImage.bmp", &sepiaImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\ImageConvolve.bmp", &convolveImage)) {
+	if (bmp_store(".//Application//Assets//ImageConvolve.bmp", &convolveImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
@@ -211,7 +221,7 @@ int TestAll(void) {
 		printf("Failed to compute histogram.\n");
 		return 1;
 	}
-	if (!histogram_write_to_file("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\GrayBrightImageHistogram.txt", histogram, 256)) {
+	if (!histogram_write_to_file(".//Application//Assets//GrayBrightImageHistogram.txt", histogram, 256)) {
 		printf("Failed to write histogram to file.\n");
 		free(histogram);
 		return 1;
@@ -225,7 +235,7 @@ int TestAll(void) {
 		printf("Failed to compute histogram.\n");
 		return 1;
 	}
-	if (!histogram_write_to_file("C:\\Users\\User\\Desktop\\Projects\\ImageProcessing\\ImageProcessing\\x64\\Debug\\GrayBrightImageHistogramEquallized.txt", histogram_eq, 256)) {
+	if (!histogram_write_to_file(".//Application//Assets//GrayBrightImageHistogramEquallized.txt", histogram_eq, 256)) {
 		printf("Failed to write histogram to file.\n");
 		free(histogram_eq);
 		return 1;
