@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Projection\Projection.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Draw\Draw.cpp" />
+    <ClCompile Include="Source\Renderer\GraphicsApi\Error.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Format\Format.cpp" />
     <ClCompile Include="Source\Renderer\GraphicsApi\Init.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Source\Defs.hpp" />
     <ClInclude Include="Source\Projection\Projection.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Draw\Draw.hpp" />
+    <ClInclude Include="Source\Renderer\GraphicsApi\Error.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Format\Format.hpp" />
     <ClInclude Include="Source\Renderer\GraphicsApi\Init.hpp" />

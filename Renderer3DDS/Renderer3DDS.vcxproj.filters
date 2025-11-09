@@ -57,6 +57,9 @@
     <ClCompile Include="Source\Renderer\GraphicsApi\Init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Renderer\GraphicsApi\Error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Test.hpp">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\GraphicsApi\Init.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\GraphicsApi\Error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

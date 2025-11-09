@@ -1,7 +1,7 @@
 #pragma once 
 
-#include <Defs.hpp>
-#include <Core.hpp>
+#include "../../../Defs.hpp"
+#include "../../../Core.hpp"
 #include <vector>
 #include "../Format/Format.hpp"
 
@@ -12,19 +12,18 @@ namespace MultiStation{
 	* \namespace MultiStation
 	* \name VertexAttribute
 	* \brief Enumeration of possible data types for vertex attributes
-	* \details This is an enumeration that defines the various data types that can be used 
-	* for vertex attributes in graphics rendering. Each type corresponds to a specific format and size,
-	* as as outlined below:
-	*   1. Type : The data type of the vertex attribute, represented by the ShaderDataType enumeration.
-	*   2. Size : The size of the attribute in bytes.
-	*   3. Packed : A boolean indicating whether the attribute is non packed in a sub-block within the RAM buffer or grouped with other attributes.
-	*   4. Offs : If the attribute is packed, this indicates the offset within the buffer , otherwise indicates the offset relative to the group.
-	*   5. Normallized : A boolean indicating whether the attribute values should be normalized or not.
+	* \details Defines various vertex data formats used in graphics rendering. 
+	* The field 'Packed' indicates whether the attribute is part of a packed structure in memory (VertAttr1 , VertAttr2 ,...)
+	* or a seperate block on it's own .
+	* The field 'Normalized' indicates whether the attribute values should be normalized when accessed in shaders.
+	* The filed 'Offs' indicates the offset in bytes within the packed structure if 'Packed' is true or nothing.
+	* The field 'Size' indicates the size in bytes of the attribute data type.
+	* The field 'Type' indicates the specific data type of the vertex attribute.
     */
     struct VertexAttribute{
         ShaderDataType  Type; // Type of the Vertex attribute
         uint32_t        Size; // Size in bytes
-        bool            Packed; // Is these attributes in a sub - block in RAM buffer or a set with the rest ?
+		bool            Packed; // Is these attributes in a group (true) or alone(false) (different chunk of memory) ?
         uint32_t        Offs; // if is Packed then what is the offset in the buffer 
 		bool            Normallized; // Is the attribute normalized ?
 
@@ -48,12 +47,17 @@ namespace MultiStation{
     /**
 	 * \author Dimitris Smyrnakis
 	 * \brief Vertex Layout Class , holds information about the layout of vertex attributes in a vertex buffer.
-	 * \details 
+	 * \details This class manages the layout of vertex attributes, including their types, sizes, offsets, and grouping.
      */
     class VertexLayout{
         public:
             
-            VertexLayout(void);
+            VertexLayout(void) = default;
+			~VertexLayout(void) = default;
+			VertexLayout(const VertexLayout& other) = default;
+			VertexLayout(VertexLayout&& other) noexcept = default;
+
+
 
             void AddAttribute(const VertexAttribute& attribute);
 			
@@ -61,10 +65,13 @@ namespace MultiStation{
             const std::vector<VertexAttribute>& GetAttributes(void) const ;
 			const std::vector<AttributeGroup> GetAttributeGroups(void) const;
 
+			VertexLayout& operator=(const VertexLayout& other) = default;
+			VertexLayout& operator=(VertexLayout&& other) noexcept = default;
+
+
         private:
             std::vector<VertexAttribute> m_Attributes;
 			std::vector<AttributeGroup>  m_AttributeGroups;
-            uint32_t                     m_Stride    ;   
         private:
             void CalculateOffsetsAndStrides(void);
     };

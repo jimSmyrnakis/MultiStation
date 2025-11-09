@@ -1,18 +1,16 @@
 #pragma once
 
-#include <Defs.hpp>
+#include "../../Defs.hpp"
+#include "Error.hpp"
 
 
-
-void    GLClearErrors(void);
-bool    GLLogCall(const char* FunctionName, const char* SourceFile, unsigned int line);
-#define GLCALL(function) \
-        GLClearErrors();\
-        (function);\
-        ASSERT(GLLogCall(#function , __FILE__ , __LINE__ ) , ":(");
 
 namespace MultiStation {
-
+    /**
+     * \author Dimitris Smyrnakis
+	 * \details Initializes the graphics API with the specified viewport dimensions.
+     * 
+     */
 	bool InitGraphicsApi(uint32_t ViewportWidth , uint32_t ViewportHeight);
 
 }

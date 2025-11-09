@@ -1,5 +1,5 @@
 #pragma once
-#include <Defs.hpp>
+#include "../../../Defs.hpp"
 #include "../Format/Format.hpp"
 #include "Texture2DResolution.hpp"
 

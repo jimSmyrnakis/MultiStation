@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Defs.hpp>
+#include "../../../Defs.hpp"
 #include "../Format/Format.hpp"
 #include "../Texture/Texture2D.hpp"
 #include <glm/glm.hpp>

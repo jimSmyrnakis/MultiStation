@@ -1,5 +1,26 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Binarization.cpp
+  Blur.cpp
+  Converters.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Converters.cpp(82,30): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Convolution.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(40,46): warning C4244: 'argument': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(82,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(83,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(89,27): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(89,56): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution.cpp(98,57): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+  Extras.cpp
+  GammaTransform.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\GammaTransform.cpp(45,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Histogram.cpp
+  Inverse.cpp
+  Operations.cpp
+  Rotation.cpp
+  Sepia.cpp
+  main.cpp
   TestAll.cpp
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestAll.cpp(75,49): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
   ImageProcessing.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Application\Debug\x64\ImageProcessing.exe

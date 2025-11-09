@@ -3,29 +3,25 @@
 #include <GL/glew.h>
 
 namespace MultiStation{
+
     VBuffer::VBuffer(void){
 		GLCALL( glGenVertexArrays(1, &m_VaoId) );
 		m_iBufferData = nullptr;
 		m_iBufferId = 0;
 		m_iBufferAttribs = { 0,0,false };
-
+		
     }
 
     VBuffer::~VBuffer(void){
 		DestroyBuffers();
-		GLCALL(glDeleteVertexArrays(1, &m_VaoId));
+		if (m_VaoId != 0)
+		{
+			GLCALL(glDeleteVertexArrays(1, &m_VaoId));
+		}
 		DestroyIndexBuffer();
     }
 
-    void VBuffer::DestroyBuffers(void) {
-        for (auto id : m_BufferIds) {
-            GLCALL(glDeleteBuffers(1, &id));
-        }
-		m_BufferIds.clear();
-		m_Data.clear();
-		m_Size.clear();
-
-    }
+    
 
     void VBuffer::SetData(void* data , uint32_t size, uint32_t index){
         ASSERT(size , "Vertex data have 0 size !!!");
@@ -46,26 +42,82 @@ namespace MultiStation{
 		GLCALL(glBindBuffer(GL_ARRAY_BUFFER, m_BufferIds[index]));
 		
 		// set data
-		AttributeGroup group = m_Layout.GetAttributeGroups().at(index);
+		VertexAttribute attr = m_Layout.GetAttributes().at(index);
 		m_Data[index] = data;
 		m_Size[index] = size;
 		GLCALL(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
 
-
 		// restore old vao and vbo
 		GLCALL(glBindVertexArray(OldVao));
         GLCALL( glBindBuffer(GL_ARRAY_BUFFER , OldVBuf) );
+
+
     }
 
-    void VBuffer::Bind(void) const {
-		GLCALL(glBindVertexArray(m_VaoId));
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+	
+	static void AttribPointer(GLuint index , GLint size , GLenum type , GLboolean norm , GLsizei Stride, const void* data) {
+		switch (type) {
+			case GL_BYTE			:
+			case GL_UNSIGNED_BYTE	:
+			case GL_SHORT			:
+			case GL_UNSIGNED_SHORT	:
+			case GL_INT				:
+			case GL_UNSIGNED_INT	:	GLCALL(glVertexAttribIPointer(index, size, type, Stride, data));		break;
+			default:					GLCALL(glVertexAttribPointer(index, size, type, norm, Stride, data));	break;
+		}
+
+		
+	}
 
 	void VBuffer::SetupVertexAttributes(void) const {
+
 		
+		
+		
+		/*Take last one vertex Array Buffer and then change it */
+		int32_t OldVao = 0;
+		//get old vao
+		GLCALL(glGetIntegerv(GL_VERTEX_ARRAY_BINDING, &OldVao));
+		int32_t OldVBuf = 0;
+		//get old vbo 
+		GLCALL(glGetIntegerv(GL_ARRAY_BUFFER_BINDING, &OldVBuf));
+
 
 		// bind our vao 
 		GLCALL(glBindVertexArray(m_VaoId));
+		
 		uint32_t location = 0;
 		for (int i = 0; i < m_Layout.GetAttributeGroups().size(); i++) {
 			AttributeGroup group = m_Layout.GetAttributeGroups().at(i);
@@ -76,31 +128,53 @@ namespace MultiStation{
 				VertexAttribute& attribute = group.Attributes.at(index);
 				GLCALL(glEnableVertexAttribArray(location));
 				
-				GLCALL(glVertexAttribPointer(
+				AttribPointer(
 					location,
 					attribute.GetComponentCount(),
 					OpenGLAttributeDataTypeFromShaderDataType(attribute.Type),
 					attribute.Normallized ? GL_TRUE : GL_FALSE,
 					group.Stride,
 					(const void*)(uintptr_t)(attribute.Offs)
-				));
+				);
 				location++;
 			}
 		}
 
+
+
+
+		// restore old vao and vbo
+		GLCALL(glBindVertexArray(OldVao));
+		GLCALL(glBindBuffer(GL_ARRAY_BUFFER, OldVBuf));
+
+
 	}
 
-    void VBuffer::Unbind(void) const {
-		// unbind our vao
-		GLCALL(glBindVertexArray(0));
-		GLCALL( glBindBuffer(GL_ARRAY_BUFFER , 0) ); 
-	}
+	void VBuffer::DestroyBuffers(void) {
+        for (auto id : m_BufferIds) {
+            GLCALL(glDeleteBuffers(1, &id));
+        }
+		m_BufferIds.clear();
+		m_Data.clear();
+		m_Size.clear();
+
+		
+		
+
+    }
 
     const VertexLayout& VBuffer::GetLayout(void) const  { return m_Layout; }
     VertexLayout& VBuffer::GetLayout(void) { return m_Layout; }
+
     void VBuffer::SetLayout(const VertexLayout& layout) {
         m_Layout = layout; 
         DestroyBuffers();
+		if (m_VaoId != 0) {
+			GLCALL(glDeleteVertexArrays(1, (GLuint*)&m_VaoId));
+			GLCALL(glGenVertexArrays(1, (GLuint*)&m_VaoId));
+		}
+
+
 		// Create buffers based on layout
 		for (const auto& group : m_Layout.GetAttributeGroups()) {
 			uint32_t bufferId;
@@ -123,6 +197,65 @@ namespace MultiStation{
 		GLCALL(glBindVertexArray(oldvao));
 		GLCALL(glBindBuffer(GL_ARRAY_BUFFER, oldvbo));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	void VBuffer::Unbind(void) const {
+		// unbind our vao
+		GLCALL(glBindVertexArray(0));
+	}
+
+	void VBuffer::Bind(void) const {
+		GLCALL(glBindVertexArray(m_VaoId));
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	void VBuffer::SetIndexBuffer(void* data, IBufferAttrib attrs) {
 		ASSERT(data, "nullptr for index buffer data is not valid");

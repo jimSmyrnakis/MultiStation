@@ -50,9 +50,6 @@ namespace MultiStation {
         ==================================================================================================================================
     */
     
-    VertexLayout::VertexLayout(void){
-        m_Stride = 0;
-    }
     
     const std::vector<VertexAttribute>& VertexLayout::GetAttributes(void) const { return m_Attributes; }
     
@@ -82,7 +79,7 @@ namespace MultiStation {
     }
 
     void VertexLayout::CalculateOffsetsAndStrides(void){
-        ASSERT(m_Attributes.size() , "Vertex Buffer Layout has not Vertex Attributes specified!");
+        ASSERT(m_Attributes.size() , "Vertex Buffer Layout has no Vertex Attributes specified!");
 		
         for (AttributeGroup& Group : m_AttributeGroups){
 			uint32_t GroupOffset = 0;
