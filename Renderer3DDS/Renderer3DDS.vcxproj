@@ -199,6 +199,10 @@
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp" />
     <ClInclude Include="Source\Test.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Library\.keep" />
+    <None Include="Objects\.keep" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
