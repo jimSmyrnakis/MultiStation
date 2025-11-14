@@ -156,33 +156,53 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core.hpp" />
-    <ClInclude Include="Source\dsp\LowLevel\Binarization.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Blur.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\FilterMasks.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Other.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Binarization.h" />
     <ClInclude Include="Source\dsp\LowLevel\Converters.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Convolution.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Convolution.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\EdgeDetectionMasks.h" />
     <ClInclude Include="Source\dsp\LowLevel\Extras.h" />
-    <ClInclude Include="Source\dsp\LowLevel\GammaTransform.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Histogram.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Inverse.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Operations.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Rotation.h" />
-    <ClInclude Include="Source\dsp\LowLevel\Sepia.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\GammaTransform.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Histogram\Histogram.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\GausianNoise.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Inverse.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\LineDetectionMask.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Masks.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Operations.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PixelBuffer.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Rotation.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Sepia.h" />
     <ClInclude Include="Source\Test\inc.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\dsp\LowLevel\Binarization.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Blur.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LowPassSpatialMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\HighPassSpatialMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Binarization.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Converters.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Convolution.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Convolution.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Extras.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\GammaTransform.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Histogram.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Inverse.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Operations.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Rotation.cpp" />
-    <ClCompile Include="Source\dsp\LowLevel\Sepia.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\GammaTransform.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Histogram\Histogram.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Inverse.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LaplaceMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LineDetectionMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\Masks.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\KirschMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\PrewittMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobertsMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobinsonMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\SobelMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Operations.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PixelBuffer.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Rotation.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Sepia.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Test\TestAll.cpp" />
+    <ClCompile Include="Source\Test\TestLineDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Application\Assets\.keep" />

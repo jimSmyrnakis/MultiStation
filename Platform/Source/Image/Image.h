@@ -19,7 +19,9 @@ extern "C" {
 		uint32_t iStride; // number of bytes per row (including padding)
 		uint8_t  channels; // number of channels (e.g., 3 for RGB, 4 for RGBA) max of 4 channels
 		uint8_t  bitsPerChannel[4]; // bits per channel for up to 4 channels 
-		void* pixelData;   // pointer to pixel data
+		uint8_t  planes; // Number of planes the pixels are divide to 
+		void*    pData;   // pointer to pixel data
+
 	};
 
 	//int ImageRead(const char* filename, struct Image* image , struct Allocator allocator );

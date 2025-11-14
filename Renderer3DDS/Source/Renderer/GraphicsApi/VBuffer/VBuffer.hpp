@@ -2,6 +2,7 @@
 
 #include "../../../Defs.hpp"
 #include <vector>
+#include <memory>
 #include "VLayout.hpp"
 
 namespace MultiStation{

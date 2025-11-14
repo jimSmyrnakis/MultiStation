@@ -33,12 +33,19 @@ int TestAll(void) {
 		return 1;
 	};
 
+	struct bmpImage NoisyImage;
+	if (image_salt_papper_noise(&NoisyImage, &image, 0.6f) == false) {
+		printf("Failed to Add noise on the image.\n");
+		return 1;
+	}
+
 	struct bmpImage grayImage;
 	if (convert_rgb_to_grayscale_luminosity(&grayImage, &image, .1f, .1f, .8f) == false)
 	{
 
 		printf("Failed to convert image to grayscale.\n");
-		return 1;
+		grayImage = image;
+		//return 1;
 	};
 
 
@@ -51,7 +58,7 @@ int TestAll(void) {
 	}
 
 	struct bmpImage brightGrayScaleImage;
-	if (add_images_truncate(&brightGrayScaleImage, 20, &grayImage) == false)
+	if (add_images_truncate(&brightGrayScaleImage, 80, &grayImage) == false)
 	{
 		printf("Failed to add images.\n");
 		return 1;
@@ -96,35 +103,35 @@ int TestAll(void) {
 		return 1;
 	}
 
-	struct bmpImage blurredImage;
-	if (!image_blur(&blurredImage, &image, 10 , {malloc , free})) {
-		printf("Failed to blur image.\n");
+	struct bmpImage GausianNoiseImage;
+	if (!image_GausianNoise(&GausianNoiseImage, &image, 90, 80, { malloc, free })) {
+		printf("Failed to make Gauian Noise image.\n");
 		return 1;
 	}
 
-	struct bmpImage sepiaImage;
-	if (!image_sepia(&sepiaImage, &image)) {
-		printf("Failed to apply sepia filter.\n");
+	
+
+	
+
+	struct bmpImage lineDetectorImage;
+	struct MaskAttributes* attrs = MaskGet(FILTER_LOW_PASS_SPATIAL);
+	if (!image_convolve( attrs, true , &image, &lineDetectorImage )) {
+		printf("Failed to apply convolve filter.\n");
 		return 1;
 	}
 
-	uint32_t MaskRows = 5, MaskCols = 5;
-	float MaskData[5][5] = { {-1 , -1 , -1 , -1 , -1},
-							 {-1 , -1 , -1 , -1 , -1},
-							 {-1 , -1 , 24 , -1 , -1},
-							 {-1 , -1 , -1 , -1 , -1},
-							 {-1 , -1 , -1 , -1 , -1}
-	};
-	struct bmpImage convolveImage;
-	if (!image_convolve(MaskRows, MaskCols, MaskData, &image, &convolveImage))
-	{
-		printf("Failed to apply convolution filter. \n");
-		return 1;
-	}
+	
 
 
 	// store a copy image to another file
 	if (bmp_store(".//Application//Assets//grayscale.bmp", &grayImage)) {
+		printf("Stored BMP image successfully.\n");
+	}
+	else {
+		printf("Failed to store BMP image.\n");
+	}
+
+	if (bmp_store(".//Application//Assets//NoisyImage.bmp", &NoisyImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
@@ -194,21 +201,16 @@ int TestAll(void) {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store(".//Application//Assets//BlurredImage.bmp", &blurredImage)) {
+	if (bmp_store(".//Application//Assets//Gausian.bmp", &GausianNoiseImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store(".//Application//Assets//SepiaImage.bmp", &sepiaImage)) {
-		printf("Stored BMP image successfully.\n");
-	}
-	else {
-		printf("Failed to store BMP image.\n");
-	}
+	
 
-	if (bmp_store(".//Application//Assets//ImageConvolve.bmp", &convolveImage)) {
+	if (bmp_store(".//Application//Assets//LineDetectImage.bmp", &lineDetectorImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {
@@ -251,7 +253,7 @@ int TestAll(void) {
 	free(gammaImage.pixels);
 	free(equalizedImage.pixels);
 	free(histogram);
-	free(grayImage.pixels);
+	//free(grayImage.pixels);
 	free(binaryImage.pixels);
 	free(brightGrayScaleImage.pixels);
 	free(image.pixels);

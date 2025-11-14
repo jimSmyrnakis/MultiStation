@@ -18,40 +18,61 @@
     <ClInclude Include="Source\Test\inc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Binarization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Blur.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Binarization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\dsp\LowLevel\Converters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Convolution.h">
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Convolution.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\dsp\LowLevel\Extras.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\GammaTransform.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\GammaTransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Histogram.h">
+    <ClInclude Include="Source\dsp\LowLevel\Histogram\Histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Inverse.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Inverse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Operations.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Operations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Rotation.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Rotation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dsp\LowLevel\Sepia.h">
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Sepia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Core.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Masks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\EdgeDetectionMasks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\LineDetectionMask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Other.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\FilterMasks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\PixelBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\GausianNoise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,40 +80,79 @@
     <ClCompile Include="Source\Test\TestAll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Binarization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Blur.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Binarization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\dsp\LowLevel\Converters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Convolution.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Convolution.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\dsp\LowLevel\Extras.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\GammaTransform.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\GammaTransform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Histogram.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\Histogram\Histogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Inverse.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Inverse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Operations.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Operations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Rotation.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Rotation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\dsp\LowLevel\Sepia.cpp">
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Sepia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\Masks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Test\TestLineDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LineDetectionMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\PrewittMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\SobelMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobinsonMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\KirschMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LaplaceMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobertsMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LowPassSpatialMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\HighPassSpatialMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\PixelBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
