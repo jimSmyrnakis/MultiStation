@@ -19,11 +19,10 @@ namespace MultiStation{
             UBuffer(
                 uint32_t     count                       , 
                 uint32_t     size                        ,  
-                alloc   allocateFunction = malloc   , 
-                dalloc  dallocateFunction = free    );
+                struct Allocator allocator = {malloc , free});
 
             UBuffer(const UBuffer& copy) = delete; // for security reasons
-            UBuffer(UBuffer&& move);
+            UBuffer(UBuffer&& move) noexcept;
             //In Constructor the total number of uniforms must defined in general and the total size of memory too
             //the reason to define the size of memory is more for perfomance as uniforms are not most of the times
             //more than 10 but who ever give the size must be sure that all uniforms will fit in with alligment's
@@ -34,7 +33,7 @@ namespace MultiStation{
               all this space */
         
             UBuffer& operator=(const UBuffer& copy) = delete; // for security issues
-            UBuffer& operator=(UBuffer&& move);
+            UBuffer& operator=(UBuffer&& move) noexcept;
 
         public:
                 uint32_t GetUniformsCount(void) const;
@@ -69,8 +68,7 @@ namespace MultiStation{
             uintptr_t*           m_UniformsPointers; // For Each Uniform where is the first byte of it
             char**              m_UniformsNames;    // For each Uniform the name in the shader
             uint32_t*           m_NamesLength;      // The total number of characters for each name (0 means null terminated string)
-            alloc               m_Malloc;           // a function pointer to a given malloc like function
-            dalloc              m_Free;             // a function pointer to a given free like function
+            struct Allocator    m_Allocator;        // The allocator for receive memory request from heap
             bool                m_HasMoved;         // becames true only when this instance moved its data to other instance
     };
 }

@@ -24,11 +24,9 @@ namespace MultiStation{
 
 
 	struct DrawParams {
-		DrawMode    Mode;
 		uint32_t    Count;
 		int32_t     Start;
 		FBuffer* FrameBuffer;
-		Shader* ShaderProgram;
 		VBuffer* VertexBuffer;
 		bool DrawToSurface;
 	};
@@ -43,7 +41,7 @@ namespace MultiStation{
 		Culling Cull;
 	};
 
-	class DrawCommands {
+	class Commands {
 
 	public:
 		static void Draw(DrawMode mode, DrawParams& params , PipelineSettings settings );

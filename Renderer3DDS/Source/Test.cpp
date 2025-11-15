@@ -8,7 +8,8 @@
 #include <Renderer/GraphicsApi/Texture/Texture2D.hpp>
 #include <Renderer/GraphicsApi/FBuffer/FBuffer.hpp>
 #include <Renderer/GraphicsApi/Init.hpp>
-#include <Renderer/GraphicsApi/Draw/Draw.hpp>
+#include <Renderer/GraphicsApi/Commands/Commands.hpp>
+#include <Renderer/Material/Material.hpp>
 #include <Platform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -39,18 +40,35 @@ static const char* fShader = R"(
 
 in vec2 TexCoord;         // Από το vertex shader
 out vec4 colour;          // Το τελικό χρώμα pixel
-
+vec4 color1;
+vec4 color2;
+uniform float blend;
 uniform sampler2D tex;    // Η 2D texture
+uniform sampler2D tex2;    // Η 2D texture
 
 void main()
 {
-    colour = texture(tex, TexCoord);
+    color1 = texture(tex, TexCoord);
+	color2 = texture(tex2, TexCoord);
+	colour = color1 * (1 - blend) + color2 * blend;
 }
 )";
+
+
+
 MultiStation::VBuffer* vertexBuffer;
 MultiStation::Texture2D* texture;
+uint32_t Tex2[32][32];
+void InitTex2(void) {
+	for (int i = 0; i < 32; i++) {
+		for (int j = 0; j < 32; j++) {
+			Tex2[i][j] = 0xFF0000FF;
+		}
+	}
+}
 void CreateShape()
 {
+	InitTex2();
 	GLfloat vertices[] = {
 		-1.0f, -1.0f, 0.0f,
 		1.0f, -1.0f, 0.0f,
@@ -80,8 +98,7 @@ void CreateShape()
 	vertexBuffer->SetLayout(layout);
 	vertexBuffer->SetData(vertices, sizeof(vertices), 0);
 	vertexBuffer->SetData(texCoords, sizeof(texCoords), 1);
-	texture = new MultiStation::Texture2D(0, MultiStation::Texture2DResolution(256, 256, MultiStation::TextureInternalFormat::RGBA8));
-	texture->SetUnit(0);
+	
 
 	
 }
@@ -106,29 +123,32 @@ int Test(void)
 	}
 
 	CreateShape();
-	MultiStation::FShader fshad(fShader);
-	MultiStation::VShader vshad(vShader);
-	MultiStation::Shader sha(vshad ,fshad ) ;
+	MultiStation::Material material;
+	material.SetShader(vShader, fShader);
 	glm::mat4 model(1.0f);
-	sha.GetUniforms()->RedirectUniformPointerByName("model", &model[0][0]);
-	float* mat = (float*)sha.GetUniforms()->GetUniformPointerByName("model");
+	material.GetUniforms()->RedirectUniformPointerByName("model", &model[0][0]);
+	float* mat = (float*)material.GetUniforms()->GetUniformPointerByName("model");
+	float* blend = (float*)material.GetUniforms()->GetUniformPointerByName("blend");
+	if (material.GetTexturesCount() == 2) {
+		material.GetTexture(1)->SetTexture({ 32,32,MultiStation::TextureInternalFormat::RGBA8 }, Tex2, MultiStation::TextureExternalFormat::RGBA8);
+
+	}
 	
-	MultiStation::FBuffer frameBuffer(
-		MultiStation::Texture2DResolution(1024, 1024, MultiStation::TextureInternalFormat::RGBA4));
+	MultiStation::FBuffer framebuffer({ 4096,4096,MultiStation::TextureInternalFormat::RGBA8 });
+	MultiStation::FBuffer framebufferOff({ 1024,1024,MultiStation::TextureInternalFormat::RGBA8 },
+		MultiStation::DepthFormat::DEPTH24, 1, MultiStation::FBuffer::Type::OffScreen);
 	MultiStation::DrawParams params;
-	params.Mode = MultiStation::DrawMode::TRIANGLES;
 	params.Count = 6;
 	params.Start = 0;
-	params.FrameBuffer = &frameBuffer;
-	params.ShaderProgram = &sha;
+	params.FrameBuffer = &framebufferOff;
 	params.VertexBuffer = vertexBuffer;
-	params.DrawToSurface = false;
+	params.DrawToSurface = true;
 	MultiStation::PipelineSettings settings;
 	settings.BlendEnabled = false;
 	settings.DepthTestEnabled = false;
 	settings.Cull.CullFaceEnabled = false;
 
-	MultiStation::Texture2D* frameBufTex = frameBuffer.GetColorBuffer(0);
+	*blend = 0;
 
 	float timeStep = 0.0f , prevTime = MultiStation::Time::GetTimeInSeconds();
 	// Loop until window closed
@@ -136,33 +156,28 @@ int Test(void)
 	while (!mainWindow->ShouldClose())
 	{
 		mainWindow->PollEvents();
-
-		glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-		frameBuffer.ClearColorBuffer(0, glm::vec4(0.4f, 0.4f, 0.4f, 1.0f));
-		
-
-
+		framebuffer.ClearColorBuffer(0, { 0.4f,0.4f,0.4f,0.4f });
+		framebufferOff.ClearColorBuffer(0, { 0.4f,0.4f,0.4f,0.4f });
 		
 		
 		
 		model = glm::mat4(1.0f);
 		radians += (2.0f * 3.141592f) * timeStep;
 		model = glm::rotate(model, radians, glm::vec3(0.0f, 0.0f, 1.0f));
+		(*blend) += timeStep / 3.0f;
+		if ((*blend) > 1) (*blend) = 0;
 
-		params.FrameBuffer = &frameBuffer;
-		texture->Bind();
-		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
-		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
+		
+		material.Bind();
+		MultiStation::Commands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
+		material.Unbind();
 
-		glViewport(0, 0, bufferWidth, bufferHeight);
-		params.FrameBuffer = nullptr;
-		frameBufTex->Bind();
-		MultiStation::DrawCommands::Draw(MultiStation::DrawMode::TRIANGLES, params, settings);
+
 		
 		// swap Buffers and draw
 		mainWindow->SwapBuffers();
 
+		printf("blend : %f\n", (*blend));
 		float curr = MultiStation::Time::GetTimeInSeconds();
 		timeStep = curr - prevTime;
 		prevTime = curr;

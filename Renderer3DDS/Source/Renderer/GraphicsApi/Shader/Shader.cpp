@@ -5,7 +5,7 @@ namespace MultiStation{
 
     
 
-    Shader::Shader(VShader& Vertex , FShader& Fragment , alloc Malloc, dalloc Free ){
+    Shader::Shader(VShader& Vertex , FShader& Fragment , struct Allocator allocator){
         m_Fragment  = nullptr;
         m_Vertex    = nullptr;
         m_Uniforms  = nullptr;
@@ -13,17 +13,16 @@ namespace MultiStation{
 		m_AttributesLoc = nullptr;
 		m_ProgramId = 0;
 		m_AttributesCount = 0;
-		m_Free = nullptr;
-		m_Malloc = nullptr;
+        m_Allocator = allocator;
 
         
-        ASSERT(Malloc , "nullptr for memory allocator function !!!");
-        if (Malloc == nullptr)
-            Malloc = malloc;
+        ASSERT(m_Allocator.memalloc , "nullptr for memory allocator function !!!");
+        if (m_Allocator.memalloc == nullptr)
+            m_Allocator.memalloc = malloc;
         
-        ASSERT(Free , "nullptr for memory free function !!!");
-        if (Free == nullptr)
-            Free = free;
+        ASSERT(m_Allocator.memfree , "nullptr for memory free function !!!");
+        if (m_Allocator.memfree == nullptr)
+            m_Allocator.memfree = free;
         
         m_HasProgram = true;
 
@@ -63,8 +62,6 @@ namespace MultiStation{
             return;
         }
 
-        m_Malloc    = Malloc;
-        m_Free      = Free;
         m_Vertex    = &Vertex;
         m_Fragment  = &Fragment;
 
@@ -75,7 +72,6 @@ namespace MultiStation{
         
 
         FindUniforms();
-        FindAttributes();
 
     }
 
@@ -136,15 +132,15 @@ namespace MultiStation{
         }
         
         //Set the variable for the type of each uniform
-        int32_t *UniformsTypes = (int32_t*)m_Malloc(NumOfUniforms * sizeof(int32_t));
+        int32_t *UniformsTypes = (int32_t*)m_Allocator.memalloc(NumOfUniforms * sizeof(int32_t));
         CheckAllocation(UniformsTypes);
 
         //Set the variable for the lengths of character of each name of the uniforms
-        uint32_t* UniformLengths = (uint32_t*)m_Malloc(NumOfUniforms * sizeof(uint32_t));
+        uint32_t* UniformLengths = (uint32_t*)m_Allocator.memalloc(NumOfUniforms * sizeof(uint32_t));
         CheckAllocation(UniformLengths);
 
         //set the variable with all the names with size of the maximum uniform name just to be sure
-        char** UniformsNames = (char**)m_Malloc(NumOfUniforms * sizeof(char*));
+        char** UniformsNames = (char**)m_Allocator.memalloc(NumOfUniforms * sizeof(char*));
         CheckAllocation(UniformsNames);
         
         //find the maximum name size
@@ -157,12 +153,12 @@ namespace MultiStation{
 
         //allocate all names with the maximum name characters size
         for ( int i = 0 ; i < NumOfUniforms; i++){
-            UniformsNames[i] = (char*)m_Malloc(maxName + 1);
+            UniformsNames[i] = (char*)m_Allocator.memalloc(maxName + 1);
             
         }
 
         //set a variable for having all the size's of exh uniform
-        int32_t* UniformsSizes = (int32_t*)m_Malloc(NumOfUniforms * sizeof(int32_t));
+        int32_t* UniformsSizes = (int32_t*)m_Allocator.memalloc(NumOfUniforms * sizeof(int32_t));
         CheckAllocation(UniformsSizes );
 
         //now get all the uniforms details
@@ -176,24 +172,33 @@ namespace MultiStation{
             
         }
 
-        //now create the uniform buffer 
-        m_Uniforms = new UBuffer(NumOfUniforms , 2*TotalSize , m_Malloc , m_Free);
+        //now create the uniform buffer and assign properly the texture slots
+        m_Uniforms = new UBuffer(NumOfUniforms , 2*TotalSize ,m_Allocator);
         CheckAllocation(m_Uniforms);
-
+        uint32_t next_free_slot = 0;
+        bool isSampler = false;
         for (int i = 0; i < NumOfUniforms; i++){
+            isSampler = false;
+            ShaderDataType type = GetUniformTypeFromOpenGLUniformType(UniformsTypes[i]);
+            int slot = 0;
+            if (type == ShaderDataType::SAMPLER_2D) {
+                isSampler = true;
+                slot = next_free_slot;
+                next_free_slot++;
+            }
             m_Uniforms->AddUniform(
-                GetUniformTypeFromOpenGLUniformType(UniformsTypes[i]) ,
-                UniformsNames[i] , UniformLengths[i] , nullptr );
+                 type ,
+                UniformsNames[i] , UniformLengths[i] , isSampler ? &slot : nullptr );
         }
 
         //Free all the memory - Still the code is bad 
-        m_Free(UniformLengths);
-        m_Free(UniformsTypes);
-        m_Free(UniformsSizes);
+        m_Allocator.memfree(UniformLengths);
+        m_Allocator.memfree(UniformsTypes);
+        m_Allocator.memfree(UniformsSizes);
         for (int i =0 ;i < NumOfUniforms; i++){
-            m_Free(UniformsNames[i]);
+            m_Allocator.memfree(UniformsNames[i]);
         }
-        m_Free(UniformsNames);
+        m_Allocator.memfree(UniformsNames);
         
 
 
@@ -220,9 +225,9 @@ namespace MultiStation{
             case ShaderDataType::VEC3UI     :   GLCALL(glUniform3uiv(location , 1 , ((uint32_t*)data) ));                    break;
             case ShaderDataType::VEC4UI     :   GLCALL(glUniform4uiv(location , 1 , ((uint32_t*)data) ));                    break;
 
-            case ShaderDataType::SAMPLER_2D:   break;//GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
-            case ShaderDataType::ISAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
-            case ShaderDataType::USAMPLER_2D:   GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::SAMPLER_2D:    GLCALL(glUniform1i(location , *((int32_t*)data) ));                         break;
+            case ShaderDataType::ISAMPLER_2D:  break;// GLCALL(glUniform1i(location, *((int32_t*)data)));                         break;
+            case ShaderDataType::USAMPLER_2D:  break;// GLCALL(glUniform1i(location, *((int32_t*)data)));                         break;
 
             default : ASSERT(0 , "Undefined Shader Data Type !!!"); return ;
         }
@@ -233,9 +238,9 @@ namespace MultiStation{
             return;
 
         int unfs = m_Uniforms->GetDefinedUniformsCount();
-        char name[100] = {0};
+        char name[256] = {0};
         for (int i = 0; i < unfs ; i++ ){
-            m_Uniforms->GetUniformNameByIndex(i , name , 100);
+            m_Uniforms->GetUniformNameByIndex(i , name , 255);
             int loc = glGetUniformLocation(m_ProgramId , name);
 			void* data = m_Uniforms->GetUniformPointerByName(name);
             SetUniformDataBasedOnType(m_Uniforms->GetUniformTypeByName(name) , loc , data);
@@ -252,21 +257,6 @@ namespace MultiStation{
         return maxName;
     }
 
-    void Shader::FindAttributes(void){
-        if (m_HasProgram == false){
-            ASSERT(m_HasProgram , "No Program is Created !!!");
-            return;
-        }
-
-        //Get the number of all attributes
-        int32_t NumOfAttributes = 0;
-        glGetProgramiv(m_ProgramId , GL_ACTIVE_ATTRIBUTES , &NumOfAttributes);
-        if (NumOfAttributes == 0){
-            ASSERT(0 , "No Attributes !!!");
-            return;
-        }
-
-
-    }
+    
 
 }

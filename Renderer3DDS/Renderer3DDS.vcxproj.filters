@@ -18,7 +18,7 @@
     <ClCompile Include="Source\Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Projection\Projection.cpp">
+    <ClCompile Include="Source\Renderer\Camera\Projection\Projection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.cpp">
@@ -51,13 +51,16 @@
     <ClCompile Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Renderer\GraphicsApi\Draw\Draw.cpp">
+    <ClCompile Include="Source\Renderer\GraphicsApi\Commands\Commands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\GraphicsApi\Init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Renderer\GraphicsApi\Error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Renderer\Material\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,7 +74,7 @@
     <ClInclude Include="Source\Defs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Projection\Projection.hpp">
+    <ClInclude Include="Source\Renderer\Camera\Projection\Projection.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\GraphicsApi\VBuffer\VLayout.hpp">
@@ -107,13 +110,16 @@
     <ClInclude Include="Source\Renderer\GraphicsApi\FBuffer\FBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Renderer\GraphicsApi\Draw\Draw.hpp">
+    <ClInclude Include="Source\Renderer\GraphicsApi\Commands\Commands.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\GraphicsApi\Init.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Renderer\GraphicsApi\Error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Renderer\Material\Material.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,7 +10,7 @@ namespace MultiStation{
 
             void SetWidth (const uint32_t&                   width );
             void SetHeight(const uint32_t&                   height);
-            void SetFormat(const TextureInternalFormat& format);
+            void SetFormat(const TextureInternalFormat&      format);
 
             uint32_t                   GetWidth (void) const;
             uint32_t                   GetHeight(void) const;

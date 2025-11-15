@@ -13,7 +13,7 @@ namespace MultiStation{
         
 
         public:
-            Shader(VShader& Vertex , FShader& Fragment , alloc Malloc = malloc, dalloc Free = free);
+            Shader(VShader& Vertex , FShader& Fragment , struct Allocator allocator = {malloc , free});
             ~Shader(void);
 
             void Bind(void) ;
@@ -27,7 +27,6 @@ namespace MultiStation{
         private:
             
             void FindUniforms(void);
-            void FindAttributes(void);
             void UpdateUniforms(void);
             
         private:
@@ -43,8 +42,7 @@ namespace MultiStation{
             uint32_t*       m_AttributesLoc     ;   // The Location of each attribute -- TODO
             
 
-            alloc           m_Malloc            ;   // memory allocation function
-            dalloc          m_Free              ;   // memory free function
+            struct Allocator m_Allocator;
 
     };
 

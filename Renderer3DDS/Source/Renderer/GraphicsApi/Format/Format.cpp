@@ -8,17 +8,17 @@ namespace MultiStation {
     uint32_t GetOpenGLInternalTextureFormat(TextureInternalFormat  format){
         
         switch (format){
-            case TextureInternalFormat::RGB4    :   return GL_RGB4      ;
+            case TextureInternalFormat::R8      :   return GL_R8        ;
+
             case TextureInternalFormat::RGB8    :   return GL_RGB8      ;
             case TextureInternalFormat::RGB16   :   return GL_RGB16     ;
 
-            case TextureInternalFormat::RGB32UI :   return GL_RGB32UI   ;
             case TextureInternalFormat::RGB16F  :   return GL_RGB16F    ;
             case TextureInternalFormat::RGB32F  :   return GL_RGB32F    ;
-            case TextureInternalFormat::RGBA4   :   return GL_RGBA4     ;
+
             case TextureInternalFormat::RGBA8   :   return GL_RGBA8     ;
             case TextureInternalFormat::RGBA16  :   return GL_RGBA16    ;
-            case TextureInternalFormat::RGBA32UI:   return GL_RGBA32UI  ;
+
             case TextureInternalFormat::RGBA16F :   return GL_RGBA16F   ;
             case TextureInternalFormat::RGBA32F :   return GL_RGBA32F   ;
 
@@ -30,15 +30,11 @@ namespace MultiStation {
 
     uint32_t GetOpenGLExternalTextureFormat(TextureExternalFormat  format){
         switch (format){
-            case TextureExternalFormat::RGB4        :   return GL_RGB           ;
             case TextureExternalFormat::RGB8        :   return GL_RGB           ;
             case TextureExternalFormat::RGB16       :   return GL_RGB           ;
-            case TextureExternalFormat::RGB32       :   return GL_RGB           ;
 
-            case TextureExternalFormat::RGBA4       :   return GL_RGBA          ;
             case TextureExternalFormat::RGBA8       :   return GL_RGBA          ;
             case TextureExternalFormat::RGBA16      :   return GL_RGBA          ;
-            case TextureExternalFormat::RGBA32      :   return GL_RGBA          ;
 
             case TextureExternalFormat::RGB16F_RAW  :   return GL_RGB           ;
             case TextureExternalFormat::RGB32F_RAW  :   return GL_RGB           ;
@@ -46,25 +42,6 @@ namespace MultiStation {
             case TextureExternalFormat::RGBA16F_RAW :   return GL_RGBA          ;
             case TextureExternalFormat::RGBA32F_RAW :   return GL_RGBA          ;
 
-            case TextureExternalFormat::RGB4U_RAW   :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB8U_RAW   :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB16U_RAW  :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB32U_RAW  :   return GL_RGB_INTEGER   ;
-
-            case TextureExternalFormat::RGBA4U_RAW  :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA8U_RAW  :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA16U_RAW :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA32U_RAW :   return GL_RGBA_INTEGER  ;
-
-            case TextureExternalFormat::RGB4I_RAW   :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB8I_RAW   :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB16I_RAW  :   return GL_RGB_INTEGER   ;
-            case TextureExternalFormat::RGB32I_RAW  :   return GL_RGB_INTEGER   ;
-
-            case TextureExternalFormat::RGBA4I_RAW  :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA8I_RAW  :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA16I_RAW :   return GL_RGBA_INTEGER  ;
-            case TextureExternalFormat::RGBA32I_RAW :   return GL_RGBA_INTEGER  ;
 
             default:
                 ASSERT(0 , "Undefined Internal Texture Format Type !!!");
@@ -76,11 +53,9 @@ namespace MultiStation {
         switch (format){
             case TextureExternalFormat::RGB8        :   return GL_UNSIGNED_BYTE     ;
             case TextureExternalFormat::RGB16       :   return GL_UNSIGNED_SHORT    ;
-            case TextureExternalFormat::RGB32       :   return GL_UNSIGNED_INT      ;
 
             case TextureExternalFormat::RGBA8       :   return GL_UNSIGNED_BYTE     ;
             case TextureExternalFormat::RGBA16      :   return GL_UNSIGNED_SHORT    ;
-            case TextureExternalFormat::RGBA32      :   return GL_UNSIGNED_INT      ;
 
             case TextureExternalFormat::RGB16F_RAW  :   return GL_HALF_FLOAT        ;
             case TextureExternalFormat::RGB32F_RAW  :   return GL_FLOAT             ;
@@ -88,19 +63,33 @@ namespace MultiStation {
             case TextureExternalFormat::RGBA16F_RAW :   return GL_HALF_FLOAT        ;
             case TextureExternalFormat::RGBA32F_RAW :   return GL_FLOAT             ;
 
-            case TextureExternalFormat::RGB8U_RAW   :   return GL_UNSIGNED_BYTE     ;
-            case TextureExternalFormat::RGB16U_RAW  :   return GL_UNSIGNED_SHORT    ;
-            case TextureExternalFormat::RGB32U_RAW  :   return GL_UNSIGNED_INT      ;
-
-            case TextureExternalFormat::RGBA8U_RAW  :   return GL_UNSIGNED_BYTE     ;
-            case TextureExternalFormat::RGBA16U_RAW :   return GL_UNSIGNED_SHORT    ;
-            case TextureExternalFormat::RGBA32U_RAW :   return GL_UNSIGNED_INT      ;
 
             default:
                 ASSERT(0 , "Undefined Internal Texture Format Type !!!");
         }
         return 0;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 

@@ -1,4 +1,4 @@
-#include "Draw.hpp"
+#include "Commands.hpp"
 #include <GL/glew.h>
 #include "../Init.hpp"
 namespace MultiStation {
@@ -39,9 +39,8 @@ namespace MultiStation {
 		return GL_UNSIGNED_INT;
 	}
 
-	void DrawCommands::Draw(DrawMode mode, DrawParams& params, PipelineSettings settings) {
+	void Commands::Draw(DrawMode mode, DrawParams& params, PipelineSettings settings) {
 		GLenum glMode = ToOpenGLDrawMode(mode);
-		ASSERT(params.ShaderProgram , "Nullptr for Shader Program in Draw Call !");
 		ASSERT(params.VertexBuffer, "Nullptr for Vertex Buffer in Draw Call !");
 		ASSERT(params.Count , "0 count for Draw Call !");
 
@@ -53,8 +52,6 @@ namespace MultiStation {
 			GLCALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0));
 		}
 
-		//Set Shader Program
-		params.ShaderProgram->Bind();
 		//Set Vertex Buffer
 		params.VertexBuffer->Bind();
 
@@ -103,8 +100,6 @@ namespace MultiStation {
 
 		//Unbind Vertex Buffer
 		params.VertexBuffer->Unbind();
-		//Unbind Shader Program
-		params.ShaderProgram->Unbind();
 		//Unbind Frame Buffer
 		if (params.FrameBuffer) {
 			params.FrameBuffer->Unbind();

@@ -8,15 +8,18 @@
 namespace MultiStation{
     
     class FBuffer{
-
+    public :
+        enum Type {
+            Screen , 
+            OffScreen
+        };
         public:
 
             FBuffer(
                 const Texture2DResolution& maxResolution , 
                 const DepthFormat& depthFormat = DepthFormat::DEPTH32 , 
                 const uint32_t& ActiveColorBuffers = 1 ,
-                alloc       AllocateFunc  = malloc,
-                dalloc      FreeFunc = free
+                const Type type = Type::Screen 
             );
             ~FBuffer(void);
 
@@ -48,14 +51,12 @@ namespace MultiStation{
             DepthFormat             m_DepthFormat;          // The Format of the Deapth Render Buffer
             glm::vec4               m_ViewPort;             // The Viewport of this frame buffer
 
-            uint32_t                     m_ObjectId;             // The Frame Buffer Id 
-            uint32_t                     m_DepthId;              // The Depth Render Buffer Id
+            uint32_t                m_ObjectId;             // The Frame Buffer Id 
+            uint32_t                m_DepthId;              // The Depth Render Buffer Id
             
             Texture2D**             m_ColorBuffers;         // Textures that are used as color buffer attachment's
-            uint32_t                     m_ActiveColorBuffers;   // The number of active color buffer attachments
-            
-            alloc                   m_Malloc;               // Allocation Function
-            dalloc                  m_Free ;                // Free memory function 
+            uint32_t                m_ActiveColorBuffers;   // The number of active color buffer attachments
+            Type                    m_Type; // is for ofscreen or on screen rendering ?
 
             bool                    m_BadState;             // 
     };
