@@ -26,7 +26,7 @@ namespace MultiStation {
 		return DrawMode::TRIANGLES;
 	}
 
-	GLenum TypeSizeToOpenGLTypeSize(uint32_t typeSize) {
+	GLenum TypeSizeToOpenGLType(uint32_t typeSize) {
 		switch (typeSize) {
 		case 1: return GL_UNSIGNED_BYTE;
 		case 2: return GL_UNSIGNED_SHORT;
@@ -39,71 +39,44 @@ namespace MultiStation {
 		return GL_UNSIGNED_INT;
 	}
 
-	void Commands::Draw(DrawMode mode, DrawParams& params, PipelineSettings settings) {
+	
+	void Commands::Draw(DrawMode mode, DrawParams& params)
+	{
+		//GLCALL(glPolygonMode(GL_BACK, GL_));
+		GLCALL(glCullFace(GL_BACK));
+		GLCALL(glEnable(GL_CULL_FACE)); // αν το είχες ενεργό πριν
+		GLCALL(glEnable(GL_DEPTH_TEST));
 		GLenum glMode = ToOpenGLDrawMode(mode);
-		ASSERT(params.VertexBuffer, "Nullptr for Vertex Buffer in Draw Call !");
-		ASSERT(params.Count , "0 count for Draw Call !");
+		ASSERT(params.VertexBuffers, "Nullptr for Vertex Buffer in Draw Call !");
 
-		//Set Frame Buffer
-		if (params.FrameBuffer) {
-			params.FrameBuffer->Bind();
-		}
-		else {
-			GLCALL(glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0));
-		}
+		// --- Framebuffer bind (εσένα ΔΕΝ χρειάζεται να το ανοίγεις/κλείνεις κάθε φορά)
+		params.FrameBuffer->Bind();
 
-		//Set Vertex Buffer
-		params.VertexBuffer->Bind();
+		for (int i = 0; i < params.VBCount; i++)
+		{
+			VBuffer& vb = params.VertexBuffers[i];
+			vb.Bind();
 
-		//Set Depth
-		if (settings.DepthTestEnabled) {
-			GLCALL(glEnable(GL_DEPTH_TEST));
-		}
-		else {
-			GLCALL(glDisable(GL_DEPTH_TEST));
-		}
+			if (vb.HasIndexBuffer())
+			{
+				auto attrib = vb.GetIndexBufferAttribs();
 
-		//Set Blending
-		if (settings.BlendEnabled) {
-			GLCALL(glEnable(GL_BLEND));
-			GLCALL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-		}
-		else {
-			GLCALL(glDisable(GL_BLEND));
-		}
+				uint32_t typeSize = attrib.TypeSize;
+				uint32_t count = attrib.Count;
+				GLenum   glType = TypeSizeToOpenGLType(typeSize);
 
-		//Set Culling
-		if (settings.Cull.CullFaceEnabled) {
-			GLCALL(glEnable(GL_CULL_FACE));
-			if (settings.Cull.CullFront) {
-				GLCALL(glCullFace(GL_FRONT));
+				// σωστό offset σε bytes
+				uint32_t offsetBytes = params.Start * typeSize;
+
+				glDrawElements(glMode, count, glType, (void*)offsetBytes);
 			}
-			else {
-				GLCALL(glCullFace(GL_BACK));
+			else
+			{
+				glDrawArrays(glMode, params.Start, params.Count);
 			}
 		}
-		else {
-			GLCALL(glDisable(GL_CULL_FACE));
-		}
 
-		//Draw Call
-		//check if is index draw or not
-		if (params.VertexBuffer->HasIndexBuffer()) {
-			// check sign of index buffer
-			GLenum Type = TypeSizeToOpenGLTypeSize( params.VertexBuffer->GetIndexBufferAttribs().TypeSize );
-			GLCALL(glDrawElements(glMode, params.Count,
-				Type, (void*)params.Start ));
-		}
-		else {
-			GLCALL(glDrawArrays(glMode, params.Start, params.Count));
-		}
-
-		//Unbind Vertex Buffer
-		params.VertexBuffer->Unbind();
-		//Unbind Frame Buffer
-		if (params.FrameBuffer) {
-			params.FrameBuffer->Unbind();
-		}
+		params.FrameBuffer->Unbind();
 	}
 
 }

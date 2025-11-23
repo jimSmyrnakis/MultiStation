@@ -6,12 +6,16 @@
 #ifdef __cplusplus
 extern "C" {
 #endif 
+
+	/**
+	 * @author Dimitris Smyrnakis.
+	 * @param[in] source , The Input BMP Image 
+	 * @param[in] 
+	 */
 	bool image_GausianNoise(
 		struct bmpImage* dest,
 		const struct bmpImage* source,
-		float mean,
-		float variance ,
-		struct Allocator allocator
+		float dbAmp
 	);
 
 	bool GausianNoiseOperation(

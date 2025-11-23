@@ -18,7 +18,7 @@
     <ClInclude Include="Source\Window\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Definitions.hpp">
+    <ClInclude Include="Source\Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Platform.hpp">

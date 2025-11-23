@@ -3,7 +3,7 @@
 
 
 #define _CRT_SECURE_NO_WARNINGS
-#include "../../Definitions.hpp"
+#include "../../Definitions.h"
 #include <stdint.h>
 #include <stddef.h>
 
@@ -47,6 +47,7 @@ extern "C" {
 	};
 
 	bool bmp_load(const char* filename, struct bmpImage* image_out);
+	
 	bool bmp_store(const char* filename, const struct bmpImage* image_in);
 #ifdef __cplusplus
 }

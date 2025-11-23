@@ -104,7 +104,7 @@ int TestAll(void) {
 	}
 
 	struct bmpImage GausianNoiseImage;
-	if (!image_GausianNoise(&GausianNoiseImage, &image, 90, 80, { malloc, free })) {
+	if (!image_GausianNoise(&GausianNoiseImage, &grayImage, 15)) {
 		printf("Failed to make Gauian Noise image.\n");
 		return 1;
 	}
@@ -114,8 +114,8 @@ int TestAll(void) {
 	
 
 	struct bmpImage lineDetectorImage;
-	struct MaskAttributes* attrs = MaskGet(FILTER_LOW_PASS_SPATIAL);
-	if (!image_convolve( attrs, true , &image, &lineDetectorImage )) {
+	struct MaskAttributes* attrs = MaskGet(EDGE_DETECTION_SOBEL_VERTICAL);
+	if (!image_convolve( attrs, true , &grayImage, &lineDetectorImage )) {
 		printf("Failed to apply convolve filter.\n");
 		return 1;
 	}
@@ -201,7 +201,7 @@ int TestAll(void) {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store(".//Application//Assets//Gausian.bmp", &GausianNoiseImage)) {
+	if (bmp_store(".//Application//Assets//GausianNoise.bmp", &GausianNoiseImage)) {
 		printf("Stored BMP image successfully.\n");
 	}
 	else {

@@ -4,14 +4,14 @@
 #include "../Window.hpp"
 
 namespace MultiStation {
-	Window::~Window(void) {
+	Window::~Window(void) noexcept{
 		if (m_NativeWindow) {
 			GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 			glfwDestroyWindow(win);
 			glfwTerminate();
 		}
 	}
-	Window::Window(void) {
+	Window::Window(void) noexcept {
 		m_NativeWindow = nullptr;
 		// Initialise GLFW
 		if (!glfwInit())
@@ -32,48 +32,159 @@ namespace MultiStation {
 		m_Width = 800;
 
 	}
+
+	Window::Window(Window&& win) noexcept {
+		MoveOperation(&win);
+	}
+	Window& Window::operator=(Window&& win) noexcept {
+		MoveOperation(&win);
+		return *this;
+	}
+	Window& Window::MoveOperation(Window* mov) noexcept {
+		this->m_Height = mov->m_Height;
+		this->m_Width = mov->m_Width;
+		this->m_NativeWindow = mov->m_NativeWindow;
+
+		this->m_Height = 0;
+		this->m_Width = 0;
+		this->m_NativeWindow = NULL;
+		return *this;
+	}
+
+
+
+
+
 	void* Window::GetNativeWindow() const {
 		return m_NativeWindow;
 	}
 
-	uint32_t Window::GetSurfaceWidth() const {
+	uint16_t Window::GetSurfaceWidth() const {
+		if (m_NativeWindow == NULL) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return 0;
+		}
+		
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		int width, height;
 		glfwGetFramebufferSize(win, &width, &height);
-		return (uint32_t)width;
+		return (uint16_t)width;
 	}
 
-	uint32_t Window::GetSurfaceHeight() const {
+	uint16_t Window::GetSurfaceHeight() const {
+		if (m_NativeWindow == NULL) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return 0;
+		}
+
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		int width, height;
 		glfwGetFramebufferSize(win, &width, &height);
-		return (uint32_t)height;
+		return (uint16_t)height;
 	}
 
-	uint32_t Window::GetHeight() const {
+	uint16_t Window::GetHeight() const {
+		if (m_NativeWindow == NULL) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return 0;
+		}
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		int width, height;
 		glfwGetWindowSize(win, &width, &height);
-		return (uint32_t)height;
+		return (uint16_t)height;
 	}
 
-	uint32_t Window::GetWidth() const {
+	uint16_t Window::GetWidth() const {
+		if (m_NativeWindow == NULL) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return 0;
+		}
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		int width, height;
 		glfwGetWindowSize(win, &width, &height);
-		return (uint32_t)width;
+		return (uint16_t)width;
 	}
+	const std::string& Window::GetName(void) const {
+		if (!m_NativeWindow) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return m_Name;
+		}
+		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
+		const char* name = glfwGetWindowTitle(win);
+		m_Name = std::move(std::string(name));
+		
+		return m_Name;
+	}
+
+	
+	void Window::SetWidth(uint16_t width) {
+		if (!m_NativeWindow) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return;
+		}
+
+		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
+		int w, h;
+		w = width;
+		h = m_Height;
+
+		glfwSetWindowSize(win, w, h);
+	}
+	void Window::SetHeight(uint16_t height) {
+		if (!m_NativeWindow) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return;
+		}
+
+		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
+		int w, h;
+		w = m_Width;
+		h = height;
+
+		glfwSetWindowSize(win, w, h);
+	}
+	void Window::SetName(const std::string& name) {
+		if (!m_NativeWindow) {
+			ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			return;
+		}
+		
+
+		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
+
+		m_Name = name;
+		glfwSetWindowTitle(win, m_Name.c_str());
+
+	}
+
+
+
+
+
+
+
+
+
 
 	bool Window::ShouldClose() const {
+		
+		ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		return glfwWindowShouldClose(win);
 	}
 
 	void Window::PollEvents() {
+		
+		ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			
 		glfwPollEvents();
 	}
 
 	void Window::SwapBuffers() {
+		
+		ASSERT(m_NativeWindow, "No Window Reference , may a move operator was befored called ?");
+			
 		GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 		glfwSwapBuffers(win);
 	}

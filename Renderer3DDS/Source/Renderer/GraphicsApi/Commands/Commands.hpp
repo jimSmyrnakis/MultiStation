@@ -27,24 +27,19 @@ namespace MultiStation{
 		uint32_t    Count;
 		int32_t     Start;
 		FBuffer* FrameBuffer;
-		VBuffer* VertexBuffer;
-		bool DrawToSurface;
+		VBuffer* VertexBuffers;
+		uint32_t VBCount;
 	};
 
 	struct Culling {
 		bool CullFaceEnabled;
 		bool CullFront;
 	};
-	struct PipelineSettings {
-		bool DepthTestEnabled;
-		bool BlendEnabled;
-		Culling Cull;
-	};
 
 	class Commands {
 
 	public:
-		static void Draw(DrawMode mode, DrawParams& params , PipelineSettings settings );
+		static void Draw(DrawMode mode, DrawParams& params  );
 		
 
 

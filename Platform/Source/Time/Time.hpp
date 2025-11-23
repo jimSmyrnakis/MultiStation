@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Definitions.hpp"
+#include "../Definitions.h"
 
 namespace MultiStation {
 	class Time {

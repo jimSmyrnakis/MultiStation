@@ -4,32 +4,40 @@
 #ifdef __cplusplus
 extern "C" {
 #endif 
+
+	void get_noise_from_db(float dB, float* mean, float* var) {
+		float sigma = 255.0f / powf(10.0f, -dB / 20.0f);
+		*mean = 0.0f;
+		*var = sigma * sigma;
+	}
+
+
 	bool image_GausianNoise(
 		struct bmpImage* dest,
 		const struct bmpImage* source,
-		float mean,
-		float variance,
-		struct Allocator allocator
+		float dbAmp
 	) {
 
 		struct PBOAttributes attrs;
 		if (!getPBOAttributeMap(PBOT_GAUSIAN_NOISE, &attrs)) return false;
 
 		struct Params params;
-		params.allocator = allocator;
 		params.count = 2;
-		params.parameters = (void**)allocator.memalloc(2 * sizeof(void*));
+		params.parameters = (void**)malloc(2 * sizeof(void*));
+		params.allocator = { malloc , free };
 		if (!params.parameters) return false;
-
+		float var, mean;
+		get_noise_from_db(dbAmp, &mean, &var);
 		params.parameters[0] = &mean;
-		params.parameters[1] = &variance;
+		params.parameters[1] = &var;
 
 		bool res = ImageProcess(dest, source, &attrs, &params);
 
-
-		allocator.memfree(params.parameters);
+		free(params.parameters);
 		return res;
 	}
+
+	
 
 	static bool GausianNoise(
 		struct PixelBufferObject* dest,
