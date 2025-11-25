@@ -23,6 +23,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessing", "ImagePro
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECS", "ECS\ECS.vcxproj", "{BE79C95E-F1AD-4E04-BF20-488837258EA8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72BBC878-6245-4316-98DF-B3148EDB2919} = {72BBC878-6245-4316-98DF-B3148EDB2919}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Components", "Components\Components.vcxproj", "{AF57A3B5-D343-48D3-8038-756AD5E79E90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +77,14 @@ Global
 		{BE79C95E-F1AD-4E04-BF20-488837258EA8}.Release|x64.Build.0 = Release|x64
 		{BE79C95E-F1AD-4E04-BF20-488837258EA8}.Release|x86.ActiveCfg = Release|Win32
 		{BE79C95E-F1AD-4E04-BF20-488837258EA8}.Release|x86.Build.0 = Release|Win32
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Debug|x64.ActiveCfg = Debug|x64
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Debug|x64.Build.0 = Debug|x64
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Debug|x86.ActiveCfg = Debug|Win32
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Debug|x86.Build.0 = Debug|Win32
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x64.ActiveCfg = Release|x64
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x64.Build.0 = Release|x64
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x86.ActiveCfg = Release|Win32
+		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

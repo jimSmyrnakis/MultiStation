@@ -5,7 +5,7 @@ namespace MultiStation {
 	
 
 	ComponentRegistry::ComponentRegistry(void) noexcept {
-		m_Transforms = ComponentArray<Transform3D>::Create(true);
+		m_Transforms = ComponentArray<Transform3D>::Create(false);
 
 	}
 	void ComponentRegistry::Move(ComponentRegistry* dest, ComponentRegistry* src) {

@@ -5,7 +5,8 @@
 #include <unordered_map>
 #include <stdint.h>
 #include <stddef.h>
-
+// TODO : After the fisrt release a better version of this class that may not make things slow
+// on removing component's
 namespace MultiStation{
 	template<class T>
 	class ComponentArray {
@@ -87,34 +88,31 @@ namespace MultiStation{
 
 		// Removes the component if it finds it or do nothing if not find it
 		void RemoveComponent(T& component) {
-			// search the component
 			auto it = std::find(m_data.begin(), m_data.end(), component);
-			if (it == m_data.end()) {
-				// do nothing , this component is not here
-				// TODO : Give Error to the User for that 
-				return;
-			}
+			if (it == m_data.end()) return; // component δεν υπάρχει
 
-			// if exist's , then remove it from the entity etirly
 			size_t index = std::distance(m_data.begin(), it);
 			uint32_t entity = m_entitiesToData[index];
+
+			// Αφαίρεση του index από το map
 			std::vector<size_t>& entityComponents = m_entityToComponentsIndexes[entity];
-			// search it in the entity components
-			auto it2 = entityComponents.begin();
-			while (it2 != entityComponents.end()) {
-				if (m_data[(*it2)] == component) {
-					entityComponents.erase(it2);
-					break;
-				}
-				it2++; // it2 is the index to the m_data
-			}
-			// TODO : if not found then fatal error
+			entityComponents.erase(std::remove(entityComponents.begin(), entityComponents.end(), index), entityComponents.end());
 
-
-			m_data.erase(it);
+			// Αφαίρεση component και entity mapping
+			m_data.erase(m_data.begin() + index);
 			m_entitiesToData.erase(m_entitiesToData.begin() + index);
-			// TODO : Rest Elements after it must go one position back
-			// Warning the Map to must be check for that . Big Bug !!!!
+
+			// **Ενημέρωση όλων των indices > index**
+			for (auto& [e, indices] : m_entityToComponentsIndexes) {
+				for (size_t& i : indices) {
+					if (i > index) i--; // shift left
+				}
+			}
+
+			// Αν ο entity δεν έχει πλέον components, αφαίρεσέ τον από το map
+			if (entityComponents.empty()) {
+				m_entityToComponentsIndexes.erase(entity);
+			}
 		}
 
 		
@@ -154,30 +152,46 @@ namespace MultiStation{
 
 		// Remove All Entity Components
 		void RemoveEntityComponents(uint32_t entity) {
+			// find entity maped pairs
 			auto it_pair = m_entityToComponentsIndexes.find(entity);
-			if (it_pair == m_entityToComponentsIndexes.end()) {
-				return; // entity δεν υπάρχει
-			}
+			if (it_pair == m_entityToComponentsIndexes.end()) return; 
+			// leave if the entity does not exist's
 
+			// take the component references (indexe's) list of this vector
 			std::vector<size_t>& componentIndexes = it_pair->second;
 
-			// Reverse remove for keeping order
+			// If they are not sorted then sort them in ascending order
+			std::sort(componentIndexes.begin(), componentIndexes.end());
+
+			// start from the last element to the first looping
 			for (auto it = componentIndexes.rbegin(); it != componentIndexes.rend(); ++it) {
-				size_t index = *it;
-				m_data.erase(m_data.begin() + index);
-				m_entitiesToData.erase(m_entitiesToData.begin() + index);
+				size_t index = *it; // take the component index
+				m_data.erase(m_data.begin() + index); // remove this component
+				m_entitiesToData.erase(m_entitiesToData.begin() + index); // remove this entity reference
+				// to this component 
+
+				// Shift left all the bigger indexes in the maped references (indexe's) of all entities
+				for (auto& [e, indices] : m_entityToComponentsIndexes) {
+					for (size_t& i : indices) {
+						if (i > index) i--;
+					}
+				}
 			}
 
-			// remove the unordered pair from the unordered map 
 			m_entityToComponentsIndexes.erase(it_pair);
+		}
+
+		
+		std::vector<T>& GetAllComponents(void) const {
+			return m_data;
 		}
 		
 
 	private:
 		std::vector<T> m_data; // Components Data all together - Cache friendly
 		std::vector<uint32_t> m_entitiesToData; // what entity each component belongs ?
-		std::unordered_map<uint32_t,std::vector< size_t>> m_entityToComponentsIndexes; // save each entity 
-		// the components index in the m_data component list
+		std::unordered_map<uint32_t,std::vector<size_t> > m_entityToComponentsIndexes; // save each entity 
+		// the components address in the m_data component list
 		bool m_Unique; // Can each entity has multiple same type components or not
 		// This get scense for Scripts especially
 

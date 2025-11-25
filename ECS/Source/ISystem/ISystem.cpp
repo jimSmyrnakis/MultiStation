@@ -3,6 +3,7 @@
 namespace MultiStation {
 	
 	uint32_t ISystem::WRITABLE = 0x00000001;
+	uint32_t ISystem::SYNCHRONIZED = 0x00000002;
 
 	ISystem::ISystem(uint32_t flags) noexcept {
 		m_flags = flags;

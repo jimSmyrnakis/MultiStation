@@ -172,6 +172,7 @@ int Test(void)
 		testBlend += timeStep / 3.0f;
 		(*blend) += (Direction) * timeStep / 3.0f;
 		if ((*blend) > 1) {
+			(*blend) = 1;
 			Direction = -1;
 			testBlend = 0;
 		}

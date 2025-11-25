@@ -1,4 +1,2 @@
-﻿  ComponentRegistry.cpp
-  Transform.cpp
-  Generating Code...
-  ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\x64\ECS.lib
+﻿  ManagerThreadFunc.cpp
+  ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\x64\ECS.exe

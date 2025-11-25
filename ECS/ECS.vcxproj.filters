@@ -18,9 +18,6 @@
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\Transform.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ComponentRegistry\ComponentRegistry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,11 +27,11 @@
     <ClInclude Include="Source\ISystem\ISystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ManagerControlBlock\ManagerControlBlock.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Components\Transform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ComponentRegistry\ComponentRegistry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,6 +39,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\ISystem\ISystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneManager\ManagerThreadFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneManager\ThreadsPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ManagerControlBlock\ManagerControlBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneManager\SystemsAndAssingment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
