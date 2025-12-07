@@ -48,4 +48,11 @@ extern "C" {
 		Allocator allocator = {malloc , free});
 
 
+	bool ImageGausianFilter(
+		struct bmpImage* dest,
+		const struct bmpImage* source,
+		uint32_t N,
+		float Sigma);
+
+
 }

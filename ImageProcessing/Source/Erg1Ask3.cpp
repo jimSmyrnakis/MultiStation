@@ -54,7 +54,18 @@ int Erg1Ask3(void) {
 	CHECK(bmp_store(FOLDER("binarized_prewwit.bmp"), &BinarizedPrewwitImage));
 
 
+	// Gausian Filter
+	bmpImage GausianFilteredImage;
+	float sigma = 1.0f;
+	uint32_t kernelSize = 5;
+	CHECK(ImageGausianFilter(&GausianFilteredImage, &OriginalImage, kernelSize, sigma));
+	CHECK(bmp_store(FOLDER("gausian_filtered.bmp"), &GausianFilteredImage));
 
+	// Canny Edge Detector
+	bmpImage CannyEdgeImage;
+	sigma = 1;
+	CHECK(imageCannyEdgeDetect(&CannyEdgeImage, &OriginalImage, sigma, 16, 32));
+	CHECK(bmp_store(FOLDER("canny_edge2.bmp"), &CannyEdgeImage));
 
 	return 0;
 }

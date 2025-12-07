@@ -133,5 +133,118 @@ extern "C" {
         allocator.memfree(params.parameters);
         return res;
     }
+#define PI 3.14159265358979323846f
+#define e 2.71828182845904523536f
+
+    float GausianFunction(int x, int y, float Sigma) {
+		float power = -((x * x + y * y) / (2 * Sigma * Sigma));
+		float coef = 1.0f / (2 * PI * Sigma * Sigma);
+        return coef * (powf(e, power));
+    }
+
+	float* CreateGausianKernel(uint32_t N, float Sigma) {
+		float* kernel = (float*)malloc(N * N * sizeof(float));
+		if (!kernel) return nullptr;
+		int half = N / 2;
+		float sum = 0.0f;
+		for (int y = -half; y <= half; y++) {
+			for (int x = -half; x <= half; x++) {
+				float value = GausianFunction(x, y, Sigma);
+				kernel[(y + half) * N + (x + half)] = value;
+				sum += value;
+			}
+		}
+
+		// Normalize the kernel
+		for (uint32_t i = 0; i < N * N; i++) {
+			kernel[i] /= sum;
+		}
+		return kernel;
+	}
+
+    bool ImageConvolveCustomKernel(
+        struct bmpImage* dest,
+        const struct bmpImage* source,
+        const float* kernel,
+        uint32_t kernelWidth,
+        uint32_t kernelHeight) {
+		// allocate dest image
+
+		dest->width = source->width;
+		dest->height = source->height;
+		dest->channels = source->channels;
+		dest->colorTable = source->colorTable;
+		dest->header = source->header;
+		uint32_t stride = (dest->width * dest->channels + 3) & ~3;
+		dest->pixels = (uint8_t*)malloc(dest->height *stride);
+		if (!dest->pixels) {
+			ASSERT(0, "No memory !!!");
+			return false;
+		}
+		memset(dest->pixels, 0, dest->height * stride);
+
+		// do the convolution
+		int kwHalf = kernelWidth / 2;
+		int khHalf = kernelHeight / 2;
+
+		 for (int y = 0; y < (int)source->height; y++){ // for each row
+			 for (int x = 0; x < (int)source->width; x++){ // for each collum
+                 for (int c = 0; c < source->channels; c++) { // for each channel
+                // for each pixel
+                    float acc = 0.0f;
+                    uint32_t destIdx = y * stride + x * dest->channels + c;
+				    for (int j = -khHalf; j <= khHalf; j++) { // for each kernel row
+					    for (int i = -kwHalf; i <= kwHalf; i++) { // for each kernel col
+                            // just to access all kernel elements
+						
+							    int imgX = x + i;
+							    int imgY = y + j;
+							    // clamp boundaries
+							    if (imgX < 0) imgX = 0;
+							    if (imgX >= (int)source->width) imgX = source->width - 1;
+							    if (imgY < 0) imgY = 0;
+							    if (imgY >= (int)source->height) imgY = source->height - 1;
+
+							    uint32_t imgIdx = imgY * stride + imgX * source->channels + c;
+							    uint32_t kernelIdx = (j + khHalf) * kernelWidth + (i + kwHalf);
+							    float pixelValue = (float)source->pixels[imgIdx];
+							    float kernelValue = kernel[kernelIdx];
+							    acc += pixelValue * kernelValue;
+							    // clamp to [0,255]
+							    
+						    }
+                        }
+					if (acc < 0.0f) acc = 0.0f;
+					if (acc > 255.0f) acc = 255.0f;
+					
+					dest->pixels[destIdx] = (uint8_t)(acc);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    bool ImageGausianFilter(
+        struct bmpImage* dest,
+        const struct bmpImage* source,
+        uint32_t N,
+        float Sigma) {
+
+		float* kernel = CreateGausianKernel(N, Sigma);
+		if (!kernel) return false;
+
+		// do the convolution
+		bool res = ImageConvolveCustomKernel(dest, source, kernel, N, N);
+		if (!res) {
+			free(kernel);
+			return false;
+		}
+
+
+
+		free(kernel);
+        return true;
+    }
 
 }

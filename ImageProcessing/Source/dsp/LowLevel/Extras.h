@@ -8,6 +8,11 @@ extern "C" {
 
 	//bool image_find_minmax(struct bmpImage* image, uint64_t max, uint64_t min);
 
-	
+	bool imageCannyEdgeDetect(
+		struct bmpImage* dest,
+		const struct bmpImage* source,
+		float sigma ,
+		float lowThreshold,
+		float highThreshold);
 
 }
