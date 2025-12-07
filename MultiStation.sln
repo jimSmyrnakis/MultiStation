@@ -19,7 +19,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessing", "ImageProcessing\ImageProcessing.vcxproj", "{08AE75F4-B65B-4EE8-AD3F-4C3D9B24537A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{72BBC878-6245-4316-98DF-B3148EDB2919} = {72BBC878-6245-4316-98DF-B3148EDB2919}
-		{76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F} = {76E5C4DA-EFCE-4F09-AFB1-D9CE91350E3F}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECS", "ECS\ECS.vcxproj", "{BE79C95E-F1AD-4E04-BF20-488837258EA8}"
@@ -28,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECS", "ECS\ECS.vcxproj", "{
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Components", "Components\Components.vcxproj", "{AF57A3B5-D343-48D3-8038-756AD5E79E90}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Systems", "Systems\Systems.vcxproj", "{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +86,14 @@ Global
 		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x64.Build.0 = Release|x64
 		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x86.ActiveCfg = Release|Win32
 		{AF57A3B5-D343-48D3-8038-756AD5E79E90}.Release|x86.Build.0 = Release|Win32
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Debug|x64.ActiveCfg = Debug|x64
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Debug|x64.Build.0 = Debug|x64
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Debug|x86.ActiveCfg = Debug|Win32
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Debug|x86.Build.0 = Debug|Win32
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Release|x64.ActiveCfg = Release|x64
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Release|x64.Build.0 = Release|x64
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Release|x86.ActiveCfg = Release|Win32
+		{04634DF5-FB7E-483C-87A6-EFB63DC97BA6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

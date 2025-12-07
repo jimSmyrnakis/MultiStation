@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../../Defs.hpp"
-#include <Renderer/GraphicsApi/Format/Format.hpp>
+#include "../../Definitions.h"
+#include "../Format/Format.hpp"
 
 namespace MultiStation{
 
@@ -17,8 +17,8 @@ namespace MultiStation{
         public:
 
             UBuffer(
-                uint32_t     count                       , 
-                uint32_t     size                        ,  
+                ::uint32_t     count                       , 
+                ::uint32_t     size                        ,  
                 struct Allocator allocator = {malloc , free});
 
             UBuffer(const UBuffer& copy) = delete; // for security reasons
@@ -36,15 +36,15 @@ namespace MultiStation{
             UBuffer& operator=(UBuffer&& move) noexcept;
 
         public:
-                uint32_t GetUniformsCount(void) const;
+                ::uint32_t GetUniformsCount(void) const;
                 /*return the total uniforms this ubuffer can have*/
-                uint32_t GetDefinedUniformsCount(void) const;
+                ::uint32_t GetDefinedUniformsCount(void) const;
                 /*return the total uniforms this ubuffer have take*/
-                uint32_t GetUndefinedUniformsCount(void) const;
+                ::uint32_t GetUndefinedUniformsCount(void) const;
                 /*return the total uniforms this ubuffer can take*/
-                void GetUniformNameByIndex(const uint32_t& index , char* name , uint32_t maxLength );
+                void GetUniformNameByIndex(const ::uint32_t& index , char* name , ::uint32_t maxLength );
                 /**/
-                bool AddUniform(UniformType type , char* name , uint32_t length , void* data );
+                bool AddUniform(UniformType type , char* name , ::uint32_t length , void* data );
                 
 				void RedirectUniformPointerByName(const char* name, void* newPointer) const;
              
@@ -52,8 +52,8 @@ namespace MultiStation{
                 UniformType GetUniformTypeByName(const char* name) const;
 
                 // TODO - make GetUniformIdByName public and make a method GetUniformNameById 
-                const char* GetUniformNameById(const uint32_t& id) const;
-                uint32_t GetUniformIdByName(const char* name) const;
+                const char* GetUniformNameById(const ::uint32_t& id) const;
+                ::uint32_t GetUniformIdByName(const char* name) const;
 
         private:
             mutable void*       m_UniformsMemory;   // The contigues memory with all uniform variables
@@ -61,13 +61,13 @@ namespace MultiStation{
             // or remove uniforms only change their contents
             mutable void*       m_MemCurrent;
             // defines the first free byte address after each time we add a uniform
-            uint32_t            m_Size;             // The size of thos memory in bytes
-            uint32_t            m_CountUniforms;    // The total number of uniforms 
-            uint32_t            m_SpecifiedUniforms;// The number of uniforms that have already added
+            ::uint32_t            m_Size;             // The size of thos memory in bytes
+            ::uint32_t            m_CountUniforms;    // The total number of uniforms 
+            ::uint32_t            m_SpecifiedUniforms;// The number of uniforms that have already added
             UniformType*        m_UniformsTypes;    // Each uniform type (a type defines the total number of elements and the size of element )
             uintptr_t*           m_UniformsPointers; // For Each Uniform where is the first byte of it
             char**              m_UniformsNames;    // For each Uniform the name in the shader
-            uint32_t*           m_NamesLength;      // The total number of characters for each name (0 means null terminated string)
+            ::uint32_t*           m_NamesLength;      // The total number of characters for each name (0 means null terminated string)
             struct Allocator    m_Allocator;        // The allocator for receive memory request from heap
             bool                m_HasMoved;         // becames true only when this instance moved its data to other instance
     };

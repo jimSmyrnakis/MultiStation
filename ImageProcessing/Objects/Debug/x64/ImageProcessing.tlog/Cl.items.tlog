@@ -1,5 +1,6 @@
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Masks\LowPassSpatialMask.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\LowPassSpatialMask.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Masks\HighPassSpatialMask.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\HighPassSpatialMask.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Filters\Filters.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Filters.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Binarization.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Binarization.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Converters.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Converters.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Convolution.obj
@@ -16,11 +17,15 @@ C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Masks\RobertsMask.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\RobertsMask.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Masks\RobinsonMask.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\RobinsonMask.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Masks\SobelMask.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\SobelMask.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Magnitute.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Magnitute.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Operations.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Operations.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PixelBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\PixelBuffer.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Rotation.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Rotation.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\SaltAndPepperNoise.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Sepia.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Sepia.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Erg1Ask1.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Erg1Ask1.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Erg1Ask3.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Erg1Ask3.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\main.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\main.obj
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Erg1Ask2.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\Erg1Ask2.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestAll.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\TestAll.obj
 C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestLineDetector.cpp;C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Objects\Debug\x64\TestLineDetector.obj

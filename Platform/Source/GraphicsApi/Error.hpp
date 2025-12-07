@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Defs.hpp"
+#include "../Definitions.h"
 
 void    GLClearErrors(void);
 bool    GLLogCall(const char* FunctionName, const char* SourceFile, unsigned int line);

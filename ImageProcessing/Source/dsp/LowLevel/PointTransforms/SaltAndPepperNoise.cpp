@@ -38,17 +38,24 @@ extern "C" {
 		data1 = data + 16384;
 		data2 = 16384 - data;
 		for (uint32_t i = 0; i < dest->height; i++) {
+			// for each row
 			for (uint32_t j = 0; j < dest->width; j++) {
+				// for each col
+				data = rand();
+				// for each channel common random value
 				for (uint32_t c = 0; c < dest->channels; c++) {
+					// for each channel
 					uint32_t index = i * rowSize + j * bytesPerPixel + c;
+					// rowSize or Stride means the same
+					//
 					float Val = 0.0f;
-					data = rand();
+					
 					if (data >= 16384 && data < data1)
-						Val = 0;
+						Val = 0; // Pepper
 					else if (data >= data2 && data < 16384)
-						Val = 255;
+						Val = 255; // Salt
 					else
-						Val = source->pixels[index];
+						Val = source->pixels[index]; // image
 					dest->pixels[index] = static_cast<uint8_t>(Val);
 				}
 			}

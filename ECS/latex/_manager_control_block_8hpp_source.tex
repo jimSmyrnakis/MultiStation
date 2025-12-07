@@ -1,0 +1,43 @@
+\doxysection{Manager\+Control\+Block.\+hpp}
+\hypertarget{_manager_control_block_8hpp_source}{}\label{_manager_control_block_8hpp_source}\index{Source/ManagerControlBlock/ManagerControlBlock.hpp@{Source/ManagerControlBlock/ManagerControlBlock.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{enum\ class}\ ManagerState\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ UPDATE,}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ DESTROY}
+\DoxyCodeLine{00010\ \ \ \ \ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }ManagerControlBlock\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ ManagerControlBlock()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \string~ManagerControlBlock()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ ManagerControlBlock(\textcolor{keyword}{const}\ ManagerControlBlock\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ ManagerControlBlock\&\ operator=(\textcolor{keyword}{const}\ ManagerControlBlock\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ManagerControlBlock(ManagerControlBlock\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ManagerControlBlock\&\ operator=(ManagerControlBlock\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ NextVersion();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ uint32\_t\ GetVersion()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetState(ManagerState\ state);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ ManagerState\ GetState()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ m\_lock;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ uint32\_t\ m\_count\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ ManagerState\ m\_state\ =\ ManagerState::UPDATE;}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}

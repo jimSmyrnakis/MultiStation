@@ -6,8 +6,8 @@
 /*==================================================================================*/
 namespace MultiStation{
     UBuffer::UBuffer(
-              uint32_t  count                , 
-              uint32_t  size                 ,  
+              ::uint32_t  count                , 
+              ::uint32_t  size                 ,  
         struct Allocator allocator        )
     {
 
@@ -90,8 +90,8 @@ namespace MultiStation{
             return ;
         }
 
-        // allocate count uint32_t number's for each uniform name length
-        m_NamesLength = (uint32_t*)m_Allocator.memalloc(m_CountUniforms*sizeof(uint32_t));
+        // allocate count ::uint32_t number's for each uniform name length
+        m_NamesLength = (::uint32_t*)m_Allocator.memalloc(m_CountUniforms*sizeof(::uint32_t));
         if (m_NamesLength == nullptr){
             ASSERT(0 , "No memory !");
             m_Allocator.memfree(m_UniformsMemory);
@@ -214,18 +214,18 @@ namespace MultiStation{
 
 namespace MultiStation{
     
-    uint32_t UBuffer::GetUniformsCount(void) const{
+    ::uint32_t UBuffer::GetUniformsCount(void) const{
         return m_CountUniforms;
     }
     /*return the total uniforms this ubuffer can have*/
-    uint32_t UBuffer::GetDefinedUniformsCount(void) const{
+    ::uint32_t UBuffer::GetDefinedUniformsCount(void) const{
         return m_SpecifiedUniforms;
     }
     /*return the total uniforms this ubuffer have take*/
-    uint32_t UBuffer::GetUndefinedUniformsCount(void) const{
+    ::uint32_t UBuffer::GetUndefinedUniformsCount(void) const{
         return m_CountUniforms - m_SpecifiedUniforms;
     }
-    void UBuffer::GetUniformNameByIndex(const uint32_t& index , char* name , uint32_t maxLength ){
+    void UBuffer::GetUniformNameByIndex(const ::uint32_t& index , char* name , ::uint32_t maxLength ){
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return;
@@ -245,7 +245,7 @@ namespace MultiStation{
 
     }
     /*return the total uniforms this ubuffer can take*/
-    bool UBuffer::AddUniform(UniformType type , char* name , uint32_t length , void* data ){
+    bool UBuffer::AddUniform(UniformType type , char* name , ::uint32_t length , void* data ){
 
         //check if is a trash instance
         if (m_HasMoved){
@@ -288,7 +288,7 @@ namespace MultiStation{
 
         // how big is the name of it ?
         m_NamesLength[m_SpecifiedUniforms - 1] =(length) ? (length+1) : (strlen(name) + 1);
-        uint32_t maxlen = m_NamesLength[m_SpecifiedUniforms - 1];
+        ::uint32_t maxlen = m_NamesLength[m_SpecifiedUniforms - 1];
         
         // allocate space for the uniform name
         m_UniformsNames[m_SpecifiedUniforms - 1] 
@@ -311,7 +311,7 @@ namespace MultiStation{
     }
 
 
-    uint32_t UBuffer::GetUniformIdByName(const char* name) const{
+    ::uint32_t UBuffer::GetUniformIdByName(const char* name) const{
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return 0xFFFFFFFF;
@@ -327,8 +327,8 @@ namespace MultiStation{
             return 0xFFFFFFFF;
         }
 
-        uint32_t id = 0xFFFFFFFF;
-        for(uint32_t i = 0; i < m_SpecifiedUniforms; i++){
+        ::uint32_t id = 0xFFFFFFFF;
+        for(::uint32_t i = 0; i < m_SpecifiedUniforms; i++){
             
             if (strcmp(m_UniformsNames[i] , name) == 0){
                 id = i;
@@ -341,7 +341,7 @@ namespace MultiStation{
         return id;
     }
     void* UBuffer::GetUniformPointerByName(const char* name) const{
-        uint32_t id = GetUniformIdByName(name);
+        ::uint32_t id = GetUniformIdByName(name);
 
         if (id == 0xFFFFFFFF){
             ASSERT(0 , "Uniform Can't found !!!");
@@ -352,7 +352,7 @@ namespace MultiStation{
     }
 
     UniformType UBuffer::GetUniformTypeByName(const char* name) const{
-        uint32_t id = GetUniformIdByName(name);
+        ::uint32_t id = GetUniformIdByName(name);
 
         if (id == 0xFFFFFFFF){
             ASSERT(0 , "Uniform Can't found !!!");
@@ -362,7 +362,7 @@ namespace MultiStation{
         return m_UniformsTypes[id];
     }
 
-    const char* UBuffer::GetUniformNameById(const uint32_t& id) const{
+    const char* UBuffer::GetUniformNameById(const ::uint32_t& id) const{
         if (m_HasMoved){
             ASSERT(0 , "This Uniforms Buffer has move its contents to other ubuffer !!!");
             return nullptr;
@@ -387,7 +387,7 @@ namespace MultiStation{
     }
 
     void UBuffer::RedirectUniformPointerByName(const char* name, void* newPointer) const {
-		uint32_t id = GetUniformIdByName(name);
+		::uint32_t id = GetUniformIdByName(name);
 		if (id == 0xFFFFFFFF) {
 			ASSERT(0, "Uniform Can't found !!!");
 			return;

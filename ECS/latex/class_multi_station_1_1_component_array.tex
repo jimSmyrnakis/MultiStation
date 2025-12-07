@@ -1,0 +1,305 @@
+\doxysection{Multi\+Station\+::Component\+Array\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_multi_station_1_1_component_array}{}\label{class_multi_station_1_1_component_array}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+
+
+This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible.  
+
+
+
+
+{\ttfamily \#include $<$Component\+Array.\+hpp$>$}
+
+Inheritance diagram for Multi\+Station\+::Component\+Array\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_component_array}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}{\texorpdfstring{$\sim$}{\string~}\+Component\+Array}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_a506204a9fd45ddf08d3fa787f5c05ff0}{Component\+Array}} (const Component\+Array \&copy)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor to prevent copying. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} \& \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{operator=}} (const \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} \&copy)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator to prevent copying. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_aa5f6331fe77b19a0d3e93626dae21a7d}{Component\+Array}} (Component\+Array \&\&move) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor and move assignment operator for transferring ownership. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} \& \mbox{\hyperlink{class_multi_station_1_1_component_array_a42485190e95291a34084cc545819853f}{operator=}} (\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} \&\&move) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment operator for transferring ownership. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08}{Add\+Component}} (uint32\+\_\+t entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Adds a new component for the specified entity , If the entity does not already have one. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}{Replace\+Component}} (uint32\+\_\+t entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Replaces the component for the specified entity if it exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{Remove\+Component}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Removes the component associated with the specified entity. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249}{Get\+Component}} (uint32\+\_\+t entity) const
+\begin{DoxyCompactList}\small\item\em Gets the component associated with the specified entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a}{Get\+Entity}} (T \&component, uint32\+\_\+t \&entity) const
+\begin{DoxyCompactList}\small\item\em Gets the entity associated with the specified component. \end{DoxyCompactList}\item 
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{Get\+Components}} (void) const
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{Has\+Entity}} (uint32\+\_\+t entity) const
+\begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{Multi\+Station\+::\+IComponent\+Array}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}{\texorpdfstring{$\sim$}{\string~}\+IComponent\+Array}} (void) noexcept=default
+\begin{DoxyCompactList}\small\item\em A virtual destructor to allow for proper cleanup of derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{Multi\+Station\+::\+IComponent\+Array}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{Get\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em Gets a unique type ID for the specified component type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Multi\+Station\+::\+Component\+Array$<$ T $>$}
+This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis
+\end{DoxyAuthor}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_component_array_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ComponentArray@{ComponentArray}}
+\index{ComponentArray@{ComponentArray}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ComponentArray()}{ComponentArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Component\+Array (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Constructs a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} object. 
+
+\Hypertarget{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!````~ComponentArray@{\texorpdfstring{$\sim$}{\string~}ComponentArray}}
+\index{````~ComponentArray@{\texorpdfstring{$\sim$}{\string~}ComponentArray}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ComponentArray()}{\string~ComponentArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Destroys the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} object. 
+
+\Hypertarget{class_multi_station_1_1_component_array_a506204a9fd45ddf08d3fa787f5c05ff0}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ComponentArray@{ComponentArray}}
+\index{ComponentArray@{ComponentArray}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ComponentArray()}{ComponentArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a506204a9fd45ddf08d3fa787f5c05ff0} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Component\+Array (\begin{DoxyParamCaption}\item[{const Component\+Array$<$ T $>$ \&}]{copy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor to prevent copying. 
+
+\Hypertarget{class_multi_station_1_1_component_array_aa5f6331fe77b19a0d3e93626dae21a7d}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ComponentArray@{ComponentArray}}
+\index{ComponentArray@{ComponentArray}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ComponentArray()}{ComponentArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_aa5f6331fe77b19a0d3e93626dae21a7d} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Component\+Array (\begin{DoxyParamCaption}\item[{Component\+Array$<$ T $>$ \&\&}]{move}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move constructor and move assignment operator for transferring ownership. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em move} & The \doxylink{class_multi_station_1_1_component_array}{Component\+Array} to move from. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_component_array_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08} 
+template$<$typename T$>$ \\
+template$<$typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Adds a new component for the specified entity , If the entity does not already have one. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity to associate the component with. \\
+\hline
+\mbox{\texttt{in}}  & {\em args} & The arguments to construct the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly added component, or nullptr if the entity already has one. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If the entity already has a component, the method returns nullptr and does not add a new component. Use Replace\+Component to update existing components. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the component associated with the specified entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component if found, or nullptr if the entity does not have one. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a} 
+template$<$typename T$>$ \\
+const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a const reference to the vector of all components. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the vector containing all components. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetEntity@{GetEntity}}
+\index{GetEntity@{GetEntity}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetEntity()}{GetEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a} 
+template$<$typename T$>$ \\
+bool \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Entity (\begin{DoxyParamCaption}\item[{T \&}]{component}{, }\item[{uint32\+\_\+t \&}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the entity associated with the specified component. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em component} & The component whose entity is to be retrieved. \\
+\hline
+\mbox{\texttt{out}}  & {\em entity} & The entity associated with the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the component is found and the entity is set, false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Do not use this method frequently as it has O(n) time complexity. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!HasEntity@{HasEntity}}
+\index{HasEntity@{HasEntity}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{HasEntity()}{HasEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82} 
+template$<$typename T$>$ \\
+bool \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Has\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the specified entity has an associated component. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the entity has a component, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_a42485190e95291a34084cc545819853f}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a42485190e95291a34084cc545819853f} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}}$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}}$<$ T $>$ \&\&}]{move}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move assignment operator for transferring ownership. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em move} & The \doxylink{class_multi_station_1_1_component_array}{Component\+Array} to move from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the moved \doxylink{class_multi_station_1_1_component_array}{Component\+Array}. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}} \& \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{Component\+Array}}$<$ T $>$ \&}]{copy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator to prevent copying. 
+
+\Hypertarget{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Removes the component associated with the specified entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be removed.\\
+\hline
+\end{DoxyParams}
+If the entity does not have a component, the method does nothing. If the component is found, it is removed efficiently by swapping it with the last component costing O(1) time complexity. \Hypertarget{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ReplaceComponent@{ReplaceComponent}}
+\index{ReplaceComponent@{ReplaceComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70} 
+template$<$typename T$>$ \\
+template$<$typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Replace\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Replaces the component for the specified entity if it exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be replaced. \\
+\hline
+\mbox{\texttt{in}}  & {\em args} & The arguments to construct the new component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the replaced component, or nullptr if the entity does not have one. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Component\+Array/Component\+Array.\+hpp\end{DoxyCompactItemize}

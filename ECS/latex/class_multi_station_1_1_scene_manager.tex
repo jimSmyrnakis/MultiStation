@@ -1,0 +1,54 @@
+\doxysection{Multi\+Station\+::Scene\+Manager Class Reference}
+\hypertarget{class_multi_station_1_1_scene_manager}{}\label{class_multi_station_1_1_scene_manager}\index{MultiStation::SceneManager@{MultiStation::SceneManager}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_scene_manager_1_1_manager_info}{Manager\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_aaaa8ca68db2c1979bd900a2f20760f2f}\label{class_multi_station_1_1_scene_manager_aaaa8ca68db2c1979bd900a2f20760f2f} 
+{\bfseries Scene\+Manager} (const Scene\+Manager \&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a631abba102f9fa540a100a5ecc313a2e}\label{class_multi_station_1_1_scene_manager_a631abba102f9fa540a100a5ecc313a2e} 
+Scene\+Manager \& {\bfseries operator=} (const Scene\+Manager \&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a8baeb0a9250154f1d181f675012d0b89}\label{class_multi_station_1_1_scene_manager_a8baeb0a9250154f1d181f675012d0b89} 
+{\bfseries Scene\+Manager} (Scene\+Manager \&\&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a4f78b0571c4be8e729196273953b2bf1}\label{class_multi_station_1_1_scene_manager_a4f78b0571c4be8e729196273953b2bf1} 
+Scene\+Manager \& {\bfseries operator=} (Scene\+Manager \&\&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a5edd8cb1baf56f1a4545f2364247b8fb}\label{class_multi_station_1_1_scene_manager_a5edd8cb1baf56f1a4545f2364247b8fb} 
+uint32\+\_\+t {\bfseries Get\+Sync\+Threads\+Num} (void) const
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a47b89fa38352a1714e1341c5abbf25f9}\label{class_multi_station_1_1_scene_manager_a47b89fa38352a1714e1341c5abbf25f9} 
+uint32\+\_\+t {\bfseries Get\+Async\+Threads\+Num} (void) const
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a13b9b40977ada687a12f82992322e727}\label{class_multi_station_1_1_scene_manager_a13b9b40977ada687a12f82992322e727} 
+void {\bfseries Assign\+Sync\+System} (uint32\+\_\+t sync\+Thread\+Index, \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}system)
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a649fee83df8de0bdf01e0f45432ad7fd}\label{class_multi_station_1_1_scene_manager_a649fee83df8de0bdf01e0f45432ad7fd} 
+void {\bfseries Assign\+Async\+System} (uint32\+\_\+t async\+Thread\+Index, \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}system)
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a801b4cebd3785f6d4ef75a525720ded5}\label{class_multi_station_1_1_scene_manager_a801b4cebd3785f6d4ef75a525720ded5} 
+void {\bfseries Start\+Systems} (void)
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_aecd718eebd18975735e544b27ff09b92}\label{class_multi_station_1_1_scene_manager_aecd718eebd18975735e544b27ff09b92} 
+void {\bfseries Stop\+Systems} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_a2989f67a05fc1cecc3711ab2a761c687}\label{class_multi_station_1_1_scene_manager_a2989f67a05fc1cecc3711ab2a761c687} 
+static Scene\+Manager \texorpdfstring{$\ast$}{*} {\bfseries Create} (void) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_scene_manager_ab9abdec43465a71929a6261789b97767}\label{class_multi_station_1_1_scene_manager_ab9abdec43465a71929a6261789b97767} 
+static void {\bfseries Destroy} (Scene\+Manager \texorpdfstring{$\ast$}{*}ptr) noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Scene\+Manager/Scene\+Manager.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,107 @@
+\doxysection{Scene\+Manager.\+hpp}
+\hypertarget{_scene_manager_8hpp_source}{}\label{_scene_manager_8hpp_source}\index{Source/SceneManager/SceneManager.hpp@{Source/SceneManager/SceneManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <shared\_mutex>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <barrier>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../ISystem/ISystem.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../ManagerControlBlock/ManagerControlBlock.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}*\ systems\_manager(\textcolor{keywordtype}{void}*\ info);}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }SceneManager\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_scene_manager_1_1_manager_info}{ManagerInfo}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ registry\ that\ each\ thread\ will\ use\ }}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ISystem*>*\ systems;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ System's\ a\ thread\ will\ use\ }}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_mutex*\ sharedLock;\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ state\ of\ the\ manager}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{ManagerControlBlock}}*\ controlBlock;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Manager\ Control\ Block}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \textcolor{keyword}{synchronized};\ \textcolor{comment}{//\ that\ says\ that\ the\ system's\ you\ have\ will\ not\ }}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ need\ to\ ynchronized\ with\ the\ game\ loop}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::barrier<>*\ sharedBarrier;\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Shared\ barrier\ for\ manager\ synchronization}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::barrier<>*\ syncSharedBarrier;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Shared\ Barrier\ for\ game\ loop\ sunc}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ SceneManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \string~SceneManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Release(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ThreadPoolInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ThreadPoolFini(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RunThreads(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CloseThreads(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ SceneManager*\ Create(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Destroy(SceneManager*\ ptr)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ SceneManager(\textcolor{keyword}{const}\ SceneManager\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ SceneManager\&\ operator=(\textcolor{keyword}{const}\ SceneManager\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ SceneManager(SceneManager\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ SceneManager\&\ operator=(SceneManager\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ uint32\_t\ GetSyncThreadsNum(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ uint32\_t\ GetAsyncThreadsNum(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AssignSyncSystem(uint32\_t\ syncThreadIndex\ ,\ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ system);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AssignAsyncSystem(uint32\_t\ asyncThreadIndex,\ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ system);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StartSystems(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ StopSystems(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ m\_registry;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Registry\ of\ the\ Scene}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::shared\_mutex*\ m\_sharedMutex;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ One\ System\ Writes\ then\ the\ all\ waiting}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ One\ or\ more\ System's\ Reads\ then\ all\ Write\ Flaged\ System's\ waiting\ to\ take\ turn}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ std::barrier<>*\ m\_sharedBarrier;\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ shared\ barrier\ for\ the\ manager\ }}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ std::barrier<>*\ m\_syncSharedBarrier;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ shared\ barrier\ for\ the\ scene\ loop\ }}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::vector<ISystem*>*\ m\_Systems;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ list\ of\ All\ System's\ }}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ std::vector<std::thread>*\ m\_Threads;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ list\ of\ All\ Available\ Threads}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ Run\ At\ the\ Entry\ Point\ Thread\ ,\ so\ no\ Thread\ safety\ for\ us\ needed}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ std::unordered\_map<size\_t,\ std::vector<ISystem*>>\ m\_Assingments;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ map\ with\ the\ assinged\ Systems\ per\ thread\ ,\ defined\ only\ by\ the\ end\ user}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{ManagerControlBlock}}\ \ m\_ControlBlock\ ;\textcolor{comment}{//\ defines\ the\ version\ the\ state\ of\ the\ registry\ is}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ example\ let's\ say\ system\ x\ is\ WRITABLE\ and\ change's\ the\ version\ count\ to}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ versionCount++;\ then\ every\ other\ system\ that\ is\ WRITABLE\ or\ not\ see's\ that\ and\ says}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ my\ last\ versionCount\ is\ less\ than\ the\ new\ one\ ,\ i\ will\ reload\ everything\ as\ removing\ an}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ component\ changes\ the\ all\ other\ component's\ addresses\ (not\ a\ good\ one\ but\ that\ was\ fast\ to\ made)}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ that\ means\ every\ system\ must\ reload\ everything\ with\ the\ new\ one\ addresses}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ uint32\_t\ m\_threadsCount\ =\ 0;}
+\DoxyCodeLine{00099\ \ \ \ \ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \}}
+
+\end{DoxyCode}

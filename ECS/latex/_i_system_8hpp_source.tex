@@ -1,0 +1,54 @@
+\doxysection{ISystem.\+hpp}
+\hypertarget{_i_system_8hpp_source}{}\label{_i_system_8hpp_source}\index{Source/ISystem/ISystem.hpp@{Source/ISystem/ISystem.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../ManagerControlBlock/ManagerControlBlock.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }ISystem\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flags}}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ WRITABLE;\textcolor{comment}{//\ =\ 0x00000001;\ if\ this\ system\ may\ change\ the\ registry}}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ SYNCHRONIZED;\textcolor{comment}{//\ =\ 0x00000002;\ if\ the\ system\ may\ not\ need\ to\ run\ }}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ at\ the\ same\ game\ loop\ a\ the\ others\ ,\ input\ system\ may\ belong\ there\ }}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ ISystem(uint32\_t\ flags)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \string~ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ ISystem\&\ operator=(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ISystem(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ISystem\&\ operator=(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ default\ ;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ time\ this\ system\ is\ loaded\ in\ the\ scene\ }}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ,\ the\ system\ send's\ if\ the\ registry\ is\ changed\ }}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnCreate(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry\ )\ =\ 0;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ Hole\ System\ Loop\ ,\ or\ Game\ Loop\ ,\ or\ Scene\ loop}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ the\ System\ is\ Called\ ,\ the\ dirty\ says\ to\ him\ if\ the\ Registry\ has}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ changed\ .\ When\ The\ System\ finished\ then\ it\ must\ update\ the\ dirty\ flag}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnUpdate(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry,\ \textcolor{keywordtype}{float}\ dt\ ,\ \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{ManagerControlBlock}}*\ controlBlock)\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Destroyed}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnDestroy(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry,\ \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{ManagerControlBlock}}*\ controlBlock)\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ GetFlags(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetFlags(uint32\_t\ flags);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ uint32\_t\ m\_flags;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \}}
+
+\end{DoxyCode}

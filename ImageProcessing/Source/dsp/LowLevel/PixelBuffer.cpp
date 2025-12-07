@@ -1,6 +1,7 @@
 #include "PixelBuffer.h"
 #include "PointTransforms/Binarization.h"
 #include "PointTransforms/GausianNoise.h"
+#include "Filters/Filters.h"
 extern "C" {
 
 	// This is just for checking , this code will not called yet , first i have to make compatible the rest 
@@ -8,7 +9,8 @@ extern "C" {
 	// code see's no change 
 	static PBO_Resolve Map[] = {
 		BinarizationResolve,
-		GausianNoiseResolve
+		GausianNoiseResolve,
+		MedianFilterResolve
 	};
 
 	bool getPBOAttributeMap(enum PBOType type, struct PBOAttributes* attrs) {
@@ -65,26 +67,30 @@ extern "C" {
 			return false;
 		}
 
-		// if everything is ok then filled in the data and info for the dest image
-		dest->header = source->header;
-		dest->header.bitCount = PBO_dest.channels * 8;
-		dest->header.planes = 1;
+
 		dest->width = PBO_dest.width;
 		dest->height = PBO_dest.height;
 		dest->channels = PBO_dest.channels;
-		dest->header.width = dest->width;
-		dest->header.height = dest->height;
 		dest->pixels = (uint8_t*)PBO_dest.buffer;
-		uint32_t dataOffs = sizeof(BMPHeader);
+		uint32_t dataOffs = sizeof(struct BMPHeader);
 		if (dest->channels == 1) {
 			dest->colorTable = default_color_table;
 			dataOffs += 256 * 4;
 		}
-		dest->header.dataOffset = dataOffs;
-		dest->header.sizeImage = PBO_dest.stride * dest->height ;
-		
-		
-
+		else {
+			dest->colorTable = NULL;
+		}
+		// if everything is ok then filled in the data and info for the dest image
+		dest->header = source->header;
+		dest->header.bitCount = PBO_dest.channels * 8;
+		dest->header.planes = 1;
+		dest->header.signature = BMP_SIGNATURE;
+		dest->header.width = dest->width;
+		dest->header.height = dest->height;
+		//dest->header.dataOffset = dataOffs;
+		//dest->header.sizeImage = dest->width * dest->height ;
+		//dest->header.size = 54;
+		//dest->header.fileSize_unreleable = dest->header.size + dest->header.sizeImage;*/
 		return true;
 
 	}

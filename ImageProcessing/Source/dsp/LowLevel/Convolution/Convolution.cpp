@@ -63,7 +63,9 @@ extern "C" {
 		void* input_buf, void* output_buf) {
 		
 		if (
-			!attrs->height || !attrs->width || !attrs->mask || !input_buf || !output_buf || !ImgChannels ||
+			!attrs->height || !attrs->width || 
+			!attrs->mask || !input_buf || 
+			!output_buf || !ImgChannels ||
 			!ImgSride || !ImgCols || !ImgRows) {
 			return false;
 		}
@@ -81,7 +83,9 @@ extern "C" {
 					n2 = attrs->width / 2;
 					for (int m = 0; m < attrs->height; m++) {
 						for (int n = 0; n < attrs->width; n++) {
-							float MaskVal = mask[(attrs->height - 1 - m) * attrs->width + (attrs->width - 1 - n)];
+							float MaskVal = 
+								mask[(attrs->height - 1 - m) * attrs->width 
+								+ (attrs->width - 1 - n)];
 							if (!flipMask)
 								MaskVal = *(mask + m * attrs->width + n);
 
@@ -96,8 +100,8 @@ extern "C" {
 							sum += PixlVal * MaskVal;
 						}
 					}
-
-					opixels[y * ImgSride + x * ImgChannels + c] = (uint8_t)(clamp(roundf(sum), 0, 255));
+					opixels[y * ImgSride + x * ImgChannels + c] = 
+						(uint8_t)(clamp(roundf(sum), 0, 255));
 
 				}
 			}

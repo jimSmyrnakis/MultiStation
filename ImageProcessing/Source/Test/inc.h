@@ -7,6 +7,7 @@
 #include "dsp/LowLevel/PointTransforms/Sepia.h"
 #include "dsp/LowLevel/PointTransforms/SaltAndPepperNoise.h"
 #include "dsp/LowLevel/PointTransforms/GausianNoise.h"
+#include "dsp/LowLevel/PointTransforms/Magnitute.h"
 
 #include "dsp/LowLevel/Converters.h"
 #include "dsp/LowLevel/Extras.h"

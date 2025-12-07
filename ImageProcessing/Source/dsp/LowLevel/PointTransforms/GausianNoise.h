@@ -10,14 +10,21 @@ extern "C" {
 	/**
 	 * @author Dimitris Smyrnakis.
 	 * @param[in] source , The Input BMP Image 
-	 * @param[in] 
+	 * @param[in] dest , The Output BMP Image
+	 * @param[in] SNRdb , The Amplitute of the Gaussian distribution
+	 * @returns true if the caculation and production of the new image was successfull , false if not .
+	 * @details This function is a wrapper around the Pixel Buffer Object and ImageProcessing API that ask
+	 * clearly the parameters and parsed them to the actual operation via the PBO API 
 	 */
 	bool image_GausianNoise(
 		struct bmpImage* dest,
 		const struct bmpImage* source,
-		float dbAmp
+		float SNRdb
 	);
 
+	/**
+	 * @author.
+	 */
 	bool GausianNoiseOperation(
 		struct PixelBufferObject* dest,
 		const struct PixelBufferObject* src,

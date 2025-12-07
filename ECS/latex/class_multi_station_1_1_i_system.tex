@@ -1,0 +1,58 @@
+\doxysection{Multi\+Station\+::ISystem Class Reference}
+\hypertarget{class_multi_station_1_1_i_system}{}\label{class_multi_station_1_1_i_system}\index{MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a52f7d1302fcc517d9aaf8b64e8becb85}\label{class_multi_station_1_1_i_system_a52f7d1302fcc517d9aaf8b64e8becb85} 
+{\bfseries ISystem} (ISystem \&\&move) noexcept=default
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e}\label{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e} 
+virtual ISystem \& {\bfseries operator=} (ISystem \&\&move) noexcept=default
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_aa2b50475a07402bf097a2b09c2c2bbc3}\label{class_multi_station_1_1_i_system_aa2b50475a07402bf097a2b09c2c2bbc3} 
+virtual void {\bfseries On\+Create} (\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}} \texorpdfstring{$\ast$}{*}registry)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a2ce55f9695219168dde6b6f4fa2a5d95}\label{class_multi_station_1_1_i_system_a2ce55f9695219168dde6b6f4fa2a5d95} 
+virtual void {\bfseries On\+Update} (\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}} \texorpdfstring{$\ast$}{*}registry, float dt, \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{Manager\+Control\+Block}} \texorpdfstring{$\ast$}{*}control\+Block)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a99b8b2e4b3cb455fbde9e5a858ff168c}\label{class_multi_station_1_1_i_system_a99b8b2e4b3cb455fbde9e5a858ff168c} 
+virtual void {\bfseries On\+Destroy} (\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}} \texorpdfstring{$\ast$}{*}registry, \mbox{\hyperlink{class_multi_station_1_1_manager_control_block}{Manager\+Control\+Block}} \texorpdfstring{$\ast$}{*}control\+Block)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a3b1d7ae760bfa314cd962ece8ac1a86f}\label{class_multi_station_1_1_i_system_a3b1d7ae760bfa314cd962ece8ac1a86f} 
+virtual uint32\+\_\+t {\bfseries Get\+Flags} (void) const
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a4c685e7c23881bb8fd668e042f3d898a}\label{class_multi_station_1_1_i_system_a4c685e7c23881bb8fd668e042f3d898a} 
+virtual void {\bfseries Set\+Flags} (uint32\+\_\+t flags)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_aab68ab89c189c3a6b25da87d6d670d18}\label{class_multi_station_1_1_i_system_aab68ab89c189c3a6b25da87d6d670d18} 
+static uint32\+\_\+t {\bfseries WRITABLE}
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a53d94d6605deb991092efc67d792a9f6}\label{class_multi_station_1_1_i_system_a53d94d6605deb991092efc67d792a9f6} 
+static uint32\+\_\+t {\bfseries SYNCHRONIZED}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a11cbc68d1aa2a10d8e7849c29f5f0006}\label{class_multi_station_1_1_i_system_a11cbc68d1aa2a10d8e7849c29f5f0006} 
+{\bfseries ISystem} (uint32\+\_\+t flags) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e}\label{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e} 
+{\bfseries ISystem} (const ISystem \&cpy) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0}\label{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0} 
+ISystem \& {\bfseries operator=} (const ISystem \&cpy) noexcept=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_abe8e4f131701ffdbe7d925e57b2bd890}\label{class_multi_station_1_1_i_system_abe8e4f131701ffdbe7d925e57b2bd890} 
+uint32\+\_\+t {\bfseries m\+\_\+flags}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+ISystem/ISystem.\+hpp\end{DoxyCompactItemize}

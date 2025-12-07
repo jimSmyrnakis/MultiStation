@@ -1,7 +1,3 @@
-#ifndef MULTISTATION_PLATFORM_H
-#define MULTISTATION_PLATFORM_H
-
-
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdint.h>
 #include <stddef.h>
@@ -10,6 +6,12 @@
 #include <memory>
 #include <vector>
 #include <string>
+
+#ifndef MULTISTATION_PLATFORM_H
+#define MULTISTATION_PLATFORM_H
+
+
+
 
 
 #ifdef _MSC_VER
@@ -49,4 +51,7 @@
 #define MS_EBDFLGS		((int)-4) // bad flags
 #define MS_EBDDESCR		((int)-5) // bad descriptor
 #define MS_MISSINGCALLBACKS ((int)-6) // Missing callbacks function pointer's to null
+
+#include "Allocator.h"
+
 #endif 

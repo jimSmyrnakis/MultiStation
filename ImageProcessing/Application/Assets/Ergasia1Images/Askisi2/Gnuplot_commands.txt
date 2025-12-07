@@ -1,0 +1,25 @@
+set terminal pngcairo size 1600,1000
+set output "multiplot.png"
+
+set style fill solid 1.0 border -1
+set boxwidth 0.8 relative
+set tics font ",10"
+
+set multiplot layout 2,2 title "Histograms (Multiplot)" font ",14"
+
+# ---------- Plot 1 ----------
+set title "File 1: data1.txt"
+plot "histogram_dark_road_1.txt" using 1 with boxes lc rgb "#e41a1c" notitle
+
+# ---------- Plot 2 ----------
+set title "File 2: data2.txt"
+plot "histogram_dark_road_2.txt" using 1 with boxes lc rgb "#377eb8" notitle
+
+# ---------- Plot 3 ----------
+set title "File 3: data3.txt"
+plot "histogram_dark_road_3.txt" using 1 with boxes lc rgb "#4daf4a" notitle
+
+
+
+unset multiplot
+unset output

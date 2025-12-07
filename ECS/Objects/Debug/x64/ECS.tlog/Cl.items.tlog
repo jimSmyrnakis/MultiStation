@@ -1,9 +1,0 @@
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentRegistry\ComponentRegistry.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ComponentRegistry.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Components\Transform.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Transform.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ISystem\ISystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ISystem.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\main.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\main.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SceneManager\SceneManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\SceneManager.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SceneManager\ManagerThreadFunc.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ManagerThreadFunc.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SceneManager\SystemsAndAssingment.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\SystemsAndAssingment.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SceneManager\ThreadsPool.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ThreadsPool.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ManagerControlBlock\ManagerControlBlock.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ManagerControlBlock.obj

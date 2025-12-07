@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
-#include "../ComponentRegistry/ComponentRegistry.hpp"
+#include "../Registry/Registry.hpp"
 #include "../ManagerControlBlock/ManagerControlBlock.hpp"
 namespace MultiStation{
 
@@ -24,15 +24,15 @@ namespace MultiStation{
 
 		// Called every time this system is loaded in the scene 
 		// , the system send's if the registry is changed 
-		virtual void OnCreate(ComponentRegistry* registry ) = 0;
+		virtual void OnCreate(Registry* registry ) = 0;
 
 		// Called every Hole System Loop , or Game Loop , or Scene loop
 		// When the System is Called , the dirty says to him if the Registry has
 		// changed . When The System finished then it must update the dirty flag
-		virtual void OnUpdate(ComponentRegistry* registry, float dt , ManagerControlBlock* controlBlock) = 0;
+		virtual void OnUpdate(Registry* registry, float dt , ManagerControlBlock* controlBlock) = 0;
 
 		// Called when the System is Destroyed
-		virtual void OnDestroy(ComponentRegistry* registry, ManagerControlBlock* controlBlock) = 0;
+		virtual void OnDestroy(Registry* registry, ManagerControlBlock* controlBlock) = 0;
 		
 
 		virtual uint32_t GetFlags(void) const;

@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['_3a_202007_2009_2016_0',[': 2007 09 16',['../dir_06717e3f51fda062a103301b6d3ab099.html#autotoc_md491',1,'GLM 0.6.0 : 2007-09-16'],['../dir_773be3d019cbbaf59b5bd6860ea7a51d.html#autotoc_md1030',1,'GLM 0.6.0 : 2007-09-16']]],
+  ['_3a_20c_20language_20detection_1',[': C language detection',['../md__c_1_2_users_2_user_2_desktop_2_projects_2_multi_station_2_externals_2_g_l_m_2manual.html#autotoc_md21',1,'&lt;a class=&quot;anchor&quot; id=&quot;section2_6&quot;&gt;&lt;/a&gt; 2.6. GLM_FORCE_CXX**: C++ language detection'],['../md__c_1_2_users_2_user_2_desktop_2_projects_2_multi_station_2_renderer3_d_d_s_2_externals_2_g_l_m_2manual.html#autotoc_md560',1,'&lt;a class=&quot;anchor&quot; id=&quot;section2_6&quot;&gt;&lt;/a&gt; 2.6. GLM_FORCE_CXX**: C++ language detection']]],
+  ['_3a_20default_20precision_2',[': Default precision',['../md__c_1_2_users_2_user_2_desktop_2_projects_2_multi_station_2_externals_2_g_l_m_2manual.html#autotoc_md27',1,'&lt;a class=&quot;anchor&quot; id=&quot;section2_12&quot;&gt;&lt;/a&gt; 2.12. GLM_FORCE_PRECISION_**: Default precision'],['../md__c_1_2_users_2_user_2_desktop_2_projects_2_multi_station_2_renderer3_d_d_s_2_externals_2_g_l_m_2manual.html#autotoc_md566',1,'&lt;a class=&quot;anchor&quot; id=&quot;section2_12&quot;&gt;&lt;/a&gt; 2.12. GLM_FORCE_PRECISION_**: Default precision']]]
+];

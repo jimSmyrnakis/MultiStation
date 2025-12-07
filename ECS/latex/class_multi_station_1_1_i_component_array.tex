@@ -1,0 +1,71 @@
+\doxysection{Multi\+Station\+::IComponent\+Array Class Reference}
+\hypertarget{class_multi_station_1_1_i_component_array}{}\label{class_multi_station_1_1_i_component_array}\index{MultiStation::IComponentArray@{MultiStation::IComponentArray}}
+
+
+An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types.  
+
+
+
+
+{\ttfamily \#include $<$IComponent\+Array.\+hpp$>$}
+
+Inheritance diagram for Multi\+Station\+::IComponent\+Array\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_i_component_array}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}{\texorpdfstring{$\sim$}{\string~}\+IComponent\+Array}} (void) noexcept=default
+\begin{DoxyCompactList}\small\item\em A virtual destructor to allow for proper cleanup of derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{Get\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em Gets a unique type ID for the specified component type T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis
+\end{DoxyAuthor}
+This way we ensure that all component arrays can be destroyed polymorphically , as well for each different component type we can get a unique type ID . 
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_i_component_array_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}\index{MultiStation::IComponentArray@{MultiStation::IComponentArray}!````~IComponentArray@{\texorpdfstring{$\sim$}{\string~}IComponentArray}}
+\index{````~IComponentArray@{\texorpdfstring{$\sim$}{\string~}IComponentArray}!MultiStation::IComponentArray@{MultiStation::IComponentArray}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IComponentArray()}{\string~IComponentArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5} 
+virtual Multi\+Station\+::\+IComponent\+Array\+::\texorpdfstring{$\sim$}{\string~}\+IComponent\+Array (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+A virtual destructor to allow for proper cleanup of derived classes. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_i_component_array_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}\index{MultiStation::IComponentArray@{MultiStation::IComponentArray}!GetID@{GetID}}
+\index{GetID@{GetID}!MultiStation::IComponentArray@{MultiStation::IComponentArray}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace} 
+template$<$typename T$>$ \\
+uint32\+\_\+t Multi\+Station\+::\+IComponent\+Array\+::\+Get\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Gets a unique type ID for the specified component type T. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Component\+Array/IComponent\+Array.\+hpp\end{DoxyCompactItemize}

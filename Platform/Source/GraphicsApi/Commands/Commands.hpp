@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../Defs.hpp"
+#include "../../Definitions.h"
 #include "../FBuffer/FBuffer.hpp"
 #include "../VBuffer/VBuffer.hpp"
 #include "../Shader/Shader.hpp"

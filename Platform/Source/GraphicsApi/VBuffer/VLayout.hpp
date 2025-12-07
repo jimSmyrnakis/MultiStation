@@ -1,7 +1,6 @@
 #pragma once 
 
-#include "../../../Defs.hpp"
-#include "../../../Core.hpp"
+#include "../../Definitions.h"
 #include <vector>
 #include "../Format/Format.hpp"
 

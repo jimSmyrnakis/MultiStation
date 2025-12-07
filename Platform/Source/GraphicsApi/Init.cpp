@@ -1,6 +1,8 @@
 #include "Init.hpp"
+#define GLEW_STATIC
 #include <GL/glew.h>
-#include <glfw/glfw3.h>
+#define GLFW_STATIC
+#include <GLFW/glfw3.h>
 #include <iostream>
 
 

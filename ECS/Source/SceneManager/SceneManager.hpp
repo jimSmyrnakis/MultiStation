@@ -1,5 +1,5 @@
 #pragma once
-#include "../ComponentRegistry/ComponentRegistry.hpp"
+#include "../Registry/Registry.hpp"
 #include <shared_mutex>
 #include <thread>
 #include <barrier>
@@ -12,7 +12,7 @@ namespace MultiStation{
 	class SceneManager {
 	public:
 		struct ManagerInfo {
-			ComponentRegistry* registry;
+			Registry* registry;
 			// registry that each thread will use 
 			std::vector<ISystem*>* systems;
 			// All System's a thread will use 
@@ -73,7 +73,7 @@ namespace MultiStation{
 
 
 	private:
-		ComponentRegistry* m_registry;
+		Registry* m_registry;
 		// Registry of the Scene
 		std::shared_mutex* m_sharedMutex;
 		// If One System Writes then the all waiting

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../Defs.hpp"
+#include "../../Definitions.h"
 
 
 namespace MultiStation {

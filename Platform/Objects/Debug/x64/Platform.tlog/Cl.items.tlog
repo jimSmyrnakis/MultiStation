@@ -1,3 +1,16 @@
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Commands\Commands.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Commands.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Error.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Error.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\FBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Format\Format.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Format.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Init.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Init.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Shader\FShader.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\FShader.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Shader\Shader.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Shader.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Shader\VShader.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\VShader.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Texture\Texture2D.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Texture2D.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Texture\Texture2DResolution.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Texture2DResolution.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\UBuffer\UBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\UBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\VBuffer\VBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\VBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\VBuffer\VLayout.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\VLayout.obj
 C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Image\bmp\bmp.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\bmp.obj
 C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\Time.obj
 C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Window\GLFW\GLFWWin.cpp;C:\Users\User\Desktop\Projects\MultiStation\Platform\Objects\Debug\x64\GLFWWin.obj

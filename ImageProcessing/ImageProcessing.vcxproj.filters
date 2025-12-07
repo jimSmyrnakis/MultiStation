@@ -75,6 +75,12 @@
     <ClInclude Include="Source\dsp\LowLevel\PointTransforms\GausianNoise.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\Filters\Filters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Magnitute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Test\TestAll.cpp">
@@ -153,6 +159,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\Filters\Filters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Erg1Ask1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Erg1Ask2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Erg1Ask3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Magnitute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

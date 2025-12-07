@@ -1,35 +1,75 @@
-#include "GausianNoise.h"
+﻿#include "GausianNoise.h"
 #include "../PixelBuffer.h"
 #include <math.h>
 #ifdef __cplusplus
 extern "C" {
 #endif 
 
-	void get_noise_from_db(float dB, float* mean, float* var) {
-		float sigma = 255.0f / powf(10.0f, -dB / 20.0f);
+	void get_noise_from_snr(float snr_db, float signal_power,
+		float* mean, float* variance)
+	{
 		*mean = 0.0f;
-		*var = sigma * sigma;
+
+		// SNR(dB) → linear
+		float snr_linear = powf(10.0f, snr_db / 10.0f);
+
+		// Pnoise = Psignal / SNR
+		*variance = signal_power / snr_linear;
 	}
+
+
+	// Υπολογισμός δύναμης σήματος της εικόνας
+	float compute_signal_power(const unsigned char* img,
+		int width, int height,
+		int channels, int stride)
+	{
+		double sum[4] = { 0 };   // υποστηρίζει μέχρι 4 κανάλια
+		sum[0] = sum[1] = sum[2] = sum[3] = 0;
+		int pixel_count = width * height;
+
+		for (int y = 0; y < height; y++) {
+			const unsigned char* row = img + y * stride;
+
+			for (int x = 0; x < width; x++) {
+
+				for (int c = 0; c < channels; c++) {
+
+					unsigned char p = row[x * channels + c];
+					sum[c] += (double)p * (double)p;
+				}
+			}
+		}
+
+		// μέση ισχύς ανά κανάλι
+		double power_mean = 0.0;
+
+		for (int c = 0; c < channels; c++) {
+			double Pc = sum[c] / pixel_count;
+			power_mean += Pc;
+		}
+
+		// τελική power είναι ο μέσος όρος μεταξύ όλων των καναλιών
+		return (float)(power_mean / channels);
+	}
+
 
 
 	bool image_GausianNoise(
 		struct bmpImage* dest,
 		const struct bmpImage* source,
-		float dbAmp
+		float SNRdb
 	) {
 
 		struct PBOAttributes attrs;
 		if (!getPBOAttributeMap(PBOT_GAUSIAN_NOISE, &attrs)) return false;
 
 		struct Params params;
-		params.count = 2;
-		params.parameters = (void**)malloc(2 * sizeof(void*));
+		params.count = 1;
+		params.parameters = (void**)malloc(1 * sizeof(void*));
 		params.allocator = { malloc , free };
 		if (!params.parameters) return false;
-		float var, mean;
-		get_noise_from_db(dbAmp, &mean, &var);
-		params.parameters[0] = &mean;
-		params.parameters[1] = &var;
+		
+		params.parameters[0] = &SNRdb;
 
 		bool res = ImageProcess(dest, source, &attrs, &params);
 
@@ -42,28 +82,44 @@ extern "C" {
 	static bool GausianNoise(
 		struct PixelBufferObject* dest,
 		const struct PixelBufferObject* src,
-		float mean,
-		float var
+		float snrdb 
 	) {
+		float mean, var;
+		get_noise_from_snr(snrdb, 
+			compute_signal_power((uint8_t*)src->buffer , 
+			src->width , src->height , src->channels 
+			, src->stride )
+			, &mean, &var);
 		int x, y;
 		float noise, theta;
 		uint8_t* dst = (uint8_t*)dest->buffer;
 		uint8_t* sr = (uint8_t*)src->buffer;
-		for (y = 0;y < dest->height;y++)
-			for (x = 0;x < dest->width;x++)
-			{
+		for (y = 0; y < dest->height; y++) {
+			for (x = 0; x < dest->width; x++) {
 				for (uint8_t c = 0; c < dest->channels; c++) {
+
+					float U1 = (float)rand() / (float)RAND_MAX;
+					float U2 = (float)rand() / (float)RAND_MAX;
+
+					if (U1 < 1e-12) U1 = 1e-12;   // αποφυγή log(0)
+
+					float Z0 = sqrtf(-2.0f * logf(U1)) * cosf(2.0f * 3.14159265f * U2);
+
+					// Z0 έχει mean = 0, stddev = 1
+					float noise = Z0 * sqrtf(var) + mean;
+
 					uint32_t index = y * dest->stride + x * dest->channels + c;
-					noise = sqrt(-2 * var * log(1.0 - (float)rand() / 32767.1));
-					theta = rand() * 1.9175345e-4 - 3.14159265;
-					noise = noise * cos(theta);
-					noise = noise + mean;
-					if (noise > 255)noise = 255;
-					if (noise < 0) noise = 0;
-					dst[index] = sr[index] + (unsigned char)(noise + 0.5);
+					float pixel = sr[index] + noise;
+
+					if (pixel < 0) pixel = 0;
+					if (pixel > 255) pixel = 255;
+
+					dst[index] = (unsigned char)(pixel + 0.5f);
 				}
-				
 			}
+		}
+
+
 		return true;
 	}
 
@@ -83,7 +139,7 @@ extern "C" {
 			return false;
 		}
 
-		return GausianNoise(dest, src, *((float*)parms->parameters[0]), *((float*)parms->parameters[1]));
+		return GausianNoise(dest, src, *((float*)parms->parameters[0]));
 	}
 
 	

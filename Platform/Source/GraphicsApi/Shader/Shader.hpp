@@ -1,5 +1,5 @@
 #pragma once 
-#include "../../../Defs.hpp"
+#include "../../Definitions.h"
 #include <glm/glm.hpp>
 #include "../UBuffer/UBuffer.hpp"
 #include "VShader.hpp"

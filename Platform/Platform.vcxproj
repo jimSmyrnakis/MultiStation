@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -100,10 +100,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,7 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -124,10 +124,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -144,10 +144,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -158,7 +158,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -168,10 +168,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -193,6 +193,7 @@
     <ClInclude Include="Source\GraphicsApi\VBuffer\VLayout.hpp" />
     <ClInclude Include="Source\Image\bmp\bmp.h" />
     <ClInclude Include="Source\Image\Image.h" />
+    <ClInclude Include="Source\Image\PixelBuffer.hpp" />
     <ClInclude Include="Source\Time\Time.hpp" />
     <ClInclude Include="Source\Window\Window.hpp" />
   </ItemGroup>

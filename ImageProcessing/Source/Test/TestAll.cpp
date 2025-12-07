@@ -85,20 +85,12 @@ int TestAll(void) {
 		return 1;
 	}
 
-	struct bmpImage equalizedImage;
-	if (!image_histogram_equalization(&equalizedImage, &brightGrayScaleImage)) {
-		printf("Failed to perform histogram equalization.\n");
-		return 1;
-	}
+	
 
-	struct bmpImage equalizedImage2;
-	if (!image_histogram_equalization(&equalizedImage2, &equalizedImage)) {
-		printf("Failed to perform histogram equalization.\n");
-		return 1;
-	}
+	
 
 	struct bmpImage rotatedImage;
-	if (!Image_rotate(&equalizedImage, &rotatedImage, 3.141592f/2)) {
+	if (!Image_rotate(&gammaImage, &rotatedImage, 3.141592f/2)) {
 		printf("Failed to rotate image.\n");
 		return 1;
 	}
@@ -173,12 +165,7 @@ int TestAll(void) {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store(".//Application//Assets//HistogramEquallized.bmp", &equalizedImage)) {
-		printf("Stored BMP image successfully.\n");
-	}
-	else {
-		printf("Failed to store BMP image.\n");
-	}
+	
 
 	if (bmp_store(".//Application//Assets//rotatedImage.bmp", &rotatedImage)) {
 		printf("Stored BMP image successfully.\n");
@@ -187,12 +174,6 @@ int TestAll(void) {
 		printf("Failed to store BMP image.\n");
 	}
 
-	if (bmp_store(".//Application//Assets//HistogramEquallized2.bmp", &equalizedImage2)) {
-		printf("Stored BMP image successfully.\n");
-	}
-	else {
-		printf("Failed to store BMP image.\n");
-	}
 
 	if (bmp_store(".//Application//Assets//InvertedImage.bmp", &InvImage)) {
 		printf("Stored BMP image successfully.\n");
@@ -217,42 +198,13 @@ int TestAll(void) {
 		printf("Failed to store BMP image.\n");
 	}
 
-	// Histogram
-	float* histogram = image_histogram_init(&brightGrayScaleImage, true);
-	if (histogram == nullptr) {
-		printf("Failed to compute histogram.\n");
-		return 1;
-	}
-	if (!histogram_write_to_file(".//Application//Assets//GrayBrightImageHistogram.txt", histogram, 256)) {
-		printf("Failed to write histogram to file.\n");
-		free(histogram);
-		return 1;
-	}
-	else {
-		printf("Histogram written to file successfully.\n");
-	}
-
-	float* histogram_eq = image_histogram_init(&equalizedImage, true);
-	if (histogram_eq == nullptr) {
-		printf("Failed to compute histogram.\n");
-		return 1;
-	}
-	if (!histogram_write_to_file(".//Application//Assets//GrayBrightImageHistogramEquallized.txt", histogram_eq, 256)) {
-		printf("Failed to write histogram to file.\n");
-		free(histogram_eq);
-		return 1;
-	}
-	else {
-		printf("Histogram written to file successfully.\n");
-	}
+	
+	
 
 
-	free(histogram_eq);
 	free(brightOriginalImage.pixels);
 	free(darkerOriginalImage.pixels);
 	free(gammaImage.pixels);
-	free(equalizedImage.pixels);
-	free(histogram);
 	//free(grayImage.pixels);
 	free(binaryImage.pixels);
 	free(brightGrayScaleImage.pixels);

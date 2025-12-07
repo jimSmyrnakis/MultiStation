@@ -1,11 +1,13 @@
 #include <iostream>
 #include <thread>
-#include "SceneManager/SceneManager.hpp"
+//#include "SceneManager/SceneManager.hpp"
+#include "ComponentArray/ComponentArray.hpp"
+#include "ISystem/ISystem.hpp"
 #include <sstream>
 using namespace MultiStation;
 
 // Mock System Implementation
-class TestSystem : public ISystem {
+/*class TestSystem : public ISystem {
     std::string m_name;
     bool m_writable;
 
@@ -72,7 +74,7 @@ public:
                 sst << "Entity " << i << " (" << *registry->GetEntityName(i) << " ) : " << std::endl;
                 sst << "Transform3D Components count : " << components << std::endl;
             }*/
-        }
+        /*}
 
         sst.flush();
 
@@ -88,9 +90,9 @@ public:
     float timeCpuUsed = 0.0f;
 };
 int TestSystem::id = 0;
-int cnt;
+int cnt;*/
 int main() {
-    SceneManager* manager = SceneManager::Create();
+    /*SceneManager* manager = SceneManager::Create();
     
     // Sync systems (2 readers, 1 writer)
     manager->AssignSyncSystem(0, new TestSystem(cnt , "SyncReader1", false));
@@ -110,6 +112,6 @@ int main() {
     // Stop threads / cleanup
     manager->StopSystems();
     SceneManager::Destroy(manager);
-
+*/
     return 0;
 }

@@ -24,7 +24,8 @@ extern "C" {
 
 	enum PBOType {
 		PBOT_BINARIZATION ,
-		PBOT_GAUSIAN_NOISE
+		PBOT_GAUSIAN_NOISE,
+		PBOT_MEDIAN_FILTER
 	};
 
 	struct PBOAttributes {

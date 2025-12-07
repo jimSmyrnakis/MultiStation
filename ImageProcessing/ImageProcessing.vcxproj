@@ -162,6 +162,7 @@
     <ClInclude Include="Source\Core.hpp" />
     <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\FilterMasks.h" />
     <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Other.h" />
+    <ClInclude Include="Source\dsp\LowLevel\Filters\Filters.h" />
     <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Binarization.h" />
     <ClInclude Include="Source\dsp\LowLevel\Converters.h" />
     <ClInclude Include="Source\dsp\LowLevel\Convolution\Convolution.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Inverse.h" />
     <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\LineDetectionMask.h" />
     <ClInclude Include="Source\dsp\LowLevel\Convolution\Masks\Masks.h" />
+    <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Magnitute.h" />
     <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Operations.h" />
     <ClInclude Include="Source\dsp\LowLevel\PixelBuffer.h" />
     <ClInclude Include="Source\dsp\LowLevel\PointTransforms\Rotation.h" />
@@ -183,6 +185,7 @@
   <ItemGroup>
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\LowPassSpatialMask.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\HighPassSpatialMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\Filters\Filters.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Binarization.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Converters.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Convolution.cpp" />
@@ -199,12 +202,16 @@
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobertsMask.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\RobinsonMask.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\Convolution\Masks\SobelMask.cpp" />
+    <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Magnitute.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Operations.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PixelBuffer.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Rotation.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.cpp" />
     <ClCompile Include="Source\dsp\LowLevel\PointTransforms\Sepia.cpp" />
+    <ClCompile Include="Source\Erg1Ask1.cpp" />
+    <ClCompile Include="Source\Erg1Ask3.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Erg1Ask2.cpp" />
     <ClCompile Include="Source\Test\TestAll.cpp" />
     <ClCompile Include="Source\Test\TestLineDetector.cpp" />
   </ItemGroup>

@@ -8,7 +8,7 @@ namespace MultiStation{
 	void* systems_manager(void* info) {
 		// input assignments
 		std::vector<ISystem*>* inSystems = ((SceneManager::ManagerInfo*)info)->systems;
-		ComponentRegistry* registry = ((SceneManager::ManagerInfo*)info)->registry;
+		Registry* registry = ((SceneManager::ManagerInfo*)info)->registry;
 		std::shared_mutex* sharedLock = ((SceneManager::ManagerInfo*)info)->sharedLock;
 		ManagerControlBlock* controlBlock = ((SceneManager::ManagerInfo*)info)->controlBlock;
 		bool synch = ((SceneManager::ManagerInfo*)info)->synchronized;

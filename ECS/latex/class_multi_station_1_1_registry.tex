@@ -1,0 +1,187 @@
+\doxysection{Multi\+Station\+::Registry Class Reference}
+\hypertarget{class_multi_station_1_1_registry}{}\label{class_multi_station_1_1_registry}\index{MultiStation::Registry@{MultiStation::Registry}}
+
+
+The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own \doxylink{class_multi_station_1_1_component_array}{Component\+Array} $<$\+T$>$ instance, which is created upon registration and destroyed upon unregistration.  
+
+
+
+
+{\ttfamily \#include $<$Registry.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} (void) noexcept=default
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_multi_station_1_1_registry}{Registry} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_ad7c3d9f08807fc900c17a0201e18481f}{\texorpdfstring{$\sim$}{\string~}\+Registry}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_multi_station_1_1_registry}{Registry} object and cleans up all registered component arrays that have been registered. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_a7d8e372871807d23d2ed556c7167ebb6}{Registry}} (const Registry \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy Register not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_a59585fb976ee9c4eab603cdc5d9059c0}{Registry}} (Registry \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Move Register not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \& \mbox{\hyperlink{class_multi_station_1_1_registry_acef85d8806a22e62a14b8894b0fa11e6}{operator=}} (const \mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \& \mbox{\hyperlink{class_multi_station_1_1_registry_a0dd835c16bf5b0eb577e70fc9e814b68}{operator=}} (\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Move assignment not allowed. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_registry_a81c8f1026d4593018796567043e277ae}{Get\+Component\+Array}} (void) const
+\begin{DoxyCompactList}\small\item\em Gets the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered in the \doxylink{class_multi_station_1_1_registry}{Registry}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_registry_ac3e8e78184ab03532be147474e522887}{Register}} (void)
+\begin{DoxyCompactList}\small\item\em Registers a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if this Component doesn\textquotesingle{}t exist or otherwise does nothing . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_registry_a7b0ba0e41441571ec7f24b5f867d680f}{Has\+Register}} (void) const
+\begin{DoxyCompactList}\small\item\em Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_registry_a291626bbb47ec4aa87511698fd302877}{Unregister}} (void)
+\begin{DoxyCompactList}\small\item\em Unregisters the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered, otherwise does nothing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own \doxylink{class_multi_station_1_1_component_array}{Component\+Array} $<$\+T$>$ instance, which is created upon registration and destroyed upon unregistration. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis
+\end{DoxyAuthor}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}\index{MultiStation::Registry@{MultiStation::Registry}!Registry@{Registry}}
+\index{Registry@{Registry}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{Registry()}{Registry()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e} 
+Multi\+Station\+::\+Registry\+::\+Registry (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+Constructs a new \doxylink{class_multi_station_1_1_registry}{Registry} object. 
+
+\Hypertarget{class_multi_station_1_1_registry_ad7c3d9f08807fc900c17a0201e18481f}\index{MultiStation::Registry@{MultiStation::Registry}!````~Registry@{\texorpdfstring{$\sim$}{\string~}Registry}}
+\index{````~Registry@{\texorpdfstring{$\sim$}{\string~}Registry}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Registry()}{\string~Registry()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_ad7c3d9f08807fc900c17a0201e18481f} 
+Multi\+Station\+::\+Registry\+::\texorpdfstring{$\sim$}{\string~}\+Registry (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Destroys the \doxylink{class_multi_station_1_1_registry}{Registry} object and cleans up all registered component arrays that have been registered. 
+
+\Hypertarget{class_multi_station_1_1_registry_a7d8e372871807d23d2ed556c7167ebb6}\index{MultiStation::Registry@{MultiStation::Registry}!Registry@{Registry}}
+\index{Registry@{Registry}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{Registry()}{Registry()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a7d8e372871807d23d2ed556c7167ebb6} 
+Multi\+Station\+::\+Registry\+::\+Registry (\begin{DoxyParamCaption}\item[{const Registry \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy Register not allowed. 
+
+\Hypertarget{class_multi_station_1_1_registry_a59585fb976ee9c4eab603cdc5d9059c0}\index{MultiStation::Registry@{MultiStation::Registry}!Registry@{Registry}}
+\index{Registry@{Registry}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{Registry()}{Registry()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a59585fb976ee9c4eab603cdc5d9059c0} 
+Multi\+Station\+::\+Registry\+::\+Registry (\begin{DoxyParamCaption}\item[{Registry \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Move Register not allowed. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_registry_a81c8f1026d4593018796567043e277ae}\index{MultiStation::Registry@{MultiStation::Registry}!GetComponentArray@{GetComponentArray}}
+\index{GetComponentArray@{GetComponentArray}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{GetComponentArray()}{GetComponentArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a81c8f1026d4593018796567043e277ae} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array}}$<$ T $>$ \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Registry\+::\+Get\+Component\+Array (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered in the \doxylink{class_multi_station_1_1_registry}{Registry}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to retrieve. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{class_multi_station_1_1_component_array}{Component\+Array$<$\+T$>$} if registered, nullptr otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_registry_a7b0ba0e41441571ec7f24b5f867d680f}\index{MultiStation::Registry@{MultiStation::Registry}!HasRegister@{HasRegister}}
+\index{HasRegister@{HasRegister}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{HasRegister()}{HasRegister()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a7b0ba0e41441571ec7f24b5f867d680f} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Registry\+::\+Has\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to check. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if registered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_registry_acef85d8806a22e62a14b8894b0fa11e6}\index{MultiStation::Registry@{MultiStation::Registry}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_acef85d8806a22e62a14b8894b0fa11e6} 
+\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \& Multi\+Station\+::\+Registry\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy assignment not allowed. 
+
+\Hypertarget{class_multi_station_1_1_registry_a0dd835c16bf5b0eb577e70fc9e814b68}\index{MultiStation::Registry@{MultiStation::Registry}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a0dd835c16bf5b0eb577e70fc9e814b68} 
+\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \& Multi\+Station\+::\+Registry\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_registry_af589be1627733dee3fa2fb5a836b374e}{Registry}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment not allowed. 
+
+\Hypertarget{class_multi_station_1_1_registry_ac3e8e78184ab03532be147474e522887}\index{MultiStation::Registry@{MultiStation::Registry}!Register@{Register}}
+\index{Register@{Register}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_ac3e8e78184ab03532be147474e522887} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+Registry\+::\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if this Component doesn\textquotesingle{}t exist or otherwise does nothing . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to register. \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_registry_a291626bbb47ec4aa87511698fd302877}\index{MultiStation::Registry@{MultiStation::Registry}!Unregister@{Unregister}}
+\index{Unregister@{Unregister}!MultiStation::Registry@{MultiStation::Registry}}
+\doxysubsubsection{\texorpdfstring{Unregister()}{Unregister()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_registry_a291626bbb47ec4aa87511698fd302877} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+Registry\+::\+Unregister (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Unregisters the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered, otherwise does nothing. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to unregister. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Registry/Registry.\+hpp\end{DoxyCompactItemize}
