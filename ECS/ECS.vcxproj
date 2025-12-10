@@ -22,9 +22,16 @@
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp" />
     <ClInclude Include="Source\ComponentArray\IComponentArray.hpp" />
     <ClInclude Include="Source\Entity\Entity.hpp" />
+    <ClInclude Include="Source\Init.hpp" />
     <ClInclude Include="Source\ISystem\ISystem.hpp" />
     <ClInclude Include="Source\Registry\Registry.hpp" />
     <ClInclude Include="Source\ManagerControlBlock\ManagerControlBlock.hpp" />
+    <ClInclude Include="Source\Task\ITaskMetadata.hpp" />
+    <ClInclude Include="Source\Task\Schedulers\Pipeline\Pipeline.hpp" />
+    <ClInclude Include="Source\Task\Task.hpp" />
+    <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
+    <ClInclude Include="Source\Task\TaskManager.hpp" />
+    <ClInclude Include="Source\Task\TaskScheduller.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ComponentArray\IComponentArray.cpp" />
@@ -33,6 +40,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
     <ClCompile Include="Source\ManagerControlBlock\ManagerControlBlock.cpp" />
+    <ClCompile Include="Source\Task\Schedulers\Pipeline\Pipeline.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DoxyFile\Doxyfile" />
