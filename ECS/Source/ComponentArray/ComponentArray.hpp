@@ -6,9 +6,16 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "IComponentArray.hpp"
-
+#include "../IComponent/IComponent.hpp"
 
 namespace MultiStation{
+
+	enum class ComponentStatus {
+		NONE,
+		MODIFIED,
+		CREATED,
+		DESTROYED
+	};
 
 	/**
 	 * @author Dimitris Smyrnakis
@@ -20,6 +27,10 @@ namespace MultiStation{
 	 */
 	template<class T>
 	class ComponentArray : public IComponentArray{
+
+		static_assert(std::is_base_of<IComponent<T>, T>::value,
+			"T must inherit from IComponent<T>");
+
 		void ClearVectors(void);
 		void Move(ComponentArray* dest, ComponentArray* src);
 	public:
@@ -124,6 +135,10 @@ namespace MultiStation{
 		std::vector<uint32_t> m_indexToEntity; // component index mapped to entity value
 		std::unordered_map<uint32_t, size_t> m_entityToIndex; // 
 		// 
+		std::unordered_map<uint32_t, ComponentStatus> m_componentsStatus;
+		// each component instanced Type ID mapped to a Status variable
+
+
 		
 	};
 
@@ -150,6 +165,7 @@ namespace MultiStation{
 		m_components.clear();
 		m_entityToIndex.clear();
 		m_indexToEntity.clear();
+		m_componentsStatus.clear();
 	}
 
 	template<typename T>
@@ -159,6 +175,7 @@ namespace MultiStation{
 		dest->m_components = std::move(src->m_components);
 		dest->m_entityToIndex = std::move(src->m_entityToIndex);
 		dest->m_indexToEntity = std::move(src->m_indexToEntity);
+		dest->m_componentsStatus = std::move(src->m_componentsStatus);
 		src->ClearVectors();
 	}
 
@@ -215,6 +232,8 @@ namespace MultiStation{
 		m_entityToIndex[entity] = newIndex;
 		m_indexToEntity.push_back(entity);
 
+		
+
 		return &m_components[newIndex];
 	}
 
@@ -251,6 +270,7 @@ namespace MultiStation{
 		size_t index = m_entityToIndex[entity];
 		size_t lastIndex = m_components.size() - 1;
 
+
 		if (index != lastIndex) {
 			m_components[index] = std::move(m_components[lastIndex]);
 			uint32_t lastEntity = m_indexToEntity[lastIndex];
@@ -263,6 +283,7 @@ namespace MultiStation{
 		m_components.pop_back();
 		m_indexToEntity.pop_back();
 		m_entityToIndex.erase(entity); // erase pair entity key, index vaue
+		
 		
 	}
 

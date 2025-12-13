@@ -1,0 +1,60 @@
+\doxysection{Task\+Manager.\+hpp}
+\hypertarget{_task_manager_8hpp_source}{}\label{_task_manager_8hpp_source}\index{Source/Task/TaskManager.hpp@{Source/Task/TaskManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}TaskScheduller.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <barrier>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <shared\_mutex>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }MultiStation\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{void}*\ ManagerWorker(\textcolor{keywordtype}{void}*\ managerInfo);}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }TaskManager\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ State\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ Stopped,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ Running}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_task_manager_1_1_manager_info}{ManagerInfo}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}*\ scheduler\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ threadID\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ totalThreads\ =\ 1;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ std::atomic<State>*\ state\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ TaskManager(\mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}*\ scheduler\ ,\ uint16\_t\ threads\ )\ noexcept\ ;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \string~TaskManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ TaskManager(\textcolor{keyword}{const}\ TaskManager\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ TaskManager\&\ operator=(\textcolor{keyword}{const}\ TaskManager\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ TaskManager(TaskManager\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ TaskManager\&\ operator=(TaskManager\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Thread\ safe}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task\ ,\ \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITaskMetadata}}*\ metadata);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Thread\ safe}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ the\ task\ manager\ and\ its\ threads}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Start(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Stop\ the\ task\ manager\ and\ its\ threads}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Stop(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}*\ m\_Scheduler\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ uint16\_t\ m\_ThreadCount\ =\ 1;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::vector<Task*>\ m\_Tasks;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::vector<std::thread>\ m\_Threads;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::atomic<State>\ m\_state\ =\ Stopped;}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}

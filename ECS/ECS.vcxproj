@@ -22,16 +22,20 @@
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp" />
     <ClInclude Include="Source\ComponentArray\IComponentArray.hpp" />
     <ClInclude Include="Source\Entity\Entity.hpp" />
+    <ClInclude Include="Source\IComponent\IComponent.hpp" />
     <ClInclude Include="Source\Init.hpp" />
     <ClInclude Include="Source\ISystem\ISystem.hpp" />
     <ClInclude Include="Source\Registry\Registry.hpp" />
-    <ClInclude Include="Source\ManagerControlBlock\ManagerControlBlock.hpp" />
+    <ClInclude Include="Source\SystemManager\DependenciesBuilder.hpp" />
+    <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
+    <ClInclude Include="Source\SystemManager\SystemTask.hpp" />
     <ClInclude Include="Source\Task\ITaskMetadata.hpp" />
     <ClInclude Include="Source\Task\Schedulers\Pipeline\Pipeline.hpp" />
     <ClInclude Include="Source\Task\Task.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
     <ClInclude Include="Source\Task\TaskManager.hpp" />
     <ClInclude Include="Source\Task\TaskScheduller.hpp" />
+    <ClInclude Include="Source\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ComponentArray\IComponentArray.cpp" />
@@ -39,8 +43,10 @@
     <ClCompile Include="Source\ISystem\ISystem.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
-    <ClCompile Include="Source\ManagerControlBlock\ManagerControlBlock.cpp" />
+    <ClCompile Include="Source\SystemManager\SystemTask.cpp" />
     <ClCompile Include="Source\Task\Schedulers\Pipeline\Pipeline.cpp" />
+    <ClCompile Include="Source\Task\TaskManager.cpp" />
+    <ClCompile Include="Source\VersionControl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DoxyFile\Doxyfile" />
@@ -130,7 +136,7 @@
     </Link>
     <PostBuildEvent>
       <Command>
-doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,7 +160,7 @@ doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
     </Link>
     <PostBuildEvent>
       <Command>
-doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -174,7 +180,7 @@ doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
     </Link>
     <PostBuildEvent>
       <Command>
-doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -198,7 +204,7 @@ doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
     </Link>
     <PostBuildEvent>
       <Command>
-doxygen $(ProjectDir)\DoxyFile\Doxyfile</Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

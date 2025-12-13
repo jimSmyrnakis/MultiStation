@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\IComponentArray.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\IComponentArray.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Entity\Entity.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Entity.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ISystem\ISystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ISystem.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\main.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\main.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Registry\Registry.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Registry.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Task\Schedulers\Pipeline\Pipeline.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Pipeline.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Task\TaskManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\TaskManager.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\VersionControl.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\VersionControl.obj

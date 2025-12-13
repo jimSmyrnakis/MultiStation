@@ -2,18 +2,20 @@
 #include <stdint.h>
 #include <stddef.h>
 #include "../Registry/Registry.hpp"
-#include "../ManagerControlBlock/ManagerControlBlock.hpp"
 namespace MultiStation{
 
 	class ISystem {
 	public:
-		// Flags
-		static uint32_t WRITABLE;// = 0x00000001; if this system may change the registry
-		static uint32_t SYNCHRONIZED;// = 0x00000002; if the system may not need to run 
-		// at the same game loop a the others , input system may belong there 
+		
+		struct Dependencies {
+			std::vector<uint32_t> waitSystems;
+			// systems type id 
+			std::unordered_map<uint32_t, bool > componentsUsage;
+			// component type id to if is writing or reading
+		};
 	protected:
-		ISystem(uint32_t flags) noexcept;
-		~ISystem(void) noexcept = default;
+		ISystem(void) noexcept;
+		virtual ~ISystem(void) noexcept = default;
 
 		ISystem(const ISystem& cpy) noexcept = delete;
 		ISystem& operator=(const ISystem& cpy) noexcept = delete;
@@ -21,28 +23,102 @@ namespace MultiStation{
 		ISystem(ISystem&& move) noexcept = default;
 		virtual ISystem& operator=(ISystem&& move) noexcept = default ;
 
+		// Called only one time when the system is created
+		virtual void OnAwake(void) = 0;
+		
+		// Called when the System is Enabled
+		virtual void OnEnable(void) = 0;
 
-		// Called every time this system is loaded in the scene 
-		// , the system send's if the registry is changed 
-		virtual void OnCreate(Registry* registry ) = 0;
+		// Called when the System is Started , after the OnEnable
+		virtual void OnStart(void ) = 0;
 
-		// Called every Hole System Loop , or Game Loop , or Scene loop
-		// When the System is Called , the dirty says to him if the Registry has
-		// changed . When The System finished then it must update the dirty flag
-		virtual void OnUpdate(Registry* registry, float dt , ManagerControlBlock* controlBlock) = 0;
+		// Called every frame
+		virtual void OnUpdate( float dt ) = 0;
+
+		// Called when the System is Disabled
+		virtual void OnDisable(void) = 0;
 
 		// Called when the System is Destroyed
-		virtual void OnDestroy(Registry* registry, ManagerControlBlock* controlBlock) = 0;
+		virtual void OnDestroy(void) = 0;
 		
+		
+	public:
 
-		virtual uint32_t GetFlags(void) const;
+		template<typename SystemType>
+		static uint32_t GetTypeID(void);
 
-		virtual void SetFlags(uint32_t flags);
+		template<typename SystemType>
+		void WaitFor(void);
 
+		template<typename T>
+		void UseComponent(bool writeAccess);
+
+		Dependencies GetDependencies(void) const;
 
 	protected:
 		uint32_t m_flags;
 		
+	private:
+		Dependencies m_dependencies;
+		static uint32_t s_typeID;
 	};
 
+
+	template<typename SystemType>
+	static uint32_t ISystem::GetTypeID(void) {
+		// force T to be derived from ISystem , but not ISystem itself
+		static_assert(
+			std::is_base_of<ISystem, SystemType>::value && 
+			!std::is_same<ISystem, SystemType>::value,
+			"T must be derived from ISystem, not ISystem itself!");
+
+		static uint32_t id = ++s_typeID;
+
+		return id;
+	}
+
+
+	template<typename SystemType>
+	void ISystem::WaitFor(void) {
+		static_assert(
+			std::is_base_of<ISystem, SystemType>::value &&
+			!std::is_same<ISystem, SystemType>::value,
+			"T must be derived from ISystem, not ISystem itself!");
+
+		uint32_t SysTypeID = SystemType::GetTypeID();
+		// search the type id 
+		auto it = std::find(
+			m_dependencies.waitSystems.begin(),
+			m_dependencies.waitSystems.end(),
+			SysTypeID);
+		if (it != m_dependencies.waitSystems.end()) {
+			// TODO : Warning
+			return;
+		}
+		m_dependencies.waitSystems.push_back(SysTypeID);
+	}
+
+	template<typename T>
+	void ISystem::UseComponent(bool writeAccess) {
+		static_assert(
+			std::is_base_of<IComponent<T>, T>::value &&
+			!std::is_same<IComponent<T>, T>::value,
+			"T must be derived from IComponent<T>, not IComponent<T> itself!");
+
+		uint32_t id = IComponent<T>::GetTypeID();
+
+		// Search
+		auto& map = m_dependencies.componentsUsage;
+		if (map.find(id) != map.end()) {
+			// TODO : Warning
+			return;
+		}
+
+		map[id] = writeAccess;
+	}
+
+
+	ISystem::Dependencies ISystem::GetDependencies(void) const {
+		return m_dependencies;
+	}
 }

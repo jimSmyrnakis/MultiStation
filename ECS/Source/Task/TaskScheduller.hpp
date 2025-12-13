@@ -24,6 +24,10 @@ namespace MultiStation {
 		
 		// Called from multiple threads
 		virtual void Schedule(uint32_t threadID) = 0;
+
+		// Notify that a thread is exiting , use for sync notification
+		// like barrier arrive and drop instead of arrive and wait
+		virtual void NotifyThreadExit(uint32_t threadID) = 0;
 	};
 
 }

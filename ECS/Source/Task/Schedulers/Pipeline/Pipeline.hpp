@@ -40,6 +40,8 @@ namespace MultiStation
 		void UnregisterTask(Task* task) override;
 		// Called from multiple threads
 		void Schedule(uint32_t threadID) override;
+		// Called from a thread to specify that is leaving
+		void NotifyThreadExit(uint32_t threadID) override;
 
 		Pipeline(Pipeline&&) = delete;
 		Pipeline& operator=(Pipeline&&) = delete;

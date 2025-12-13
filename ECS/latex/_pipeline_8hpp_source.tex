@@ -1,0 +1,64 @@
+\doxysection{Pipeline.\+hpp}
+\hypertarget{_pipeline_8hpp_source}{}\label{_pipeline_8hpp_source}\index{Source/Task/Schedulers/Pipeline/Pipeline.hpp@{Source/Task/Schedulers/Pipeline/Pipeline.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../../TaskScheduller.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <shared\_mutex>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <barrier>}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }MultiStation}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_i_pipeline_task_metadata}{IPipelineTaskMetadata}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITaskMetadata}}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{struct_multi_station_1_1_i_pipeline_task_metadata}{\string~IPipelineTaskMetadata}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ uint16\_t\ stage\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canRunInParallel\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{class\ }Pipeline\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Stage}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ threadid\ -\/>\ tasks}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<uint16\_t,\ std::vector<Task*>>\ parallelTasks;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<uint16\_t,\ std::vector<IPipelineTaskMetadata*>>\ parallelMetadatas;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ m\_currentThread\ =\ 0;\ \textcolor{comment}{//\ for\ scheduling\ non\ parallel\ tasks\ uniformly\ among\ threads}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \string~Pipeline(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ Pipeline(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ only\ from\ one\ thread}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Initialize(uint16\_t\ threads)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ only\ from\ one\ thread}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Finalize(\textcolor{keywordtype}{void})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task,\ \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITaskMetadata}}*\ metadata)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnregisterTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Schedule(uint32\_t\ threadID)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Pipeline(Pipeline\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ Pipeline\&\ operator=(Pipeline\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ Pipeline(\textcolor{keyword}{const}\ Pipeline\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ Pipeline\&\ operator=(\textcolor{keyword}{const}\ Pipeline\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ uint16\_t\ m\_threadCount\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::shared\_mutex\ m\_mutex;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::barrier<>*\ m\_barrier\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ uint32\_t\ m\_totalStages\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::vector<Stage>\ m\_stages;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ uint32\_t\ m\_currentStage\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ \}}
+
+\end{DoxyCode}

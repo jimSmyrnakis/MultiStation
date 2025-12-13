@@ -98,6 +98,7 @@ namespace MultiStation {
 	// Called from multiple threads
 	void Pipeline::Schedule(uint32_t threadID)  {
 		
+		std::shared_lock slokc(m_mutex);
 		m_mutex.lock_shared();
 		uint32_t currentStage = m_currentStage;
 
@@ -105,7 +106,7 @@ namespace MultiStation {
 
 		// Get copy of tasks for this thread
 		auto tasks = stage.parallelTasks[threadID];
-		m_mutex.unlock_shared();
+		slokc.unlock();
 		// Run all tasks for this thread
 		for (Task* task : tasks) {
 			if (task) {
@@ -123,6 +124,10 @@ namespace MultiStation {
 		
 		// sync here
 		m_barrier->arrive_and_wait();
+	}
+
+	void Pipeline::NotifyThreadExit(uint32_t threadID) {
+		m_barrier->arrive_and_drop();
 	}
 
 }

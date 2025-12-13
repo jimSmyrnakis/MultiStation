@@ -5,8 +5,12 @@ var annotated_dup =
       [ "IComponentArray", "class_multi_station_1_1_i_component_array.html", "class_multi_station_1_1_i_component_array" ],
       [ "Entity", "class_multi_station_1_1_entity.html", "class_multi_station_1_1_entity" ],
       [ "ISystem", "class_multi_station_1_1_i_system.html", null ],
-      [ "ManagerControlBlock", "class_multi_station_1_1_manager_control_block.html", null ],
       [ "Registry", "class_multi_station_1_1_registry.html", "class_multi_station_1_1_registry" ],
-      [ "SceneManager", "class_multi_station_1_1_scene_manager.html", "class_multi_station_1_1_scene_manager" ]
+      [ "ITaskMetadata", "struct_multi_station_1_1_i_task_metadata.html", null ],
+      [ "IPipelineTaskMetadata", "struct_multi_station_1_1_i_pipeline_task_metadata.html", null ],
+      [ "Pipeline", "class_multi_station_1_1_pipeline.html", null ],
+      [ "Task", "class_multi_station_1_1_task.html", null ],
+      [ "TaskManager", "class_multi_station_1_1_task_manager.html", "class_multi_station_1_1_task_manager" ],
+      [ "TaskScheduler", "class_multi_station_1_1_task_scheduler.html", null ]
     ] ]
 ];

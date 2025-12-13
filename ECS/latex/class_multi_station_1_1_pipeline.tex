@@ -1,0 +1,93 @@
+\doxysection{Multi\+Station\+::Pipeline Class Reference}
+\hypertarget{class_multi_station_1_1_pipeline}{}\label{class_multi_station_1_1_pipeline}\index{MultiStation::Pipeline@{MultiStation::Pipeline}}
+Inheritance diagram for Multi\+Station\+::Pipeline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_pipeline}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_pipeline_a5e96d5ebf6839c74e224730f2c8c306d}{Initialize}} (uint16\+\_\+t threads) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_pipeline_a5ecabe945f4f778b39eecdf2af2654f0}{Finalize}} (void) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_pipeline_a7794771c9701b887bcd8aef4335ed9cf}{Register\+Task}} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task, \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}} \texorpdfstring{$\ast$}{*}metadata) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_pipeline_a160d8799c6c9b015cd70aedd69b8a47e}{Unregister\+Task}} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_pipeline_a36012a06ed4897d1e00c4cba75c7b320}{Schedule}} (uint32\+\_\+t thread\+ID) override
+\item 
+\Hypertarget{class_multi_station_1_1_pipeline_a1ac6ccb27db400f0cd4a2cb422ffe898}\label{class_multi_station_1_1_pipeline_a1ac6ccb27db400f0cd4a2cb422ffe898} 
+{\bfseries Pipeline} (Pipeline \&\&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_pipeline_af148ff943d80eaafab0c4cab85d4a8de}\label{class_multi_station_1_1_pipeline_af148ff943d80eaafab0c4cab85d4a8de} 
+Pipeline \& {\bfseries operator=} (Pipeline \&\&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_pipeline_aef68ad0dcc5414a515e852319595ecae}\label{class_multi_station_1_1_pipeline_aef68ad0dcc5414a515e852319595ecae} 
+{\bfseries Pipeline} (const Pipeline \&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_pipeline_ae012308c2ac7c647bde962d2c7f2ffe2}\label{class_multi_station_1_1_pipeline_ae012308c2ac7c647bde962d2c7f2ffe2} 
+Pipeline \& {\bfseries operator=} (const Pipeline \&)=delete
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_pipeline_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_pipeline_a5ecabe945f4f778b39eecdf2af2654f0}\index{MultiStation::Pipeline@{MultiStation::Pipeline}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!MultiStation::Pipeline@{MultiStation::Pipeline}}
+\doxysubsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_pipeline_a5ecabe945f4f778b39eecdf2af2654f0} 
+void Multi\+Station\+::\+Pipeline\+::\+Finalize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_pipeline_a5e96d5ebf6839c74e224730f2c8c306d}\index{MultiStation::Pipeline@{MultiStation::Pipeline}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!MultiStation::Pipeline@{MultiStation::Pipeline}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_pipeline_a5e96d5ebf6839c74e224730f2c8c306d} 
+void Multi\+Station\+::\+Pipeline\+::\+Initialize (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{threads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_pipeline_a7794771c9701b887bcd8aef4335ed9cf}\index{MultiStation::Pipeline@{MultiStation::Pipeline}!RegisterTask@{RegisterTask}}
+\index{RegisterTask@{RegisterTask}!MultiStation::Pipeline@{MultiStation::Pipeline}}
+\doxysubsubsection{\texorpdfstring{RegisterTask()}{RegisterTask()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_pipeline_a7794771c9701b887bcd8aef4335ed9cf} 
+void Multi\+Station\+::\+Pipeline\+::\+Register\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{\mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}} \texorpdfstring{$\ast$}{*}}]{metadata}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_pipeline_a36012a06ed4897d1e00c4cba75c7b320}\index{MultiStation::Pipeline@{MultiStation::Pipeline}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!MultiStation::Pipeline@{MultiStation::Pipeline}}
+\doxysubsubsection{\texorpdfstring{Schedule()}{Schedule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_pipeline_a36012a06ed4897d1e00c4cba75c7b320} 
+void Multi\+Station\+::\+Pipeline\+::\+Schedule (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{thread\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_pipeline_a160d8799c6c9b015cd70aedd69b8a47e}\index{MultiStation::Pipeline@{MultiStation::Pipeline}!UnregisterTask@{UnregisterTask}}
+\index{UnregisterTask@{UnregisterTask}!MultiStation::Pipeline@{MultiStation::Pipeline}}
+\doxysubsubsection{\texorpdfstring{UnregisterTask()}{UnregisterTask()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_pipeline_a160d8799c6c9b015cd70aedd69b8a47e} 
+void Multi\+Station\+::\+Pipeline\+::\+Unregister\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}}]{task}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Task/\+Schedulers/\+Pipeline/Pipeline.\+hpp\end{DoxyCompactItemize}

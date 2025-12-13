@@ -1,0 +1,50 @@
+\doxysection{Multi\+Station\+::Task\+Manager Class Reference}
+\hypertarget{class_multi_station_1_1_task_manager}{}\label{class_multi_station_1_1_task_manager}\index{MultiStation::TaskManager@{MultiStation::TaskManager}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_task_manager_1_1_manager_info}{Manager\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a58bdf5ac81d23f3e04028e460c0e861f}\label{class_multi_station_1_1_task_manager_a58bdf5ac81d23f3e04028e460c0e861f} 
+enum {\bfseries State} \{ {\bfseries Stopped}
+, {\bfseries Running}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a2d4a58106b39f17e98ec852399ae68db}\label{class_multi_station_1_1_task_manager_a2d4a58106b39f17e98ec852399ae68db} 
+{\bfseries Task\+Manager} (\mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Task\+Scheduler}} \texorpdfstring{$\ast$}{*}scheduler, uint16\+\_\+t threads) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a8ccf228db5e13363eec4852d4b9daec3}\label{class_multi_station_1_1_task_manager_a8ccf228db5e13363eec4852d4b9daec3} 
+{\bfseries Task\+Manager} (const Task\+Manager \&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a0ea6a0884c673f865e42e584ac404c35}\label{class_multi_station_1_1_task_manager_a0ea6a0884c673f865e42e584ac404c35} 
+Task\+Manager \& {\bfseries operator=} (const Task\+Manager \&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a0fea9e84c9ffa9281198297498a4717c}\label{class_multi_station_1_1_task_manager_a0fea9e84c9ffa9281198297498a4717c} 
+{\bfseries Task\+Manager} (Task\+Manager \&\&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_aa3e8cd2dc7042c70ce416cd15ffc45d4}\label{class_multi_station_1_1_task_manager_aa3e8cd2dc7042c70ce416cd15ffc45d4} 
+Task\+Manager \& {\bfseries operator=} (Task\+Manager \&\&other) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a651a8a30cd9d1617e9485cbbad303687}\label{class_multi_station_1_1_task_manager_a651a8a30cd9d1617e9485cbbad303687} 
+void {\bfseries Add\+Task} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task, \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}} \texorpdfstring{$\ast$}{*}metadata)
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_ac2c0f15de32c4f79ad6fb48b60247b90}\label{class_multi_station_1_1_task_manager_ac2c0f15de32c4f79ad6fb48b60247b90} 
+void {\bfseries Remove\+Task} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task)
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a1a7ec47b8b9c706f1292e28ab8f2c4a2}\label{class_multi_station_1_1_task_manager_a1a7ec47b8b9c706f1292e28ab8f2c4a2} 
+void {\bfseries Start} (void)
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a29bb3f86bb806e42c3a0f46afee09f2a}\label{class_multi_station_1_1_task_manager_a29bb3f86bb806e42c3a0f46afee09f2a} 
+void {\bfseries Stop} (void)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Task/Task\+Manager.\+hpp\end{DoxyCompactItemize}
