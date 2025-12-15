@@ -30,11 +30,15 @@
     <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
     <ClInclude Include="Source\SystemManager\SystemTask.hpp" />
     <ClInclude Include="Source\Task\ITaskMetadata.hpp" />
+    <ClInclude Include="Source\Task\Schedulers\DAG\DAGScheduler.hpp" />
     <ClInclude Include="Source\Task\Schedulers\Pipeline\Pipeline.hpp" />
     <ClInclude Include="Source\Task\Task.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
     <ClInclude Include="Source\Task\TaskManager.hpp" />
     <ClInclude Include="Source\Task\TaskScheduller.hpp" />
+    <ClInclude Include="Source\Utilities\BitMap\BitMap.hpp" />
+    <ClInclude Include="Source\Utilities\DAG\DAGraph.hpp" />
+    <ClInclude Include="Source\Utilities\Queue\Queue.hpp" />
     <ClInclude Include="Source\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +48,11 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
     <ClCompile Include="Source\SystemManager\SystemTask.cpp" />
+    <ClCompile Include="Source\Task\Schedulers\DAG\DAGScheduler.cpp" />
     <ClCompile Include="Source\Task\Schedulers\Pipeline\Pipeline.cpp" />
     <ClCompile Include="Source\Task\TaskManager.cpp" />
+    <ClCompile Include="Source\Utilities\BitMap\BitMap.cpp" />
+    <ClCompile Include="Source\Utilities\DAG\DAGraph.cpp" />
     <ClCompile Include="Source\VersionControl.cpp" />
   </ItemGroup>
   <ItemGroup>
