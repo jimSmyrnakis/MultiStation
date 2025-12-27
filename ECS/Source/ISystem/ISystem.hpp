@@ -53,7 +53,7 @@ namespace MultiStation{
 		template<typename T>
 		void UseComponent(bool writeAccess);
 
-		Dependencies GetDependencies(void) const;
+		inline Dependencies GetDependencies(void) const;
 
 	protected:
 		uint32_t m_flags;

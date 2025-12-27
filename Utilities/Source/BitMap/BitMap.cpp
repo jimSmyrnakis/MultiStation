@@ -61,7 +61,7 @@ namespace MultiStation {
 			if (!m_bitmap) {
 				
 				// TODO : using my debugger
-				return;
+				return *this;
 			}
 			m_capacity = other.m_capacity;
 			m_height = other.m_height;

@@ -4,10 +4,13 @@
 #include <vector>
 #include <atomic>
 #include <mutex>
+
 namespace MultiStation {
 
     struct DAGNode {
-    
+        DAGNode(void) = default;
+        DAGNode(const DAGNode&) = ;
+        DAGNode& operator=(const DAGNode&) = default;
         uint32_t id;
         std::atomic<uint32_t> inDegree = 0;
         std::vector<uint32_t> outEdges;

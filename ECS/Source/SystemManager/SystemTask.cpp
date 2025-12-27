@@ -19,6 +19,7 @@ namespace MultiStation {
 		// take state 
 		State state = m_info.currentState->load(std::memory_order_acquire);
 		ISystem* sys = m_info.system;
+		float curTime = Time::GetTimeInSeconds();
 		switch (state)
 		{
 		case MultiStation::SystemTask::Awake:
@@ -56,7 +57,6 @@ namespace MultiStation {
 			}
 			break;
 		case MultiStation::SystemTask::Update:
-			float curTime = Time::GetTimeInSeconds();
 			if (!m_hasUpdatedOnce) {
 				m_hasUpdatedOnce = true;
 				m_hasWake = false;
