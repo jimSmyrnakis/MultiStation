@@ -1,0 +1,59 @@
+\doxysection{DAGScheduler.\+hpp}
+\hypertarget{_d_a_g_scheduler_8hpp_source}{}\label{_d_a_g_scheduler_8hpp_source}\index{Source/Task/Schedulers/DAG/DAGScheduler.hpp@{Source/Task/Schedulers/DAG/DAGScheduler.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../../TaskScheduller.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../../../Utilities/Queue/Queue.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../../Utilities/DAG/DAGraph.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <shared\_mutex>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <barrier>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_d_a_g_scheduler_task_metadata}{DAGSchedulerTaskMetadata}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler}{DAGScheduler}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler}{\string~DAGScheduler}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ only\ from\ one\ thread}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Initialize(uint16\_t\ threads)\ ;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ only\ from\ one\ thread}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Finalize(\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ RegisterTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task,\ \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITaskMetadata}}*\ metadata)\ ;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ UnregisterTask(\mbox{\hyperlink{class_multi_station_1_1_task}{Task}}*\ task)\ ;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Schedule(uint32\_t\ threadID);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Notify\ that\ a\ thread\ is\ exiting\ ,\ use\ for\ sync\ notification}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ like\ barrier\ arrive\ and\ drop\ instead\ of\ arrive\ and\ wait}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ NotifyThreadExit(uint32\_t\ threadID)\ ;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ DAGraph\ m\_graph;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::barrier<>*\ m\_sync;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ uint32\_t\ m\_threads;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ Queue<uint32\_t>\ m\_readyQue;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::vector<Task*>\ m\_tasks;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::vector<ITaskMetadata*>\ m\_metadata;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}

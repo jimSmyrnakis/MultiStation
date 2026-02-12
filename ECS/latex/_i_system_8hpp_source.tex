@@ -6,48 +6,125 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }ISystem\ \{}
 \DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flags}}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ WRITABLE;\textcolor{comment}{//\ =\ 0x00000001;\ if\ this\ system\ may\ change\ the\ registry}}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ SYNCHRONIZED;\textcolor{comment}{//\ =\ 0x00000002;\ if\ the\ system\ may\ not\ need\ to\ run\ }}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ at\ the\ same\ game\ loop\ a\ the\ others\ ,\ input\ system\ may\ belong\ there\ }}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ ISystem(uint32\_t\ flags)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \string~ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ ISystem\&\ operator=(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ISystem(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ISystem\&\ operator=(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ default\ ;}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ time\ this\ system\ is\ loaded\ in\ the\ scene\ }}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ,\ the\ system\ send's\ if\ the\ registry\ is\ changed\ }}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnCreate(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry\ )\ =\ 0;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ Hole\ System\ Loop\ ,\ or\ Game\ Loop\ ,\ or\ Scene\ loop}}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ the\ System\ is\ Called\ ,\ the\ dirty\ says\ to\ him\ if\ the\ Registry\ has}}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ changed\ .\ When\ The\ System\ finished\ then\ it\ must\ update\ the\ dirty\ flag}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnUpdate(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry,\ \textcolor{keywordtype}{float}\ dt\ )\ =\ 0;}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Destroyed}}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnDestroy(\mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}*\ registry)\ =\ 0;}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ GetFlags(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetFlags(uint32\_t\ flags);}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Dependencies}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ waitSystems;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ systems\ type\ id\ }}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ bool\ >\ componentsUsage;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ component\ type\ id\ to\ if\ is\ writing\ or\ reading}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ISystem\&\ operator=(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ ISystem(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ISystem\&\ operator=(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ default\ ;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ only\ one\ time\ when\ the\ system\ is\ created}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnAwake(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Enabled}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnEnable(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Started\ ,\ after\ the\ OnEnable}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnStart(\textcolor{keywordtype}{void}\ )\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ frame}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnUpdate(\ \textcolor{keywordtype}{float}\ dt\ )\ =\ 0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Disabled}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnDisable(\textcolor{keywordtype}{void})\ =\ 0;}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ uint32\_t\ m\_flags;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ when\ the\ System\ is\ Destroyed}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnDestroy(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ GetTypeID(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ WaitFor(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UseComponent(\textcolor{keywordtype}{bool}\ writeAccess);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Dependencies}}\ GetDependencies(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ uint32\_t\ m\_flags;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Dependencies}}\ m\_dependencies;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_typeID;}
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ ISystem::GetTypeID(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ force\ T\ to\ be\ derived\ from\ ISystem\ ,\ but\ not\ ISystem\ itself}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_base\_of<ISystem,\ SystemType>::value\ \&\&\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ !std::is\_same<ISystem,\ SystemType>::value,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ ISystem,\ not\ ISystem\ itself!"{}});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ ++s\_typeID;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ ISystem::WaitFor(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_base\_of<ISystem,\ SystemType>::value\ \&\&}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ !std::is\_same<ISystem,\ SystemType>::value,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ ISystem,\ not\ ISystem\ itself!"{}});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ uint32\_t\ SysTypeID\ =\ SystemType::GetTypeID();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ search\ the\ type\ id\ }}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dependencies.waitSystems.begin(),}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dependencies.waitSystems.end(),}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ SysTypeID);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ m\_dependencies.waitSystems.end())\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ :\ Warning}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ m\_dependencies.waitSystems.push\_back(SysTypeID);}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ ISystem::UseComponent(\textcolor{keywordtype}{bool}\ writeAccess)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_base\_of<IComponent<T>,\ T>::value\ \&\&}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ !std::is\_same<IComponent<T>,\ T>::value,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ IComponent<T>,\ not\ IComponent<T>\ itself!"{}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ uint32\_t\ \textcolor{keywordtype}{id}\ =\ IComponent<T>::GetTypeID();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Search}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ map\ =\ m\_dependencies.componentsUsage;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (map.find(\textcolor{keywordtype}{id})\ !=\ map.end())\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ :\ Warning}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ map[id]\ =\ writeAccess;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{ISystem::Dependencies}}\ ISystem::GetDependencies(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_dependencies;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \}}
 
 \end{DoxyCode}

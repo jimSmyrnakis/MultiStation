@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['linedetectormasks_0',['LineDetectorMasks',['../struct_line_detector_masks.html',1,'']]],
-  ['literal_1',['literal',['../structglm_1_1detail_1_1literal.html',1,'glm::detail']]],
-  ['literal_3c_20t_2c_20true_20_3e_2',['literal&lt; T, true &gt;',['../structglm_1_1detail_1_1literal_3_01_t_00_01true_01_4.html',1,'glm::detail']]]
+  ['task_0',['Task',['../class_multi_station_1_1_task.html',1,'MultiStation']]],
+  ['taskmanager_1',['TaskManager',['../class_multi_station_1_1_task_manager.html',1,'MultiStation']]],
+  ['taskscheduler_2',['TaskScheduler',['../class_multi_station_1_1_task_scheduler.html',1,'MultiStation']]]
 ];

@@ -1,0 +1,57 @@
+\doxysection{System\+Task.\+hpp}
+\hypertarget{_system_task_8hpp_source}{}\label{_system_task_8hpp_source}\index{Source/SystemManager/SystemTask.hpp@{Source/SystemManager/SystemTask.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Task/TaskManager.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../ISystem/ISystem.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }SystemTask\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_multi_station_1_1_task}{Task}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ State\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ Awake,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ Enable,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ Start,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ Update,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ Disable,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ Destroy}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_system_task_1_1_info}{Info}}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::atomic<State>*\ currentState;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_task_manager}{TaskManager}}*\ manager;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITaskMetadata}}*\ metadata;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ system;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ SystemTask(\mbox{\hyperlink{struct_multi_station_1_1_system_task_1_1_info}{Info}}\&\ info);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ SystemTask(\textcolor{keyword}{const}\ SystemTask\&\ cpy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ SystemTask\&\ operator=(\textcolor{keyword}{const}\ SystemTask\&\ cpy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ SystemTask(SystemTask\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ SystemTask\&\ operator=(SystemTask\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \string~SystemTask(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Run(uint16\_t\ threadID)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasWake\ \ \ \ \ \ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasEnabled\ \ \ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasStarted\ \ \ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasDisabled\ \ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasDestroyed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasUpdatedOnce\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_system_task_1_1_info}{Info}}\&\ m\_info;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_prevTime\ =\ 0.0f;}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,28 @@
+\doxysection{Source/\+Job\+System/\+Job\+System.hpp File Reference}
+\hypertarget{_job_system_8hpp}{}\label{_job_system_8hpp}\index{Source/JobSystem/JobSystem.hpp@{Source/JobSystem/JobSystem.hpp}}
+
+
+A Simple for moment Job System implementation that schedules all job with fifo implementation hardcoded.  
+
+
+{\ttfamily \#include "{}Job.\+hpp"{}}\newline
+{\ttfamily \#include $<$Utilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_job_system}{Multi\+Station\+::\+Job\+System}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_multi_station_1_1_job}{Job} System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -\/\texorpdfstring{$>$}{>} any worker available . The parent Thread is part of the schedule algorithm , usefull method is the wait\+For\+All that makes him enable for schedulling with the rest workers . \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Simple for moment Job System implementation that schedules all job with fifo implementation hardcoded. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis 
+\end{DoxyAuthor}

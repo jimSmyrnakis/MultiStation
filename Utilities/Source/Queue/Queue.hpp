@@ -21,7 +21,7 @@ namespace MultiStation{
 
 	public:
 
-		void Push(T& element);
+		void Push(const T& element);
 		
 		template<typename... Args>
 		void Emplace(Args&&... args);
@@ -56,7 +56,7 @@ namespace MultiStation{
 namespace MultiStation {
 	
 	template<typename T>
-	void Queue<T>::Push(T& element) {
+	void Queue<T>::Push(const T& element) {
 		std::lock_guard<std::mutex> lock(m_mutex);
 		m_data.push_back(std::move(element));
 		m_size.fetch_add(1, std::memory_order_release);

@@ -4,6 +4,8 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_multi_station_1_1_task_manager_1_1_manager_info}{Manager\+Info}}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_task_manager_1_1_pending_task}{Pending\+Task}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
@@ -37,11 +39,20 @@ void {\bfseries Add\+Task} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}
 \Hypertarget{class_multi_station_1_1_task_manager_ac2c0f15de32c4f79ad6fb48b60247b90}\label{class_multi_station_1_1_task_manager_ac2c0f15de32c4f79ad6fb48b60247b90} 
 void {\bfseries Remove\+Task} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task)
 \item 
-\Hypertarget{class_multi_station_1_1_task_manager_a1a7ec47b8b9c706f1292e28ab8f2c4a2}\label{class_multi_station_1_1_task_manager_a1a7ec47b8b9c706f1292e28ab8f2c4a2} 
-void {\bfseries Start} (void)
+\Hypertarget{class_multi_station_1_1_task_manager_aed9b7c8c6ae86ff529114788d73c07cc}\label{class_multi_station_1_1_task_manager_aed9b7c8c6ae86ff529114788d73c07cc} 
+void {\bfseries Start} (bool main\+As\+Worker)
 \item 
 \Hypertarget{class_multi_station_1_1_task_manager_a29bb3f86bb806e42c3a0f46afee09f2a}\label{class_multi_station_1_1_task_manager_a29bb3f86bb806e42c3a0f46afee09f2a} 
 void {\bfseries Stop} (void)
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a39264d9f5892a8e2154593950ba199dc}\label{class_multi_station_1_1_task_manager_a39264d9f5892a8e2154593950ba199dc} 
+void {\bfseries Join\+All} (void)
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_ac5d2c58a3e50729e28459ccc161f2eed}\label{class_multi_station_1_1_task_manager_ac5d2c58a3e50729e28459ccc161f2eed} 
+State {\bfseries Get\+State} (void) const
+\item 
+\Hypertarget{class_multi_station_1_1_task_manager_a065489b5e7304760370759eaa1c9255b}\label{class_multi_station_1_1_task_manager_a065489b5e7304760370759eaa1c9255b} 
+uint32\+\_\+t {\bfseries Get\+Threads} (void) const
 \end{DoxyCompactItemize}
 
 

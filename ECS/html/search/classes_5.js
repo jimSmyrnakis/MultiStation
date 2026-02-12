@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registry_0',['Registry',['../class_multi_station_1_1_registry.html',1,'MultiStation']]]
+  ['managerinfo_0',['ManagerInfo',['../struct_multi_station_1_1_task_manager_1_1_manager_info.html',1,'MultiStation::TaskManager']]]
 ];

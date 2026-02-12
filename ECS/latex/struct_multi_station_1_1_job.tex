@@ -1,0 +1,140 @@
+\doxysection{Multi\+Station\+::Job Struct Reference}
+\hypertarget{struct_multi_station_1_1_job}{}\label{struct_multi_station_1_1_job}\index{MultiStation::Job@{MultiStation::Job}}
+
+
+A job is a unit of work that can be executed by a worker thread. The \doxylink{struct_multi_station_1_1_job}{Job} struct defines the function to execute and the attributes of the job .  
+
+
+
+
+{\ttfamily \#include $<$Job.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_multi_station_1_1_job_a96931b982e364b863933d7c86c77731d}\label{struct_multi_station_1_1_job_a96931b982e364b863933d7c86c77731d} 
+{\bfseries Job} (const Job \&cpy) noexcept=default
+\item 
+\Hypertarget{struct_multi_station_1_1_job_a27a68d1e7a4aa6036b03dbeb3f1d7017}\label{struct_multi_station_1_1_job_a27a68d1e7a4aa6036b03dbeb3f1d7017} 
+Job \& {\bfseries operator=} (const Job \&cpy) noexcept=default
+\item 
+\Hypertarget{struct_multi_station_1_1_job_a92d0789e013c711a9e04c96c8aeea42d}\label{struct_multi_station_1_1_job_a92d0789e013c711a9e04c96c8aeea42d} 
+{\bfseries Job} (Job \&\&move) noexcept=default
+\item 
+\Hypertarget{struct_multi_station_1_1_job_a5d7c47b243ccaba0e4a21a1d1e4709c2}\label{struct_multi_station_1_1_job_a5d7c47b243ccaba0e4a21a1d1e4709c2} 
+Job \& {\bfseries operator=} (Job \&\&move) noexcept=default
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_aaee83a86b07991a8e6d47183cdc8952f}{Get\+ID}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the unique identifier of the job. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}} \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}}
+\begin{DoxyCompactList}\small\item\em The function pointer that the worker thread will call when executing this job. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}{data}}
+\begin{DoxyCompactList}\small\item\em The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user . \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76}{affine}}
+\begin{DoxyCompactList}\small\item\em If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e}{affinity\+Worker\+ID}}
+\begin{DoxyCompactList}\small\item\em If the job is affine then this variable specifies the ID of the worker thread that should execute this job. \end{DoxyCompactList}\item 
+\Hypertarget{struct_multi_station_1_1_job_aca5378783d24ab8554fa69086a1d4969}\label{struct_multi_station_1_1_job_aca5378783d24ab8554fa69086a1d4969} 
+std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ {\bfseries counter}
+\item 
+\Hypertarget{struct_multi_station_1_1_job_a48f8e4be57c3cf01b30d9e7abf6afce2}\label{struct_multi_station_1_1_job_a48f8e4be57c3cf01b30d9e7abf6afce2} 
+char {\bfseries name} \mbox{[}64\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15}{block\+ID}}
+\begin{DoxyCompactList}\small\item\em For jobs that are part of group/block of jobs (e.\+g. parallel for) this variable is used to identify the job in the block/group that belong . \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a0740f1fc045af333501095f1b95e5ea1}{block\+Size}}
+\begin{DoxyCompactList}\small\item\em For jobs that are part of group/block of jobs (e.\+g. parallel for) this variable is used to identify the total number of jobs in the block/group that belong . \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A job is a unit of work that can be executed by a worker thread. The \doxylink{struct_multi_station_1_1_job}{Job} struct defines the function to execute and the attributes of the job . 
+
+\label{doc-func-members}
+\Hypertarget{struct_multi_station_1_1_job_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_multi_station_1_1_job_aaee83a86b07991a8e6d47183cdc8952f}\index{MultiStation::Job@{MultiStation::Job}!GetID@{GetID}}
+\index{GetID@{GetID}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_aaee83a86b07991a8e6d47183cdc8952f} 
+uint32\+\_\+t Multi\+Station\+::\+Job\+::\+Get\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Gets the unique identifier of the job. 
+
+\begin{DoxyReturn}{Returns}
+the ID of the job. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_multi_station_1_1_job_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76}\index{MultiStation::Job@{MultiStation::Job}!affine@{affine}}
+\index{affine@{affine}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{affine}{affine}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76} 
+bool Multi\+Station\+::\+Job\+::affine}
+
+
+
+If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution. 
+
+\Hypertarget{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e}\index{MultiStation::Job@{MultiStation::Job}!affinityWorkerID@{affinityWorkerID}}
+\index{affinityWorkerID@{affinityWorkerID}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{affinityWorkerID}{affinityWorkerID}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e} 
+uint32\+\_\+t Multi\+Station\+::\+Job\+::affinity\+Worker\+ID}
+
+
+
+If the job is affine then this variable specifies the ID of the worker thread that should execute this job. 
+
+\Hypertarget{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15}\index{MultiStation::Job@{MultiStation::Job}!blockID@{blockID}}
+\index{blockID@{blockID}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{blockID}{blockID}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15} 
+uint32\+\_\+t Multi\+Station\+::\+Job\+::block\+ID}
+
+
+
+For jobs that are part of group/block of jobs (e.\+g. parallel for) this variable is used to identify the job in the block/group that belong . 
+
+\Hypertarget{struct_multi_station_1_1_job_a0740f1fc045af333501095f1b95e5ea1}\index{MultiStation::Job@{MultiStation::Job}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a0740f1fc045af333501095f1b95e5ea1} 
+uint32\+\_\+t Multi\+Station\+::\+Job\+::block\+Size}
+
+
+
+For jobs that are part of group/block of jobs (e.\+g. parallel for) this variable is used to identify the total number of jobs in the block/group that belong . 
+
+\Hypertarget{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}\index{MultiStation::Job@{MultiStation::Job}!data@{data}}
+\index{data@{data}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad} 
+void\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Job\+::data}
+
+
+
+The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user . 
+
+\Hypertarget{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}\index{MultiStation::Job@{MultiStation::Job}!fun@{fun}}
+\index{fun@{fun}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{fun}{fun}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6} 
+\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}} Multi\+Station\+::\+Job\+::fun}
+
+
+
+The function pointer that the worker thread will call when executing this job. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Job\+System/Job.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,60 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Commands.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Commands\Commands.cpp(58,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Commands\Commands.cpp(74,43): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+  Error.cpp
+  FBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(58,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(87,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(96,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(99,9): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(63,22): warning C4101: 'trash': unreferenced local variable
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(127,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244: 'argument': conversion from 'const T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244: 'argument': conversion from 'const T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         ]
+  Format.cpp
+  Init.cpp
+  FShader.cpp
+  Shader.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Shader\Shader.cpp(120,18): warning C4101: 'UniformsCount': unreferenced local variable
+  VShader.cpp
+  Texture2D.cpp
+  Texture2DResolution.cpp
+  UBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\UBuffer\UBuffer.cpp(181,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\UBuffer\UBuffer.cpp(290,50): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  VBuffer.cpp
+  VLayout.cpp
+  bmp.cpp
+  Time.cpp
+  GLFWWin.cpp
+  Platform.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\Platform\Library\Release\x64\Platform.lib

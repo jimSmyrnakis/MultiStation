@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['componentarray_0',['ComponentArray',['../class_multi_station_1_1_component_array.html',1,'MultiStation::ComponentArray&lt; T &gt;'],['../class_multi_station_1_1_component_array.html#ad38047a6d5e081ec8c8dbaa018c83651',1,'MultiStation::ComponentArray::ComponentArray(void) noexcept'],['../class_multi_station_1_1_component_array.html#a506204a9fd45ddf08d3fa787f5c05ff0',1,'MultiStation::ComponentArray::ComponentArray(const ComponentArray &amp;copy)=delete'],['../class_multi_station_1_1_component_array.html#aa5f6331fe77b19a0d3e93626dae21a7d',1,'MultiStation::ComponentArray::ComponentArray(ComponentArray &amp;&amp;move) noexcept']]]
+  ['blockid_0',['blockID',['../struct_multi_station_1_1_job.html#a574b21b9f1df7a1994695299bd1d4f15',1,'MultiStation::Job']]],
+  ['blocksize_1',['blockSize',['../struct_multi_station_1_1_job.html#a0740f1fc045af333501095f1b95e5ea1',1,'MultiStation::Job']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['task_0',['Task',['../class_multi_station_1_1_task.html',1,'MultiStation']]],
-  ['taskmanager_1',['TaskManager',['../class_multi_station_1_1_task_manager.html',1,'MultiStation']]],
-  ['taskscheduler_2',['TaskScheduler',['../class_multi_station_1_1_task_scheduler.html',1,'MultiStation']]]
+  ['pendingtask_0',['PendingTask',['../struct_multi_station_1_1_task_manager_1_1_pending_task.html',1,'MultiStation::TaskManager']]],
+  ['pipeline_1',['Pipeline',['../class_multi_station_1_1_pipeline.html',1,'MultiStation']]]
 ];

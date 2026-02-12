@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['allocate_0',['allocate',['../struct_g_l_f_wallocator.html#a18a798136f17a9cb105be18312193bf7',1,'GLFWallocator']]],
-  ['axes_1',['axes',['../struct_g_l_f_wgamepadstate.html#a6603cfa2df8b4db422e67ca0bf689b6a',1,'GLFWgamepadstate']]]
+  ['affine_0',['affine',['../struct_multi_station_1_1_job.html#a2848546e5895f5dd25ef46b64a381f76',1,'MultiStation::Job']]],
+  ['affinityworkerid_1',['affinityWorkerID',['../struct_multi_station_1_1_job.html#a59de973600d173e388c4f3090576c14e',1,'MultiStation::Job']]]
 ];

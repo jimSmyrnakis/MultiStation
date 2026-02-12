@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deallocate_0',['deallocate',['../struct_g_l_f_wallocator.html#ab74cf9a969e73e6eb65a6112a591a988',1,'GLFWallocator']]]
+  ['data_0',['data',['../struct_multi_station_1_1_job.html#ab2ec3ea49825168e6868d0d2551d0fad',1,'MultiStation::Job']]]
 ];

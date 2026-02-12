@@ -6,7 +6,7 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Task.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}ITaskMetadata.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MultiStation\ \{}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\ \{}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{TaskScheduler}}\ \{}
 \DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
@@ -28,8 +28,12 @@
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ from\ multiple\ threads}}
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Schedule(uint32\_t\ threadID)\ =\ 0;}
-\DoxyCodeLine{00027\ \ \ \ \ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Notify\ that\ a\ thread\ is\ exiting\ ,\ use\ for\ sync\ notification}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ like\ barrier\ arrive\ and\ drop\ instead\ of\ arrive\ and\ wait}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ NotifyThreadExit(uint32\_t\ threadID)\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \}}
 
 \end{DoxyCode}

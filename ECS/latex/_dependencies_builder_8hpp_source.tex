@@ -1,0 +1,32 @@
+\doxysection{Dependencies\+Builder.\+hpp}
+\hypertarget{_dependencies_builder_8hpp_source}{}\label{_dependencies_builder_8hpp_source}\index{Source/SystemManager/DependenciesBuilder.hpp@{Source/SystemManager/DependenciesBuilder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../ISystem/ISystem.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../Task/ITaskMetadata.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Task/Schedulers/Pipeline/Pipeline.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }DependenciesBuilder\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ DependenciesBuilder(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddSystem(\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ system);}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveSystem(\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ system);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ std::vector<ISystem*>>\&}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ GetSystemOrder(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CaculateDependencies(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::vector<ISystem*>\ m\_systems;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ std::vector<ISystem*>>\ m\_pipeline;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_hasChanged\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

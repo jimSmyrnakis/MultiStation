@@ -1,0 +1,93 @@
+\doxysection{Multi\+Station\+::DAGScheduler Class Reference}
+\hypertarget{class_multi_station_1_1_d_a_g_scheduler}{}\label{class_multi_station_1_1_d_a_g_scheduler}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+Inheritance diagram for Multi\+Station\+::DAGScheduler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_d_a_g_scheduler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_a037fd1abde42068856232323b7446d81}{Initialize}} (uint16\+\_\+t threads)
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_ac0b73f490cc6114dac9b7256df84aa67}{Finalize}} (void)
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_a4b30c023aaadfb9038d6ba7e0c48b7a5}{Register\+Task}} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task, \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}} \texorpdfstring{$\ast$}{*}metadata)
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_a9635fd2b1016d28b8088baf9aaf06e34}{Unregister\+Task}} (\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}task)
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_ac920b136fc4a6541b48bbdd42bf15a9b}{Schedule}} (uint32\+\_\+t thread\+ID)
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler_a7fd67d83f894c702d7bf12161da2b933}{Notify\+Thread\+Exit}} (uint32\+\_\+t thread\+ID)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_ac0b73f490cc6114dac9b7256df84aa67}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!Finalize@{Finalize}}
+\index{Finalize@{Finalize}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{Finalize()}{Finalize()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_ac0b73f490cc6114dac9b7256df84aa67} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Finalize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_a037fd1abde42068856232323b7446d81}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_a037fd1abde42068856232323b7446d81} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Initialize (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{threads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_a7fd67d83f894c702d7bf12161da2b933}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!NotifyThreadExit@{NotifyThreadExit}}
+\index{NotifyThreadExit@{NotifyThreadExit}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{NotifyThreadExit()}{NotifyThreadExit()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_a7fd67d83f894c702d7bf12161da2b933} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Notify\+Thread\+Exit (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{thread\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_a4b30c023aaadfb9038d6ba7e0c48b7a5}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!RegisterTask@{RegisterTask}}
+\index{RegisterTask@{RegisterTask}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{RegisterTask()}{RegisterTask()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_a4b30c023aaadfb9038d6ba7e0c48b7a5} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Register\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}}]{task}{, }\item[{\mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}} \texorpdfstring{$\ast$}{*}}]{metadata}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_ac920b136fc4a6541b48bbdd42bf15a9b}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!Schedule@{Schedule}}
+\index{Schedule@{Schedule}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{Schedule()}{Schedule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_ac920b136fc4a6541b48bbdd42bf15a9b} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Schedule (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{thread\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+\Hypertarget{class_multi_station_1_1_d_a_g_scheduler_a9635fd2b1016d28b8088baf9aaf06e34}\index{MultiStation::DAGScheduler@{MultiStation::DAGScheduler}!UnregisterTask@{UnregisterTask}}
+\index{UnregisterTask@{UnregisterTask}!MultiStation::DAGScheduler@{MultiStation::DAGScheduler}}
+\doxysubsubsection{\texorpdfstring{UnregisterTask()}{UnregisterTask()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_d_a_g_scheduler_a9635fd2b1016d28b8088baf9aaf06e34} 
+virtual void Multi\+Station\+::\+DAGScheduler\+::\+Unregister\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_task}{Task}} \texorpdfstring{$\ast$}{*}}]{task}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Multi\+Station\+::\+Task\+Scheduler}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Task/\+Schedulers/\+DAG/DAGScheduler.\+hpp\end{DoxyCompactItemize}
