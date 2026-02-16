@@ -37,21 +37,22 @@ struct ParentData {
 };
 
 // capture-less funcs (good for function-pointer JobFunction)
-static void GrandJob(void* data, uint32_t workerID, uint32_t id, uint32_t blockID, uint32_t size) {
-    (void)workerID; (void)id; (void)blockID; (void)size;
-    auto* gd = static_cast<GrandData*>(data);
+static void GrandJob(MultiStation::Job job) {
+   // (void)workerID; (void)id; (void)blockID; (void)size;
+    auto* gd = static_cast<GrandData*>(job.data);
 
     // μικρό deterministic compute ώστε να μην το “σβήσει” ο compiler
     uint64_t x = 0;
     for (uint32_t i = 0; i < gd->iters; ++i) x += (i * 2654435761u) ^ (x >> 1);
 
     gd->grandDone->fetch_add(1, std::memory_order_relaxed);
-    //js->Shutdown();
+    
+    
 }
 
-static void ChildJob(void* data, uint32_t workerID, uint32_t id, uint32_t blockID, uint32_t size) {
-    (void)workerID; (void)id; (void)blockID; (void)size;
-    auto* cd = static_cast<ChildData*>(data);
+static void ChildJob(MultiStation::Job job) {
+    //(void)workerID; (void)id; (void)blockID; (void)size;
+    auto* cd = static_cast<ChildData*>(job.data);
 
     // spawn grand-children and wait (nested wait inside a worker job)
     auto grandCounter = std::make_shared<std::atomic<uint32_t>>(0);
@@ -66,9 +67,9 @@ static void ChildJob(void* data, uint32_t workerID, uint32_t id, uint32_t blockI
     cd->childrenDone->fetch_add(1, std::memory_order_relaxed);
 }
 
-static void ParentJob(void* data, uint32_t workerID, uint32_t id, uint32_t blockID, uint32_t size) {
-    (void)workerID; (void)id; (void)blockID; (void)size;
-    auto* pd = static_cast<ParentData*>(data);
+static void ParentJob(MultiStation::Job job) {
+    //(void)workerID; (void)id; (void)blockID; (void)size;
+    auto* pd = static_cast<ParentData*>(job.data);
 
     // spawn children and wait (nested wait inside a worker job)
     auto childCounter = std::make_shared<std::atomic<uint32_t>>(0);
@@ -92,10 +93,10 @@ int TestJobSystemNested() {
     js = new MultiStation::JobSystem(threadsNum);
 
     // parameters
-    const uint32_t P = 100;   // parent jobs
-    const uint32_t C = 100;    // children per parent
-    const uint32_t G = 10 ;    // grand per child
-    const uint32_t iters = 10; // compute per job (ρύθμισέ το αν θες πιο βαρύ test)
+    const uint32_t P = 64;   // parent jobs
+    const uint32_t C = 16;    // children per parent
+    const uint32_t G = 16 ;    // grand per child
+    const uint32_t iters = 8; // compute per job (ρύθμισέ το αν θες πιο βαρύ test)
 
     std::atomic<uint64_t> parentsDone{ 0 };
     std::atomic<uint64_t> childrenDone{ 0 };

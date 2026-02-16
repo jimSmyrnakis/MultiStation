@@ -29,14 +29,14 @@ uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_aaee83a86b07991a8e6d
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}} \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}}
+\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}} \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}}
 \begin{DoxyCompactList}\small\item\em The function pointer that the worker thread will call when executing this job. \end{DoxyCompactList}\item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}{data}}
 \begin{DoxyCompactList}\small\item\em The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user . \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76}{affine}}
 \begin{DoxyCompactList}\small\item\em If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e}{affinity\+Worker\+ID}}
-\begin{DoxyCompactList}\small\item\em If the job is affine then this variable specifies the ID of the worker thread that should execute this job. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a2058a626d8f9ab029593bac79412f826}{Worker\+ID}}
+\begin{DoxyCompactList}\small\item\em the ID of the worker thread that the job is executed. \end{DoxyCompactList}\item 
 \Hypertarget{struct_multi_station_1_1_job_aca5378783d24ab8554fa69086a1d4969}\label{struct_multi_station_1_1_job_aca5378783d24ab8554fa69086a1d4969} 
 std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ {\bfseries counter}
 \item 
@@ -83,16 +83,6 @@ bool Multi\+Station\+::\+Job\+::affine}
 
 If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution. 
 
-\Hypertarget{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e}\index{MultiStation::Job@{MultiStation::Job}!affinityWorkerID@{affinityWorkerID}}
-\index{affinityWorkerID@{affinityWorkerID}!MultiStation::Job@{MultiStation::Job}}
-\doxysubsubsection{\texorpdfstring{affinityWorkerID}{affinityWorkerID}}
-{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a59de973600d173e388c4f3090576c14e} 
-uint32\+\_\+t Multi\+Station\+::\+Job\+::affinity\+Worker\+ID}
-
-
-
-If the job is affine then this variable specifies the ID of the worker thread that should execute this job. 
-
 \Hypertarget{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15}\index{MultiStation::Job@{MultiStation::Job}!blockID@{blockID}}
 \index{blockID@{blockID}!MultiStation::Job@{MultiStation::Job}}
 \doxysubsubsection{\texorpdfstring{blockID}{blockID}}
@@ -127,11 +117,21 @@ The private data pointer that will be passed to the job function when it is exec
 \index{fun@{fun}!MultiStation::Job@{MultiStation::Job}}
 \doxysubsubsection{\texorpdfstring{fun}{fun}}
 {\footnotesize\ttfamily \label{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6} 
-\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}} Multi\+Station\+::\+Job\+::fun}
+\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}} Multi\+Station\+::\+Job\+::fun}
 
 
 
 The function pointer that the worker thread will call when executing this job. 
+
+\Hypertarget{struct_multi_station_1_1_job_a2058a626d8f9ab029593bac79412f826}\index{MultiStation::Job@{MultiStation::Job}!WorkerID@{WorkerID}}
+\index{WorkerID@{WorkerID}!MultiStation::Job@{MultiStation::Job}}
+\doxysubsubsection{\texorpdfstring{WorkerID}{WorkerID}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a2058a626d8f9ab029593bac79412f826} 
+uint32\+\_\+t Multi\+Station\+::\+Job\+::\+Worker\+ID}
+
+
+
+the ID of the worker thread that the job is executed. 
 
 
 

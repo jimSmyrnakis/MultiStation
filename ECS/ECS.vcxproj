@@ -21,38 +21,25 @@
   <ItemGroup>
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp" />
     <ClInclude Include="Source\ComponentArray\IComponentArray.hpp" />
-    <ClInclude Include="Source\Entity\Entity.hpp" />
     <ClInclude Include="Source\IComponent\IComponent.hpp" />
     <ClInclude Include="Source\Init.hpp" />
     <ClInclude Include="Source\ISystem\ISystem.hpp" />
     <ClInclude Include="Source\JobSystem\Job.hpp" />
     <ClInclude Include="Source\JobSystem\JobSystem.hpp" />
     <ClInclude Include="Source\Registry\Registry.hpp" />
-    <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
-    <ClInclude Include="Source\SystemManager\SystemTask.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
-    <ClInclude Include="Source\Task\ITaskMetadata.hpp" />
-    <ClInclude Include="Source\Task\Schedulers\Pipeline\Pipeline.hpp" />
-    <ClInclude Include="Source\Task\Task.hpp" />
-    <ClInclude Include="Source\Task\TaskManager.hpp" />
-    <ClInclude Include="Source\Task\TaskScheduller.hpp" />
     <ClInclude Include="Source\Tests\JobSystem\TestJobSystem.hpp" />
     <ClInclude Include="Source\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ComponentArray\IComponentArray.cpp" />
-    <ClCompile Include="Source\Entity\Entity.cpp" />
     <ClCompile Include="Source\ISystem\ISystem.cpp" />
     <ClCompile Include="Source\JobSystem\Job.cpp" />
     <ClCompile Include="Source\JobSystem\JobSystem.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Tests\JobSystem\TestJobSystem.cpp" />
     <ClCompile Include="Source\Tests\JobSystem\TestNested.cpp" />
-    <ClCompile Include="Source\TestTask.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
-    <ClCompile Include="Source\SystemManager\SystemTask.cpp" />
-    <ClCompile Include="Source\Task\Schedulers\Pipeline\Pipeline.cpp" />
-    <ClCompile Include="Source\Task\TaskManager.cpp" />
     <ClCompile Include="Source\VersionControl.cpp" />
   </ItemGroup>
   <ItemGroup>

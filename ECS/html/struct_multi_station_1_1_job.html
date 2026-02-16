@@ -112,14 +112,14 @@ Job &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (J
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae3200ec0dfff5b7941fe940c908103b6" id="r_ae3200ec0dfff5b7941fe940c908103b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_multi_station.html#a4e127df76b55b89e3c7479a665d0c3d0">JobFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3200ec0dfff5b7941fe940c908103b6">fun</a></td></tr>
+<tr class="memitem:ae3200ec0dfff5b7941fe940c908103b6" id="r_ae3200ec0dfff5b7941fe940c908103b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3200ec0dfff5b7941fe940c908103b6">fun</a></td></tr>
 <tr class="memdesc:ae3200ec0dfff5b7941fe940c908103b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function pointer that the worker thread will call when executing this job.  <br /></td></tr>
 <tr class="memitem:ab2ec3ea49825168e6868d0d2551d0fad" id="r_ab2ec3ea49825168e6868d0d2551d0fad"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ec3ea49825168e6868d0d2551d0fad">data</a></td></tr>
 <tr class="memdesc:ab2ec3ea49825168e6868d0d2551d0fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user .  <br /></td></tr>
 <tr class="memitem:a2848546e5895f5dd25ef46b64a381f76" id="r_a2848546e5895f5dd25ef46b64a381f76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2848546e5895f5dd25ef46b64a381f76">affine</a></td></tr>
 <tr class="memdesc:a2848546e5895f5dd25ef46b64a381f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution.  <br /></td></tr>
-<tr class="memitem:a59de973600d173e388c4f3090576c14e" id="r_a59de973600d173e388c4f3090576c14e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59de973600d173e388c4f3090576c14e">affinityWorkerID</a></td></tr>
-<tr class="memdesc:a59de973600d173e388c4f3090576c14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the job is affine then this variable specifies the ID of the worker thread that should execute this job.  <br /></td></tr>
+<tr class="memitem:a2058a626d8f9ab029593bac79412f826" id="r_a2058a626d8f9ab029593bac79412f826"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2058a626d8f9ab029593bac79412f826">WorkerID</a></td></tr>
+<tr class="memdesc:a2058a626d8f9ab029593bac79412f826"><td class="mdescLeft">&#160;</td><td class="mdescRight">the ID of the worker thread that the job is executed.  <br /></td></tr>
 <tr class="memitem:aca5378783d24ab8554fa69086a1d4969" id="r_aca5378783d24ab8554fa69086a1d4969"><td class="memItemLeft" align="right" valign="top"><a id="aca5378783d24ab8554fa69086a1d4969" name="aca5378783d24ab8554fa69086a1d4969"></a>
 std::shared_ptr&lt; std::atomic&lt; uint32_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>counter</b></td></tr>
 <tr class="memitem:a48f8e4be57c3cf01b30d9e7abf6afce2" id="r_a48f8e4be57c3cf01b30d9e7abf6afce2"><td class="memItemLeft" align="right" valign="top"><a id="a48f8e4be57c3cf01b30d9e7abf6afce2" name="a48f8e4be57c3cf01b30d9e7abf6afce2"></a>
@@ -174,22 +174,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> [64]</td></t
 </div><div class="memdoc">
 
 <p>If true the this job sould only be executed localy to a specific worker thread . Otherwise every worker thread randomly can pick it up for execution. </p>
-
-</div>
-</div>
-<a id="a59de973600d173e388c4f3090576c14e" name="a59de973600d173e388c4f3090576c14e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59de973600d173e388c4f3090576c14e">&#9670;&#160;</a></span>affinityWorkerID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t MultiStation::Job::affinityWorkerID</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>If the job is affine then this variable specifies the ID of the worker thread that should execute this job. </p>
 
 </div>
 </div>
@@ -248,12 +232,28 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> [64]</td></t
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_multi_station.html#a4e127df76b55b89e3c7479a665d0c3d0">JobFunction</a> MultiStation::Job::fun</td>
+          <td class="memname"><a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a> MultiStation::Job::fun</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The function pointer that the worker thread will call when executing this job. </p>
+
+</div>
+</div>
+<a id="a2058a626d8f9ab029593bac79412f826" name="a2058a626d8f9ab029593bac79412f826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2058a626d8f9ab029593bac79412f826">&#9670;&#160;</a></span>WorkerID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MultiStation::Job::WorkerID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the ID of the worker thread that the job is executed. </p>
 
 </div>
 </div>

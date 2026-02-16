@@ -26,13 +26,13 @@
 \Hypertarget{class_multi_station_1_1_job_system_a6fa585f61aa229811270de0ca743a9ea}\label{class_multi_station_1_1_job_system_a6fa585f61aa229811270de0ca743a9ea} 
 \mbox{\hyperlink{class_multi_station_1_1_job_system_a6ca92ed095d602c7b199babf53611cf9}{Job\+System}} \& {\bfseries operator=} (\mbox{\hyperlink{class_multi_station_1_1_job_system_a6ca92ed095d602c7b199babf53611cf9}{Job\+System}} \&\&) noexcept=delete
 \item 
-void \mbox{\hyperlink{class_multi_station_1_1_job_system_a18b0e7eac81969cfed409e84def32aa3}{Add\+Job}} (const \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&job) noexcept
+void \mbox{\hyperlink{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47}{Add\+Job}} (\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&job) noexcept
 \begin{DoxyCompactList}\small\item\em Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers . \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a51f4000020dc379059c04bac534ac047}{Wait\+For}} (std\+::atomic$<$ uint32\+\_\+t $>$ \&counter) noexcept
 \begin{DoxyCompactList}\small\item\em Waits Until the counter gets zero , then returns , until then this thread takes it\textquotesingle{}s role as worker for schedulling jobs instead of doing nothing . This method can be called even from thread that is not worker , but then it will yield while waiting . \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a71c1316a5782aeea97c2dea4770e0638}{Wait\+For\+All}} (void) noexcept
 \begin{DoxyCompactList}\small\item\em As Wait\+For only that must called either from the parent thread or from other not worker thread , otherwise fatal error is generated. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_multi_station_1_1_job_system_a93e0e600787c58b8379e12c6fa0d592f}{Parallel\+For}} (\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}} func, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t job\+Count, std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ counter) noexcept
+void \mbox{\hyperlink{class_multi_station_1_1_job_system_a93e0e600787c58b8379e12c6fa0d592f}{Parallel\+For}} (\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}} func, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t job\+Count, std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ counter) noexcept
 \begin{DoxyCompactList}\small\item\em Use this method for making block/group of jobs to do a specific task together . The counter can be even null , but the thread or job that does this call can\textquotesingle{}t know when this block of threads is finished. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a7a7a88d069c35405ed02253fc9f50093}{Shutdown}} (void) noexcept
 \begin{DoxyCompactList}\small\item\em Used to terminate the hole job system so all worker threads stop executing and waits for them to join . \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -72,11 +72,11 @@ The Creator of this instance will consider the last worker by desing
 \label{doc-func-members}
 \Hypertarget{class_multi_station_1_1_job_system_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_multi_station_1_1_job_system_a18b0e7eac81969cfed409e84def32aa3}\index{MultiStation::JobSystem@{MultiStation::JobSystem}!AddJob@{AddJob}}
+\Hypertarget{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47}\index{MultiStation::JobSystem@{MultiStation::JobSystem}!AddJob@{AddJob}}
 \index{AddJob@{AddJob}!MultiStation::JobSystem@{MultiStation::JobSystem}}
 \doxysubsubsection{\texorpdfstring{AddJob()}{AddJob()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_job_system_a18b0e7eac81969cfed409e84def32aa3} 
-void Multi\+Station\+::\+Job\+System\+::\+Add\+Job (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&}]{job}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47} 
+void Multi\+Station\+::\+Job\+System\+::\+Add\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&}]{job}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
@@ -91,7 +91,7 @@ Adds new job to any worker have turn (sequencial share) except if the job is aff
 \index{ParallelFor@{ParallelFor}!MultiStation::JobSystem@{MultiStation::JobSystem}}
 \doxysubsubsection{\texorpdfstring{ParallelFor()}{ParallelFor()}}
 {\footnotesize\ttfamily \label{class_multi_station_1_1_job_system_a93e0e600787c58b8379e12c6fa0d592f} 
-void Multi\+Station\+::\+Job\+System\+::\+Parallel\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}}}]{func}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{job\+Count}{, }\item[{std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$}]{counter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+void Multi\+Station\+::\+Job\+System\+::\+Parallel\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}}}]{func}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{job\+Count}{, }\item[{std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$}]{counter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 

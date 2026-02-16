@@ -20,5 +20,6 @@ var namespace_multi_station =
     [ "TaskManager", "class_multi_station_1_1_task_manager.html", "class_multi_station_1_1_task_manager" ],
     [ "TaskScheduler", "class_multi_station_1_1_task_scheduler.html", null ],
     [ "VersionControl", "class_multi_station_1_1_version_control.html", null ],
-    [ "JobFunction", "namespace_multi_station.html#a4e127df76b55b89e3c7479a665d0c3d0", null ]
+    [ "JobFunction", "namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b", null ],
+    [ "JobYieldCallback", "namespace_multi_station.html#ad62e4bddc2d30e7bbee2a744674c8b87", null ]
 ];

@@ -3,10 +3,12 @@
 #include <stddef.h>
 #include <atomic>
 #include <memory>
-
+#include <functional>
 /**
  * @author Dimitris Smyrnakis
  */
+
+ 
 namespace MultiStation{
 	
 	/**
@@ -17,7 +19,14 @@ namespace MultiStation{
 	 * @param[in] blockID The ID unique to the parallel for block that this job belongs to.
 	 * @param[in] size The total number of jobs in the parallel for block that this job belongs to.
 	 */
-	typedef void (*JobFunction)(void* data, uint32_t workerID , uint32_t id , uint32_t blockID , uint32_t size);
+	typedef void (*JobFunction)(struct Job job);
+
+	
+
+	/**
+	  * @brief A yield call back function type
+	  */
+	using JobYieldCallback = std::function<void()>;
 
 	/**
 	 *
@@ -53,10 +62,10 @@ namespace MultiStation{
 		bool									affine;
 
 		/**
-		 * @var uint32_t affinityWorkerID
-		 * @brief If the job is affine then this variable specifies the ID of the worker thread that should execute this job.
+		 * @var uint32_t WorkerID
+		 * @brief the ID of the worker thread that the job is executed.
 		 */
-		uint32_t								affinityWorkerID; 
+		uint32_t								WorkerID; 
 
 		/**
 		 * @var std::shared_ptr<std::atomic<uint32_t>> counter 
@@ -79,13 +88,16 @@ namespace MultiStation{
 		 */
 		uint32_t 								blockSize;
 
-
+		
 		/**
 		 * @brief Gets the unique identifier of the job.
 		 * 
 		 * \return the ID of the job.
 		 */
 		uint32_t GetID(void) const noexcept;
+
+
+
 
 	private:
 		static uint32_t s_nextID;

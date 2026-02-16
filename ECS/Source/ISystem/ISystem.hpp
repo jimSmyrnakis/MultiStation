@@ -32,8 +32,8 @@ namespace MultiStation{
 		// Called when the System is Started , after the OnEnable
 		virtual void OnStart(void ) = 0;
 
-		// Called every frame
-		virtual void OnUpdate( float dt ) = 0;
+		// Called every new iteration
+		virtual void OnTick( float dt ) = 0;
 
 		// Called when the System is Disabled
 		virtual void OnDisable(void) = 0;

@@ -177,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Include\Platform.hpp" />
     <ClInclude Include="Source\Allocator.h" />
+    <ClInclude Include="Source\Debug\Debug.hpp" />
     <ClInclude Include="Source\Definitions.h" />
     <ClInclude Include="Source\GraphicsApi\Commands\Commands.hpp" />
     <ClInclude Include="Source\GraphicsApi\Error.hpp" />
@@ -214,6 +215,9 @@
     <ClCompile Include="Source\Image\bmp\bmp.cpp" />
     <ClCompile Include="Source\Time\Time.cpp" />
     <ClCompile Include="Source\Window\GLFW\GLFWWin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

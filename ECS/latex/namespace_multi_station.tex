@@ -46,8 +46,10 @@ class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function}}) (void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t worker\+ID, uint32\+\_\+t id, uint32\+\_\+t block\+ID, uint32\+\_\+t size)
-\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\end{DoxyCompactItemize}
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}}) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)
+\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}{Job\+Yield\+Callback}} = std\+::function$<$void()$>$
+\begin{DoxyCompactList}\small\item\em A yield call back function type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -84,15 +86,15 @@ Dimitris Smyrnakis
 \label{doc-typedef-members}
 \Hypertarget{namespace_multi_station_doc-typedef-members}
 \doxysubsection{Typedef Documentation}
-\Hypertarget{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}\index{MultiStation@{MultiStation}!JobFunction@{JobFunction}}
+\Hypertarget{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}\index{MultiStation@{MultiStation}!JobFunction@{JobFunction}}
 \index{JobFunction@{JobFunction}!MultiStation@{MultiStation}}
 \doxysubsubsection{\texorpdfstring{JobFunction}{JobFunction}}
-{\footnotesize\ttfamily \label{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0} 
-typedef void(\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Job\+Function) (void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t worker\+ID, uint32\+\_\+t id, uint32\+\_\+t block\+ID, uint32\+\_\+t size)}
+{\footnotesize\ttfamily \label{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b} 
+typedef void(\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Job\+Function) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)}
 
 
 
-A \doxylink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. 
+A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -107,3 +109,13 @@ A \doxylink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{Job\+Func
 \mbox{\texttt{in}}  & {\em size} & The total number of jobs in the parallel for block that this job belongs to. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}\index{MultiStation@{MultiStation}!JobYieldCallback@{JobYieldCallback}}
+\index{JobYieldCallback@{JobYieldCallback}!MultiStation@{MultiStation}}
+\doxysubsubsection{\texorpdfstring{JobYieldCallback}{JobYieldCallback}}
+{\footnotesize\ttfamily \label{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87} 
+using \mbox{\hyperlink{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}{Multi\+Station\+::\+Job\+Yield\+Callback}} = std\+::function$<$void()$>$}
+
+
+
+A yield call back function type. 
+

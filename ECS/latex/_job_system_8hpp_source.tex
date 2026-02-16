@@ -27,14 +27,14 @@
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ \ \ \ \ public:}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a18b0e7eac81969cfed409e84def32aa3}{AddJob}}(const\ \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}\&\ job)\ noexcept;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47}{AddJob}}(\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}\&\ job)\ noexcept;}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a51f4000020dc379059c04bac534ac047}{WaitFor}}(std::atomic<uint32\_t>\&\ counter)\ noexcept;}
 \DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a71c1316a5782aeea97c2dea4770e0638}{WaitForAll}}(\textcolor{keywordtype}{void})\ noexcept;}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a93e0e600787c58b8379e12c6fa0d592f}{ParallelFor}}(}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_multi_station_a4e127df76b55b89e3c7479a665d0c3d0}{JobFunction}}\ func,\ \textcolor{keywordtype}{void}*\ data,\ uint32\_t\ jobCount,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{JobFunction}}\ func,\ \textcolor{keywordtype}{void}*\ data,\ uint32\_t\ jobCount,}
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<std::atomic<uint32\_t>>\ counter)\ noexcept;}
 \DoxyCodeLine{00092\ }
 \DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_job_system_a7a7a88d069c35405ed02253fc9f50093}{Shutdown}}(\textcolor{keywordtype}{void})\ noexcept;}
@@ -50,8 +50,8 @@
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Schedule(uint32\_t\ workerID)\ noexcept;\ \textcolor{comment}{//\ }}
 \DoxyCodeLine{00111\ \ \ \ \ private:}
 \DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ m\_workerCount;}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ Queue<\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}>*\ \ \ \ \ m\_globalJobQueues;\ \textcolor{comment}{//\ one\ queue\ per\ worker\ thread\ but\ can\ be\ shared}}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ Queue<\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}>*\ \ \ \ \ m\_localJobQueues;\ \textcolor{comment}{//\ one\ queue\ per\ worker\ thread\ but\ not\ shared}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ Queue<\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}>*\ \ \ \ \ m\_gReadyQueues;\ \textcolor{comment}{//\ one\ queue\ per\ worker\ thread\ but\ can\ be\ shared}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ Queue<\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}>*\ \ \ \ \ m\_lReadyQueues;\ \textcolor{comment}{//\ one\ queue\ per\ worker\ thread\ but\ not\ shared}}
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ std::thread*\ \ \ \ m\_workerThreads\ \ ;}
 \DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ std::thread::\textcolor{keywordtype}{id}\ m\_mainThreadID;\ \textcolor{comment}{//\ the\ main\ thread\ ID\ will\ also\ be\ used\ as\ checker}}
 \DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::atomic<\textcolor{keywordtype}{bool}>\ \ \ m\_shutdown\ =\ false;\ \textcolor{comment}{//\ flag\ to\ signal\ the\ worker\ threads\ to\ shutdown}}

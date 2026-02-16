@@ -56,7 +56,7 @@ namespace MultiStation{
 		 * @param job the job we want to schedule
 		 * 
 		 */
-		void AddJob(const Job& job) noexcept;
+		void AddJob(Job& job) noexcept;
 
 		/**
 		 * .
@@ -110,8 +110,8 @@ namespace MultiStation{
 		void Schedule(uint32_t workerID) noexcept; // 
 	private:
 		uint32_t		m_workerCount;
-		Queue<Job>*		m_globalJobQueues; // one queue per worker thread but can be shared
-		Queue<Job>*		m_localJobQueues; // one queue per worker thread but not shared
+		Queue<Job>*		m_gReadyQueues; // one queue per worker thread but can be shared
+		Queue<Job>*		m_lReadyQueues; // one queue per worker thread but not shared
 		std::thread*	m_workerThreads  ;
 		std::thread::id	m_mainThreadID; // the main thread ID will also be used as checker
 		std::atomic<bool>	m_shutdown = false; // flag to signal the worker threads to shutdown

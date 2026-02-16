@@ -7,7 +7,7 @@ namespace MultiStation {
 		m_id = 
 		s_nextID++;
 		affine = false;
-		affinityWorkerID = 0;
+		WorkerID = 0;
 		strncpy_s(name, "Unnamed Job" , 64);
 		blockID = 0;
 		fun = NULL;

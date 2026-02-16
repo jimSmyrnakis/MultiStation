@@ -1,6 +1,7 @@
 #include "JobSystem.hpp"
 #include <iostream>
 #include <assert.h>
+#include <functional>
 namespace MultiStation {
 
 
@@ -10,13 +11,13 @@ namespace MultiStation {
 	JobSystem::JobSystem(uint32_t workerCount) noexcept {
 		m_workerCount = workerCount ? workerCount : std::thread::hardware_concurrency();
 		if (m_workerCount == 0) m_workerCount = 1; // for vms cases
-		m_globalJobQueues = new(std::nothrow) Queue<Job>[m_workerCount];
-		if (!m_globalJobQueues) {
+		m_gReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
+		if (!m_gReadyQueues) {
 			// TODO : fatal error
 			assert(false);
 		}
-		m_localJobQueues = new(std::nothrow) Queue<Job>[m_workerCount];
-		if (!m_localJobQueues) {
+		m_lReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
+		if (!m_lReadyQueues) {
 			// TODO : fatal error
 			assert(false);
 		}
@@ -39,14 +40,14 @@ namespace MultiStation {
 
 	JobSystem::~JobSystem(void) noexcept {
 		Shutdown();
-		delete[] m_globalJobQueues;
-		delete[] m_localJobQueues;
+		delete[] m_gReadyQueues;
+		delete[] m_lReadyQueues;
 		delete[] m_workerThreads;
 	}
 
 
 
-	void JobSystem::AddJob(const Job& job) noexcept {
+	void JobSystem::AddJob(Job& job) noexcept {
 
 		// dont allow adding jobs after shutdown is signaled
 		if (m_shutdown.load(std::memory_order_acquire)) {
@@ -61,20 +62,24 @@ namespace MultiStation {
 		if (job.counter) {
 			job.counter->fetch_add(1, std::memory_order_relaxed);
 		}
+
+		
+
 		// if the job is affine then add it to the local queue of the worker with the specified ID
 		if (job.affine) {
-			uint32_t affineWID = job.affinityWorkerID;
-			if (job.affinityWorkerID >= m_workerCount) {
+			uint32_t affineWID = job.WorkerID;
+			if (job.WorkerID >= m_workerCount) {
 				affineWID = m_workerCount - 1;
 				// TODO : Warning 
 			}
-			m_localJobQueues[affineWID].Push(job);
+			m_lReadyQueues[affineWID].Push(job);
 		}
 		else {
 			
 			uint32_t turn = m_QueueTurn.fetch_add(1, std::memory_order_relaxed);
-			m_globalJobQueues[turn % m_workerCount].Push(job);
+			m_gReadyQueues[turn % m_workerCount].Push(job);
 		}
+		
 	}
 
 	void JobSystem::WaitFor(std::atomic<uint32_t>& counter) noexcept {
@@ -120,13 +125,16 @@ namespace MultiStation {
 			return;
 		}
 
+		// TODO : fatal error if fun is null
+
+
 		
 		for (uint32_t i = 0; i < jobCount; ++i) {
 			Job job;
 			job.fun = func;
 			job.data = data;
 			job.affine = false;
-			job.affinityWorkerID = 0; // not used since isAffine is false
+			job.WorkerID = 0; // not used since isAffine is false
 			job.counter = counter;
 			job.blockID = i;
 			job.blockSize = jobCount;
@@ -135,6 +143,10 @@ namespace MultiStation {
 	}
 
 	void JobSystem::Shutdown(void) noexcept {
+		if (m_shutdown.load(std::memory_order_acquire)) {
+			// possibly already is showdown
+			return;
+		}
 		m_shutdown.store(true, std::memory_order_release);
 
 		if (std::this_thread::get_id() != m_mainThreadID) {
@@ -207,7 +219,7 @@ namespace MultiStation {
 		}
 
 		if (found) {
-			job.fun(job.data, workerID , job.GetID() , job.blockID , job.blockSize);
+			job.fun(job);
 			if (job.counter  ) {
 				
 				job.counter->fetch_sub(1, std::memory_order_release);
@@ -226,13 +238,13 @@ namespace MultiStation {
 	bool JobSystem::TryPopOrStealJob(uint32_t workerID, Job& job, bool local) noexcept {
 
 		if (local) {
-			if (m_localJobQueues[workerID].Pop(job)) {
+			if (m_lReadyQueues[workerID].Pop(job)) {
 				return true;
 			}
 			return false;
 		}
 
-		if (m_globalJobQueues[workerID].Pop(job)) {
+		if (m_gReadyQueues[workerID].Pop(job)) {
 			return true;
 		}
 
@@ -241,7 +253,7 @@ namespace MultiStation {
 		for (uint32_t i = 0; i < m_workerCount; ++i) {
 			if (i == workerID)
 				continue;
-			if (m_globalJobQueues[i].Pop(job)) {
+			if (m_gReadyQueues[i].Pop(job)) {
 				return true;
 			}
 		}
