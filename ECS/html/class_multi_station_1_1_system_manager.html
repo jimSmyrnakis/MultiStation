@@ -91,28 +91,428 @@ $(function(){initNavTree('class_multi_station_1_1_system_manager.html','','class
   <div class="headertitle"><div class="title">MultiStation::SystemManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09c90a625e1aa4aa3755e29b1a303bd4" id="r_a09c90a625e1aa4aa3755e29b1a303bd4"><td class="memItemLeft" align="right" valign="top"><a id="a09c90a625e1aa4aa3755e29b1a303bd4" name="a09c90a625e1aa4aa3755e29b1a303bd4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SystemManager</b> (const SystemManager &amp;) noexcept=delete</td></tr>
-<tr class="memitem:ab8a3a2da11eca789f14f13a7d73a37cc" id="r_ab8a3a2da11eca789f14f13a7d73a37cc"><td class="memItemLeft" align="right" valign="top"><a id="ab8a3a2da11eca789f14f13a7d73a37cc" name="ab8a3a2da11eca789f14f13a7d73a37cc"></a>
-SystemManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const SystemManager &amp;) noexcept=delete</td></tr>
-<tr class="memitem:aa30731bbc45fd158417f37f33454e625" id="r_aa30731bbc45fd158417f37f33454e625"><td class="memItemLeft" align="right" valign="top"><a id="aa30731bbc45fd158417f37f33454e625" name="aa30731bbc45fd158417f37f33454e625"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SystemManager</b> (SystemManager &amp;&amp;) noexcept=default</td></tr>
-<tr class="memitem:a32f84ed49a9bc1ec6b228d336a351a2b" id="r_a32f84ed49a9bc1ec6b228d336a351a2b"><td class="memItemLeft" align="right" valign="top"><a id="a32f84ed49a9bc1ec6b228d336a351a2b" name="a32f84ed49a9bc1ec6b228d336a351a2b"></a>
-SystemManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (SystemManager &amp;&amp;) noexcept=default</td></tr>
-<tr class="memitem:a3d5c35b75a02856886edaa0d718d870b" id="r_a3d5c35b75a02856886edaa0d718d870b"><td class="memItemLeft" align="right" valign="top"><a id="a3d5c35b75a02856886edaa0d718d870b" name="a3d5c35b75a02856886edaa0d718d870b"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>CreatePhase</b> (void) noexcept</td></tr>
-<tr class="memitem:a4d49702f6baa9acb6aada76c4a47c136" id="r_a4d49702f6baa9acb6aada76c4a47c136"><td class="memItemLeft" align="right" valign="top"><a id="a4d49702f6baa9acb6aada76c4a47c136" name="a4d49702f6baa9acb6aada76c4a47c136"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>BindPhase</b> (uint32_t phaseID) noexcept</td></tr>
-<tr class="memitem:a419d616df6ebcc022d5a2e06fd8eb945" id="r_a419d616df6ebcc022d5a2e06fd8eb945"><td class="memItemLeft" align="right" valign="top"><a id="a419d616df6ebcc022d5a2e06fd8eb945" name="a419d616df6ebcc022d5a2e06fd8eb945"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddSystem</b> (std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; sys) noexcept</td></tr>
-<tr class="memitem:a4e30b2384cdf9e9c003a8dd5c21e65f6" id="r_a4e30b2384cdf9e9c003a8dd5c21e65f6"><td class="memItemLeft" align="right" valign="top"><a id="a4e30b2384cdf9e9c003a8dd5c21e65f6" name="a4e30b2384cdf9e9c003a8dd5c21e65f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveSystem</b> (std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; sys) noexcept</td></tr>
-<tr class="memitem:a247c0a6b6c49b010e93859ef4992547b" id="r_a247c0a6b6c49b010e93859ef4992547b"><td class="memItemLeft" align="right" valign="top"><a id="a247c0a6b6c49b010e93859ef4992547b" name="a247c0a6b6c49b010e93859ef4992547b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ExecutePhase</b> (uint32_t phaseID) noexcept</td></tr>
+<tr class="memitem:ae5ff306052d40b4914816327ccb80faa" id="r_ae5ff306052d40b4914816327ccb80faa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> (void) noexcept</td></tr>
+<tr class="memdesc:ae5ff306052d40b4914816327ccb80faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new System Manager object. Initializes the <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a> and sets up necessary data structures for managing systems and phases.  <br /></td></tr>
+<tr class="memitem:a16740f9a82c7b28a8595659d1374d731" id="r_a16740f9a82c7b28a8595659d1374d731"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16740f9a82c7b28a8595659d1374d731">~SystemManager</a> (void) noexcept</td></tr>
+<tr class="memdesc:a16740f9a82c7b28a8595659d1374d731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the System Manager object and shutdown the job system .  <br /></td></tr>
+<tr class="memitem:a09c90a625e1aa4aa3755e29b1a303bd4" id="r_a09c90a625e1aa4aa3755e29b1a303bd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09c90a625e1aa4aa3755e29b1a303bd4">SystemManager</a> (const SystemManager &amp;) noexcept=delete</td></tr>
+<tr class="memitem:ab8a3a2da11eca789f14f13a7d73a37cc" id="r_ab8a3a2da11eca789f14f13a7d73a37cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a3a2da11eca789f14f13a7d73a37cc">operator=</a> (const <a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;) noexcept=delete</td></tr>
+<tr class="memitem:a2003e03b422b85877e2ef327f682c99a" id="r_a2003e03b422b85877e2ef327f682c99a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2003e03b422b85877e2ef327f682c99a">SystemManager</a> (SystemManager &amp;&amp;) noexcept=delete</td></tr>
+<tr class="memitem:ab4744dccf6667941ba950f1e3ff4cde0" id="r_ab4744dccf6667941ba950f1e3ff4cde0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4744dccf6667941ba950f1e3ff4cde0">operator=</a> (<a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;&amp;) noexcept=delete</td></tr>
+<tr class="memitem:a3d5c35b75a02856886edaa0d718d870b" id="r_a3d5c35b75a02856886edaa0d718d870b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d5c35b75a02856886edaa0d718d870b">CreatePhase</a> (void) noexcept</td></tr>
+<tr class="memdesc:a3d5c35b75a02856886edaa0d718d870b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new phase for system . For each phase a set of the added to this phase systems will execute all in parallel .  <br /></td></tr>
+<tr class="memitem:a4d49702f6baa9acb6aada76c4a47c136" id="r_a4d49702f6baa9acb6aada76c4a47c136"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d49702f6baa9acb6aada76c4a47c136">BindPhase</a> (uint32_t phaseID) noexcept</td></tr>
+<tr class="memdesc:a4d49702f6baa9acb6aada76c4a47c136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds systems to a specific phase. This allows you to specify which systems should be executed during a particular phase of the game loop.  <br /></td></tr>
+<tr class="memitem:a419d616df6ebcc022d5a2e06fd8eb945" id="r_a419d616df6ebcc022d5a2e06fd8eb945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a419d616df6ebcc022d5a2e06fd8eb945">AddSystem</a> (std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; sys) noexcept</td></tr>
+<tr class="memdesc:a419d616df6ebcc022d5a2e06fd8eb945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a system to the currently bound phase. The system will be executed during the execution of the currently bound phase.  <br /></td></tr>
+<tr class="memitem:a4e30b2384cdf9e9c003a8dd5c21e65f6" id="r_a4e30b2384cdf9e9c003a8dd5c21e65f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e30b2384cdf9e9c003a8dd5c21e65f6">RemoveSystem</a> (std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; sys) noexcept</td></tr>
+<tr class="memdesc:a4e30b2384cdf9e9c003a8dd5c21e65f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a system from the currently bound phase. The system will no longer be executed during the execution of the currently bound phase.  <br /></td></tr>
+<tr class="memitem:a247c0a6b6c49b010e93859ef4992547b" id="r_a247c0a6b6c49b010e93859ef4992547b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a247c0a6b6c49b010e93859ef4992547b">ExecutePhase</a> (uint32_t phaseID) noexcept</td></tr>
+<tr class="memdesc:a247c0a6b6c49b010e93859ef4992547b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all systems that are bound to the specified phase. The systems will be executed in parallel if possible, using the <a class="el" href="class_multi_station_1_1_job_system.html" title="Job System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling th...">JobSystem</a> for scheduling and execution.  <br /></td></tr>
+<tr class="memitem:a6cd4d01e7af66a80b34546599474ad25" id="r_a6cd4d01e7af66a80b34546599474ad25"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cd4d01e7af66a80b34546599474ad25">GetPhases</a> () const noexcept</td></tr>
+<tr class="memdesc:a6cd4d01e7af66a80b34546599474ad25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all phase IDs that have been created in the <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a>. This allows you to query which phases are available for execution and management.  <br /></td></tr>
+<tr class="memitem:a15c59bdfb4e5eeb16e117b51720c6653" id="r_a15c59bdfb4e5eeb16e117b51720c6653"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15c59bdfb4e5eeb16e117b51720c6653">GetSystemsInPhase</a> (uint32_t phaseID) const noexcept</td></tr>
+<tr class="memdesc:a15c59bdfb4e5eeb16e117b51720c6653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all systems that are bound to the specified phase. This allows you to query which systems are associated with a particular phase and manage them accordingly.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><dl class="section note"><dt>Note</dt><dd>The <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a> should not be copied or moved, as it manages resources and state that should not be duplicated. </dd></dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae5ff306052d40b4914816327ccb80faa" name="ae5ff306052d40b4914816327ccb80faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ff306052d40b4914816327ccb80faa">&#9670;&#160;</a></span>SystemManager() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::SystemManager::SystemManager </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a new System Manager object. Initializes the <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a> and sets up necessary data structures for managing systems and phases. </p>
+
+</div>
+</div>
+<a id="a16740f9a82c7b28a8595659d1374d731" name="a16740f9a82c7b28a8595659d1374d731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16740f9a82c7b28a8595659d1374d731">&#9670;&#160;</a></span>~SystemManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::SystemManager::~SystemManager </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the System Manager object and shutdown the job system . </p>
+
+</div>
+</div>
+<a id="a09c90a625e1aa4aa3755e29b1a303bd4" name="a09c90a625e1aa4aa3755e29b1a303bd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c90a625e1aa4aa3755e29b1a303bd4">&#9670;&#160;</a></span>SystemManager() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::SystemManager::SystemManager </td>
+          <td>(</td>
+          <td class="paramtype">const SystemManager &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>Not allowed </dd></dl>
+
+</div>
+</div>
+<a id="a2003e03b422b85877e2ef327f682c99a" name="a2003e03b422b85877e2ef327f682c99a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2003e03b422b85877e2ef327f682c99a">&#9670;&#160;</a></span>SystemManager() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::SystemManager::SystemManager </td>
+          <td>(</td>
+          <td class="paramtype">SystemManager &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>Not allowed </dd></dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a419d616df6ebcc022d5a2e06fd8eb945" name="a419d616df6ebcc022d5a2e06fd8eb945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419d616df6ebcc022d5a2e06fd8eb945">&#9670;&#160;</a></span>AddSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::AddSystem </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>sys</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a system to the currently bound phase. The system will be executed during the execution of the currently bound phase. </p>
+<dl class="section note"><dt>Note</dt><dd>In Debug mode this method will assert if the same system is added more than once to the same phase . </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sys</td><td>A shared ptr System to be added to the currently bounded phase . The system will be executed during the execution of the currently bounded phase. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>This method is used at initiallization of the systems for the game engine , if at least one call of ExecutePhase has been made before , then this method will assert us for it , this is not allowed . </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
+<a id="a4d49702f6baa9acb6aada76c4a47c136" name="a4d49702f6baa9acb6aada76c4a47c136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d49702f6baa9acb6aada76c4a47c136">&#9670;&#160;</a></span>BindPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::BindPhase </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>phaseID</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds systems to a specific phase. This allows you to specify which systems should be executed during a particular phase of the game loop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phaseID</td><td>The unique identifier of the already created phase to bind systems to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
+<a id="a3d5c35b75a02856886edaa0d718d870b" name="a3d5c35b75a02856886edaa0d718d870b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5c35b75a02856886edaa0d718d870b">&#9670;&#160;</a></span>CreatePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MultiStation::SystemManager::CreatePhase </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new phase for system . For each phase a set of the added to this phase systems will execute all in parallel . </p>
+<dl class="section warning"><dt>Warning</dt><dd>This method is used at initiallization of the systems for the game engine , if at least one call of ExecutePhase has been made before , then this method will assert us for it , this is not allowed . </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A unique identifier for the newly created phase. </dd></dl>
+
+</div>
+</div>
+<a id="a247c0a6b6c49b010e93859ef4992547b" name="a247c0a6b6c49b010e93859ef4992547b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247c0a6b6c49b010e93859ef4992547b">&#9670;&#160;</a></span>ExecutePhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::ExecutePhase </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>phaseID</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Executes all systems that are bound to the specified phase. The systems will be executed in parallel if possible, using the <a class="el" href="class_multi_station_1_1_job_system.html" title="Job System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling th...">JobSystem</a> for scheduling and execution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phaseID</td><td>The phase to execute . </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>It should be a valid phase that has been created before with CreatePhase method , otherwise this method will assert . </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a6cd4d01e7af66a80b34546599474ad25" name="a6cd4d01e7af66a80b34546599474ad25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd4d01e7af66a80b34546599474ad25">&#9670;&#160;</a></span>GetPhases()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; uint32_t &gt; MultiStation::SystemManager::GetPhases </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a list of all phase IDs that have been created in the <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a>. This allows you to query which phases are available for execution and management. </p>
+<dl class="section return"><dt>Returns</dt><dd>A list of all phase IDs that have been created in the <a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a15c59bdfb4e5eeb16e117b51720c6653" name="a15c59bdfb4e5eeb16e117b51720c6653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15c59bdfb4e5eeb16e117b51720c6653">&#9670;&#160;</a></span>GetSystemsInPhase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt; &gt; MultiStation::SystemManager::GetSystemsInPhase </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>phaseID</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a list of all systems that are bound to the specified phase. This allows you to query which systems are associated with a particular phase and manage them accordingly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">phaseID</td><td>The unique identifier of the phase to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A list with all systems that are bound to the secified phase . If the phase does not exist or has no systems bound to it , an empty list is returned. </dd></dl>
+
+</div>
+</div>
+<a id="ab8a3a2da11eca789f14f13a7d73a37cc" name="ab8a3a2da11eca789f14f13a7d73a37cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a3a2da11eca789f14f13a7d73a37cc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp; MultiStation::SystemManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>Not allowed </dd></dl>
+
+</div>
+</div>
+<a id="ab4744dccf6667941ba950f1e3ff4cde0" name="ab4744dccf6667941ba950f1e3ff4cde0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4744dccf6667941ba950f1e3ff4cde0">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp; MultiStation::SystemManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>Not allowed </dd></dl>
+
+</div>
+</div>
+<a id="a4e30b2384cdf9e9c003a8dd5c21e65f6" name="a4e30b2384cdf9e9c003a8dd5c21e65f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e30b2384cdf9e9c003a8dd5c21e65f6">&#9670;&#160;</a></span>RemoveSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::RemoveSystem </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>sys</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes a system from the currently bound phase. The system will no longer be executed during the execution of the currently bound phase. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sys</td><td>A shared ptr System to be removed from the currently bounded phase . The system will no longer be executed during the execution of the currently bounded phase. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>This method is used at initiallization of the systems for the game engine , if at least one call of ExecutePhase has been made before , then this method will assert us for it , this is not allowed . </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If the system is not found in the currently bound phase or the currently bound phase does not exists , this method will assert . </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/SystemManager/<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a></li>
 </ul>

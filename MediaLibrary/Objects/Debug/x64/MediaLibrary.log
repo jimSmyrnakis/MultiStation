@@ -1,0 +1,628 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Commands.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(72,33): error C2079: 'MultiStation::UBuffer::m_Allocator' uses undefined struct 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,20): error C2027: use of undefined type 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.hpp(46,30): error C2079: 'MultiStation::Shader::m_Allocator' uses undefined struct 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.hpp(17,19): error C2027: use of undefined type 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Commands/Commands.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Commands\Commands.cpp(59,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Commands\Commands.cpp(75,43): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+  FBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/FBuffer/FBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(59,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(88,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(97,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(100,9): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(128,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244: 'argument': conversion from 'const T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244: 'argument': conversion from 'const T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         ]
+  Format.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Format/Format.cpp')
+  
+  Init.cpp
+  FShader.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/FShader.cpp')
+  
+  Shader.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(72,33): error C2079: 'MultiStation::UBuffer::m_Allocator' uses undefined struct 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,20): error C2027: use of undefined type 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.hpp(46,30): error C2079: 'MultiStation::Shader::m_Allocator' uses undefined struct 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.hpp(17,19): error C2027: use of undefined type 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\functional(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/Shader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(9,13): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(17,23): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(177,33): error C2665: 'MultiStation::UBuffer::UBuffer': no overloaded function could convert all the argument types
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,13):
+      could be 'MultiStation::UBuffer::UBuffer(uint32_t,uint32_t,MultiStation::Allocator)'
+          C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(177,33):
+          'MultiStation::UBuffer::UBuffer(uint32_t,uint32_t,MultiStation::Allocator)': cannot convert argument 3 from 'int' to 'MultiStation::Allocator'
+              C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(177,63):
+              use of undefined type 'MultiStation::Allocator'
+              C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+              see declaration of 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp(177,33):
+      while trying to match the argument list '(int32_t, uint32_t, int)'
+  
+  VShader.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Shader/VShader.cpp')
+  
+  Texture2D.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2D.cpp')
+  
+  Texture2DResolution.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/Texture/Texture2DResolution.cpp')
+  
+  UBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(72,33): error C2079: 'MultiStation::UBuffer::m_Allocator' uses undefined struct 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,20): error C2065: 'malloc': undeclared identifier
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,20): error C2065: 'free': undeclared identifier
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(20,20): error C2027: use of undefined type 'MultiStation::Allocator'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/UBuffer/UBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(8,14): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(17,9): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(18,9): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(21,13): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(22,13): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(23,13): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(24,13): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(31,31): error C2027: use of undefined type 'MultiStation::Allocator'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.hpp(23,24):
+      see declaration of 'MultiStation::Allocator'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(181,33): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp(290,50): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+  VBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(31,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VBuffer.cpp')
+  
+  VLayout.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(29,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(29,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(29,1):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/GraphicsApi/VBuffer/VLayout.cpp')
+  
+  GLFWWin.cpp
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,20): error C2143: syntax error: missing ';' before '&'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,41): error C2238: unexpected token(s) preceding ';'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,27): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(33,33): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C2039: 'string': is not a member of 'std'
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stddef.h(23,15):
+      see declaration of 'std'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,23): error C3646: 'm_Name': unknown override specifier
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(47,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'Source/Window/GLFW/GLFWWin.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(14,32): error C2789: 'MultiStation::Window::string': an object of const-qualified type must be initialized
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14):
+      see declaration of 'MultiStation::Window::string'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(36,40): error C2789: 'MultiStation::Window::string': an object of const-qualified type must be initialized
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(29,14):
+      see declaration of 'MultiStation::Window::string'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(107,29): error C2039: 'GetName': is not a member of 'MultiStation::Window'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(9,8):
+      see declaration of 'MultiStation::Window'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(107,29): error C2270: 'GetName': modifiers not allowed on nonmember functions
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(108,8): error C2065: 'm_NativeWindow': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(109,4): error C2065: 'm_NativeWindow': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(110,11): error C2065: 'm_Name': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(112,34): error C2065: 'm_NativeWindow': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(114,3): error C2065: 'm_Name': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(116,10): error C2065: 'm_Name': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(146,15): error C2511: 'void MultiStation::Window::SetName(const std::string &)': overloaded member function not found in 'MultiStation::Window'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(9,8):
+      see declaration of 'MultiStation::Window'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(147,8): error C2597: illegal reference to non-static member 'MultiStation::Window::m_NativeWindow'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(44,9):
+      see declaration of 'MultiStation::Window::m_NativeWindow'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(148,4): error C2597: illegal reference to non-static member 'MultiStation::Window::m_NativeWindow'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\Window.hpp(44,9):
+      see declaration of 'MultiStation::Window::m_NativeWindow'
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(153,21): error C2440: 'type cast': cannot convert from 'unknown' to 'GLFWwindow *'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(153,21):
+      ill-formed reference to a non-static member
+  
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(155,3): error C2065: 'm_Name': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(156,27): error C2065: 'm_Name': undeclared identifier
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(156,3): error C2660: 'glfwSetWindowTitle': function does not take 1 arguments
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Externals\GLFW\x64\include\GLFW\glfw3.h(3364,14):
+      see declaration of 'glfwSetWindowTitle'
+      C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp(156,3):
+      while trying to match the argument list '(GLFWwindow *)'
+  
+  Generating Code...

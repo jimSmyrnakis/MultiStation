@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\ECS.hpp" />
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp" />
     <ClInclude Include="Source\ComponentArray\IComponentArray.hpp" />
     <ClInclude Include="Source\IComponent\IComponent.hpp" />
@@ -29,9 +30,6 @@
     <ClInclude Include="Source\Registry\Registry.hpp" />
     <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
-    <ClInclude Include="Source\Tests\JobSystem\TestJobSystem.hpp" />
-    <ClInclude Include="Source\Tests\SystemManager\SystemManagerTest.hpp" />
-    <ClInclude Include="Source\Tests\SystemManager\SystemsDef.hpp" />
     <ClInclude Include="Source\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -39,13 +37,8 @@
     <ClCompile Include="Source\ISystem\ISystem.cpp" />
     <ClCompile Include="Source\JobSystem\Job.cpp" />
     <ClCompile Include="Source\JobSystem\JobSystem.cpp" />
-    <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\SystemManager\SystemManager.cpp" />
-    <ClCompile Include="Source\Tests\JobSystem\TestJobSystem.cpp" />
-    <ClCompile Include="Source\Tests\JobSystem\TestNested.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
-    <ClCompile Include="Source\Tests\SystemManager\Systems.cpp" />
-    <ClCompile Include="Source\Tests\SystemManager\TestSystemManager.cpp" />
     <ClCompile Include="Source\VersionControl.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -63,26 +56,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -140,6 +133,12 @@
     <PostBuildEvent>
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -163,6 +162,12 @@
     <PostBuildEvent>
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -182,6 +187,12 @@
     <PostBuildEvent>
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -205,6 +216,12 @@
     <PostBuildEvent>
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

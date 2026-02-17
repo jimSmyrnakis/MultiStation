@@ -12,10 +12,13 @@ namespace MultiStation {
 	JobSystem::JobSystem(uint32_t workerCount) noexcept {
 		m_workerCount = workerCount ? workerCount : std::thread::hardware_concurrency();
 		if (m_workerCount == 0) m_workerCount = 1; // for vms cases
+
 		m_gReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
 		MS_ASSERT(m_gReadyQueues, "Failed to allocate global ready queues");
+		
 		m_lReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
 		MS_ASSERT(m_lReadyQueues, "Failed to allocate local ready queues");
+		
 		m_workerThreads = new(std::nothrow) std::thread[m_workerCount -1];
 		MS_ASSERT(m_workerThreads, "Failed to allocate worker threads");
 		// we will use the main thread as a worker thread as well so we need one less thread than the worker count
@@ -24,6 +27,7 @@ namespace MultiStation {
 		m_jobsInSystem.store(0, std::memory_order_release);
 		m_QueueTurn.store(0, std::memory_order_relaxed);
 		localWorkerID = m_workerCount - 1; // the main thread will have the last worker ID
+		
 		for (uint32_t i = 0; i < m_workerCount - 1; ++i) {
 			m_workerThreads[i] = std::thread(&JobSystem::WorkerThread, this, i);
 		}
@@ -125,7 +129,7 @@ namespace MultiStation {
 			job.fun = func;
 			job.data = data;
 			job.affine = false;
-			job.WorkerID = 0; // not used since isAffine is false
+			job.WorkerID = localWorkerID; // not used since isAffine is false
 			job.counter = counter;
 			job.blockID = i;
 			job.blockSize = jobCount;
@@ -179,7 +183,6 @@ namespace MultiStation {
 
 	void JobSystem::WorkerThread(uint32_t workerID) noexcept {
 		localWorkerID = workerID;
-		bool localJob = false;
 		bool isRunning = true;
 		while (isRunning ) {
 			Schedule(workerID);

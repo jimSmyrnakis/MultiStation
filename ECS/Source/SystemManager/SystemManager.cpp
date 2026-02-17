@@ -16,14 +16,14 @@ namespace MultiStation {
 
 
 	uint32_t SystemManager::CreatePhase(void) noexcept {
-		MS_ASSERT(!m_isExecuting, "Cannot create phase while ticking");
+		MS_ASSERT(!m_isExecuting, "Cannot create phase while executing");
 		uint32_t newPhaseID = m_phases.size() + 1; // start from 1
 		m_phases.push_back(newPhaseID);
 		return newPhaseID;
 	}
 
 	void SystemManager::BindPhase(uint32_t phaseID) noexcept {
-		MS_ASSERT(!m_isExecuting, "Cannot bind phase while ticking");
+		MS_ASSERT(!m_isExecuting, "Cannot bind phase while executing");
 		auto it = std::find(m_phases.begin(), m_phases.end(), phaseID);
 		MS_ASSERT(it != m_phases.end(), "Phase ID not found");
 		m_currentPhase = phaseID;
@@ -32,7 +32,7 @@ namespace MultiStation {
 
 	void SystemManager::AddSystem(std::shared_ptr<ISystem> sys) noexcept {
 		MS_ASSERT(sys, "System cannot be null");
-		MS_ASSERT(!m_isExecuting, "Cannot add system while ticking");
+		MS_ASSERT(!m_isExecuting, "Cannot add system while executing");
 #ifdef _DEBUG
 		auto& vec = m_systems[m_currentPhase];
 		MS_ASSERT(std::find(vec.begin(), vec.end(), sys) == vec.end(), "System already added");
@@ -51,8 +51,6 @@ namespace MultiStation {
 		auto vit = std::find(vec.begin(), vec.end(), sys);
 		MS_ASSERT(vit != vec.end(), "System not found in phase");
 		vec.erase(vit);
-
-		if (vec.empty()) m_systems.erase(it);
 	}
 
 
@@ -90,5 +88,17 @@ namespace MultiStation {
 			counter = std::make_shared<std::atomic<uint32_t>>(0);
 		m_jobSystem->ParallelFor(SystemCallBack, data, tickDataList.size(), counter );
 		m_jobSystem->WaitFor(counter);
+	}
+
+	std::vector<uint32_t> SystemManager::GetPhases() const noexcept {
+		return m_phases;
+	}
+
+	std::vector<std::shared_ptr<ISystem>> SystemManager::GetSystemsInPhase(uint32_t phaseID) const noexcept {
+		auto it = m_systems.find(phaseID);
+		if (it != m_systems.end()) {
+			return it->second;
+		}
+		return {};
 	}
 }

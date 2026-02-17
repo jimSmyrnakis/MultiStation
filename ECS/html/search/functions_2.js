@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['getcomponent_0',['GetComponent',['../class_multi_station_1_1_component_array.html#a6d4dcc3d8134f02452ed4dee8689d249',1,'MultiStation::ComponentArray']]],
-  ['getcomponentarray_1',['GetComponentArray',['../class_multi_station_1_1_registry.html#a81c8f1026d4593018796567043e277ae',1,'MultiStation::Registry']]],
-  ['getcomponents_2',['GetComponents',['../class_multi_station_1_1_component_array.html#ad5adc64fa5bdb3ff2f99e7df7047fa8a',1,'MultiStation::ComponentArray']]],
-  ['getentity_3',['GetEntity',['../class_multi_station_1_1_component_array.html#a275525c6f1a36d587e9d10fcb7302f4a',1,'MultiStation::ComponentArray']]],
-  ['getid_4',['GetID',['../class_multi_station_1_1_i_component_array.html#a3c948e84372799eaaafcd6b67ee3bace',1,'MultiStation::IComponentArray::GetID()'],['../struct_multi_station_1_1_job.html#aaee83a86b07991a8e6d47183cdc8952f',1,'MultiStation::Job::GetID()']]]
+  ['componentarray_0',['ComponentArray',['../class_multi_station_1_1_component_array.html#ad38047a6d5e081ec8c8dbaa018c83651',1,'MultiStation::ComponentArray::ComponentArray(void) noexcept'],['../class_multi_station_1_1_component_array.html#a506204a9fd45ddf08d3fa787f5c05ff0',1,'MultiStation::ComponentArray::ComponentArray(const ComponentArray &amp;copy)=delete'],['../class_multi_station_1_1_component_array.html#aa5f6331fe77b19a0d3e93626dae21a7d',1,'MultiStation::ComponentArray::ComponentArray(ComponentArray &amp;&amp;move) noexcept']]],
+  ['createphase_1',['CreatePhase',['../class_multi_station_1_1_system_manager.html#a3d5c35b75a02856886edaa0d718d870b',1,'MultiStation::SystemManager']]]
 ];

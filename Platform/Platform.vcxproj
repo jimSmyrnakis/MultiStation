@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
@@ -102,10 +102,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
@@ -128,10 +130,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -140,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
@@ -150,10 +154,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -164,7 +170,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8
  %(AdditionalOptions)</AdditionalOptions>
@@ -176,10 +182,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)/Externals/GLFW/$(Platform)/lib-vc2022;$(ProjectDir)Externals/GLEW/lib/Release/$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -187,43 +195,15 @@
     <ClInclude Include="Source\Allocator.h" />
     <ClInclude Include="Source\Debug\Debug.hpp" />
     <ClInclude Include="Source\Definitions.h" />
-    <ClInclude Include="Source\GraphicsApi\Commands\Commands.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Error.hpp" />
-    <ClInclude Include="Source\GraphicsApi\FBuffer\FBuffer.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Format\Format.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Init.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Shader\FShader.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Shader\Shader.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Shader\VShader.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Texture\Texture2D.hpp" />
-    <ClInclude Include="Source\GraphicsApi\Texture\Texture2DResolution.hpp" />
-    <ClInclude Include="Source\GraphicsApi\UBuffer\UBuffer.hpp" />
-    <ClInclude Include="Source\GraphicsApi\VBuffer\VBuffer.hpp" />
-    <ClInclude Include="Source\GraphicsApi\VBuffer\VLayout.hpp" />
     <ClInclude Include="Source\Image\bmp\bmp.h" />
     <ClInclude Include="Source\Image\Image.h" />
     <ClInclude Include="Source\Image\PixelBuffer.hpp" />
     <ClInclude Include="Source\Time\Time.hpp" />
-    <ClInclude Include="Source\Window\Window.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Debug\Debug.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Commands\Commands.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Error.cpp" />
-    <ClCompile Include="Source\GraphicsApi\FBuffer\FBuffer.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Format\Format.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Init.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Shader\FShader.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Shader\Shader.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Shader\VShader.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Texture\Texture2D.cpp" />
-    <ClCompile Include="Source\GraphicsApi\Texture\Texture2DResolution.cpp" />
-    <ClCompile Include="Source\GraphicsApi\UBuffer\UBuffer.cpp" />
-    <ClCompile Include="Source\GraphicsApi\VBuffer\VBuffer.cpp" />
-    <ClCompile Include="Source\GraphicsApi\VBuffer\VLayout.cpp" />
     <ClCompile Include="Source\Image\bmp\bmp.cpp" />
     <ClCompile Include="Source\Time\Time.cpp" />
-    <ClCompile Include="Source\Window\GLFW\GLFWWin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

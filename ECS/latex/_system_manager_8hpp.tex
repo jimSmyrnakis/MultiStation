@@ -1,0 +1,29 @@
+\doxysection{Source/\+System\+Manager/\+System\+Manager.hpp File Reference}
+\hypertarget{_system_manager_8hpp}{}\label{_system_manager_8hpp}\index{Source/SystemManager/SystemManager.hpp@{Source/SystemManager/SystemManager.hpp}}
+
+
+The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The System\+Manager also integrates with a Job\+System to enable parallel execution of systems when possible , as whell shares this job system with each system for use .  
+
+
+{\ttfamily \#include "{}../\+Job\+System/\+Job\+System.\+hpp"{}}\newline
+{\ttfamily \#include $<$Platform.\+hpp$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include "{}../\+ISystem/\+ISystem.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_system_manager}{Multi\+Station\+::\+System\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The System\+Manager also integrates with a Job\+System to enable parallel execution of systems when possible , as whell shares this job system with each system for use . 
+
+\begin{DoxyAuthor}{Author}
+\+: Dimitris Smyrnakis 
+\end{DoxyAuthor}

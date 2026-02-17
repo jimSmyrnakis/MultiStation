@@ -3,3 +3,6 @@
 /Renderer3DDS/Library
 /TestApplication/Objects
 /TestApplication/Application
+**.obj
+**.lib
+**.exe

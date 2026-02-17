@@ -1,0 +1,14 @@
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Commands\Commands.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Commands.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Error.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Error.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\FBuffer\FBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\FBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Format\Format.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Format.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Init.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Init.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\FShader.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\FShader.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\Shader.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Shader.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Shader\VShader.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\VShader.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Texture\Texture2D.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Texture2D.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\Texture\Texture2DResolution.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\Texture2DResolution.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\UBuffer\UBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\UBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\VBuffer\VBuffer.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\VBuffer.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\GraphicsApi\VBuffer\VLayout.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\VLayout.obj
+C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Source\Window\GLFW\GLFWWin.cpp;C:\Users\User\Desktop\Projects\MultiStation\MediaLibrary\Objects\Debug\Win32\GLFWWin.obj

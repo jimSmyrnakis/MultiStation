@@ -1,6 +1,6 @@
-[submodule "Platform/Eternals"]
-	path = Platform/Eternals
-	url = https://github.com/gabime/spdlog.git
 [submodule "Platform/Externals/spdlog"]
 	path = Platform/Externals/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "MediaLibrary/Externals/GLM"]
+	path = MediaLibrary/Externals/GLM
+	url = https://github.com/g-truc/glm.git

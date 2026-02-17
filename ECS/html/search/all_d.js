@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['shutdown_0',['Shutdown',['../class_multi_station_1_1_job_system.html#a7a7a88d069c35405ed02253fc9f50093',1,'MultiStation::JobSystem']]],
-  ['systemcontext_1',['SystemContext',['../struct_multi_station_1_1_system_context.html',1,'MultiStation']]],
-  ['systemmanager_2',['SystemManager',['../class_multi_station_1_1_system_manager.html',1,'MultiStation']]]
+  ['register_0',['Register',['../class_multi_station_1_1_registry.html#ac3e8e78184ab03532be147474e522887',1,'MultiStation::Registry']]],
+  ['registry_1',['Registry',['../class_multi_station_1_1_registry.html',1,'MultiStation::Registry'],['../class_multi_station_1_1_registry.html#af589be1627733dee3fa2fb5a836b374e',1,'MultiStation::Registry::Registry(void) noexcept=default'],['../class_multi_station_1_1_registry.html#a7d8e372871807d23d2ed556c7167ebb6',1,'MultiStation::Registry::Registry(const Registry &amp;) noexcept=delete'],['../class_multi_station_1_1_registry.html#a59585fb976ee9c4eab603cdc5d9059c0',1,'MultiStation::Registry::Registry(Registry &amp;&amp;) noexcept=delete']]],
+  ['removecomponent_2',['RemoveComponent',['../class_multi_station_1_1_component_array.html#a54fb61476acd0872d5f094d47491bf99',1,'MultiStation::ComponentArray']]],
+  ['removesystem_3',['RemoveSystem',['../class_multi_station_1_1_system_manager.html#a4e30b2384cdf9e9c003a8dd5c21e65f6',1,'MultiStation::SystemManager']]],
+  ['replacecomponent_4',['ReplaceComponent',['../class_multi_station_1_1_component_array.html#a5a61dd4d0a732a76316a17a13edfba70',1,'MultiStation::ComponentArray']]]
 ];

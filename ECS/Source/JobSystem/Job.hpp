@@ -88,6 +88,7 @@ namespace MultiStation{
 		 */
 		uint32_t 								blockSize;
 
+
 		
 		/**
 		 * @brief Gets the unique identifier of the job.

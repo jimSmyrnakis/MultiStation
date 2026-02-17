@@ -1,42 +1,55 @@
 \doxysection{System\+Manager.\+hpp}
 \hypertarget{_system_manager_8hpp_source}{}\label{_system_manager_8hpp_source}\index{Source/SystemManager/SystemManager.hpp@{Source/SystemManager/SystemManager.hpp}}
-
+\mbox{\hyperlink{_system_manager_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_job_system_8hpp}{../JobSystem/JobSystem.hpp}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../ISystem/ISystem.hpp"{}}}
-\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }SystemManager\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ SystemManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \string~SystemManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ SystemManager(\textcolor{keyword}{const}\ SystemManager\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ SystemManager\&\ operator=(\textcolor{keyword}{const}\ SystemManager\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ SystemManager(SystemManager\&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ SystemManager\&\ operator=(SystemManager\&\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ uint32\_t\ CreatePhase(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ BindPhase(uint32\_t\ phaseID)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddSystem(std::shared\_ptr<ISystem>\ sys)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveSystem(std::shared\_ptr<ISystem>\ sys)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ExecutePhase(uint32\_t\ phaseID)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::shared\_ptr<JobSystem>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_jobSystem;}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_phases;}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<ISystem>>\ >\ \ \ \ \ \ \ \ \ \ \ \ \ m\_systems;}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_currentPhase;}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_isExecuting;\ \ \ \ \ \ }
-\DoxyCodeLine{00034\ \ \ \ \ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a16740f9a82c7b28a8595659d1374d731}{\string~SystemManager}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a09c90a625e1aa4aa3755e29b1a303bd4}{SystemManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ab8a3a2da11eca789f14f13a7d73a37cc}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a2003e03b422b85877e2ef327f682c99a}{SystemManager}}(\mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&\&)\ noexcept\ \ =\ delete;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&\ operator=(\mbox{\hyperlink{class_multi_station_1_1_system_manager_ae5ff306052d40b4914816327ccb80faa}{SystemManager}}\&\&)\ noexcept\ =\ delete;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3d5c35b75a02856886edaa0d718d870b}{CreatePhase}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4d49702f6baa9acb6aada76c4a47c136}{BindPhase}}(uint32\_t\ phaseID)\ noexcept;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945}{AddSystem}}(std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}>\ sys)\ noexcept;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6}{RemoveSystem}}(std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}>\ sys)\ noexcept;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a247c0a6b6c49b010e93859ef4992547b}{ExecutePhase}}(uint32\_t\ phaseID)\ noexcept;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6cd4d01e7af66a80b34546599474ad25}{GetPhases}}()\ const\ noexcept;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}>>\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a15c59bdfb4e5eeb16e117b51720c6653}{GetSystemsInPhase}}(uint32\_t\ phaseID)\ const\ noexcept;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ private:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_job_system}{JobSystem}}>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_jobSystem;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_phases;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}>>\ >\ \ \ \ \ \ \ \ \ \ \ \ \ m\_systems;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_currentPhase;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_isExecuting;\ \ \ \ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \}}
 
 \end{DoxyCode}

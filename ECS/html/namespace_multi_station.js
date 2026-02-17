@@ -8,7 +8,7 @@ var namespace_multi_station =
     [ "Job", "struct_multi_station_1_1_job.html", "struct_multi_station_1_1_job" ],
     [ "JobSystem", "class_multi_station_1_1_job_system.html", "class_multi_station_1_1_job_system" ],
     [ "Registry", "class_multi_station_1_1_registry.html", "class_multi_station_1_1_registry" ],
-    [ "SystemManager", "class_multi_station_1_1_system_manager.html", null ],
+    [ "SystemManager", "class_multi_station_1_1_system_manager.html", "class_multi_station_1_1_system_manager" ],
     [ "VersionControl", "class_multi_station_1_1_version_control.html", null ],
     [ "JobFunction", "namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b", null ],
     [ "JobYieldCallback", "namespace_multi_station.html#ad62e4bddc2d30e7bbee2a744674c8b87", null ]

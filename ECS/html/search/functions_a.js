@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['waitfor_0',['WaitFor',['../class_multi_station_1_1_job_system.html#a79097f6b0d0156db4fcf77cabac17bb6',1,'MultiStation::JobSystem']]],
-  ['waitforall_1',['WaitForAll',['../class_multi_station_1_1_job_system.html#a71c1316a5782aeea97c2dea4770e0638',1,'MultiStation::JobSystem']]]
+  ['shutdown_0',['Shutdown',['../class_multi_station_1_1_job_system.html#a7a7a88d069c35405ed02253fc9f50093',1,'MultiStation::JobSystem']]],
+  ['systemmanager_1',['SystemManager',['../class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa',1,'MultiStation::SystemManager::SystemManager(void) noexcept'],['../class_multi_station_1_1_system_manager.html#a09c90a625e1aa4aa3755e29b1a303bd4',1,'MultiStation::SystemManager::SystemManager(const SystemManager &amp;) noexcept=delete'],['../class_multi_station_1_1_system_manager.html#a2003e03b422b85877e2ef327f682c99a',1,'MultiStation::SystemManager::SystemManager(SystemManager &amp;&amp;) noexcept=delete']]]
 ];
