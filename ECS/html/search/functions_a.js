@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unregister_0',['Unregister',['../class_multi_station_1_1_registry.html#a291626bbb47ec4aa87511698fd302877',1,'MultiStation::Registry']]]
+  ['waitfor_0',['WaitFor',['../class_multi_station_1_1_job_system.html#a79097f6b0d0156db4fcf77cabac17bb6',1,'MultiStation::JobSystem']]],
+  ['waitforall_1',['WaitForAll',['../class_multi_station_1_1_job_system.html#a71c1316a5782aeea97c2dea4770e0638',1,'MultiStation::JobSystem']]]
 ];

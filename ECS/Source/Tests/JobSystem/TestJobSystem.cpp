@@ -25,10 +25,14 @@ int TestJobSystem(void) {
 		};
 	std::shared_ptr<std::atomic<uint32_t>> counterPtr = std::make_shared<std::atomic<uint32_t>>(0);
 	jobSystem.ParallelFor(jobFunc, &sink, 100000, counterPtr);
-	jobSystem.WaitFor(*counterPtr);
+	jobSystem.WaitFor(counterPtr);
 	std::cout << "total jobs = " << sink.load(std::memory_order_acquire) << " threads num = " <<threadsNum << std::endl;
 	std::cout << "All jobs finished, counterPtr = " << counterPtr->load(std::memory_order_relaxed) << std::endl;
 	jobSystem.Shutdown();
+	MultiStation::Job jb;
+	jb.fun = jobFunc;
+	for (int i =0 ; i < 10 ; i++)
+		jobSystem.AddJob(jb); // should not add jobs after shutdown
 	float elapsedTime = MultiStation::Time::GetTimeInSeconds() - time;
 	std::cout << "Elapsed time: " << elapsedTime << " seconds" << std::endl;
 	std::cin.get();

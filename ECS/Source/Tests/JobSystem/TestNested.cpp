@@ -62,7 +62,7 @@ static void ChildJob(MultiStation::Job job) {
     gd.iters = cd->iters;
 
     cd->js->ParallelFor(GrandJob, &gd, cd->grandJobs, grandCounter);
-    cd->js->WaitFor(*grandCounter);
+    cd->js->WaitFor(grandCounter);
 
     cd->childrenDone->fetch_add(1, std::memory_order_relaxed);
 }
@@ -82,7 +82,7 @@ static void ParentJob(MultiStation::Job job) {
     cd.iters = pd->iters;
 
     pd->js->ParallelFor(ChildJob, &cd, pd->childJobs, childCounter);
-    pd->js->WaitFor(*childCounter);
+    pd->js->WaitFor(childCounter);
 
     pd->parentsDone->fetch_add(1, std::memory_order_relaxed);
 }

@@ -92,8 +92,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8
+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -114,8 +116,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8
+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,8 +140,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8
+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,8 +164,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(ProjectDir)Externals\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/utf-8
+ %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -199,6 +207,7 @@
     <ClInclude Include="Source\Window\Window.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Debug\Debug.cpp" />
     <ClCompile Include="Source\GraphicsApi\Commands\Commands.cpp" />
     <ClCompile Include="Source\GraphicsApi\Error.cpp" />
     <ClCompile Include="Source\GraphicsApi\FBuffer\FBuffer.cpp" />

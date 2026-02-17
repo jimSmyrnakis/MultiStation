@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['managerinfo_0',['ManagerInfo',['../struct_multi_station_1_1_task_manager_1_1_manager_info.html',1,'MultiStation::TaskManager']]],
-  ['multistation_1',['MultiStation',['../namespace_multi_station.html',1,'']]]
+  ['operator_3d_0',['operator=',['../class_multi_station_1_1_component_array.html#a3448603a7c1ba3d07efc88827f55daf7',1,'MultiStation::ComponentArray::operator=(const ComponentArray &amp;copy)=delete'],['../class_multi_station_1_1_component_array.html#a42485190e95291a34084cc545819853f',1,'MultiStation::ComponentArray::operator=(ComponentArray &amp;&amp;move) noexcept'],['../class_multi_station_1_1_registry.html#acef85d8806a22e62a14b8894b0fa11e6',1,'MultiStation::Registry::operator=(const Registry &amp;) noexcept=delete'],['../class_multi_station_1_1_registry.html#a0dd835c16bf5b0eb577e70fc9e814b68',1,'MultiStation::Registry::operator=(Registry &amp;&amp;) noexcept=delete']]]
 ];

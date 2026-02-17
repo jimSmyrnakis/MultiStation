@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shutdown_0',['Shutdown',['../class_multi_station_1_1_job_system.html#a7a7a88d069c35405ed02253fc9f50093',1,'MultiStation::JobSystem']]]
+  ['unregister_0',['Unregister',['../class_multi_station_1_1_registry.html#a291626bbb47ec4aa87511698fd302877',1,'MultiStation::Registry']]]
 ];

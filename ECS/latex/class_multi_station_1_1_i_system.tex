@@ -1,10 +1,11 @@
 \doxysection{Multi\+Station\+::ISystem Class Reference}
 \hypertarget{class_multi_station_1_1_i_system}{}\label{class_multi_station_1_1_i_system}\index{MultiStation::ISystem@{MultiStation::ISystem}}
-\doxysubsubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Dependencies}}
-\end{DoxyCompactItemize}
+Inheritance diagram for Multi\+Station\+::ISystem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_i_system}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,32 +15,8 @@ struct \mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Depe
 \Hypertarget{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e}\label{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e} 
 virtual ISystem \& {\bfseries operator=} (ISystem \&\&move) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_system_a5bd1233faa4860f47358f20cfc45e120}\label{class_multi_station_1_1_i_system_a5bd1233faa4860f47358f20cfc45e120} 
-virtual void {\bfseries On\+Awake} (void)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_a4793f4a2a56f2d0cd87cc66c05fc09ad}\label{class_multi_station_1_1_i_system_a4793f4a2a56f2d0cd87cc66c05fc09ad} 
-virtual void {\bfseries On\+Enable} (void)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_a28e8d1a57d5ad8b1ead4e64ad27f92a7}\label{class_multi_station_1_1_i_system_a28e8d1a57d5ad8b1ead4e64ad27f92a7} 
-virtual void {\bfseries On\+Start} (void)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_add4416f3864453e3dffd300481e6a09a}\label{class_multi_station_1_1_i_system_add4416f3864453e3dffd300481e6a09a} 
-virtual void {\bfseries On\+Tick} (float dt)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_acbdc4f5c6ac7c56213b757ca98d22708}\label{class_multi_station_1_1_i_system_acbdc4f5c6ac7c56213b757ca98d22708} 
-virtual void {\bfseries On\+Disable} (void)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_ae8dd9562c8dd42773975c078a5b7d44d}\label{class_multi_station_1_1_i_system_ae8dd9562c8dd42773975c078a5b7d44d} 
-virtual void {\bfseries On\+Destroy} (void)=0
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_a61dcc2421ccf722783f8bb1d1422d329}\label{class_multi_station_1_1_i_system_a61dcc2421ccf722783f8bb1d1422d329} 
-{\footnotesize template$<$typename System\+Type$>$ }\\void {\bfseries Wait\+For} (void)
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_aae7e9f3bfe57f4ddae045a97a36ca310}\label{class_multi_station_1_1_i_system_aae7e9f3bfe57f4ddae045a97a36ca310} 
-{\footnotesize template$<$typename T$>$ }\\void {\bfseries Use\+Component} (bool write\+Access)
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_a190d2dd110d956b4a7e8f4601fcc73d9}\label{class_multi_station_1_1_i_system_a190d2dd110d956b4a7e8f4601fcc73d9} 
-\mbox{\hyperlink{struct_multi_station_1_1_i_system_1_1_dependencies}{Dependencies}} {\bfseries Get\+Dependencies} (void) const
+\Hypertarget{class_multi_station_1_1_i_system_acc33e784704260341b51b5d40a5fe4cd}\label{class_multi_station_1_1_i_system_acc33e784704260341b51b5d40a5fe4cd} 
+virtual void {\bfseries On\+Tick} (\mbox{\hyperlink{struct_multi_station_1_1_system_context}{System\+Context}} \texorpdfstring{$\ast$}{*}ctx)=0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -58,12 +35,6 @@ virtual void {\bfseries On\+Destroy} (void)=0
 \item 
 \Hypertarget{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0}\label{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0} 
 ISystem \& {\bfseries operator=} (const ISystem \&cpy) noexcept=delete
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_abe8e4f131701ffdbe7d925e57b2bd890}\label{class_multi_station_1_1_i_system_abe8e4f131701ffdbe7d925e57b2bd890} 
-uint32\+\_\+t {\bfseries m\+\_\+flags}
 \end{DoxyCompactItemize}
 
 

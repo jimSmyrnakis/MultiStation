@@ -7,9 +7,9 @@ class \mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array
 \begin{DoxyCompactList}\small\item\em This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
 \begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_entity}{Entity}}
-\begin{DoxyCompactList}\small\item\em A wrapper class that represents an entity in the ECS architecture , but is not a crucial part of it . This class provides methods to interact with the components of an entity through the \doxylink{class_multi_station_1_1_registry}{Registry}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_component}{IComponent}}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_system_context}{System\+Context}}
 \item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}
 \item 
@@ -19,27 +19,7 @@ class \mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}}
 \begin{DoxyCompactList}\small\item\em \doxylink{struct_multi_station_1_1_job}{Job} System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -\/\texorpdfstring{$>$}{>} any worker available . The parent Thread is part of the schedule algorithm , usefull method is the wait\+For\+All that makes him enable for schedulling with the rest workers . \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own \doxylink{class_multi_station_1_1_component_array}{Component\+Array} $<$\+T$>$ instance, which is created upon registration and destroyed upon unregistration. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_dependencies_builder}{Dependencies\+Builder}}
-\item 
 class \mbox{\hyperlink{class_multi_station_1_1_system_manager}{System\+Manager}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_system_task}{System\+Task}}
-\item 
-struct \mbox{\hyperlink{struct_multi_station_1_1_i_task_metadata}{ITask\+Metadata}}
-\item 
-struct \mbox{\hyperlink{struct_multi_station_1_1_d_a_g_scheduler_task_metadata}{DAGScheduler\+Task\+Metadata}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_d_a_g_scheduler}{DAGScheduler}}
-\item 
-struct \mbox{\hyperlink{struct_multi_station_1_1_i_pipeline_task_metadata}{IPipeline\+Task\+Metadata}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_pipeline}{Pipeline}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_task}{Task}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_task_manager}{Task\+Manager}}
-\item 
-class \mbox{\hyperlink{class_multi_station_1_1_task_scheduler}{Task\+Scheduler}}
 \item 
 class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control}}
 \end{DoxyCompactItemize}
@@ -59,12 +39,6 @@ enum class {\bfseries Component\+Status} \{ {\bfseries NONE}
 , {\bfseries CREATED}
 , {\bfseries DESTROYED}
  \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{namespace_multi_station_a604096b26040c2a9a7f57e5136bf6f14}\label{namespace_multi_station_a604096b26040c2a9a7f57e5136bf6f14} 
-void \texorpdfstring{$\ast$}{*} {\bfseries Manager\+Worker} (void \texorpdfstring{$\ast$}{*}manager\+Info)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}

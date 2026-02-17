@@ -1,5 +1,35 @@
 \doxysection{Multi\+Station\+::System\+Manager Class Reference}
 \hypertarget{class_multi_station_1_1_system_manager}{}\label{class_multi_station_1_1_system_manager}\index{MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a09c90a625e1aa4aa3755e29b1a303bd4}\label{class_multi_station_1_1_system_manager_a09c90a625e1aa4aa3755e29b1a303bd4} 
+{\bfseries System\+Manager} (const System\+Manager \&) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_ab8a3a2da11eca789f14f13a7d73a37cc}\label{class_multi_station_1_1_system_manager_ab8a3a2da11eca789f14f13a7d73a37cc} 
+System\+Manager \& {\bfseries operator=} (const System\+Manager \&) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_aa30731bbc45fd158417f37f33454e625}\label{class_multi_station_1_1_system_manager_aa30731bbc45fd158417f37f33454e625} 
+{\bfseries System\+Manager} (System\+Manager \&\&) noexcept=default
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a32f84ed49a9bc1ec6b228d336a351a2b}\label{class_multi_station_1_1_system_manager_a32f84ed49a9bc1ec6b228d336a351a2b} 
+System\+Manager \& {\bfseries operator=} (System\+Manager \&\&) noexcept=default
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a3d5c35b75a02856886edaa0d718d870b}\label{class_multi_station_1_1_system_manager_a3d5c35b75a02856886edaa0d718d870b} 
+uint32\+\_\+t {\bfseries Create\+Phase} (void) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a4d49702f6baa9acb6aada76c4a47c136}\label{class_multi_station_1_1_system_manager_a4d49702f6baa9acb6aada76c4a47c136} 
+void {\bfseries Bind\+Phase} (uint32\+\_\+t phase\+ID) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945}\label{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945} 
+void {\bfseries Add\+System} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ sys) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6}\label{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6} 
+void {\bfseries Remove\+System} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ sys) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a247c0a6b6c49b010e93859ef4992547b}\label{class_multi_station_1_1_system_manager_a247c0a6b6c49b010e93859ef4992547b} 
+void {\bfseries Execute\+Phase} (uint32\+\_\+t phase\+ID) noexcept
+\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

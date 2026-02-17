@@ -66,7 +66,7 @@ namespace MultiStation{
 		 * @param counter Atomic counter of the parallel group/block mostly .
 		 * 
 		 */
-		void WaitFor(std::atomic<uint32_t>& counter) noexcept;
+		void WaitFor(std::shared_ptr<std::atomic<uint32_t>>& counter) noexcept;
 		
 		/**
 		 * @brief As WaitFor only that must called either from the parent thread 

@@ -27,8 +27,11 @@
     <ClInclude Include="Source\JobSystem\Job.hpp" />
     <ClInclude Include="Source\JobSystem\JobSystem.hpp" />
     <ClInclude Include="Source\Registry\Registry.hpp" />
+    <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
     <ClInclude Include="Source\Tests\JobSystem\TestJobSystem.hpp" />
+    <ClInclude Include="Source\Tests\SystemManager\SystemManagerTest.hpp" />
+    <ClInclude Include="Source\Tests\SystemManager\SystemsDef.hpp" />
     <ClInclude Include="Source\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +40,12 @@
     <ClCompile Include="Source\JobSystem\Job.cpp" />
     <ClCompile Include="Source\JobSystem\JobSystem.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\SystemManager\SystemManager.cpp" />
     <ClCompile Include="Source\Tests\JobSystem\TestJobSystem.cpp" />
     <ClCompile Include="Source\Tests\JobSystem\TestNested.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
+    <ClCompile Include="Source\Tests\SystemManager\Systems.cpp" />
+    <ClCompile Include="Source\Tests\SystemManager\TestSystemManager.cpp" />
     <ClCompile Include="Source\VersionControl.cpp" />
   </ItemGroup>
   <ItemGroup>

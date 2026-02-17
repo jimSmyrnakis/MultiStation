@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['entity_0',['Entity',['../class_multi_station_1_1_entity.html#a39c3b841194ff181d448d7a44e20411d',1,'MultiStation::Entity::Entity(uint32_t id, std::shared_ptr&lt; Registry &gt; registry) noexcept'],['../class_multi_station_1_1_entity.html#aa6618dc0105788ed0ed85904f62acebe',1,'MultiStation::Entity::Entity(const Entity &amp;cpy) noexcept=delete'],['../class_multi_station_1_1_entity.html#a8509141ae1e845b4a97e046765a175a7',1,'MultiStation::Entity::Entity(Entity &amp;&amp;move) noexcept']]]
+  ['getcomponent_0',['GetComponent',['../class_multi_station_1_1_component_array.html#a6d4dcc3d8134f02452ed4dee8689d249',1,'MultiStation::ComponentArray']]],
+  ['getcomponentarray_1',['GetComponentArray',['../class_multi_station_1_1_registry.html#a81c8f1026d4593018796567043e277ae',1,'MultiStation::Registry']]],
+  ['getcomponents_2',['GetComponents',['../class_multi_station_1_1_component_array.html#ad5adc64fa5bdb3ff2f99e7df7047fa8a',1,'MultiStation::ComponentArray']]],
+  ['getentity_3',['GetEntity',['../class_multi_station_1_1_component_array.html#a275525c6f1a36d587e9d10fcb7302f4a',1,'MultiStation::ComponentArray']]],
+  ['getid_4',['GetID',['../class_multi_station_1_1_i_component_array.html#a3c948e84372799eaaafcd6b67ee3bace',1,'MultiStation::IComponentArray::GetID()'],['../struct_multi_station_1_1_job.html#aaee83a86b07991a8e6d47183cdc8952f',1,'MultiStation::Job::GetID()']]]
 ];

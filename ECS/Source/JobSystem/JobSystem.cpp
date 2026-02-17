@@ -2,6 +2,7 @@
 #include <iostream>
 #include <assert.h>
 #include <functional>
+#include <Platform.hpp>
 namespace MultiStation {
 
 
@@ -12,20 +13,11 @@ namespace MultiStation {
 		m_workerCount = workerCount ? workerCount : std::thread::hardware_concurrency();
 		if (m_workerCount == 0) m_workerCount = 1; // for vms cases
 		m_gReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
-		if (!m_gReadyQueues) {
-			// TODO : fatal error
-			assert(false);
-		}
+		MS_ASSERT(m_gReadyQueues, "Failed to allocate global ready queues");
 		m_lReadyQueues = new(std::nothrow) Queue<Job>[m_workerCount];
-		if (!m_lReadyQueues) {
-			// TODO : fatal error
-			assert(false);
-		}
+		MS_ASSERT(m_lReadyQueues, "Failed to allocate local ready queues");
 		m_workerThreads = new(std::nothrow) std::thread[m_workerCount -1];
-		if (!m_workerThreads) {
-			//TODO : fatal error
-			assert(false);
-		}
+		MS_ASSERT(m_workerThreads, "Failed to allocate worker threads");
 		// we will use the main thread as a worker thread as well so we need one less thread than the worker count
 		m_mainThreadID = std::this_thread::get_id();
 		m_shutdown.store(false, std::memory_order_release);
@@ -51,7 +43,7 @@ namespace MultiStation {
 
 		// dont allow adding jobs after shutdown is signaled
 		if (m_shutdown.load(std::memory_order_acquire)) {
-			// TODO : Warning
+			MS_ENGINE_WARN("Cannot add job after shutdown is signaled");
 			return;
 		}
 
@@ -70,7 +62,10 @@ namespace MultiStation {
 			uint32_t affineWID = job.WorkerID;
 			if (job.WorkerID >= m_workerCount) {
 				affineWID = m_workerCount - 1;
-				// TODO : Warning 
+				MS_ENGINE_WARN(
+					"Affine job WorkerID %u is out of range, assigning to main thread WorkerID %u", 
+					job.WorkerID, affineWID);
+
 			}
 			m_lReadyQueues[affineWID].Push(job);
 		}
@@ -82,10 +77,10 @@ namespace MultiStation {
 		
 	}
 
-	void JobSystem::WaitFor(std::atomic<uint32_t>& counter) noexcept {
+	void JobSystem::WaitFor(std::shared_ptr<std::atomic<uint32_t>>& counter) noexcept {
 		bool localJob = false;
 		
-		while ((counter.load(std::memory_order_acquire) > 0)) {
+		while ((counter->load(std::memory_order_acquire) > 0)) {
 			if (localWorkerID == BAD_ID) {
 				std::this_thread::yield();
 				continue;
@@ -110,8 +105,7 @@ namespace MultiStation {
 				continue;
 			}
 			else {
-				// TODO : fatal error , worker not allow to do this
-				assert(false);
+				MS_ASSERT(false, "WaitForAll should only be called from the main/parent thread of the scheduler or a non-worker thread");
 			}
 		}
 	}
@@ -120,12 +114,9 @@ namespace MultiStation {
 	void JobSystem::ParallelFor(
 		JobFunction func, void* data,
 		uint32_t jobCount, std::shared_ptr<std::atomic<uint32_t>> counter) noexcept {
-		if (jobCount == 0) {
-			// TODO : fatal error
-			return;
-		}
-
-		// TODO : fatal error if fun is null
+		MS_ASSERT(func, "Job function cannot be null");
+		MS_ASSERT(jobCount > 0, "Job count must be greater than zero");
+		
 
 
 		
@@ -144,14 +135,13 @@ namespace MultiStation {
 
 	void JobSystem::Shutdown(void) noexcept {
 		if (m_shutdown.load(std::memory_order_acquire)) {
-			// possibly already is showdown
+			MS_ENGINE_WARN("Shutdown already signaled , destructor calls it too");
 			return;
 		}
 		m_shutdown.store(true, std::memory_order_release);
 
 		if (std::this_thread::get_id() != m_mainThreadID) {
-			// TODO : fatal error 
-			assert(false);
+			MS_ASSERT(false, "Shutdown should only be called from the main/parent thread of the scheduler");
 			return;
 		}
 		// Drain from main thread (critical για pinned-to-main jobs)

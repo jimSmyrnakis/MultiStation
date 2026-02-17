@@ -28,7 +28,7 @@
 \item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47}{Add\+Job}} (\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&job) noexcept
 \begin{DoxyCompactList}\small\item\em Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers . \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_multi_station_1_1_job_system_a51f4000020dc379059c04bac534ac047}{Wait\+For}} (std\+::atomic$<$ uint32\+\_\+t $>$ \&counter) noexcept
+void \mbox{\hyperlink{class_multi_station_1_1_job_system_a79097f6b0d0156db4fcf77cabac17bb6}{Wait\+For}} (std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ \&counter) noexcept
 \begin{DoxyCompactList}\small\item\em Waits Until the counter gets zero , then returns , until then this thread takes it\textquotesingle{}s role as worker for schedulling jobs instead of doing nothing . This method can be called even from thread that is not worker , but then it will yield while waiting . \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a71c1316a5782aeea97c2dea4770e0638}{Wait\+For\+All}} (void) noexcept
 \begin{DoxyCompactList}\small\item\em As Wait\+For only that must called either from the parent thread or from other not worker thread , otherwise fatal error is generated. \end{DoxyCompactList}\item 
@@ -122,11 +122,11 @@ Used to terminate the hole job system so all worker threads stop executing and w
 \begin{DoxyNote}{Note}
 Only the owner/parent thread should call this , a job may succed or not if is schedule by the parent worker/thread . But it should be avoided to used in a job . 
 \end{DoxyNote}
-\Hypertarget{class_multi_station_1_1_job_system_a51f4000020dc379059c04bac534ac047}\index{MultiStation::JobSystem@{MultiStation::JobSystem}!WaitFor@{WaitFor}}
+\Hypertarget{class_multi_station_1_1_job_system_a79097f6b0d0156db4fcf77cabac17bb6}\index{MultiStation::JobSystem@{MultiStation::JobSystem}!WaitFor@{WaitFor}}
 \index{WaitFor@{WaitFor}!MultiStation::JobSystem@{MultiStation::JobSystem}}
 \doxysubsubsection{\texorpdfstring{WaitFor()}{WaitFor()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_job_system_a51f4000020dc379059c04bac534ac047} 
-void Multi\+Station\+::\+Job\+System\+::\+Wait\+For (\begin{DoxyParamCaption}\item[{std\+::atomic$<$ uint32\+\_\+t $>$ \&}]{counter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_job_system_a79097f6b0d0156db4fcf77cabac17bb6} 
+void Multi\+Station\+::\+Job\+System\+::\+Wait\+For (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ \&}]{counter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
