@@ -9,7 +9,6 @@
  */
 namespace MultiStation{
 
-	static const uint32_t BAD_ID = 0XFFFFFFFF;
 
 	/**
 	 * @class JobSystem

@@ -133,18 +133,21 @@ $(function(){initNavTree('_system_manager_8hpp_source.html','',''); });
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    private:</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_job_system.html">JobSystem</a>&gt;                              m_jobSystem;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        std::vector&lt;uint32_t&gt;                                   m_phases;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        std::unordered_map&lt;uint32_t, </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            std::vector&lt;std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>&gt;&gt; &gt;             m_systems;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        uint32_t                                                m_currentPhase;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordtype">bool</span>                                                    m_isExecuting;      </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    };</div>
-</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a>&gt;                             m_ecsManager;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        std::vector&lt;uint32_t&gt;                                   m_phases;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        std::unordered_map&lt;uint32_t, </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            std::vector&lt;std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>&gt;&gt; &gt;             m_systems;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        uint32_t                                                m_currentPhase;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordtype">bool</span>                                                    m_isExecuting;  </div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    };</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}</div>
 <div class="ttc" id="a_job_system_8hpp_html"><div class="ttname"><a href="_job_system_8hpp.html">JobSystem.hpp</a></div><div class="ttdoc">A Simple for moment Job System implementation that schedules all job with fifo implementation hardcod...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_i_system_html"><div class="ttname"><a href="class_multi_station_1_1_i_system.html">MultiStation::ISystem</a></div><div class="ttdef"><b>Definition</b> ISystem.hpp:14</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_job_system_html"><div class="ttname"><a href="class_multi_station_1_1_job_system.html">MultiStation::JobSystem</a></div><div class="ttdoc">Job System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling th...</div><div class="ttdef"><b>Definition</b> JobSystem.hpp:22</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_e_c_s_manager_html"><div class="ttname"><a href="class_multi_station_1_1_e_c_s_manager.html">MultiStation::ECSManager</a></div><div class="ttdoc">The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...</div><div class="ttdef"><b>Definition</b> ECSManager.hpp:25</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_html"><div class="ttname"><a href="class_multi_station_1_1_i_system.html">MultiStation::ISystem</a></div><div class="ttdef"><b>Definition</b> ISystem.hpp:15</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_job_system_html"><div class="ttname"><a href="class_multi_station_1_1_job_system.html">MultiStation::JobSystem</a></div><div class="ttdoc">Job System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling th...</div><div class="ttdef"><b>Definition</b> JobSystem.hpp:21</div></div>
 <div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a09c90a625e1aa4aa3755e29b1a303bd4"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a09c90a625e1aa4aa3755e29b1a303bd4">MultiStation::SystemManager::SystemManager</a></div><div class="ttdeci">SystemManager(const SystemManager &amp;) noexcept=delete</div></div>
 <div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a15c59bdfb4e5eeb16e117b51720c6653"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a15c59bdfb4e5eeb16e117b51720c6653">MultiStation::SystemManager::GetSystemsInPhase</a></div><div class="ttdeci">std::vector&lt; std::shared_ptr&lt; ISystem &gt; &gt; GetSystemsInPhase(uint32_t phaseID) const noexcept</div><div class="ttdoc">Returns a list of all systems that are bound to the specified phase. This allows you to query which s...</div></div>
 <div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a16740f9a82c7b28a8595659d1374d731"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a16740f9a82c7b28a8595659d1374d731">MultiStation::SystemManager::~SystemManager</a></div><div class="ttdeci">~SystemManager(void) noexcept</div><div class="ttdoc">Destroys the System Manager object and shutdown the job system .</div></div>

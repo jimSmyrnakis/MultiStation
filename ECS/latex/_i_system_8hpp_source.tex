@@ -7,60 +7,61 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_job_system_8hpp}{../JobSystem/JobSystem.hpp}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_system_context}{SystemContext}}\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ std::shared\_ptr<JobSystem>\ jobSystem;}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ deltaTime;}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ECS\ later}}
-\DoxyCodeLine{00012\ \ \ \ \ \};}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }ISystem\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ISystem\&\ operator=(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ ISystem(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ISystem\&\ operator=(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ default\ ;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ new\ iteration}}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnTick(\mbox{\hyperlink{struct_multi_station_1_1_system_context}{SystemContext}}*\ ctx)\ =\ 0;}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_e_c_s_manager_8hpp}{../ECSManager/ECSManager.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_system_context}{SystemContext}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ std::shared\_ptr<JobSystem>\ jobSystem;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ deltaTime;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::shared\_ptr<ECSManager>\ ecs;}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }ISystem\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~ISystem(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ ISystem(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ISystem\&\ operator=(\textcolor{keyword}{const}\ ISystem\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ ISystem(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ISystem\&\ operator=(ISystem\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ default\ ;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Called\ every\ new\ iteration}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ OnTick(\mbox{\hyperlink{struct_multi_station_1_1_system_context}{SystemContext}}*\ ctx)\ =\ 0;}
+\DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ GetTypeID(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_typeID;}
-\DoxyCodeLine{00041\ \ \ \ \ \};}
-\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ GetTypeID(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_typeID;}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ ISystem::GetTypeID(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ force\ T\ to\ be\ derived\ from\ ISystem\ ,\ but\ not\ ISystem\ itself}}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_base\_of<ISystem,\ SystemType>::value\ \&\&\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ !std::is\_same<ISystem,\ SystemType>::value,}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ ISystem,\ not\ ISystem\ itself!"{}});}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ ++s\_typeID;}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
-\DoxyCodeLine{00055\ \ \ \ \ \}}
-\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ SystemType>}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ ISystem::GetTypeID(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ force\ T\ to\ be\ derived\ from\ ISystem\ ,\ but\ not\ ISystem\ itself}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_base\_of<ISystem,\ SystemType>::value\ \&\&\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ !std::is\_same<ISystem,\ SystemType>::value,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ ISystem,\ not\ ISystem\ itself!"{}});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ ++s\_typeID;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
 \DoxyCodeLine{00057\ }
 \DoxyCodeLine{00058\ }
 \DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \}}
 
 \end{DoxyCode}

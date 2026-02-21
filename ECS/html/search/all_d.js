@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['register_0',['Register',['../class_multi_station_1_1_registry.html#ac3e8e78184ab03532be147474e522887',1,'MultiStation::Registry']]],
+  ['register_0',['Register',['../class_multi_station_1_1_e_c_s_manager.html#a03da2db68539580e18c625b4dbaf678b',1,'MultiStation::ECSManager::Register()'],['../class_multi_station_1_1_registry.html#a8ffe3bb88ee38c81f61af286e3dc351b',1,'MultiStation::Registry::Register()']]],
   ['registry_1',['Registry',['../class_multi_station_1_1_registry.html',1,'MultiStation::Registry'],['../class_multi_station_1_1_registry.html#af589be1627733dee3fa2fb5a836b374e',1,'MultiStation::Registry::Registry(void) noexcept=default'],['../class_multi_station_1_1_registry.html#a7d8e372871807d23d2ed556c7167ebb6',1,'MultiStation::Registry::Registry(const Registry &amp;) noexcept=delete'],['../class_multi_station_1_1_registry.html#a59585fb976ee9c4eab603cdc5d9059c0',1,'MultiStation::Registry::Registry(Registry &amp;&amp;) noexcept=delete']]],
-  ['removecomponent_2',['RemoveComponent',['../class_multi_station_1_1_component_array.html#a54fb61476acd0872d5f094d47491bf99',1,'MultiStation::ComponentArray']]],
-  ['removesystem_3',['RemoveSystem',['../class_multi_station_1_1_system_manager.html#a4e30b2384cdf9e9c003a8dd5c21e65f6',1,'MultiStation::SystemManager']]],
-  ['replacecomponent_4',['ReplaceComponent',['../class_multi_station_1_1_component_array.html#a5a61dd4d0a732a76316a17a13edfba70',1,'MultiStation::ComponentArray']]]
+  ['removecomponent_2',['RemoveComponent',['../class_multi_station_1_1_component_array.html#a54fb61476acd0872d5f094d47491bf99',1,'MultiStation::ComponentArray::RemoveComponent()'],['../class_multi_station_1_1_e_c_s_manager.html#a37837aa7efcc0d67b844f8ac70a52b1e',1,'MultiStation::ECSManager::RemoveComponent()']]],
+  ['removeentity_3',['RemoveEntity',['../class_multi_station_1_1_component_array.html#a76faa974a13e6599bc98ddd28a86332d',1,'MultiStation::ComponentArray::RemoveEntity()'],['../class_multi_station_1_1_i_component_array.html#a41026c77021fe649dbbbcd92f95711e5',1,'MultiStation::IComponentArray::RemoveEntity()']]],
+  ['removesystem_4',['RemoveSystem',['../class_multi_station_1_1_system_manager.html#a4e30b2384cdf9e9c003a8dd5c21e65f6',1,'MultiStation::SystemManager']]],
+  ['replacecomponent_5',['ReplaceComponent',['../class_multi_station_1_1_component_array.html#a5a61dd4d0a732a76316a17a13edfba70',1,'MultiStation::ComponentArray::ReplaceComponent()'],['../class_multi_station_1_1_e_c_s_manager.html#a1c74cfd675b32f754de06f923c602f04',1,'MultiStation::ECSManager::ReplaceComponent()']]]
 ];

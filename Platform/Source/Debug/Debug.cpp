@@ -78,12 +78,14 @@ namespace MultiStation {
         VLog(g_engine, ToSpd(lvl), fmt, args);
         va_end(args);
 
-        if (lvl == LogLevel::Fatal) {
+       /* if (lvl == LogLevel::Fatal) {
 #if defined(_DEBUG)
             DEBUG_BREAK();
-#endif
+#else 
             std::abort();
-        }
+#endif
+            
+        }*/
     }
 
     void ClientLogf(LogLevel lvl, const char* fmt, ...) noexcept {

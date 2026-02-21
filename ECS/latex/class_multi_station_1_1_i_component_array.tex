@@ -19,7 +19,9 @@ Inheritance diagram for Multi\+Station\+::IComponent\+Array\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}{\texorpdfstring{$\sim$}{\string~}\+IComponent\+Array}} (void) noexcept=default
-\begin{DoxyCompactList}\small\item\em A virtual destructor to allow for proper cleanup of derived classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A virtual destructor to allow for proper cleanup of derived classes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5}{Remove\+Entity}} (uint32\+\_\+t entity)=0
+\begin{DoxyCompactList}\small\item\em Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,6 +65,25 @@ uint32\+\_\+t Multi\+Station\+::\+IComponent\+Array\+::\+Get\+ID (\begin{DoxyPar
 
 
 Gets a unique type ID for the specified component type T. 
+
+\Hypertarget{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5}\index{MultiStation::IComponentArray@{MultiStation::IComponentArray}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::IComponentArray@{MultiStation::IComponentArray}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5} 
+virtual void Multi\+Station\+::\+IComponent\+Array\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{Multi\+Station\+::\+Component\+Array$<$ T $>$}}.
 
 
 

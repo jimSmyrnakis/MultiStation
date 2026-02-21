@@ -3,12 +3,13 @@
 #include <stddef.h>
 #include "../Registry/Registry.hpp"
 #include "../JobSystem/JobSystem.hpp"
+#include "../ECSManager/ECSManager.hpp"
 namespace MultiStation{
 
 	struct SystemContext {
 		std::shared_ptr<JobSystem> jobSystem;
 		float deltaTime;
-		// ECS later
+		std::shared_ptr<ECSManager> ecs;
 	};
 
 	class ISystem {

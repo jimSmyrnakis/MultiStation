@@ -1,20 +1,26 @@
 #pragma once
-#define GLM_ENABLE_EXPERIMENTAL
+//#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
+#include <ECS.hpp>
 namespace MultiStation{
-	struct Transform3D {
+	struct Transform3D : public  IComponent<Transform3D>{
 
 		glm::vec3 position;
 		glm::vec3 rotation;
 		glm::vec3 scale;
-		glm::mat4 transform;
 		
-		void Update();
 		
-		glm::vec3 UpDirection(void) const;
-		glm::vec3 RightDirection(void) const;
-		glm::vec3 ForwardDirection(void) const;
+		Transform3D(void) noexcept = default;
 	
+		Transform3D(const Transform3D& cpy) = delete;
+		Transform3D& operator=(const Transform3D& cpy) = delete;
+		Transform3D(Transform3D&& move) noexcept;
+		Transform3D& operator=(Transform3D&& move) noexcept;
 
+		void UpdateTransform(void);
+
+		
+	private:
+		glm::mat4 m_transform;
 	};
 }

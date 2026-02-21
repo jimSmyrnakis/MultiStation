@@ -3,18 +3,24 @@
 static int sharedCounterAC = 0;
 static int counterB = 0;
 
+MyComponent::MyComponent(int data) : data(data) {
+	MS_ENGINE_INFO("MyComponent created with data = %d", data);
+}
+
+MyComponent::MyComponent(MyComponent&& move) noexcept {
+	move.data = 0; // just for testing move semantics
+	this->data = move.data;
+}
+MyComponent& MyComponent::operator=(MyComponent&& move) noexcept {
+	return *this;
+}
+
 void TestSystemA::OnTick(MultiStation::SystemContext* ctx) {
 	MS_ENGINE_INFO("TestSystemA tick with deltaTime = %f", ctx->deltaTime);
 	for (int i = 0; i < 1000; i++) {
 		sharedCounterAC++;
 	}
-
-	/*std::shared_ptr<std::atomic<uint32_t>> counterPtr = std::make_shared<std::atomic<uint32_t>>(0);
-	ctx->jobSystem->ParallelFor([](MultiStation::Job job) {
-
-		}, nullptr, 1000, counterPtr);
-
-	ctx->jobSystem->WaitFor(counterPtr);*/
+	//ctx->ecs->AddComponent<MyComponent>(0 , 42);
 }
 
 void TestSystemC::OnTick(MultiStation::SystemContext* ctx) {
@@ -23,12 +29,6 @@ void TestSystemC::OnTick(MultiStation::SystemContext* ctx) {
 		sharedCounterAC++;
 	}
 
-	/*std::shared_ptr<std::atomic<uint32_t>> counterPtr = std::make_shared<std::atomic<uint32_t>>(0);
-	ctx->jobSystem->ParallelFor([](MultiStation::Job job) {
-
-		}, nullptr, 1000, counterPtr);
-
-	ctx->jobSystem->WaitFor(counterPtr);*/
 }
 
 void TestSystemB::OnTick(MultiStation::SystemContext* ctx) {
@@ -37,12 +37,6 @@ void TestSystemB::OnTick(MultiStation::SystemContext* ctx) {
 		counterB++;
 	}
 	
-	/*std::shared_ptr<std::atomic<uint32_t>> counterPtr = std::make_shared<std::atomic<uint32_t>>(0);
-	ctx->jobSystem->ParallelFor([](MultiStation::Job job) {
-		
-		}, nullptr, 1000, counterPtr);
-
-	ctx->jobSystem->WaitFor(counterPtr);*/
 }
 
 void TestSystemD::OnTick(MultiStation::SystemContext* ctx) {

@@ -48,7 +48,7 @@ namespace MultiStation {
 #ifdef _DEBUG
 #define MS_ASSERT(expr, ...) \
 		if (!(expr)) { \
-			MS_FATAL("Assertion failed (%s) at %s:%d. Message: %s" , #expr, __FILE__ , __LINE__ ,  __VA_ARGS__ ); \
+			MS_ENGINE_ERROR("Assertion failed (%s) at %s:%d. Message: %s" , #expr, __FILE__ , __LINE__ ,  __VA_ARGS__ ); \
 			STOP_ON_ERROR(); \
 		} 
 #elif defined(NDEBUG)

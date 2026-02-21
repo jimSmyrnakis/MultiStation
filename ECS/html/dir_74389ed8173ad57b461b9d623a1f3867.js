@@ -1,6 +1,7 @@
 var dir_74389ed8173ad57b461b9d623a1f3867 =
 [
     [ "ComponentArray", "dir_6f9bd5bdf5a27d55a04b424150580ecd.html", "dir_6f9bd5bdf5a27d55a04b424150580ecd" ],
+    [ "ECSManager", "dir_ca048350c4e7f609e9e9e59ca0a73c14.html", "dir_ca048350c4e7f609e9e9e59ca0a73c14" ],
     [ "IComponent", "dir_d327d5051a3cd3d1b6d2d65d035f7c90.html", "dir_d327d5051a3cd3d1b6d2d65d035f7c90" ],
     [ "ISystem", "dir_23e5bcaecd3b2df4ea9a0d1afda2ebfc.html", "dir_23e5bcaecd3b2df4ea9a0d1afda2ebfc" ],
     [ "JobSystem", "dir_a8c71fc2bd5ea739dbca586e147c9abb.html", "dir_a8c71fc2bd5ea739dbca586e147c9abb" ],

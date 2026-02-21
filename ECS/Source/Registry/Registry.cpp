@@ -8,4 +8,12 @@ namespace MultiStation {
 		}
 	}
 
+	void Registry::RemoveEntity(uint32_t entity) {
+		for (auto& it_pair : m_typeComponentMap) {
+			IComponentArray* carr = it_pair.second;
+			carr->RemoveEntity(entity);
+
+		}
+	}
+
 }

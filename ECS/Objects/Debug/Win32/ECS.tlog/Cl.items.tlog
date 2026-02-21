@@ -1,4 +1,5 @@
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\IComponentArray.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\Win32\IComponentArray.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\Win32\ECSManager.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ISystem\ISystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\Win32\ISystem.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\JobSystem\Job.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\Win32\Job.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\JobSystem\JobSystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\Win32\JobSystem.obj

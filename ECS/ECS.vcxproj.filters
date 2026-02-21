@@ -51,6 +51,12 @@
     <ClInclude Include="Include\ECS.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ECSManager\ECSManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ECSManager\ECSTemplateImpl.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ISystem\ISystem.cpp">
@@ -72,6 +78,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\SystemManager\SystemManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ECSManager\ECSManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

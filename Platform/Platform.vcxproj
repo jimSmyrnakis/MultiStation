@@ -195,6 +195,7 @@
     <ClInclude Include="Source\Allocator.h" />
     <ClInclude Include="Source\Debug\Debug.hpp" />
     <ClInclude Include="Source\Definitions.h" />
+    <ClInclude Include="Source\Error\Error.hpp" />
     <ClInclude Include="Source\Image\bmp\bmp.h" />
     <ClInclude Include="Source\Image\Image.h" />
     <ClInclude Include="Source\Image\PixelBuffer.hpp" />

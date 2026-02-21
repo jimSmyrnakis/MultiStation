@@ -9,48 +9,48 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cassert>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../VersionControl.hpp"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\ \{}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \ \ \ \ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }IComponent\ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compile-\/time\ check\ ότι Derived\ είναι ίδιος\ με τον actual\ τύπο\ του this}}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<IComponent<Derived>,\ Derived>::value,}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Derived\ must\ inherit\ from\ IComponent<Derived>"{}});}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ IComponent(\textcolor{keyword}{const}\ IComponent\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ IComponent\&\ operator=(\textcolor{keyword}{const}\ IComponent\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ IComponent(IComponent\&\&\ move)\ \textcolor{keyword}{noexcept}\ \ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ IComponent\&\ operator=(IComponent\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ uint32\_t\ GetInstanceTypeID(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }IComponent\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compile-\/time\ check\ ότι Derived\ είναι ίδιος\ με τον actual\ τύπο\ του this}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ \ \ \ \ \ static\_assert(!std::is\_base\_of<IComponent<Derived>,\ Derived>::value,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ "{}Derived\ must\ inherit\ from\ IComponent<Derived>"{});}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ IComponent(\textcolor{keyword}{const}\ IComponent\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ IComponent\&\ operator=(\textcolor{keyword}{const}\ IComponent\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ IComponent(IComponent\&\&\ move)\ \textcolor{keyword}{noexcept}\ \ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ IComponent\&\ operator=(IComponent\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ uint32\_t\ GetVersion(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ uint32\_t\ GetInstanceTypeID(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetDirty(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ uint32\_t\ GetVersion(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetCallBack(std::function<\textcolor{keywordtype}{void}(uint32\_t)>\ callback);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetDirty(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ GetTypeID(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_version_control}{VersionControl}}\ m\_versionControl;}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::function<void(uint32\_t\ instanceTypeID)>\ m\_dirtyCallBack;}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_typeID;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<uint32\_t,\ uint32\_t>\ s\_typeToIDMap;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::string\&\ GetName(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetName(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_version_control}{VersionControl}}\ m\_versionControl;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::atomic<uint32\_t>\ s\_typeID;}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ uint32\_t\ m\_instanceTypeID;}
-\DoxyCodeLine{00047\ \ \ \ \ \};}
-\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::string\ m\_name;}
+\DoxyCodeLine{00048\ \ \ \ \ \};}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00052\ \ \ \ \ std::atomic<uint32\_t>\ IComponent<Derived>::s\_typeID\ =\ 0;}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ }
 \DoxyCodeLine{00055\ }
@@ -71,57 +71,47 @@
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00071\ }
 \DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00073\ \ \ \ \ uint32\_t\ IComponent<Derived>::s\_typeID\ =\ 0;}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00076\ \ \ \ \ std::unordered\_map<uint32\_t,\ uint32\_t>\ IComponent<Derived>::s\_typeToIDMap;}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ IComponent<Derived>::SetCallBack(std::function<\textcolor{keywordtype}{void}(uint32\_t)>\ callback)\ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ m\_dirtyCallBack\ =\ callback;}
-\DoxyCodeLine{00081\ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00084\ \ \ \ \ uint32\_t\ IComponent<Derived>::GetVersion(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_versionControl.GetVersion();}
-\DoxyCodeLine{00086\ \ \ \ \ \}}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ IComponent<Derived>::SetDirty(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_dirtyCallBack)\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dirtyCallBack(this-\/>GetInstanceTypeID());}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increment\ version\ control\ counter}}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ m\_versionControl.IncrementVersion();}
-\DoxyCodeLine{00097\ \ \ \ \ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00101\ \ \ \ \ uint32\_t\ IComponent<Derived>::GetTypeID(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ ++s\_typeID;}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
-\DoxyCodeLine{00104\ \ \ \ \ \}}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ uint32\_t\ IComponent<Derived>::GetVersion(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_versionControl.GetVersion();}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ IComponent<Derived>::SetDirty(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increment\ version\ control\ counter}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ m\_versionControl.IncrementVersion();}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\_t\ IComponent<Derived>::GetInstanceTypeID(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_instanceTypeID;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00095\ \ \ \ \ IComponent<Derived>::IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ MS\_ASSERT(\textcolor{keyword}{typeid}(*\textcolor{keyword}{this})\ ==\ \textcolor{keyword}{typeid}(Derived)\ ,\ \textcolor{stringliteral}{"{}Can't\ use\ IComponent\ base\ instance"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ m\_instanceTypeID=\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ s\_typeID.fetch\_add(1,\ std::memory\_order\_relaxed);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ m\_name\ =\ \textcolor{keyword}{typeid}(Derived).name();}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00104\ \ \ \ \ std::string\&\ IComponent<Derived>::GetName(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_name;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ }
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00111\ \ \ \ \ uint32\_t\ IComponent<Derived>::GetInstanceTypeID(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ IComponent<Derived>::GetName(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_name;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_instanceTypeID;}
-\DoxyCodeLine{00114\ \ \ \ \ \}}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
-\DoxyCodeLine{00118\ \ \ \ \ IComponent<Derived>::IComponent(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ assert(\textcolor{keyword}{typeid}(*\textcolor{keyword}{this})\ ==\ \textcolor{keyword}{typeid}(Derived));}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ m\_instanceTypeID\ =\ ++s\_typeToIDMap[IComponent<Derived>::GetTypeID()];}
-\DoxyCodeLine{00121\ \ \ \ \ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \}}
-\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
 
 \end{DoxyCode}

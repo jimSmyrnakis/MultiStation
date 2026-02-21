@@ -1,0 +1,407 @@
+\doxysection{Multi\+Station\+::ECSManager Class Reference}
+\hypertarget{class_multi_station_1_1_e_c_s_manager}{}\label{class_multi_station_1_1_e_c_s_manager}\index{MultiStation::ECSManager@{MultiStation::ECSManager}}
+
+
+The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase .  
+
+
+
+
+{\ttfamily \#include $<$ECSManager.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs a new ECS Manager object. Initializes the \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} and sets up necessary data structures for managing entities and components. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aaef57b51cf7a480ec09e3b1164e36e95}{\texorpdfstring{$\sim$}{\string~}\+ECSManager}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Destroys the ECS Manager object and cleans up resources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a10242f32a9fc5b2f7902e46f561c7f73}{ECSManager}} (const ECSManager \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a5adf7e021c93bb3a866fe3dc0b5ce7e1}{ECSManager}} (ECSManager \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_ada320d735b6eb1a0b08a8fa3a7a6832e}{operator=}} (const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a5e604a3b4f4c1851b4779dd05d38932e}{operator=}} (\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a03da2db68539580e18c625b4dbaf678b}{Register}} (void)
+\begin{DoxyCompactList}\small\item\em Register a new Component of type T to the ecs . This gives the ability to add/remove/replace component\textquotesingle{}s of this type to a entity and other functionalities. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a177f9573eb0eedfab54b8432c630cd24}{Has\+Register}} (void) const
+\begin{DoxyCompactList}\small\item\em Check if a component type T is registered to the ecs or not . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_af3167c2658019e97a37473dda353f9d1}{Add\+Component}} (uint32\+\_\+t entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Makes Request for constructing a component of type T with variadic parameters to the entity , the operation will happen in some other safe moment from the System Manager side . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a37837aa7efcc0d67b844f8ac70a52b1e}{Remove\+Component}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Makes Request for removing a component of type T from the entity , the operation will happen in some other safe moment from the System Manager . Also if this component is the last of the entity , then the intity is removed . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a1c74cfd675b32f754de06f923c602f04}{Replace\+Component}} (uint32\+\_\+t entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Replace the component type T of the entity with a new one constructed with the provided arguments . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a9b3941fdae76ebf5fe50e2e2f60a1bea}{Get\+Component}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Gets a pointer to the component of type T associated with the specified entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_af4eb75bc0e520f3ffc590427a2f2a024}{Get\+Component}} (uint32\+\_\+t entity) const
+\begin{DoxyCompactList}\small\item\em Gets a pointer to the component of type T associated with the specified entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{Get\+Components}} (void) const
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb}{Has\+Component}} (uint32\+\_\+t entity) const
+\begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component of type T. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a3b02f84b12f5ddd0c61373e02021dffe}{Create\+Entity}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Makes Request for creating a new entity with the specified ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a134d8e19c21deb74f1f72d61775a53f2}{Destroy\+Entity}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Makes Request for destroying an existing entity with the specified ID. Also removes all components associated with this entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{Has\+Entity}} (uint32\+\_\+t entity) const
+\begin{DoxyCompactList}\small\item\em Checks if the specified entity exists in the \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}. \end{DoxyCompactList}\item 
+const std\+::vector$<$ uint32\+\_\+t $>$ \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_ae3e9bea4056c56d3b515fb093e91188d}{Get\+Entities}} (void) const
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all entities in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_ab1ef2aa9992dd8ae85793e1a1f980e1e}\label{class_multi_station_1_1_e_c_s_manager_ab1ef2aa9992dd8ae85793e1a1f980e1e} 
+class {\bfseries System\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . 
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!ECSManager@{ECSManager}}
+\index{ECSManager@{ECSManager}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{ECSManager()}{ECSManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf} 
+Multi\+Station\+::\+ECSManager\+::\+ECSManager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Constructs a new ECS Manager object. Initializes the \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} and sets up necessary data structures for managing entities and components. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_aaef57b51cf7a480ec09e3b1164e36e95}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!````~ECSManager@{\texorpdfstring{$\sim$}{\string~}ECSManager}}
+\index{````~ECSManager@{\texorpdfstring{$\sim$}{\string~}ECSManager}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ECSManager()}{\string~ECSManager()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_aaef57b51cf7a480ec09e3b1164e36e95} 
+Multi\+Station\+::\+ECSManager\+::\texorpdfstring{$\sim$}{\string~}\+ECSManager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Destroys the ECS Manager object and cleans up resources. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a10242f32a9fc5b2f7902e46f561c7f73}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!ECSManager@{ECSManager}}
+\index{ECSManager@{ECSManager}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{ECSManager()}{ECSManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a10242f32a9fc5b2f7902e46f561c7f73} 
+Multi\+Station\+::\+ECSManager\+::\+ECSManager (\begin{DoxyParamCaption}\item[{const ECSManager \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a5adf7e021c93bb3a866fe3dc0b5ce7e1}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!ECSManager@{ECSManager}}
+\index{ECSManager@{ECSManager}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{ECSManager()}{ECSManager()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a5adf7e021c93bb3a866fe3dc0b5ce7e1} 
+Multi\+Station\+::\+ECSManager\+::\+ECSManager (\begin{DoxyParamCaption}\item[{ECSManager \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_af3167c2658019e97a37473dda353f9d1}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_af3167c2658019e97a37473dda353f9d1} 
+template$<$typename T, typename... Args$>$ \\
+void Multi\+Station\+::\+ECSManager\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Makes Request for constructing a component of type T with variadic parameters to the entity , the operation will happen in some other safe moment from the System Manager side . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to create and add to ecs. \\
+\hline
+{\em Args} & The types of the arguments to construct the component. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity to which the component will be added. \\
+\hline
+\mbox{\texttt{in}}  & {\em args} & The arguments to construct the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s and the component type T must be registered already . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a3b02f84b12f5ddd0c61373e02021dffe}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a3b02f84b12f5ddd0c61373e02021dffe} 
+void Multi\+Station\+::\+ECSManager\+::\+Create\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Makes Request for creating a new entity with the specified ID. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The unique identifier for the new entity to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The entity ID must be unique and not already in use , otherwise warning message is generated . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a134d8e19c21deb74f1f72d61775a53f2}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!DestroyEntity@{DestroyEntity}}
+\index{DestroyEntity@{DestroyEntity}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{DestroyEntity()}{DestroyEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a134d8e19c21deb74f1f72d61775a53f2} 
+void Multi\+Station\+::\+ECSManager\+::\+Destroy\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Makes Request for destroying an existing entity with the specified ID. Also removes all components associated with this entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The unique identifier of the entity to be destroyed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist, otherwise a warning message is generated. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a9b3941fdae76ebf5fe50e2e2f60a1bea}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a9b3941fdae76ebf5fe50e2e2f60a1bea} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSManager\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Gets a pointer to the component of type T associated with the specified entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be retrieved. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to retrieve. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s , the component type T be registered and the entity must have already one. Fethermore the returned pointer is not guaranteed to be valid at the next phase or game loop . 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A pointer to the component if found, or nullptr if the entity does not have one. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_af4eb75bc0e520f3ffc590427a2f2a024}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_af4eb75bc0e520f3ffc590427a2f2a024} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSManager\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a pointer to the component of type T associated with the specified entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be retrieved. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to retrieve. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s , the component type T be registered and the entity must have already one. Fethermore the returned pointer is not guaranteed to be valid at the next phase or game loop . 
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+A pointer to the component if found, or nullptr if the entity does not have one. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b} 
+template$<$typename T$>$ \\
+const std\+::vector$<$ T $>$ \& Multi\+Station\+::\+ECSManager\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a const reference to the vector of all components of type T. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the vector of all components of type T. 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the components to retrieve. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s and the component type T be registered . Fethermore the vector should not change otherwise the behavior is undefined . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_ae3e9bea4056c56d3b515fb093e91188d}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetEntities@{GetEntities}}
+\index{GetEntities@{GetEntities}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{GetEntities()}{GetEntities()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_ae3e9bea4056c56d3b515fb093e91188d} 
+const std\+::vector$<$ uint32\+\_\+t $>$ \& Multi\+Station\+::\+ECSManager\+::\+Get\+Entities (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a const reference to the vector of all entities in the system. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the vector of all entities in the system. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The vector should not change otherwise the behavior is undefined. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+ECSManager\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the specified entity has an associated component of type T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to check for the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s and the component type T be registered . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!HasEntity@{HasEntity}}
+\index{HasEntity@{HasEntity}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{HasEntity()}{HasEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07} 
+bool Multi\+Station\+::\+ECSManager\+::\+Has\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the specified entity exists in the \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The unique identifier of the entity to check for existence. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a177f9573eb0eedfab54b8432c630cd24}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!HasRegister@{HasRegister}}
+\index{HasRegister@{HasRegister}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{HasRegister()}{HasRegister()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a177f9573eb0eedfab54b8432c630cd24} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+ECSManager\+::\+Has\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Check if a component type T is registered to the ecs or not . 
+
+\begin{DoxyWarning}{Warning}
+The component type T must be derived from \doxylink{class_multi_station_1_1_i_component}{IComponent$<$\+T$>$} and must not be registered already, otherwise assert\textquotesingle{}s. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_ada320d735b6eb1a0b08a8fa3a7a6832e}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_ada320d735b6eb1a0b08a8fa3a7a6832e} 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \& Multi\+Station\+::\+ECSManager\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a5e604a3b4f4c1851b4779dd05d38932e}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a5e604a3b4f4c1851b4779dd05d38932e} 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \& Multi\+Station\+::\+ECSManager\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_aca1c424c0b15f3b11d70c66a3efe06cf}{ECSManager}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy , Move constructors and assignment operators are not allowed for \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}, as it manages resources and state that should not be duplicated or moved. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a03da2db68539580e18c625b4dbaf678b}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!Register@{Register}}
+\index{Register@{Register}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a03da2db68539580e18c625b4dbaf678b} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+ECSManager\+::\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Register a new Component of type T to the ecs . This gives the ability to add/remove/replace component\textquotesingle{}s of this type to a entity and other functionalities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to register. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The component type T must be derived from \doxylink{class_multi_station_1_1_i_component}{IComponent$<$\+T$>$} and must not be registered already, otherwise assert\textquotesingle{}s. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a37837aa7efcc0d67b844f8ac70a52b1e}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a37837aa7efcc0d67b844f8ac70a52b1e} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+ECSManager\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Makes Request for removing a component of type T from the entity , the operation will happen in some other safe moment from the System Manager . Also if this component is the last of the entity , then the intity is removed . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to remove. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s , the component type T must be registered already and entity must have type T component . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a1c74cfd675b32f754de06f923c602f04}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!ReplaceComponent@{ReplaceComponent}}
+\index{ReplaceComponent@{ReplaceComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a1c74cfd675b32f754de06f923c602f04} 
+template$<$typename T, typename... Args$>$ \\
+void Multi\+Station\+::\+ECSManager\+::\+Replace\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Replace the component type T of the entity with a new one constructed with the provided arguments . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to replace. \\
+\hline
+{\em Args} & The types of the arguments to construct the new component. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be replaced. \\
+\hline
+\mbox{\texttt{in}}  & {\em args} & The arguments to construct the new component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s , the component type T must be registered already and entity must have type T component . 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+ECSManager/\mbox{\hyperlink{_e_c_s_manager_8hpp}{ECSManager.\+hpp}}\item 
+Source/\+ECSManager/ECSTemplate\+Impl.\+hpp\end{DoxyCompactItemize}

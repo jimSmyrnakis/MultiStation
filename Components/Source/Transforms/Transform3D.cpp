@@ -1,24 +1,33 @@
-#include "Transform.hpp"
+#include "Transform3D.hpp"
 #include <glm/gtx/transform.hpp>
+#include <glm/matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace MultiStation {
 	
 
-	void Transform3D::Update() {
-		glm::mat4 identity(1);
-		//glm::rotate(model, glm::radians(angleDeg * blend), glm::vec3(1.0f, 1.0f, 1.0f))
-		glm::mat4 rX = glm::rotate(identity, rotation.x, glm::vec3(1,0,0));
-		glm::mat4 rY = glm::rotate(identity, rotation.y, glm::vec3(0, 1, 0));
-		glm::mat4 rZ = glm::rotate(identity, rotation.z, glm::vec3(0, 0, 1));
-		glm::mat4 translate = glm::translate(position);
-		glm::mat4 scaleMat = glm::scale(scale);
-		glm::mat4 rot = rX * rY * rZ;
-		transform = scaleMat * translate * rot;
+	Transform3D::Transform3D(Transform3D&& move) noexcept {
+		position	= std::move(move.position)	;
+		rotation	= std::move(move.rotation)	;
+		scale		= std::move(move.scale)		;
+		m_transform = std::move(move.m_transform);
+
+	}
+	Transform3D& Transform3D::operator=(Transform3D&& move) noexcept {
+		position = std::move(move.position);
+		rotation = std::move(move.rotation);
+		scale = std::move(move.scale);
+		m_transform = std::move(move.m_transform);
+		return *this;
 	}
 
-	glm::vec3 Transform3D::UpDirection(void) const { return glm::vec3(0, 1, 0); }
-	glm::vec3 Transform3D::RightDirection(void) const { return glm::vec3(1, 0, 0); }
-	glm::vec3 Transform3D::ForwardDirection(void) const { return glm::vec3(0,0 , 1); }
-
+	void Transform3D::UpdateTransform(void) {
+		glm::mat4 translationMat = glm::translate(position);
+		glm::mat4 rotationMat = glm::rotate(rotation.x, glm::vec3(1.0f, 0.0f, 0.0f)) *
+			glm::rotate(rotation.y, glm::vec3(0.0f, 1.0f, 0.0f)) *
+			glm::rotate(rotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+		glm::mat4 scaleMat = glm::scale(scale);
+		m_transform = translationMat * rotationMat * scaleMat;
+	}
 
 }

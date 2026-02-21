@@ -6,3 +6,4 @@
 #include "../Source/Image/Image.h"
 #include "../Source/Allocator.h"
 #include "../Source/Debug/Debug.hpp"
+#include "../Source/Error/Error.hpp"

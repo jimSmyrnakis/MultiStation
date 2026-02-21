@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['getcomponent_0',['GetComponent',['../class_multi_station_1_1_component_array.html#a6d4dcc3d8134f02452ed4dee8689d249',1,'MultiStation::ComponentArray']]],
-  ['getcomponentarray_1',['GetComponentArray',['../class_multi_station_1_1_registry.html#a81c8f1026d4593018796567043e277ae',1,'MultiStation::Registry']]],
-  ['getcomponents_2',['GetComponents',['../class_multi_station_1_1_component_array.html#ad5adc64fa5bdb3ff2f99e7df7047fa8a',1,'MultiStation::ComponentArray']]],
-  ['getentity_3',['GetEntity',['../class_multi_station_1_1_component_array.html#a275525c6f1a36d587e9d10fcb7302f4a',1,'MultiStation::ComponentArray']]],
-  ['getid_4',['GetID',['../class_multi_station_1_1_i_component_array.html#a3c948e84372799eaaafcd6b67ee3bace',1,'MultiStation::IComponentArray::GetID()'],['../struct_multi_station_1_1_job.html#aaee83a86b07991a8e6d47183cdc8952f',1,'MultiStation::Job::GetID()']]],
-  ['getphases_5',['GetPhases',['../class_multi_station_1_1_system_manager.html#a6cd4d01e7af66a80b34546599474ad25',1,'MultiStation::SystemManager']]],
-  ['getsystemsinphase_6',['GetSystemsInPhase',['../class_multi_station_1_1_system_manager.html#a15c59bdfb4e5eeb16e117b51720c6653',1,'MultiStation::SystemManager']]]
+  ['ecsmanager_0',['ECSManager',['../class_multi_station_1_1_e_c_s_manager.html#aca1c424c0b15f3b11d70c66a3efe06cf',1,'MultiStation::ECSManager::ECSManager(void) noexcept'],['../class_multi_station_1_1_e_c_s_manager.html#a10242f32a9fc5b2f7902e46f561c7f73',1,'MultiStation::ECSManager::ECSManager(const ECSManager &amp;) noexcept=delete'],['../class_multi_station_1_1_e_c_s_manager.html#a5adf7e021c93bb3a866fe3dc0b5ce7e1',1,'MultiStation::ECSManager::ECSManager(ECSManager &amp;&amp;) noexcept=delete']]],
+  ['executephase_1',['ExecutePhase',['../class_multi_station_1_1_system_manager.html#a247c0a6b6c49b010e93859ef4992547b',1,'MultiStation::SystemManager']]]
 ];

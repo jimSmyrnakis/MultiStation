@@ -7,23 +7,20 @@
 #include <stddef.h>
 #include "IComponentArray.hpp"
 #include "../IComponent/IComponent.hpp"
-
+#include <Platform.hpp>
 namespace MultiStation{
 
-	enum class ComponentStatus {
-		NONE,
-		MODIFIED,
-		CREATED,
-		DESTROYED
-	};
+	
 
 	/**
 	 * @author Dimitris Smyrnakis
 	 * @class ComponentArray 
 	 * @tparam T The component type
 	 * @brief This class manages a dynamic array of components of type T, allowing for efficient
-	 * addition, removal, and retrieval of components associated with entities. Each component is linked
-	 * with one entity, and the class ensures that operations are performed in O(1) time complexity where possible.
+	 * addition, removal, and retrieval of components associated with entities. 
+	 * @note The address of each component may or may not change when components are added or removed, 
+	 * so users should not rely on component addresses remaining stable. 
+	 * Instead, they should use the provided methods to access components based on their associated entities.
 	 */
 	template<class T>
 	class ComponentArray : public IComponentArray{
@@ -103,7 +100,14 @@ namespace MultiStation{
 		 * @param[in] entity The entity whose component is to be retrieved.
 		 * @return A pointer to the component if found, or nullptr if the entity does not have one.
 		 */
-		T* GetComponent(uint32_t entity) const;
+		T* GetComponent(uint32_t entity);
+
+		/**
+		 * @brief Gets the component associated with the specified entity.
+		 * @param[in] entity The entity whose component is to be retrieved.
+		 * @return A pointer to the component if found, or nullptr if the entity does not have one.
+		 */
+		const T* GetComponent(uint32_t entity) const;
 
 		/**
 		 * @brief Gets the entity associated with the specified component.
@@ -129,14 +133,12 @@ namespace MultiStation{
 		 */
 		bool HasEntity(uint32_t entity) const;
 
-
+		void RemoveEntity(uint32_t entity) override;
 	private:
 		std::vector<T> m_components; // A cached component dynamic list
 		std::vector<uint32_t> m_indexToEntity; // component index mapped to entity value
 		std::unordered_map<uint32_t, size_t> m_entityToIndex; // 
-		// 
-		std::unordered_map<uint32_t, ComponentStatus> m_componentsStatus;
-		// each component instanced Type ID mapped to a Status variable
+		
 
 
 		
@@ -165,7 +167,6 @@ namespace MultiStation{
 		m_components.clear();
 		m_entityToIndex.clear();
 		m_indexToEntity.clear();
-		m_componentsStatus.clear();
 	}
 
 	template<typename T>
@@ -175,7 +176,6 @@ namespace MultiStation{
 		dest->m_components = std::move(src->m_components);
 		dest->m_entityToIndex = std::move(src->m_entityToIndex);
 		dest->m_indexToEntity = std::move(src->m_indexToEntity);
-		dest->m_componentsStatus = std::move(src->m_componentsStatus);
 		src->ClearVectors();
 	}
 
@@ -211,20 +211,24 @@ namespace MultiStation{
 
 
 	// CREATING , REMOVING  Component's and Entities
-
+	template<typename T>
+	void ComponentArray<T>::RemoveEntity(uint32_t entity) {
+		this->RemoveComponent(entity);
+	}
 
 
 	template<typename T>
 	template<typename... Args>
 	T* ComponentArray<T>::AddComponent(uint32_t entity, Args&&... args)
 	{
+#ifdef _DEBUG
 		// already exists -> update
 		if (m_entityToIndex.count(entity))
 		{
-			// TODO : error message to user
+			MS_ASSERT(false, "Entity already has a component. Use ReplaceComponent to update it.");
 			return nullptr;
 		}
-
+#endif
 		// new component
 		size_t newIndex = m_components.size();
 		m_components.emplace_back(std::forward<Args>(args)...);
@@ -249,7 +253,7 @@ namespace MultiStation{
 			return &m_components[idx];
 		}
 
-		// TODO : error to end user
+		MS_ASSERT(false, "Entity does not have a component to replace. Use AddComponent to add it first.");
 		return nullptr;
 	}
 
@@ -258,12 +262,12 @@ namespace MultiStation{
 	template<typename T>
 	void ComponentArray<T>::RemoveComponent(uint32_t entity) {
 		if (m_components.empty()) {
-			// TODO : error 
+			MS_ASSERT(false, "No components to remove.");
 			return;
 		}
 
 		if (!m_entityToIndex.count(entity)) { // not found entity
-			// TODO : error message to user
+			MS_ASSERT(false, "Entity does not exist's.");
 			return;
 		}
 
@@ -300,15 +304,20 @@ namespace MultiStation{
 	// BASIC GET methods
 
 
-	template<typename T>
-	T* ComponentArray<T>::GetComponent(uint32_t entity) const{
-		
-		if (!m_entityToIndex.count(entity)) {
-			// TODO : message to the end user
-			return nullptr;
-		}
+	
 
-		return &m_components[m_entityToIndex[entity]];
+	template<typename T>
+	T* ComponentArray<T>::GetComponent(uint32_t entity) {
+		auto it = m_entityToIndex.find(entity);
+		if (it == m_entityToIndex.end()) return nullptr;
+		return &m_components[it->second];
+	}
+
+	template<typename T>
+	const T* ComponentArray<T>::GetComponent(uint32_t entity) const {
+		auto it = m_entityToIndex.find(entity);
+		if (it == m_entityToIndex.end()) return nullptr;
+		return &m_components[it->second];
 	}
 	
 	template<typename T>

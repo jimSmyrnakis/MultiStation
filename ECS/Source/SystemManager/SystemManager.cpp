@@ -4,6 +4,9 @@ namespace MultiStation {
 	
 	SystemManager::SystemManager() noexcept {
 		m_jobSystem = std::make_shared<JobSystem>(2.5f * std::thread::hardware_concurrency());
+		MS_ASSERT(m_jobSystem, "Failed to create JobSystem.");
+		m_ecsManager = std::make_shared<ECSManager>();
+		MS_ASSERT(m_ecsManager, "Failed to create ECSManager.");
 		m_currentPhase = 0;
 		m_isExecuting = false;
 	}
@@ -80,6 +83,7 @@ namespace MultiStation {
 			tickData.system = system;
 			tickData.sctx.deltaTime = 0.016f; // TODO : pass real dt
 			tickData.sctx.jobSystem = m_jobSystem;
+			tickData.sctx.ecs = m_ecsManager;
 			tickDataList.push_back(tickData);
 		}
 		void* data = tickDataList.data();
@@ -88,6 +92,8 @@ namespace MultiStation {
 			counter = std::make_shared<std::atomic<uint32_t>>(0);
 		m_jobSystem->ParallelFor(SystemCallBack, data, tickDataList.size(), counter );
 		m_jobSystem->WaitFor(counter);
+
+		m_ecsManager->PollOperations();
 	}
 
 	std::vector<uint32_t> SystemManager::GetPhases() const noexcept {

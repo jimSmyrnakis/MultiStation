@@ -88,7 +88,7 @@ $(function(){initNavTree('class_multi_station_1_1_i_component_array.html','','cl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MultiStation::IComponentArray Class Reference</div></div>
+  <div class="headertitle"><div class="title">MultiStation::IComponentArray Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -110,6 +110,8 @@ Inheritance diagram for MultiStation::IComponentArray:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aef7b10613cf2c2987fe47f1dda605de5" id="r_aef7b10613cf2c2987fe47f1dda605de5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef7b10613cf2c2987fe47f1dda605de5">~IComponentArray</a> (void) noexcept=default</td></tr>
 <tr class="memdesc:aef7b10613cf2c2987fe47f1dda605de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual destructor to allow for proper cleanup of derived classes.  <br /></td></tr>
+<tr class="memitem:a41026c77021fe649dbbbcd92f95711e5" id="r_a41026c77021fe649dbbbcd92f95711e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41026c77021fe649dbbbcd92f95711e5">RemoveEntity</a> (uint32_t entity)=0</td></tr>
+<tr class="memdesc:a41026c77021fe649dbbbcd92f95711e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its RemoveComponent method.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -176,6 +178,41 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets a unique type ID for the specified component type T. </p>
+
+</div>
+</div>
+<a id="a41026c77021fe649dbbbcd92f95711e5" name="a41026c77021fe649dbbbcd92f95711e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41026c77021fe649dbbbcd92f95711e5">&#9670;&#160;</a></span>RemoveEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::IComponentArray::RemoveEntity </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its RemoveComponent method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a76faa974a13e6599bc98ddd28a86332d">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>

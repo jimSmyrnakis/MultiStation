@@ -95,9 +95,11 @@ $(function(){initNavTree('namespace_multi_station.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:ComponentArray" id="r_ComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_component_array.html">ComponentArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible.  <a href="class_multi_station_1_1_component_array.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities.  <a href="class_multi_station_1_1_component_array.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IComponentArray" id="r_IComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html">IComponentArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types.  <a href="class_multi_station_1_1_i_component_array.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ECSManager" id="r_ECSManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_multi_station_1_1_e_c_s_manager.html" title="The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...">ECSManager</a> class is responsible for managing entities and component's . Components / Entities that Created/Removed/Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase .  <a href="class_multi_station_1_1_e_c_s_manager.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IComponent" id="r_IComponent"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component.html">IComponent</a></td></tr>
 <tr class="memitem:SystemContext" id="r_SystemContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_multi_station_1_1_system_context.html">SystemContext</a></td></tr>
 <tr class="memitem:ISystem" id="r_ISystem"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a></td></tr>
@@ -117,22 +119,11 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ad62e4bddc2d30e7bbee2a744674c8b87" id="r_ad62e4bddc2d30e7bbee2a744674c8b87"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad62e4bddc2d30e7bbee2a744674c8b87">JobYieldCallback</a> = std::function&lt;void()&gt;</td></tr>
 <tr class="memdesc:ad62e4bddc2d30e7bbee2a744674c8b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">A yield call back function type.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ae9e74aebcbc1fee99d85eda85edd0f13" id="r_ae9e74aebcbc1fee99d85eda85edd0f13"><td class="memItemLeft" align="right" valign="top"><a id="ae9e74aebcbc1fee99d85eda85edd0f13" name="ae9e74aebcbc1fee99d85eda85edd0f13"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>ComponentStatus</b> { <b>NONE</b>
-, <b>MODIFIED</b>
-, <b>CREATED</b>
-, <b>DESTROYED</b>
- }</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a93d8bf97bb020e5861111033f039d48b" id="r_a93d8bf97bb020e5861111033f039d48b"><td class="memTemplParams" colspan="2"><a id="a93d8bf97bb020e5861111033f039d48b" name="a93d8bf97bb020e5861111033f039d48b"></a>
+<tr class="memitem:a877bbea4e50429c7414028c4ae4a0619" id="r_a877bbea4e50429c7414028c4ae4a0619"><td class="memTemplParams" colspan="2"><a id="a877bbea4e50429c7414028c4ae4a0619" name="a877bbea4e50429c7414028c4ae4a0619"></a>
 template&lt;typename Derived&gt; </td></tr>
-<tr class="memitem:a93d8bf97bb020e5861111033f039d48b template"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent&lt; Derived &gt;::s_typeID</b> = 0</td></tr>
-<tr class="memitem:a9e593a017100a1ecefa0de69492cb5f2" id="r_a9e593a017100a1ecefa0de69492cb5f2"><td class="memTemplParams" colspan="2"><a id="a9e593a017100a1ecefa0de69492cb5f2" name="a9e593a017100a1ecefa0de69492cb5f2"></a>
-template&lt;typename Derived&gt; </td></tr>
-<tr class="memitem:a9e593a017100a1ecefa0de69492cb5f2 template"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; uint32_t, uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent&lt; Derived &gt;::s_typeToIDMap</b></td></tr>
+<tr class="memitem:a877bbea4e50429c7414028c4ae4a0619 template"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent&lt; Derived &gt;::s_typeID</b> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis </dd></dl>

@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
-
+#include <atomic>
 namespace MultiStation{
 
 	/**
@@ -12,7 +12,8 @@ namespace MultiStation{
 	 * different component type we can get a unique type ID .
 	 */
 	class IComponentArray {
-		static uint32_t s_typeID;
+		static std::atomic<uint32_t> s_typeID;
+		
 	public:
 
 		/**
@@ -27,6 +28,14 @@ namespace MultiStation{
 		template<typename T>
 		static uint32_t GetID(void);
 
+		/**
+		 * @brief Helper method for registry to use in order to remove all components
+		 * of a entity when it is destroyed, as the registry does not know the actual 
+		 * type of the component array to call its RemoveComponent method.
+		 * 
+		 * @param entity
+		 */
+		virtual void RemoveEntity(uint32_t entity) = 0;
 	};
 
 
@@ -34,7 +43,7 @@ namespace MultiStation{
 
 	template<typename T>
 	uint32_t IComponentArray::GetID(void) {
-		static uint32_t id = ++s_typeID;
+		static uint32_t id = s_typeID.fetch_add(std::memory_order_relaxed);
 		return id;
 	}
 

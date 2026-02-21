@@ -1,0 +1,31 @@
+\doxysection{Source/\+ECSManager/\+ECSManager.hpp File Reference}
+\hypertarget{_e_c_s_manager_8hpp}{}\label{_e_c_s_manager_8hpp}\index{Source/ECSManager/ECSManager.hpp@{Source/ECSManager/ECSManager.hpp}}
+
+
+There is the ECSManager class that handles entities and components.  
+
+
+{\ttfamily \#include "{}../\+Registry/\+Registry.\+hpp"{}}\newline
+{\ttfamily \#include $<$Platform.\+hpp$>$}\newline
+{\ttfamily \#include $<$Utilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include "{}ECSTemplate\+Impl.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{Multi\+Station\+::\+ECSManager}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+There is the ECSManager class that handles entities and components. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis 
+\end{DoxyAuthor}

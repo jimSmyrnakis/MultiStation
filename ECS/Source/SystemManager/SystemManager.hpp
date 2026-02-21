@@ -129,11 +129,13 @@ namespace MultiStation{
 
 	private:
 		std::shared_ptr<JobSystem>								m_jobSystem;
+		std::shared_ptr<ECSManager>								m_ecsManager;
 		std::vector<uint32_t> 								    m_phases;
 		std::unordered_map<uint32_t, 
 			std::vector<std::shared_ptr<ISystem>> >				m_systems;
 		uint32_t 												m_currentPhase;
-		bool 													m_isExecuting;		
+		bool 													m_isExecuting;	
+
 	};
 
 }

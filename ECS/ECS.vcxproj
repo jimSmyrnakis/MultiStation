@@ -22,6 +22,8 @@
     <ClInclude Include="Include\ECS.hpp" />
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp" />
     <ClInclude Include="Source\ComponentArray\IComponentArray.hpp" />
+    <ClInclude Include="Source\ECSManager\ECSManager.hpp" />
+    <ClInclude Include="Source\ECSManager\ECSTemplateImpl.hpp" />
     <ClInclude Include="Source\IComponent\IComponent.hpp" />
     <ClInclude Include="Source\Init.hpp" />
     <ClInclude Include="Source\ISystem\ISystem.hpp" />
@@ -34,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ComponentArray\IComponentArray.cpp" />
+    <ClCompile Include="Source\ECSManager\ECSManager.cpp" />
     <ClCompile Include="Source\ISystem\ISystem.cpp" />
     <ClCompile Include="Source\JobSystem\Job.cpp" />
     <ClCompile Include="Source\JobSystem\JobSystem.cpp" />

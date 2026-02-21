@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['executephase_0',['ExecutePhase',['../class_multi_station_1_1_system_manager.html#a247c0a6b6c49b010e93859ef4992547b',1,'MultiStation::SystemManager']]]
+  ['destroyentity_0',['DestroyEntity',['../class_multi_station_1_1_e_c_s_manager.html#a134d8e19c21deb74f1f72d61775a53f2',1,'MultiStation::ECSManager']]]
 ];

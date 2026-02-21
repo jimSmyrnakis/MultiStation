@@ -1,0 +1,54 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  LowPassSpatialMask.cpp
+  HighPassSpatialMask.cpp
+  Filters.cpp
+  Binarization.cpp
+  Converters.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Converters.cpp(113,30): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Convolution.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp(40,46): warning C4244: 'argument': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp(84,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp(85,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp(95,27): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\Convolution\Convolution.cpp(95,56): warning C4018: '>=': signed/unsigned mismatch
+  Extras.cpp
+  GammaTransform.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GammaTransform.cpp(45,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Histogram.cpp
+  GausiaNoise.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp(97,17): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp(98,18): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp(104,27): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp(94,16): warning C4101: 'theta': unreferenced local variable
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\GausiaNoise.cpp(94,9): warning C4101: 'noise': unreferenced local variable
+  Inverse.cpp
+  LaplaceMask.cpp
+  LineDetectionMask.cpp
+  Masks.cpp
+  KirschMask.cpp
+  PrewittMask.cpp
+  RobertsMask.cpp
+  RobinsonMask.cpp
+  SobelMask.cpp
+  Magnitute.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Magnitute.cpp(50,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  Operations.cpp
+  PixelBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PixelBuffer.cpp(50,28): warning C4244: '=': conversion from 'const uint16_t' to 'uint8_t', possible loss of data
+  Rotation.cpp
+  SaltAndPepperNoise.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\SaltAndPepperNoise.cpp(37,17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Sepia.cpp
+  Erg1Ask1.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Erg1Ask1.cpp(25,2): warning C4305: 'argument': truncation from 'double' to 'float'
+  Erg1Ask3.cpp
+  main.cpp
+  Erg1Ask2.cpp
+  TestAll.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\Test\TestAll.cpp(82,49): warning C4305: 'argument': truncation from 'double' to 'float'
+  TestLineDetector.cpp
+  Generating Code...
+LINK : fatal error LNK1104: cannot open file 'Renderer3DDS.lib'

@@ -2,7 +2,7 @@
 \hypertarget{class_multi_station_1_1_component_array}{}\label{class_multi_station_1_1_component_array}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
 
 
-This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible.  
+This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities.  
 
 
 
@@ -36,14 +36,18 @@ Inheritance diagram for Multi\+Station\+::Component\+Array\texorpdfstring{$<$}{<
 \begin{DoxyCompactList}\small\item\em Replaces the component for the specified entity if it exists. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{Remove\+Component}} (uint32\+\_\+t entity)
 \begin{DoxyCompactList}\small\item\em Removes the component associated with the specified entity. \end{DoxyCompactList}\item 
-T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249}{Get\+Component}} (uint32\+\_\+t entity) const
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}{Get\+Component}} (uint32\+\_\+t entity)
+\begin{DoxyCompactList}\small\item\em Gets the component associated with the specified entity. \end{DoxyCompactList}\item 
+const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array_a6275dde57c93997a4c0e276f158bfcf8}{Get\+Component}} (uint32\+\_\+t entity) const
 \begin{DoxyCompactList}\small\item\em Gets the component associated with the specified entity. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a}{Get\+Entity}} (T \&component, uint32\+\_\+t \&entity) const
 \begin{DoxyCompactList}\small\item\em Gets the entity associated with the specified component. \end{DoxyCompactList}\item 
 const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{Get\+Components}} (void) const
 \begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{Has\+Entity}} (uint32\+\_\+t entity) const
-\begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{Remove\+Entity}} (uint32\+\_\+t entity) override
+\begin{DoxyCompactList}\small\item\em Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{Multi\+Station\+::\+IComponent\+Array}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,7 +64,7 @@ virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class Multi\+Station\+::\+Component\+Array$<$ T $>$}
-This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. Each component is linked with one entity, and the class ensures that operations are performed in O(1) time complexity where possible. 
+This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. 
 
 \begin{DoxyAuthor}{Author}
 Dimitris Smyrnakis
@@ -70,6 +74,9 @@ Dimitris Smyrnakis
 {\em T} & The component type \\
 \hline
 \end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The address of each component may or may not change when components are added or removed, so users should not rely on component addresses remaining stable. Instead, they should use the provided methods to access components based on their associated entities. 
+\end{DoxyNote}
 
 
 \label{doc-constructors}
@@ -154,12 +161,31 @@ A pointer to the newly added component, or nullptr if the entity already has one
 \begin{DoxyNote}{Note}
 If the entity already has a component, the method returns nullptr and does not add a new component. Use Replace\+Component to update existing components. 
 \end{DoxyNote}
-\Hypertarget{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponent@{GetComponent}}
+\Hypertarget{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponent@{GetComponent}}
 \index{GetComponent@{GetComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a6d4dcc3d8134f02452ed4dee8689d249} 
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02} 
 template$<$typename T$>$ \\
-T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Gets the component associated with the specified entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be retrieved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component if found, or nullptr if the entity does not have one. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_a6275dde57c93997a4c0e276f158bfcf8}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a6275dde57c93997a4c0e276f158bfcf8} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -276,7 +302,27 @@ Removes the component associated with the specified entity.
 \mbox{\texttt{in}}  & {\em entity} & The entity whose component is to be removed.\\
 \hline
 \end{DoxyParams}
-If the entity does not have a component, the method does nothing. If the component is found, it is removed efficiently by swapping it with the last component costing O(1) time complexity. \Hypertarget{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ReplaceComponent@{ReplaceComponent}}
+If the entity does not have a component, the method does nothing. If the component is found, it is removed efficiently by swapping it with the last component costing O(1) time complexity. \Hypertarget{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5}{Multi\+Station\+::\+IComponent\+Array}}.
+
+\Hypertarget{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!ReplaceComponent@{ReplaceComponent}}
 \index{ReplaceComponent@{ReplaceComponent}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}}
 {\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70} 

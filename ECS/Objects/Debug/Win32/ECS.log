@@ -1,5 +1,67 @@
-﻿  ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\Win32\ECS.lib
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:15: warning: Compound MultiStation::IComponent is not documented.
+﻿  IComponentArray.cpp
+  ECSManager.cpp
+  ISystem.cpp
+  Registry.cpp
+  SystemManager.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244: 'argument': conversion from '_Ty' to 'uint32_t', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         ]
+  Generating Code...
+  (compiling source file 'Source/SystemManager/SystemManager.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SystemManager\SystemManager.cpp(6,22):
+          see reference to function template instantiation 'std::shared_ptr<MultiStation::JobSystem> std::make_shared<MultiStation::JobSystem,float>(float &&)' being compiled
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(2903,46):
+          see reference to function template instantiation 'std::_Ref_count_obj2<MultiStation::JobSystem>::_Ref_count_obj2<_Ty>(_Ty &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(2092,18):
+          see reference to function template instantiation 'void std::_Construct_in_place<_Ty,float>(_Ty &,float &&) noexcept' being compiled
+          with
+          [
+              _Ty=MultiStation::JobSystem
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(502,14):
+          see reference to function template instantiation '_Ty *std::construct_at<_Ty,float>(_Ty *const ,float &&) noexcept(<expr>)' being compiled
+          with
+          [
+              _Ty=MultiStation::JobSystem
+          ]
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244: 'argument': conversion from '_Ty' to 'uint32_t', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(506,82): warning C4244:         ]
+  (compiling source file 'Source/SystemManager/SystemManager.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90): warning C4244: 'argument': conversion from '_Ty' to 'uint32_t', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90): warning C4244:         ]
+  (compiling source file 'Source/SystemManager/SystemManager.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(493,90):
+      the template instantiation context (the oldest one first) is
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(2092,18):
+          see reference to function template instantiation 'void std::_Construct_in_place<_Ty,float>(_Ty &,float &&) noexcept' being compiled
+          with
+          [
+              _Ty=MultiStation::JobSystem
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(502,14):
+          see reference to function template instantiation '_Ty *std::construct_at<_Ty,float>(_Ty *const ,float &&) noexcept' being compiled
+          with
+          [
+              _Ty=MultiStation::JobSystem
+          ]
+  
+  ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\Win32\ECS.lib
   Doxygen version used: 1.15.0 (7cca38ba5185457e6d9495bf963d4cdeacebc25a)
   Searching for include files...
   Searching for example files...
@@ -12,10 +74,10 @@
   Searching INPUT for files to process...
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ComponentArray
+  Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem
-  Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/NewFolder1
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Registry
   Searching for files in directory C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/SystemManager
   Reading and parsing tag files
@@ -24,6 +86,10 @@
   Parsing file C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ComponentArray/ComponentArray.hpp...
   Preprocessing C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ComponentArray/IComponentArray.hpp...
   Parsing file C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ComponentArray/IComponentArray.hpp...
+  Preprocessing C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp...
+  Parsing file C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp...
+  Preprocessing C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSTemplateImpl.hpp...
+  Parsing file C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSTemplateImpl.hpp...
   Preprocessing C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp...
   Parsing file C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp...
   Preprocessing C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Init.hpp...
@@ -58,53 +124,42 @@
   Searching for included using directives...
   Searching for documented variables...
   Building interface member list...
-  Building member list...
-  Searching for friends...
-  Searching for documented defines...
-  Computing class inheritance relations...
-  Computing class usage relations...
-  Flushing cached template relations that have become invalid...
-  Warn for undocumented namespaces...
-  Computing class relations...
-  Add enum values to enums...
-  Searching for member function documentation...
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:14: warning: Compound MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:8: warning: Compound MultiStation::SystemContext is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:17: warning: Compound MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:15: warning: Compound MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:9: warning: Compound MultiStation::SystemContext is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/VersionControl.hpp:7: warning: Compound MultiStation::VersionControl is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:71: warning: documented symbol 'MultiStation::Job::std::shared_ptr' was not declared or defined.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Registry/Registry.hpp:11: warning: Unsupported xml/html tag <T> found
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ComponentArray/ComponentArray.hpp:13: warning: Member ComponentStatus (enumeration) of namespace MultiStation is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:73: warning: Member IComponent< Derived >::s_typeID (variable) of namespace MultiStation is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:76: warning: Member IComponent< Derived >::s_typeToIDMap (variable) of namespace MultiStation is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:52: warning: Member IComponent< Derived >::s_typeID (variable) of namespace MultiStation is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'data' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'workerID' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'id' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'blockID' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'size' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
-  epstopdf: major issue: So far, you have not checked for MiKTeX updates.
-  epstopdf: major issue: So far, you have not checked for MiKTeX updates.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:27: warning: Member IComponent(IComponent &&move) noexcept=default (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:28: warning: Member operator=(IComponent &&move) noexcept=default (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:30: warning: Member GetInstanceTypeID(void) const (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:32: warning: Member GetVersion(void) const (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:34: warning: Member SetDirty(void) const (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:36: warning: Member SetCallBack(std::function< void(uint32_t)> callback) (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:39: warning: Member GetTypeID(void) (function) of class MultiStation::IComponent is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:9: warning: Member jobSystem (variable) of struct MultiStation::SystemContext is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:10: warning: Member deltaTime (variable) of struct MultiStation::SystemContext is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:23: warning: Member ISystem(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:24: warning: Member operator=(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:29: warning: Member OnTick(SystemContext *ctx)=0 (function) of class MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:37: warning: Member GetTypeID(void) (function) of class MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:45: warning: Member GetTypeID(void) (function) of class MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:29: warning: Member IComponent(IComponent &&move) noexcept=default (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:30: warning: Member operator=(IComponent &&move) noexcept=default (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:32: warning: Member GetInstanceTypeID(void) const (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:34: warning: Member GetVersion(void) const (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:36: warning: Member SetDirty(void) const (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:38: warning: Member GetName(void) noexcept (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/IComponent/IComponent.hpp:40: warning: Member GetName(void) const noexcept (function) of class MultiStation::IComponent is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:10: warning: Member jobSystem (variable) of struct MultiStation::SystemContext is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:11: warning: Member deltaTime (variable) of struct MultiStation::SystemContext is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:12: warning: Member ecs (variable) of struct MultiStation::SystemContext is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:24: warning: Member ISystem(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:25: warning: Member operator=(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:30: warning: Member OnTick(SystemContext *ctx)=0 (function) of class MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:38: warning: Member GetTypeID(void) (function) of class MultiStation::ISystem is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ISystem/ISystem.hpp:46: warning: Member GetTypeID(void) (function) of class MultiStation::ISystem is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:40: warning: Member Job(const Job &cpy) noexcept=default (function) of struct MultiStation::Job is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:41: warning: Member operator=(const Job &cpy) noexcept=default (function) of struct MultiStation::Job is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:42: warning: Member Job(Job &&move) noexcept=default (function) of struct MultiStation::Job is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:43: warning: Member operator=(Job &&move) noexcept=default (function) of struct MultiStation::Job is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:75: warning: Member counter (variable) of struct MultiStation::Job is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:77: warning: Member name[64] (variable) of struct MultiStation::Job is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/JobSystem.hpp:80: warning: End of list marker found without any preceding list items
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/JobSystem.hpp:63: warning: End of list marker found without any preceding list items
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/JobSystem.hpp:79: warning: End of list marker found without any preceding list items
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/JobSystem.hpp:62: warning: End of list marker found without any preceding list items
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Registry/Registry.hpp:67: warning: Member RemoveEntity(uint32_t entity) (function) of class MultiStation::Registry is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/SystemManager/SystemManager.hpp:80: warning: End of list marker found without any preceding list items
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/SystemManager/SystemManager.hpp:79: warning: found documented return type for MultiStation::SystemManager::AddSystem that does not return anything
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/SystemManager/SystemManager.hpp:72: warning: End of list marker found without any preceding list items
@@ -117,6 +172,16 @@
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/SystemManager/SystemManager.hpp:91: warning: found documented return type for MultiStation::SystemManager::RemoveSystem that does not return anything
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/VersionControl.hpp:20: warning: Member GetVersion(void) const (function) of class MultiStation::VersionControl is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/VersionControl.hpp:23: warning: Member IncrementVersion(void) (function) of class MultiStation::VersionControl is not documented.
+  Building member list...
+  Searching for friends...
+  Searching for documented defines...
+  Computing class inheritance relations...
+  Computing class usage relations...
+  Flushing cached template relations that have become invalid...
+  Warn for undocumented namespaces...
+  Computing class relations...
+  Add enum values to enums...
+  Searching for member function documentation...
   Creating members for template instances...
   Building page list...
   Search for main page...
@@ -152,6 +217,8 @@
   Generating file sources...
   Generating code for file Source/ComponentArray/ComponentArray.hpp...
   Generating code for file Source/ComponentArray/IComponentArray.hpp...
+  Generating code for file Source/ECSManager/ECSManager.hpp...
+  Generating code for file Source/ECSManager/ECSTemplateImpl.hpp...
   Generating code for file Source/IComponent/IComponent.hpp...
   Generating code for file Source/Init.hpp...
   Generating code for file Source/ISystem/ISystem.hpp...
@@ -161,6 +228,7 @@
   Generating code for file Source/SystemManager/SystemManager.hpp...
   Generating code for file Source/VersionControl.hpp...
   Generating file documentation...
+  Generating docs for file Source/ECSManager/ECSManager.hpp...
   Generating docs for file Source/JobSystem/JobSystem.hpp...
   Generating docs for file Source/SystemManager/SystemManager.hpp...
   Generating page documentation...
@@ -172,6 +240,7 @@
   Generating docs for namespace MultiStation
   Generating docs for compound MultiStation::ComponentArray< T >...
   Generating docs for compound MultiStation::IComponentArray...
+  Generating docs for compound MultiStation::ECSManager...
   Generating docs for compound MultiStation::IComponent< Derived >...
   Generating docs for compound MultiStation::SystemContext...
   Generating docs for compound MultiStation::ISystem...
@@ -200,6 +269,6 @@
   finalizing index lists...
   writing tag file...
   Running plantuml with JAVA...
-  type lookup cache used 79/65536 hits=178 misses=91
-  symbol lookup cache used 281/65536 hits=1788 misses=281
+  type lookup cache used 108/65536 hits=264 misses=128
+  symbol lookup cache used 376/65536 hits=2782 misses=376
   finished...

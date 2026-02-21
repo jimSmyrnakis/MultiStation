@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['icomponent_0',['IComponent',['../class_multi_station_1_1_i_component.html',1,'MultiStation']]],
-  ['icomponentarray_1',['IComponentArray',['../class_multi_station_1_1_i_component_array.html',1,'MultiStation']]],
-  ['isystem_2',['ISystem',['../class_multi_station_1_1_i_system.html',1,'MultiStation']]]
+  ['ecsmanager_0',['ECSManager',['../class_multi_station_1_1_e_c_s_manager.html',1,'MultiStation']]]
 ];

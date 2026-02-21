@@ -2,6 +2,7 @@ var namespace_multi_station =
 [
     [ "ComponentArray", "class_multi_station_1_1_component_array.html", "class_multi_station_1_1_component_array" ],
     [ "IComponentArray", "class_multi_station_1_1_i_component_array.html", "class_multi_station_1_1_i_component_array" ],
+    [ "ECSManager", "class_multi_station_1_1_e_c_s_manager.html", "class_multi_station_1_1_e_c_s_manager" ],
     [ "IComponent", "class_multi_station_1_1_i_component.html", null ],
     [ "SystemContext", "struct_multi_station_1_1_system_context.html", null ],
     [ "ISystem", "class_multi_station_1_1_i_system.html", null ],

@@ -1,6 +1,6 @@
 #pragma once
 #include "../ComponentArray/ComponentArray.hpp"
-
+#include <Platform.hpp>
 namespace MultiStation {
 
 	/**
@@ -63,15 +63,22 @@ namespace MultiStation {
 		template<typename T>
 		ComponentArray<T>* GetComponentArray(void) const;
 
+
+		void RemoveEntity(uint32_t entity);
+		
+
+
+
 	public: // 
 
 		/**
 		 * @brief Registers a new ComponentArray for the specified component type T
 		 * if this Component doesn't exist or otherwise does nothing .
 		 * @tparam T The type of the component array to register.
+		 * @returns ID of the registered component type
 		 */
 		template<typename T>
-		void Register(void);
+		uint32_t Register(void);
 
 
 		/**
@@ -86,9 +93,10 @@ namespace MultiStation {
 		 * @brief Unregisters the ComponentArray for the specified component type T if is registered,
 		 * otherwise does nothing.
 		 * @tparam T The type of the component array to unregister.
+		 * @returns ID of the unregistered component type
 		 */
 		template<typename T>
-		void Unregister(void);
+		uint32_t Unregister(void);
 
 	private:
 		std::unordered_map<uint32_t, IComponentArray*> m_typeComponentMap;
@@ -99,58 +107,64 @@ namespace MultiStation {
 
 	};
 
-
+	
 
 	template<typename T>
 	ComponentArray<T>* Registry::GetComponentArray(void) const {
-		uint32_t id = ComponentArray<T>::GetID();
-		if (m_typeComponentMap.find(id) != m_typeComponentMap.end()) {
-			return static_cast<ComponentArray<T>*>(m_typeComponentMap[id]);
+		const uint32_t id = IComponentArray::GetID<T>();
+		auto it = m_typeComponentMap.find(id);
+		if (it == m_typeComponentMap.end()) {
+			MS_ASSERT(false, "Component type not registered in the registry.");
+			return nullptr;
 		}
-		// TODO : fatal error
-
-		return nullptr;
+		return static_cast<ComponentArray<T>*>(it->second);
 	}
 
 
 	template<typename T>
-	void Registry::Register(void) {
+	uint32_t Registry::Register(void) {
 		uint32_t id = ComponentArray<T>::GetID();
 		if (HasRegister<T>()) {
-			// TODO : error
-			return;
+			MS_ASSERT(false, "Component type already registered in the registry.");
+			return id;
 		}
 		
 		// else register that
 		ComponentArray<T>* carr = new(std::nothrow) ComponentArray<T>();
 		if (carr == nullptr) {
-			// TODO : fatal error
-			return;
+			MS_ASSERT(false, "Failed to allocate memory for ComponentArray.");
+			return id;
 		}
 		m_typeComponentMap[id] = carr;
+
+		return id;
 	}
 
 	template<typename T>
 	bool Registry::HasRegister(void) const {
-		uint32_t id = ComponentArray<T>::GetID();
+		uint32_t id = IComponentArray::GetID<T>();
 		return m_typeComponentMap.count(id) != 0;
 	}
 
 
 	template<typename T>
-	void Registry::Unregister(void) {
+	uint32_t Registry::Unregister(void) {
 		if (!HasRegister<T>()) {
-			// TODO : error
+			MS_ASSERT(false, "Component type not registered in the registry.");
 
-			return;
+			return MultiStation::BAD_ID;
 		}
 		// else unregister that
 		uint32_t id = ComponentArray<T>::GetID();
 		// delete it first
-		IComponentArray* ptr = m_typeComponentMap[id];
-		if (ptr)
-			delete static_cast<ComponentArray<T>*>(ptr);
-		m_typeComponentMap.erase(id);
+		auto it = m_typeComponentMap.find(id);
+		if (it != m_typeComponentMap.end()) { 
+			delete it->second; m_typeComponentMap.erase(it); 
+		}
+		return id;
 	}
+
+
+	
 
 }

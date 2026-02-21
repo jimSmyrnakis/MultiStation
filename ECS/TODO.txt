@@ -1,3 +1,5 @@
+* Support a ISystem interface method for define afinity to the first runned thread worker on the job system or affinity from other system (difficult)
+* Support in IComponent<T> info like the name of the component for start for editor tool.
 * At System Manager - ExecutePhase , do not recreate the same tick data every time, instead, we can reuse the same tick data and just update the necessary fields. This will help reduce memory allocations and improve performance.
 * Make a Task Group class that can manage a group of tasks by using a jobSystem but simplifies the usage of 1D , 2D and 3D task parallelism format without worring about share counters and indexing .
 

@@ -39,6 +39,9 @@
     <ClInclude Include="Source\Debug\Debug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Error\Error.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Time\Time.cpp">

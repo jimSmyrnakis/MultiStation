@@ -6,4 +6,4 @@
 #include "../Source/VersionControl.hpp"
 #include "../Source/Registry/Registry.hpp"
 #include "../Source/SystemManager/SystemManager.hpp"
-
+#include "../Source/ECSManager/ECSManager.hpp"

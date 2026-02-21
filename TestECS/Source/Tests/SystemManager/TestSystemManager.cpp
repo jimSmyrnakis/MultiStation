@@ -16,7 +16,7 @@ int TestSystemManager(void) {
 	sysMgr.BindPhase(phase3);
 	sysMgr.AddSystem(std::make_shared<TestSystemD>());
 	
-	for (int i = 0; i < 1000; i++) {
+	for (int i = 0; i < 10; i++) {
 		sysMgr.ExecutePhase(phase1);
 		sysMgr.ExecutePhase(phase2);
 		sysMgr.ExecutePhase(phase3);

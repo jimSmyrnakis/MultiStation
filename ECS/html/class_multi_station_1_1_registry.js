@@ -8,6 +8,6 @@ var class_multi_station_1_1_registry =
     [ "HasRegister", "class_multi_station_1_1_registry.html#a7b0ba0e41441571ec7f24b5f867d680f", null ],
     [ "operator=", "class_multi_station_1_1_registry.html#acef85d8806a22e62a14b8894b0fa11e6", null ],
     [ "operator=", "class_multi_station_1_1_registry.html#a0dd835c16bf5b0eb577e70fc9e814b68", null ],
-    [ "Register", "class_multi_station_1_1_registry.html#ac3e8e78184ab03532be147474e522887", null ],
-    [ "Unregister", "class_multi_station_1_1_registry.html#a291626bbb47ec4aa87511698fd302877", null ]
+    [ "Register", "class_multi_station_1_1_registry.html#a8ffe3bb88ee38c81f61af286e3dc351b", null ],
+    [ "Unregister", "class_multi_station_1_1_registry.html#a6219d7e9d285f3262c8f36fe3a544d1f", null ]
 ];
