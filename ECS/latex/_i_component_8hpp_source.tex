@@ -17,7 +17,7 @@
 \DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Derived>}
 \DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }IComponent\ \{}
 \DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ compile-\/time\ check\ ότι Derived\ είναι ίδιος\ με τον actual\ τύπο\ του this}}
-\DoxyCodeLine{00019\ \textcolor{comment}{//\ \ \ \ \ \ static\_assert(!std::is\_base\_of<IComponent<Derived>,\ Derived>::value,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ \ \ \ \ \ static\_assert(std::is\_base\_of<IComponent<Derived>,\ Derived>::value,}}
 \DoxyCodeLine{00020\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ "{}Derived\ must\ inherit\ from\ IComponent<Derived>"{});}}
 \DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00022\ }

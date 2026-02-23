@@ -4,3 +4,6 @@
 [submodule "MediaLibrary/Externals/GLM"]
 	path = MediaLibrary/Externals/GLM
 	url = https://github.com/g-truc/glm.git
+[submodule "ImGui/Source/ImGui"]
+	path = ImGui/Source/ImGui
+	url = https://github.com/ocornut/imgui.git

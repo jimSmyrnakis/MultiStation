@@ -107,7 +107,7 @@ $(function(){initNavTree('_i_component_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_i_component.html">   17</a></span>    <span class="keyword">class </span>IComponent {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="comment">// compile-time check ότι Derived είναι ίδιος με τον actual τύπο του this</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//      static_assert(!std::is_base_of&lt;IComponent&lt;Derived&gt;, Derived&gt;::value,</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//      static_assert(std::is_base_of&lt;IComponent&lt;Derived&gt;, Derived&gt;::value,</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//          &quot;Derived must inherit from IComponent&lt;Derived&gt;&quot;);</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>

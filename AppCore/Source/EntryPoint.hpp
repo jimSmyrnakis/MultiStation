@@ -4,12 +4,12 @@
 
 
 int main(int argc, char** argv) {
+	MultiStation::LogInit();
 
 	MultiStation::Application* app = MultiStation::Application::GetInstance();
 
-	app->Init();
-
-	app->Entry(app);
+	app->Run();
+	
 
 	return 0;
 }

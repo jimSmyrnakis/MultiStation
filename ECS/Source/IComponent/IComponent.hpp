@@ -16,7 +16,7 @@ namespace MultiStation {
 	template<typename Derived>
 	class IComponent {
 		// compile-time check ότι Derived είναι ίδιος με τον actual τύπο του this
-//		static_assert(!std::is_base_of<IComponent<Derived>, Derived>::value,
+//		static_assert(std::is_base_of<IComponent<Derived>, Derived>::value,
 //			"Derived must inherit from IComponent<Derived>");
 	public:
 

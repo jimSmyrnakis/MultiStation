@@ -11,6 +11,6 @@ namespace MultiStation {
 	}
 
 	void Editor::OnTick(SystemContext* ctx) {
-		MS_ENGINE_INFO("Editor is Running");
+		//MS_ENGINE_INFO("Editor is Running");
 	}
 }

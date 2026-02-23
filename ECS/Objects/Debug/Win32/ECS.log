@@ -1,5 +1,4 @@
-﻿  IComponentArray.cpp
-  ECSManager.cpp
+﻿  ECSManager.cpp
   ISystem.cpp
   Registry.cpp
   SystemManager.cpp
@@ -8,7 +7,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         [
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:             _Ty=float
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         ]
-  Generating Code...
   (compiling source file 'Source/SystemManager/SystemManager.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85):
       the template instantiation context (the oldest one first) is
@@ -61,6 +59,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
               _Ty=MultiStation::JobSystem
           ]
   
+  Generating Code...
   ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\Win32\ECS.lib
   Doxygen version used: 1.15.0 (7cca38ba5185457e6d9495bf963d4cdeacebc25a)
   Searching for include files...
