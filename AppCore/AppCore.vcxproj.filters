@@ -38,5 +38,11 @@
     <ClCompile Include="Source\Layers\ImGuiLayer\ImGuiLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Layers\ImGuiLayer\ImGuiLayerEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Layers\ImGuiLayer\MS_ImGui_Converters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

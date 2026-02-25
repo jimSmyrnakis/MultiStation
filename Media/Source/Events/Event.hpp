@@ -92,6 +92,7 @@ namespace MultiStation
 
 	class EventDispatcher
 	{
+	public:
 		template<typename T>
 		using EventFn = std::function<bool(T&)>;
 	public:

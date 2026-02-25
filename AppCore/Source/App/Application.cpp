@@ -18,6 +18,9 @@ namespace MultiStation {
 		m_isRunning.store(true, std::memory_order_relaxed);
 
 		PushOverlay(new ImguiLayer);
+
+		Input::Init(*m_window);
+		m_Input = Input::Get();
 	}
 
 	Application::~Application(void) noexcept {
@@ -96,4 +99,12 @@ namespace MultiStation {
 		m_layerStack.PopOverlay(overlay);
 	}
 
+
+	Input* Application::GetInput(void) noexcept {
+		return m_Input;
+	}
+
+	const Input* Application::GetInput(void) const noexcept {
+		return m_Input;
+	}
 }

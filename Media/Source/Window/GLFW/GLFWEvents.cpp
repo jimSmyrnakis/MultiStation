@@ -43,7 +43,7 @@ namespace MultiStation {
 		// Key Event call back
 		glfwSetKeyCallback(win, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
+			key = GLFW_to_MS_key(key);
 			switch (action) {
 			case GLFW_RELEASE: { KeyReleasedEvent e(key); data.EventCallback(e); }
 								break;
@@ -57,18 +57,24 @@ namespace MultiStation {
 
 			});
 
+		// Key Typed call back
+		glfwSetCharCallback(win, [](GLFWwindow* window, unsigned int codepoint) {
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent e(codepoint);
+			data.EventCallback(e);
+			});
 		// Mouse Button Call back
 		glfwSetMouseButtonCallback(win, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-
+			button = GLFW_to_MS_mouse(button);
 			switch (action) {
 			case GLFW_PRESS: {
-					MouseButtonPressedEvent e(button);
+					MouseButtonPressedEvent e( button );
 					data.EventCallback(e);
 					break;
 				};
 			case GLFW_RELEASE: {
-					MouseButtonReleasedEvent e(button);
+					MouseButtonReleasedEvent e((button));
 					data.EventCallback(e);
 					break;
 				};

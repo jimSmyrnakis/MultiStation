@@ -1,6 +1,8 @@
-﻿  ECSManager.cpp
+﻿  IComponentArray.cpp
+  ECSManager.cpp
   ISystem.cpp
-  Registry.cpp
+  Job.cpp
+  JobSystem.cpp
   SystemManager.cpp
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244: 'argument': conversion from '_Ty' to 'uint32_t', possible loss of data
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244:         with
@@ -59,6 +61,8 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
               _Ty=MultiStation::JobSystem
           ]
   
+  Registry.cpp
+  VersionControl.cpp
   Generating Code...
   ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Debug\Win32\ECS.lib
   Doxygen version used: 1.15.0 (7cca38ba5185457e6d9495bf963d4cdeacebc25a)

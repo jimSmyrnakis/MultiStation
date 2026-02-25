@@ -15,3 +15,5 @@
 #include "../Source/Events/MouseEvent.hpp"
 #include "../Source/Events/WindowEvents.hpp"
 #include "../Source/Layer/LayerStack.hpp"
+#include "../Source/KeyCodes.hpp"
+#include "../Source/Window/Input.hpp"

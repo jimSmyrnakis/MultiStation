@@ -4,6 +4,19 @@
 #include <Platform.hpp>
 #include "GLFWWindow.hpp"
 namespace MultiStation {
+	uint32_t MS_to_GLFW_key(uint32_t ms_key) noexcept {
+		return ms_key; // taken from glfw anyway
+	}
+	uint32_t GLFW_to_MS_key(uint32_t glfw_key) noexcept {
+		return glfw_key; 
+	}
+
+	uint32_t MS_to_GLFW_mouse(uint32_t ms_button) noexcept {
+		return ms_button;
+	}
+	uint32_t GLFW_to_MS_mouse(uint32_t glfw_button) noexcept {
+		return glfw_button;
+	}
 
 	static void MyGLFWErrorCallback(int error, const char* description) {
 		MS_ENGINE_ERROR("GLFW : error %d , description %s", error, description);
@@ -13,7 +26,7 @@ namespace MultiStation {
 		if (m_NativeWindow) {
 			GLFWwindow* win = (GLFWwindow*)m_NativeWindow;
 			glfwDestroyWindow(win);
-			glfwTerminate();
+			//glfwTerminate();
 		}
 	}
 
@@ -41,7 +54,7 @@ namespace MultiStation {
 			glfwTerminate();
 		}
 		
-		m_NativeWindow = (void*)mainWindow;
+		m_NativeWindow = mainWindow;
 		glfwMakeContextCurrent(mainWindow);
 		glfwSetWindowUserPointer(mainWindow, &m_WinData);
 
@@ -73,7 +86,11 @@ namespace MultiStation {
 
 
 
-	void* GLFWWindow::GetNativeWindow(void) const noexcept{
+	const void* GLFWWindow::GetNativeWindow(void) const noexcept{
+		return m_NativeWindow;
+	}
+
+	void* GLFWWindow::GetNativeWindow(void) noexcept {
 		return m_NativeWindow;
 	}
 

@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(ProjectDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -101,7 +101,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)Externals\GLFW\$(Platform)\lib-vc2022;$(ProjectDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +113,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(ProjectDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)Externals\GLFW\$(Platform)\lib-vc2022;$(ProjectDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(ProjectDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,7 +141,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)Externals\GLFW\$(Platform)\lib-vc2022;$(ProjectDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,7 +153,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(ProjectDir)Externals\GLFW\$(Platform)\include;$(ProjectDir)Externals\GLEW\include;$(ProjectDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,7 +163,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)Externals\GLFW\$(Platform)\lib-vc2022;$(ProjectDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -187,9 +187,13 @@
     <ClInclude Include="Source\GraphicsApi\UBuffer\UBuffer.hpp" />
     <ClInclude Include="Source\GraphicsApi\VBuffer\VBuffer.hpp" />
     <ClInclude Include="Source\GraphicsApi\VBuffer\VLayout.hpp" />
+    <ClInclude Include="Source\Window\GLFW\GLFWInput.hpp" />
+    <ClInclude Include="Source\Window\GLFW\GLFWWindow.hpp" />
+    <ClInclude Include="Source\Window\GLFW\MyGLFWInput.hpp" />
+    <ClInclude Include="Source\Window\Input.hpp" />
+    <ClInclude Include="Source\KeyCodes.hpp" />
     <ClInclude Include="Source\Layer\Layer.hpp" />
     <ClInclude Include="Source\Layer\LayerStack.hpp" />
-    <ClInclude Include="Source\Window\GLFW\GLFWWindow.hpp" />
     <ClInclude Include="Source\Window\Window.hpp" />
     <ClInclude Include="Source\Window\WindowProperties.hpp" />
   </ItemGroup>
@@ -211,6 +215,8 @@
     <ClCompile Include="Source\Layer\LayerStack.cpp" />
     <ClCompile Include="Source\Window\GLFW\GLFWEvents.cpp" />
     <ClCompile Include="Source\Window\GLFW\GLFWWindow.cpp" />
+    <ClCompile Include="Source\Window\GLFW\MyGLFWInput.cpp" />
+    <ClCompile Include="Source\Window\Input.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
     <ClCompile Include="Source\Window\WindowProperties.cpp" />
   </ItemGroup>

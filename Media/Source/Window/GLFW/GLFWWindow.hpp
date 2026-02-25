@@ -1,8 +1,14 @@
 #pragma once
 #include "../Window.hpp"
+#include "../../KeyCodes.hpp"
 
 namespace MultiStation {
 
+	uint32_t MS_to_GLFW_key(uint32_t ms_key) noexcept;
+	uint32_t GLFW_to_MS_key(uint32_t glfw_key) noexcept;
+
+	uint32_t MS_to_GLFW_mouse(uint32_t ms_button) noexcept;
+	uint32_t GLFW_to_MS_mouse(uint32_t glfw_button) noexcept;
 	class GLFWWindow : public Window {
 
 	public:
@@ -17,7 +23,8 @@ namespace MultiStation {
 
 
 	public:
-		virtual void* GetNativeWindow(void) const noexcept override;
+		virtual void* GetNativeWindow(void) noexcept override;
+		virtual const void* GetNativeWindow(void) const noexcept override;
 
 		virtual uint16_t GetSurfaceWidth(void)		const noexcept override;
 		virtual uint16_t GetSurfaceHeight(void)		const noexcept override;

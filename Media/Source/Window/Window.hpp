@@ -4,6 +4,7 @@
 #include <Platform.hpp>
 #include <string>
 #include <functional>
+#include <memory>
 #include "WindowProperties.hpp"
 #include "../Events/Event.hpp"
 namespace MultiStation {
@@ -24,7 +25,8 @@ namespace MultiStation {
 	public:
 		using EventCallBack = std::function<void(Event&)>;
 
-		virtual void* GetNativeWindow(void) const noexcept = 0;
+		virtual void* GetNativeWindow(void) noexcept = 0;
+		virtual const void* GetNativeWindow(void) const noexcept = 0;
 
 		virtual uint16_t GetSurfaceWidth(void)		const noexcept = 0;
 		virtual uint16_t GetSurfaceHeight(void)		const noexcept = 0;

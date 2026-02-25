@@ -15,5 +15,7 @@ C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Layer\Layer.cpp;C:\User
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Layer\LayerStack.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\LayerStack.obj
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\GLFWEvents.obj
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWWindow.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\GLFWWindow.obj
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\MyGLFWInput.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\MyGLFWInput.obj
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\Input.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\Input.obj
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\Window.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\Window.obj
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\WindowProperties.cpp;C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\Win32\WindowProperties.obj

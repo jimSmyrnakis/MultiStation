@@ -41,6 +41,10 @@ namespace MultiStation{
 		void PushOverlay(Layer* overlay)noexcept;
 		void PopLayer(Layer* layer)noexcept;
 		void PopOverlay(Layer* overlay)noexcept;
+
+		Input* GetInput(void) noexcept;
+
+		const Input* GetInput(void) const noexcept;
 	protected:
 		Application(void) noexcept ;
 		~Application(void) noexcept ;
@@ -55,6 +59,7 @@ namespace MultiStation{
 		std::atomic<bool> m_isRunning;
 		Window* m_window;
 		LayerStack m_layerStack;
+		Input* m_Input;
 	};
 
 }

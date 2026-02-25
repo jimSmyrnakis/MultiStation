@@ -1,7 +1,9 @@
 #include "ImGuiLayer.hpp"
 #include <ImGui.hpp>
 #include "../../App/Application.hpp"
+
 namespace MultiStation {
+
 
     ImguiLayer::ImguiLayer(void) noexcept : Layer("ImGui Layer") {
 
@@ -23,7 +25,7 @@ namespace MultiStation {
         ImGuiIO& io = ImGui::GetIO();
         io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
         io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
-
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
         ImGui_ImplOpenGL3_Init("#version 410");
     }
 
@@ -55,9 +57,7 @@ namespace MultiStation {
     
     
 
-    void ImguiLayer::OnEvent(Event& event)noexcept {
-
-    }
+    
 
     
 }
