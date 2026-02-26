@@ -3,7 +3,7 @@
 #include <ImGui.hpp>
 #include <stdint.h>
 #include <stddef.h>
-#include "../../App/Application.hpp"
+
 namespace MultiStation {
     ImGuiKey MS_to_ImGui_key(uint32_t ms_key)noexcept;
     uint32_t ImGui_to_MS_key(ImGuiKey imgui_key) noexcept;
@@ -12,15 +12,18 @@ namespace MultiStation {
 
     class ImguiLayer : public Layer {
     public:
-        ImguiLayer(void) noexcept ;
-        ~ImguiLayer(void) noexcept ;
+        ImguiLayer(void) noexcept;
+        ~ImguiLayer(void) noexcept;
 
-        void OnAttach(void) noexcept override;
-        void OnDetach(void) noexcept override;
-        void OnImGuiRender(void) noexcept override;
-        void OnEvent(Event& event)noexcept override;
-        void OnUpdate(float deltaTime) noexcept override;
-    
+        virtual void OnAttach(void) noexcept override;
+        virtual void OnDetach(void) noexcept override;
+        //virtual void OnEvent(Event& event)noexcept override;
+        //virtual void OnUpdate(float deltaTime) noexcept override;
+        virtual void OnImGuiRender(void) noexcept override;
+
+        void Begin(void) noexcept;
+        void End(void) noexcept;
+
     private:
         bool OnWindowResizeEvent(WindowResizeEvent& e) noexcept;
         bool OnWindowFocusEvent(WindowFocusEvent& e) noexcept;
@@ -38,4 +41,4 @@ namespace MultiStation {
 
     };
 
-}
+};

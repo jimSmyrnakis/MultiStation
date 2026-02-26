@@ -90,7 +90,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Externals\GLM;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -102,7 +102,7 @@
       <AdditionalDependencies>ECS.lib;Platform.lib;Utilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;glew32s.lib;glfw3.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
@@ -114,7 +114,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Externals\GLM;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -128,7 +128,7 @@
       <AdditionalDependencies>ECS.lib;Platform.lib;Utilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;glew32s.lib;glfw3.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
@@ -138,7 +138,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Externals\GLM;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -150,7 +150,7 @@
       <AdditionalDependencies>ECS.lib;Platform.lib;Utilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;glew32s.lib;glfw3.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
@@ -162,7 +162,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Externals\GLM;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -176,7 +176,7 @@
       <AdditionalDependencies>ECS.lib;Platform.lib;Utilities.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;glew32s.lib;glfw3.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;Media.lib;ImGui.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
@@ -191,6 +191,7 @@
   <ItemGroup>
     <ClCompile Include="Source\App\Application.cpp" />
     <ClCompile Include="Source\App\Events.cpp" />
+    <ClCompile Include="Source\EntryPoint.cpp" />
     <ClCompile Include="Source\Layers\ImGuiLayer\ImGuiLayer.cpp" />
     <ClCompile Include="Source\Layers\ImGuiLayer\ImGuiLayerEvents.cpp" />
     <ClCompile Include="Source\Layers\ImGuiLayer\MS_ImGui_Converters.cpp" />

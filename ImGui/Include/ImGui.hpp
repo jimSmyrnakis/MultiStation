@@ -1,5 +1,5 @@
 #pragma once
-
+#define IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #include "../Source/ImGui/imconfig.h"
 #include "../Source/ImGui/imgui.h"
 #include "../Source/ImGui/imstb_textedit.h"

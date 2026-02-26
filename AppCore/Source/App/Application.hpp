@@ -2,7 +2,7 @@
 #include <string>
 #include <ECS.hpp>
 #include <Platform.hpp>
-
+#include "../Layers/ImGuiLayer/ImGuiLayer.hpp"
 #include <Media.hpp>
 
 namespace MultiStation{
@@ -10,6 +10,7 @@ namespace MultiStation{
 	class Application {
 	public:
 
+		void Init(ImguiLayer* imgui_master_layer) noexcept;
 		
 		static Application* GetInstance(void) noexcept;
 
@@ -60,6 +61,7 @@ namespace MultiStation{
 		Window* m_window;
 		LayerStack m_layerStack;
 		Input* m_Input;
+		ImguiLayer* m_imguiLayer;
 	};
 
 }

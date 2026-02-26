@@ -3,8 +3,9 @@ c:\users\user\desktop\projects\multistation\appcore\library\debug\win32\appcore.
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\ms_imgui_converters.obj
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\imguilayerevents.obj
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\imguilayer.obj
-c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\events.obj
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\application.obj
+c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\events.obj
+c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\entrypoint.obj
 c:\users\user\desktop\projects\multistation\appcore\library\debug\win32\appcore.lib
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\appcore.vcxproj.filelistabsolute.txt
 c:\users\user\desktop\projects\multistation\appcore\objects\debug\win32\appcore.tlog\cl.command.1.tlog

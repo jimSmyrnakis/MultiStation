@@ -21,7 +21,9 @@ namespace MultiStation {
 
 		}
 		virtual inline void OnImGuiRender(void)noexcept {
-
+			ImGui::Begin("Text");
+			ImGui::Text("Hello World !");
+			ImGui::End();
 		}
 
 	};

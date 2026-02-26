@@ -44,5 +44,8 @@
     <ClCompile Include="Source\Layers\ImGuiLayer\MS_ImGui_Converters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EntryPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

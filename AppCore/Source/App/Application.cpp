@@ -1,6 +1,8 @@
 #include "Application.hpp"
 #include <Platform.hpp>
 #include "../Layers/ImGuiLayer/ImGuiLayer.hpp"
+#define GLEW_STATIC
+#include <GL/glew.h>
 namespace MultiStation {
 	
 	Application::Application(void) noexcept {
@@ -17,29 +19,53 @@ namespace MultiStation {
 		m_window->SetEventCallBack(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_isRunning.store(true, std::memory_order_relaxed);
 
-		PushOverlay(new ImguiLayer);
+		//PushOverlay(new ImguiLayer);
 
 		Input::Init(*m_window);
 		m_Input = Input::Get();
+
+		m_imguiLayer = nullptr;
+	}
+
+	void Application::Init(ImguiLayer* imgui_master_layer) noexcept{
+		m_imguiLayer = imgui_master_layer;
+		PushOverlay(imgui_master_layer);
 	}
 
 	Application::~Application(void) noexcept {
+		
 		if (m_systemManager) {
 			delete m_systemManager;
 			m_systemManager = nullptr;
 		}
+
+		/*if (m_imguiLayer) {
+			delete m_imguiLayer;
+			m_imguiLayer = nullptr;
+		}*/
+			
 	}
 	
 	void Application::Run(void) noexcept {
 		Application::OnStart(this);
 
 		while (IsRunning()) {
-			m_window->OnUpdate();
+			
+			glClearColor(0.4, 0.4, 0.4, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 			for (auto it = m_layerStack.end(); it != m_layerStack.begin(); ) {
 				(*(--it))->OnUpdate(0.016f);
 			}
+
+			m_imguiLayer->Begin();
+			for (Layer* layer : m_layerStack) {
+				layer->OnImGuiRender();
+			}
+			m_imguiLayer->End();
+			
 			Application::OnUpdate(this);
 			
+			m_window->OnUpdate();
 		}
 
 		Application::OnLeave(this);

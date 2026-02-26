@@ -1,6 +1,5 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Transform3D.cpp
 ECS.lib(Time.obj) : warning LNK4006: "public: static float __cdecl MultiStation::Time::GetTimeInSeconds(void)" (?GetTimeInSeconds@Time@MultiStation@@SAMXZ) already defined in Platform.lib(Time.obj); second definition ignored
 ECS.lib(Time.obj) : warning LNK4006: "public: static unsigned __int64 __cdecl MultiStation::Time::GetTimeInMilliseconds(void)" (?GetTimeInMilliseconds@Time@MultiStation@@SA_KXZ) already defined in Platform.lib(Time.obj); second definition ignored
 ECS.lib(bmp.obj) : warning LNK4006: _default_color_table already defined in Platform.lib(bmp.obj); second definition ignored

@@ -1,11 +1,12 @@
 #include "ImGuiLayer.hpp"
 #define GLEW_STATIC
 #include <GL/glew.h>
+#include "../../App/Application.hpp"
 namespace MultiStation {
 
-    void ImguiLayer::OnEvent(Event& event)noexcept {
+   // void ImguiLayer::OnEvent(Event& event)noexcept {
 
-        EventDispatcher dispatcher(event);
+       /* EventDispatcher dispatcher(event);
         
         // Window events
         dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(ImguiLayer::OnWindowResizeEvent));
@@ -23,9 +24,9 @@ namespace MultiStation {
         dispatcher.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(ImguiLayer::OnKeyReleasedEvent));
         dispatcher.Dispatch<KeyTypedEvent>(BIND_EVENT_FN(ImguiLayer::OnKeyTypedEvent));
 
+*/
 
-
-    }
+  //  }
     
     bool ImguiLayer::OnWindowResizeEvent(WindowResizeEvent& e) noexcept {
         ImGuiIO& io = ImGui::GetIO();
