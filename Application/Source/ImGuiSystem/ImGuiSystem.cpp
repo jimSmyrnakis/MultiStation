@@ -1,27 +1,27 @@
-#include "ImGuiLayer.hpp"
+#include "../mspch.h"
+#include "ImGuiSystem.hpp"
 #include <ImGui.hpp>
-#include "../../App/Application.hpp"
 #define GLFW_STATIC
 #include <GLFW/glfw3.h>
-#include "../../App/Application.hpp"
+#include "../Application/Application.hpp"
 namespace MultiStation {
 
 
-    ImguiLayer::ImguiLayer(void) noexcept : Layer("ImGui Layer") {
-
-    }
-    
-    ImguiLayer::~ImguiLayer(void) noexcept {
+    ImGuiSystem::ImGuiSystem(void) noexcept : ISystem("ImGui Layer") {
 
     }
 
+    ImGuiSystem::~ImGuiSystem(void) noexcept {
+
+    }
 
 
 
 
 
-    void ImguiLayer::OnAttach(void) noexcept {
-        
+
+    void ImGuiSystem::OnAttach(void) noexcept {
+
 
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -45,36 +45,36 @@ namespace MultiStation {
             style.Colors[ImGuiCol_WindowBg].w = 1.0f;
         }
 
-        GLFWwindow* window = (GLFWwindow*)Application::GetInstance()->GetWindow()->GetNativeWindow();
+        GLFWwindow* window = (GLFWwindow*)Application::Get().GetWindow().GetNativeWindow();
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init("#version 410");
     }
 
-    
 
-    void ImguiLayer::OnImGuiRender(void) noexcept {
+
+    void ImGuiSystem::OnImGuiRender(float deltaTime) noexcept {
         static bool showDemo = true;
         ImGui::ShowDemoWindow(&showDemo);
     }
-    
-    void ImguiLayer::OnDetach(void) noexcept {
+
+    void ImGuiSystem::OnDetach(void) noexcept {
         // Cleanup
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
     }
-    
-    
-    void ImguiLayer::Begin(void) noexcept {
+
+
+    void ImGuiSystem::Begin(void) noexcept {
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
     }
 
-    void ImguiLayer::End(void) noexcept {
+    void ImGuiSystem::End(void) noexcept {
         ImGuiIO& io = ImGui::GetIO();
-        Window* my_win = Application::GetInstance()->GetWindow();
+        Window* my_win = &Application::Get().GetWindow();
 
         io.DisplaySize = ImVec2(my_win->GetWidth(), my_win->GetHeight());
 
@@ -89,7 +89,7 @@ namespace MultiStation {
             glfwMakeContextCurrent(win);
         }
     }
-    
 
-    
+
+
 }

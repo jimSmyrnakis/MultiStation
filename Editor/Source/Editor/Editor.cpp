@@ -2,7 +2,7 @@
 
 namespace MultiStation {
 
-	Editor::Editor(void) noexcept {
+	Editor::Editor(void) noexcept : ISystem("Editor") {
 
 	}
 
@@ -10,7 +10,7 @@ namespace MultiStation {
 
 	}
 
-	void Editor::OnTick(SystemContext* ctx) {
+	void Editor::OnUpdate(float deltaTime) noexcept {
 		//MS_ENGINE_INFO("Editor is Running");
 	}
 }

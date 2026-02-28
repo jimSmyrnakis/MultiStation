@@ -1,63 +1,73 @@
 #include "Core.hpp"
-
+#include "SandBox3D.hpp"
+#include "ExampleSystem.hpp"
+#include <Editor.hpp>
 namespace MultiStation {
 
-	class ExampleLayer : public Layer {
+	SandBox3D* s_singleton = nullptr;
 
-		virtual inline void OnAttach(void) noexcept {
+	Application* CreateApplication(void) noexcept {
 
+		if (s_singleton == nullptr) {
+			s_singleton = new (std::nothrow)SandBox3D();
+			MS_ASSERT(s_singleton, "No memory !!!");
 		}
 
-		virtual inline void OnDetach(void) noexcept {
-
-		}
-
-		virtual inline void OnUpdate(float deltaTime) noexcept {
-			if (Input::IsKeyPressed(MS_KEY_T)) {
-				MS_INFO("Tab key is pressed !");
-			}
-		}
-		virtual inline void OnEvent(Event& event)noexcept {
-
-		}
-		virtual inline void OnImGuiRender(void)noexcept {
-			ImGui::Begin("Text");
-			ImGui::Text("Hello World !");
-			ImGui::End();
-		}
-
-	};
-
-	SystemManager* sysMgr = nullptr;
-	uint32_t editorPhase = 0;
-	void Application::OnStart(Application* app) noexcept {
-		MS_ENGINE_INFO("Hello World from SandBox3D!");
-		app->SetName("SandBox3D");
-		app->SetRunning(true);
-		app->PushLayer(new ExampleLayer());
-		sysMgr = app->GetSystemManager();
-
-		// Create all phases and bind systems to them
-		editorPhase = sysMgr->CreatePhase();
-		sysMgr->BindPhase(editorPhase);
-		sysMgr->AddSystem(std::make_shared<Editor>());
-
-		
-
-
+		return s_singleton;
 	}
 
-	void Application::OnUpdate(Application* app) noexcept {
-		
+	Application& GetApplication(void) noexcept {
+		MS_ASSERT(s_singleton, "No Singleton !");
+		return *s_singleton;
+	}
+
+	void DestroyApplication(void) noexcept {
+		MS_ASSERT(s_singleton, "No singleton to destroy!");
+		if (s_singleton) {
+			s_singleton->Finalize();
+			delete s_singleton;
+			s_singleton = nullptr;
+		}
+	}
 
 
-		sysMgr->ExecutePhase(editorPhase);
-		
+
+
+
+
+
+
+
+
+
+	SandBox3D::SandBox3D(void) noexcept : Application("SandBox3D") {
+
+	}
+	SandBox3D::~SandBox3D(void) noexcept {
 
 	}
 
 
-	void Application::OnLeave(Application* app) noexcept {
 
+	void SandBox3D::SetUp(void) noexcept {
+		uint32_t phase = this->CreatePhase();
+		this->BindPhase(phase);
+		this->AddSystemOnPhase(new ExampleSystem());
+		this->AddSystemOnPhase(new Editor());
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
 }

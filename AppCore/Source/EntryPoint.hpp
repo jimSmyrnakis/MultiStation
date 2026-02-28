@@ -1,17 +1,25 @@
 #pragma once
-#include "App/Application.hpp"
+#include <Media.hpp>
+#include <ECS.hpp>
+#include <Application.hpp>
 
-
+namespace MultiStation {
+	extern Application* CreateApplication(void) noexcept;
+	extern Application& GetApplication(void) noexcept;
+	extern void DestroyApplication(void) noexcept;
+}
 
 int main(int argc, char** argv) {
 	MultiStation::LogInit();
-
-	MultiStation::Application* app = MultiStation::Application::GetInstance();
-	MultiStation::InitGraphicsApi(app->GetWindow()->GetSurfaceWidth(),
-		app->GetWindow()->GetSurfaceHeight());
-	app->Init(new MultiStation::ImguiLayer());
-	app->Run();
-
-
+	MultiStation::Application& app = *MultiStation::CreateApplication();
+	
+	app.Initialize();
+	// Run App SetUp given by the user
+	app.SetUp();
+	while (app.IsRunning()) {
+		app.Run();
+	}
+	app.Finalize();
+	MultiStation::DestroyApplication();
 	return 0;
 }

@@ -124,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -137,10 +137,10 @@
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;Media.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +151,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -166,10 +166,10 @@
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;Media.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -178,7 +178,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -191,10 +191,10 @@
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;Media.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -205,7 +205,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -220,10 +220,10 @@
       <Command>doxygen ./DoxyFile/Doxyfile</Command>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;Media.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

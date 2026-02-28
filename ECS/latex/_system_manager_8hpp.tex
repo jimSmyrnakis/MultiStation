@@ -2,7 +2,8 @@
 \hypertarget{_system_manager_8hpp}{}\label{_system_manager_8hpp}\index{Source/SystemManager/SystemManager.hpp@{Source/SystemManager/SystemManager.hpp}}
 
 
-The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The System\+Manager also integrates with a Job\+System to enable parallel execution of systems when possible , as whell shares this job system with each system for use .  
+The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The System\+Manager also integrates with a Job\+System to enable ~\newline
+ parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request\textquotesingle{}s given by the systems for components .  
 
 
 {\ttfamily \#include "{}../\+Job\+System/\+Job\+System.\+hpp"{}}\newline
@@ -22,7 +23,8 @@ namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
 
 
 \doxysubsection{Detailed Description}
-The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The System\+Manager also integrates with a Job\+System to enable parallel execution of systems when possible , as whell shares this job system with each system for use . 
+The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The System\+Manager also integrates with a Job\+System to enable ~\newline
+ parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request\textquotesingle{}s given by the systems for components . 
 
 \begin{DoxyAuthor}{Author}
 \+: Dimitris Smyrnakis 

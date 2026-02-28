@@ -11,8 +11,6 @@ class \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_component}{IComponent}}
 \item 
-struct \mbox{\hyperlink{struct_multi_station_1_1_system_context}{System\+Context}}
-\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}
 \item 
 struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}
@@ -29,9 +27,7 @@ class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control
 \begin{DoxyCompactItemize}
 \item 
 typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}}) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)
-\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\item 
-using \mbox{\hyperlink{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}{Job\+Yield\+Callback}} = std\+::function$<$void()$>$
-\begin{DoxyCompactList}\small\item\em A yield call back function type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,13 +68,3 @@ A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Func
 \mbox{\texttt{in}}  & {\em size} & The total number of jobs in the parallel for block that this job belongs to. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}\index{MultiStation@{MultiStation}!JobYieldCallback@{JobYieldCallback}}
-\index{JobYieldCallback@{JobYieldCallback}!MultiStation@{MultiStation}}
-\doxysubsubsection{\texorpdfstring{JobYieldCallback}{JobYieldCallback}}
-{\footnotesize\ttfamily \label{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87} 
-using \mbox{\hyperlink{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}{Multi\+Station\+::\+Job\+Yield\+Callback}} = std\+::function$<$void()$>$}
-
-
-
-A yield call back function type. 
-

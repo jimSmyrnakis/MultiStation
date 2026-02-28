@@ -51,6 +51,7 @@ namespace MultiStation {
 
 
 		static Window* CreateWindow(WindowProperties props = WindowProperties());
+		static void DestroyWindow(Window** winptr) noexcept;
 
 	protected:
 		

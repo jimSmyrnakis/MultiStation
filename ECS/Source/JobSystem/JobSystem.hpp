@@ -51,7 +51,7 @@ namespace MultiStation{
 		 * whos local/affine queue will take the job . If the job has affineWorkerID
 		 * bigger that is not an actual worker ID then the parent thread worker takes
 		 * that job and a warning is send . This method can be called even from threads 
-		 * that are not workers .
+		 * that are not workers of this job system.
 		 * @param job the job we want to schedule
 		 * 
 		 */
@@ -63,7 +63,6 @@ namespace MultiStation{
 		 * it's role as worker for schedulling jobs instead of doing nothing . This method can be
 		 * called even from thread that is not worker , but then it will yield while waiting . 
 		 * @param counter Atomic counter of the parallel group/block mostly .
-		 * 
 		 */
 		void WaitFor(std::shared_ptr<std::atomic<uint32_t>>& counter) noexcept;
 		
@@ -83,7 +82,7 @@ namespace MultiStation{
 		 * @param[in] data The private data parsed to all the jobs of the group/block
 		 * @param[in] jobCount The number of jobs this group/block has .
 		 * @param[in] counter The common counter of this group/block used with WaitFor for synchronization
-		 *  
+		 * 
 		 */
 		void ParallelFor(
 			JobFunction func, void* data, uint32_t jobCount,

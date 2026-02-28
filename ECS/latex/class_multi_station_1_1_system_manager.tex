@@ -23,16 +23,30 @@ uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3d5c35b75
 \begin{DoxyCompactList}\small\item\em Creates a new phase for system . For each phase a set of the added to this phase systems will execute all in parallel . \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4d49702f6baa9acb6aada76c4a47c136}{Bind\+Phase}} (uint32\+\_\+t phase\+ID) noexcept
 \begin{DoxyCompactList}\small\item\em Binds systems to a specific phase. This allows you to specify which systems should be executed during a particular phase of the game loop. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945}{Add\+System}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ sys) noexcept
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a80bca7e911fb69ea880f5da025421950}{Add\+System}} (\mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}sys) noexcept
 \begin{DoxyCompactList}\small\item\em Adds a system to the currently bound phase. The system will be executed during the execution of the currently bound phase. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6}{Remove\+System}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ sys) noexcept
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_aee311f2ebf349214fd95ca5c1a4c712e}{Remove\+System}} (\mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}sys) noexcept
 \begin{DoxyCompactList}\small\item\em Removes a system from the currently bound phase. The system will no longer be executed during the execution of the currently bound phase. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a247c0a6b6c49b010e93859ef4992547b}{Execute\+Phase}} (uint32\+\_\+t phase\+ID) noexcept
 \begin{DoxyCompactList}\small\item\em Executes all systems that are bound to the specified phase. The systems will be executed in parallel if possible, using the \doxylink{class_multi_station_1_1_job_system}{Job\+System} for scheduling and execution. \end{DoxyCompactList}\item 
-std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6cd4d01e7af66a80b34546599474ad25}{Get\+Phases}} () const noexcept
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ae1883232dffe20cbd719024eb984e189}{Get\+Phases}} (void) const noexcept
 \begin{DoxyCompactList}\small\item\em Returns a list of all phase IDs that have been created in the \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. This allows you to query which phases are available for execution and management. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ $>$ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a15c59bdfb4e5eeb16e117b51720c6653}{Get\+Systems\+In\+Phase}} (uint32\+\_\+t phase\+ID) const noexcept
-\begin{DoxyCompactList}\small\item\em Returns a list of all systems that are bound to the specified phase. This allows you to query which systems are associated with a particular phase and manage them accordingly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+std\+::vector$<$ \mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a906eee6e0f3a5277a15bb93d80436711}{Get\+Systems\+In\+Phase}} (uint32\+\_\+t phase\+ID) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a list of all systems that are bound to the specified phase. This allows you to query which systems are associated with a particular phase and manage them accordingly. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}} \& \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3683588874f0077bfed5853accd74c8b}{Get\+Job\+System}} (void) noexcept
+\item 
+const \mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}} \& \mbox{\hyperlink{class_multi_station_1_1_system_manager_a171a5315e4bc612a0ac4358ff974f997}{Get\+Job\+System}} (void) const noexcept
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}} \& \mbox{\hyperlink{class_multi_station_1_1_system_manager_a784d6ac8a716d6deef657b4b67e9d35c}{Get\+ECSManager}} (void) noexcept
+\item 
+const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}} \& \mbox{\hyperlink{class_multi_station_1_1_system_manager_ad3e3600246045cf9f1f080b85473907d}{Get\+ECSManager}} (void) const noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a6363c516ec1b184ad0fe9a15b444ec1d}\label{class_multi_station_1_1_system_manager_a6363c516ec1b184ad0fe9a15b444ec1d} 
+std\+::vector$<$ uint32\+\_\+t $>$\+::iterator {\bfseries begin} (void) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_ad08b8d1f2e43369f5c26f0459af8d2ee}\label{class_multi_station_1_1_system_manager_ad08b8d1f2e43369f5c26f0459af8d2ee} 
+std\+::vector$<$ uint32\+\_\+t $>$\+::iterator {\bfseries end} (void) noexcept
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -87,11 +101,11 @@ Not allowed
 \label{doc-func-members}
 \Hypertarget{class_multi_station_1_1_system_manager_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!AddSystem@{AddSystem}}
+\Hypertarget{class_multi_station_1_1_system_manager_a80bca7e911fb69ea880f5da025421950}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!AddSystem@{AddSystem}}
 \index{AddSystem@{AddSystem}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{AddSystem()}{AddSystem()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a419d616df6ebcc022d5a2e06fd8eb945} 
-void Multi\+Station\+::\+System\+Manager\+::\+Add\+System (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$}]{sys}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a80bca7e911fb69ea880f5da025421950} 
+void Multi\+Station\+::\+System\+Manager\+::\+Add\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}}]{sys}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
@@ -166,11 +180,47 @@ It should be a valid phase that has been created before with Create\+Phase metho
 \begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
-\Hypertarget{class_multi_station_1_1_system_manager_a6cd4d01e7af66a80b34546599474ad25}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetPhases@{GetPhases}}
+\Hypertarget{class_multi_station_1_1_system_manager_ad3e3600246045cf9f1f080b85473907d}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetECSManager@{GetECSManager}}
+\index{GetECSManager@{GetECSManager}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetECSManager()}{GetECSManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_ad3e3600246045cf9f1f080b85473907d} 
+const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}} \& Multi\+Station\+::\+System\+Manager\+::\+Get\+ECSManager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A const Shared pointer to the ecs manager . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_system_manager_a784d6ac8a716d6deef657b4b67e9d35c}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetECSManager@{GetECSManager}}
+\index{GetECSManager@{GetECSManager}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetECSManager()}{GetECSManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a784d6ac8a716d6deef657b4b67e9d35c} 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}} \& Multi\+Station\+::\+System\+Manager\+::\+Get\+ECSManager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A Shared pointer to the ecs manager . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_system_manager_a171a5315e4bc612a0ac4358ff974f997}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetJobSystem@{GetJobSystem}}
+\index{GetJobSystem@{GetJobSystem}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetJobSystem()}{GetJobSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a171a5315e4bc612a0ac4358ff974f997} 
+const \mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}} \& Multi\+Station\+::\+System\+Manager\+::\+Get\+Job\+System (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A const shared pointer to the job system 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_system_manager_a3683588874f0077bfed5853accd74c8b}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetJobSystem@{GetJobSystem}}
+\index{GetJobSystem@{GetJobSystem}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{GetJobSystem()}{GetJobSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a3683588874f0077bfed5853accd74c8b} 
+\mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}} \& Multi\+Station\+::\+System\+Manager\+::\+Get\+Job\+System (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to the job system 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_system_manager_ae1883232dffe20cbd719024eb984e189}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetPhases@{GetPhases}}
 \index{GetPhases@{GetPhases}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{GetPhases()}{GetPhases()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a6cd4d01e7af66a80b34546599474ad25} 
-std\+::vector$<$ uint32\+\_\+t $>$ Multi\+Station\+::\+System\+Manager\+::\+Get\+Phases (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_ae1883232dffe20cbd719024eb984e189} 
+std\+::vector$<$ uint32\+\_\+t $>$ Multi\+Station\+::\+System\+Manager\+::\+Get\+Phases (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
@@ -179,11 +229,11 @@ Returns a list of all phase IDs that have been created in the \doxylink{class_mu
 \begin{DoxyReturn}{Returns}
 A list of all phase IDs that have been created in the \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. 
 \end{DoxyReturn}
-\Hypertarget{class_multi_station_1_1_system_manager_a15c59bdfb4e5eeb16e117b51720c6653}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetSystemsInPhase@{GetSystemsInPhase}}
+\Hypertarget{class_multi_station_1_1_system_manager_a906eee6e0f3a5277a15bb93d80436711}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetSystemsInPhase@{GetSystemsInPhase}}
 \index{GetSystemsInPhase@{GetSystemsInPhase}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{GetSystemsInPhase()}{GetSystemsInPhase()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a15c59bdfb4e5eeb16e117b51720c6653} 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$ $>$ Multi\+Station\+::\+System\+Manager\+::\+Get\+Systems\+In\+Phase (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{phase\+ID}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a906eee6e0f3a5277a15bb93d80436711} 
+std\+::vector$<$ \mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*} $>$ Multi\+Station\+::\+System\+Manager\+::\+Get\+Systems\+In\+Phase (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{phase\+ID}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
@@ -215,11 +265,11 @@ Not allowed
 \begin{DoxyWarning}{Warning}
 Not allowed 
 \end{DoxyWarning}
-\Hypertarget{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!RemoveSystem@{RemoveSystem}}
+\Hypertarget{class_multi_station_1_1_system_manager_aee311f2ebf349214fd95ca5c1a4c712e}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!RemoveSystem@{RemoveSystem}}
 \index{RemoveSystem@{RemoveSystem}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{RemoveSystem()}{RemoveSystem()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a4e30b2384cdf9e9c003a8dd5c21e65f6} 
-void Multi\+Station\+::\+System\+Manager\+::\+Remove\+System (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} $>$}]{sys}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_aee311f2ebf349214fd95ca5c1a4c712e} 
+void Multi\+Station\+::\+System\+Manager\+::\+Remove\+System (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_system}{ISystem}} \texorpdfstring{$\ast$}{*}}]{sys}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 

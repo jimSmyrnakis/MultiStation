@@ -1,5 +1,6 @@
 #include "SystemManager.hpp"
 #include <Utilities.hpp>
+#include <Platform.hpp>
 namespace MultiStation {
 	
 	SystemManager::SystemManager() noexcept {
@@ -33,7 +34,7 @@ namespace MultiStation {
 
 	}
 
-	void SystemManager::AddSystem(std::shared_ptr<ISystem> sys) noexcept {
+	void SystemManager::AddSystem(ISystem* sys) noexcept {
 		MS_ASSERT(sys, "System cannot be null");
 		MS_ASSERT(!m_isExecuting, "Cannot add system while executing");
 #ifdef _DEBUG
@@ -41,9 +42,10 @@ namespace MultiStation {
 		MS_ASSERT(std::find(vec.begin(), vec.end(), sys) == vec.end(), "System already added");
 #endif
 		m_systems[m_currentPhase].push_back( sys);
+		//sys->OnAttach();
 	}
 
-	void SystemManager::RemoveSystem(std::shared_ptr<ISystem> sys) noexcept {
+	void SystemManager::RemoveSystem(ISystem* sys) noexcept {
 		MS_ASSERT(sys, "System cannot be null");
 		MS_ASSERT(!m_isExecuting, "Cannot remove system while ticking");
 
@@ -53,13 +55,13 @@ namespace MultiStation {
 		auto& vec = it->second;
 		auto vit = std::find(vec.begin(), vec.end(), sys);
 		MS_ASSERT(vit != vec.end(), "System not found in phase");
+		//(*vit)->OnDetach();
 		vec.erase(vit);
 	}
 
 
 	struct SystemTickData {
-		std::shared_ptr<ISystem> system;
-		SystemContext sctx;
+		ISystem* system;
 
 		
 	};
@@ -67,7 +69,7 @@ namespace MultiStation {
 	void SystemCallBack(Job job) {
 		auto* list = static_cast<SystemTickData*>(job.data);
 		auto* data = list + job.blockID; // each job will execute one system
-		data->system->OnTick(&data->sctx);
+		data->system->OnUpdate(0.016);
 	}
 
 	void SystemManager::ExecutePhase(uint32_t phaseID) noexcept {
@@ -81,9 +83,6 @@ namespace MultiStation {
 		for (const auto& system : it->second) {
 			SystemTickData tickData;
 			tickData.system = system;
-			tickData.sctx.deltaTime = 0.016f; // TODO : pass real dt
-			tickData.sctx.jobSystem = m_jobSystem;
-			tickData.sctx.ecs = m_ecsManager;
 			tickDataList.push_back(tickData);
 		}
 		void* data = tickDataList.data();
@@ -92,19 +91,43 @@ namespace MultiStation {
 			counter = std::make_shared<std::atomic<uint32_t>>(0);
 		m_jobSystem->ParallelFor(SystemCallBack, data, tickDataList.size(), counter );
 		m_jobSystem->WaitFor(counter);
-
+		// update ecs manager
 		m_ecsManager->PollOperations();
 	}
 
-	std::vector<uint32_t> SystemManager::GetPhases() const noexcept {
+	std::vector<uint32_t> SystemManager::GetPhases(void) const noexcept {
 		return m_phases;
 	}
 
-	std::vector<std::shared_ptr<ISystem>> SystemManager::GetSystemsInPhase(uint32_t phaseID) const noexcept {
+	std::vector<ISystem*> SystemManager::GetSystemsInPhase(uint32_t phaseID) const noexcept {
 		auto it = m_systems.find(phaseID);
 		if (it != m_systems.end()) {
 			return it->second;
 		}
 		return {};
+	}
+
+	JobSystem& SystemManager::GetJobSystem(void) noexcept {
+		return *m_jobSystem;
+	}
+
+	const JobSystem& SystemManager::GetJobSystem(void) const noexcept {
+		return *m_jobSystem;
+	}
+
+	ECSManager& SystemManager::GetECSManager(void) noexcept {
+		return *m_ecsManager;
+	}
+
+	const ECSManager& SystemManager::GetECSManager(void) const noexcept {
+		return *m_ecsManager;
+	}
+
+
+	std::vector<uint32_t>::iterator SystemManager::begin(void)noexcept {
+		return m_phases.begin();
+	}
+	std::vector<uint32_t>::iterator SystemManager::end(void)noexcept {
+		return m_phases.end();
 	}
 }

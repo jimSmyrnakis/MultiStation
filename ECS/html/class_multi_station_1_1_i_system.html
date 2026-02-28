@@ -88,35 +88,263 @@ $(function(){initNavTree('class_multi_station_1_1_i_system.html','','class_multi
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MultiStation::ISystem Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">MultiStation::ISystem Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a71de9fe95d5d2a10e5cceedec9c19bc3" id="r_a71de9fe95d5d2a10e5cceedec9c19bc3"><td class="memItemLeft" align="right" valign="top"><a id="a71de9fe95d5d2a10e5cceedec9c19bc3" name="a71de9fe95d5d2a10e5cceedec9c19bc3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ISystem</b> (const std::string name) noexcept</td></tr>
+<tr class="memitem:a6bc432e1a009e9a7230182b601bc0c6e" id="r_a6bc432e1a009e9a7230182b601bc0c6e"><td class="memItemLeft" align="right" valign="top"><a id="a6bc432e1a009e9a7230182b601bc0c6e" name="a6bc432e1a009e9a7230182b601bc0c6e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ISystem</b> (const <a class="el" href="class_i_system.html">ISystem</a> &amp;cpy) noexcept=delete</td></tr>
+<tr class="memitem:ab5c04f116118506e44b872d163ecffb0" id="r_ab5c04f116118506e44b872d163ecffb0"><td class="memItemLeft" align="right" valign="top"><a id="ab5c04f116118506e44b872d163ecffb0" name="ab5c04f116118506e44b872d163ecffb0"></a>
+<a class="el" href="class_i_system.html">ISystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_i_system.html">ISystem</a> &amp;cpy) noexcept=delete</td></tr>
 <tr class="memitem:a52f7d1302fcc517d9aaf8b64e8becb85" id="r_a52f7d1302fcc517d9aaf8b64e8becb85"><td class="memItemLeft" align="right" valign="top"><a id="a52f7d1302fcc517d9aaf8b64e8becb85" name="a52f7d1302fcc517d9aaf8b64e8becb85"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ISystem</b> (ISystem &amp;&amp;move) noexcept=default</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ISystem</b> (<a class="el" href="class_i_system.html">ISystem</a> &amp;&amp;move) noexcept=default</td></tr>
 <tr class="memitem:a3db0cb4b13aa0a279d713a3e31e30c9e" id="r_a3db0cb4b13aa0a279d713a3e31e30c9e"><td class="memItemLeft" align="right" valign="top"><a id="a3db0cb4b13aa0a279d713a3e31e30c9e" name="a3db0cb4b13aa0a279d713a3e31e30c9e"></a>
-virtual ISystem &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (ISystem &amp;&amp;move) noexcept=default</td></tr>
-<tr class="memitem:acc33e784704260341b51b5d40a5fe4cd" id="r_acc33e784704260341b51b5d40a5fe4cd"><td class="memItemLeft" align="right" valign="top"><a id="acc33e784704260341b51b5d40a5fe4cd" name="acc33e784704260341b51b5d40a5fe4cd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>OnTick</b> (<a class="el" href="struct_multi_station_1_1_system_context.html">SystemContext</a> *ctx)=0</td></tr>
+virtual <a class="el" href="class_i_system.html">ISystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_i_system.html">ISystem</a> &amp;&amp;move) noexcept=default</td></tr>
+<tr class="memitem:a3d01487555ed588dff7a18d0230a7831" id="r_a3d01487555ed588dff7a18d0230a7831"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d01487555ed588dff7a18d0230a7831">OnAttach</a> (void) noexcept</td></tr>
+<tr class="memdesc:a3d01487555ed588dff7a18d0230a7831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback that happens once the system is inserted at the start of the application.  <br /></td></tr>
+<tr class="memitem:a646aaebd2898310d36deb214385d7952" id="r_a646aaebd2898310d36deb214385d7952"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a646aaebd2898310d36deb214385d7952">OnUpdate</a> (float deltaTime) noexcept</td></tr>
+<tr class="memdesc:a646aaebd2898310d36deb214385d7952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every game loop in parallel with the rest systems in the same phase .  <br /></td></tr>
+<tr class="memitem:aee6c7f56e62eb740c6c7be99926e614a" id="r_aee6c7f56e62eb740c6c7be99926e614a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee6c7f56e62eb740c6c7be99926e614a">OnEvent</a> (Event &amp;e) noexcept</td></tr>
+<tr class="memdesc:aee6c7f56e62eb740c6c7be99926e614a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on a single thread the main/game thread before the Render Update .  <br /></td></tr>
+<tr class="memitem:a340733bcbce4497676f7702093b81ada" id="r_a340733bcbce4497676f7702093b81ada"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340733bcbce4497676f7702093b81ada">OnRenderUpdate</a> (float deltaTime) noexcept</td></tr>
+<tr class="memdesc:a340733bcbce4497676f7702093b81ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on a single thread the main/game thread before the ImGui Render Update for drawing the game scene.  <br /></td></tr>
+<tr class="memitem:a3ab066773181da9b1242766bfb83a8a8" id="r_a3ab066773181da9b1242766bfb83a8a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab066773181da9b1242766bfb83a8a8">OnImGuiRender</a> (float deltaTime) noexcept</td></tr>
+<tr class="memdesc:a3ab066773181da9b1242766bfb83a8a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called each frame / game loop to Update the Imgui UI Render , such as creating buttons etc. This one is called only from the main/game thread only after the Render Update.  <br /></td></tr>
+<tr class="memitem:a15e7202c614ec653445adb104c0b69c1" id="r_a15e7202c614ec653445adb104c0b69c1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15e7202c614ec653445adb104c0b69c1">OnDetach</a> (void) noexcept</td></tr>
+<tr class="memdesc:a15e7202c614ec653445adb104c0b69c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called at the end of the application or at removing the system from the application.  <br /></td></tr>
+<tr class="memitem:a24d222982791ac9b5bea2b151900eab4" id="r_a24d222982791ac9b5bea2b151900eab4"><td class="memItemLeft" align="right" valign="top"><a id="a24d222982791ac9b5bea2b151900eab4" name="a24d222982791ac9b5bea2b151900eab4"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> (void) noexcept</td></tr>
+<tr class="memitem:a12160c749b08f22abad94b87a45828ea" id="r_a12160c749b08f22abad94b87a45828ea"><td class="memItemLeft" align="right" valign="top"><a id="a12160c749b08f22abad94b87a45828ea" name="a12160c749b08f22abad94b87a45828ea"></a>
+const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> (void) const noexcept</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc" id="r_aeb8aac46d57db5b70cd887f52e9c4fbc"><td class="memTemplParams" colspan="2">template&lt;typename SystemType&gt; </td></tr>
+<tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc template"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb8aac46d57db5b70cd887f52e9c4fbc">GetTypeID</a> (void)</td></tr>
 <tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc" id="r_aeb8aac46d57db5b70cd887f52e9c4fbc"><td class="memTemplParams" colspan="2"><a id="aeb8aac46d57db5b70cd887f52e9c4fbc" name="aeb8aac46d57db5b70cd887f52e9c4fbc"></a>
 template&lt;typename SystemType&gt; </td></tr>
 <tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc template"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetTypeID</b> (void)</td></tr>
-<tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc" id="r_aeb8aac46d57db5b70cd887f52e9c4fbc"><td class="memTemplParams" colspan="2"><a id="aeb8aac46d57db5b70cd887f52e9c4fbc" name="aeb8aac46d57db5b70cd887f52e9c4fbc"></a>
-template&lt;typename SystemType&gt; </td></tr>
-<tr class="memitem:aeb8aac46d57db5b70cd887f52e9c4fbc template"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetTypeID</b> (void)</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6bc432e1a009e9a7230182b601bc0c6e" id="r_a6bc432e1a009e9a7230182b601bc0c6e"><td class="memItemLeft" align="right" valign="top"><a id="a6bc432e1a009e9a7230182b601bc0c6e" name="a6bc432e1a009e9a7230182b601bc0c6e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ISystem</b> (const ISystem &amp;cpy) noexcept=delete</td></tr>
-<tr class="memitem:ab5c04f116118506e44b872d163ecffb0" id="r_ab5c04f116118506e44b872d163ecffb0"><td class="memItemLeft" align="right" valign="top"><a id="ab5c04f116118506e44b872d163ecffb0" name="ab5c04f116118506e44b872d163ecffb0"></a>
-ISystem &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const ISystem &amp;cpy) noexcept=delete</td></tr>
 </table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aeb8aac46d57db5b70cd887f52e9c4fbc" name="aeb8aac46d57db5b70cd887f52e9c4fbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb8aac46d57db5b70cd887f52e9c4fbc">&#9670;&#160;</a></span>GetTypeID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SystemType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MultiStation::ISystem::GetTypeID </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A unique id per <a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a> class </dd></dl>
+
+</div>
+</div>
+<a id="a3d01487555ed588dff7a18d0230a7831" name="a3d01487555ed588dff7a18d0230a7831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d01487555ed588dff7a18d0230a7831">&#9670;&#160;</a></span>OnAttach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnAttach </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback that happens once the system is inserted at the start of the application. </p>
+
+</div>
+</div>
+<a id="a15e7202c614ec653445adb104c0b69c1" name="a15e7202c614ec653445adb104c0b69c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15e7202c614ec653445adb104c0b69c1">&#9670;&#160;</a></span>OnDetach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnDetach </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called at the end of the application or at removing the system from the application. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aee6c7f56e62eb740c6c7be99926e614a" name="aee6c7f56e62eb740c6c7be99926e614a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee6c7f56e62eb740c6c7be99926e614a">&#9670;&#160;</a></span>OnEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnEvent </td>
+          <td>(</td>
+          <td class="paramtype">Event &amp;</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called on a single thread the main/game thread before the Render Update . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The event that have been received and parse to us for check </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3ab066773181da9b1242766bfb83a8a8" name="a3ab066773181da9b1242766bfb83a8a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab066773181da9b1242766bfb83a8a8">&#9670;&#160;</a></span>OnImGuiRender()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnImGuiRender </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called each frame / game loop to Update the Imgui UI Render , such as creating buttons etc. This one is called only from the main/game thread only after the Render Update. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>The time step from the previus imgui call of the previus frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a340733bcbce4497676f7702093b81ada" name="a340733bcbce4497676f7702093b81ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340733bcbce4497676f7702093b81ada">&#9670;&#160;</a></span>OnRenderUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnRenderUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called on a single thread the main/game thread before the ImGui Render Update for drawing the game scene. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>The time step from the last frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a646aaebd2898310d36deb214385d7952" name="a646aaebd2898310d36deb214385d7952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646aaebd2898310d36deb214385d7952">&#9670;&#160;</a></span>OnUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::ISystem::OnUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called every game loop in parallel with the rest systems in the same phase . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">deltaTime</td><td>float that provides the time step from the last iteration </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/ISystem/<a class="el" href="_i_system_8hpp_source.html">ISystem.hpp</a></li>
 </ul>

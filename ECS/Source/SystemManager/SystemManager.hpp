@@ -7,10 +7,11 @@
  * @author : Dimitris Smyrnakis
  * @file SystemManager.hpp
  * @brief The SystemManager is responsible for managing the execution of systems in different phases. 
- * It allows you to create phases, bind systems to those phases, and execute the systems in the 
- * correct order during each phase. The SystemManager also integrates with a JobSystem to enable 
+ * It allows you to create phases, bind systems to those phases, and execute the systems in parallel
+ * each phase. The SystemManager also integrates with a JobSystem to enable  
  * parallel execution of systems when possible , as whell shares this job system with each system 
- * for use .
+ * for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will 
+ * handle the request's given by the systems for components .
  */
 
 namespace MultiStation{
@@ -85,7 +86,7 @@ namespace MultiStation{
 		 * us for it , this is not allowed .
 		 * @return nothing 
 		 */
-		void AddSystem(std::shared_ptr<ISystem> sys) noexcept;
+		void AddSystem(ISystem* sys) noexcept;
 
 		/**
 		 * .
@@ -98,7 +99,7 @@ namespace MultiStation{
 		 * , this method will assert .
 		 * @return nothing
 		 */
-		void RemoveSystem(std::shared_ptr<ISystem> sys) noexcept;
+		void RemoveSystem(ISystem* sys) noexcept;
 
 		/**
 		 * .
@@ -117,7 +118,7 @@ namespace MultiStation{
 		 * 
 		 * @return A list of all phase IDs that have been created in the SystemManager.
 		 */
-		std::vector<uint32_t> GetPhases() const noexcept;
+		std::vector<uint32_t> GetPhases(void) const noexcept;
 
 		/**
 		 * .
@@ -125,14 +126,40 @@ namespace MultiStation{
 		 * @param phaseID The unique identifier of the phase to query.
 		 * @return A list with all systems that are bound to the secified phase . If the phase does not exist or has no systems bound to it , an empty list is returned.
 		 */
-		std::vector<std::shared_ptr<ISystem>> GetSystemsInPhase(uint32_t phaseID) const noexcept;
+		std::vector<ISystem*> GetSystemsInPhase(uint32_t phaseID) const noexcept;
+
+		/**
+		 * @returns A shared pointer to the job system
+		 * 
+		 */
+		JobSystem& GetJobSystem(void) noexcept;
+
+		/**
+		 * @returns A const shared pointer to the job system
+		 *
+		 */
+		const JobSystem& GetJobSystem(void) const noexcept;
+
+		/**
+		 * @returns A Shared pointer to the ecs manager .
+		 */
+		ECSManager& GetECSManager(void) noexcept;
+		
+		/**
+		 * @returns A const Shared pointer to the ecs manager .
+		 */
+		const ECSManager& GetECSManager(void) const noexcept;
+
+		std::vector<uint32_t>::iterator begin(void)noexcept;
+		std::vector<uint32_t>::iterator end(void)noexcept;
 
 	private:
 		std::shared_ptr<JobSystem>								m_jobSystem;
 		std::shared_ptr<ECSManager>								m_ecsManager;
 		std::vector<uint32_t> 								    m_phases;
 		std::unordered_map<uint32_t, 
-			std::vector<std::shared_ptr<ISystem>> >				m_systems;
+			std::vector<ISystem*> >								m_systems;
+		//std::vector<float>										m_lastExecutionTime; TODO
 		uint32_t 												m_currentPhase;
 		bool 													m_isExecuting;	
 

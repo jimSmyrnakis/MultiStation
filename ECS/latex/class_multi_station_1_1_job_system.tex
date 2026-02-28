@@ -27,7 +27,7 @@
 \mbox{\hyperlink{class_multi_station_1_1_job_system_a6ca92ed095d602c7b199babf53611cf9}{Job\+System}} \& {\bfseries operator=} (\mbox{\hyperlink{class_multi_station_1_1_job_system_a6ca92ed095d602c7b199babf53611cf9}{Job\+System}} \&\&) noexcept=delete
 \item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a387c3880fe6034dc1d6ab64d1273bd47}{Add\+Job}} (\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} \&job) noexcept
-\begin{DoxyCompactList}\small\item\em Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers . \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers of this job system. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a79097f6b0d0156db4fcf77cabac17bb6}{Wait\+For}} (std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ uint32\+\_\+t $>$ $>$ \&counter) noexcept
 \begin{DoxyCompactList}\small\item\em Waits Until the counter gets zero , then returns , until then this thread takes it\textquotesingle{}s role as worker for schedulling jobs instead of doing nothing . This method can be called even from thread that is not worker , but then it will yield while waiting . \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_job_system_a71c1316a5782aeea97c2dea4770e0638}{Wait\+For\+All}} (void) noexcept
@@ -80,7 +80,7 @@ void Multi\+Station\+::\+Job\+System\+::\+Add\+Job (\begin{DoxyParamCaption}\ite
 
 
 
-Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers . 
+Adds new job to any worker have turn (sequencial share) except if the job is affine then the affine\+Worker\+ID is used to define whos local/affine queue will take the job . If the job has affine\+Worker\+ID bigger that is not an actual worker ID then the parent thread worker takes that job and a warning is send . This method can be called even from threads that are not workers of this job system. 
 
 
 \begin{DoxyParams}{Parameters}

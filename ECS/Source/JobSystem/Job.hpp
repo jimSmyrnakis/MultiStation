@@ -23,10 +23,7 @@ namespace MultiStation{
 
 	
 
-	/**
-	  * @brief A yield call back function type
-	  */
-	using JobYieldCallback = std::function<void()>;
+	
 
 	/**
 	 *
@@ -78,13 +75,15 @@ namespace MultiStation{
 		
 		/**
 		 * @var uint32_t blockID
-		 * @brief For jobs that are part of group/block of jobs (e.g. parallel for) this variable is used to identify the job in the block/group that belong .
+		 * @brief For jobs that are part of group/block of jobs (e.g. parallel for) 
+		 * this variable is used to identify the job in the block/group that belong .
 		 */
 		uint32_t								blockID; 
 
 		/**
 		 * @var uint32_t blockSize
-		 * @brief For jobs that are part of group/block of jobs (e.g. parallel for) this variable is used to identify the total number of jobs in the block/group that belong .
+		 * @brief For jobs that are part of group/block of jobs (e.g. parallel for) 
+		 * this variable is used to identify the total number of jobs in the block/group that belong .
 		 */
 		uint32_t 								blockSize;
 

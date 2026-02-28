@@ -46,6 +46,12 @@ namespace MultiStation {
 		return s_Instance;
 	}
 
+	void Input::Destroy(void) noexcept {
+		MS_ASSERT(s_Instance, "No Singleton Instance to Remove !");
+		delete s_Instance;
+		s_Instance = nullptr;
+	}
+
 	void Input::Init(const Window& win) noexcept {
 		
 		static GLFWInput* in = new(std::nothrow) GLFWInput(win);

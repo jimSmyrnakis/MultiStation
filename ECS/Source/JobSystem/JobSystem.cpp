@@ -51,7 +51,7 @@ namespace MultiStation {
 			return;
 		}
 
-		// add one more job
+		// add one more job unit 
 		m_jobsInSystem.fetch_add(1, std::memory_order_relaxed);
 
 		// 
@@ -129,7 +129,7 @@ namespace MultiStation {
 			job.fun = func;
 			job.data = data;
 			job.affine = false;
-			job.WorkerID = localWorkerID; // not used since isAffine is false
+			job.WorkerID = localWorkerID; // not used since isAffine is false , blockid is more usefull
 			job.counter = counter;
 			job.blockID = i;
 			job.blockSize = jobCount;

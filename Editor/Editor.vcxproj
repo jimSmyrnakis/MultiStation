@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -102,10 +102,10 @@
       <AdditionalDependencies>ECS.lib;Utilities.lib;Platform.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;ImGui.lib;Media.lib;Application.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -128,10 +128,10 @@
       <AdditionalDependencies>ECS.lib;Utilities.lib;Platform.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;ImGui.lib;Media.lib;Application.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -140,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -150,10 +150,10 @@
       <AdditionalDependencies>ECS.lib;Utilities.lib;Platform.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;ImGui.lib;Media.lib;Application.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -164,7 +164,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Externals\GLM</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -176,10 +176,10 @@
       <AdditionalDependencies>ECS.lib;Utilities.lib;Platform.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;</AdditionalDependencies>
+      <AdditionalDependencies>Platform.lib;Utilities.lib;ECS.lib;ImGui.lib;Media.lib;Application.lib;</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

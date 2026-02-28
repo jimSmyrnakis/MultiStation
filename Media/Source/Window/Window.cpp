@@ -8,4 +8,9 @@ namespace MultiStation {
 		return win;
 	}
 
+	void Window::DestroyWindow(Window** winptr) noexcept {
+		delete (*winptr);
+		(*winptr) = nullptr;
+	}
+
 }

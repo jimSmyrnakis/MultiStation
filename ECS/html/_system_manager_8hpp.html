@@ -92,12 +92,13 @@ $(function(){initNavTree('_system_manager_8hpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>The SystemManager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The SystemManager also integrates with a JobSystem to enable parallel execution of systems when possible , as whell shares this job system with each system for use .  
+<p>The SystemManager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The SystemManager also integrates with a JobSystem to enable <br  />
+ parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request's given by the systems for components .  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_job_system_8hpp_source.html">../JobSystem/JobSystem.hpp</a>&quot;</code><br />
 <code>#include &lt;Platform.hpp&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &quot;../ISystem/ISystem.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_system_8hpp_source.html">../ISystem/ISystem.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_system_manager_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -110,7 +111,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:MultiStation" id="r_MultiStation"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_multi_station.html">MultiStation</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The SystemManager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in the correct order during each phase. The SystemManager also integrates with a JobSystem to enable parallel execution of systems when possible , as whell shares this job system with each system for use . </p>
+<div class="textblock"><p>The SystemManager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The SystemManager also integrates with a JobSystem to enable <br  />
+ parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request's given by the systems for components . </p>
 <dl class="section author"><dt>Author</dt><dd>: Dimitris Smyrnakis </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

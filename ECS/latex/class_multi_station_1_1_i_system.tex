@@ -3,35 +3,147 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{class_multi_station_1_1_i_system_a71de9fe95d5d2a10e5cceedec9c19bc3}\label{class_multi_station_1_1_i_system_a71de9fe95d5d2a10e5cceedec9c19bc3} 
+{\bfseries ISystem} (const std\+::string name) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e}\label{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e} 
+{\bfseries ISystem} (const \mbox{\hyperlink{class_i_system}{ISystem}} \&cpy) noexcept=delete
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0}\label{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0} 
+\mbox{\hyperlink{class_i_system}{ISystem}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_i_system}{ISystem}} \&cpy) noexcept=delete
+\item 
 \Hypertarget{class_multi_station_1_1_i_system_a52f7d1302fcc517d9aaf8b64e8becb85}\label{class_multi_station_1_1_i_system_a52f7d1302fcc517d9aaf8b64e8becb85} 
-{\bfseries ISystem} (ISystem \&\&move) noexcept=default
+{\bfseries ISystem} (\mbox{\hyperlink{class_i_system}{ISystem}} \&\&move) noexcept=default
 \item 
 \Hypertarget{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e}\label{class_multi_station_1_1_i_system_a3db0cb4b13aa0a279d713a3e31e30c9e} 
-virtual ISystem \& {\bfseries operator=} (ISystem \&\&move) noexcept=default
+virtual \mbox{\hyperlink{class_i_system}{ISystem}} \& {\bfseries operator=} (\mbox{\hyperlink{class_i_system}{ISystem}} \&\&move) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_system_acc33e784704260341b51b5d40a5fe4cd}\label{class_multi_station_1_1_i_system_acc33e784704260341b51b5d40a5fe4cd} 
-virtual void {\bfseries On\+Tick} (\mbox{\hyperlink{struct_multi_station_1_1_system_context}{System\+Context}} \texorpdfstring{$\ast$}{*}ctx)=0
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}{On\+Attach}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Callback that happens once the system is inserted at the start of the application. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a646aaebd2898310d36deb214385d7952}{On\+Update}} (float delta\+Time) noexcept
+\begin{DoxyCompactList}\small\item\em Called every game loop in parallel with the rest systems in the same phase . \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_aee6c7f56e62eb740c6c7be99926e614a}{On\+Event}} (Event \&e) noexcept
+\begin{DoxyCompactList}\small\item\em Called on a single thread the main/game thread before the Render Update . \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a340733bcbce4497676f7702093b81ada}{On\+Render\+Update}} (float delta\+Time) noexcept
+\begin{DoxyCompactList}\small\item\em Called on a single thread the main/game thread before the Im\+Gui Render Update for drawing the game scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a3ab066773181da9b1242766bfb83a8a8}{On\+Im\+Gui\+Render}} (float delta\+Time) noexcept
+\begin{DoxyCompactList}\small\item\em Called each frame / game loop to Update the Imgui UI Render , such as creating buttons etc. This one is called only from the main/game thread only after the Render Update. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a15e7202c614ec653445adb104c0b69c1}{On\+Detach}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Called at the end of the application or at removing the system from the application. \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_i_system_a24d222982791ac9b5bea2b151900eab4}\label{class_multi_station_1_1_i_system_a24d222982791ac9b5bea2b151900eab4} 
+std\+::string {\bfseries Get\+Name} (void) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_i_system_a12160c749b08f22abad94b87a45828ea}\label{class_multi_station_1_1_i_system_a12160c749b08f22abad94b87a45828ea} 
+const std\+::string {\bfseries Get\+Name} (void) const noexcept
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc}\label{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc} 
-{\footnotesize template$<$typename System\+Type$>$ }\\static uint32\+\_\+t {\bfseries Get\+Type\+ID} (void)
+{\footnotesize template$<$typename System\+Type$>$ }\\static uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc}{Get\+Type\+ID}} (void)
 \item 
 \Hypertarget{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc}\label{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc} 
 {\footnotesize template$<$typename System\+Type$>$ }\\static uint32\+\_\+t {\bfseries Get\+Type\+ID} (void)
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e}\label{class_multi_station_1_1_i_system_a6bc432e1a009e9a7230182b601bc0c6e} 
-{\bfseries ISystem} (const ISystem \&cpy) noexcept=delete
-\item 
-\Hypertarget{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0}\label{class_multi_station_1_1_i_system_ab5c04f116118506e44b872d163ecffb0} 
-ISystem \& {\bfseries operator=} (const ISystem \&cpy) noexcept=delete
-\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_i_system_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc}\index{MultiStation::ISystem@{MultiStation::ISystem}!GetTypeID@{GetTypeID}}
+\index{GetTypeID@{GetTypeID}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{GetTypeID()}{GetTypeID()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_aeb8aac46d57db5b70cd887f52e9c4fbc} 
+template$<$typename System\+Type$>$ \\
+uint32\+\_\+t Multi\+Station\+::\+ISystem\+::\+Get\+Type\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+A unique id per \doxylink{class_multi_station_1_1_i_system}{ISystem} class 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnAttach@{OnAttach}}
+\index{OnAttach@{OnAttach}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnAttach()}{OnAttach()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Attach (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Callback that happens once the system is inserted at the start of the application. 
+
+\Hypertarget{class_multi_station_1_1_i_system_a15e7202c614ec653445adb104c0b69c1}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnDetach@{OnDetach}}
+\index{OnDetach@{OnDetach}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnDetach()}{OnDetach()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a15e7202c614ec653445adb104c0b69c1} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Detach (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called at the end of the application or at removing the system from the application. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_system_aee6c7f56e62eb740c6c7be99926e614a}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_aee6c7f56e62eb740c6c7be99926e614a} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Event (\begin{DoxyParamCaption}\item[{Event \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called on a single thread the main/game thread before the Render Update . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The event that have been received and parse to us for check \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_i_system_a3ab066773181da9b1242766bfb83a8a8}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnImGuiRender@{OnImGuiRender}}
+\index{OnImGuiRender@{OnImGuiRender}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnImGuiRender()}{OnImGuiRender()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a3ab066773181da9b1242766bfb83a8a8} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Im\+Gui\+Render (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called each frame / game loop to Update the Imgui UI Render , such as creating buttons etc. This one is called only from the main/game thread only after the Render Update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time step from the previus imgui call of the previus frame \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_i_system_a340733bcbce4497676f7702093b81ada}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnRenderUpdate@{OnRenderUpdate}}
+\index{OnRenderUpdate@{OnRenderUpdate}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnRenderUpdate()}{OnRenderUpdate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a340733bcbce4497676f7702093b81ada} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Render\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called on a single thread the main/game thread before the Im\+Gui Render Update for drawing the game scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & The time step from the last frame \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_i_system_a646aaebd2898310d36deb214385d7952}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a646aaebd2898310d36deb214385d7952} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called every game loop in parallel with the rest systems in the same phase . 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em delta\+Time} & float that provides the time step from the last iteration \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+ISystem/ISystem.\+hpp\end{DoxyCompactItemize}
+Source/\+ISystem/\mbox{\hyperlink{_i_system_8hpp}{ISystem.\+hpp}}\end{DoxyCompactItemize}

@@ -74,6 +74,13 @@ namespace MultiStation {
 		static Input* Get(void) noexcept;
 
 		/**
+		 * @brief Deletes the singleton , then we can call again the Init
+		 * and Get to get a new singleton. Only one instance of Ipnut at a time .
+		 * 
+		 */
+		static void Destroy(void) noexcept;
+
+		/**
 		 * @brief Before everything else and after the window creation 
 		 * first initialize input by giving the window that the input will 
 		 * come from . 

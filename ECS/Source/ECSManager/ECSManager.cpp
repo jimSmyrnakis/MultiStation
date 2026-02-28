@@ -43,8 +43,7 @@ namespace MultiStation {
 				return;
 			}
 			m_entities.erase(it);
-			// Also remove all components associated with this entity
-			// TODO
+			
 			m_registry->RemoveEntity(op.entity);
 		};
 		m_operationQueue.Push(operation);

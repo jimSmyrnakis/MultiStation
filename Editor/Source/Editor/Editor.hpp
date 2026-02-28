@@ -10,6 +10,6 @@ namespace MultiStation {
 		Editor(Editor&&) noexcept = delete;
 		Editor& operator=(Editor&&) noexcept = delete;
 
-		virtual void OnTick(SystemContext* ctx) override;
+		virtual void OnUpdate(float deltaTime) noexcept override;
 	};
 }	

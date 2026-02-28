@@ -16,46 +16,46 @@
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \ \ \ \ }
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_multi_station_ad62e4bddc2d30e7bbee2a744674c8b87}{JobYieldCallback}}\ =\ std::function<void()>;}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{struct\ }Job\ \{}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Job(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Job(\textcolor{keyword}{const}\ Job\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ Job\&\ operator=(\textcolor{keyword}{const}\ Job\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Job(Job\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ Job\&\ operator=(Job\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{JobFunction}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}{data}};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76}{affine}};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a2058a626d8f9ab029593bac79412f826}{WorkerID}};\ }
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::shared\_ptr<std::atomic<uint32\_t>>\ \ counter;\ }
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name[64];\ \textcolor{comment}{//\ for\ debugging\ purposes\ only}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15}{blockID}};\ }
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a0740f1fc045af333501095f1b95e5ea1}{blockSize}};}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }Job\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Job(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Job(\textcolor{keyword}{const}\ Job\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ Job\&\ operator=(\textcolor{keyword}{const}\ Job\&\ cpy)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Job(Job\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Job\&\ operator=(Job\&\&\ move)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{JobFunction}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}{data}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a2848546e5895f5dd25ef46b64a381f76}{affine}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a2058a626d8f9ab029593bac79412f826}{WorkerID}};\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::shared\_ptr<std::atomic<uint32\_t>>\ \ counter;\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name[64];\ \textcolor{comment}{//\ for\ debugging\ purposes\ only}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a574b21b9f1df7a1994695299bd1d4f15}{blockID}};\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_job_a0740f1fc045af333501095f1b95e5ea1}{blockSize}};}
+\DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_multi_station_1_1_job_aaee83a86b07991a8e6d47183cdc8952f}{GetID}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_multi_station_1_1_job_aaee83a86b07991a8e6d47183cdc8952f}{GetID}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00098\ }
 \DoxyCodeLine{00099\ }
 \DoxyCodeLine{00100\ }
 \DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_nextID;}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ uint32\_t\ m\_id;}
-\DoxyCodeLine{00107\ \ \ \ \ \};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ s\_nextID;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ uint32\_t\ m\_id;}
+\DoxyCodeLine{00106\ \ \ \ \ \};}
+\DoxyCodeLine{00107\ }
 \DoxyCodeLine{00108\ }
 \DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00110\ \}}
 
 \end{DoxyCode}
