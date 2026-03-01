@@ -52,8 +52,10 @@ namespace MultiStation {
 	void SandBox3D::SetUp(void) noexcept {
 		uint32_t phase = this->CreatePhase();
 		this->BindPhase(phase);
-		this->AddSystemOnPhase(new ExampleSystem());
+		ExampleSystem* sys = new ExampleSystem();
+		this->AddSystemOnPhase(sys);
 		this->AddSystemOnPhase(new Editor());
+		this->PushSystemLayer(sys);
 	}
 
 

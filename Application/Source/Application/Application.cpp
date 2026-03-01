@@ -50,6 +50,9 @@ namespace MultiStation {
 	void Application::Run(void) noexcept {
 		MS_ASSERT(isInitialized, "Application not initiallized");
 
+		// poll events
+		m_window->PollEvents();
+
 		// Before all call updates for each phase
 		for (uint32_t phase : m_systemManager) {
 			m_systemManager.ExecutePhase(phase);
@@ -59,10 +62,7 @@ namespace MultiStation {
 		glClearColor(0.4, 0.4, 0.4, 1);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// Run event layer from end to start (lifo for events )
-		for (auto it = m_systemStack.end(); it != m_systemStack.begin(); ) {
-			(*(--it))->OnUpdate(0.016f);
-		}
+		
 
 		// Run Render layer from start to end (fifo for game render) 
 		for (ISystem* system : m_systemStack) {
@@ -77,7 +77,7 @@ namespace MultiStation {
 		m_ImGuiSystem->End();
 
 		// Update the window
-		m_window->OnUpdate();
+		m_window->SwapBuffers();
 
 	}
 

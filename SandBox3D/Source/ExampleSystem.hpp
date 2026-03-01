@@ -26,6 +26,8 @@ namespace MultiStation{
 				BIND_EVENT_FN(ExampleSystem::OnKeyPressedEvent));
 		}
 		virtual inline void OnImGuiRender(float deltaTime) noexcept {
+
+            
 			ImGui::Begin("Text");
 			ImGui::Text("Hello World !");
 			ImGui::End();
