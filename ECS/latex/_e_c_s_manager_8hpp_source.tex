@@ -68,39 +68,41 @@
 \DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ const\ std::vector<uint32\_t>\&\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_ae3e9bea4056c56d3b515fb093e91188d}{GetEntities}}(\textcolor{keywordtype}{void})\ const;}
 \DoxyCodeLine{00191\ }
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ \ \ private:}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Call\ for\ execute\ pending\ operations\ in\ the\ queue,\ this\ is\ called\ by\ the\ SystemManager\ after\ each\ }}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ system\ execution\ to\ ensure\ that\ all\ operations\ are\ executed\ before\ the\ next\ system\ execution.}}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ PollOperations(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \ \ \ \ private:}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ enum\ OperationType\ \{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\_COMPONENT,}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ REMOVE\_COMPONENT,}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ REPLACE\_COMPONENT,}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\_ENTITY,}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ DESTROY\_ENTITY}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Operation\ \{}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ OperationType\ type;}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ entity;}
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ componentTypeID;\ \textcolor{comment}{//\ only\ for\ AddComponent\ and\ RemoveComponent}}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void(Operation\ op\ )>\ callbackFun;\ \textcolor{comment}{//\ There\ is\ not\ way\ of\ remove/adding\ component\ }}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ as\ is\ based\ on\ its\ Actual\ templated\ type,\ so\ we\ need\ to\ store\ a\ callback\ function\ that\ will\ be\ called\ when\ the\ operation\ is\ executed\ to\ perform\ the\ actual\ add/remove\ component\ operation.}}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ Registry*\ m\_registry;}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ m\_registerMutex;}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ m\_entities;\ \textcolor{comment}{//\ list\ of\ all\ entities\ in\ the\ system}}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ m\_entityComponentCounts;\ \textcolor{comment}{//\ per\ entity\ component\ count}}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ Queue<Operation>\ m\_operationQueue;\ \textcolor{comment}{//\ queue\ to\ store\ pending\ operations}}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }SystemManager;\ \textcolor{comment}{//\ allow\ SystemManager\ to\ access\ private\ members\ of\ ECSManager\ for\ efficient\ system\ execution}}
-\DoxyCodeLine{00222\ \ \ \ \ \};}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00224\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ public:}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Call\ for\ execute\ pending\ operations\ in\ the\ queue,\ this\ is\ called\ by\ the\ SystemManager\ after\ each\ }}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ system\ execution\ to\ ensure\ that\ all\ operations\ are\ executed\ before\ the\ next\ system\ execution.}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ PollOperations(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ private:}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ enum\ OperationType\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ CREATE,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ REMOVE,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ REPLACE}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Operation\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ OperationType\ type;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ entity;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ componentTypeID;\ \textcolor{comment}{//\ only\ for\ AddComponent\ and\ RemoveComponent}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ std::function<void(Operation\ op\ )>\ callbackFun;\ \textcolor{comment}{//\ There\ is\ not\ way\ of\ remove/adding\ component\ }}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ as\ is\ based\ on\ its\ Actual\ templated\ type,\ so\ we\ need\ to\ store\ a\ callback\ function\ that\ will\ be\ called\ when\ the\ operation\ is\ executed\ to\ perform\ the\ actual\ add/remove\ component\ operation.}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ Registry*\ m\_registry;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::mutex\ m\_registerMutex;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ m\_entities;\ \textcolor{comment}{//\ list\ of\ all\ entities\ in\ the\ system}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ m\_entityComponentCounts;\ \textcolor{comment}{//\ per\ entity\ component\ count}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ Queue<Operation>\ m\_entitiesOperationQueue;\ \textcolor{comment}{//\ queue\ to\ store\ pending\ operations\ for\ entities}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ Queue<Operation>\ m\_componentOperationQueue;\ \textcolor{comment}{//\ queue\ to\ store\ pending\ operations\ for\ components}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }SystemManager;\ \textcolor{comment}{//\ allow\ SystemManager\ to\ access\ private\ members\ of\ ECSManager\ for\ efficient\ system\ execution}}
+\DoxyCodeLine{00224\ \ \ \ \ \};}
 \DoxyCodeLine{00225\ }
-\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#include\ "{}ECSTemplateImpl.hpp"{}}}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#include\ "{}ECSTemplateImpl.hpp"{}}}
 
 \end{DoxyCode}

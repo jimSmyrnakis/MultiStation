@@ -14,12 +14,10 @@ namespace MultiStation {
     void SystemStack::PushLayer(ISystem* layer) noexcept {
         m_Systems.emplace(m_Systems.begin() + m_LastIndex, layer);
         m_LastIndex++;
-       // layer->OnAttach();
     }
 
     void SystemStack::PushOverlay(ISystem* overlay) noexcept {
         m_Systems.emplace_back(overlay);
-        //overlay->OnAttach();
     }
 
     void SystemStack::PopLayer(ISystem* layer) noexcept {
@@ -27,7 +25,6 @@ namespace MultiStation {
         if (it == m_Systems.end())
             return;
 
-        //layer->OnDetach();
         m_Systems.erase(it);
         m_LastIndex--;
 
@@ -38,7 +35,6 @@ namespace MultiStation {
         if (it == m_Systems.end())
             return;
 
-       // (*it)->OnDetach();
         m_Systems.erase(it);
     }
 

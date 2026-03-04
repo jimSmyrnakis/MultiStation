@@ -1,8 +1,4 @@
 #include "Transform3D.hpp"
-#include <glm/gtx/transform.hpp>
-#include <glm/matrix.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 namespace MultiStation {
 	
 

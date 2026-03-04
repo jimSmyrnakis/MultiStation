@@ -18,13 +18,13 @@
     <ClInclude Include="Source\ComponentArray\ComponentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ISystem\ISystem.hpp">
+    <ClInclude Include="Source\Interfaces\ISystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Registry\Registry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ComponentArray\IComponentArray.hpp">
+    <ClInclude Include="Source\Interfaces\IComponentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp">
@@ -33,10 +33,7 @@
     <ClInclude Include="Source\Init.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\VersionControl.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\IComponent\IComponent.hpp">
+    <ClInclude Include="Source\VersionControl\VersionControl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\JobSystem\Job.hpp">
@@ -59,16 +56,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\ISystem\ISystem.cpp">
+    <ClCompile Include="Source\Interfaces\ISystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Registry\Registry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ComponentArray\IComponentArray.cpp">
+    <ClCompile Include="Source\Interfaces\IComponentArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\VersionControl.cpp">
+    <ClCompile Include="Source\VersionControl\VersionControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\JobSystem\JobSystem.cpp">

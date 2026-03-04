@@ -2,51 +2,52 @@
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (C:\Users\User\Desktop\Projects\MultiStation\Media\Objects\Debug\x64\) contains files shared from another project (MediaLibrary.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Commands.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Commands\Commands.cpp(59,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Commands\Commands.cpp(75,43): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Commands\Commands.cpp(57,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Commands\Commands.cpp(73,43): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
   Error.cpp
   FBuffer.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,80): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,65): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,49): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(52,34): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(59,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(88,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(97,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(100,9): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(64,22): warning C4101: 'trash': unreferenced local variable
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(128,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244: 'argument': conversion from 'const T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244: 'argument': conversion from 'const T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(156,9): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,80): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,80): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,80): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,80): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,80): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,65): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,65): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,65): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,65): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,65): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,49): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,49): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,49): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,49): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,49): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,34): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,34): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,34): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,34): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(50,34): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(57,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(86,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(95,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(98,9): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(62,22): warning C4101: 'trash': unreferenced local variable
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(126,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244: 'argument': conversion from 'const T' to 'GLsizei', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         ]
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244: 'argument': conversion from 'const T' to 'GLint', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         with
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         [
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:             T=float
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\FBuffer\FBuffer.cpp(154,9): warning C4244:         ]
   Format.cpp
   Init.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Init.cpp(30,11): warning C4305: 'return': truncation from 'int' to 'bool'
   FShader.cpp
   Shader.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Shader\Shader.cpp(121,18): warning C4101: 'UniformsCount': unreferenced local variable
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\Shader\Shader.cpp(122,18): warning C4101: 'UniformsCount': unreferenced local variable
   VShader.cpp
   Texture2D.cpp
   Texture2DResolution.cpp
@@ -58,10 +59,10 @@ C:\Users\User\Desktop\Projects\MultiStation\Media\Source\GraphicsApi\UBuffer\UBu
   Layer.cpp
   LayerStack.cpp
   GLFWEvents.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(93,34): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(93,25): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(100,28): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(100,22): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(91,34): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(91,25): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(98,28): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\GLFWEvents.cpp(98,22): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
   GLFWWindow.cpp
   MyGLFWInput.cpp
 C:\Users\User\Desktop\Projects\MultiStation\Media\Source\Window\GLFW\MyGLFWInput.cpp(63,10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data

@@ -139,7 +139,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a69580e89e553c7524c35f0e156c78d82" id="r_a69580e89e553c7524c35f0e156c78d82"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69580e89e553c7524c35f0e156c78d82">HasEntity</a> (uint32_t entity) const</td></tr>
 <tr class="memdesc:a69580e89e553c7524c35f0e156c78d82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the specified entity has an associated component.  <br /></td></tr>
 <tr class="memitem:a76faa974a13e6599bc98ddd28a86332d" id="r_a76faa974a13e6599bc98ddd28a86332d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76faa974a13e6599bc98ddd28a86332d">RemoveEntity</a> (uint32_t entity) override</td></tr>
-<tr class="memdesc:a76faa974a13e6599bc98ddd28a86332d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its RemoveComponent method.  <br /></td></tr>
+<tr class="memdesc:a76faa974a13e6599bc98ddd28a86332d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component associated with the entity, if exist's . It is a override virtual method from the IComponent class , that so the registry can remove all components of a entity when the entity is destroyed , as registry will not know and shouldn't know all the possible components compile time types .  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_multi_station_1_1_i_component_array"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_multi_station_1_1_i_component_array')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_multi_station_1_1_i_component_array.html">MultiStation::IComponentArray</a></td></tr>
 <tr class="memitem:aef7b10613cf2c2987fe47f1dda605de5 inherit pub_methods_class_multi_station_1_1_i_component_array" id="r_aef7b10613cf2c2987fe47f1dda605de5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html#aef7b10613cf2c2987fe47f1dda605de5">~IComponentArray</a> (void) noexcept=default</td></tr>
 <tr class="memdesc:aef7b10613cf2c2987fe47f1dda605de5 inherit pub_methods_class_multi_station_1_1_i_component_array"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual destructor to allow for proper cleanup of derived classes.  <br /></td></tr>
@@ -580,10 +580,10 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its RemoveComponent method. </p>
+<p>Removes the component associated with the entity, if exist's . It is a override virtual method from the IComponent class , that so the registry can remove all components of a entity when the entity is destroyed , as registry will not know and shouldn't know all the possible components compile time types . </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">entity</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity id to remove the component for. </td></tr>
   </table>
   </dd>
 </dl>

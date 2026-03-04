@@ -146,6 +146,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afa083de5c568415d8476371f6a0aef07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the specified entity exists in the <a class="el" href="class_multi_station_1_1_e_c_s_manager.html" title="The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...">ECSManager</a>.  <br /></td></tr>
 <tr class="memitem:ae3e9bea4056c56d3b515fb093e91188d" id="r_ae3e9bea4056c56d3b515fb093e91188d"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; uint32_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e9bea4056c56d3b515fb093e91188d">GetEntities</a> (void) const</td></tr>
 <tr class="memdesc:ae3e9bea4056c56d3b515fb093e91188d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a const reference to the vector of all entities in the system.  <br /></td></tr>
+<tr class="memitem:a84b2d94f003ba5637dd1ee5f4edca381" id="r_a84b2d94f003ba5637dd1ee5f4edca381"><td class="memItemLeft" align="right" valign="top"><a id="a84b2d94f003ba5637dd1ee5f4edca381" name="a84b2d94f003ba5637dd1ee5f4edca381"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PollOperations</b> (void)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -547,7 +549,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Check if a component type T is registered to the ecs or not . </p>
-<dl class="section warning"><dt>Warning</dt><dd>The component type T must be derived from <a class="el" href="class_multi_station_1_1_i_component.html">IComponent&lt;T&gt;</a> and must not be registered already, otherwise assert's. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The component type T must be derived from IComponent&lt;T&gt; and must not be registered already, otherwise assert's. </dd></dl>
 
 </div>
 </div>
@@ -629,7 +631,7 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>The component type T must be derived from <a class="el" href="class_multi_station_1_1_i_component.html">IComponent&lt;T&gt;</a> and must not be registered already, otherwise assert's. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The component type T must be derived from IComponent&lt;T&gt; and must not be registered already, otherwise assert's. </dd></dl>
 
 </div>
 </div>

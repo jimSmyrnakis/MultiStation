@@ -1,5 +1,6 @@
 #include "VShader.hpp"
-#include <GL/glew.h>
+
+#include <GLAD.hpp>
 #include "../Init.hpp"
 #include <Platform.hpp>
 namespace MultiStation {

@@ -1,4 +1,4 @@
-#include "Core.hpp"
+#include "mspch.h"
 #include "SandBox3D.hpp"
 #include "ExampleSystem.hpp"
 #include <Editor.hpp>
@@ -24,7 +24,6 @@ namespace MultiStation {
 	void DestroyApplication(void) noexcept {
 		MS_ASSERT(s_singleton, "No singleton to destroy!");
 		if (s_singleton) {
-			s_singleton->Finalize();
 			delete s_singleton;
 			s_singleton = nullptr;
 		}
@@ -53,9 +52,15 @@ namespace MultiStation {
 		uint32_t phase = this->CreatePhase();
 		this->BindPhase(phase);
 		ExampleSystem* sys = new ExampleSystem();
+		Renderer3DDS* renderer = new Renderer3DDS();
+		Editor* editor = new Editor();
 		this->AddSystemOnPhase(sys);
 		this->AddSystemOnPhase(new Editor());
 		this->PushSystemLayer(sys);
+		this->PushSystemLayer(renderer);
+		this->PushSystemLayer(editor);
+		
+
 	}
 
 

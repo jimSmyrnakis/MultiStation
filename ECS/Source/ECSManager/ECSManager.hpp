@@ -190,18 +190,19 @@ namespace MultiStation {
 		const std::vector<uint32_t>& GetEntities(void) const;
 
 
-	private:
+
+
+
+	public:
 		// Call for execute pending operations in the queue, this is called by the SystemManager after each 
 		// system execution to ensure that all operations are executed before the next system execution.
 		void PollOperations(void);
 
 	private:
 		enum OperationType {
-			CREATE_COMPONENT,
-			REMOVE_COMPONENT,
-			REPLACE_COMPONENT,
-			CREATE_ENTITY,
-			DESTROY_ENTITY
+			CREATE,
+			REMOVE,
+			REPLACE
 		};
 		struct Operation {
 			OperationType type;
@@ -217,7 +218,8 @@ namespace MultiStation {
 		mutable std::mutex m_registerMutex;
 		std::vector<uint32_t> m_entities; // list of all entities in the system
 		std::vector<uint32_t> m_entityComponentCounts; // per entity component count
-		Queue<Operation> m_operationQueue; // queue to store pending operations
+		Queue<Operation> m_entitiesOperationQueue; // queue to store pending operations for entities
+		Queue<Operation> m_componentOperationQueue; // queue to store pending operations for components
 		friend class SystemManager; // allow SystemManager to access private members of ECSManager for efficient system execution
 	};
 

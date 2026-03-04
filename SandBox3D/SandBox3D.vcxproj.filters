@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core.hpp">
+    <ClInclude Include="Source\mspch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\ExampleSystem.hpp">

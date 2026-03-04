@@ -1,8 +1,9 @@
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\IComponentArray.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\IComponentArray.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Interfaces\IComponentArray.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\IComponentArray.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ECSManager.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ISystem\ISystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ISystem.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Interfaces\IComponent.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\IComponent.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Interfaces\ISystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\ISystem.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\JobSystem\Job.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Job.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\JobSystem\JobSystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\JobSystem.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SystemManager\SystemManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\SystemManager.obj
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\Registry\Registry.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\Registry.obj
-C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\VersionControl.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\VersionControl.obj
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\VersionControl\VersionControl.cpp;C:\Users\User\Desktop\Projects\MultiStation\ECS\Objects\Debug\x64\VersionControl.obj

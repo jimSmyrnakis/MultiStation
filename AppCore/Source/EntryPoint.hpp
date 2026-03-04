@@ -2,7 +2,7 @@
 #include <Media.hpp>
 #include <ECS.hpp>
 #include <Application.hpp>
-
+#include <iostream>
 namespace MultiStation {
 	extern Application* CreateApplication(void) noexcept;
 	extern Application& GetApplication(void) noexcept;
@@ -21,5 +21,9 @@ int main(int argc, char** argv) {
 	}
 	app.Finalize();
 	MultiStation::DestroyApplication();
+
+#ifdef _DEBUG
+	std::cin.get();
+#endif 
 	return 0;
 }

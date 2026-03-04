@@ -1,6 +1,7 @@
 #pragma once
 #include <ECS.hpp>
 #include <Media.hpp>
+#include <SceneManager.hpp>
 #include <vector>
 #include <stdint.h>
 #include <stddef.h>
@@ -25,8 +26,8 @@ namespace MultiStation{
 		void PopSystemOverlay(ISystem* system) noexcept;
 
 
-		ECSManager& GetECS(void) noexcept;
-		const ECSManager& GetECS(void) const noexcept;
+		Scene& GetScene(void) noexcept;
+		const Scene& GetScene(void) const noexcept;
 
 		
 
@@ -84,7 +85,7 @@ namespace MultiStation{
 		Input* m_Input;
 		ImGuiSystem* m_ImGuiSystem;
 		bool isInitialized;
-		
+		Scene* m_scene;
 	
 	private:
 		static Application* s_singleton;

@@ -1,0 +1,93 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Application.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/Application/Application.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(65,18):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::EntityInfo,std::string&>(uint32_t,std::string &)' being compiled
+  
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7): warning C4101: 'x': unreferenced local variable
+  (compiling source file 'Source/Application/Application.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(18,20):
+          see reference to function template instantiation 'void MultiStation::ECSManager::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(11,15):
+          see reference to function template instantiation 'uint32_t MultiStation::Registry::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(264,59):
+          while compiling class template member function 'void MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent(uint32_t)'
+              C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(216,24):
+              see the first reference to 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent' in 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveEntity'
+  
+  ApplicationSystems.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\ApplicationSystems.cpp(75,18): warning C4244: 'initializing': conversion from '__int64' to 'uint32_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\ApplicationSystems.cpp(88,18): warning C4244: 'initializing': conversion from '__int64' to 'uint32_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/Application/ApplicationSystems.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(65,18):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::EntityInfo,std::string&>(uint32_t,std::string &)' being compiled
+  
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7): warning C4101: 'x': unreferenced local variable
+  (compiling source file 'Source/Application/ApplicationSystems.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(18,20):
+          see reference to function template instantiation 'void MultiStation::ECSManager::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(11,15):
+          see reference to function template instantiation 'uint32_t MultiStation::Registry::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(264,59):
+          while compiling class template member function 'void MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent(uint32_t)'
+              C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(216,24):
+              see the first reference to 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent' in 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveEntity'
+  
+  Events.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/Application/Events.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(65,18):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::EntityInfo,std::string&>(uint32_t,std::string &)' being compiled
+  
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7): warning C4101: 'x': unreferenced local variable
+  (compiling source file 'Source/Application/Events.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(18,20):
+          see reference to function template instantiation 'void MultiStation::ECSManager::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(11,15):
+          see reference to function template instantiation 'uint32_t MultiStation::Registry::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(264,59):
+          while compiling class template member function 'void MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent(uint32_t)'
+              C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(216,24):
+              see the first reference to 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent' in 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveEntity'
+  
+  ImGuiSystem.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/ImGuiSystem/ImGuiSystem.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(65,18):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::EntityInfo,std::string&>(uint32_t,std::string &)' being compiled
+  
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7): warning C4101: 'x': unreferenced local variable
+  (compiling source file 'Source/ImGuiSystem/ImGuiSystem.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(292,7):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Scene\Scene.hpp(18,20):
+          see reference to function template instantiation 'void MultiStation::ECSManager::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(11,15):
+          see reference to function template instantiation 'uint32_t MultiStation::Registry::Register<MultiStation::EntityInfo>(void)' being compiled
+          C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(264,59):
+          while compiling class template member function 'void MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent(uint32_t)'
+              C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ComponentArray\ComponentArray.hpp(216,24):
+              see the first reference to 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveComponent' in 'MultiStation::ComponentArray<MultiStation::EntityInfo>::RemoveEntity'
+  
+  SystemStack.cpp
+  Application.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\Application\Library\Release\x64\Application.lib

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ECS: MultiStation::IComponent&lt; Derived &gt; Class Template Reference</title>
+<title>ECS: MultiStation::IComponent Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,33 +88,219 @@ $(function(){initNavTree('class_multi_station_1_1_i_component.html','','class_mu
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MultiStation::IComponent&lt; Derived &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">MultiStation::IComponent Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>An interface for components, providing a common base for different component types.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_component_8hpp_source.html">IComponent.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa852a2eac0e8d4c60f3fbf1b06c726ff" id="r_aa852a2eac0e8d4c60f3fbf1b06c726ff"><td class="memItemLeft" align="right" valign="top"><a id="aa852a2eac0e8d4c60f3fbf1b06c726ff" name="aa852a2eac0e8d4c60f3fbf1b06c726ff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent</b> (const IComponent &amp;cpy) noexcept=delete</td></tr>
-<tr class="memitem:a76d754c803c2e9234f7405b62317d208" id="r_a76d754c803c2e9234f7405b62317d208"><td class="memItemLeft" align="right" valign="top"><a id="a76d754c803c2e9234f7405b62317d208" name="a76d754c803c2e9234f7405b62317d208"></a>
-IComponent &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const IComponent &amp;cpy) noexcept=delete</td></tr>
-<tr class="memitem:a749ef534c416460754e919926e21d5c3" id="r_a749ef534c416460754e919926e21d5c3"><td class="memItemLeft" align="right" valign="top"><a id="a749ef534c416460754e919926e21d5c3" name="a749ef534c416460754e919926e21d5c3"></a>
+<tr class="memitem:a0db8f4576bc9a9eff6419d98e1c46966" id="r_a0db8f4576bc9a9eff6419d98e1c46966"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0db8f4576bc9a9eff6419d98e1c46966">IComponent</a> (const std::string &amp;name=&quot;Component&quot;) noexcept</td></tr>
+<tr class="memdesc:a0db8f4576bc9a9eff6419d98e1c46966"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a new <a class="el" href="class_multi_station_1_1_i_component.html" title="An interface for components, providing a common base for different component types.">IComponent</a> Interface with basic metadata .  <br /></td></tr>
+<tr class="memitem:a80c542f95c14678f0f33086e79f5fc80" id="r_a80c542f95c14678f0f33086e79f5fc80"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80c542f95c14678f0f33086e79f5fc80">~IComponent</a> (void) noexcept=default</td></tr>
+<tr class="memdesc:a80c542f95c14678f0f33086e79f5fc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor to allow for proper cleanup of derived classes.  <br /></td></tr>
+<tr class="memitem:a88f06a5c99a42a97dae0b19fa2a589f2" id="r_a88f06a5c99a42a97dae0b19fa2a589f2"><td class="memItemLeft" align="right" valign="top"><a id="a88f06a5c99a42a97dae0b19fa2a589f2" name="a88f06a5c99a42a97dae0b19fa2a589f2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent</b> (const IComponent &amp;cpy) noexcept=default</td></tr>
+<tr class="memitem:ab2a1911043d28901617cd2d525afbc3c" id="r_ab2a1911043d28901617cd2d525afbc3c"><td class="memItemLeft" align="right" valign="top"><a id="ab2a1911043d28901617cd2d525afbc3c" name="ab2a1911043d28901617cd2d525afbc3c"></a>
+<a class="el" href="#a0db8f4576bc9a9eff6419d98e1c46966">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="#a0db8f4576bc9a9eff6419d98e1c46966">IComponent</a> &amp;cpy) noexcept=default</td></tr>
+<tr class="memitem:a29d489242468f1168f6c8894d8957506" id="r_a29d489242468f1168f6c8894d8957506"><td class="memItemLeft" align="right" valign="top"><a id="a29d489242468f1168f6c8894d8957506" name="a29d489242468f1168f6c8894d8957506"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IComponent</b> (IComponent &amp;&amp;move) noexcept=default</td></tr>
-<tr class="memitem:a87199fd39ce7fcf41eb166e1d4dcb60b" id="r_a87199fd39ce7fcf41eb166e1d4dcb60b"><td class="memItemLeft" align="right" valign="top"><a id="a87199fd39ce7fcf41eb166e1d4dcb60b" name="a87199fd39ce7fcf41eb166e1d4dcb60b"></a>
-virtual IComponent &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (IComponent &amp;&amp;move) noexcept=default</td></tr>
-<tr class="memitem:a06e1e759d0602db6bcfc2ae8719bf4a9" id="r_a06e1e759d0602db6bcfc2ae8719bf4a9"><td class="memItemLeft" align="right" valign="top"><a id="a06e1e759d0602db6bcfc2ae8719bf4a9" name="a06e1e759d0602db6bcfc2ae8719bf4a9"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetInstanceTypeID</b> (void) const</td></tr>
-<tr class="memitem:a743ee02984aa88510703dfc3172ed2ba" id="r_a743ee02984aa88510703dfc3172ed2ba"><td class="memItemLeft" align="right" valign="top"><a id="a743ee02984aa88510703dfc3172ed2ba" name="a743ee02984aa88510703dfc3172ed2ba"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetVersion</b> (void) const</td></tr>
-<tr class="memitem:a03d46f7ee6ed202efc08d0fbb68ef311" id="r_a03d46f7ee6ed202efc08d0fbb68ef311"><td class="memItemLeft" align="right" valign="top"><a id="a03d46f7ee6ed202efc08d0fbb68ef311" name="a03d46f7ee6ed202efc08d0fbb68ef311"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDirty</b> (void) const</td></tr>
-<tr class="memitem:ac2701ced4b4012574c38595ebfb35682" id="r_ac2701ced4b4012574c38595ebfb35682"><td class="memItemLeft" align="right" valign="top"><a id="ac2701ced4b4012574c38595ebfb35682" name="ac2701ced4b4012574c38595ebfb35682"></a>
-std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> (void) noexcept</td></tr>
-<tr class="memitem:ae27eed135500594fe32996dd57fd75a7" id="r_ae27eed135500594fe32996dd57fd75a7"><td class="memItemLeft" align="right" valign="top"><a id="ae27eed135500594fe32996dd57fd75a7" name="ae27eed135500594fe32996dd57fd75a7"></a>
-const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> (void) const noexcept</td></tr>
+<tr class="memitem:a803517da1bf64b1c1650d23a5edb0e26" id="r_a803517da1bf64b1c1650d23a5edb0e26"><td class="memItemLeft" align="right" valign="top"><a id="a803517da1bf64b1c1650d23a5edb0e26" name="a803517da1bf64b1c1650d23a5edb0e26"></a>
+virtual <a class="el" href="#a0db8f4576bc9a9eff6419d98e1c46966">IComponent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="#a0db8f4576bc9a9eff6419d98e1c46966">IComponent</a> &amp;&amp;move) noexcept=default</td></tr>
+<tr class="memitem:a4c8332e1ea6e42403311997fbe2fa2b3" id="r_a4c8332e1ea6e42403311997fbe2fa2b3"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c8332e1ea6e42403311997fbe2fa2b3">GetID</a> (void) const</td></tr>
+<tr class="memitem:afa573e2290cd0886d962cfb303f28d71" id="r_afa573e2290cd0886d962cfb303f28d71"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa573e2290cd0886d962cfb303f28d71">GetVersion</a> (void) const</td></tr>
+<tr class="memitem:a81594dfb9b69efdb3f914354b4b98363" id="r_a81594dfb9b69efdb3f914354b4b98363"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81594dfb9b69efdb3f914354b4b98363">SetDirty</a> (void) noexcept</td></tr>
+<tr class="memdesc:a81594dfb9b69efdb3f914354b4b98363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the current version of the <a class="el" href="class_multi_station_1_1_i_component.html" title="An interface for components, providing a common base for different component types.">IComponent</a>.  <br /></td></tr>
+<tr class="memitem:aa2dc72f5a262c1289ecadab1a947d5c6" id="r_aa2dc72f5a262c1289ecadab1a947d5c6"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2dc72f5a262c1289ecadab1a947d5c6">GetName</a> (void) noexcept</td></tr>
+<tr class="memitem:a9d8d2c00c574d312bebfb95dad879b0e" id="r_a9d8d2c00c574d312bebfb95dad879b0e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d8d2c00c574d312bebfb95dad879b0e">GetName</a> (void) const noexcept</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An interface for components, providing a common base for different component types. </p>
+<dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis</dd></dl>
+<p>This way we ensure that all components can be treated polymorphically , as well for each different component type we can get a unique type ID and version control for each component instance to know when it is modified. Fethermore , this interface will provided anybody that creates a new component with all the desire metadata to use . </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0db8f4576bc9a9eff6419d98e1c46966" name="a0db8f4576bc9a9eff6419d98e1c46966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db8f4576bc9a9eff6419d98e1c46966">&#9670;&#160;</a></span>IComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::IComponent::IComponent </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;Component&quot;</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>construct a new <a class="el" href="class_multi_station_1_1_i_component.html" title="An interface for components, providing a common base for different component types.">IComponent</a> Interface with basic metadata . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the component that will be given , by default is set to the name "Component" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80c542f95c14678f0f33086e79f5fc80" name="a80c542f95c14678f0f33086e79f5fc80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c542f95c14678f0f33086e79f5fc80">&#9670;&#160;</a></span>~IComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual MultiStation::IComponent::~IComponent </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>virtual destructor to allow for proper cleanup of derived classes. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a4c8332e1ea6e42403311997fbe2fa2b3" name="a4c8332e1ea6e42403311997fbe2fa2b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8332e1ea6e42403311997fbe2fa2b3">&#9670;&#160;</a></span>GetID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MultiStation::IComponent::GetID </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Unique Identifier for this icomponent </dd></dl>
+
+</div>
+</div>
+<a id="a9d8d2c00c574d312bebfb95dad879b0e" name="a9d8d2c00c574d312bebfb95dad879b0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8d2c00c574d312bebfb95dad879b0e">&#9670;&#160;</a></span>GetName() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; MultiStation::IComponent::GetName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The name string reference of the component . </dd></dl>
+
+</div>
+</div>
+<a id="aa2dc72f5a262c1289ecadab1a947d5c6" name="aa2dc72f5a262c1289ecadab1a947d5c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2dc72f5a262c1289ecadab1a947d5c6">&#9670;&#160;</a></span>GetName() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string &amp; MultiStation::IComponent::GetName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The name string reference of the component , so you can change it if you want to . </dd></dl>
+
+</div>
+</div>
+<a id="afa573e2290cd0886d962cfb303f28d71" name="afa573e2290cd0886d962cfb303f28d71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa573e2290cd0886d962cfb303f28d71">&#9670;&#160;</a></span>GetVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t MultiStation::IComponent::GetVersion </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current version of the component </dd></dl>
+
+</div>
+</div>
+<a id="a81594dfb9b69efdb3f914354b4b98363" name="a81594dfb9b69efdb3f914354b4b98363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81594dfb9b69efdb3f914354b4b98363">&#9670;&#160;</a></span>SetDirty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::IComponent::SetDirty </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the current version of the <a class="el" href="class_multi_station_1_1_i_component.html" title="An interface for components, providing a common base for different component types.">IComponent</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Source/IComponent/<a class="el" href="_i_component_8hpp_source.html">IComponent.hpp</a></li>
+<li>Source/Interfaces/<a class="el" href="_i_component_8hpp_source.html">IComponent.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

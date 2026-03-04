@@ -49,7 +49,10 @@ void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a134d8e19c21deb74f1f
 bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{Has\+Entity}} (uint32\+\_\+t entity) const
 \begin{DoxyCompactList}\small\item\em Checks if the specified entity exists in the \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager}. \end{DoxyCompactList}\item 
 const std\+::vector$<$ uint32\+\_\+t $>$ \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_ae3e9bea4056c56d3b515fb093e91188d}{Get\+Entities}} (void) const
-\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all entities in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all entities in the system. \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a84b2d94f003ba5637dd1ee5f4edca381}\label{class_multi_station_1_1_e_c_s_manager_a84b2d94f003ba5637dd1ee5f4edca381} 
+void {\bfseries Poll\+Operations} (void)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -311,7 +314,7 @@ bool Multi\+Station\+::\+ECSManager\+::\+Has\+Register (\begin{DoxyParamCaption}
 Check if a component type T is registered to the ecs or not . 
 
 \begin{DoxyWarning}{Warning}
-The component type T must be derived from \doxylink{class_multi_station_1_1_i_component}{IComponent$<$\+T$>$} and must not be registered already, otherwise assert\textquotesingle{}s. 
+The component type T must be derived from IComponent$<$\+T$>$ and must not be registered already, otherwise assert\textquotesingle{}s. 
 \end{DoxyWarning}
 \Hypertarget{class_multi_station_1_1_e_c_s_manager_ada320d735b6eb1a0b08a8fa3a7a6832e}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!operator=@{operator=}}
 \index{operator=@{operator=}!MultiStation::ECSManager@{MultiStation::ECSManager}}
@@ -350,7 +353,7 @@ Register a new Component of type T to the ecs . This gives the ability to add/re
 \hline
 \end{DoxyTemplParams}
 \begin{DoxyWarning}{Warning}
-The component type T must be derived from \doxylink{class_multi_station_1_1_i_component}{IComponent$<$\+T$>$} and must not be registered already, otherwise assert\textquotesingle{}s. 
+The component type T must be derived from IComponent$<$\+T$>$ and must not be registered already, otherwise assert\textquotesingle{}s. 
 \end{DoxyWarning}
 \Hypertarget{class_multi_station_1_1_e_c_s_manager_a37837aa7efcc0d67b844f8ac70a52b1e}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!RemoveComponent@{RemoveComponent}}
 \index{RemoveComponent@{RemoveComponent}!MultiStation::ECSManager@{MultiStation::ECSManager}}

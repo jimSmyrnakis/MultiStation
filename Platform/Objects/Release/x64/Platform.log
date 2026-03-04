@@ -1,60 +1,56 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Commands.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Commands\Commands.cpp(58,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Commands\Commands.cpp(74,43): warning C4312: 'type cast': conversion from 'uint32_t' to 'void *' of greater size
-  Error.cpp
-  FBuffer.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,80): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244: 'argument': conversion from 'T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,65): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,49): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244: 'argument': conversion from 'T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(51,34): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(58,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(87,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(96,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(99,9): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(63,22): warning C4101: 'trash': unreferenced local variable
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(127,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244: 'argument': conversion from 'const T' to 'GLsizei', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         ]
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244: 'argument': conversion from 'const T' to 'GLint', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         with
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         [
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:             T=float
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\FBuffer\FBuffer.cpp(155,9): warning C4244:         ]
-  Format.cpp
-  Init.cpp
-  FShader.cpp
-  Shader.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\Shader\Shader.cpp(120,18): warning C4101: 'UniformsCount': unreferenced local variable
-  VShader.cpp
-  Texture2D.cpp
-  Texture2DResolution.cpp
-  UBuffer.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\UBuffer\UBuffer.cpp(181,33): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\GraphicsApi\UBuffer\UBuffer.cpp(290,50): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
-  VBuffer.cpp
-  VLayout.cpp
-  bmp.cpp
-  Time.cpp
-  GLFWWin.cpp
+  Debug.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x335 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x337 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33b that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33e that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x353 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x357 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x35a that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x360 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x364 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x367 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x369 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x36c that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x371 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x375 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e2 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e4 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e7 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ea that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ec that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x1dc that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x1f7 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x1fa that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x1fd that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x200 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x204 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x261 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x263 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x267 that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x26a that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x26c that is illegal in the current source character set (codepage 65001).
+  (compiling source file 'Source/Debug/Debug.cpp')
+  
   Platform.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\Platform\Library\Release\x64\Platform.lib

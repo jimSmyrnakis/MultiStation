@@ -93,7 +93,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);IMGUI_IMPL_OPENGL_LOADER_CUSTOM</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\Source\GLFW\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,7 +103,8 @@
     <Lib>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,7 +116,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);IMGUI_IMPL_OPENGL_LOADER_CUSTOM</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\Source\GLFW\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +128,8 @@
     <Lib>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -135,7 +139,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);IMGUI_IMPL_OPENGL_LOADER_CUSTOM</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\Source\GLFW\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +149,8 @@
     <Lib>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,7 +162,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);IMGUI_IMPL_OPENGL_LOADER_CUSTOM</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\Source\GLFW\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,11 +174,13 @@
     <Lib>
       <AdditionalDependencies>
       </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\ImGui.hpp" />
+    <ClInclude Include="Source\backends.hpp" />
     <ClInclude Include="Source\ImGui\backends\imgui_impl_glfw.h" />
     <ClInclude Include="Source\ImGui\imconfig.h" />
     <ClInclude Include="Source\ImGui\imgui.h" />
@@ -179,16 +188,15 @@
     <ClInclude Include="Source\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Source\ImGui\imstb_textedit.h" />
     <ClInclude Include="Source\ImGui\imstb_truetype.h" />
-    <ClInclude Include="Source\OpenGLBackendHelper.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\backends.cpp" />
     <ClCompile Include="Source\ImGui\backends\imgui_impl_glfw.cpp" />
     <ClCompile Include="Source\ImGui\imgui.cpp" />
     <ClCompile Include="Source\ImGui\imgui_demo.cpp" />
     <ClCompile Include="Source\ImGui\imgui_draw.cpp" />
     <ClCompile Include="Source\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Source\ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="Source\OpenGLBackendHelper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,9 +1,8 @@
 #pragma once
-#define GLM_ENABLE_EXPERIMENTAL
-#include <glm/glm.hpp>
+#include <GLM.hpp>
 #include <ECS.hpp>
 namespace MultiStation{
-	struct Transform3D : public  IComponent<Transform3D>{
+	struct Transform3D {
 
 		glm::vec3 position;
 		glm::vec3 rotation;

@@ -92,16 +92,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;$(ProjectDir)Source;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Program Files\Assimp\lib\x64;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022\;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;Platform.lib;assimp-vc143-mt.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,8 +115,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;$(ProjectDir)Source;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,8 +126,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Program Files\Assimp\lib\x64;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022\;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;Platform.lib;assimp-vc143-mt.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,16 +138,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;$(ProjectDir)Source;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Program Files\Assimp\lib\x64;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022\;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;Platform.lib;assimp-vc143-mt.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -152,8 +161,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Program Files\Assimp\include;$(ProjectDir)Source;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLM\;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,24 +172,24 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>C:\Program Files\Assimp\lib\x64;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022\;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;Platform.lib;assimp-vc143-mt.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Renderer\Model\Model.cpp" />
-    <ClCompile Include="Source\Test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Include\Renderer3DDS.hpp" />
-    <ClInclude Include="Source\Core.hpp" />
+    <ClInclude Include="Source\mspch.hpp" />
     <ClInclude Include="Source\Defs.hpp" />
-    <ClInclude Include="Source\Renderer\Model\Model.h" />
-    <ClInclude Include="Source\Test.hpp" />
+    <ClInclude Include="Source\Renderer\System\Renderer3DDS.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\.keep" />
     <None Include="Objects\.keep" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Renderer\System\Renderer3DDS.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

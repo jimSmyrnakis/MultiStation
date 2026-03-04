@@ -2,7 +2,7 @@
 #include "../JobSystem/JobSystem.hpp"
 #include <Platform.hpp>
 #include <unordered_map>
-#include "../ISystem/ISystem.hpp"
+#include "../Interfaces/ISystem.hpp"
 /**
  * @author : Dimitris Smyrnakis
  * @file SystemManager.hpp

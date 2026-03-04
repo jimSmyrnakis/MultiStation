@@ -93,15 +93,18 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +116,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,8 +126,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,15 +139,18 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,7 +162,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)Externals\GLFW\$(Platform)\include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)Externals\GLM;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,8 +172,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;Platform.lib;ImGui.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Externals\GLFW\$(Platform)\lib-vc2022;$(SolutionDir)Externals\GLEW\lib\Release\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

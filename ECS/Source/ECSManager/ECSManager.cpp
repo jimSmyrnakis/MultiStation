@@ -20,7 +20,7 @@ namespace MultiStation {
 
 	void ECSManager::CreateEntity(uint32_t entity) {
 		Operation operation;
-		operation.type = OperationType::CREATE_ENTITY;
+		operation.type = OperationType::CREATE;
 		operation.entity = entity;
 		operation.callbackFun = [this](Operation op) {
 			if (std::find(m_entities.begin(), m_entities.end(), op.entity) != m_entities.end()) {
@@ -28,13 +28,14 @@ namespace MultiStation {
 				return;
 			}
 			m_entities.push_back(op.entity);
+			m_entityComponentCounts.push_back(0); // Initialize component count for the new entity
 		};
-		m_operationQueue.Push(operation);
+		m_entitiesOperationQueue.Push(operation);
 	}
 
 	void ECSManager::DestroyEntity(uint32_t entity) {
 		Operation operation;
-		operation.type = OperationType::DESTROY_ENTITY;
+		operation.type = OperationType::REMOVE;
 		operation.entity = entity;
 		operation.callbackFun = [this](Operation op) {
 			auto it = std::find(m_entities.begin(), m_entities.end(), op.entity);
@@ -46,7 +47,7 @@ namespace MultiStation {
 			
 			m_registry->RemoveEntity(op.entity);
 		};
-		m_operationQueue.Push(operation);
+		m_entitiesOperationQueue.Push(operation);
 	}
 
 	bool ECSManager::HasEntity(uint32_t entity) const {
@@ -58,12 +59,26 @@ namespace MultiStation {
 	}
 
 	void ECSManager::PollOperations(void) {
-		while (m_operationQueue.Size()) {
+		// first do things to entities
+		while (m_entitiesOperationQueue.Size()) {
 			Operation operation;
-			m_operationQueue.Pop(operation);
+			m_entitiesOperationQueue.Pop(operation);
 			
 			// execute operation
+
+			operation.callbackFun(operation);
+		}
+		// then to components
+		while (m_componentOperationQueue.Size()) {
+			Operation operation;
+			m_componentOperationQueue.Pop(operation);
+
+			// execute operation
+
 			operation.callbackFun(operation);
 		}
 	}
+
+
+
 }

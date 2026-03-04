@@ -5,8 +5,7 @@
 #include <unordered_map>
 #include <stdint.h>
 #include <stddef.h>
-#include "IComponentArray.hpp"
-#include "../IComponent/IComponent.hpp"
+#include "../Interfaces/IComponentArray.hpp"
 #include <Platform.hpp>
 namespace MultiStation{
 
@@ -25,8 +24,6 @@ namespace MultiStation{
 	template<class T>
 	class ComponentArray : public IComponentArray{
 
-		static_assert(std::is_base_of<IComponent<T>, T>::value,
-			"T must inherit from IComponent<T>");
 
 		void ClearVectors(void);
 		void Move(ComponentArray* dest, ComponentArray* src);
@@ -133,7 +130,17 @@ namespace MultiStation{
 		 */
 		bool HasEntity(uint32_t entity) const;
 
+		/**
+		 * @brief Removes the component associated with the entity, if exist's . 
+		 * It is a override virtual method from the IComponent class , that so 
+		 * the registry can remove all components of a entity when the entity is destroyed
+		 * , as registry will not know and shouldn't know all the possible components compile time types .
+		 * 
+		 * @param[in] entity The entity id to remove the component for.
+		 */
 		void RemoveEntity(uint32_t entity) override;
+
+
 	private:
 		std::vector<T> m_components; // A cached component dynamic list
 		std::vector<uint32_t> m_indexToEntity; // component index mapped to entity value
@@ -152,7 +159,9 @@ namespace MultiStation{
 
 	template<typename T>
 	ComponentArray<T>::ComponentArray(void ) noexcept {
-		
+		m_components.reserve(1000);
+		m_indexToEntity.reserve(1000);
+		m_entityToIndex.reserve(1000);
 	};
 
 
@@ -214,6 +223,7 @@ namespace MultiStation{
 	template<typename T>
 	void ComponentArray<T>::RemoveEntity(uint32_t entity) {
 		this->RemoveComponent(entity);
+		
 	}
 
 
@@ -262,12 +272,12 @@ namespace MultiStation{
 	template<typename T>
 	void ComponentArray<T>::RemoveComponent(uint32_t entity) {
 		if (m_components.empty()) {
-			MS_ASSERT(false, "No components to remove.");
+			MS_ENGINE_WARN("No components to remove.");
 			return;
 		}
 
 		if (!m_entityToIndex.count(entity)) { // not found entity
-			MS_ASSERT(false, "Entity does not exist's.");
+			MS_ENGINE_WARN("Entity does not exist's.");
 			return;
 		}
 
@@ -287,7 +297,6 @@ namespace MultiStation{
 		m_components.pop_back();
 		m_indexToEntity.pop_back();
 		m_entityToIndex.erase(entity); // erase pair entity key, index vaue
-		
 		
 	}
 
@@ -344,7 +353,7 @@ namespace MultiStation{
 	}
 
 
-
+	
 
 
 

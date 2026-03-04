@@ -93,15 +93,18 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/Externals/GLM;$(SolutionDir)/ECS/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Platform/Library/$(Configuration)/$(Platform);$(SolutionDir)/ECS/Library/$(Configuration)/$(Platform);$(SolutionDir)/Utilities/Library/$(Configuration)/$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Platform.lib;ECS.lib;Utilities.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +116,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/Externals/GLM;$(SolutionDir)/ECS/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,8 +126,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Platform/Library/$(Configuration)/$(Platform);$(SolutionDir)/ECS/Library/$(Configuration)/$(Platform);$(SolutionDir)/Utilities/Library/$(Configuration)/$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Platform.lib;ECS.lib;Utilities.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -133,15 +139,18 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/Externals/GLM;$(SolutionDir)/ECS/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Platform/Library/$(Configuration)/$(Platform);$(SolutionDir)/ECS/Library/$(Configuration)/$(Platform);$(SolutionDir)/Utilities/Library/$(Configuration)/$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Platform.lib;ECS.lib;Utilities.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,7 +162,8 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/Externals/GLM;$(SolutionDir)/ECS/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,14 +172,19 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)/Platform/Library/$(Configuration)/$(Platform);$(SolutionDir)/ECS/Library/$(Configuration)/$(Platform);$(SolutionDir)/Utilities/Library/$(Configuration)/$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Platform.lib;ECS.lib;Utilities.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EntityInfo\EntityInfo.cpp" />
     <ClCompile Include="Source\Transforms\Transform3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Components.hpp" />
+    <ClInclude Include="Source\EntityInfo\EntityInfo.hpp" />
     <ClInclude Include="Source\Transforms\Transform3D.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

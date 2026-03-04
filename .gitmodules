@@ -7,3 +7,9 @@
 [submodule "ImGui/Source/ImGui"]
 	path = ImGui/Source/ImGui
 	url = https://github.com/ocornut/imgui.git
+[submodule "GLFW/Source/GLFW"]
+	path = GLFW/Source/GLFW
+	url = https://github.com/glfw/glfw.git
+[submodule "GLM/Source/GLM"]
+	path = GLM/Source/GLM
+	url = https://github.com/g-truc/glm.git

@@ -5,12 +5,10 @@
 \item 
 class \mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array}}
 \begin{DoxyCompactList}\small\item\em This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
-\begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_i_component}{IComponent}}
-\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
+\begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}
 \item 
 struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}
@@ -28,12 +26,6 @@ class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control
 \item 
 typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}}) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)
 \begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{namespace_multi_station_a877bbea4e50429c7414028c4ae4a0619}\label{namespace_multi_station_a877bbea4e50429c7414028c4ae4a0619} 
-{\footnotesize template$<$typename Derived$>$ }\\std\+::atomic$<$ uint32\+\_\+t $>$ {\bfseries IComponent$<$ Derived $>$\+::s\+\_\+type\+ID} = 0
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -57,14 +49,6 @@ A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Func
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{in}}  & {\em data} & A pointer to the data that will be passed to the job function when it is executed. \\
-\hline
-\mbox{\texttt{in}}  & {\em worker\+ID} & The ID of the worker thread that is executing the job. \\
-\hline
-\mbox{\texttt{in}}  & {\em id} & The ID of the job. \\
-\hline
-\mbox{\texttt{in}}  & {\em block\+ID} & The ID unique to the parallel for block that this job belongs to. \\
-\hline
-\mbox{\texttt{in}}  & {\em size} & The total number of jobs in the parallel for block that this job belongs to. \\
+\mbox{\texttt{in}}  & {\em \doxylink{struct_multi_station_1_1_job}{Job}} & A copy of the job so user can retreive more information \\
 \hline
 \end{DoxyParams}

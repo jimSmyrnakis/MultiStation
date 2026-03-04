@@ -63,10 +63,15 @@ namespace MultiStation {
 		template<typename T>
 		ComponentArray<T>* GetComponentArray(void) const;
 
-
+		/**
+		 * 
+		 * @brief helper method that provides the power to remove entity and it's components 
+		 * from the registry .  
+		 * @param entity that will be removed from the registry 
+ 		 */
 		void RemoveEntity(uint32_t entity);
 		
-
+		
 
 
 	public: // 
@@ -100,8 +105,7 @@ namespace MultiStation {
 
 	private:
 		std::unordered_map<uint32_t, IComponentArray*> m_typeComponentMap;
-		// componentArray<T> object and type ==> T for each component type
-		// registration
+		
 
 
 
@@ -123,7 +127,7 @@ namespace MultiStation {
 
 	template<typename T>
 	uint32_t Registry::Register(void) {
-		uint32_t id = ComponentArray<T>::GetID();
+		uint32_t id = IComponentArray::GetID<T>();
 		if (HasRegister<T>()) {
 			MS_ASSERT(false, "Component type already registered in the registry.");
 			return id;

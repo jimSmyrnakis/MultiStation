@@ -1,5 +1,7 @@
 #pragma once
 #include "ECSManager.hpp"
+#include <mutex>
+
 namespace MultiStation {
 
 
@@ -18,7 +20,7 @@ namespace MultiStation {
 	template<typename T, typename... Args>
 	void ECSManager::AddComponent(uint32_t entity, Args&&... args) {
 		Operation operation;
-		operation.type = OperationType::CREATE_COMPONENT;
+		operation.type = OperationType::CREATE;
 		operation.entity = entity;
 		operation.componentTypeID = IComponentArray::GetID<T>();
 		operation.callbackFun = [this , ... args = std::forward<Args>(args)](Operation op ) {
@@ -39,12 +41,13 @@ namespace MultiStation {
 			int index = std::distance(m_entities.begin(), it);
 			m_entityComponentCounts[index]++;
 		};
+		m_componentOperationQueue.Push(operation);
 	}
 
 	template<typename T>
 	void ECSManager::RemoveComponent(uint32_t entity) {
 		Operation operation;
-		operation.type = OperationType::REMOVE_COMPONENT;
+		operation.type = OperationType::REMOVE;
 		operation.entity = entity;
 		operation.componentTypeID = IComponentArray::GetID<T>();
 		operation.callbackFun = [this, entity](Operation op) {
@@ -69,13 +72,13 @@ namespace MultiStation {
 			}
 		};
 
-		m_operationQueue.Push(operation);
+		m_componentOperationQueue.Push(operation);
 	}
 
 	template<typename T, typename... Args>
 	void ECSManager::ReplaceComponent(uint32_t entity, Args&&... args) {
 		Operation operation;
-		operation.type = OperationType::REPLACE_COMPONENT;
+		operation.type = OperationType::REPLACE;
 		operation.entity = entity;
 		operation.componentTypeID = ComponentArray<T>::GetID();
 		operation.callbackFun = [this, ... args = std::forward<Args>(args)](Operation op) {
@@ -100,7 +103,7 @@ namespace MultiStation {
 			carr->ReplaceComponent(entity, args...);
 			
 		};
-		m_operationQueue.Push(operation);
+		m_componentOperationQueue.Push(operation);
 	}
 
 	template<typename T>
@@ -121,11 +124,11 @@ namespace MultiStation {
 	template<typename T>
 	bool ECSManager::HasComponent(uint32_t entity) const {
 		if (!HasEntity(entity)) {
-			MS_ENGINE_WARN("Entity %d does not exist. Skipping checking component.", entity);
+			//MS_ENGINE_WARN("Entity %d does not exist. Skipping checking component.", entity);
 			return false;
 		}
 		if (!HasRegister<T>()) {
-			MS_ENGINE_WARN("Component type not registered. Skipping checking component.");
+			//MS_ENGINE_WARN("Component type not registered. Skipping checking component.");
 			return false;
 		}
 		return m_registry->GetComponentArray<T>()->HasEntity(entity);

@@ -18,9 +18,18 @@
     <ClCompile Include="Source\Transforms\Transform3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EntityInfo\EntityInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Transforms\Transform3D.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityInfo\EntityInfo.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Components.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

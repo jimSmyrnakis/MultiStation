@@ -5,5 +5,5 @@
 #include "../Source/ImGui/imstb_textedit.h"
 #include "../Source/ImGui/imstb_rectpack.h"
 #include "../Source/ImGui/imgui_internal.h"
+#include "../Source/backends.hpp"
 #include "../Source/ImGui/backends/imgui_impl_glfw.h"
-#include "../Source/OpenGLBackendHelper.hpp"

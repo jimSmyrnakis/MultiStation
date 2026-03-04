@@ -29,7 +29,8 @@ namespace MultiStation {
 	void SystemManager::BindPhase(uint32_t phaseID) noexcept {
 		MS_ASSERT(!m_isExecuting, "Cannot bind phase while executing");
 		auto it = std::find(m_phases.begin(), m_phases.end(), phaseID);
-		MS_ASSERT(it != m_phases.end(), "Phase ID not found");
+		
+		MS_ASSERT((it != m_phases.end()), "Phase ID not found");
 		m_currentPhase = phaseID;
 
 	}
@@ -42,7 +43,6 @@ namespace MultiStation {
 		MS_ASSERT(std::find(vec.begin(), vec.end(), sys) == vec.end(), "System already added");
 #endif
 		m_systems[m_currentPhase].push_back( sys);
-		//sys->OnAttach();
 	}
 
 	void SystemManager::RemoveSystem(ISystem* sys) noexcept {
@@ -50,12 +50,11 @@ namespace MultiStation {
 		MS_ASSERT(!m_isExecuting, "Cannot remove system while ticking");
 
 		auto it = m_systems.find(m_currentPhase);
-		MS_ASSERT(it != m_systems.end(), "Phase not found");
+		MS_ASSERT((it != m_systems.end()), "Phase not found");
 
 		auto& vec = it->second;
 		auto vit = std::find(vec.begin(), vec.end(), sys);
-		MS_ASSERT(vit != vec.end(), "System not found in phase");
-		//(*vit)->OnDetach();
+		MS_ASSERT((vit != vec.end()), "System not found in phase");
 		vec.erase(vit);
 	}
 
@@ -77,7 +76,7 @@ namespace MultiStation {
 
 		// find all systems of the current phase and create SystemTickData for each system
 		auto it = m_systems.find(phaseID);
-		MS_ASSERT(it != m_systems.end(), "phase not Found");
+		MS_ASSERT((it != m_systems.end()), "phase not Found");
 
 		std::vector<SystemTickData> tickDataList;
 		for (const auto& system : it->second) {

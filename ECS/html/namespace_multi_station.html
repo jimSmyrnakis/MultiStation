@@ -96,11 +96,10 @@ $(function(){initNavTree('namespace_multi_station.html','',''); });
 Classes</h2></td></tr>
 <tr class="memitem:ComponentArray" id="r_ComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_component_array.html">ComponentArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities.  <a href="class_multi_station_1_1_component_array.html#details">More...</a><br /></td></tr>
-<tr class="memitem:IComponentArray" id="r_IComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html">IComponentArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types.  <a href="class_multi_station_1_1_i_component_array.html#details">More...</a><br /></td></tr>
 <tr class="memitem:ECSManager" id="r_ECSManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_multi_station_1_1_e_c_s_manager.html" title="The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...">ECSManager</a> class is responsible for managing entities and component's . Components / Entities that Created/Removed/Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase .  <a href="class_multi_station_1_1_e_c_s_manager.html#details">More...</a><br /></td></tr>
-<tr class="memitem:IComponent" id="r_IComponent"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component.html">IComponent</a></td></tr>
+<tr class="memitem:IComponentArray" id="r_IComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html">IComponentArray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types.  <a href="class_multi_station_1_1_i_component_array.html#details">More...</a><br /></td></tr>
 <tr class="memitem:ISystem" id="r_ISystem"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a></td></tr>
 <tr class="memitem:Job" id="r_Job"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_multi_station_1_1_job.html">Job</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A job is a unit of work that can be executed by a worker thread. The <a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a> struct defines the function to execute and the attributes of the job .  <a href="struct_multi_station_1_1_job.html#details">More...</a><br /></td></tr>
@@ -115,12 +114,6 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:adbe164398068beda9a0d51dd2ed4296b" id="r_adbe164398068beda9a0d51dd2ed4296b"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a>) (struct <a class="el" href="struct_multi_station_1_1_job.html">Job</a> job)</td></tr>
 <tr class="memdesc:adbe164398068beda9a0d51dd2ed4296b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="#adbe164398068beda9a0d51dd2ed4296b" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">JobFunction</a> is a function pointer that defines the signature of the function that can be executed as a job.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a877bbea4e50429c7414028c4ae4a0619" id="r_a877bbea4e50429c7414028c4ae4a0619"><td class="memTemplParams" colspan="2"><a id="a877bbea4e50429c7414028c4ae4a0619" name="a877bbea4e50429c7414028c4ae4a0619"></a>
-template&lt;typename Derived&gt; </td></tr>
-<tr class="memitem:a877bbea4e50429c7414028c4ae4a0619 template"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>IComponent&lt; Derived &gt;::s_typeID</b> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis </dd></dl>
@@ -140,11 +133,7 @@ template&lt;typename Derived&gt; </td></tr>
 <p>A <a class="el" href="#adbe164398068beda9a0d51dd2ed4296b" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">JobFunction</a> is a function pointer that defines the signature of the function that can be executed as a job. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>A pointer to the data that will be passed to the job function when it is executed. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">workerID</td><td>The ID of the worker thread that is executing the job. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The ID of the job. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">blockID</td><td>The ID unique to the parallel for block that this job belongs to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The total number of jobs in the parallel for block that this job belongs to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a></td><td>A copy of the job so user can retreive more information </td></tr>
   </table>
   </dd>
 </dl>

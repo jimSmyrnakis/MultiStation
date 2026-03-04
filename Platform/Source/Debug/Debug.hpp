@@ -52,5 +52,5 @@ namespace MultiStation {
 			STOP_ON_ERROR(); \
 		} 
 #elif defined(NDEBUG)
-	#define MS_ASSERT(expr, ...) if (!expr) { (STOP_ON_ERROR()) }
+	#define MS_ASSERT(expr, ...) if (!(expr)) { (STOP_ON_ERROR()); }
 #endif

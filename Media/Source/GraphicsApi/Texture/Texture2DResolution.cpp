@@ -1,6 +1,7 @@
 #include "Texture2DResolution.hpp"
 #include "../Init.hpp"
-#include <GL/glew.h>
+
+#include <GLAD.hpp>
 #include <Platform.hpp>
 namespace MultiStation{
     Texture2DResolution::Texture2DResolution(const uint32_t& width  , const uint32_t& height  , const TextureInternalFormat& format ){

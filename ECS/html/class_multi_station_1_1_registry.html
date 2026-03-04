@@ -114,8 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81c8f1026d4593018796567043e277ae" id="r_a81c8f1026d4593018796567043e277ae"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a81c8f1026d4593018796567043e277ae template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_multi_station_1_1_component_array.html">ComponentArray</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c8f1026d4593018796567043e277ae">GetComponentArray</a> (void) const</td></tr>
 <tr class="memdesc:a81c8f1026d4593018796567043e277ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> for the specified component type T if is registered in the <a class="el" href="class_multi_station_1_1_registry.html" title="The Registry class manages the registration and retrieval of component arrays for different component...">Registry</a>.  <br /></td></tr>
-<tr class="memitem:a1643ede4d3f6562fb36fd974defeac95" id="r_a1643ede4d3f6562fb36fd974defeac95"><td class="memItemLeft" align="right" valign="top"><a id="a1643ede4d3f6562fb36fd974defeac95" name="a1643ede4d3f6562fb36fd974defeac95"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveEntity</b> (uint32_t entity)</td></tr>
+<tr class="memitem:a1643ede4d3f6562fb36fd974defeac95" id="r_a1643ede4d3f6562fb36fd974defeac95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1643ede4d3f6562fb36fd974defeac95">RemoveEntity</a> (uint32_t entity)</td></tr>
+<tr class="memdesc:a1643ede4d3f6562fb36fd974defeac95"><td class="mdescLeft">&#160;</td><td class="mdescRight">helper method that provides the power to remove entity and it's components from the registry .  <br /></td></tr>
 <tr class="memitem:a8ffe3bb88ee38c81f61af286e3dc351b" id="r_a8ffe3bb88ee38c81f61af286e3dc351b"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a8ffe3bb88ee38c81f61af286e3dc351b template"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ffe3bb88ee38c81f61af286e3dc351b">Register</a> (void)</td></tr>
 <tr class="memdesc:a8ffe3bb88ee38c81f61af286e3dc351b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> for the specified component type T if this Component doesn't exist or otherwise does nothing .  <br /></td></tr>
@@ -374,6 +374,31 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ID of the registered component type </dd></dl>
+
+</div>
+</div>
+<a id="a1643ede4d3f6562fb36fd974defeac95" name="a1643ede4d3f6562fb36fd974defeac95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1643ede4d3f6562fb36fd974defeac95">&#9670;&#160;</a></span>RemoveEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::Registry::RemoveEntity </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>helper method that provides the power to remove entity and it's components from the registry . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>that will be removed from the registry </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

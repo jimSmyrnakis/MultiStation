@@ -1,6 +1,7 @@
 #include "Texture2D.hpp"
 #include "../Init.hpp"
-#include <GL/glew.h>
+
+#include <GLAD.hpp>
 #include <Platform.hpp>
 namespace MultiStation {
     #define DEFAULT_TEX2D_DIM 1024

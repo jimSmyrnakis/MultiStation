@@ -1,0 +1,11 @@
+﻿  GameObject.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/GameObject/GameObject.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\GameObject\GameObject.cpp(9,15):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::EntityInfo,const char(&)[11]>(uint32_t,const char (&)[11])' being compiled
+  
+  Scene.cpp
+  Generating Code...
+  SceneManager.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Library\Debug\x64\SceneManager.lib

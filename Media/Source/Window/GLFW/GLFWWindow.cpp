@@ -1,6 +1,5 @@
-#define GLFW_INCLUDE_NONE
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
+
+#include <GLFW.hpp>
 #include <Platform.hpp>
 #include "GLFWWindow.hpp"
 namespace MultiStation {

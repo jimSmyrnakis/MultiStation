@@ -47,7 +47,7 @@ const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_compone
 bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{Has\+Entity}} (uint32\+\_\+t entity) const
 \begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{Remove\+Entity}} (uint32\+\_\+t entity) override
-\begin{DoxyCompactList}\small\item\em Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Removes the component associated with the entity, if exist\textquotesingle{}s . It is a override virtual method from the IComponent class , that so the registry can remove all components of a entity when the entity is destroyed , as registry will not know and shouldn\textquotesingle{}t know all the possible components compile time types . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{Multi\+Station\+::\+IComponent\+Array}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -311,11 +311,11 @@ void \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+:
 
 
 
-Helper method for registry to use in order to remove all components of a entity when it is destroyed, as the registry does not know the actual type of the component array to call its Remove\+Component method. 
+Removes the component associated with the entity, if exist\textquotesingle{}s . It is a override virtual method from the IComponent class , that so the registry can remove all components of a entity when the entity is destroyed , as registry will not know and shouldn\textquotesingle{}t know all the possible components compile time types . 
 
 
-\begin{DoxyParams}{Parameters}
-{\em entity} & \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em entity} & The entity id to remove the component for. \\
 \hline
 \end{DoxyParams}
 

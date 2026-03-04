@@ -1,37 +1,134 @@
-\doxysection{Multi\+Station\+::IComponent\texorpdfstring{$<$}{<} Derived \texorpdfstring{$>$}{>} Class Template Reference}
-\hypertarget{class_multi_station_1_1_i_component}{}\label{class_multi_station_1_1_i_component}\index{MultiStation::IComponent$<$ Derived $>$@{MultiStation::IComponent$<$ Derived $>$}}
+\doxysection{Multi\+Station\+::IComponent Class Reference}
+\hypertarget{class_multi_station_1_1_i_component}{}\label{class_multi_station_1_1_i_component}\index{MultiStation::IComponent@{MultiStation::IComponent}}
+
+
+An interface for components, providing a common base for different component types.  
+
+
+
+
+{\ttfamily \#include $<$IComponent.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_aa852a2eac0e8d4c60f3fbf1b06c726ff}\label{class_multi_station_1_1_i_component_aa852a2eac0e8d4c60f3fbf1b06c726ff} 
-{\bfseries IComponent} (const IComponent \&cpy) noexcept=delete
+\mbox{\hyperlink{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}{IComponent}} (const std\+::string \&name="{}Component"{}) noexcept
+\begin{DoxyCompactList}\small\item\em construct a new \doxylink{class_multi_station_1_1_i_component}{IComponent} Interface with basic metadata . \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_a80c542f95c14678f0f33086e79f5fc80}{\texorpdfstring{$\sim$}{\string~}\+IComponent}} (void) noexcept=default
+\begin{DoxyCompactList}\small\item\em virtual destructor to allow for proper cleanup of derived classes. \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_i_component_a88f06a5c99a42a97dae0b19fa2a589f2}\label{class_multi_station_1_1_i_component_a88f06a5c99a42a97dae0b19fa2a589f2} 
+{\bfseries IComponent} (const IComponent \&cpy) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a76d754c803c2e9234f7405b62317d208}\label{class_multi_station_1_1_i_component_a76d754c803c2e9234f7405b62317d208} 
-IComponent \& {\bfseries operator=} (const IComponent \&cpy) noexcept=delete
+\Hypertarget{class_multi_station_1_1_i_component_ab2a1911043d28901617cd2d525afbc3c}\label{class_multi_station_1_1_i_component_ab2a1911043d28901617cd2d525afbc3c} 
+\mbox{\hyperlink{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}{IComponent}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}{IComponent}} \&cpy) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a749ef534c416460754e919926e21d5c3}\label{class_multi_station_1_1_i_component_a749ef534c416460754e919926e21d5c3} 
+\Hypertarget{class_multi_station_1_1_i_component_a29d489242468f1168f6c8894d8957506}\label{class_multi_station_1_1_i_component_a29d489242468f1168f6c8894d8957506} 
 {\bfseries IComponent} (IComponent \&\&move) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a87199fd39ce7fcf41eb166e1d4dcb60b}\label{class_multi_station_1_1_i_component_a87199fd39ce7fcf41eb166e1d4dcb60b} 
-virtual IComponent \& {\bfseries operator=} (IComponent \&\&move) noexcept=default
+\Hypertarget{class_multi_station_1_1_i_component_a803517da1bf64b1c1650d23a5edb0e26}\label{class_multi_station_1_1_i_component_a803517da1bf64b1c1650d23a5edb0e26} 
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}{IComponent}} \& {\bfseries operator=} (\mbox{\hyperlink{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}{IComponent}} \&\&move) noexcept=default
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a06e1e759d0602db6bcfc2ae8719bf4a9}\label{class_multi_station_1_1_i_component_a06e1e759d0602db6bcfc2ae8719bf4a9} 
-uint32\+\_\+t {\bfseries Get\+Instance\+Type\+ID} (void) const
+uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_i_component_a4c8332e1ea6e42403311997fbe2fa2b3}{Get\+ID}} (void) const
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a743ee02984aa88510703dfc3172ed2ba}\label{class_multi_station_1_1_i_component_a743ee02984aa88510703dfc3172ed2ba} 
-uint32\+\_\+t {\bfseries Get\+Version} (void) const
+uint32\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_i_component_afa573e2290cd0886d962cfb303f28d71}{Get\+Version}} (void) const
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_a03d46f7ee6ed202efc08d0fbb68ef311}\label{class_multi_station_1_1_i_component_a03d46f7ee6ed202efc08d0fbb68ef311} 
-void {\bfseries Set\+Dirty} (void) const
+void \mbox{\hyperlink{class_multi_station_1_1_i_component_a81594dfb9b69efdb3f914354b4b98363}{Set\+Dirty}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Changes the current version of the \doxylink{class_multi_station_1_1_i_component}{IComponent}. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_multi_station_1_1_i_component_aa2dc72f5a262c1289ecadab1a947d5c6}{Get\+Name}} (void) noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_i_component_ac2701ced4b4012574c38595ebfb35682}\label{class_multi_station_1_1_i_component_ac2701ced4b4012574c38595ebfb35682} 
-std\+::string \& {\bfseries Get\+Name} (void) noexcept
-\item 
-\Hypertarget{class_multi_station_1_1_i_component_ae27eed135500594fe32996dd57fd75a7}\label{class_multi_station_1_1_i_component_ae27eed135500594fe32996dd57fd75a7} 
-const std\+::string \& {\bfseries Get\+Name} (void) const noexcept
+const std\+::string \& \mbox{\hyperlink{class_multi_station_1_1_i_component_a9d8d2c00c574d312bebfb95dad879b0e}{Get\+Name}} (void) const noexcept
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An interface for components, providing a common base for different component types. 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis
+\end{DoxyAuthor}
+This way we ensure that all components can be treated polymorphically , as well for each different component type we can get a unique type ID and version control for each component instance to know when it is modified. Fethermore , this interface will provided anybody that creates a new component with all the desire metadata to use . 
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_i_component_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966}\index{MultiStation::IComponent@{MultiStation::IComponent}!IComponent@{IComponent}}
+\index{IComponent@{IComponent}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{IComponent()}{IComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_a0db8f4576bc9a9eff6419d98e1c46966} 
+Multi\+Station\+::\+IComponent\+::\+IComponent (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{ = {\ttfamily "{}Component"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+construct a new \doxylink{class_multi_station_1_1_i_component}{IComponent} Interface with basic metadata . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the component that will be given , by default is set to the name "{}\+Component"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_i_component_a80c542f95c14678f0f33086e79f5fc80}\index{MultiStation::IComponent@{MultiStation::IComponent}!````~IComponent@{\texorpdfstring{$\sim$}{\string~}IComponent}}
+\index{````~IComponent@{\texorpdfstring{$\sim$}{\string~}IComponent}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IComponent()}{\string~IComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_a80c542f95c14678f0f33086e79f5fc80} 
+virtual Multi\+Station\+::\+IComponent\+::\texorpdfstring{$\sim$}{\string~}\+IComponent (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+virtual destructor to allow for proper cleanup of derived classes. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_i_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_i_component_a4c8332e1ea6e42403311997fbe2fa2b3}\index{MultiStation::IComponent@{MultiStation::IComponent}!GetID@{GetID}}
+\index{GetID@{GetID}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_a4c8332e1ea6e42403311997fbe2fa2b3} 
+uint32\+\_\+t Multi\+Station\+::\+IComponent\+::\+Get\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Unique Identifier for this icomponent 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_component_a9d8d2c00c574d312bebfb95dad879b0e}\index{MultiStation::IComponent@{MultiStation::IComponent}!GetName@{GetName}}
+\index{GetName@{GetName}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_a9d8d2c00c574d312bebfb95dad879b0e} 
+const std\+::string \& Multi\+Station\+::\+IComponent\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+The name string reference of the component . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_component_aa2dc72f5a262c1289ecadab1a947d5c6}\index{MultiStation::IComponent@{MultiStation::IComponent}!GetName@{GetName}}
+\index{GetName@{GetName}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_aa2dc72f5a262c1289ecadab1a947d5c6} 
+std\+::string \& Multi\+Station\+::\+IComponent\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+The name string reference of the component , so you can change it if you want to . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_component_afa573e2290cd0886d962cfb303f28d71}\index{MultiStation::IComponent@{MultiStation::IComponent}!GetVersion@{GetVersion}}
+\index{GetVersion@{GetVersion}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{GetVersion()}{GetVersion()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_afa573e2290cd0886d962cfb303f28d71} 
+uint32\+\_\+t Multi\+Station\+::\+IComponent\+::\+Get\+Version (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+The current version of the component 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_i_component_a81594dfb9b69efdb3f914354b4b98363}\index{MultiStation::IComponent@{MultiStation::IComponent}!SetDirty@{SetDirty}}
+\index{SetDirty@{SetDirty}!MultiStation::IComponent@{MultiStation::IComponent}}
+\doxysubsubsection{\texorpdfstring{SetDirty()}{SetDirty()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_component_a81594dfb9b69efdb3f914354b4b98363} 
+void Multi\+Station\+::\+IComponent\+::\+Set\+Dirty (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Changes the current version of the \doxylink{class_multi_station_1_1_i_component}{IComponent}. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+IComponent/IComponent.\+hpp\end{DoxyCompactItemize}
+Source/\+Interfaces/IComponent.\+hpp\end{DoxyCompactItemize}

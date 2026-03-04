@@ -1,13 +1,14 @@
 #include "../mspch.h"
 #include "Application.hpp"
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include <GLAD.hpp>
 
 namespace MultiStation {
 	void Application::SetUp(void) noexcept {}
 
 	Application::Application(const std::string name) noexcept {
 		m_name = name;
+		// initiallize scene backend
+		m_scene= new (std::nothrow)Scene(m_systemManager.GetECSManager());
 		// creating a window
 		WindowProperties props;
 		props.Title = name;
@@ -79,14 +80,21 @@ namespace MultiStation {
 		// Update the window
 		m_window->SwapBuffers();
 
+		// Update one more time the ecs
+		m_scene->UpdateScene();
 	}
 
 	void Application::Finalize(void) noexcept {
 		
-		// Free im gui isystem
-		if (m_ImGuiSystem) {
-			delete m_ImGuiSystem;
-			m_ImGuiSystem = nullptr;
+		
+
+		// Remove systems from existing system / layer managers
+		// TODO 
+
+		// Free all systems but first detached them
+		for (ISystem* system : m_systems) {
+			system->OnDetach();
+			delete system;
 		}
 
 	}
@@ -100,8 +108,8 @@ namespace MultiStation {
 	
 
 
-	ECSManager& Application::GetECS(void) noexcept { return m_systemManager.GetECSManager(); }
-	const ECSManager& Application::GetECS(void) const noexcept { return m_systemManager.GetECSManager(); }
+	Scene& Application::GetScene(void) noexcept { return *m_scene; }
+	const Scene& Application::GetScene(void) const noexcept { return *m_scene; }
 
 
 	Window& Application::GetWindow(void) noexcept { return *m_window; }

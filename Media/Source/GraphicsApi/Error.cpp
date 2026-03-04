@@ -1,8 +1,5 @@
 #include "Error.hpp"
-#define GLEW_STATIC
-#include <GL/glew.h>
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
+#include <GLAD.hpp>
 #include <iostream>
 #include <Platform.hpp>
 void GLClearErrors(void) {

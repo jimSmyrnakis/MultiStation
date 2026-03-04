@@ -1,5 +1,5 @@
 \doxysection{IComponent\+Array.\+hpp}
-\hypertarget{_i_component_array_8hpp_source}{}\label{_i_component_array_8hpp_source}\index{Source/ComponentArray/IComponentArray.hpp@{Source/ComponentArray/IComponentArray.hpp}}
+\hypertarget{_i_component_array_8hpp_source}{}\label{_i_component_array_8hpp_source}\index{Source/Interfaces/IComponentArray.hpp@{Source/Interfaces/IComponentArray.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -19,17 +19,19 @@
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{GetID}}(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5}{RemoveEntity}}(uint32\_t\ entity)\ =\ 0;}
-\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00039\ }
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00045\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{IComponentArray::GetID}}(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ s\_typeID.fetch\_add(std::memory\_order\_relaxed);}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
-\DoxyCodeLine{00048\ \ \ \ \ \}}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00047\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{IComponentArray::GetID}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ s\_typeID.fetch\_add(1\ ,std::memory\_order\_relaxed);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}}
 
 \end{DoxyCode}

@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include "../Format/Format.hpp"
 #include "../Texture/Texture2D.hpp"
-#include <glm/glm.hpp>
+#include <GLM.hpp>
 #include <Platform.hpp>
 namespace MultiStation{
     

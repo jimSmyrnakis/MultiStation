@@ -1,8 +1,6 @@
 #include "Init.hpp"
-#define GLEW_STATIC
-#include <GL/glew.h>
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
+#include <GLAD.hpp>
+#include <GLFW.hpp>
 #include <iostream>
 #include <Platform.hpp>
 
@@ -26,17 +24,13 @@ namespace MultiStation {
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		// Allow Forward Compatbility
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-		//Initialize GLEW
-		glewExperimental = GL_TRUE;
-		GLenum err = glewInit();
-		if (err != GLEW_OK) {
-			// Problem: glewInit failed, something is seriously wrong.
-			fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-			MS_ASSERT(0, "Failed to Initialize GLEW !");
-			return false;
+		//Initialize GLAD
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+			std::cout << "Failed to initialize GLAD" << std::endl;
+			return -1;
 		}
 		else {
-			fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
+			std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;;
 		}
 		
 

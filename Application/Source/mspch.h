@@ -1,18 +1,20 @@
 #pragma once
-#include <ECS.hpp>
-#include <Utilities.hpp>
-#include <Platform.hpp>
-#include <Media.hpp>
-#include <ImGui.hpp>
+#include <atomic>
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <functional>
 #include <shared_mutex>
-#include <atomic>
 #include <thread>
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
 #include <memory>
 
+#include <ECS.hpp>
+#include <Components.hpp>
+#include <Utilities.hpp>
+#include <Platform.hpp>
+#include <Media.hpp>
+#include <ImGui.hpp>
+#include <SceneManager.hpp>

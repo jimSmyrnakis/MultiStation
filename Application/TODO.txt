@@ -1,0 +1,2 @@
+* Make System Manager and Layer Manager Able to remove all systems that are pointing to , so application at close is 
+  the only one has them , so it can detached them and close them

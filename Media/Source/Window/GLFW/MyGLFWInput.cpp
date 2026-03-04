@@ -1,5 +1,5 @@
 #include "MyGLFWInput.hpp"
-#include <GLFW/glfw3.h>
+#include <GLFW.hpp>
 
 namespace MultiStation {
 

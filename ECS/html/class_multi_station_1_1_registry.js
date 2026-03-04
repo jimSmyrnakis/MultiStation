@@ -9,5 +9,6 @@ var class_multi_station_1_1_registry =
     [ "operator=", "class_multi_station_1_1_registry.html#acef85d8806a22e62a14b8894b0fa11e6", null ],
     [ "operator=", "class_multi_station_1_1_registry.html#a0dd835c16bf5b0eb577e70fc9e814b68", null ],
     [ "Register", "class_multi_station_1_1_registry.html#a8ffe3bb88ee38c81f61af286e3dc351b", null ],
+    [ "RemoveEntity", "class_multi_station_1_1_registry.html#a1643ede4d3f6562fb36fd974defeac95", null ],
     [ "Unregister", "class_multi_station_1_1_registry.html#a6219d7e9d285f3262c8f36fe3a544d1f", null ]
 ];

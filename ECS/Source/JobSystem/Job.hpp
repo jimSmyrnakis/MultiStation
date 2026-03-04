@@ -13,18 +13,11 @@ namespace MultiStation{
 	
 	/**
 	 * @brief A JobFunction is a function pointer that defines the signature of the function that can be executed as a job. 
-	 * @param[in] data A pointer to the data that will be passed to the job function when it is executed. 
-	 * @param[in] workerID The ID of the worker thread that is executing the job. 
-	 * @param[in] id The ID of the job.
-	 * @param[in] blockID The ID unique to the parallel for block that this job belongs to.
-	 * @param[in] size The total number of jobs in the parallel for block that this job belongs to.
+	 * @param[in] Job A copy of the job so user can retreive more information 
 	 */
 	typedef void (*JobFunction)(struct Job job);
 
 	
-
-	
-
 	/**
 	 *
 	 * @brief A job is a unit of work that can be executed by a worker thread. The Job struct

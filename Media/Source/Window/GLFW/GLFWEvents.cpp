@@ -1,7 +1,5 @@
 #include "GLFWWindow.hpp"
-#define GLFW_INCLUDE_NONE
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
+#include <GLFW.hpp>
 #include <Platform.hpp>
 #include "../../Events/Event.hpp"
 #include "../../Events/ApplicationEvent.hpp"

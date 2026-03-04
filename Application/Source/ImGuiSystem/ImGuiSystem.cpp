@@ -1,8 +1,8 @@
 #include "../mspch.h"
 #include "ImGuiSystem.hpp"
+#include <GLAD.hpp>
+#include <GLFW.hpp>
 #include <ImGui.hpp>
-#define GLFW_STATIC
-#include <GLFW/glfw3.h>
 #include "../Application/Application.hpp"
 namespace MultiStation {
 

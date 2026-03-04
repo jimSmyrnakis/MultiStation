@@ -18,15 +18,21 @@
     <ClCompile Include="Source\Editor\Editor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\HierarchyPanel\HierarchyPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Editor\Editor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Core.hpp">
+    <ClInclude Include="Source\mspch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Editor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\HierarchyPanel\HierarchyPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

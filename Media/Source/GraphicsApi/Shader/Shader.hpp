@@ -1,7 +1,7 @@
 #pragma once 
 #include <stdint.h>
 #include <stddef.h>
-#include <glm/glm.hpp>
+#include <GLM.hpp>
 #include "../UBuffer/UBuffer.hpp"
 #include "VShader.hpp"
 #include "FShader.hpp"
