@@ -22,14 +22,7 @@ namespace MultiStation {
 		Operation operation;
 		operation.type = OperationType::CREATE;
 		operation.entity = entity;
-		operation.callbackFun = [this](Operation op) {
-			if (std::find(m_entities.begin(), m_entities.end(), op.entity) != m_entities.end()) {
-				MS_ENGINE_WARN("Entity %d already exists. Skipping creation.", op.entity);
-				return;
-			}
-			m_entities.push_back(op.entity);
-			m_entityComponentCounts.push_back(0); // Initialize component count for the new entity
-		};
+		operation.callbackFun = nullptr;
 		m_entitiesOperationQueue.Push(operation);
 	}
 
@@ -37,16 +30,7 @@ namespace MultiStation {
 		Operation operation;
 		operation.type = OperationType::REMOVE;
 		operation.entity = entity;
-		operation.callbackFun = [this](Operation op) {
-			auto it = std::find(m_entities.begin(), m_entities.end(), op.entity);
-			if (it == m_entities.end()) {
-				MS_ENGINE_WARN("Entity %d does not exist. Skipping destruction.", op.entity);
-				return;
-			}
-			m_entities.erase(it);
-			
-			m_registry->RemoveEntity(op.entity);
-		};
+		operation.callbackFun = nullptr;
 		m_entitiesOperationQueue.Push(operation);
 	}
 
@@ -66,7 +50,17 @@ namespace MultiStation {
 			
 			// execute operation
 
-			operation.callbackFun(operation);
+			switch (operation.type) {
+			case OperationType::CREATE:
+				DoCreateEntity(operation.entity);
+				break;
+			case OperationType::REMOVE:
+				DoRemoveEntity(operation.entity);
+				break;
+			default:
+				MS_ENGINE_WARN("Invalid operation type for entity operation. Skipping.");
+				break;
+			}
 		}
 		// then to components
 		while (m_componentOperationQueue.Size()) {
@@ -77,6 +71,28 @@ namespace MultiStation {
 
 			operation.callbackFun(operation);
 		}
+	}
+
+
+	void ECSManager::DoRemoveEntity(uint32_t entity) {
+		auto it = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it == m_entities.end()) {
+			MS_ENGINE_WARN("Entity %d does not exist. Skipping destruction.", entity);
+			return;
+		}
+		m_entities.erase(it);
+
+		m_registry->RemoveEntity(entity);
+	}
+
+
+	void ECSManager::DoCreateEntity(uint32_t entity) {
+		if (std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end()) {
+			MS_ENGINE_WARN("Entity %d already exists. Skipping creation.", entity);
+			return;
+		}
+		m_entities.push_back(entity);
+		m_entityComponentCounts.push_back(0); // Initialize component count for the new entity
 	}
 
 

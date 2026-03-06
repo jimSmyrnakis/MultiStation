@@ -1,8 +1,6 @@
-﻿  IComponentArray.cpp
-  ECSManager.cpp
+﻿  ECSManager.cpp
   ISystem.cpp
-  Job.cpp
-  JobSystem.cpp
+  Registry.cpp
   SystemManager.cpp
 C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\SystemManager\SystemManager.cpp(71,26): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(492,85): warning C4244: 'argument': conversion from '_Ty' to 'uint32_t', possible loss of data
@@ -62,11 +60,8 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
               _Ty=MultiStation::JobSystem
           ]
   
-  Registry.cpp
-  VersionControl.cpp
   ECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\ECS\Library\Release\Win32\ECS.lib
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Interfaces/ISystem.hpp:20: warning: Compound MultiStation::ISystem is not documented.
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/VersionControl/VersionControl.hpp:7: warning: Compound MultiStation::VersionControl is not documented.
   Doxygen version used: 1.15.0 (7cca38ba5185457e6d9495bf963d4cdeacebc25a)
   Searching for include files...
   Searching for example files...
@@ -132,10 +127,13 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
   Searching for documented defines...
   Computing class inheritance relations...
   Computing class usage relations...
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/VersionControl/VersionControl.hpp:7: warning: Compound MultiStation::VersionControl is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:61: warning: documented symbol 'MultiStation::Job::std::shared_ptr' was not declared or defined.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Registry/Registry.hpp:11: warning: Unsupported xml/html tag <T> found
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/JobSystem/Job.hpp:16: warning: argument 'Job' of command @param is not found in the argument list of MultiStation::JobFunction(struct Job job)
-  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp:199: warning: Member PollOperations(void) (function) of class MultiStation::ECSManager is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp:207: warning: Member PollOperations(void) (function) of class MultiStation::ECSManager is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp:210: warning: Member DoRemoveEntity(uint32_t entity) (function) of class MultiStation::ECSManager is not documented.
+  C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/ECSManager/ECSManager.hpp:213: warning: Member DoCreateEntity(uint32_t entity) (function) of class MultiStation::ECSManager is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Interfaces/ISystem.hpp:23: warning: Member ISystem(const std::string name) noexcept (function) of class MultiStation::ISystem is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Interfaces/ISystem.hpp:29: warning: Member ISystem(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
   C:/Users/User/Desktop/Projects/MultiStation/ECS/Source/Interfaces/ISystem.hpp:30: warning: Member operator=(ISystem &&move) noexcept=default (function) of class MultiStation::ISystem is not documented.
@@ -256,6 +254,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
   finalizing index lists...
   writing tag file...
   Running plantuml with JAVA...
-  type lookup cache used 114/65536 hits=251 misses=129
-  symbol lookup cache used 339/65536 hits=2816 misses=339
+  type lookup cache used 114/65536 hits=270 misses=129
+  symbol lookup cache used 342/65536 hits=2943 misses=342
   finished...

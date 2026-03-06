@@ -24,6 +24,9 @@
     <ClInclude Include="Include\SceneManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Interfaces\IUpdatable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameObject\GameObject.cpp">

@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="Include\SceneManager.hpp" />
     <ClInclude Include="Source\GameObject\GameObject.hpp" />
+    <ClInclude Include="Source\Interfaces\IUpdatable.hpp" />
     <ClInclude Include="Source\Scene\Scene.hpp" />
   </ItemGroup>
   <ItemGroup>

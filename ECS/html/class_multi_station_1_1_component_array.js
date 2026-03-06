@@ -7,6 +7,7 @@ var class_multi_station_1_1_component_array =
     [ "AddComponent", "class_multi_station_1_1_component_array.html#a78f7a3280949f893f63fcb089bca6a08", null ],
     [ "GetComponent", "class_multi_station_1_1_component_array.html#a767044bdd210c9fdaa9269f4bfe3ed02", null ],
     [ "GetComponent", "class_multi_station_1_1_component_array.html#a6275dde57c93997a4c0e276f158bfcf8", null ],
+    [ "GetComponents", "class_multi_station_1_1_component_array.html#aecf564429280a9d356e55ad2c5bb709b", null ],
     [ "GetComponents", "class_multi_station_1_1_component_array.html#ad5adc64fa5bdb3ff2f99e7df7047fa8a", null ],
     [ "GetEntity", "class_multi_station_1_1_component_array.html#a275525c6f1a36d587e9d10fcb7302f4a", null ],
     [ "HasEntity", "class_multi_station_1_1_component_array.html#a69580e89e553c7524c35f0e156c78d82", null ],

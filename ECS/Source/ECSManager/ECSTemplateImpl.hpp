@@ -115,7 +115,10 @@ namespace MultiStation {
 	const T* ECSManager::GetComponent(uint32_t entity) const {
 		return m_registry->GetComponentArray<T>()->GetComponent(entity);
 	}
-
+	template<typename T>
+	std::vector<T>& ECSManager::GetComponents(void) {
+		return m_registry->GetComponentArray<T>()->GetComponents();
+	}
 	template<typename T>
 	const std::vector<T>& ECSManager::GetComponents(void) const {
 		return m_registry->GetComponentArray<T>()->GetComponents();

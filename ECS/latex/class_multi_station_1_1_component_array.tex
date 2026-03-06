@@ -44,6 +44,8 @@ bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a275525c6f1a36d587
 \begin{DoxyCompactList}\small\item\em Gets the entity associated with the specified component. \end{DoxyCompactList}\item 
 const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{Get\+Components}} (void) const
 \begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array_aecf564429280a9d356e55ad2c5bb709b}{Get\+Components}} (void)
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{Has\+Entity}} (uint32\+\_\+t entity) const
 \begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{Remove\+Entity}} (uint32\+\_\+t entity) override
@@ -199,9 +201,23 @@ Gets the component associated with the specified entity.
 \begin{DoxyReturn}{Returns}
 A pointer to the component if found, or nullptr if the entity does not have one. 
 \end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_component_array_aecf564429280a9d356e55ad2c5bb709b}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_aecf564429280a9d356e55ad2c5bb709b} 
+template$<$typename T$>$ \\
+std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets a const reference to the vector of all components. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the vector containing all components. 
+\end{DoxyReturn}
 \Hypertarget{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}\index{MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}!GetComponents@{GetComponents}}
 \index{GetComponents@{GetComponents}!MultiStation::ComponentArray$<$ T $>$@{MultiStation::ComponentArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a} 
 template$<$typename T$>$ \\
 const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_component_array}{Multi\+Station\+::\+Component\+Array}}$<$ T $>$\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}

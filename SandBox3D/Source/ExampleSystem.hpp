@@ -13,7 +13,22 @@ namespace MultiStation{
 			if (!ctx.HasRegister<int>()) {
 				ctx.Register<int>();
 			}
-			for (int i = 0; i < 1000; i++) {
+			float start = Time::GetTimeInSeconds();
+
+			for (int i = 0; i < 10000; i++)
+				ctx.CreateGameObject("test");
+			ctx.UpdateScene();
+			float end = Time::GetTimeInSeconds();
+			MS_INFO("Time taken to create 10000 game object: %f seconds", end - start);
+			start = Time::GetTimeInSeconds();
+			std::vector<GameObject>& gameObjects = ctx.GetGameObjects();
+			for (GameObject& obj : gameObjects) {
+				obj.AddComponent<int>(0);
+			}
+			ctx.UpdateScene();
+			end = Time::GetTimeInSeconds();
+			MS_INFO("Time taken to create 10000 components: %f seconds", end - start);
+			for (int i = 0; i < 5000; i++) {
 				GameObject* obj = ctx.CreateGameObject("Test " + std::to_string(i));
 				obj->AddComponent<int>(i);
 			}

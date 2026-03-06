@@ -61,7 +61,16 @@ namespace MultiStation {
 		 * @returns A pointer to the ComponentArray<T> if registered, nullptr otherwise.
 		 */
 		template<typename T>
-		ComponentArray<T>* GetComponentArray(void) const;
+		const ComponentArray<T>* GetComponentArray(void) const;
+		/**
+		 * @brief Gets the ComponentArray for the specified component type T
+		 * if is registered in the Registry.
+		 * @tparam T The type of the component array to retrieve.
+		 * @returns A const pointer to the ComponentArray<T> if registered, nullptr otherwise.
+		 */
+		template<typename T>
+		ComponentArray<T>* GetComponentArray(void);
+
 
 		/**
 		 * 
@@ -114,7 +123,7 @@ namespace MultiStation {
 	
 
 	template<typename T>
-	ComponentArray<T>* Registry::GetComponentArray(void) const {
+	const ComponentArray<T>* Registry::GetComponentArray(void) const {
 		const uint32_t id = IComponentArray::GetID<T>();
 		auto it = m_typeComponentMap.find(id);
 		if (it == m_typeComponentMap.end()) {
@@ -124,6 +133,16 @@ namespace MultiStation {
 		return static_cast<ComponentArray<T>*>(it->second);
 	}
 
+	template<typename T>
+	ComponentArray<T>* Registry::GetComponentArray(void)  {
+		const uint32_t id = IComponentArray::GetID<T>();
+		auto it = m_typeComponentMap.find(id);
+		if (it == m_typeComponentMap.end()) {
+			MS_ASSERT(false, "Component type not registered in the registry.");
+			return nullptr;
+		}
+		return static_cast<ComponentArray<T>*>(it->second);
+	}
 
 	template<typename T>
 	uint32_t Registry::Register(void) {

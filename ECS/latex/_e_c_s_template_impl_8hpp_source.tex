@@ -119,25 +119,28 @@
 \DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a9b3941fdae76ebf5fe50e2e2f60a1bea}{ECSManager::GetComponent}}(uint32\_t\ entity)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a9b3941fdae76ebf5fe50e2e2f60a1bea}{GetComponent}}(entity);}
 \DoxyCodeLine{00117\ \ \ \ \ \}}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{ECSManager::GetComponents}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{GetComponents}}();}
-\DoxyCodeLine{00122\ \ \ \ \ \}}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb}{ECSManager::HasComponent}}(uint32\_t\ entity)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity))\ \{}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MS\_ENGINE\_WARN("{}Entity\ \%d\ does\ not\ exist.\ Skipping\ checking\ component."{},\ entity);}}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a177f9573eb0eedfab54b8432c630cd24}{HasRegister<T>}}())\ \{}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MS\_ENGINE\_WARN("{}Component\ type\ not\ registered.\ Skipping\ checking\ component."{});}}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity);}
-\DoxyCodeLine{00135\ \ \ \ \ \}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00119\ \ \ \ \ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{ECSManager::GetComponents}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{GetComponents}}();}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{ECSManager::GetComponents}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{GetComponents}}();}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb}{ECSManager::HasComponent}}(uint32\_t\ entity)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity))\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MS\_ENGINE\_WARN("{}Entity\ \%d\ does\ not\ exist.\ Skipping\ checking\ component."{},\ entity);}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a177f9573eb0eedfab54b8432c630cd24}{HasRegister<T>}}())\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//MS\_ENGINE\_WARN("{}Component\ type\ not\ registered.\ Skipping\ checking\ component."{});}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_registry-\/>GetComponentArray<T>()-\/>\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity);}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \}}
 
 \end{DoxyCode}

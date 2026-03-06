@@ -124,6 +124,12 @@ namespace MultiStation{
 		const std::vector<T>& GetComponents(void) const;
 
 		/**
+		 * @brief Gets a const reference to the vector of all components.
+		 * @returns A reference to the vector containing all components.
+		 */
+		std::vector<T>& GetComponents(void) ;
+
+		/**
 		 * @brief Checks if the specified entity has an associated component.
 		 * @param[in] entity The entity to check.
 		 * @returns true if the entity has a component, false otherwise.
@@ -222,7 +228,8 @@ namespace MultiStation{
 	// CREATING , REMOVING  Component's and Entities
 	template<typename T>
 	void ComponentArray<T>::RemoveEntity(uint32_t entity) {
-		this->RemoveComponent(entity);
+		if (m_entityToIndex.count(entity))
+			this->RemoveComponent(entity);
 		
 	}
 
@@ -344,6 +351,11 @@ namespace MultiStation{
 
 	template<typename T>
 	const std::vector<T>& ComponentArray<T>::GetComponents(void) const {
+		return m_components;
+	}
+
+	template<typename T>
+	std::vector<T>& ComponentArray<T>::GetComponents(void) {
 		return m_components;
 	}
 	

@@ -40,6 +40,8 @@ The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is respon
 \begin{DoxyCompactList}\small\item\em Gets a pointer to the component of type T associated with the specified entity. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T$>$ }\\const std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}{Get\+Components}} (void) const
 \begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all components of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_ac9d8155be7f9b52f4963e76d7619ebc5}{Get\+Components}} (void)
+\begin{DoxyCompactList}\small\item\em Gets a reference to the vector of all components of type T. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a497bf3eae5575c8c9eea5fb9dd3524fb}{Has\+Component}} (uint32\+\_\+t entity) const
 \begin{DoxyCompactList}\small\item\em Checks if the specified entity has an associated component of type T. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_a3b02f84b12f5ddd0c61373e02021dffe}{Create\+Entity}} (uint32\+\_\+t entity)
@@ -52,6 +54,12 @@ const std\+::vector$<$ uint32\+\_\+t $>$ \& \mbox{\hyperlink{class_multi_station
 \begin{DoxyCompactList}\small\item\em Gets a const reference to the vector of all entities in the system. \end{DoxyCompactList}\item 
 \Hypertarget{class_multi_station_1_1_e_c_s_manager_a84b2d94f003ba5637dd1ee5f4edca381}\label{class_multi_station_1_1_e_c_s_manager_a84b2d94f003ba5637dd1ee5f4edca381} 
 void {\bfseries Poll\+Operations} (void)
+\item 
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_a576552b412f517ea8440a66c290ca070}\label{class_multi_station_1_1_e_c_s_manager_a576552b412f517ea8440a66c290ca070} 
+void {\bfseries Do\+Remove\+Entity} (uint32\+\_\+t entity)
+\item 
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_ad39408aa4253d5c4b9b4627bdd597bb8}\label{class_multi_station_1_1_e_c_s_manager_ad39408aa4253d5c4b9b4627bdd597bb8} 
+void {\bfseries Do\+Create\+Entity} (uint32\+\_\+t entity)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -230,9 +238,31 @@ The entity must exist\textquotesingle{}s , the component type T be registered an
 \begin{DoxyReturn}{Returns}
 A pointer to the component if found, or nullptr if the entity does not have one. 
 \end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_manager_ac9d8155be7f9b52f4963e76d7619ebc5}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ECSManager@{MultiStation::ECSManager}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_ac9d8155be7f9b52f4963e76d7619ebc5} 
+template$<$typename T$>$ \\
+std\+::vector$<$ T $>$ \& Multi\+Station\+::\+ECSManager\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets a reference to the vector of all components of type T. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the vector of all components of type T. 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the components to retrieve. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+The entity must exist\textquotesingle{}s and the component type T be registered . Fethermore the vector should not change otherwise the behavior is undefined . 
+\end{DoxyWarning}
 \Hypertarget{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b}\index{MultiStation::ECSManager@{MultiStation::ECSManager}!GetComponents@{GetComponents}}
 \index{GetComponents@{GetComponents}!MultiStation::ECSManager@{MultiStation::ECSManager}}
-\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_manager_a984cd1f9639758e0d13bf38dda2d561b} 
 template$<$typename T$>$ \\
 const std\+::vector$<$ T $>$ \& Multi\+Station\+::\+ECSManager\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}

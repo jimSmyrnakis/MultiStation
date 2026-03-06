@@ -146,7 +146,15 @@ namespace MultiStation {
 		 */
 		template<typename T>
 		const std::vector<T>& GetComponents(void) const;
-		
+		/**
+		 * @brief Gets a reference to the vector of all components of type T.
+		 * @returns A reference to the vector of all components of type T.
+		 * @tparam T The type of the components to retrieve.
+		 * @warning The entity must exist's and the component type T be registered .
+		 * Fethermore the vector should not change otherwise the behavior is undefined .
+		 */
+		template<typename T>
+		std::vector<T>& GetComponents(void);
 		/**
 		 * @brief Checks if the specified entity has an associated component of type T.
 		 * @param entity The entity to check for the component.
@@ -197,6 +205,12 @@ namespace MultiStation {
 		// Call for execute pending operations in the queue, this is called by the SystemManager after each 
 		// system execution to ensure that all operations are executed before the next system execution.
 		void PollOperations(void);
+
+		// As well all its components must removed
+		void DoRemoveEntity(uint32_t entity);
+
+
+		void DoCreateEntity(uint32_t entity);
 
 	private:
 		enum OperationType {

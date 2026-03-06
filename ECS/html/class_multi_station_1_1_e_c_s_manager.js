@@ -9,6 +9,7 @@ var class_multi_station_1_1_e_c_s_manager =
     [ "DestroyEntity", "class_multi_station_1_1_e_c_s_manager.html#a134d8e19c21deb74f1f72d61775a53f2", null ],
     [ "GetComponent", "class_multi_station_1_1_e_c_s_manager.html#a9b3941fdae76ebf5fe50e2e2f60a1bea", null ],
     [ "GetComponent", "class_multi_station_1_1_e_c_s_manager.html#af4eb75bc0e520f3ffc590427a2f2a024", null ],
+    [ "GetComponents", "class_multi_station_1_1_e_c_s_manager.html#ac9d8155be7f9b52f4963e76d7619ebc5", null ],
     [ "GetComponents", "class_multi_station_1_1_e_c_s_manager.html#a984cd1f9639758e0d13bf38dda2d561b", null ],
     [ "GetEntities", "class_multi_station_1_1_e_c_s_manager.html#ae3e9bea4056c56d3b515fb093e91188d", null ],
     [ "HasComponent", "class_multi_station_1_1_e_c_s_manager.html#a497bf3eae5575c8c9eea5fb9dd3524fb", null ],

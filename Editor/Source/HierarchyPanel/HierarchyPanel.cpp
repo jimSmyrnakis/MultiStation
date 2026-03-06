@@ -21,7 +21,11 @@ namespace MultiStation {
 			GameObject& gameobject = GameObjects[i];
 			DrawEntityNode(gameobject);
 		}
-		for (size_t i = min_len; i < GameObjects.size(); i++) {
+		std::vector<int>& ints = context.GetComponents<int>();
+		for (int& i : ints) {
+			i++;
+		}
+		/* for (size_t i = min_len; i < GameObjects.size(); i++) {
 			GameObject& gameobject = GameObjects[i];
 			//DrawEntityNode(gameobject);
 			const char* name = gameobject.GetName();
@@ -30,7 +34,7 @@ namespace MultiStation {
 				(*ptr)++;
 			}
 				
-		}
+		}*/
 		bool atAnyLRClick = ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right);
 
 		if  ( (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered())
