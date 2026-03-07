@@ -26,29 +26,29 @@ namespace MultiStation {
 	void LogShutdown();
 
 	// printf-style formatting (C variadic) Ч ден екиЁфей spdlog headers
-	void EngineLogf(LogLevel lvl, const char* fmt, ...) noexcept;
-	void ClientLogf(LogLevel lvl, const char* fmt, ...) noexcept;
+	void EngineLogf(LogLevel lvl,int line , const char* file , const char* fmt, ...) noexcept;
+	void ClientLogf(LogLevel lvl,int line , const char* file , const char* fmt, ...) noexcept;
 
 } // namespace MultiStation
 
 // Engine macros
-#define MS_ENGINE_TRACE(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Trace, __VA_ARGS__)
-#define MS_ENGINE_INFO(...)  ::MultiStation::EngineLogf(::MultiStation::LogLevel::Info,  __VA_ARGS__)
-#define MS_ENGINE_WARN(...)  ::MultiStation::EngineLogf(::MultiStation::LogLevel::Warn,  __VA_ARGS__)
-#define MS_ENGINE_ERROR(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Error, __VA_ARGS__)
-#define MS_ENGINE_FATAL(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Fatal, __VA_ARGS__)
+#define MS_ENGINE_TRACE(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Trace,__LINE__ , __FILE__ , __VA_ARGS__)
+#define MS_ENGINE_INFO(...)  ::MultiStation::EngineLogf(::MultiStation::LogLevel::Info,__LINE__ , __FILE__ ,   __VA_ARGS__)
+#define MS_ENGINE_WARN(...)  ::MultiStation::EngineLogf(::MultiStation::LogLevel::Warn,__LINE__ , __FILE__ ,   __VA_ARGS__)
+#define MS_ENGINE_ERROR(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Error,__LINE__ , __FILE__ ,  __VA_ARGS__)
+#define MS_ENGINE_FATAL(...) ::MultiStation::EngineLogf(::MultiStation::LogLevel::Fatal,__LINE__ , __FILE__ ,  __VA_ARGS__)
 
 // Client macros
-#define MS_TRACE(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Trace, __VA_ARGS__)
-#define MS_INFO(...)  ::MultiStation::ClientLogf(::MultiStation::LogLevel::Info,  __VA_ARGS__)
-#define MS_WARN(...)  ::MultiStation::ClientLogf(::MultiStation::LogLevel::Warn,  __VA_ARGS__)
-#define MS_ERROR(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Error, __VA_ARGS__)
-#define MS_FATAL(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Fatal, __VA_ARGS__)
+#define MS_TRACE(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Trace,__LINE__ , __FILE__ ,  __VA_ARGS__)
+#define MS_INFO(...)  ::MultiStation::ClientLogf(::MultiStation::LogLevel::Info,__LINE__ , __FILE__ ,   __VA_ARGS__)
+#define MS_WARN(...)  ::MultiStation::ClientLogf(::MultiStation::LogLevel::Warn,__LINE__ , __FILE__ ,   __VA_ARGS__)
+#define MS_ERROR(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Error,__LINE__ , __FILE__ ,  __VA_ARGS__)
+#define MS_FATAL(...) ::MultiStation::ClientLogf(::MultiStation::LogLevel::Fatal,__LINE__ , __FILE__ ,  __VA_ARGS__)
 
 #ifdef _DEBUG
 #define MS_ASSERT(expr, ...) \
 		if (!(expr)) { \
-			MS_ENGINE_ERROR("Assertion failed (%s) at %s:%d. Message: %s" , #expr, __FILE__ , __LINE__ ,  __VA_ARGS__ ); \
+			MS_ENGINE_ERROR("Assertion failed (%s) at %s:%d. Message: %s" , #expr,  __VA_ARGS__ ); \
 			STOP_ON_ERROR(); \
 		} 
 #elif defined(NDEBUG)

@@ -2,7 +2,7 @@
 \hypertarget{struct_multi_station_1_1_job}{}\label{struct_multi_station_1_1_job}\index{MultiStation::Job@{MultiStation::Job}}
 
 
-A job is a unit of work that can be executed by a worker thread. The \doxylink{struct_multi_station_1_1_job}{Job} struct defines the function to execute and the attributes of the job .  
+A Job\+Function is a function pointer that defines the signature of the function that can be executed as a job.  
 
 
 
@@ -29,7 +29,7 @@ uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_aaee83a86b07991a8e6d
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}} \mbox{\hyperlink{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}{fun}}
+std\+::function$<$ void(struct Job job)$>$ \mbox{\hyperlink{struct_multi_station_1_1_job_a39e97add18dbe50ae629a8291b017881}{fun}}
 \begin{DoxyCompactList}\small\item\em The function pointer that the worker thread will call when executing this job. \end{DoxyCompactList}\item 
 void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_multi_station_1_1_job_ab2ec3ea49825168e6868d0d2551d0fad}{data}}
 \begin{DoxyCompactList}\small\item\em The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user . \end{DoxyCompactList}\item 
@@ -50,6 +50,15 @@ uint32\+\_\+t \mbox{\hyperlink{struct_multi_station_1_1_job_a0740f1fc045af333501
 
 
 \doxysubsection{Detailed Description}
+A Job\+Function is a function pointer that defines the signature of the function that can be executed as a job. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em \doxylink{struct_multi_station_1_1_job}{Job}} & A copy of the job so user can retreive more information\\
+\hline
+\end{DoxyParams}
+typedef void (\texorpdfstring{$\ast$}{*}\+Job\+Function)(struct \doxylink{struct_multi_station_1_1_job}{Job} job);
+
 A job is a unit of work that can be executed by a worker thread. The \doxylink{struct_multi_station_1_1_job}{Job} struct defines the function to execute and the attributes of the job . 
 
 \label{doc-func-members}
@@ -113,11 +122,11 @@ void\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Job\+::data}
 
 The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user . 
 
-\Hypertarget{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6}\index{MultiStation::Job@{MultiStation::Job}!fun@{fun}}
+\Hypertarget{struct_multi_station_1_1_job_a39e97add18dbe50ae629a8291b017881}\index{MultiStation::Job@{MultiStation::Job}!fun@{fun}}
 \index{fun@{fun}!MultiStation::Job@{MultiStation::Job}}
 \doxysubsubsection{\texorpdfstring{fun}{fun}}
-{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_ae3200ec0dfff5b7941fe940c908103b6} 
-\mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}} Multi\+Station\+::\+Job\+::fun}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_job_a39e97add18dbe50ae629a8291b017881} 
+std\+::function$<$void (struct Job job)$>$ Multi\+Station\+::\+Job\+::fun}
 
 
 

@@ -4,5 +4,4 @@
 #include "../Source/JobSystem/JobSystem.hpp"
 #include "../Source/VersionControl/VersionControl.hpp"
 #include "../Source/Registry/Registry.hpp"
-#include "../Source/SystemManager/SystemManager.hpp"
 #include "../Source/ECSManager/ECSManager.hpp"

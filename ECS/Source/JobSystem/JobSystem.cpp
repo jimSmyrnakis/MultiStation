@@ -116,7 +116,7 @@ namespace MultiStation {
 
 
 	void JobSystem::ParallelFor(
-		JobFunction func, void* data,
+		std::function<void(Job job)> func, void* data,
 		uint32_t jobCount, std::shared_ptr<std::atomic<uint32_t>> counter) noexcept {
 		MS_ASSERT(func, "Job function cannot be null");
 		MS_ASSERT(jobCount > 0, "Job count must be greater than zero");

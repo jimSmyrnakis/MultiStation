@@ -9,46 +9,17 @@ class \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
 \begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}
-\item 
 struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}
-\begin{DoxyCompactList}\small\item\em A job is a unit of work that can be executed by a worker thread. The \doxylink{struct_multi_station_1_1_job}{Job} struct defines the function to execute and the attributes of the job . \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A Job\+Function is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}}
 \begin{DoxyCompactList}\small\item\em \doxylink{struct_multi_station_1_1_job}{Job} System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -\/\texorpdfstring{$>$}{>} any worker available . The parent Thread is part of the schedule algorithm , usefull method is the wait\+For\+All that makes him enable for schedulling with the rest workers . \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own \doxylink{class_multi_station_1_1_component_array}{Component\+Array} $<$\+T$>$ instance, which is created upon registration and destroyed upon unregistration. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_system_manager}{System\+Manager}}
-\item 
 class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function}}) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)
-\begin{DoxyCompactList}\small\item\em A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
 Dimitris Smyrnakis 
 \end{DoxyAuthor}
-
-
-\label{doc-typedef-members}
-\Hypertarget{namespace_multi_station_doc-typedef-members}
-\doxysubsection{Typedef Documentation}
-\Hypertarget{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}\index{MultiStation@{MultiStation}!JobFunction@{JobFunction}}
-\index{JobFunction@{JobFunction}!MultiStation@{MultiStation}}
-\doxysubsubsection{\texorpdfstring{JobFunction}{JobFunction}}
-{\footnotesize\ttfamily \label{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b} 
-typedef void(\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Job\+Function) (struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}} job)}
-
-
-
-A \doxylink{namespace_multi_station_adbe164398068beda9a0d51dd2ed4296b}{Job\+Function} is a function pointer that defines the signature of the function that can be executed as a job. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{in}}  & {\em \doxylink{struct_multi_station_1_1_job}{Job}} & A copy of the job so user can retreive more information \\
-\hline
-\end{DoxyParams}

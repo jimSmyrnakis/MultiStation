@@ -1,2 +1,5 @@
 C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\GameObject\GameObject.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Debug\Win32\GameObject.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Interfaces\IMSSystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Debug\Win32\IMSSystem.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemStack\MSSystemStack.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Debug\Win32\MSSystemStack.obj
 C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Debug\Win32\Scene.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemManager\MSSystemManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Debug\Win32\MSSystemManager.obj

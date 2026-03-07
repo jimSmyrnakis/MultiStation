@@ -30,6 +30,8 @@ namespace MultiStation{
 
 		uint32_t Size(void) const;
 
+		void Clear(void) ;
+
 	private:
 		std::vector<T> m_data;
 		std::atomic<uint32_t> m_size = 0;
@@ -86,6 +88,16 @@ namespace MultiStation {
 	template<typename T>
 	uint32_t Queue<T>::Size(void) const {
 		return m_size.load(std::memory_order_acquire);
+	}
+
+	template<typename T>
+	void Queue<T>::Clear(void) {
+		std::lock_guard<std::mutex> lock(m_mutex);
+		if (m_data.empty())
+			return ;
+
+		m_data.clear();
+		m_size.store(0 , std::memory_order_release);
 	}
 
 }

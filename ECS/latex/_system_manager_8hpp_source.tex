@@ -53,17 +53,18 @@
 \DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>::iterator\ end(\textcolor{keywordtype}{void})noexcept;}
 \DoxyCodeLine{00155\ }
 \DoxyCodeLine{00156\ \ \ \ \ private:}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_job_system}{JobSystem}}>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_jobSystem;}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_ecsManager;}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_phases;}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ }
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*>\ >\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_systems;}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::vector<float>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_lastExecutionTime;\ TODO}}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_currentPhase;}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_isExecuting;\ \ }
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \ \ \ \ \};}
-\DoxyCodeLine{00167\ }
-\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{void}\ SystemCallBack(\mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}\ job);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_job_system}{JobSystem}}>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_jobSystem;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ std::shared\_ptr<\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_ecsManager;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_phases;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*>\ >\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_systems;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::vector<float>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_lastExecutionTime;\ TODO}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_currentPhase;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_isExecuting;\ \ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \}}
 
 \end{DoxyCode}

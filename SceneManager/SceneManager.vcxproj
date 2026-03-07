@@ -156,13 +156,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\SceneManager.hpp" />
+    <ClInclude Include="Source\BuildInComponents\EntityInfo\EntityInfo.hpp" />
+    <ClInclude Include="Source\BuildInComponents\Transforms\Transform.hpp" />
     <ClInclude Include="Source\GameObject\GameObject.hpp" />
-    <ClInclude Include="Source\Interfaces\IUpdatable.hpp" />
+    <ClInclude Include="Source\Interfaces\IComponent.hpp" />
+    <ClInclude Include="Source\Interfaces\IMSSystem.hpp" />
+    <ClInclude Include="Source\MSSystemStack\MSSystemStack.hpp" />
     <ClInclude Include="Source\Scene\Scene.hpp" />
+    <ClInclude Include="Source\MSSystemManager\MSSystemManager.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\BuildInComponents\EntityInfo\EntityInfo.cpp" />
+    <ClCompile Include="Source\BuildInComponents\Transforms\Transform.cpp" />
     <ClCompile Include="Source\GameObject\GameObject.cpp" />
+    <ClCompile Include="Source\Interfaces\IComponent.cpp" />
+    <ClCompile Include="Source\Interfaces\IMSSystem.cpp" />
+    <ClCompile Include="Source\MSSystemStack\MSSystemStack.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
+    <ClCompile Include="Source\MSSystemManager\MSSystemManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

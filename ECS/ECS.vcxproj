@@ -25,21 +25,17 @@
     <ClInclude Include="Source\ECSManager\ECSManager.hpp" />
     <ClInclude Include="Source\ECSManager\ECSTemplateImpl.hpp" />
     <ClInclude Include="Source\Init.hpp" />
-    <ClInclude Include="Source\Interfaces\ISystem.hpp" />
     <ClInclude Include="Source\JobSystem\Job.hpp" />
     <ClInclude Include="Source\JobSystem\JobSystem.hpp" />
     <ClInclude Include="Source\Registry\Registry.hpp" />
-    <ClInclude Include="Source\SystemManager\SystemManager.hpp" />
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
     <ClInclude Include="Source\VersionControl\VersionControl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Interfaces\IComponentArray.cpp" />
     <ClCompile Include="Source\ECSManager\ECSManager.cpp" />
-    <ClCompile Include="Source\Interfaces\ISystem.cpp" />
     <ClCompile Include="Source\JobSystem\Job.cpp" />
     <ClCompile Include="Source\JobSystem\JobSystem.cpp" />
-    <ClCompile Include="Source\SystemManager\SystemManager.cpp" />
     <ClCompile Include="Source\Registry\Registry.cpp" />
     <ClCompile Include="Source\VersionControl\VersionControl.cpp" />
   </ItemGroup>

@@ -92,7 +92,7 @@ $(function(){initNavTree('class_multi_station_1_1_job_system.html','','class_mul
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a> System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -&gt; any worker available . The parent Thread is part of the schedule algorithm , usefull method is the waitForAll that makes him enable for schedulling with the rest workers .  
+<p><a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a> System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -&gt; any worker available . The parent Thread is part of the schedule algorithm , usefull method is the waitForAll that makes him enable for schedulling with the rest workers .  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_job_system_8hpp_source.html">JobSystem.hpp</a>&gt;</code></p>
@@ -115,13 +115,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a79097f6b0d0156db4fcf77cabac17bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits Until the counter gets zero , then returns , until then this thread takes it's role as worker for schedulling jobs instead of doing nothing . This method can be called even from thread that is not worker , but then it will yield while waiting .  <br /></td></tr>
 <tr class="memitem:a71c1316a5782aeea97c2dea4770e0638" id="r_a71c1316a5782aeea97c2dea4770e0638"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71c1316a5782aeea97c2dea4770e0638">WaitForAll</a> (void) noexcept</td></tr>
 <tr class="memdesc:a71c1316a5782aeea97c2dea4770e0638"><td class="mdescLeft">&#160;</td><td class="mdescRight">As WaitFor only that must called either from the parent thread or from other not worker thread , otherwise fatal error is generated.  <br /></td></tr>
-<tr class="memitem:a93e0e600787c58b8379e12c6fa0d592f" id="r_a93e0e600787c58b8379e12c6fa0d592f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93e0e600787c58b8379e12c6fa0d592f">ParallelFor</a> (<a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a> func, void *data, uint32_t jobCount, std::shared_ptr&lt; std::atomic&lt; uint32_t &gt; &gt; counter) noexcept</td></tr>
-<tr class="memdesc:a93e0e600787c58b8379e12c6fa0d592f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method for making block/group of jobs to do a specific task together . The counter can be even null , but the thread or job that does this call can't know when this block of threads is finished.  <br /></td></tr>
+<tr class="memitem:ac385bf467fe6d381be0180f72f34d1b0" id="r_ac385bf467fe6d381be0180f72f34d1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac385bf467fe6d381be0180f72f34d1b0">ParallelFor</a> (std::function&lt; void(<a class="el" href="struct_multi_station_1_1_job.html">Job</a> job)&gt; func, void *data, uint32_t jobCount, std::shared_ptr&lt; std::atomic&lt; uint32_t &gt; &gt; counter) noexcept</td></tr>
+<tr class="memdesc:ac385bf467fe6d381be0180f72f34d1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this method for making block/group of jobs to do a specific task together . The counter can be even null , but the thread or job that does this call can't know when this block of threads is finished.  <br /></td></tr>
 <tr class="memitem:a7a7a88d069c35405ed02253fc9f50093" id="r_a7a7a88d069c35405ed02253fc9f50093"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a7a88d069c35405ed02253fc9f50093">Shutdown</a> (void) noexcept</td></tr>
 <tr class="memdesc:a7a7a88d069c35405ed02253fc9f50093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to terminate the hole job system so all worker threads stop executing and waits for them to join .  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a> System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -&gt; any worker available . The parent Thread is part of the schedule algorithm , usefull method is the waitForAll that makes him enable for schedulling with the rest workers . </p>
+<div class="textblock"><p><a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a> System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -&gt; any worker available . The parent Thread is part of the schedule algorithm , usefull method is the waitForAll that makes him enable for schedulling with the rest workers . </p>
 <dl class="section note"><dt>Note</dt><dd>Copy / Move Constructors / operators are not supported </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6ca92ed095d602c7b199babf53611cf9" name="a6ca92ed095d602c7b199babf53611cf9"></a>
@@ -192,8 +192,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a93e0e600787c58b8379e12c6fa0d592f" name="a93e0e600787c58b8379e12c6fa0d592f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93e0e600787c58b8379e12c6fa0d592f">&#9670;&#160;</a></span>ParallelFor()</h2>
+<a id="ac385bf467fe6d381be0180f72f34d1b0" name="ac385bf467fe6d381be0180f72f34d1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac385bf467fe6d381be0180f72f34d1b0">&#9670;&#160;</a></span>ParallelFor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,7 +204,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void MultiStation::JobSystem::ParallelFor </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="struct_multi_station_1_1_job.html">Job</a> job)&gt;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

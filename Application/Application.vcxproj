@@ -183,14 +183,12 @@
     <ClInclude Include="Source\Application\Application.hpp" />
     <ClInclude Include="Source\ImGuiSystem\ImGuiSystem.hpp" />
     <ClInclude Include="Source\mspch.h" />
-    <ClInclude Include="Source\SystemStack\SystemStack.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp" />
     <ClCompile Include="Source\Application\ApplicationSystems.cpp" />
     <ClCompile Include="Source\Application\Events.cpp" />
     <ClCompile Include="Source\ImGuiSystem\ImGuiSystem.cpp" />
-    <ClCompile Include="Source\SystemStack\SystemStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

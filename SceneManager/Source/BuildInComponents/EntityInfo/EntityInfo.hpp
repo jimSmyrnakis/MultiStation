@@ -1,16 +1,16 @@
 #pragma once
-#include <ECS.hpp>
+#include "../../Interfaces/IComponent.hpp"
 #include <string>
 namespace MultiStation {
-	struct EntityInfo  {
+	struct EntityInfo  : public IComponent{
 		std::string name;
 		
 		EntityInfo(const std::string& name = "Entity") noexcept;
 
-		inline EntityInfo(const EntityInfo& copy) {
+		inline EntityInfo(const EntityInfo& copy) : IComponent(copy) {
 			name = copy.name;
 		}
-		inline EntityInfo(EntityInfo&& move) noexcept {
+		inline EntityInfo(EntityInfo&& move) noexcept : IComponent(move){
 			name = std::move(move.name);
 		}
 

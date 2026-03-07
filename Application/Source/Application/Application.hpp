@@ -1,17 +1,15 @@
 #pragma once
-#include <ECS.hpp>
-#include <Media.hpp>
 #include <SceneManager.hpp>
+#include <Media.hpp>
 #include <vector>
 #include <stdint.h>
 #include <stddef.h>
-#include "../SystemStack/SystemStack.hpp"
 #include "../ImGuiSystem/ImGuiSystem.hpp"
 namespace MultiStation{
 
 	class Application {
 	public:
-		Application(const std::string name) noexcept;
+		Application(const std::string name , uint32_t threads) noexcept;
 		virtual ~Application(void) noexcept;
 	public:
 		void Initialize(void) noexcept;
@@ -20,11 +18,15 @@ namespace MultiStation{
 
 		void Finalize(void) noexcept;
 
-		void PushSystemLayer(ISystem* system) noexcept;
-		void PushSystemOverlay(ISystem* system) noexcept;
-		void PopSystemLayer(ISystem* system) noexcept;
-		void PopSystemOverlay(ISystem* system) noexcept;
+		void PushSystemLayer(IMSSystem* system) noexcept;
+		void PushSystemOverlay(IMSSystem* system) noexcept;
+		void PopSystemLayer(IMSSystem* system) noexcept;
+		void PopSystemOverlay(IMSSystem* system) noexcept;
 
+		void CreatePhase(uint32_t phase) noexcept;
+		void DestroyPhase(uint32_t phase) noexcept;
+		void AddSystemToPhase(IMSSystem* system, uint32_t phase) noexcept;
+		void RemoveSystemFromPhase(IMSSystem* system, uint32_t phase) noexcept;
 
 		Scene& GetScene(void) noexcept;
 		const Scene& GetScene(void) const noexcept;
@@ -57,8 +59,8 @@ namespace MultiStation{
 
 		uint32_t CreatePhase(void) noexcept;
 		void BindPhase(uint32_t phase) noexcept;
-		void AddSystemOnPhase(ISystem* system) noexcept;
-		void RemoveSystemFromPhase(ISystem* system) noexcept;
+		void AddSystemOnPhase(IMSSystem* system) noexcept;
+		void RemoveSystemFromPhase(IMSSystem* system) noexcept;
 
 
 	
@@ -68,24 +70,24 @@ namespace MultiStation{
 			SYSTEM_ON_LAYER_MANAGER = 0x00000001,
 			SYSTEM_ON_UPDATE_MANAGER = 0x00000002
 		};
-		std::vector<ISystem*> m_systems;
+		std::vector<IMSSystem*> m_systems;
 		std::vector<uint32_t> m_systemsFlags;
 
 	private:
 		bool OnWindowCloseEvent(WindowCloseEvent& e) noexcept;
-		void AddSystem(ISystem* system, uint32_t flags) noexcept;
-		void RemoveSystem(ISystem* system, uint32_t flags) noexcept;
+		void AddSystem(IMSSystem* system, uint32_t flags) noexcept;
+		void RemoveSystem(IMSSystem* system, uint32_t flags) noexcept;
 		bool IsFlagsField(uint32_t flags) noexcept;
 	protected:
 		std::string m_name;
-		SystemManager m_systemManager;
+		MSSystemManager m_systemManager;
 		std::atomic<bool> m_isRunning;
 		Window* m_window;
-		SystemStack m_systemStack;
+		MSSystemStack m_systemStack;
 		Input* m_Input;
 		ImGuiSystem* m_ImGuiSystem;
 		bool isInitialized;
-		Scene* m_scene;
+		Scene m_scene;
 	
 	private:
 		static Application* s_singleton;

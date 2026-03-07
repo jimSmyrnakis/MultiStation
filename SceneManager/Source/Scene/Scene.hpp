@@ -1,6 +1,8 @@
 #pragma once
 #include "../GameObject/GameObject.hpp"
-
+#include "../Interfaces/IComponent.hpp"
+#include "../BuildInComponents/EntityInfo/EntityInfo.hpp"
+#include "../BuildInComponents/Transforms/Transform.hpp"
 /**
  * @file Scene.hpp
  * @class Scene
@@ -17,7 +19,7 @@ namespace MultiStation {
 	class Scene {
 
 	public:
-		Scene(ECSManager& context) noexcept;
+		Scene(void) noexcept;
 		Scene(const Scene& other) noexcept = delete;
 		Scene(Scene&& other) noexcept ;
 		~Scene(void) noexcept;
@@ -46,15 +48,12 @@ namespace MultiStation {
 		void RemoveGameObject(GameObject* gameObject) noexcept;
 
 		/**
-		 * @returns A reference to the vector containing all Game Objects in the scene.
-		 */
-		std::vector<GameObject>& GetGameObjects(void) noexcept;
-
-		/**
 		 * 
-		 * @returns A const reference to the vector containing all Game Objects in the scene.
+		 * @brief Calls the callback for each game object in the scene .
+		 * @param callback A callback to a function with game object reference parameter
+		 *  
 		 */
-		const std::vector<GameObject>& GetGameObjects(void) const noexcept;
+		void ForEachGameObject(std::function<void(GameObject& object)> callback , uint32_t max_count = 0) noexcept;
 
 		/**
 		 * @returns A pointer to the Game Object with the specified ID if found in the scene, nullptr otherwise.
@@ -120,25 +119,30 @@ namespace MultiStation {
 		std::vector<std::string> GetRegisteredComponentTypes(void) const noexcept;
 
 		/**
-		 * @brief Updates the scene by executing all pending operations to the backend , 
-		 * @warning Do not use this method inside a system , this method should be call at a pecific 
-		 * stages in the game engine pipeline . 
-		 * 
+		 * @returns The total number of game objects in the scene
+		 *
 		 */
+		uint32_t Size(void) const noexcept;
+
+	private:
+		// this method updates the scene , is only accesible via Application class
 		void UpdateScene(void) noexcept;
 
 	private:
-		ECSManager& m_context;
+		ECSManager m_context;
 		std::string m_sceneName;
 		std::vector<GameObject> m_gameObjects;
+		std::vector<uint32_t> m_freelist;
 		std::unordered_map<uint32_t, size_t> m_gameObjectIDToIndex;
 		std::vector<std::string> m_registeredComponentTypes;
 		uint32_t m_nextGameObjectID;
+		friend class Application;
 	};
 
 
 	template<typename T>
 	void Scene::Register(void) noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		if (m_context.HasRegister<T>()) {
 			MS_ENGINE_WARN("Component type already registered in the scene. Skipping registration.");
 			return;
@@ -149,17 +153,20 @@ namespace MultiStation {
 
 	template<typename T>
 	bool Scene::HasRegister(void) const noexcept {
+
 		return m_context.HasRegister<T>();
 	}
 
 
 	template<typename T>
 	std::vector<T>& Scene::GetComponents(void) noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		return m_context.GetComponents<T>();
 	}
 
 	template<typename T>
 	const std::vector<T>& Scene::GetComponents(void) const noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		return m_context.GetComponents<T>();
 	}
 

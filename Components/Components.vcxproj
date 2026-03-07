@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include;$(SolutionDir)/SceneManager/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include;$(SolutionDir)/SceneManager/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include;$(SolutionDir)/SceneManager/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -162,7 +162,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/Platform/Include;$(SolutionDir)/Utilities/Include;$(SolutionDir)/GLM/Include;$(SolutionDir)/ECS/Include;$(SolutionDir)/Media/Include;$(SolutionDir)/SceneManager/Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -179,13 +179,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\EntityInfo\EntityInfo.cpp" />
-    <ClCompile Include="Source\Transforms\Transform3D.cpp" />
+    <ClInclude Include="Include\Components.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Components.hpp" />
-    <ClInclude Include="Source\EntityInfo\EntityInfo.hpp" />
-    <ClInclude Include="Source\Transforms\Transform3D.hpp" />
+    <ClCompile Include="Source\Script\Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

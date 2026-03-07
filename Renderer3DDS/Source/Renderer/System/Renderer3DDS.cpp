@@ -4,7 +4,7 @@
 
 namespace MultiStation {
 
-    Renderer3DDS::Renderer3DDS(void) noexcept : ISystem("Renderer3DDS") {
+    Renderer3DDS::Renderer3DDS(void) noexcept : IMSSystem("Renderer3DDS") {
 
     }
 
@@ -170,7 +170,7 @@ void main()
 	 * @param deltaTime The time step from the previus imgui call of the previus frame
 	 *
 	 */
-	void Renderer3DDS::OnImGuiRender(float deltaTime) noexcept {
+	void Renderer3DDS::OnEditorUIRender(float deltaTime) noexcept {
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 0,0 });
 		ImGui::Begin("Viewport");
         viewport = ImGui::GetContentRegionAvail();

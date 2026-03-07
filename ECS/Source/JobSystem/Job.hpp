@@ -14,9 +14,9 @@ namespace MultiStation{
 	/**
 	 * @brief A JobFunction is a function pointer that defines the signature of the function that can be executed as a job. 
 	 * @param[in] Job A copy of the job so user can retreive more information 
-	 */
-	typedef void (*JobFunction)(struct Job job);
-
+	 
+	typedef void (*JobFunction)(struct Job job);*/
+	
 	
 	/**
 	 *
@@ -35,7 +35,7 @@ namespace MultiStation{
 		 * @var JobFunction fun
 		 * @brief The function pointer that the worker thread will call when executing this job. 
 		 */
-		JobFunction								fun;
+		std::function<void (struct Job job)>	fun;
 
 		/**
 		 * @var void* data
@@ -98,6 +98,6 @@ namespace MultiStation{
 		uint32_t m_id;
 	};
 
-
+	
 
 }

@@ -1,10 +1,10 @@
 #include "Scene.hpp"
 
 namespace MultiStation {
-	Scene::Scene(ECSManager& context) noexcept : m_context(context) {
+	Scene::Scene(void) noexcept  {
 		m_nextGameObjectID = 0;
 		m_context.Register<EntityInfo>();
-
+		m_context.Register<Transform>();
 		m_gameObjects.reserve(1000);
 		m_gameObjectIDToIndex.reserve(1000);
 	}
@@ -15,35 +15,47 @@ namespace MultiStation {
 
 	GameObject* Scene::CreateGameObject(const std::string& name) noexcept {
 		uint32_t id = m_nextGameObjectID;
+		if (!m_freelist.empty()) {
+			int index = m_freelist.back();
+			m_freelist.pop_back();
+			m_gameObjects[index].SetActive(true);
+			id = m_gameObjects[index].GetID();
+			m_gameObjectIDToIndex[id] = index;
+			m_gameObjects[index].SetName(name.c_str(), (size_t)name.size());
+			m_context.CreateEntity(id);
+			m_context.AddComponent<Transform>(id);
+			return &m_gameObjects[index];
+		}
 		m_gameObjects.emplace_back(m_context, id);
 		GameObject& gameObject = m_gameObjects.back();
 		m_gameObjectIDToIndex[id] = m_gameObjects.size() - 1;
 		gameObject.SetName(name.c_str(), (uint8_t)std::min(name.size() + 1, (size_t)63));
 		m_context.CreateEntity(id);
-		//m_context.AddComponent<EntityInfo>(id, name);
+		m_context.AddComponent<Transform>(id);
 		m_nextGameObjectID++;
 		return &gameObject;
 	}
 
 	void Scene::RemoveGameObject(GameObject* gameObject) noexcept {
-		if (!gameObject) return;
+		if (!gameObject) {
+			MS_ENGINE_WARN("Game Object is null");
+			return;
+		}
+
+		if (gameObject->IsActive() == false) {
+			MS_ENGINE_WARN("Game Object is already removed !");
+			return;
+		}
+
 
 		uint32_t id = gameObject->GetID();
-		auto it = m_gameObjectIDToIndex.find(id);
-		if (it == m_gameObjectIDToIndex.end()) return;
-
-		size_t index = it->second;
-		size_t lastIndex = m_gameObjects.size() - 1;
-
-		// swap
-		std::swap(m_gameObjects[index], m_gameObjects[lastIndex]);
-
-		// update moved object's index
-		m_gameObjectIDToIndex[m_gameObjects[index].GetID()] = index;
-
-		// remove last
-		m_gameObjects.pop_back();
-		m_gameObjectIDToIndex.erase(it);
+		if (gameObject->GetID() == m_gameObjects[m_gameObjects.size() - 1].GetID()) {
+			m_gameObjects.pop_back();
+		}
+		else {
+			m_freelist.push_back(m_gameObjectIDToIndex[id]);
+			m_gameObjects[m_gameObjectIDToIndex[id]].SetActive(false);
+		}
 
 		m_context.DestroyEntity(id);
 	}
@@ -66,12 +78,22 @@ namespace MultiStation {
 		return m_gameObjects.data() + it->second;
 	}
 
-	std::vector<GameObject>& Scene::GetGameObjects(void) noexcept {
-		return m_gameObjects;
-	}
-
-	const std::vector<GameObject>& Scene::GetGameObjects(void) const noexcept {
-		return m_gameObjects;
+	void Scene::ForEachGameObject(std::function<void(GameObject& object)> callback, uint32_t max_count) noexcept {
+		if (callback == nullptr) {
+			MS_ENGINE_WARN("No callback is given");
+			return;
+		}
+		if (max_count == 0) max_count = 0xFFFFFFFF;
+		uint32_t cnt = 0;
+		for (GameObject& gameobject : m_gameObjects) {
+			if (gameobject.IsActive()) {
+				callback(gameobject);
+				cnt++;
+			}
+			if (cnt >= max_count) {
+				break;
+			}
+		}
 	}
 
 
@@ -89,5 +111,10 @@ namespace MultiStation {
 
 	void Scene::UpdateScene(void) noexcept {
 		m_context.PollOperations();
+		
+	}
+
+	uint32_t Scene::Size(void) const noexcept {
+		return m_gameObjects.size() - m_freelist.size();
 	}
 }

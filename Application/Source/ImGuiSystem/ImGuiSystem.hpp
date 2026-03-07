@@ -1,9 +1,9 @@
 #pragma once
-#include <ECS.hpp>
+#include <SceneManager.hpp>
 
 namespace MultiStation {
 
-	class ImGuiSystem : public ISystem {
+	class ImGuiSystem : public IMSSystem {
 
 	public:
 		ImGuiSystem(void) noexcept;
@@ -23,7 +23,7 @@ namespace MultiStation {
 
 		void Begin(void) noexcept;
 		
-		virtual void OnImGuiRender(float deltaTime) noexcept override;
+		virtual void OnEditorUIRender(float deltaTime) noexcept override;
 
 		void End(void) noexcept;
 

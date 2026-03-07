@@ -46,10 +46,7 @@ namespace MultiStation {
 		MS_ASSERT(m_context != nullptr, "GameObject context is null.");
 		return m_name;
 	}
-	/**
-			 * @brief Sets the name of the Game Object .
-			 * @param name The new name of the Game Object .
-			 */
+
 	void GameObject::SetName(const char* name, uint8_t length) noexcept {
 		MS_ASSERT(m_context != nullptr, "GameObject context is null.");
 		strncpy(m_name, name, std::min(length, (uint8_t)63) );
@@ -64,5 +61,19 @@ namespace MultiStation {
 		return m_id;
 	}
 
+	
+	bool GameObject::IsActive(void) const {
+		return m_active;
+	}
 
+	void GameObject::SetActive(bool active) noexcept {
+		m_active = active;
+		if (active == false) {
+			
+			m_componentTypes.clear();
+		
+		}
+		else {
+		}
+	}
 }

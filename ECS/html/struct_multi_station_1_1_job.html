@@ -92,7 +92,7 @@ $(function(){initNavTree('struct_multi_station_1_1_job.html','','struct_multi_st
 </div><!--header-->
 <div class="contents">
 
-<p>A job is a unit of work that can be executed by a worker thread. The <a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a> struct defines the function to execute and the attributes of the job .  
+<p>A JobFunction is a function pointer that defines the signature of the function that can be executed as a job.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_job_8hpp_source.html">Job.hpp</a>&gt;</code></p>
@@ -112,8 +112,8 @@ Job &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (J
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae3200ec0dfff5b7941fe940c908103b6" id="r_ae3200ec0dfff5b7941fe940c908103b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3200ec0dfff5b7941fe940c908103b6">fun</a></td></tr>
-<tr class="memdesc:ae3200ec0dfff5b7941fe940c908103b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function pointer that the worker thread will call when executing this job.  <br /></td></tr>
+<tr class="memitem:a39e97add18dbe50ae629a8291b017881" id="r_a39e97add18dbe50ae629a8291b017881"><td class="memItemLeft" align="right" valign="top">std::function&lt; void(struct Job job)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39e97add18dbe50ae629a8291b017881">fun</a></td></tr>
+<tr class="memdesc:a39e97add18dbe50ae629a8291b017881"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function pointer that the worker thread will call when executing this job.  <br /></td></tr>
 <tr class="memitem:ab2ec3ea49825168e6868d0d2551d0fad" id="r_ab2ec3ea49825168e6868d0d2551d0fad"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ec3ea49825168e6868d0d2551d0fad">data</a></td></tr>
 <tr class="memdesc:ab2ec3ea49825168e6868d0d2551d0fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The private data pointer that will be passed to the job function when it is executed. These data is known only to the end user .  <br /></td></tr>
 <tr class="memitem:a2848546e5895f5dd25ef46b64a381f76" id="r_a2848546e5895f5dd25ef46b64a381f76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2848546e5895f5dd25ef46b64a381f76">affine</a></td></tr>
@@ -130,7 +130,15 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> [64]</td></t
 <tr class="memdesc:a0740f1fc045af333501095f1b95e5ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">For jobs that are part of group/block of jobs (e.g. parallel for) this variable is used to identify the total number of jobs in the block/group that belong .  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A job is a unit of work that can be executed by a worker thread. The <a class="el" href="struct_multi_station_1_1_job.html" title="A job is a unit of work that can be executed by a worker thread. The Job struct defines the function ...">Job</a> struct defines the function to execute and the attributes of the job . </p>
+<div class="textblock"><p>A JobFunction is a function pointer that defines the signature of the function that can be executed as a job. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a></td><td>A copy of the job so user can retreive more information</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>typedef void (*JobFunction)(struct <a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a> job);</p>
+<p>A job is a unit of work that can be executed by a worker thread. The <a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a> struct defines the function to execute and the attributes of the job . </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aaee83a86b07991a8e6d47183cdc8952f" name="aaee83a86b07991a8e6d47183cdc8952f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaee83a86b07991a8e6d47183cdc8952f">&#9670;&#160;</a></span>GetID()</h2>
@@ -225,14 +233,14 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>name</b> [64]</td></t
 
 </div>
 </div>
-<a id="ae3200ec0dfff5b7941fe940c908103b6" name="ae3200ec0dfff5b7941fe940c908103b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3200ec0dfff5b7941fe940c908103b6">&#9670;&#160;</a></span>fun</h2>
+<a id="a39e97add18dbe50ae629a8291b017881" name="a39e97add18dbe50ae629a8291b017881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39e97add18dbe50ae629a8291b017881">&#9670;&#160;</a></span>fun</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_multi_station.html#adbe164398068beda9a0d51dd2ed4296b">JobFunction</a> MultiStation::Job::fun</td>
+          <td class="memname">std::function&lt;void (struct Job job)&gt; MultiStation::Job::fun</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -85,7 +85,7 @@ namespace MultiStation{
 		 * 
 		 */
 		void ParallelFor(
-			JobFunction func, void* data, uint32_t jobCount,
+			std::function<void(Job job)> func, void* data, uint32_t jobCount,
 			std::shared_ptr<std::atomic<uint32_t>> counter) noexcept;
 
 		/**

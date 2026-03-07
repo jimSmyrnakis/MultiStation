@@ -5,36 +5,21 @@ namespace MultiStation {
 	HierarchyPanel::HierarchyPanel(void) {
 		m_SelectedEntityId = nullptr;
 		Scene& context = Application::Get().GetScene();
-		if (context.HasRegister<int>() == false) {
-			context.Register<int>();
-		}
+		
 	}
 
 	void HierarchyPanel::OnImGuiRender(void) noexcept {
 		ImGui::Begin("Scene Hierarchy");
 
 		Scene& context = Application::Get().GetScene();
+
+		context.ForEachGameObject([this](GameObject& gameobject) {
+				DrawEntityNode(gameobject);
+			});
 		
-		std::vector<GameObject>& GameObjects = context.GetGameObjects();
-		uint32_t min_len = std::min((size_t)100, GameObjects.size());
-		for (int i = 0; i < min_len; i++) {
-			GameObject& gameobject = GameObjects[i];
-			DrawEntityNode(gameobject);
-		}
-		std::vector<int>& ints = context.GetComponents<int>();
-		for (int& i : ints) {
-			i++;
-		}
-		/* for (size_t i = min_len; i < GameObjects.size(); i++) {
-			GameObject& gameobject = GameObjects[i];
-			//DrawEntityNode(gameobject);
-			const char* name = gameobject.GetName();
-			if (gameobject.HasComponent<int>()){
-				int* ptr = gameobject.GetComponent<int>();
-				(*ptr)++;
-			}
-				
-		}*/
+		
+		
+		
 		bool atAnyLRClick = ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right);
 
 		if  ( (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered())

@@ -1,25 +1,11 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Debug.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x335 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x337 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33b that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x33e that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x353 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x357 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x35a that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x360 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x364 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x367 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x369 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x36c that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x371 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x375 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e2 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e4 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5e7 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ea that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x5ec that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x689 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x68d that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x690 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x693 that is illegal in the current source character set (codepage 65001).
+C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.cpp(1,1): warning C4828: The file contains a character starting at offset 0x697 that is illegal in the current source character set (codepage 65001).
 C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Debug\Debug.hpp(1,1): warning C4828: The file contains a character starting at offset 0x1dc that is illegal in the current source character set (codepage 65001).
   (compiling source file 'Source/Debug/Debug.cpp')
   
@@ -124,23 +110,4 @@ C:\Users\User\Desktop\Projects\MultiStation\Platform\Externals\spdlog\include\sp
 C:\Users\User\Desktop\Projects\MultiStation\Platform\Externals\spdlog\include\spdlog\fmt\bundled\format.h(2600,54): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
   (compiling source file 'Source/Debug/Debug.cpp')
   
-  bmp.cpp
-  Time.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x12c that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x12f that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x133 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x13d that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x141 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x144 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x147 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x14a that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x14e that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x151 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x154 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x158 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x275 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x278 that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x27c that is illegal in the current source character set (codepage 65001).
-C:\Users\User\Desktop\Projects\MultiStation\Platform\Source\Time\Time.cpp(1,1): warning C4828: The file contains a character starting at offset 0x289 that is illegal in the current source character set (codepage 65001).
-  Generating Code...
   Platform.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\Platform\Library\Debug\Win32\Platform.lib

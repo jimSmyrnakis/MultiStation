@@ -1,2 +1,8 @@
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\BuildInComponents\EntityInfo\EntityInfo.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\EntityInfo.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\BuildInComponents\Transforms\Transform.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\Transform.obj
 C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\GameObject\GameObject.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\GameObject.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Interfaces\IComponent.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\IComponent.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Interfaces\IMSSystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\IMSSystem.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemStack\MSSystemStack.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\MSSystemStack.obj
 C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\Scene.obj
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemManager\MSSystemManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\Win32\MSSystemManager.obj

@@ -1,6 +1,7 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <Components.hpp>
+#include "../Interfaces/IComponent.hpp"
 #include <ECS.hpp>
 #include <vector>
 #include <string>
@@ -88,7 +89,7 @@ namespace MultiStation {
 		 * @returns The name of the Game Object . Full length is 64 chars .
 		 */
 		const char* GetName(void) const noexcept;
-/**
+		/**
 		 * @brief Sets the name of the Game Object .
 		 * @param name The new name of the Game Object .
 		 */
@@ -106,12 +107,27 @@ namespace MultiStation {
 		 */
 		uint32_t GetID(void) const noexcept;
 
+		/**
+		 * 
+		 * 
+		 * @returns true if this game object is active , false oherwise . This
+		 * is handle by the scene .
+		 */
+		bool IsActive(void) const;
+
+	private:
+		// for scene to use 
+		void SetActive(bool active) noexcept;
+
+		
 
 	private:
 		ECSManager* m_context = nullptr;
 		uint32_t m_id;
 		std::vector<std::string> m_componentTypes;
 		char m_name[64];
+		bool m_active = true;
+		friend class Scene;
 	};
 
 
@@ -134,6 +150,7 @@ namespace MultiStation {
 
 	template<typename T, typename... Args>
 	void GameObject::AddComponent(Args&&... args) noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		if (!m_context->HasRegister<T>()) {
 			MS_ENGINE_WARN("Component type not registered. Skipping adding component.");
 			return;
@@ -157,6 +174,7 @@ namespace MultiStation {
 
 	template<typename T>
 	void GameObject::RemoveComponent(void) noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		if (!m_context->HasRegister<T>()) {
 			MS_ENGINE_WARN("Component type not registered. Skipping removing component.");
 			return;
@@ -172,6 +190,7 @@ namespace MultiStation {
 
 	template<typename T>
 	T* GameObject::GetComponent(void) noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		MS_ASSERT(m_context, "GameObject context is null.");
 		return m_context->GetComponent<T>(m_id);
 	}
@@ -179,6 +198,7 @@ namespace MultiStation {
 
 	template<typename T>
 	const T* GameObject::GetComponent(void) const noexcept {
+		static_assert(std::is_base_of<IComponent, T>::value, "T must inherit from IComponent");
 		MS_ASSERT(m_context != nullptr, "GameObject context is null.");
 		return m_context->GetComponent<T>(m_id);
 	}

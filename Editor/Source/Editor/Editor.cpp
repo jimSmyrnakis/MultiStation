@@ -1,7 +1,7 @@
 #include "Editor.hpp"
 namespace MultiStation {
 
-	Editor::Editor(void) noexcept : ISystem("Editor") {
+	Editor::Editor(void) noexcept : IMSSystem("Editor") {
 
 	}
 
@@ -19,7 +19,13 @@ namespace MultiStation {
 		MS_INFO("Editor On Attach");
 	}
 
-
+	bool OnKeyPressedEvent(KeyPressedEvent& e) noexcept {
+		if (e.GetKeyCode() == MS_KEY_X) {
+			//Application::Get().SetRunning(false);
+			Application::Get().GetScene().CreateGameObject("Haha name");
+		}
+		return false;
+	}
 
 	/**
 	 *
@@ -28,9 +34,12 @@ namespace MultiStation {
 	 *
 	 */
 	void Editor::OnEvent(Event& e) noexcept {
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<KeyPressedEvent>(OnKeyPressedEvent);
 
 	}
 
+	
 
 	/**
 	 * @brief Called each frame / game loop to Update the Imgui UI Render , such as creating buttons
@@ -39,7 +48,7 @@ namespace MultiStation {
 	 * @param deltaTime The time step from the previus imgui call of the previus frame
 	 *
 	 */
-	void Editor::OnImGuiRender(float deltaTime) noexcept {
+	void Editor::OnEditorUIRender(float deltaTime) noexcept {
 		m_HierarchyPanel.OnImGuiRender();
 	}
 
@@ -52,6 +61,7 @@ namespace MultiStation {
 	 */
 	void Editor::OnDetach(void) noexcept {
 		MS_INFO("Editor On Detach");
+		
 	}
 
 }

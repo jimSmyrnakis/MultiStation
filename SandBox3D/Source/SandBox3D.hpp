@@ -5,7 +5,7 @@ namespace MultiStation {
 
 	class SandBox3D : public Application {
 	public:
-		SandBox3D(void) noexcept;
+		SandBox3D(uint32_t threads) noexcept;
 		~SandBox3D(void) noexcept;
 
 	public:

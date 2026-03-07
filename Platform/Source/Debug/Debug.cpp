@@ -23,34 +23,52 @@ namespace {
         }
     }
 
-    // Μορφοποίηση printf -> string, και μετά log σαν απλό μήνυμα (χωρίς fmt templates)
     void VLog(std::shared_ptr<spdlog::logger>& lg,
         spdlog::level::level_enum lvl,
+        int line,
+        const char* file,
         const char* fmt,
         va_list args) noexcept
     {
         if (!lg || !fmt) return;
 
-        char stackbuf[1024];
+        char msgbuf[1024];
 
         va_list args_copy;
         va_copy(args_copy, args);
-        int needed = std::vsnprintf(stackbuf, sizeof(stackbuf), fmt, args_copy);
+        int needed = std::vsnprintf(msgbuf, sizeof(msgbuf), fmt, args_copy);
         va_end(args_copy);
 
         if (needed < 0) return;
 
-        if (needed < (int)sizeof(stackbuf)) {
-            lg->log(lvl, spdlog::string_view_t(stackbuf, (size_t)needed));
-            return;
+        std::string message;
+
+        if (needed < (int)sizeof(msgbuf)) {
+            message.assign(msgbuf, (size_t)needed);
+        }
+        else {
+            std::string heap;
+            heap.resize((size_t)needed + 1);
+
+            std::vsnprintf(heap.data(), heap.size(), fmt, args);
+            message.assign(heap.data(), (size_t)needed);
         }
 
-        // Μεγάλο μήνυμα: allocate
-        std::string heap;
-        heap.resize((size_t)needed + 1);
+        // τελικό μήνυμα με file / line
+        char finalbuf[1280];
+        int final_len = std::snprintf(
+            finalbuf,
+            sizeof(finalbuf),
+            "%s at line %d, file %s : %s",
+            spdlog::level::to_string_view(lvl).data(),
+            line,
+            file ? file : "unknown",
+            message.c_str()
+        );
 
-        std::vsnprintf(heap.data(), heap.size(), fmt, args);
-        lg->log(lvl, spdlog::string_view_t(heap.data(), (size_t)needed));
+        if (final_len < 0) return;
+
+        lg->log(lvl, spdlog::string_view_t(finalbuf, (size_t)std::min(final_len, (int)sizeof(finalbuf))));
     }
 }
 
@@ -72,10 +90,10 @@ namespace MultiStation {
         spdlog::shutdown();
     }
 
-    void EngineLogf(LogLevel lvl, const char* fmt, ...) noexcept {
+    void EngineLogf(LogLevel lvl, int line, const char* file, const char* fmt, ...) noexcept {
         va_list args;
         va_start(args, fmt);
-        VLog(g_engine, ToSpd(lvl), fmt, args);
+        VLog(g_engine, ToSpd(lvl),line , file , fmt, args);
         va_end(args);
 
        /* if (lvl == LogLevel::Fatal) {
@@ -88,10 +106,10 @@ namespace MultiStation {
         }*/
     }
 
-    void ClientLogf(LogLevel lvl, const char* fmt, ...) noexcept {
+    void ClientLogf(LogLevel lvl, int line, const char* file, const char* fmt, ...) noexcept {
         va_list args;
         va_start(args, fmt);
-        VLog(g_client, ToSpd(lvl), fmt, args);
+        VLog(g_client, ToSpd(lvl),line , file , fmt, args);
         va_end(args);
 
         

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemmanager_0',['SystemManager',['../class_multi_station_1_1_system_manager.html',1,'MultiStation']]]
+  ['versioncontrol_0',['VersionControl',['../class_multi_station_1_1_version_control.html',1,'MultiStation']]]
 ];

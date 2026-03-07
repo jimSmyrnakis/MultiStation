@@ -1,4 +1,6 @@
 ﻿  GameObject.cpp
+  MSSystemManager.cpp
   Scene.cpp
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(24,56): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
   Generating Code...
   SceneManager.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Library\Debug\Win32\SceneManager.lib

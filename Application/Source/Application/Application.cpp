@@ -4,11 +4,9 @@
 
 namespace MultiStation {
 	void Application::SetUp(void) noexcept {}
-
-	Application::Application(const std::string name) noexcept {
+	FBuffer* fb = nullptr;
+	Application::Application(const std::string name, uint32_t threads) noexcept : m_systemManager(threads) {
 		m_name = name;
-		// initiallize scene backend
-		m_scene= new (std::nothrow)Scene(m_systemManager.GetECSManager());
 		// creating a window
 		WindowProperties props;
 		props.Title = name;
@@ -26,7 +24,8 @@ namespace MultiStation {
 		Input::Init(*m_window);
 		m_Input = Input::Get();
 		MS_ASSERT(m_Input, "Failed to Create Input!");
-
+		
+		fb = new FBuffer(MultiStation::Texture2DResolution(m_window->GetWidth() , m_window->GetHeight()));
 		
 
 		isInitialized = false;
@@ -47,11 +46,11 @@ namespace MultiStation {
 		PushSystemOverlay(m_ImGuiSystem);
 
 	}
-
+	
 	void Application::Run(void) noexcept {
 		MS_ASSERT(isInitialized, "Application not initiallized");
 
-		// poll events
+		// poll events and update imgui and game engine events
 		m_window->PollEvents();
 
 		// Before all call updates for each phase
@@ -60,28 +59,30 @@ namespace MultiStation {
 		}
 
 		// Clear previus frame -- TODO use Graphics Library for it
-		glClearColor(0.4, 0.4, 0.4, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
+		fb->ClearColorBuffer(0, { 0.4, 0.4, 0.4, 1 });
 
 		
 
 		// Run Render layer from start to end (fifo for game render) 
-		for (ISystem* system : m_systemStack) {
+		for (IMSSystem* system : m_systemStack) {
 			system->OnRenderUpdate(0.016f);
 		}
 
 		// Now Run ImGui UI Render from start to end (fifo but after the game render)
 		m_ImGuiSystem->Begin();
-		for (ISystem* system : m_systemStack) {
-			system->OnImGuiRender(0.016f);
+		for (IMSSystem* system : m_systemStack) {
+			system->OnEditorUIRender(0.016f);
 		}
 		m_ImGuiSystem->End();
 
 		// Update the window
 		m_window->SwapBuffers();
 
-		// Update one more time the ecs
-		m_scene->UpdateScene();
+		// Update the scene
+		m_scene.UpdateScene();
+
+		// Update request's for phase based execution systems
+		m_systemManager.Update();
 	}
 
 	void Application::Finalize(void) noexcept {
@@ -90,9 +91,9 @@ namespace MultiStation {
 
 		// Remove systems from existing system / layer managers
 		// TODO 
-
+		
 		// Free all systems but first detached them
-		for (ISystem* system : m_systems) {
+		for (IMSSystem* system : m_systems) {
 			system->OnDetach();
 			delete system;
 		}
@@ -108,8 +109,8 @@ namespace MultiStation {
 	
 
 
-	Scene& Application::GetScene(void) noexcept { return *m_scene; }
-	const Scene& Application::GetScene(void) const noexcept { return *m_scene; }
+	Scene& Application::GetScene(void) noexcept { return m_scene; }
+	const Scene& Application::GetScene(void) const noexcept { return m_scene; }
 
 
 	Window& Application::GetWindow(void) noexcept { return *m_window; }

@@ -24,9 +24,6 @@
     <ClInclude Include="Source\mspch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SystemStack\SystemStack.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\Application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,9 +33,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\ImGuiSystem\ImGuiSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SystemStack\SystemStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Application\Events.cpp">

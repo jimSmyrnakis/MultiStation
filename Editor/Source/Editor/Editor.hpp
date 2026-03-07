@@ -2,7 +2,7 @@
 #include <ECS.hpp>
 #include "../HierarchyPanel/HierarchyPanel.hpp"
 namespace MultiStation {
-	class Editor : public ISystem {
+	class Editor : public IMSSystem {
 	public:
 		Editor(void) noexcept;
 		~Editor(void) noexcept;
@@ -36,7 +36,7 @@ namespace MultiStation {
 		 * @param deltaTime The time step from the previus imgui call of the previus frame
 		 *
 		 */
-		virtual void OnImGuiRender(float deltaTime) noexcept override;
+		virtual void OnEditorUIRender(float deltaTime) noexcept override;
 
 
 

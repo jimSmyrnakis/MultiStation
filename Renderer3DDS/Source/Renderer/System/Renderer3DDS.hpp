@@ -3,7 +3,7 @@
 
 namespace MultiStation {
 
-	class Renderer3DDS : public ISystem {
+	class Renderer3DDS : public IMSSystem {
 	public:
 		Renderer3DDS(void) noexcept;
 
@@ -33,7 +33,7 @@ namespace MultiStation {
 		 * @param deltaTime The time step from the previus imgui call of the previus frame
 		 *
 		 */
-		virtual void OnImGuiRender(float deltaTime) noexcept override;
+		virtual void OnEditorUIRender(float deltaTime) noexcept override;
 
 
 

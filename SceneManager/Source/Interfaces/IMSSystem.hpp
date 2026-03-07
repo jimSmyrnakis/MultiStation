@@ -1,9 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
-#include "../Registry/Registry.hpp"
-#include "../JobSystem/JobSystem.hpp"
-#include "../ECSManager/ECSManager.hpp"
+#include <ECS.hpp>
 #include <Media.hpp>
 
 /**
@@ -17,17 +15,17 @@ namespace MultiStation{
 
 	
 
-	class ISystem {
+	class IMSSystem {
 	
 	public:
-		ISystem(const std::string name) noexcept ;
-		virtual ~ISystem(void) noexcept = default;
+		IMSSystem(const std::string name) noexcept ;
+		virtual ~IMSSystem(void) noexcept = default;
 
-		ISystem(const ISystem& cpy) noexcept = delete;
-		ISystem& operator=(const ISystem& cpy) noexcept = delete;
+		IMSSystem(const IMSSystem& cpy) noexcept = delete;
+		IMSSystem& operator=(const IMSSystem& cpy) noexcept = delete;
 	public:
-		ISystem(ISystem&& move) noexcept = default;
-		virtual ISystem& operator=(ISystem&& move) noexcept = default ;
+		IMSSystem(IMSSystem&& move) noexcept = default;
+		virtual IMSSystem& operator=(IMSSystem&& move) noexcept = default ;
 
 		/**
 		 * @brief Callback that happens once the system is inserted 
@@ -70,7 +68,7 @@ namespace MultiStation{
 		 * @param deltaTime The time step from the previus imgui call of the previus frame
 		 * 
 		 */
-		virtual void OnImGuiRender(float deltaTime) noexcept ;
+		virtual void OnEditorUIRender(float deltaTime) noexcept ;
 
 		
 
@@ -100,11 +98,11 @@ namespace MultiStation{
 
 
 	template<typename SystemType>
-	static uint32_t ISystem::GetTypeID(void) {
+	static uint32_t IMSSystem::GetTypeID(void) {
 		// force T to be derived from ISystem , but not ISystem itself
 		static_assert(
-			std::is_base_of<ISystem, SystemType>::value && 
-			!std::is_same<ISystem, SystemType>::value,
+			std::is_base_of<IMSSystem, SystemType>::value &&
+			!std::is_same<IMSSystem, SystemType>::value,
 			"T must be derived from ISystem, not ISystem itself!");
 
 		static uint32_t id = ++s_typeID;

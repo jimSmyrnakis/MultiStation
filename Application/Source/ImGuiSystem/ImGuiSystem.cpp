@@ -7,7 +7,7 @@
 namespace MultiStation {
 
 
-    ImGuiSystem::ImGuiSystem(void) noexcept : ISystem("ImGui Layer") {
+    ImGuiSystem::ImGuiSystem(void) noexcept : IMSSystem("ImGui Layer") {
 
     }
 
@@ -52,7 +52,7 @@ namespace MultiStation {
 
 
 
-    void ImGuiSystem::OnImGuiRender(float deltaTime) noexcept {
+    void ImGuiSystem::OnEditorUIRender(float deltaTime) noexcept {
         //static bool showDemo = true;
         //ImGui::ShowDemoWindow(&showDemo);
     }
