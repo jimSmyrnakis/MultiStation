@@ -1,0 +1,25 @@
+﻿  EntityInfo.cpp
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\BuildInComponents\EntityInfo\EntityInfo.cpp(5,96): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
+  Transform.cpp
+  GameObject.cpp
+  IComponent.cpp
+  IMSSystem.cpp
+  MSSystemStack.cpp
+  Scene.cpp
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(24,64): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(56,49): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(56,49): warning C4267:         with
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(56,49): warning C4267:         [
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(56,49): warning C4267:             _Ty=uint32_t
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(56,49): warning C4267:         ]
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(118,31): warning C4267: 'return': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file '../SceneManager/Source/Scene/Scene.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp(26,14):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<MultiStation::Transform,>(uint32_t)' being compiled
+  
+  MSSystemManager.cpp
+C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemManager\MSSystemManager.cpp(67,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  SceneManager.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Library\Release\x64\SceneManager.lib

@@ -13,7 +13,7 @@ namespace MultiStation{
 			
 			float start = Time::GetTimeInSeconds();
 
-			for (int i = 0; i < 10000; i++)
+			for (int i = 0; i < 100; i++)
 				ctx.CreateGameObject("test");
 			float end = Time::GetTimeInSeconds();
 			MS_INFO("Time taken to create 10000 game object: %f seconds", end - start);
@@ -21,7 +21,7 @@ namespace MultiStation{
 			
 			end = Time::GetTimeInSeconds();
 			MS_INFO("Time taken to create 10000 components: %f seconds", end - start);
-			for (int i = 0; i < 5000; i++) {
+			for (int i = 0; i < 50; i++) {
 				GameObject* obj = ctx.CreateGameObject("Test " + std::to_string(i));
 			}
 			ctx.CreateGameObject("Test");

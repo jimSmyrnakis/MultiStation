@@ -1,0 +1,125 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  LowPassSpatialMask.cpp
+  HighPassSpatialMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Convolution/Masks/LowPassSpatialMask.cpp')
+  
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Convolution/Masks/HighPassSpatialMask.cpp')
+  
+  Filters.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Filters/Filters.cpp')
+  
+  Binarization.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/PointTransforms/Binarization.cpp')
+  
+  Converters.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Converters.cpp')
+  
+  Convolution.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Convolution/Convolution.cpp')
+  
+  Extras.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file 'Source/dsp/LowLevel/Extras.cpp')
+  
+  GammaTransform.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/GammaTransform.cpp')
+  
+  Histogram.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Histogram/Histogram.cpp')
+  
+  GausiaNoise.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/GausiaNoise.cpp')
+  
+  Inverse.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/Inverse.cpp')
+  
+  LaplaceMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/LaplaceMask.cpp')
+  
+  LineDetectionMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/LineDetectionMask.cpp')
+  
+  Masks.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/Masks.cpp')
+  
+  KirschMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/KirschMask.cpp')
+  
+  PrewittMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/PrewittMask.cpp')
+  
+  RobertsMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/RobertsMask.cpp')
+  
+  RobinsonMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/RobinsonMask.cpp')
+  
+  SobelMask.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/Convolution/Masks/SobelMask.cpp')
+  
+  Magnitute.cpp
+C:\Users\User\Desktop\Projects\MultiStation\ImageProcessing\Source\dsp\LowLevel\PointTransforms\Magnitute.cpp(50,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Compiling...
+  Operations.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/Operations.cpp')
+  
+  PixelBuffer.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PixelBuffer.cpp')
+  
+  Rotation.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/Rotation.cpp')
+  
+  SaltAndPepperNoise.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/SaltAndPepperNoise.cpp')
+  
+  Sepia.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/dsp/LowLevel/PointTransforms/Sepia.cpp')
+  
+  Erg1Ask1.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/Erg1Ask1.cpp')
+  
+  Erg1Ask3.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/Erg1Ask3.cpp')
+  
+  main.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/main.cpp')
+  
+  Erg1Ask2.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/Erg1Ask2.cpp')
+  
+  TestAll.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/Test/TestAll.cpp')
+  
+  TestLineDetector.cpp
+C:\Users\User\Desktop\Projects\MultiStation\Renderer3DDS\Source\mspch.hpp(2,10): error C1083: Cannot open include file: 'ECS.hpp': No such file or directory
+  (compiling source file '../ImageProcessing/Source/Test/TestLineDetector.cpp')
+  

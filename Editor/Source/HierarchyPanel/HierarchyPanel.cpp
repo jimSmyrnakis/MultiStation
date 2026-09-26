@@ -5,7 +5,7 @@ namespace MultiStation {
 	HierarchyPanel::HierarchyPanel(void) {
 		m_SelectedEntityId = nullptr;
 		Scene& context = Application::Get().GetScene();
-		
+
 	}
 
 	void HierarchyPanel::OnImGuiRender(void) noexcept {
@@ -14,16 +14,16 @@ namespace MultiStation {
 		Scene& context = Application::Get().GetScene();
 
 		context.ForEachGameObject([this](GameObject& gameobject) {
-				DrawEntityNode(gameobject);
+			DrawEntityNode(gameobject);
 			});
-		
-		
-		
-		
+
+
+
+
 		bool atAnyLRClick = ImGui::IsMouseClicked(ImGuiMouseButton_Left) || ImGui::IsMouseClicked(ImGuiMouseButton_Right);
 
-		if  ( (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered())
-		|| (!ImGui::IsWindowFocused()) ){
+		if ((ImGui::IsMouseClicked(ImGuiMouseButton_Left) && ImGui::IsWindowHovered())
+			|| (!ImGui::IsWindowFocused())) {
 			m_SelectedEntityId = 0;
 		}
 		ImGuiPopupFlags popup_flags = ImGuiPopupFlags_MouseButtonRight | 
@@ -41,13 +41,12 @@ namespace MultiStation {
 
 	void HierarchyPanel::DrawEntityNode(GameObject& gameobject) {
 		Scene& context = Application::Get().GetScene();
-		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow
+		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_Bullet
 			| ImGuiTreeNodeFlags_SpanFullWidth;
 		if (&gameobject == m_SelectedEntityId)
 			flags |= ImGuiTreeNodeFlags_Selected;
-		char buffer[128];
-		snprintf(buffer, sizeof(buffer), "%s %u", gameobject.GetName(), gameobject.GetID());
-		bool opened = ImGui::TreeNodeEx((void*)(uintptr_t)gameobject.GetID(), flags, buffer);
+
+		bool opened = ImGui::TreeNodeEx((void*)(uintptr_t)gameobject.GetID(), flags, gameobject.GetName());
 		if (ImGui::IsItemClicked()) {
 			m_SelectedEntityId = &gameobject;
 			// TODO - Show the entity's components in the properties panel
@@ -68,11 +67,7 @@ namespace MultiStation {
 		}
 		
 		if (opened) {
-			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow
-				| ImGuiTreeNodeFlags_SpanFullWidth;
-			bool opened = ImGui::TreeNodeEx((void*)(uintptr_t)gameobject.GetID(), flags, buffer);
-			if (opened)
-				ImGui::TreePop();
+			
 			ImGui::TreePop();
 		}
 
@@ -80,6 +75,15 @@ namespace MultiStation {
 			context.RemoveGameObject(&gameobject);
 		}
 			
+	}
+
+
+	bool HierarchyPanel::HasSelectedGameObject(void) const noexcept {
+		return m_SelectedEntityId != nullptr;
+	}
+
+	GameObject* HierarchyPanel::GeSelectedGameObject(void) const noexcept {
+		return m_SelectedEntityId;
 	}
 
 }

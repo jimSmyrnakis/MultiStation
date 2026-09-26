@@ -33,7 +33,13 @@ namespace MultiStation {
 #ifdef _WIN32 // only for windows
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;       // Enable Multi-Viewport / Platform Windows
 #endif
-        // Setup Dear ImGui style
+        // Setup Dear ImGui s
+        // tyle
+        io.Fonts->AddFontFromFileTTF("./Assets/fonts/Consolas/CONSOLAB.ttf", 18);
+        io.Fonts->AddFontFromFileTTF("./Assets/fonts/Consolas/Consolas.ttf", 18);
+        io.Fonts->AddFontFromFileTTF("./Assets/fonts/Consolas/consolai.ttf", 18);
+        io.Fonts->AddFontFromFileTTF("./Assets/fonts/Consolas/consolaz.ttf", 18);
+        io.FontDefault = io.Fonts->AddFontFromFileTTF("./Assets/fonts/Consolas/CONSOLA.ttf" , 18);
         ImGui::StyleColorsDark();
         //ImGui::StyleColorsLight();
 

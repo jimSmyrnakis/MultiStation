@@ -172,29 +172,26 @@ void main()
 	 */
 	void Renderer3DDS::OnEditorUIRender(float deltaTime) noexcept {
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 0,0 });
-		ImGui::Begin("Viewport");
+        ImGuiWindowFlags flags =
+            ImGuiWindowFlags_NoTitleBar |
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoScrollbar |
+            ImGuiWindowFlags_NoScrollWithMouse;
+        ImGui::Begin("Viewport", nullptr,
+            flags);
+
         viewport = ImGui::GetContentRegionAvail();
 
-        // IMPORTANT: flip UV γιατί OpenGL != ImGui coords
         ImGui::Image((void*)(uintptr_t)colorTexture,
             viewport,
             ImVec2(0, 1),
             ImVec2(1, 0)
         );
-		ImGui::End();
-        ImGui::PopStyleVar(1);
 
-        ImGui::Begin("Panel1");
-        ImVec2 ButtonViewport = ImGui::GetContentRegionAvail();
-        ButtonViewport.x = ButtonViewport.x / 2;
-        ImGui::Button("Ha Bouton" ,ButtonViewport);
-        ImGui::Bullet();
         ImGui::End();
+        ImGui::PopStyleVar();
 
-        ImGui::Begin("Panel2");
-        ImGui::Button("Ha Bouton", { 60, 20 });
-        ImGui::Bullet();
-        ImGui::End();
+        
 	}
 
 

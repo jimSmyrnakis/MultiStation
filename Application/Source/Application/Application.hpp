@@ -57,10 +57,7 @@ namespace MultiStation{
 
 	protected:
 
-		uint32_t CreatePhase(void) noexcept;
-		void BindPhase(uint32_t phase) noexcept;
-		void AddSystemOnPhase(IMSSystem* system) noexcept;
-		void RemoveSystemFromPhase(IMSSystem* system) noexcept;
+		
 
 
 	

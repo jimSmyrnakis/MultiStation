@@ -197,9 +197,11 @@
   <ItemGroup>
     <ClCompile Include="Source\Editor\Editor.cpp" />
     <ClCompile Include="Source\HierarchyPanel\HierarchyPanel.cpp" />
+    <ClCompile Include="Source\HierarchyPanel\SceneHierarchyPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Editor.hpp" />
+    <ClInclude Include="Source\HierarchyPanel\SceneHierarchyPanel.hpp" />
     <ClInclude Include="Source\mspch.h" />
     <ClInclude Include="Source\Editor\Editor.hpp" />
     <ClInclude Include="Source\HierarchyPanel\HierarchyPanel.hpp" />

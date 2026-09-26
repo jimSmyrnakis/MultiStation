@@ -1,6 +1,6 @@
 #pragma once
 #include <ECS.hpp>
-#include "../HierarchyPanel/HierarchyPanel.hpp"
+#include "../HierarchyPanel/SceneHierarchyPanel.hpp"
 namespace MultiStation {
 	class Editor : public IMSSystem {
 	public:
@@ -49,7 +49,7 @@ namespace MultiStation {
 
 
 	private:
-		HierarchyPanel m_HierarchyPanel;
+		SceneHierarchyPanel m_HierarchyPanel;
 
 	};
 }	

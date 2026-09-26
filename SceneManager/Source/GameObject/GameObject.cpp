@@ -49,7 +49,9 @@ namespace MultiStation {
 
 	void GameObject::SetName(const char* name, uint8_t length) noexcept {
 		MS_ASSERT(m_context != nullptr, "GameObject context is null.");
-		strncpy(m_name, name, std::min(length, (uint8_t)63) );
+		size_t minlen = std::min(length, (uint8_t)62);
+		strncpy(m_name, name,  minlen);
+		m_name[minlen ] = '\0';
 	}
 
 

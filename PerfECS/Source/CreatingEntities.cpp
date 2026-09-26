@@ -4,6 +4,7 @@ using namespace MultiStation;
 int CreatingEntitiesPerf(uint32_t count , float* duration){
 
 	ECSManager manager;
+	
 	float start = Time::GetTimeInSeconds();
 	for (uint32_t i = 0; i < count; i++) {
 		manager.CreateEntity(i);

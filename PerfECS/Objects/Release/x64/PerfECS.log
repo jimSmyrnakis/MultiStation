@@ -1,0 +1,18 @@
+﻿  CreatingEntities.cpp
+C:\Users\User\Desktop\Projects\MultiStation\PerfECS\Source\CreatingEntities.cpp(33,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+      C:\Users\User\Desktop\Projects\MultiStation\PerfECS\Source\CreatingEntities.cpp(33,9):
+      consider using '%zd' in the format string
+  
+C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  (compiling source file 'Source/CreatingEntities.cpp')
+      C:\Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSManager\ECSTemplateImpl.hpp(41,14):
+      the template instantiation context (the oldest one first) is
+          C:\Users\User\Desktop\Projects\MultiStation\PerfECS\Source\CreatingEntities.cpp(28,11):
+          see reference to function template instantiation 'void MultiStation::ECSManager::AddComponent<int,>(uint32_t)' being compiled
+  
+  Source.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 3864 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  PerfECS.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\PerfECS\Tests\Release\x64\PerfECS.exe

@@ -21,6 +21,9 @@
     <ClCompile Include="Source\HierarchyPanel\HierarchyPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\HierarchyPanel\SceneHierarchyPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Editor\Editor.hpp">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\HierarchyPanel\HierarchyPanel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\HierarchyPanel\SceneHierarchyPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
