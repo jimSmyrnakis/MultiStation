@@ -69,7 +69,8 @@ namespace MultiStation{
 		 * @param[in] entity The entity to associate the component with.
 		 * @param[in] args The arguments to construct the component.
 		 * @returns A pointer to the newly added component, or nullptr if the entity already has one.
-		 * @note If the entity already has a component, the method returns nullptr and does not add a new component. Use ReplaceComponent to update existing components.
+		 * @note If the entity already has a component, the method returns nullptr and does not add a new component.
+		 * Use ReplaceComponent to update existing components.
 		 */
 		template<typename... Args>
 		T* AddComponent(uint32_t entity , Args&&... args);

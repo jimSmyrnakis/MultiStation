@@ -1,2 +1,6 @@
-* At System Manager give time step support instead of a lie one 0.016f
+* Make Registry hide the component array 
+* Ensure different class that handles the entities id and not per ArrayComponent
+* Make Registry use Entities Id manager class and ComponentArrays and gives the methods outside for the user to use
+* Make a GUID method either using mataprogramming or not and the class name should translated to a single global 
+  common id
 

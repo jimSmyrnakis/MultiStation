@@ -39,3 +39,23 @@ int IteratingIntComponentsPerf(uint32_t count, float* duration) {
 	(*duration) = end - start;
 	return 0;
 }
+
+int CreatingIntComponentsPerf(uint32_t count, float* duration)
+{
+	ComponentArray<int> components;
+
+	float start = Time::GetTimeInSeconds();
+
+	for (uint32_t i = 0; i < count; ++i)
+	{
+		components.AddComponent(i, 42);
+	}
+
+	float end = Time::GetTimeInSeconds();
+
+	*duration = end - start;
+
+	
+
+	return 0;
+}
