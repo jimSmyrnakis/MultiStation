@@ -13,8 +13,6 @@ namespace MultiStation{
 		SceneManager(EngineContext& ctx , SerializationRegistry& serializer);
 
 
-
-
 		/**
 		 * @brief Returns if exist's the current scene that is loaded .
 		 */

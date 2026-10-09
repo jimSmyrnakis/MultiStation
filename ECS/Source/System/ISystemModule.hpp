@@ -41,13 +41,6 @@ namespace MultiStation {
 
 	};
 
-	using ModuleID = uint32_t;
-	extern std::atomic <ModuleID> moduleIdGenerator;
-	template<typename T>
-	ModuleID GetModuleID(void) {
-		static ModuleID newID = moduleIdGenerator.fetch_add(1 , std::memory_order_relaxed);
-
-		return newID;
-	}
+	
 
 }

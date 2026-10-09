@@ -11,6 +11,8 @@ namespace MultiStation {
 
 		Engine(void);
 
+		~Engine(void);
+
 		/**
 		 * @brief Updates the engine with a event , this way every system receives them 
 		 * @note For moment each system takes every event 
@@ -96,8 +98,8 @@ namespace MultiStation {
 
 	private:
 		SerializationRegistry m_serializationRegistry;
-		SceneManager m_sceneManager;
-		SystemManager m_systemManager;
+		SceneManager* m_sceneManager;
+		SystemManager* m_systemManager;
 		EngineContext m_context;
 	};
 
@@ -106,25 +108,25 @@ namespace MultiStation {
 
 	template<typename T>
 	bool Engine::AddModule(void) {
-		return m_systemManager.AddModule<T>();
+		return m_systemManager->AddModule<T>();
 	}
 
 
 	template<typename T>
 	bool Engine::RemoveModule(void) {
-		return m_systemManager.RemoveModule<T>();
+		return m_systemManager->RemoveModule<T>();
 	}
 
 
 	template<typename T>
 	bool Engine::HasModule(void) const {
-		return m_systemManager.HasModule<T>();
+		return m_systemManager->HasModule<T>();
 	}
 
 
 	template<typename T>
 	const ISystemModule* Engine::GetModule(void) const {
-		return m_systemManager.GetModule<T>();
+		return m_systemManager->GetModule<T>();
 	}
 
 	template<typename Component, typename T>

@@ -21,9 +21,15 @@
     <ClInclude Include="Source\SandBox3D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ExampleModule.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\SandBox3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Applll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

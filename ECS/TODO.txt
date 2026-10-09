@@ -6,15 +6,15 @@
 
 
 
-* Scene Update is private and will used only by special friend classes 
+
 * EntityManager Creates bootleneck in perfomance up to 50 times more time consuming for the registry vs the ComponentArray
   use entity id = index + generation to achive O(1) removal , creation and retreival complexity now is O(N) and in 
   registry for retreiving in checks N entities needs O(N*N) complexity :( . 
 * May SceneGraph at adding entities does some heavy weight calls or general adding things via SceneGraph 
   makes the Scene twice time consuming :( .
 
-* Remove from IComponentArray the RemoveEntity and name it RemoveComponent
+
 * Add to IComponentArray , AddComponent , ReplaceComponent and void* GetComponent and the rest
   for better use for later in scripts . Transfer these all the way up to Scene so a script via an engine
-  api could use that 
+  api could use these ones (Make it easy to wrap it around to C that is ABI stable )
 

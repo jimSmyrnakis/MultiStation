@@ -1,10 +1,10 @@
 c:\users\user\desktop\projects\multistation\media\library\release\x64\media.pdb
-c:\users\user\desktop\projects\multistation\media\objects\release\x64\windowproperties.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\window.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\input.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\myglfwinput.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\glfwwindow.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\glfwevents.obj
+c:\users\user\desktop\projects\multistation\media\objects\release\x64\layerstack.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\layer.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\vlayout.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\vbuffer.obj
@@ -19,7 +19,7 @@ c:\users\user\desktop\projects\multistation\media\objects\release\x64\format.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\fbuffer.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\error.obj
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\commands.obj
-c:\users\user\desktop\projects\multistation\media\objects\release\x64\layerstack.obj
+c:\users\user\desktop\projects\multistation\media\objects\release\x64\windowproperties.obj
 c:\users\user\desktop\projects\multistation\media\library\release\x64\media.lib
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\media.vcxproj.filelistabsolute.txt
 c:\users\user\desktop\projects\multistation\media\objects\release\x64\media.tlog\cl.command.1.tlog

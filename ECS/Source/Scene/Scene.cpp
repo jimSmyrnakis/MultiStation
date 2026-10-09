@@ -11,7 +11,7 @@ namespace MultiStation {
 	}
 	Scene::Scene(EngineContext& context,SerializationRegistry& registry)
 		: m_engineContext(context) , m_serializationRegistry(registry) {
-		this->m_engineContext.scene = this;
+		
 		
 		m_serializationRegistry.
 			RegisterObject(GetObjectID<Scene>(), &scene_serializer);

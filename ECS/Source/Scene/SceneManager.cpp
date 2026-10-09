@@ -7,7 +7,18 @@ namespace MultiStation {
 	SceneManager::SceneManager(EngineContext& ctx , SerializationRegistry& serializer) 
 		: m_context(ctx) , m_serializer(serializer) {
 		
-		m_currentScene = nullptr;
+		m_context.GetCurrentScene = [this]() -> Scene* {
+			return m_currentScene;
+		};
+		m_context.LoadScene = [this](IArchiveReader* archiveReader) -> bool {
+			return LoadScene(archiveReader);
+		};
+		m_context.SaveScene = [this](IArchiveWriter* archiveWriter) -> bool {
+			return SaveScene(archiveWriter);
+		};
+
+
+		m_currentScene = new Scene(m_context , serializer);
 		m_serializer.RegisterObject(GetObjectID<Scene>() , &GetSceneSerializer());
 	}
 

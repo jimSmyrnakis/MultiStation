@@ -62,8 +62,7 @@ namespace MultiStation {
 		// Before all call updates for each engine
 		m_engine.OnUpdate(0.016f);
 
-		// Clear previus frame -- TODO use Graphics Library for it
-		//fb->ClearColorBuffer(0, { 0.4, 0.4, 0.4, 1 });
+		
 
 		
 

@@ -2,7 +2,7 @@
 #include "../ISerialize.hpp"
 #include <unordered_map>
 #include "../../Globals/Globals.hpp"
-#include "../../System/SystemManager.hpp"
+
 
 /**
  * @author Dimitris Smyrnakis

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <AppCore.hpp>
+
 #include <Platform.hpp>
 #include <ECS.hpp>
 #include <Media.hpp>
