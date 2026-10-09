@@ -1,13 +1,1 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(519,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Application.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\Application.cpp(63,16): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-  ApplicationSystems.cpp
-C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\ApplicationSystems.cpp(75,18): warning C4244: 'initializing': conversion from '__int64' to 'uint32_t', possible loss of data
-C:\Users\User\Desktop\Projects\MultiStation\Application\Source\Application\ApplicationSystems.cpp(88,18): warning C4244: 'initializing': conversion from '__int64' to 'uint32_t', possible loss of data
-  Events.cpp
-  ImGuiSystem.cpp
-  Generating Code...
-  Application.vcxproj -> C:\Users\User\Desktop\Projects\MultiStation\Application\Library\Debug\x64\Application.lib
+﻿

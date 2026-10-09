@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['destroyentity_0',['DestroyEntity',['../class_multi_station_1_1_e_c_s_manager.html#a134d8e19c21deb74f1f72d61775a53f2',1,'MultiStation::ECSManager']]]
+  ['fini_0',['Fini',['../class_multi_station_1_1_i_system_module.html#ab001daf96fbe25e88f826bfca989327f',1,'MultiStation::ISystemModule']]]
 ];

@@ -12,9 +12,7 @@
 #include <memory>
 
 #include <ECS.hpp>
-#include <Components.hpp>
 #include <Utilities.hpp>
 #include <Platform.hpp>
 #include <Media.hpp>
 #include <ImGui.hpp>
-#include <SceneManager.hpp>

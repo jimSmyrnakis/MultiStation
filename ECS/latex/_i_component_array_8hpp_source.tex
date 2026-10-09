@@ -1,37 +1,47 @@
 \doxysection{IComponent\+Array.\+hpp}
-\hypertarget{_i_component_array_8hpp_source}{}\label{_i_component_array_8hpp_source}\index{Source/Interfaces/IComponentArray.hpp@{Source/Interfaces/IComponentArray.hpp}}
+\hypertarget{_i_component_array_8hpp_source}{}\label{_i_component_array_8hpp_source}\index{Source/Registry/ComponentArray/IComponentArray.hpp@{Source/Registry/ComponentArray/IComponentArray.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <atomic>}}
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponentArray}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::atomic<uint32\_t>\ s\_typeID;}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../Globals/Globals.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }MultiStation\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponentArray}}\ \{}
 \DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}{\string~IComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{GetID}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a41026c77021fe649dbbbcd92f95711e5}{RemoveEntity}}(uint32\_t\ entity)\ =\ 0;}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ }
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00047\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{IComponentArray::GetID}}(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ \textcolor{keywordtype}{id}\ =\ s\_typeID.fetch\_add(1\ ,std::memory\_order\_relaxed);}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
-\DoxyCodeLine{00050\ \ \ \ \ \}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_aef7b10613cf2c2987fe47f1dda605de5}{\string~IComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_ac181f18c3da28a8b31cc3a3614e1bfc8}{RemoveComponentV}}(EntID\ entity)\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a76c13bfff0de26ef390341fd71074e5e}{AddComponentV}}(EntID\ entity)\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a522af491dfa92a8ff5195a67f815ad9c}{ReplaceComponentV}}(EntID\ entity)\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_ac69c1405df90a8377612fea480410733}{HasComponentV}}(EntID\ entity)\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a313b55c3f7b28019a5d36868c1d3aab3}{GetComponentV}}(EntID\ entity)\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c9de8b0b47913688e8de5ee45f9584d}{GetComponentsV}}(\textcolor{keywordtype}{void})\ =0;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a76a42d42c13c4af9481f89a6564aaef2}{SizeOfComponent}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_af0995a8396ab1830cb2c7ca8f1116175}{Count}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
 
 \end{DoxyCode}

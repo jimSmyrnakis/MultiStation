@@ -1,0 +1,76 @@
+\doxysection{Multi\+Station\+::IArchive\+Writer Class Reference}
+\hypertarget{class_multi_station_1_1_i_archive_writer}{}\label{class_multi_station_1_1_i_archive_writer}\index{MultiStation::IArchiveWriter@{MultiStation::IArchiveWriter}}
+
+
+This Interface is used when we serialize an Component , System or a more Generic Object . It contains methods that can be implemented for yalm , json and other formats and defines the rules that should follow (How to Write a hole Object -\/ Here object means a set of fields and arrays ) .  
+
+
+
+
+{\ttfamily \#include $<$IArchive.\+hpp$>$}
+
+Inheritance diagram for Multi\+Station\+::IArchive\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_i_archive_writer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_ad09f69b02e4f42f6bbb583b9757982e5}\label{class_multi_station_1_1_i_archive_writer_ad09f69b02e4f42f6bbb583b9757982e5} 
+virtual void {\bfseries Begin\+Object} (const std\+::string \&name)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a9b851dc890b8082d35d4b4ba7bdb5cd2}\label{class_multi_station_1_1_i_archive_writer_a9b851dc890b8082d35d4b4ba7bdb5cd2} 
+virtual void {\bfseries End\+Object} (void)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_aeee3b16911d84263e4760fef5175cdcb}\label{class_multi_station_1_1_i_archive_writer_aeee3b16911d84263e4760fef5175cdcb} 
+virtual void {\bfseries Begin\+Array} (const std\+::string \&name, size\+\_\+t count)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a56c95b19c3180c606964bf02442a303a}\label{class_multi_station_1_1_i_archive_writer_a56c95b19c3180c606964bf02442a303a} 
+virtual void {\bfseries End\+Array} (void)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_ac38c331e2a005ca8b6af4d0fd246d92e}\label{class_multi_station_1_1_i_archive_writer_ac38c331e2a005ca8b6af4d0fd246d92e} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a439b839d2ce2cf836f0f67332c176da1}\label{class_multi_station_1_1_i_archive_writer_a439b839d2ce2cf836f0f67332c176da1} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, int data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a373b06d797e0ac0b622c2a93bcbab6ec}\label{class_multi_station_1_1_i_archive_writer_a373b06d797e0ac0b622c2a93bcbab6ec} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, unsigned int data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a74735ac124857da7ae979bafae50cb1f}\label{class_multi_station_1_1_i_archive_writer_a74735ac124857da7ae979bafae50cb1f} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, float data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_ad00cf113c980458b308c84eee108e66e}\label{class_multi_station_1_1_i_archive_writer_ad00cf113c980458b308c84eee108e66e} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, double data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a7b2432bd9408d20eb4b019e0de052eac}\label{class_multi_station_1_1_i_archive_writer_a7b2432bd9408d20eb4b019e0de052eac} 
+virtual void {\bfseries Write\+Field} (const std\+::string \&field\+Name, const std\+::string \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a07c6449085c5459d739e0693fde848c3}\label{class_multi_station_1_1_i_archive_writer_a07c6449085c5459d739e0693fde848c3} 
+virtual void {\bfseries Write\+Value} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_af18b76161409d8ced37f26f4a054e84a}\label{class_multi_station_1_1_i_archive_writer_af18b76161409d8ced37f26f4a054e84a} 
+virtual void {\bfseries Write\+Value} (int data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a86453ce460c1733909625a6302f9b96f}\label{class_multi_station_1_1_i_archive_writer_a86453ce460c1733909625a6302f9b96f} 
+virtual void {\bfseries Write\+Value} (unsigned int data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a80e387ff27f5a68c821ae5960921667d}\label{class_multi_station_1_1_i_archive_writer_a80e387ff27f5a68c821ae5960921667d} 
+virtual void {\bfseries Write\+Value} (float data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a14b9babe0c168803b143c2fb134969e6}\label{class_multi_station_1_1_i_archive_writer_a14b9babe0c168803b143c2fb134969e6} 
+virtual void {\bfseries Write\+Value} (double data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_writer_a8030a09cac3f33ff6261ea34a2990be4}\label{class_multi_station_1_1_i_archive_writer_a8030a09cac3f33ff6261ea34a2990be4} 
+virtual void {\bfseries Write\+Value} (const std\+::string \&data)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Interface is used when we serialize an Component , System or a more Generic Object . It contains methods that can be implemented for yalm , json and other formats and defines the rules that should follow (How to Write a hole Object -\/ Here object means a set of fields and arrays ) . 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Serialization/\+Archive/\mbox{\hyperlink{_i_archive_8hpp}{IArchive.\+hpp}}\end{DoxyCompactItemize}

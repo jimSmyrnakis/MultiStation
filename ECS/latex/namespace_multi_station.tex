@@ -3,19 +3,97 @@
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array}}
-\begin{DoxyCompactList}\small\item\em This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager}{ECSManager}}
-\begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_e_c_s_manager}{ECSManager} class is responsible for managing entities and component\textquotesingle{}s . Components / Entities that Created/\+Removed/\+Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase . \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
-\begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_multi_station_1_1_entity_manager}{Entity\+Manager}}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}}
+\item 
 struct \mbox{\hyperlink{struct_multi_station_1_1_job}{Job}}
 \begin{DoxyCompactList}\small\item\em A Job\+Function is a function pointer that defines the signature of the function that can be executed as a job. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_job_system}{Job\+System}}
 \begin{DoxyCompactList}\small\item\em \doxylink{struct_multi_station_1_1_job}{Job} System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -\/\texorpdfstring{$>$}{>} any worker available . The parent Thread is part of the schedule algorithm , usefull method is the wait\+For\+All that makes him enable for schedulling with the rest workers . \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_multi_station_1_1_component_array}{Component\+Array}}
+\begin{DoxyCompactList}\small\item\em This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponent\+Array}}
+\begin{DoxyCompactList}\small\item\em An interface for \doxylink{class_multi_station_1_1_component_array}{Component\+Array} classes, providing a common base for different component types. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_multi_station_1_1_registry}{Registry}}
-\begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own \doxylink{class_multi_station_1_1_component_array}{Component\+Array} $<$\+T$>$ instance, which is created upon registration and destroyed upon unregistration. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_multi_station_1_1_registry}{Registry} class manages the registration and retrieval of component with different type , also entity creation / remove and components types to entities signatures . \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_scene_graph}{Scene\+Graph}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_scene_serializer}{Scene\+Serializer}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchive\+Writer}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchive\+Reader}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader}{Text\+Archive\+Reader}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer}{Text\+Archive\+Writer}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_serialization_registry}{Serialization\+Registry}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_file_read_stream}{File\+Read\+Stream}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_file_write_stream}{File\+Write\+Stream}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_read_stream}{IRead\+Stream}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_write_stream}{IWrite\+Stream}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_system_manager}{System\+Manager}}
+\begin{DoxyCompactList}\small\item\em Responsible for managing the system modules , create them , remove update them per frame (loop) . \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_multi_station_aca756e49b6d63883688240ec06cebbda}\label{namespace_multi_station_aca756e49b6d63883688240ec06cebbda} 
+using {\bfseries Comp\+ID} = uint64\+\_\+t
+\item 
+\Hypertarget{namespace_multi_station_a359eac7967ffc1093fcea4a53d862df0}\label{namespace_multi_station_a359eac7967ffc1093fcea4a53d862df0} 
+using {\bfseries Ent\+ID} = uint32\+\_\+t
+\item 
+\Hypertarget{namespace_multi_station_a0187fcc0811b6a9b43318e350ddd114c}\label{namespace_multi_station_a0187fcc0811b6a9b43318e350ddd114c} 
+using {\bfseries Obj\+ID} = uint32\+\_\+t
+\item 
+\Hypertarget{namespace_multi_station_a9597f8999da3426137c1c11ed97c4d7e}\label{namespace_multi_station_a9597f8999da3426137c1c11ed97c4d7e} 
+using {\bfseries Module\+ID} = uint32\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\Comp\+ID \mbox{\hyperlink{namespace_multi_station_af6375f12ea7c2fa0f77175c847407e8e}{Get\+Component\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em Gives for different types of components a unique id. \end{DoxyCompactList}\item 
+\Hypertarget{namespace_multi_station_a20e5562be9b66d9e8cd3ff3d179e9e62}\label{namespace_multi_station_a20e5562be9b66d9e8cd3ff3d179e9e62} 
+{\footnotesize template$<$typename T$>$ }\\Obj\+ID {\bfseries Get\+Object\+ID} (void)
+\item 
+\Hypertarget{namespace_multi_station_ad855ecf342117af5384bf40b6232ed58}\label{namespace_multi_station_ad855ecf342117af5384bf40b6232ed58} 
+{\footnotesize template$<$typename T$>$ }\\Module\+ID {\bfseries Get\+Module\+ID} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_multi_station_a6b0a4dce317b73a65bdc4c0455772a97}\label{namespace_multi_station_a6b0a4dce317b73a65bdc4c0455772a97} 
+std\+::atomic$<$ Comp\+ID $>$ {\bfseries s\+\_\+type\+ID}
+\item 
+\Hypertarget{namespace_multi_station_a6ffd50a304e34e8bc45a17d9767a3354}\label{namespace_multi_station_a6ffd50a304e34e8bc45a17d9767a3354} 
+Ent\+ID {\bfseries root\+Entity}
+\item 
+\Hypertarget{namespace_multi_station_a5805edd416c71a9dc2063c399bb13c32}\label{namespace_multi_station_a5805edd416c71a9dc2063c399bb13c32} 
+Ent\+ID {\bfseries null\+Entity}
+\item 
+\Hypertarget{namespace_multi_station_ac9c085d1e7d0ed8e452b42059089f458}\label{namespace_multi_station_ac9c085d1e7d0ed8e452b42059089f458} 
+std\+::atomic$<$ Obj\+ID $>$ {\bfseries obj\+\_\+id}
+\item 
+\Hypertarget{namespace_multi_station_aacc2430af61d0a5a429bc2fcb2fcf5ba}\label{namespace_multi_station_aacc2430af61d0a5a429bc2fcb2fcf5ba} 
+std\+::atomic$<$ Module\+ID $>$ {\bfseries module\+Id\+Generator}
 \end{DoxyCompactItemize}
 
 
@@ -23,3 +101,22 @@ class \mbox{\hyperlink{class_multi_station_1_1_version_control}{Version\+Control
 \begin{DoxyAuthor}{Author}
 Dimitris Smyrnakis 
 \end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_multi_station_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_multi_station_af6375f12ea7c2fa0f77175c847407e8e}\index{MultiStation@{MultiStation}!GetComponentID@{GetComponentID}}
+\index{GetComponentID@{GetComponentID}!MultiStation@{MultiStation}}
+\doxysubsubsection{\texorpdfstring{GetComponentID()}{GetComponentID()}}
+{\footnotesize\ttfamily \label{namespace_multi_station_af6375f12ea7c2fa0f77175c847407e8e} 
+template$<$typename T$>$ \\
+Comp\+ID Multi\+Station\+::\+Get\+Component\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gives for different types of components a unique id. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

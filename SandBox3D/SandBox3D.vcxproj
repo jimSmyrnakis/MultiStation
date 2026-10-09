@@ -93,14 +93,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Editor\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include;$(SolutionDir)Renderer3DDS\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)Editor\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Renderer3DDS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Components\Library\$(Configuration)\$(Platform);$(SolutionDir)SceneManager\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLAD.lib;GLFW.lib;SceneManager.lib;Media.lib;AppCore.lib;Platform.lib;ECS.lib;Utilities.lib;Editor.lib;ImGui.lib;Application.lib;Renderer3DDS.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;ECS.lib;GLAD.lib;GLFW.lib;Media.lib;AppCore.lib;Platform.lib;Utilities.lib;ImGui.lib;Application.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,7 +112,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Editor\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include;$(SolutionDir)Renderer3DDS\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -120,8 +120,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)Editor\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Renderer3DDS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Components\Library\$(Configuration)\$(Platform);$(SolutionDir)SceneManager\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLAD.lib;GLFW.lib;SceneManager.lib;Media.lib;AppCore.lib;Platform.lib;ECS.lib;Utilities.lib;Editor.lib;ImGui.lib;Application.lib;Renderer3DDS.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;ECS.lib;GLAD.lib;GLFW.lib;Media.lib;AppCore.lib;Platform.lib;Utilities.lib;ImGui.lib;Application.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,14 +131,14 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Editor\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include;$(SolutionDir)Renderer3DDS\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)Editor\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Renderer3DDS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Components\Library\$(Configuration)\$(Platform);$(SolutionDir)SceneManager\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLAD.lib;GLFW.lib;SceneManager.lib;Media.lib;AppCore.lib;Platform.lib;ECS.lib;Utilities.lib;Editor.lib;ImGui.lib;Application.lib;Renderer3DDS.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;ECS.lib;GLAD.lib;GLFW.lib;Media.lib;AppCore.lib;Platform.lib;Utilities.lib;ImGui.lib;Application.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,7 +150,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Editor\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include;$(SolutionDir)Renderer3DDS\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)AppCore\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Media\Include;$(SolutionDir)Externals\GLEW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)Application\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -158,13 +158,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)Editor\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Renderer3DDS\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Components\Library\$(Configuration)\$(Platform);$(SolutionDir)SceneManager\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;GLAD.lib;GLFW.lib;SceneManager.lib;Media.lib;AppCore.lib;Platform.lib;ECS.lib;Utilities.lib;Editor.lib;ImGui.lib;Application.lib;Renderer3DDS.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)AppCore\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform);$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);$(SolutionDir)Application\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;ECS.lib;GLAD.lib;GLFW.lib;Media.lib;AppCore.lib;Platform.lib;Utilities.lib;ImGui.lib;Application.lib;$(CoreLibraryDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\mspch.h" />
-    <ClInclude Include="Source\ExampleSystem.hpp" />
     <ClInclude Include="Source\SandBox3D.hpp" />
   </ItemGroup>
   <ItemGroup>

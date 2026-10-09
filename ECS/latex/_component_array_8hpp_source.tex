@@ -1,5 +1,5 @@
 \doxysection{Component\+Array.\+hpp}
-\hypertarget{_component_array_8hpp_source}{}\label{_component_array_8hpp_source}\index{Source/ComponentArray/ComponentArray.hpp@{Source/ComponentArray/ComponentArray.hpp}}
+\hypertarget{_component_array_8hpp_source}{}\label{_component_array_8hpp_source}\index{Source/Registry/ComponentArray/ComponentArray.hpp@{Source/Registry/ComponentArray/ComponentArray.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -9,281 +9,346 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../Interfaces/IComponentArray.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../../Globals/Globals.hpp"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_multi_station}{MultiStation}}\{}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}IComponentArray.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <span>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }MultiStation\{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponentArray}}\{}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ClearVectors(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Move(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}*\ dest,\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}*\ src);}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}{\string~ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a506204a9fd45ddf08d3fa787f5c05ff0}{ComponentArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ copy)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ copy)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{operator=}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\ :\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array}{IComponentArray}}\{}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ClearVectors(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Move(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}*\ dest,\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}*\ src);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}{\string~ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a506204a9fd45ddf08d3fa787f5c05ff0}{ComponentArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{operator=}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08}{AddComponent}}(uint32\_t\ entity\ ,\ Args\&\&...\ args);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}{ReplaceComponent}}(uint32\_t\ entity,\ Args\&\&...\ args);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{RemoveComponent}}(uint32\_t\ entity);}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}{GetComponent}}(uint32\_t\ entity);}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}{GetComponent}}(uint32\_t\ entity)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a}{GetEntity}}(T\&\ component,\ uint32\_t\&\ entity)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{GetComponents}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{GetComponents}}(\textcolor{keywordtype}{void})\ ;}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{HasEntity}}(uint32\_t\ entity)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{RemoveEntity}}(uint32\_t\ entity)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ std::vector<T>\ m\_components;\ \textcolor{comment}{//\ A\ cached\ component\ dynamic\ list}}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ m\_indexToEntity;\ \textcolor{comment}{//\ component\ index\ mapped\ to\ entity\ value}}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ std::unordered\_map<uint32\_t,\ size\_t>\ m\_entityToIndex;\ \textcolor{comment}{//\ }}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00159\ \ \ \ \ \};}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \ \ \ \ }
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ OBJECT\ CREATION\ ,\ MOVE\ and\ DESTROY\ METHODS}}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>::ComponentArray}}(\textcolor{keywordtype}{void}\ )\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ m\_components.reserve(1000);}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ m\_indexToEntity.reserve(1000);}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ m\_entityToIndex.reserve(1000);}
-\DoxyCodeLine{00172\ \ \ \ \ \};}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}{ComponentArray<T>::\string~ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ ClearVectors();}
-\DoxyCodeLine{00178\ \ \ \ \ \}}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ ComponentArray<T>::ClearVectors(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ m\_components.clear();}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ m\_entityToIndex.clear();}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ m\_indexToEntity.clear();}
-\DoxyCodeLine{00186\ \ \ \ \ \}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{void}\ ComponentArray<T>::Move(ComponentArray*\ dest,\ ComponentArray*\ src)\ \{}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dest\ ==\ src)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ dest-\/>m\_components\ =\ std::move(src-\/>m\_components);}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ dest-\/>m\_entityToIndex\ =\ std::move(src-\/>m\_entityToIndex);}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ dest-\/>m\_indexToEntity\ =\ std::move(src-\/>m\_indexToEntity);}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ src-\/>ClearVectors();}
-\DoxyCodeLine{00196\ \ \ \ \ \}}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>::ComponentArray}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ Move(\textcolor{keyword}{this},\ \&move);}
-\DoxyCodeLine{00201\ \ \ \ \ \}}
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{ComponentArray<T>::operator=}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>}}\&\&\ move)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&move)}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ Move(\textcolor{keyword}{this},\ \&move);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00209\ \ \ \ \ \}}
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00211\ \ \ \ \ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a79e7089f241abb6bd68ecfb737052fe8}{AddComponent}}(EntID\ entity\ ,\ Args\&\&...\ args);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_abb45a305acdcb92fd683e9761a568dde}{ReplaceComponent}}(EntID\ entity,\ Args\&\&...\ args);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a29180a0efd99e2d7a57c0c8c76f0628b}{RemoveComponent}}(EntID\ entity);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a9d2b1f266d0244e60f185b83ac4baf6f}{GetComponent}}(EntID\ entity);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a9d2b1f266d0244e60f185b83ac4baf6f}{GetComponent}}(EntID\ entity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a0859da88d619eb4fedb28c0fbbb677bd}{GetEntity}}(T\&\ component,\ EntID\&\ entity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ std::span<T>\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a340adf0ebaab72bb5a9096c1d8c177c0}{GetComponents}}(\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ std::span<const\ T>\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a340adf0ebaab72bb5a9096c1d8c177c0}{GetComponents}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aa04050bb98c4d2b6322cb34ca19e6e69}{HasEntity}}(EntID\ entity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ CompID\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a19cc255c44cd78dc90b46af4201aa905}{GetID}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a5d6deef5652c901aa7c43016a9448bbe}{RemoveComponentV}}(EntID\ entity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ae8df0e5ac549e2103c5a0024f456109c}{AddComponentV}}(EntID\ entity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5646f8329a780d0d8000dc8f6f83065}{ReplaceComponentV}}(EntID\ entity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aa9955c98d18a6e3c205b55e3a86adff0}{HasComponentV}}(EntID\ entity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a00e55c26a46e925143c0468cf21fe991}{GetComponentV}}(EntID\ entity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a2556a264470c2df3f6ef67d40ac0818e}{GetComponentsV}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ac27c3944ec5b80fe92b0d64aa20d83d8}{SizeOfComponent}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ ;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aab092af14c2a2e1d387d25fa586747ad}{Count}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ ;}
+\DoxyCodeLine{00211\ }
 \DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ }
-\DoxyCodeLine{00216\ }
-\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ std::vector<T>\ m\_components;\ \textcolor{comment}{//\ A\ cached\ component\ dynamic\ list}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::vector<EntID>\ m\_indexToEntity;\ \textcolor{comment}{//\ component\ index\ mapped\ to\ entity\ value}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::unordered\_map<EntID,\ size\_t>\ m\_entityToIndex;\ \textcolor{comment}{//\ Á}}
+\DoxyCodeLine{00217\ \ \ \ \ \ }
 \DoxyCodeLine{00218\ }
 \DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \};}
 \DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00223\ \ \ \ \ }
 \DoxyCodeLine{00224\ }
 \DoxyCodeLine{00225\ }
 \DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ }
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ CREATING\ ,\ REMOVING\ \ Component's\ and\ Entities}}
-\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a76faa974a13e6599bc98ddd28a86332d}{ComponentArray<T>::RemoveEntity}}(uint32\_t\ entity)\ \{}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{RemoveComponent}}(entity);}
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00235\ \ \ \ \ \}}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00240\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08}{ComponentArray<T>::AddComponent}}(uint32\_t\ entity,\ Args\&\&...\ args)}
-\DoxyCodeLine{00241\ \ \ \ \ \{}
-\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ exists\ -\/>\ update}}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_ASSERT(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Entity\ already\ has\ a\ component.\ Use\ ReplaceComponent\ to\ update\ it."{}});}
-\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ new\ component}}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newIndex\ =\ m\_components.size();}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ m\_components.emplace\_back(std::forward<Args>(args)...);}
-\DoxyCodeLine{00253\ }
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ m\_entityToIndex[entity]\ =\ newIndex;}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ m\_indexToEntity.push\_back(entity);}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00258\ }
-\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[newIndex];}
-\DoxyCodeLine{00260\ \ \ \ \ \}}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00264\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}{ComponentArray<T>::ReplaceComponent}}(uint32\_t\ entity,\ Args\&\&...\ args)}
-\DoxyCodeLine{00265\ \ \ \ \ \{}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ exists\ -\/>\ update}}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ idx\ =\ m\_entityToIndex[entity];}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ m\_components[idx]\ =\ std::move(T(std::forward<Args>(args)...));}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[idx];}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ MS\_ASSERT(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Entity\ does\ not\ have\ a\ component\ to\ replace.\ Use\ AddComponent\ to\ add\ it\ first."{}});}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00276\ \ \ \ \ \}}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//\ OBJECT\ CREATION\ ,\ MOVE\ and\ DESTROY\ METHODS}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a5d6deef5652c901aa7c43016a9448bbe}{ComponentArray<T>::RemoveComponentV}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a29180a0efd99e2d7a57c0c8c76f0628b}{RemoveComponent}}(entity);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ae8df0e5ac549e2103c5a0024f456109c}{ComponentArray<T>::AddComponentV}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{void}*)this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a79e7089f241abb6bd68ecfb737052fe8}{AddComponent}}(entity);}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5646f8329a780d0d8000dc8f6f83065}{ComponentArray<T>::ReplaceComponentV}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{void}*)this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_abb45a305acdcb92fd683e9761a568dde}{ReplaceComponent}}(entity);}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aa9955c98d18a6e3c205b55e3a86adff0}{ComponentArray<T>::HasComponentV}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{void}*)this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_aa04050bb98c4d2b6322cb34ca19e6e69}{HasEntity}}(entity);}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a00e55c26a46e925143c0468cf21fe991}{ComponentArray<T>::GetComponentV}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{void}*)this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a9d2b1f266d0244e60f185b83ac4baf6f}{GetComponent}}(entity);}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a2556a264470c2df3f6ef67d40ac0818e}{ComponentArray<T>::GetComponentsV}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ std::span<T>\ sp\ \ =\ this-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a340adf0ebaab72bb5a9096c1d8c177c0}{GetComponents}}();}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{void}*)sp.data();}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ac27c3944ec5b80fe92b0d64aa20d83d8}{ComponentArray<T>::SizeOfComponent}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aab092af14c2a2e1d387d25fa586747ad}{ComponentArray<T>::Count}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_components.size();}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>::ComponentArray}}(\textcolor{keywordtype}{void}\ )\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ m\_components.reserve(100);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ m\_indexToEntity.reserve(100);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ m\_entityToIndex.reserve(100);}
+\DoxyCodeLine{00278\ \ \ \ \ \};}
 \DoxyCodeLine{00279\ }
-\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{ComponentArray<T>::RemoveComponent}}(uint32\_t\ entity)\ \{}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_components.empty())\ \{}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_ENGINE\_WARN(\textcolor{stringliteral}{"{}No\ components\ to\ remove."{}});}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_a01f07ef338605a15a5611470ed58e2fd}{ComponentArray<T>::\string~ComponentArray}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ ClearVectors();}
+\DoxyCodeLine{00284\ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
 \DoxyCodeLine{00286\ }
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_entityToIndex.count(entity))\ \{\ \textcolor{comment}{//\ not\ found\ entity}}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_ENGINE\_WARN(\textcolor{stringliteral}{"{}Entity\ does\ not\ exist's."{}});}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ m\_entityToIndex[entity];}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lastIndex\ =\ m\_components.size()\ -\/\ 1;}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ }
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ !=\ lastIndex)\ \{}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ m\_components[index]\ =\ std::move(m\_components[lastIndex]);}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ lastEntity\ =\ m\_indexToEntity[lastIndex];}
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ m\_entityToIndex[lastEntity]\ =\ index;}
-\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ m\_indexToEntity[index]\ =\ lastEntity;}
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{void}\ ComponentArray<T>::ClearVectors(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ m\_components.clear();}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ m\_entityToIndex.clear();}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ m\_indexToEntity.clear();}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordtype}{void}\ ComponentArray<T>::Move(ComponentArray*\ dest,\ ComponentArray*\ src)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dest\ ==\ src)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ dest-\/>m\_components\ =\ std::move(src-\/>m\_components);}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ dest-\/>m\_entityToIndex\ =\ std::move(src-\/>m\_entityToIndex);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ dest-\/>m\_indexToEntity\ =\ std::move(src-\/>m\_indexToEntity);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ src-\/>ClearVectors();}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
 \DoxyCodeLine{00303\ }
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pop}}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ m\_components.pop\_back();}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ m\_indexToEntity.pop\_back();}
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ m\_entityToIndex.erase(entity);\ \textcolor{comment}{//\ erase\ pair\ entity\ key,\ index\ vaue}}
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00309\ \ \ \ \ \}}
-\DoxyCodeLine{00310\ }
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00305\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>::ComponentArray}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray}}\&\&\ move)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ Move(\textcolor{keyword}{this},\ \&move);}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00310\ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>}}\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a3448603a7c1ba3d07efc88827f55daf7}{ComponentArray<T>::operator=}}(\mbox{\hyperlink{class_multi_station_1_1_component_array_ad38047a6d5e081ec8c8dbaa018c83651}{ComponentArray<T>}}\&\&\ move)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&move)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ Move(\textcolor{keyword}{this},\ \&move);}
 \DoxyCodeLine{00313\ }
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
 \DoxyCodeLine{00316\ }
-\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00317\ \ \ \ \ }
 \DoxyCodeLine{00318\ }
 \DoxyCodeLine{00319\ }
 \DoxyCodeLine{00320\ }
-\DoxyCodeLine{00321\ \ \ \ \ \textcolor{comment}{//\ BASIC\ GET\ methods}}
+\DoxyCodeLine{00321\ }
 \DoxyCodeLine{00322\ }
 \DoxyCodeLine{00323\ }
-\DoxyCodeLine{00324\ \ \ \ \ }
+\DoxyCodeLine{00324\ }
 \DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00327\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}{ComponentArray<T>::GetComponent}}(uint32\_t\ entity)\ \{}
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ m\_entityToIndex.find(entity);}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_entityToIndex.end())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[it-\/>second];}
-\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ }
 \DoxyCodeLine{00332\ }
-\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a767044bdd210c9fdaa9269f4bfe3ed02}{ComponentArray<T>::GetComponent}}(uint32\_t\ entity)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ m\_entityToIndex.find(entity);}
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_entityToIndex.end())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[it-\/>second];}
-\DoxyCodeLine{00338\ \ \ \ \ \}}
-\DoxyCodeLine{00339\ \ \ \ \ }
-\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a275525c6f1a36d587e9d10fcb7302f4a}{ComponentArray<T>::GetEntity}}(T\&\ component,\ uint32\_t\&\ entity)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ entity\ =\ 0xFFFFFFFF;}
-\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_components.size();\ i++)\ \{}
-\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&m\_components[i]\ ==\ \&component)\ \{}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity\ =\ m\_indexToEntity[i];}
-\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00349\ }
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00351\ \ \ \ \ \}}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{ComponentArray<T>::GetComponents}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_components;}
-\DoxyCodeLine{00356\ \ \ \ \ \}}
-\DoxyCodeLine{00357\ }
-\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00359\ \ \ \ \ std::vector<T>\&\ \mbox{\hyperlink{class_multi_station_1_1_component_array_ad5adc64fa5bdb3ff2f99e7df7047fa8a}{ComponentArray<T>::GetComponents}}(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_components;}
-\DoxyCodeLine{00361\ \ \ \ \ \}}
-\DoxyCodeLine{00362\ \ \ \ \ }
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{ComponentArray<T>::HasEntity}}(uint32\_t\ entity)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityToIndex.count(entity)\ !=\ 0;}
-\DoxyCodeLine{00366\ \ \ \ \ \}}
-\DoxyCodeLine{00367\ }
-\DoxyCodeLine{00368\ }
-\DoxyCodeLine{00369\ \ \ \ \ }
-\DoxyCodeLine{00370\ }
-\DoxyCodeLine{00371\ }
-\DoxyCodeLine{00372\ }
-\DoxyCodeLine{00373\ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{//\ CREATING\ ,\ REMOVING\ \ Component's\ }}
+\DoxyCodeLine{00336\ \ \ \ \ }
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00341\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a79e7089f241abb6bd68ecfb737052fe8}{ComponentArray<T>::AddComponent}}(EntID\ entity,\ Args\&\&...\ args)}
+\DoxyCodeLine{00342\ \ \ \ \ \{}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ exists\ -\/>\ update}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_WARN(\textcolor{stringliteral}{"{}Entity\ already\ has\ a\ component.\ Use\ ReplaceComponent\ to\ update\ it."{}});}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ new\ component}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ newIndex\ =\ m\_components.size();}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ m\_components.emplace\_back(std::forward<Args>(args)...);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ m\_entityToIndex[entity]\ =\ newIndex;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ m\_indexToEntity.push\_back(entity);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[newIndex];}
+\DoxyCodeLine{00360\ \ \ \ \ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00364\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_abb45a305acdcb92fd683e9761a568dde}{ComponentArray<T>::ReplaceComponent}}(EntID\ entity,\ Args\&\&...\ args)}
+\DoxyCodeLine{00365\ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ already\ exists\ -\/>\ update}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_entityToIndex.count(entity))}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ idx\ =\ m\_entityToIndex[entity];}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ m\_components[idx]\ =\ std::move(T(std::forward<Args>(args)...));}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[idx];}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ MS\_WARN(\ \textcolor{stringliteral}{"{}Entity\ does\ not\ have\ a\ component\ to\ replace.\ Use\ AddComponent\ to\ add\ it\ first."{}});}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00376\ \ \ \ \ \}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a29180a0efd99e2d7a57c0c8c76f0628b}{ComponentArray<T>::RemoveComponent}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_components.empty())\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_WARN(\textcolor{stringliteral}{"{}No\ components\ to\ remove."{}});}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_entityToIndex.count(entity))\ \{\ \textcolor{comment}{//\ not\ found\ entity}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ MS\_WARN(\textcolor{stringliteral}{"{}Entity\ does\ not\ exist's."{}});}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ m\_entityToIndex[entity];}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lastIndex\ =\ m\_components.size()\ -\/\ 1;}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ !=\ lastIndex)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ m\_components[index]\ =\ std::move(m\_components[lastIndex]);}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ lastEntity\ =\ m\_indexToEntity[lastIndex];}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ m\_entityToIndex[lastEntity]\ =\ index;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ m\_indexToEntity[index]\ =\ lastEntity;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pop}}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ m\_components.pop\_back();}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ m\_indexToEntity.pop\_back();}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ m\_entityToIndex.erase(entity);\ \textcolor{comment}{//\ erase\ pair\ entity\ key,\ index\ vaue}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00409\ \ \ \ \ \}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{comment}{//\ BASIC\ GET\ methods}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ }
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00427\ \ \ \ \ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a9d2b1f266d0244e60f185b83ac4baf6f}{ComponentArray<T>::GetComponent}}(EntID\ entity)\ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ m\_entityToIndex.find(entity);}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_entityToIndex.end())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[it-\/>second];}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{const}\ T*\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a9d2b1f266d0244e60f185b83ac4baf6f}{ComponentArray<T>::GetComponent}}(EntID\ entity)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ m\_entityToIndex.find(entity);}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_entityToIndex.end())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&m\_components[it-\/>second];}
+\DoxyCodeLine{00438\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a0859da88d619eb4fedb28c0fbbb677bd}{ComponentArray<T>::GetEntity}}(T\&\ component,\ EntID\&\ entity)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ entity\ =\ 0xFFFFFFFF;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_components.size();\ i++)\ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&m\_components[i]\ ==\ \&component)\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entity\ =\ m\_indexToEntity[i];}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00451\ \ \ \ \ \}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00454\ \ \ \ \ std::span<T>\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a340adf0ebaab72bb5a9096c1d8c177c0}{ComponentArray<T>::GetComponents}}(\textcolor{keywordtype}{void})\ \ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_components;}
+\DoxyCodeLine{00456\ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00459\ \ \ \ \ std::span<const\ T>\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a340adf0ebaab72bb5a9096c1d8c177c0}{ComponentArray<T>::GetComponents}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_components;}
+\DoxyCodeLine{00461\ \ \ \ \ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_component_array_aa04050bb98c4d2b6322cb34ca19e6e69}{ComponentArray<T>::HasEntity}}(EntID\ entity)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_entityToIndex.count(entity)\ !=\ 0;}
+\DoxyCodeLine{00467\ \ \ \ \ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00470\ \ \ \ \ CompID\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a19cc255c44cd78dc90b46af4201aa905}{ComponentArray<T>::GetID}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetComponentID<T>();}
+\DoxyCodeLine{00472\ \ \ \ \ \}}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \ \ \ \ }
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \}}
 
 \end{DoxyCode}

@@ -1,0 +1,507 @@
+\doxysection{Multi\+Station\+::Scene Class Reference}
+\hypertarget{class_multi_station_1_1_scene}{}\label{class_multi_station_1_1_scene}\index{MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_scene_a72385b60cf292d0e23ff04c332a15f3b}\label{class_multi_station_1_1_scene_a72385b60cf292d0e23ff04c332a15f3b} 
+{\bfseries Scene} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context, \mbox{\hyperlink{class_multi_station_1_1_serialization_registry}{Serialization\+Registry}} \&Serialize\+Registry)
+\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_af8743212a6d2dc402f19b923590e8e02}{Remove\+Entity}} (Ent\+ID entity)
+\begin{DoxyCompactList}\small\item\em Deletes the entity and all components associated with it. The removed entity\textquotesingle{}s children are reparented to its parent. \end{DoxyCompactList}\item 
+Ent\+ID \mbox{\hyperlink{class_multi_station_1_1_scene_a71c0f2edc4b9b84762c10e9437e783a7}{Create\+Entity}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new Entity and adds the entity as child of the root node . \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_a7bff84cf88dc5c62d3c3f449717ec51c}{Has\+Entity}} (Ent\+ID entity) const
+\begin{DoxyCompactList}\small\item\em Just returns true if entity with this id exists otherwise false. \end{DoxyCompactList}\item 
+std\+::span$<$ const Ent\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_scene_a44e6696b10bb244b5b7a0f4ca2af304c}{Get\+All\+Entities}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns all entities ids existing on the \doxylink{class_multi_station_1_1_scene}{Scene} or empty if there isn\textquotesingle{}t any . \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_ab08d2362cd07f8c2cd2ecd6452cf6075}{Set\+Parent}} (Ent\+ID entity, Ent\+ID parent)
+\begin{DoxyCompactList}\small\item\em Set\textquotesingle{}s a already existing entity with a new existing parent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_a8a8c5bd14bfa44fdbb614faea8cdb0f4}{Get\+Parent}} (Ent\+ID entity, Ent\+ID \&out) const
+\item 
+std\+::span$<$ const Ent\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_scene_a8fabe22a73bed47fac335c4166fd4aae}{Get\+Children}} (Ent\+ID entity) const
+\begin{DoxyCompactList}\small\item\em Get\textquotesingle{}s all children of this entity if exist\textquotesingle{}s. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_scene_a71692c36247957da04de5383fd53db29}{Add\+Component}} (Ent\+ID entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Creates and assigns to entity a new component of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_scene_ad9d98ae7a0b62b1f02a820a661cfb170}{Replace\+Component}} (Ent\+ID entity, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Replaces a already existing component with a new one . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a4de58d110c3eaab80b6b38a515e26005}{Remove\+Component}} (Ent\+ID entity)
+\begin{DoxyCompactList}\small\item\em Removes an existing component from the entity . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a701debb1c6b87dffc41b8ba7422d8b58}{Has\+Component}} (Ent\+ID entity) const
+\begin{DoxyCompactList}\small\item\em Returns true if these entity has a component of type T assign , otherwise false . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::span$<$ T $>$ \mbox{\hyperlink{class_multi_station_1_1_scene_a33b398d0ac7556cbe88ebfbab7b67b57}{Get\+Components}} (void)
+\begin{DoxyCompactList}\small\item\em Returns a span of type T with all existing components of this type . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::span$<$ const T $>$ \mbox{\hyperlink{class_multi_station_1_1_scene_a2b35d6001129d3a00216953ae35122e1}{Get\+Components}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns a span of type Const T with all existing components of this type . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_scene_aab9cba6f39a0a6514742f87dae7efd64}{Get\+Component}} (Ent\+ID entity)
+\begin{DoxyCompactList}\small\item\em Returns the component of type T of the entity . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_scene_adcc372161d787556baf06c4577f755b6}{Get\+Component}} (Ent\+ID entity) const
+\begin{DoxyCompactList}\small\item\em Returns the component of type Const T of the entity as const. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\Comp\+ID \mbox{\hyperlink{class_multi_station_1_1_scene_a5c5818536261b028cb9099102b0a0f0a}{Register\+Component}} (void)
+\begin{DoxyCompactList}\small\item\em Registers a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if this Component doesn\textquotesingle{}t exist or otherwise does nothing . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a42e8e11220ba98a6fcee4f14d3c18fe4}{Has\+Registered\+Component}} (void) const
+\begin{DoxyCompactList}\small\item\em Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\Comp\+ID \mbox{\hyperlink{class_multi_station_1_1_scene_addae742cd474250edd0120d9bbbc9da9}{Unregister\+Component}} (void)
+\begin{DoxyCompactList}\small\item\em Unregisters the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered, otherwise does nothing. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a34f16c2d73fce148e526630505285eb4}{Add\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_aaaef15be6cfc3ebccdd187d5b11bf313}{Remove\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_afc7e868af2eabceadcfa9d6a0565b69c}{Has\+Module}} (void) const
+\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_scene_a6554435c86e9c318d20ecd5079b55aa7}{Get\+Module}} (void) const
+\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Component, typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a46920956c92e108f078d38a836d47307}{Serializer\+Register\+Component}} (void)
+\begin{DoxyCompactList}\small\item\em The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} and the Component should be already register as a component to the scene for the registation to work (return true) otherwise we take false and no registation happens. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Sys\+Module, typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_ace11efee6cff63624d7a22826231ea5a}{Serializer\+Register\+System}} (void)
+\begin{DoxyCompactList}\small\item\em The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} and the Module should be already register as a Module to the scene for the registation to work (return true) otherwise we take false and no registation happens. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Object, typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_scene_a87032dd6cfd7db1547df6aa5e77acc77}{Serializer\+Register\+Object}} (void)
+\begin{DoxyCompactList}\small\item\em The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} for the registation to work (return true) otherwise we take false and no registation happens. Objects are more special scene support , that can saved to the scene . This means their changes remains for ever in the scene final file etc. So carefull on that . \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_scene_a5fa7cde0ffbc72d80ef032c1ea3e9c85}\label{class_multi_station_1_1_scene_a5fa7cde0ffbc72d80ef032c1ea3e9c85} 
+class {\bfseries Scene\+Serializer}
+\item 
+\Hypertarget{class_multi_station_1_1_scene_a284464b0561a6f2915f04b0245b987f0}\label{class_multi_station_1_1_scene_a284464b0561a6f2915f04b0245b987f0} 
+class {\bfseries Scene\+Manager}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_scene_a71692c36247957da04de5383fd53db29}\index{MultiStation::Scene@{MultiStation::Scene}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a71692c36247957da04de5383fd53db29} 
+template$<$typename T, typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Scene\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Creates and assigns to entity a new component of type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+{\em Args} & The arguments to create a new one Component of type T. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the new components if operations success , else if there is a component of type T on this entity then returns nullptr 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This method doesn\textquotesingle{}t replace a existing component , if you want to replace it use Replace component method. Fethermore to add a component of type T first it must be registered . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_scene_a34f16c2d73fce148e526630505285eb4}\index{MultiStation::Scene@{MultiStation::Scene}!AddModule@{AddModule}}
+\index{AddModule@{AddModule}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{AddModule()}{AddModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a34f16c2d73fce148e526630505285eb4} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . 
+
+\begin{DoxyWarning}{Warning}
+Do not use this method inside the module init , Fini or System methods . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_scene_a71c0f2edc4b9b84762c10e9437e783a7}\index{MultiStation::Scene@{MultiStation::Scene}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a71c0f2edc4b9b84762c10e9437e783a7} 
+Ent\+ID Multi\+Station\+::\+Scene\+::\+Create\+Entity (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new Entity and adds the entity as child of the root node . 
+
+\begin{DoxyReturn}{Returns}
+The new entity id 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+That can be used on the future for components operations or entity operations . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_scene_a44e6696b10bb244b5b7a0f4ca2af304c}\index{MultiStation::Scene@{MultiStation::Scene}!GetAllEntities@{GetAllEntities}}
+\index{GetAllEntities@{GetAllEntities}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetAllEntities()}{GetAllEntities()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a44e6696b10bb244b5b7a0f4ca2af304c} 
+std\+::span$<$ const Ent\+ID $>$ Multi\+Station\+::\+Scene\+::\+Get\+All\+Entities (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns all entities ids existing on the \doxylink{class_multi_station_1_1_scene}{Scene} or empty if there isn\textquotesingle{}t any . 
+
+\Hypertarget{class_multi_station_1_1_scene_a8fabe22a73bed47fac335c4166fd4aae}\index{MultiStation::Scene@{MultiStation::Scene}!GetChildren@{GetChildren}}
+\index{GetChildren@{GetChildren}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetChildren()}{GetChildren()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a8fabe22a73bed47fac335c4166fd4aae} 
+std\+::span$<$ const Ent\+ID $>$ Multi\+Station\+::\+Scene\+::\+Get\+Children (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Get\textquotesingle{}s all children of this entity if exist\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A span with all the entities that are childrens of entity or a empty span if there is no children or no entity with this id exist\textquotesingle{}s 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_aab9cba6f39a0a6514742f87dae7efd64}\index{MultiStation::Scene@{MultiStation::Scene}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_aab9cba6f39a0a6514742f87dae7efd64} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Scene\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Returns the component of type T of the entity . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The component if is register and entity has one otherwise nullptr . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_adcc372161d787556baf06c4577f755b6}\index{MultiStation::Scene@{MultiStation::Scene}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_adcc372161d787556baf06c4577f755b6} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Scene\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the component of type Const T of the entity as const. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The component if is register and entity has one , otherwise nullptr . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_a33b398d0ac7556cbe88ebfbab7b67b57}\index{MultiStation::Scene@{MultiStation::Scene}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a33b398d0ac7556cbe88ebfbab7b67b57} 
+template$<$typename T$>$ \\
+std\+::span$<$ T $>$ Multi\+Station\+::\+Scene\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Returns a span of type T with all existing components of this type . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_a2b35d6001129d3a00216953ae35122e1}\index{MultiStation::Scene@{MultiStation::Scene}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a2b35d6001129d3a00216953ae35122e1} 
+template$<$typename T$>$ \\
+std\+::span$<$ const T $>$ Multi\+Station\+::\+Scene\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns a span of type Const T with all existing components of this type . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_a6554435c86e9c318d20ecd5079b55aa7}\index{MultiStation::Scene@{MultiStation::Scene}!GetModule@{GetModule}}
+\index{GetModule@{GetModule}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a6554435c86e9c318d20ecd5079b55aa7} 
+template$<$typename T$>$ \\
+const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Scene\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . 
+
+\Hypertarget{class_multi_station_1_1_scene_a8a8c5bd14bfa44fdbb614faea8cdb0f4}\index{MultiStation::Scene@{MultiStation::Scene}!GetParent@{GetParent}}
+\index{GetParent@{GetParent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{GetParent()}{GetParent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a8a8c5bd14bfa44fdbb614faea8cdb0f4} 
+bool Multi\+Station\+::\+Scene\+::\+Get\+Parent (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Ent\+ID \&}]{out}{}\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Entity id \\
+\hline
+{\em out} & The entity parent id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the operation succeded otherwise false if entity doesnt exist\textquotesingle{}s. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_a701debb1c6b87dffc41b8ba7422d8b58}\index{MultiStation::Scene@{MultiStation::Scene}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a701debb1c6b87dffc41b8ba7422d8b58} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns true if these entity has a component of type T assign , otherwise false . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_a7bff84cf88dc5c62d3c3f449717ec51c}\index{MultiStation::Scene@{MultiStation::Scene}!HasEntity@{HasEntity}}
+\index{HasEntity@{HasEntity}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{HasEntity()}{HasEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a7bff84cf88dc5c62d3c3f449717ec51c} 
+bool Multi\+Station\+::\+Scene\+::\+Has\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const}
+
+
+
+Just returns true if entity with this id exists otherwise false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id . \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_scene_afc7e868af2eabceadcfa9d6a0565b69c}\index{MultiStation::Scene@{MultiStation::Scene}!HasModule@{HasModule}}
+\index{HasModule@{HasModule}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{HasModule()}{HasModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_afc7e868af2eabceadcfa9d6a0565b69c} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Has\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . 
+
+\Hypertarget{class_multi_station_1_1_scene_a42e8e11220ba98a6fcee4f14d3c18fe4}\index{MultiStation::Scene@{MultiStation::Scene}!HasRegisteredComponent@{HasRegisteredComponent}}
+\index{HasRegisteredComponent@{HasRegisteredComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{HasRegisteredComponent()}{HasRegisteredComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a42e8e11220ba98a6fcee4f14d3c18fe4} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Has\+Registered\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to check. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if registered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_a5c5818536261b028cb9099102b0a0f0a}\index{MultiStation::Scene@{MultiStation::Scene}!RegisterComponent@{RegisterComponent}}
+\index{RegisterComponent@{RegisterComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{RegisterComponent()}{RegisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a5c5818536261b028cb9099102b0a0f0a} 
+template$<$typename T$>$ \\
+Comp\+ID Multi\+Station\+::\+Scene\+::\+Register\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Registers a new \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if this Component doesn\textquotesingle{}t exist or otherwise does nothing . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to register. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+ID of the registered component type 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_a4de58d110c3eaab80b6b38a515e26005}\index{MultiStation::Scene@{MultiStation::Scene}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a4de58d110c3eaab80b6b38a515e26005} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Removes an existing component from the entity . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if there is a component in this entity of type T to remove otherwise false. Fethermore if there is no register of this type it will return false too. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_af8743212a6d2dc402f19b923590e8e02}\index{MultiStation::Scene@{MultiStation::Scene}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_af8743212a6d2dc402f19b923590e8e02} 
+bool Multi\+Station\+::\+Scene\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})}
+
+
+
+Deletes the entity and all components associated with it. The removed entity\textquotesingle{}s children are reparented to its parent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & that will be removed from the registry \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity found and deleted (+the components) and false if there is no entity matching this id in the registry . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_aaaef15be6cfc3ebccdd187d5b11bf313}\index{MultiStation::Scene@{MultiStation::Scene}!RemoveModule@{RemoveModule}}
+\index{RemoveModule@{RemoveModule}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{RemoveModule()}{RemoveModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_aaaef15be6cfc3ebccdd187d5b11bf313} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Remove\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . 
+
+\begin{DoxyWarning}{Warning}
+Do not use this method inside the module init , Fini or System methods . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_scene_ad9d98ae7a0b62b1f02a820a661cfb170}\index{MultiStation::Scene@{MultiStation::Scene}!ReplaceComponent@{ReplaceComponent}}
+\index{ReplaceComponent@{ReplaceComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_ad9d98ae7a0b62b1f02a820a661cfb170} 
+template$<$typename T, typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Scene\+::\+Replace\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Replaces a already existing component with a new one . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+{\em Args} & The arguments to create a new one Component of type T. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the new one component inside the registry or nullptr if there wasn\textquotesingle{}t any component of this type before for this entity . 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+To create a new one component use Add\+Component instead . Fethermore to add a component of type T first it must be registered . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_scene_a46920956c92e108f078d38a836d47307}\index{MultiStation::Scene@{MultiStation::Scene}!SerializerRegisterComponent@{SerializerRegisterComponent}}
+\index{SerializerRegisterComponent@{SerializerRegisterComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{SerializerRegisterComponent()}{SerializerRegisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a46920956c92e108f078d38a836d47307} 
+template$<$typename Component, typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Serializer\+Register\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} and the Component should be already register as a component to the scene for the registation to work (return true) otherwise we take false and no registation happens. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} implementation . \\
+\hline
+{\em Component} & The component that will serialize from \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_a87032dd6cfd7db1547df6aa5e77acc77}\index{MultiStation::Scene@{MultiStation::Scene}!SerializerRegisterObject@{SerializerRegisterObject}}
+\index{SerializerRegisterObject@{SerializerRegisterObject}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{SerializerRegisterObject()}{SerializerRegisterObject()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_a87032dd6cfd7db1547df6aa5e77acc77} 
+template$<$typename Object, typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Serializer\+Register\+Object (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} for the registation to work (return true) otherwise we take false and no registation happens. Objects are more special scene support , that can saved to the scene . This means their changes remains for ever in the scene final file etc. So carefull on that . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} implementation . \\
+\hline
+{\em Object} & The Generic Object that will serialize from \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_ace11efee6cff63624d7a22826231ea5a}\index{MultiStation::Scene@{MultiStation::Scene}!SerializerRegisterSystem@{SerializerRegisterSystem}}
+\index{SerializerRegisterSystem@{SerializerRegisterSystem}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{SerializerRegisterSystem()}{SerializerRegisterSystem()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_ace11efee6cff63624d7a22826231ea5a} 
+template$<$typename Sys\+Module, typename T$>$ \\
+bool Multi\+Station\+::\+Scene\+::\+Serializer\+Register\+System (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+The T should inherit from \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} and the Module should be already register as a Module to the scene for the registation to work (return true) otherwise we take false and no registation happens. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \doxylink{class_multi_station_1_1_i_serialize}{ISerialize} implementation . \\
+\hline
+{\em Sys\+Module} & The Module that will serialize from \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_scene_ab08d2362cd07f8c2cd2ecd6452cf6075}\index{MultiStation::Scene@{MultiStation::Scene}!SetParent@{SetParent}}
+\index{SetParent@{SetParent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{SetParent()}{SetParent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_ab08d2362cd07f8c2cd2ecd6452cf6075} 
+bool Multi\+Station\+::\+Scene\+::\+Set\+Parent (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Ent\+ID}]{parent}{}\end{DoxyParamCaption})}
+
+
+
+Set\textquotesingle{}s a already existing entity with a new existing parent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+{\em parent} & The entity parent id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if operation is succesfull or false if is not , that can mean
+\begin{DoxyEnumerate}
+\item The Entity or the parent may not exist\textquotesingle{}s 
+\end{DoxyEnumerate}
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_addae742cd474250edd0120d9bbbc9da9}\index{MultiStation::Scene@{MultiStation::Scene}!UnregisterComponent@{UnregisterComponent}}
+\index{UnregisterComponent@{UnregisterComponent}!MultiStation::Scene@{MultiStation::Scene}}
+\doxysubsubsection{\texorpdfstring{UnregisterComponent()}{UnregisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_addae742cd474250edd0120d9bbbc9da9} 
+template$<$typename T$>$ \\
+Comp\+ID Multi\+Station\+::\+Scene\+::\+Unregister\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Unregisters the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T if is registered, otherwise does nothing. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to unregister. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+ID of the unregistered component type 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Scene/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\doxysection{Serialization\+Registry.\+hpp}
+\hypertarget{_serialization_registry_8hpp_source}{}\label{_serialization_registry_8hpp_source}\index{Source/Serialization/Registry/SerializationRegistry.hpp@{Source/Serialization/Registry/SerializationRegistry.hpp}}
+\mbox{\hyperlink{_serialization_registry_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../ISerialize.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../Globals/Globals.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../../System/SystemManager.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }SerializationRegistry\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ SerializationRegistry(\textcolor{keywordtype}{void})\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_serialization_registry_a44a8e353229905f353468b4b0ad3281b}{RegisterComponent}}(CompID\ \textcolor{keywordtype}{id}\ ,\ \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}}*\ serialize);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnregisterComponent(CompID\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ HasRegisterComponent(CompID\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ SerializeComponent(CompID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchiveWriter}}*\ archive);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ DeserializeComponent(CompID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchiveReader}}*\ archive);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ RegisterSystem(ModuleID\ \textcolor{keywordtype}{id},\ \ \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}}*\ serialize);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnregisterSystem(ModuleID\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ HasRegisterSystem(ModuleID\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ SerializeSystem(ModuleID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchiveWriter}}*\ archive);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ DeserializeSystem(ModuleID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchiveReader}}*\ archive);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ RegisterObject(ObjID\ \textcolor{keywordtype}{id}\ ,\ \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}}*\ serialize);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UnregisterObject(ObjID\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ HasRegisterObject(ObjID\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ SerializeObject(ObjID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref\ ,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchiveWriter}}*\ archive);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ DeserializeObject(ObjID\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{void}*\ ref,\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchiveReader}}*\ archive);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ std::unordered\_map<CompID,\ ISerialize*>\ m\_componentsMap;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::unordered\_map<ModuleID,\ ISerialize*>\ m\_systemsMap;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::unordered\_map<ObjID,\ ISerialize*>\ m\_objectsMap;}
+\DoxyCodeLine{00079\ \ \ \ \ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

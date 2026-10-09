@@ -1,0 +1,34 @@
+\doxysection{ISystem\+Module.\+hpp}
+\hypertarget{_i_system_module_8hpp_source}{}\label{_i_system_module_8hpp_source}\index{Source/System/ISystemModule.hpp@{Source/System/ISystemModule.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ISystem.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }MultiStation\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a47866ea4db1a9f48446f425949c3696e}{Init}}(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ context)\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module_ab001daf96fbe25e88f826bfca989327f}{Fini}}(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ context)\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}*\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}{GetSystem}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{using\ }ModuleID\ =\ uint32\_t;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{extern}\ std::atomic\ <ModuleID>\ moduleIdGenerator;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00044\ \ \ \ \ ModuleID\ GetModuleID(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ ModuleID\ newID\ =\ moduleIdGenerator.fetch\_add(1\ ,\ std::memory\_order\_relaxed);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ newID;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}

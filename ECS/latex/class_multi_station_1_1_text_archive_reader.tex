@@ -1,0 +1,216 @@
+\doxysection{Multi\+Station\+::Text\+Archive\+Reader Class Reference}
+\hypertarget{class_multi_station_1_1_text_archive_reader}{}\label{class_multi_station_1_1_text_archive_reader}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+Inheritance diagram for Multi\+Station\+::Text\+Archive\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_text_archive_reader}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a5f5cf9885143d60803bffd47d2275a20}\label{class_multi_station_1_1_text_archive_reader_a5f5cf9885143d60803bffd47d2275a20} 
+{\bfseries Text\+Archive\+Reader} (\mbox{\hyperlink{class_multi_station_1_1_i_read_stream}{IRead\+Stream}} \texorpdfstring{$\ast$}{*}stream)
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a8269e1c8c4698b5efab1051c7e67fe66}{Begin\+Object}} (const std\+::string \&name) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_ae56af4c1ed507c5ad1dfeb2c854e7d51}{End\+Object}} (void) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a5cc33e43c0090010e6a34376cf0bed56}{Begin\+Array}} (const std\+::string \&name, size\+\_\+t \&count) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a361f7b4f131d1db6ac08b017217b9a53}{End\+Array}} (void) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a23e7aad8de061628260d78673297bf36}{Read\+Field}} (const std\+::string \&field\+Name, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t \&size) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_adbf1b9fda48236b65ddd3732a1537109}{Read\+Field}} (const std\+::string \&field\+Name, int \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a389ebd307f2637f14cc07d97a31e054a}{Read\+Field}} (const std\+::string \&field\+Name, unsigned int \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_afae3dbf5e94c05120b8266b36c040fd9}{Read\+Field}} (const std\+::string \&field\+Name, float \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_ae41ed5e65a9cdd0e76311651551e0793}{Read\+Field}} (const std\+::string \&field\+Name, double \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_accf0866f9e553b71e52c45163aa52041}{Read\+Field}} (const std\+::string \&field\+Name, std\+::string \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a4d01fae983976cb8cc752865b22449f2}{Read\+Value}} (void \texorpdfstring{$\ast$}{*}data, size\+\_\+t \&size) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a6f7e8f42804dc3b6df9dd2616877a556}{Read\+Value}} (int \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_acc25c49ff60d63038d5d02095de9bcf7}{Read\+Value}} (unsigned int \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a72a7ff874c7232ae2f6e1084d02def5b}{Read\+Value}} (float \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a6c2af3899c09d21b97e4dc47df550a69}{Read\+Value}} (double \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_reader_a35824e63cd567b7f43cae661581b8c01}{Read\+Value}} (std\+::string \&data) override
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_text_archive_reader_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a5cc33e43c0090010e6a34376cf0bed56}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!BeginArray@{BeginArray}}
+\index{BeginArray@{BeginArray}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{BeginArray()}{BeginArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a5cc33e43c0090010e6a34376cf0bed56} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Begin\+Array (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{size\+\_\+t \&}]{count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a8269e1c8c4698b5efab1051c7e67fe66}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!BeginObject@{BeginObject}}
+\index{BeginObject@{BeginObject}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{BeginObject()}{BeginObject()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a8269e1c8c4698b5efab1051c7e67fe66} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Begin\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a361f7b4f131d1db6ac08b017217b9a53}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!EndArray@{EndArray}}
+\index{EndArray@{EndArray}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{EndArray()}{EndArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a361f7b4f131d1db6ac08b017217b9a53} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+End\+Array (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_ae56af4c1ed507c5ad1dfeb2c854e7d51}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!EndObject@{EndObject}}
+\index{EndObject@{EndObject}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{EndObject()}{EndObject()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_ae56af4c1ed507c5ad1dfeb2c854e7d51} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+End\+Object (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_ae41ed5e65a9cdd0e76311651551e0793}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_ae41ed5e65a9cdd0e76311651551e0793} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{double \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_afae3dbf5e94c05120b8266b36c040fd9}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_afae3dbf5e94c05120b8266b36c040fd9} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{float \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_adbf1b9fda48236b65ddd3732a1537109}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_adbf1b9fda48236b65ddd3732a1537109} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{int \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_accf0866f9e553b71e52c45163aa52041}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_accf0866f9e553b71e52c45163aa52041} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{std\+::string \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a389ebd307f2637f14cc07d97a31e054a}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a389ebd307f2637f14cc07d97a31e054a} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{unsigned int \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a23e7aad8de061628260d78673297bf36}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadField@{ReadField}}
+\index{ReadField@{ReadField}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadField()}{ReadField()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a23e7aad8de061628260d78673297bf36} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t \&}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a6c2af3899c09d21b97e4dc47df550a69}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a6c2af3899c09d21b97e4dc47df550a69} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{double \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a72a7ff874c7232ae2f6e1084d02def5b}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a72a7ff874c7232ae2f6e1084d02def5b} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{float \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a6f7e8f42804dc3b6df9dd2616877a556}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a6f7e8f42804dc3b6df9dd2616877a556} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{int \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a35824e63cd567b7f43cae661581b8c01}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a35824e63cd567b7f43cae661581b8c01} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{std\+::string \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_acc25c49ff60d63038d5d02095de9bcf7}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_acc25c49ff60d63038d5d02095de9bcf7} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{unsigned int \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_reader_a4d01fae983976cb8cc752865b22449f2}\index{MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}!ReadValue@{ReadValue}}
+\index{ReadValue@{ReadValue}!MultiStation::TextArchiveReader@{MultiStation::TextArchiveReader}}
+\doxysubsubsection{\texorpdfstring{ReadValue()}{ReadValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_reader_a4d01fae983976cb8cc752865b22449f2} 
+void Multi\+Station\+::\+Text\+Archive\+Reader\+::\+Read\+Value (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t \&}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{Multi\+Station\+::\+IArchive\+Reader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Serialization/\+Archive/Text\+Archive.\+hpp\end{DoxyCompactItemize}

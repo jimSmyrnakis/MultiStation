@@ -1,0 +1,53 @@
+\doxysection{Globals.\+hpp}
+\hypertarget{_globals_8hpp_source}{}\label{_globals_8hpp_source}\index{Source/Globals/Globals.hpp@{Source/Globals/Globals.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{using\ }CompID\ =\ uint64\_t;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{using\ }EntID\ =\ uint32\_t;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{using\ }ObjID\ =\ uint32\_t;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{extern}\ std::atomic<CompID>\ s\_typeID\ ;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{extern}\ EntID\ rootEntity;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{extern}\ EntID\ nullEntity;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{extern}\ std::atomic<ObjID>\ obj\_id;\ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ \ \ \ \ CompID\ GetComponentID(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ CompID\ \textcolor{keywordtype}{id}\ =\ 1\ <<}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ s\_typeID.fetch\_add(}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::memory\_order\_relaxed}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id\ ;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00034\ \ \ \ \ ObjID\ GetObjectID(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ CompID\ \textcolor{keywordtype}{id}\ =\ 1\ <<}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ obj\_id.fetch\_add(}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::memory\_order\_relaxed}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ id;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}*\ scene;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ the\ future\ will\ have\ editor\ registry\ ,\ asset\ registry}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ windows\ and\ other\ engine\ needed\ systems\ and\ things}}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}}
+
+\end{DoxyCode}

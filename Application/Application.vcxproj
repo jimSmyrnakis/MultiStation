@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -138,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -161,7 +161,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLFW\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -181,14 +181,14 @@
   <ItemGroup>
     <ClInclude Include="Include\Application.hpp" />
     <ClInclude Include="Source\Application\Application.hpp" />
-    <ClInclude Include="Source\ImGuiSystem\ImGuiSystem.hpp" />
+    <ClInclude Include="Source\ImGuiLayer\ImGuiLayer.hpp" />
     <ClInclude Include="Source\mspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp" />
     <ClCompile Include="Source\Application\ApplicationSystems.cpp" />
     <ClCompile Include="Source\Application\Events.cpp" />
-    <ClCompile Include="Source\ImGuiSystem\ImGuiSystem.cpp" />
+    <ClCompile Include="Source\ImGuiLayer\ImGuiLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

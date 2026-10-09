@@ -3,9 +3,9 @@
 #include <GLAD.hpp>
 
 namespace MultiStation {
-	void Application::SetUp(void) noexcept {}
+	void Application::SetUp(Engine& engine) noexcept {}
 	FBuffer* fb = nullptr;
-	Application::Application(const std::string name, uint32_t threads) noexcept : m_systemManager(threads) {
+	Application::Application(const std::string name) noexcept {
 		m_name = name;
 		// creating a window
 		WindowProperties props;
@@ -32,71 +32,59 @@ namespace MultiStation {
 		
 		this->SetApplication(this);
 
+		
+
+	}
+
+	Engine& Application::GetEngine(void) {
+		return m_engine;
 	}
 
 	void Application::Initialize(void) noexcept {
 		m_isRunning.store(true, std::memory_order_relaxed);
 
 		// Create ImGui System
-		m_ImGuiSystem = new(std::nothrow) ImGuiSystem();
-		MS_ASSERT(m_ImGuiSystem, "failed allocate memory!");
+		m_ImGuiLayer = new(std::nothrow) ImGuiLayer();
+		MS_ASSERT(m_ImGuiLayer, "failed allocate memory!");
 		
 		isInitialized = true;
 		// Push it front off layers
-		PushSystemOverlay(m_ImGuiSystem);
+		PushOverlay(m_ImGuiLayer);
 
 	}
-	
+	static float dt;
 	void Application::Run(void) noexcept {
 		MS_ASSERT(isInitialized, "Application not initiallized");
 
 		// poll events and update imgui and game engine events
 		m_window->PollEvents();
 
-		// Before all call updates for each phase
-		for (uint32_t phase : m_systemManager) {
-			m_systemManager.ExecutePhase(phase);
-		}
+		// Before all call updates for each engine
+		m_engine.OnUpdate(0.016f);
 
 		// Clear previus frame -- TODO use Graphics Library for it
-		fb->ClearColorBuffer(0, { 0.4, 0.4, 0.4, 1 });
+		//fb->ClearColorBuffer(0, { 0.4, 0.4, 0.4, 1 });
 
 		
 
-		// Run Render layer from start to end (fifo for game render) 
-		for (IMSSystem* system : m_systemStack) {
-			system->OnRenderUpdate(0.016f);
-		}
+		// draw ui 
+		m_ImGuiLayer->Begin();
+		m_layers.OnUIRender(0.016f);
+		m_ImGuiLayer->End();
 
-		// Now Run ImGui UI Render from start to end (fifo but after the game render)
-		m_ImGuiSystem->Begin();
-		for (IMSSystem* system : m_systemStack) {
-			system->OnEditorUIRender(0.016f);
-		}
-		m_ImGuiSystem->End();
-
+		
 		// Update the window
 		m_window->SwapBuffers();
 
-		// Update the scene
-		m_scene.UpdateScene();
-
-		// Update request's for phase based execution systems
-		m_systemManager.Update();
+		
 	}
 
 	void Application::Finalize(void) noexcept {
 		
 		
 
-		// Remove systems from existing system / layer managers
-		// TODO 
 		
-		// Free all systems but first detached them
-		for (IMSSystem* system : m_systems) {
-			system->OnDetach();
-			delete system;
-		}
+		
 
 	}
 
@@ -109,16 +97,12 @@ namespace MultiStation {
 	
 
 
-	Scene& Application::GetScene(void) noexcept { return m_scene; }
-	const Scene& Application::GetScene(void) const noexcept { return m_scene; }
-
+	
 
 	Window& Application::GetWindow(void) noexcept { return *m_window; }
 	const Window& Application::GetWindow(void) const noexcept { return *m_window; }
 
-	JobSystem& Application::GetJobSystem(void) noexcept { return m_systemManager.GetJobSystem(); }
-	const JobSystem& Application::GetJobSystem(void) const noexcept { return m_systemManager.GetJobSystem(); }
-
+	
 
 	bool Application::IsRunning(void) const noexcept {
 		return m_isRunning.load(std::memory_order_relaxed);

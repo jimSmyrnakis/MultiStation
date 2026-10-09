@@ -1,12 +1,13 @@
 #pragma once
 #include "../Core.hpp"
+#include <stdint.h>
+#include <stddef.h>
 #define BIND_EVENT_FN(x) std::bind(&x , this , std::placeholders::_1)
 /**
  * @author Dimitris Smyrnakis
  * @file Event.hpp
  * @brief This is in basic state yet , but in the future can be expanded 
- * to even more event types from input socket messages to game controller's to even 
- * output socket message's . 
+ * to even more event types . 
  */
 namespace MultiStation
 {

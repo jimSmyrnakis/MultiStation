@@ -7,10 +7,8 @@ namespace MultiStation {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowCloseEvent));
 		//MS_ENGINE_INFO("Event Log : %s", e.ToString().c_str());
-		for (auto it = m_systemStack.end(); it != m_systemStack.begin(); ) {
-			(*(--it))->OnEvent(e);
-			if (e.Handled) break;
-		}
+		m_layers.OnEvent(e);
+		m_engine.OnEvent(e);
 	}
 
 	bool Application::OnWindowCloseEvent(WindowCloseEvent& e) noexcept {

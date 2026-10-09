@@ -7,9 +7,9 @@ namespace MultiStation {
 
     void Layer::OnAttach(void) noexcept {}
     void Layer::OnDetach(void) noexcept {}
-    void Layer::OnUpdate(float deltaTime) noexcept {}
+    
     void Layer::OnEvent(Event& event) noexcept {}
-    void Layer::OnImGuiRender(void) noexcept {}
+    void Layer::OnUIRender(float dt) noexcept {}
 
     const std::string& Layer::GetName(void) const noexcept { return m_Name; }
 }

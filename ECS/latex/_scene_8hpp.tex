@@ -1,0 +1,45 @@
+\doxysection{Source/\+Scene/\+Scene.hpp File Reference}
+\hypertarget{_scene_8hpp}{}\label{_scene_8hpp}\index{Source/Scene/Scene.hpp@{Source/Scene/Scene.hpp}}
+
+
+The most important file for everyone making a system module . The scene contains all of the components , system modules , serialization , entities lifetime and entities to entities and entities to components relation .  
+
+
+{\ttfamily \#include "{}Scene\+Graph.\+hpp"{}}\newline
+{\ttfamily \#include "{}../\+Registry/\+Registry.\+hpp"{}}\newline
+{\ttfamily \#include "{}../\+System/\+System\+Manager.\+hpp"{}}\newline
+{\ttfamily \#include "{}Scene\+Serializer.\+hpp"{}}\newline
+{\ttfamily \#include "{}../\+Streams/\+Streams.\+hpp"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_scene}{Multi\+Station\+::\+Scene}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_scene_serializer}{Scene\+Serializer}} \& \mbox{\hyperlink{_scene_8hpp_a08ed8a15aa497c1e8f383692f46ebe0f}{Multi\+Station\+::\+Get\+Scene\+Serializer}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The most important file for everyone making a system module . The scene contains all of the components , system modules , serialization , entities lifetime and entities to entities and entities to components relation . 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{_scene_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_scene_8hpp_a08ed8a15aa497c1e8f383692f46ebe0f}\index{Scene.hpp@{Scene.hpp}!GetSceneSerializer@{GetSceneSerializer}}
+\index{GetSceneSerializer@{GetSceneSerializer}!Scene.hpp@{Scene.hpp}}
+\doxysubsubsection{\texorpdfstring{GetSceneSerializer()}{GetSceneSerializer()}}
+{\footnotesize\ttfamily \label{_scene_8hpp_a08ed8a15aa497c1e8f383692f46ebe0f} 
+Scene\+Serializer \& Multi\+Station\+::\+Get\+Scene\+Serializer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The Scene Serialize (ISerialize) Implementation for the scene 
+\end{DoxyReturn}

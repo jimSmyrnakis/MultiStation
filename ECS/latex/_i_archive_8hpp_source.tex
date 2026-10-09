@@ -1,0 +1,67 @@
+\doxysection{IArchive.\+hpp}
+\hypertarget{_i_archive_8hpp_source}{}\label{_i_archive_8hpp_source}\index{Source/Serialization/Archive/IArchive.hpp@{Source/Serialization/Archive/IArchive.hpp}}
+\mbox{\hyperlink{_i_archive_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00010\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchiveWriter}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{\string~IArchiveWriter}}(\textcolor{keywordtype}{void})\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginObject(\textcolor{keyword}{const}\ std::string\&\ name)\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EndObject(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginArray(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{size\_t}\ count)\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EndArray(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{int}\ data)\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ data)\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{float}\ data)\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{double}\ data)\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keyword}{const}\ std::string\&\ data)\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keywordtype}{int}\ data)\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ data)\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keywordtype}{float}\ data)\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keywordtype}{double}\ data)\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ WriteValue(\textcolor{keyword}{const}\ std::string\&\ data)\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchiveReader}}\{}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{\string~IArchiveReader}}(\textcolor{keywordtype}{void})\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginObject(\textcolor{keyword}{const}\ std::string\&\ name)\ =\ 0;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EndObject(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ BeginArray(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{size\_t}\&\ count)\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EndArray(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\&\ size)=0;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{int}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{float}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ \textcolor{keywordtype}{double}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadField(\textcolor{keyword}{const}\ std::string\&\ fieldName,\ std::string\&\ data)\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\&\ size)\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ \textcolor{keywordtype}{int}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ \textcolor{keywordtype}{float}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ \textcolor{keywordtype}{double}\&\ data)\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ReadValue(\ std::string\&\ data)\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

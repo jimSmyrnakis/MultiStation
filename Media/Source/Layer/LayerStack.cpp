@@ -47,4 +47,19 @@ namespace MultiStation {
 
     std::vector<Layer*>::iterator LayerStack::end(void) noexcept { return m_Layers.end(); }
 
+
+    void LayerStack::OnEvent(Event& e) {
+        for (int i = m_Layers.size() - 1; i >= 0; i--) {
+            m_Layers[i]->OnEvent(e);
+            if (e.Handled) break;
+        }
+
+    }
+
+    void LayerStack::OnUIRender(float dt) {
+        for (Layer* layer : m_Layers) {
+            layer->OnUIRender(dt);
+        }
+    }
+
 }

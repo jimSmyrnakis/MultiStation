@@ -1,9 +1,0 @@
-#pragma once
-#include "../Source/GameObject/GameObject.hpp"
-#include "../Source/Scene/Scene.hpp"
-#include "../Source/Interfaces/IMSSystem.hpp"
-#include "../Source/Interfaces/IComponent.hpp"
-#include "../Source/MSSystemStack/MSSystemStack.hpp"
-#include "../Source/MSSystemManager/MSSystemManager.hpp"
-#include "../Source/BuildInComponents/EntityInfo/EntityInfo.hpp"
-#include "../Source/BuildInComponents/Transforms/Transform.hpp"

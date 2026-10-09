@@ -18,7 +18,7 @@
     <ClInclude Include="Source\Application\Application.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ImGuiSystem\ImGuiSystem.hpp">
+    <ClInclude Include="Source\ImGuiLayer\ImGuiLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\mspch.h">
@@ -32,7 +32,7 @@
     <ClCompile Include="Source\Application\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ImGuiSystem\ImGuiSystem.cpp">
+    <ClCompile Include="Source\ImGuiLayer\ImGuiLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Application\Events.cpp">

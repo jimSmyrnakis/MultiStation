@@ -1,0 +1,25 @@
+\doxysection{Source/\+Serialization/\+Registry/\+Serialization\+Registry.hpp File Reference}
+\hypertarget{_serialization_registry_8hpp}{}\label{_serialization_registry_8hpp}\index{Source/Serialization/Registry/SerializationRegistry.hpp@{Source/Serialization/Registry/SerializationRegistry.hpp}}
+
+
+This file contains the Serialization Registry class , responsible for registration serialization and deserialization of Components , Systems and General Objects .  
+
+
+{\ttfamily \#include "{}../\+ISerialize.\+hpp"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include "{}../../\+Globals/\+Globals.\+hpp"{}}\newline
+{\ttfamily \#include "{}../../\+System/\+System\+Manager.\+hpp"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_multi_station_1_1_serialization_registry}{Multi\+Station\+::\+Serialization\+Registry}}
+\begin{DoxyCompactList}\small\item\em Responsible for for registration serialization and deserialization of Components , Systems and General Objects . ~\newline
+ Is used by the scene to serialize / deserialize all it\textquotesingle{}s entities , components , systems and General Objects . This class makes it eazy a System\+Module to register for serialization their own Components , System (Settings for the System from their point of view) and supports extra object\textquotesingle{}s for serialization (Meaning their changes remain for ever in a scene ) . \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the Serialization Registry class , responsible for registration serialization and deserialization of Components , Systems and General Objects . 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis 
+\end{DoxyAuthor}

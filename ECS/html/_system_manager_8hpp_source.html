@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ECS: Source/SystemManager/SystemManager.hpp Source File</title>
+<title>ECS: Source/System/SystemManager.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,100 +91,199 @@ $(function(){initNavTree('_system_manager_8hpp_source.html','',''); });
   <div class="headertitle"><div class="title">SystemManager.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_system_manager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_job_system_8hpp.html">../JobSystem/JobSystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Platform.hpp&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_i_system_8hpp.html">../Interfaces/ISystem.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_multi_station.html">MultiStation</a>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html">   24</a></span>    <span class="keyword">class </span><a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a> {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">   31</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a16740f9a82c7b28a8595659d1374d731">   36</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a16740f9a82c7b28a8595659d1374d731">~SystemManager</a>(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a09c90a625e1aa4aa3755e29b1a303bd4">   42</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a09c90a625e1aa4aa3755e29b1a303bd4">SystemManager</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp;) <span class="keyword">noexcept</span> = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ab8a3a2da11eca789f14f13a7d73a37cc">   47</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ab8a3a2da11eca789f14f13a7d73a37cc">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp;) <span class="keyword">noexcept</span> = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a2003e03b422b85877e2ef327f682c99a">   52</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a2003e03b422b85877e2ef327f682c99a">SystemManager</a>(<a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp;&amp;) noexcept  = delete;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ab4744dccf6667941ba950f1e3ff4cde0">   57</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp; operator=(<a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">SystemManager</a>&amp;&amp;) noexcept = delete;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a3d5c35b75a02856886edaa0d718d870b">   69</a></span>        uint32_t <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a3d5c35b75a02856886edaa0d718d870b">CreatePhase</a>(<span class="keywordtype">void</span>) noexcept;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a4d49702f6baa9acb6aada76c4a47c136">   77</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a4d49702f6baa9acb6aada76c4a47c136">BindPhase</a>(uint32_t phaseID) noexcept;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a80bca7e911fb69ea880f5da025421950">   89</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a80bca7e911fb69ea880f5da025421950">AddSystem</a>(<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>* sys) noexcept;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#aee311f2ebf349214fd95ca5c1a4c712e">  102</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#aee311f2ebf349214fd95ca5c1a4c712e">RemoveSystem</a>(<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>* sys) noexcept;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a247c0a6b6c49b010e93859ef4992547b">  113</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a247c0a6b6c49b010e93859ef4992547b">ExecutePhase</a>(uint32_t phaseID) noexcept;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ae1883232dffe20cbd719024eb984e189">  121</a></span>        std::vector&lt;uint32_t&gt; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ae1883232dffe20cbd719024eb984e189">GetPhases</a>(<span class="keywordtype">void</span>) const noexcept;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a906eee6e0f3a5277a15bb93d80436711">  129</a></span>        std::vector&lt;<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>*&gt; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a906eee6e0f3a5277a15bb93d80436711">GetSystemsInPhase</a>(uint32_t phaseID) const noexcept;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a3683588874f0077bfed5853accd74c8b">  135</a></span>        <a class="code hl_class" href="class_multi_station_1_1_job_system.html">JobSystem</a>&amp; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a3683588874f0077bfed5853accd74c8b">GetJobSystem</a>(<span class="keywordtype">void</span>) noexcept;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a171a5315e4bc612a0ac4358ff974f997">  141</a></span>        const <a class="code hl_class" href="class_multi_station_1_1_job_system.html">JobSystem</a>&amp; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a3683588874f0077bfed5853accd74c8b">GetJobSystem</a>(<span class="keywordtype">void</span>) const noexcept;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a784d6ac8a716d6deef657b4b67e9d35c">  146</a></span>        <a class="code hl_class" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a>&amp; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a784d6ac8a716d6deef657b4b67e9d35c">GetECSManager</a>(<span class="keywordtype">void</span>) noexcept;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ad3e3600246045cf9f1f080b85473907d">  151</a></span>        const <a class="code hl_class" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a>&amp; <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a784d6ac8a716d6deef657b4b67e9d35c">GetECSManager</a>(<span class="keywordtype">void</span>) const noexcept;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        std::vector&lt;uint32_t&gt;::iterator begin(<span class="keywordtype">void</span>)noexcept;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        std::vector&lt;uint32_t&gt;::iterator end(<span class="keywordtype">void</span>)noexcept;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    private:</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        static <span class="keywordtype">void</span> SystemCallBack(<a class="code hl_struct" href="struct_multi_station_1_1_job.html">Job</a> job);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_job_system.html">JobSystem</a>&gt;                              m_jobSystem;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        std::shared_ptr&lt;<a class="code hl_class" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a>&gt;                             m_ecsManager;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        std::vector&lt;uint32_t&gt;                                   m_phases;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        std::unordered_map&lt;uint32_t, </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            std::vector&lt;<a class="code hl_class" href="class_multi_station_1_1_i_system.html">ISystem</a>*&gt; &gt;                             m_systems;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="comment">//std::vector&lt;float&gt;                                        m_lastExecutionTime; TODO</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        uint32_t                                                m_currentPhase;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">bool</span>                                                    m_isExecuting;  </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    };</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;ISystemModule.hpp&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>MultiStation{</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html">   13</a></span>    <span class="keyword">class </span><a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a6263f583197445ef75c995f832457ca5">SystemManager</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a6263f583197445ef75c995f832457ca5">   21</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a6263f583197445ef75c995f832457ca5">SystemManager</a>(<a class="code hl_struct" href="struct_multi_station_1_1_engine_context.html">EngineContext</a>&amp; context);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a52b093b0da1440346eeec71221847678">   28</a></span>        <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a52b093b0da1440346eeec71221847678">~SystemManager</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">void</span> UpdateModules(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ac2b9d15e4f3a6727c3da1ba27cb6498e">AddModule</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a6753fc48c6293136896d337ae119c6d9">RemoveModule</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a97c70820f0215b16cb0c2c4ed3c4097f">HasModule</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a8ebeb4f702bf2da2f2a1b28e2ded11ef">GetModule</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        std::vector&lt;ISystemModule*&gt; m_modules;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        std::vector&lt;float&gt; m_moduleLastFrameTime;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        std::vector&lt;ModuleID&gt; m_modulesIds;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_struct" href="struct_multi_station_1_1_engine_context.html">EngineContext</a>&amp; m_context;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
 </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#ac2b9d15e4f3a6727c3da1ba27cb6498e">   73</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#ac2b9d15e4f3a6727c3da1ba27cb6498e">SystemManager::AddModule</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_base_of_v&lt;ISystemModule, T&gt; == <span class="keyword">false</span>) </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="comment">// T does not derive from ISystemModule</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        ModuleID <span class="keywordtype">id</span> = GetModuleID&lt;T&gt;();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">auto</span> it = std::find(m_modulesIds.begin(), m_modulesIds.end(), <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">if</span> (it != m_modulesIds.end()) {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="comment">// is already there </span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// Create module</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        T* module = <span class="keyword">new</span> T();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">if</span> (module == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* imodule = (<a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>*)module;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// check if has system to return</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">if</span> (imodule-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system_module.html#a407a391e96e6827e733f0a371c7578e9">GetSystem</a>() == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="comment">//insert the module and it&#39;s ids</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        m_modules.push_back(imodule);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        m_modulesIds.push_back(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        m_moduleLastFrameTime.push_back(0.016);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="comment">// Initiallize module</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        imodule-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system_module.html#a47866ea4db1a9f48446f425949c3696e">Init</a>(m_context);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="comment">// Call system OnAttach</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        imodule-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system_module.html#a407a391e96e6827e733f0a371c7578e9">GetSystem</a>()-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system.html#ab744cd12437a1bb2d42b640eb5796f04">OnAttach</a>(*m_context.scene);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a6753fc48c6293136896d337ae119c6d9">  117</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a6753fc48c6293136896d337ae119c6d9">SystemManager::RemoveModule</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">if</span> (!std::is_base_of_v&lt;ISystemModule, T&gt;)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="comment">// T does not derive from ISystemModule</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        ModuleID <span class="keywordtype">id</span> = GetModuleID&lt;T&gt;();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keyword">auto</span> it = std::find(m_modulesIds.begin(), m_modulesIds.end(), <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">if</span> (it == m_modulesIds.end()) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="comment">// if not exists </span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// Get module</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">size_t</span> index = std::distance(m_modules.begin(), it);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* imodule = m_modules[index];</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="comment">// OnDettached callback on system</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        imodule-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system_module.html#a407a391e96e6827e733f0a371c7578e9">GetSystem</a>()-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system.html#ad65e14df43da81b2b7f17a98218c515f">OnDettach</a>(*m_context.scene);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="comment">// Finilize the module </span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        imodule-&gt;<a class="code hl_function" href="class_multi_station_1_1_i_system_module.html#ab001daf96fbe25e88f826bfca989327f">Fini</a>(m_context);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="comment">//remove the module and it&#39;s ids</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keyword">auto</span> it_imodule = m_modules.begin() + index;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keyword">auto</span> it_lastFrameTime = m_moduleLastFrameTime.begin() + index;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        m_modules.erase(it_imodule);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        m_modulesIds.erase(it);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        m_moduleLastFrameTime.erase(it_lastFrameTime);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keyword">delete</span> imodule;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a97c70820f0215b16cb0c2c4ed3c4097f">  157</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a97c70820f0215b16cb0c2c4ed3c4097f">SystemManager::HasModule</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span> (!std::is_base_of_v&lt;ISystemModule, T&gt;)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="comment">// T does not derive from ISystemModule</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        ModuleID <span class="keywordtype">id</span> = GetModuleID&lt;T&gt;();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keyword">auto</span> it = std::find(m_modulesIds.begin(), m_modulesIds.end(), <span class="keywordtype">id</span>);</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>}</div>
-<div class="ttc" id="a_i_system_8hpp_html"><div class="ttname"><a href="_i_system_8hpp.html">ISystem.hpp</a></div></div>
-<div class="ttc" id="a_job_system_8hpp_html"><div class="ttname"><a href="_job_system_8hpp.html">JobSystem.hpp</a></div><div class="ttdoc">A Simple for moment Job System implementation that schedules all job with fifo implementation hardcod...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_e_c_s_manager_html"><div class="ttname"><a href="class_multi_station_1_1_e_c_s_manager.html">MultiStation::ECSManager</a></div><div class="ttdoc">The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...</div><div class="ttdef"><b>Definition</b> ECSManager.hpp:25</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_i_system_html"><div class="ttname"><a href="class_multi_station_1_1_i_system.html">MultiStation::ISystem</a></div><div class="ttdef"><b>Definition</b> ISystem.hpp:20</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_job_system_html"><div class="ttname"><a href="class_multi_station_1_1_job_system.html">MultiStation::JobSystem</a></div><div class="ttdoc">Job System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling th...</div><div class="ttdef"><b>Definition</b> JobSystem.hpp:21</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a09c90a625e1aa4aa3755e29b1a303bd4"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a09c90a625e1aa4aa3755e29b1a303bd4">MultiStation::SystemManager::SystemManager</a></div><div class="ttdeci">SystemManager(const SystemManager &amp;) noexcept=delete</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a16740f9a82c7b28a8595659d1374d731"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a16740f9a82c7b28a8595659d1374d731">MultiStation::SystemManager::~SystemManager</a></div><div class="ttdeci">~SystemManager(void) noexcept</div><div class="ttdoc">Destroys the System Manager object and shutdown the job system .</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a2003e03b422b85877e2ef327f682c99a"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a2003e03b422b85877e2ef327f682c99a">MultiStation::SystemManager::SystemManager</a></div><div class="ttdeci">SystemManager(SystemManager &amp;&amp;) noexcept=delete</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a247c0a6b6c49b010e93859ef4992547b"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a247c0a6b6c49b010e93859ef4992547b">MultiStation::SystemManager::ExecutePhase</a></div><div class="ttdeci">void ExecutePhase(uint32_t phaseID) noexcept</div><div class="ttdoc">Executes all systems that are bound to the specified phase. The systems will be executed in parallel ...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a3683588874f0077bfed5853accd74c8b"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a3683588874f0077bfed5853accd74c8b">MultiStation::SystemManager::GetJobSystem</a></div><div class="ttdeci">JobSystem &amp; GetJobSystem(void) noexcept</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a3d5c35b75a02856886edaa0d718d870b"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a3d5c35b75a02856886edaa0d718d870b">MultiStation::SystemManager::CreatePhase</a></div><div class="ttdeci">uint32_t CreatePhase(void) noexcept</div><div class="ttdoc">Creates a new phase for system . For each phase a set of the added to this phase systems will execute...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a4d49702f6baa9acb6aada76c4a47c136"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a4d49702f6baa9acb6aada76c4a47c136">MultiStation::SystemManager::BindPhase</a></div><div class="ttdeci">void BindPhase(uint32_t phaseID) noexcept</div><div class="ttdoc">Binds systems to a specific phase. This allows you to specify which systems should be executed during...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a784d6ac8a716d6deef657b4b67e9d35c"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a784d6ac8a716d6deef657b4b67e9d35c">MultiStation::SystemManager::GetECSManager</a></div><div class="ttdeci">ECSManager &amp; GetECSManager(void) noexcept</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a80bca7e911fb69ea880f5da025421950"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a80bca7e911fb69ea880f5da025421950">MultiStation::SystemManager::AddSystem</a></div><div class="ttdeci">void AddSystem(ISystem *sys) noexcept</div><div class="ttdoc">Adds a system to the currently bound phase. The system will be executed during the execution of the c...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a906eee6e0f3a5277a15bb93d80436711"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a906eee6e0f3a5277a15bb93d80436711">MultiStation::SystemManager::GetSystemsInPhase</a></div><div class="ttdeci">std::vector&lt; ISystem * &gt; GetSystemsInPhase(uint32_t phaseID) const noexcept</div><div class="ttdoc">Returns a list of all systems that are bound to the specified phase. This allows you to query which s...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_ab8a3a2da11eca789f14f13a7d73a37cc"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#ab8a3a2da11eca789f14f13a7d73a37cc">MultiStation::SystemManager::operator=</a></div><div class="ttdeci">SystemManager &amp; operator=(const SystemManager &amp;) noexcept=delete</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_ae1883232dffe20cbd719024eb984e189"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#ae1883232dffe20cbd719024eb984e189">MultiStation::SystemManager::GetPhases</a></div><div class="ttdeci">std::vector&lt; uint32_t &gt; GetPhases(void) const noexcept</div><div class="ttdoc">Returns a list of all phase IDs that have been created in the SystemManager. This allows you to query...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_ae5ff306052d40b4914816327ccb80faa"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#ae5ff306052d40b4914816327ccb80faa">MultiStation::SystemManager::SystemManager</a></div><div class="ttdeci">SystemManager(void) noexcept</div><div class="ttdoc">Constructs a new System Manager object. Initializes the SystemManager and sets up necessary data stru...</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_aee311f2ebf349214fd95ca5c1a4c712e"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#aee311f2ebf349214fd95ca5c1a4c712e">MultiStation::SystemManager::RemoveSystem</a></div><div class="ttdeci">void RemoveSystem(ISystem *sys) noexcept</div><div class="ttdoc">Removes a system from the currently bound phase. The system will no longer be executed during the exe...</div></div>
-<div class="ttc" id="anamespace_multi_station_html"><div class="ttname"><a href="namespace_multi_station.html">MultiStation</a></div><div class="ttdef"><b>Definition</b> ComponentArray.hpp:10</div></div>
-<div class="ttc" id="astruct_multi_station_1_1_job_html"><div class="ttname"><a href="struct_multi_station_1_1_job.html">MultiStation::Job</a></div><div class="ttdoc">A JobFunction is a function pointer that defines the signature of the function that can be executed a...</div><div class="ttdef"><b>Definition</b> Job.hpp:27</div></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">if</span> (it == m_modulesIds.end()) {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="comment">// if not exists </span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    }</div>
+</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_system_manager.html#a8ebeb4f702bf2da2f2a1b28e2ded11ef">  178</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* <a class="code hl_function" href="class_multi_station_1_1_system_manager.html#a8ebeb4f702bf2da2f2a1b28e2ded11ef">SystemManager::GetModule</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">if</span> (!std::is_base_of_v&lt;ISystemModule, T&gt;)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="comment">// T does not derive from ISystemModule</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        ModuleID <span class="keywordtype">id</span> = GetModuleID&lt;T&gt;();</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keyword">auto</span> it = std::find(m_modulesIds.begin(), m_modulesIds.end(), <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">if</span> (it == m_modulesIds.end()) {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            <span class="comment">// if not exists </span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* module = *it;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">return</span> <span class="keyword">module</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>}</div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_html_ab744cd12437a1bb2d42b640eb5796f04"><div class="ttname"><a href="class_multi_station_1_1_i_system.html#ab744cd12437a1bb2d42b640eb5796f04">MultiStation::ISystem::OnAttach</a></div><div class="ttdeci">virtual void OnAttach(Scene &amp;scene)=0</div><div class="ttdoc">Virtual method that executes when the system is first attached to the engine.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_html_ad65e14df43da81b2b7f17a98218c515f"><div class="ttname"><a href="class_multi_station_1_1_i_system.html#ad65e14df43da81b2b7f17a98218c515f">MultiStation::ISystem::OnDettach</a></div><div class="ttdeci">virtual void OnDettach(Scene &amp;scene)=0</div><div class="ttdoc">Virtual method that executes when the system is dettached from the engine.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_module_html"><div class="ttname"><a href="class_multi_station_1_1_i_system_module.html">MultiStation::ISystemModule</a></div><div class="ttdef"><b>Definition</b> ISystemModule.hpp:8</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_module_html_a407a391e96e6827e733f0a371c7578e9"><div class="ttname"><a href="class_multi_station_1_1_i_system_module.html#a407a391e96e6827e733f0a371c7578e9">MultiStation::ISystemModule::GetSystem</a></div><div class="ttdeci">virtual ISystem * GetSystem(void)=0</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_module_html_a47866ea4db1a9f48446f425949c3696e"><div class="ttname"><a href="class_multi_station_1_1_i_system_module.html#a47866ea4db1a9f48446f425949c3696e">MultiStation::ISystemModule::Init</a></div><div class="ttdeci">virtual void Init(EngineContext &amp;context)=0</div><div class="ttdoc">Virtual method for initiallize the system module , things like views on editor registry ,...</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_module_html_ab001daf96fbe25e88f826bfca989327f"><div class="ttname"><a href="class_multi_station_1_1_i_system_module.html#ab001daf96fbe25e88f826bfca989327f">MultiStation::ISystemModule::Fini</a></div><div class="ttdeci">virtual void Fini(EngineContext &amp;context)=0</div><div class="ttdoc">Virtual method for when the system module is unregister from the scene , this is where operations lik...</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a52b093b0da1440346eeec71221847678"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a52b093b0da1440346eeec71221847678">MultiStation::SystemManager::~SystemManager</a></div><div class="ttdeci">~SystemManager(void)</div><div class="ttdoc">For each module system calls OnDettach and on module calls Fini   then deletes it from memory.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a6263f583197445ef75c995f832457ca5"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a6263f583197445ef75c995f832457ca5">MultiStation::SystemManager::SystemManager</a></div><div class="ttdeci">SystemManager(EngineContext &amp;context)</div><div class="ttdoc">Initiallize the context internal reference.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a6753fc48c6293136896d337ae119c6d9"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a6753fc48c6293136896d337ae119c6d9">MultiStation::SystemManager::RemoveModule</a></div><div class="ttdeci">bool RemoveModule(void)</div><div class="ttdoc">If the type T inherits from the ISystemModule then it removes and deletes the new module ....</div><div class="ttdef"><b>Definition</b> SystemManager.hpp:117</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a8ebeb4f702bf2da2f2a1b28e2ded11ef"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a8ebeb4f702bf2da2f2a1b28e2ded11ef">MultiStation::SystemManager::GetModule</a></div><div class="ttdeci">const ISystemModule * GetModule(void) const</div><div class="ttdoc">If the T inherits from ISystemModule and exist&#39;s it returns the ISystemModule pointer to this module ...</div><div class="ttdef"><b>Definition</b> SystemManager.hpp:178</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_a97c70820f0215b16cb0c2c4ed3c4097f"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#a97c70820f0215b16cb0c2c4ed3c4097f">MultiStation::SystemManager::HasModule</a></div><div class="ttdeci">bool HasModule(void) const</div><div class="ttdoc">If the T inherits from ISystemModule and exist&#39;s it returns true otherwise false .</div><div class="ttdef"><b>Definition</b> SystemManager.hpp:157</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html_ac2b9d15e4f3a6727c3da1ba27cb6498e"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html#ac2b9d15e4f3a6727c3da1ba27cb6498e">MultiStation::SystemManager::AddModule</a></div><div class="ttdeci">bool AddModule(void)</div><div class="ttdoc">If the type T inherits from the ISystemModule then it creates and adds the new module ....</div><div class="ttdef"><b>Definition</b> SystemManager.hpp:73</div></div>
+<div class="ttc" id="astruct_multi_station_1_1_engine_context_html"><div class="ttname"><a href="struct_multi_station_1_1_engine_context.html">MultiStation::EngineContext</a></div><div class="ttdef"><b>Definition</b> Globals.hpp:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>Source</b></li><li class="navelem"><b>SystemManager</b></li><li class="navelem"><a href="_system_manager_8hpp.html">SystemManager.hpp</a></li>
+    <li class="navelem"><b>Source</b></li><li class="navelem"><b>System</b></li><li class="navelem"><b>SystemManager.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

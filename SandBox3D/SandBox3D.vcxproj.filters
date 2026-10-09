@@ -18,9 +18,6 @@
     <ClInclude Include="Source\mspch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ExampleSystem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SandBox3D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

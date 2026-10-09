@@ -1,8 +1,0 @@
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\BuildInComponents\EntityInfo\EntityInfo.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\EntityInfo.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\BuildInComponents\Transforms\Transform.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\Transform.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\GameObject\GameObject.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\GameObject.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Interfaces\IComponent.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\IComponent.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Interfaces\IMSSystem.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\IMSSystem.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemStack\MSSystemStack.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\MSSystemStack.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\Scene\Scene.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\Scene.obj
-C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Source\MSSystemManager\MSSystemManager.cpp;C:\Users\User\Desktop\Projects\MultiStation\SceneManager\Objects\Release\x64\MSSystemManager.obj

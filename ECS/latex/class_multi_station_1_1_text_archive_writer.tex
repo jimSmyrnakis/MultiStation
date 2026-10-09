@@ -1,0 +1,216 @@
+\doxysection{Multi\+Station\+::Text\+Archive\+Writer Class Reference}
+\hypertarget{class_multi_station_1_1_text_archive_writer}{}\label{class_multi_station_1_1_text_archive_writer}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+Inheritance diagram for Multi\+Station\+::Text\+Archive\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_text_archive_writer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a778bd22782b3af3477fbf6b12f9c30b6}\label{class_multi_station_1_1_text_archive_writer_a778bd22782b3af3477fbf6b12f9c30b6} 
+{\bfseries Text\+Archive\+Writer} (\mbox{\hyperlink{class_multi_station_1_1_i_write_stream}{IWrite\+Stream}} \texorpdfstring{$\ast$}{*}stream)
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a04a5a5e07c950e160c18c26316dcf58a}{Begin\+Object}} (const std\+::string \&name) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a875c6e23d894fa329375d78688510d76}{End\+Object}} (void) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a43d0842f65ea0668d7ca541bd11e41c2}{Begin\+Array}} (const std\+::string \&name, size\+\_\+t count) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a5e3cb485c6a26fa94a981a36d59ad917}{End\+Array}} (void) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a90d069be65b7dd4538a77028170bbf1a}{Write\+Field}} (const std\+::string \&field\+Name, const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_ae197748fe2d868e368e9eda31420a0b1}{Write\+Field}} (const std\+::string \&field\+Name, int data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a22a2bdf3d374361fa46de043f1567f60}{Write\+Field}} (const std\+::string \&field\+Name, unsigned int data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a22d3324a4394f0c372c0e72a388e4362}{Write\+Field}} (const std\+::string \&field\+Name, float data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_ac6d8ebe9e02de95ee6e5d7961bde5cc1}{Write\+Field}} (const std\+::string \&field\+Name, double data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_acf7fc5d9e87c0298da84e3e6ef394ade}{Write\+Field}} (const std\+::string \&field\+Name, const std\+::string \&data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_ab169d7f767a9b0d17d6b699c4a063d11}{Write\+Value}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a0cdd296a3cb7de7dab3a51e3042cd510}{Write\+Value}} (int data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a3186e96c15a17eef328f8ca96655d534}{Write\+Value}} (unsigned int data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a4f050cb4372b41e2a251cecb22bade95}{Write\+Value}} (float data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a3b016bdc6582ff268e2eaf992c8d4780}{Write\+Value}} (double data) override
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_text_archive_writer_a17908d242df6bd83eba0eb262a584fd2}{Write\+Value}} (const std\+::string \&data) override
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_text_archive_writer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a43d0842f65ea0668d7ca541bd11e41c2}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!BeginArray@{BeginArray}}
+\index{BeginArray@{BeginArray}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{BeginArray()}{BeginArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a43d0842f65ea0668d7ca541bd11e41c2} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Begin\+Array (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{size\+\_\+t}]{count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a04a5a5e07c950e160c18c26316dcf58a}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!BeginObject@{BeginObject}}
+\index{BeginObject@{BeginObject}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{BeginObject()}{BeginObject()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a04a5a5e07c950e160c18c26316dcf58a} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Begin\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a5e3cb485c6a26fa94a981a36d59ad917}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!EndArray@{EndArray}}
+\index{EndArray@{EndArray}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{EndArray()}{EndArray()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a5e3cb485c6a26fa94a981a36d59ad917} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+End\+Array (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a875c6e23d894fa329375d78688510d76}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!EndObject@{EndObject}}
+\index{EndObject@{EndObject}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{EndObject()}{EndObject()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a875c6e23d894fa329375d78688510d76} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+End\+Object (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_acf7fc5d9e87c0298da84e3e6ef394ade}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_acf7fc5d9e87c0298da84e3e6ef394ade} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{const std\+::string \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a90d069be65b7dd4538a77028170bbf1a}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a90d069be65b7dd4538a77028170bbf1a} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_ac6d8ebe9e02de95ee6e5d7961bde5cc1}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_ac6d8ebe9e02de95ee6e5d7961bde5cc1} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{double}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a22d3324a4394f0c372c0e72a388e4362}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a22d3324a4394f0c372c0e72a388e4362} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{float}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_ae197748fe2d868e368e9eda31420a0b1}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_ae197748fe2d868e368e9eda31420a0b1} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{int}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a22a2bdf3d374361fa46de043f1567f60}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteField@{WriteField}}
+\index{WriteField@{WriteField}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteField()}{WriteField()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a22a2bdf3d374361fa46de043f1567f60} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Field (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{field\+Name}{, }\item[{unsigned int}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a17908d242df6bd83eba0eb262a584fd2}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a17908d242df6bd83eba0eb262a584fd2} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_ab169d7f767a9b0d17d6b699c4a063d11}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_ab169d7f767a9b0d17d6b699c4a063d11} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a3b016bdc6582ff268e2eaf992c8d4780}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a3b016bdc6582ff268e2eaf992c8d4780} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{double}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a4f050cb4372b41e2a251cecb22bade95}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a4f050cb4372b41e2a251cecb22bade95} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{float}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a0cdd296a3cb7de7dab3a51e3042cd510}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a0cdd296a3cb7de7dab3a51e3042cd510} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{int}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+\Hypertarget{class_multi_station_1_1_text_archive_writer_a3186e96c15a17eef328f8ca96655d534}\index{MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}!WriteValue@{WriteValue}}
+\index{WriteValue@{WriteValue}!MultiStation::TextArchiveWriter@{MultiStation::TextArchiveWriter}}
+\doxysubsubsection{\texorpdfstring{WriteValue()}{WriteValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_text_archive_writer_a3186e96c15a17eef328f8ca96655d534} 
+void Multi\+Station\+::\+Text\+Archive\+Writer\+::\+Write\+Value (\begin{DoxyParamCaption}\item[{unsigned int}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{Multi\+Station\+::\+IArchive\+Writer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Serialization/\+Archive/Text\+Archive.\+hpp\end{DoxyCompactItemize}

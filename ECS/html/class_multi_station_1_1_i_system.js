@@ -1,9 +1,6 @@
 var class_multi_station_1_1_i_system =
 [
-    [ "OnAttach", "class_multi_station_1_1_i_system.html#a3d01487555ed588dff7a18d0230a7831", null ],
-    [ "OnDetach", "class_multi_station_1_1_i_system.html#a15e7202c614ec653445adb104c0b69c1", null ],
-    [ "OnEvent", "class_multi_station_1_1_i_system.html#aee6c7f56e62eb740c6c7be99926e614a", null ],
-    [ "OnImGuiRender", "class_multi_station_1_1_i_system.html#a3ab066773181da9b1242766bfb83a8a8", null ],
-    [ "OnRenderUpdate", "class_multi_station_1_1_i_system.html#a340733bcbce4497676f7702093b81ada", null ],
-    [ "OnUpdate", "class_multi_station_1_1_i_system.html#a646aaebd2898310d36deb214385d7952", null ]
+    [ "OnAttach", "class_multi_station_1_1_i_system.html#ab744cd12437a1bb2d42b640eb5796f04", null ],
+    [ "OnDettach", "class_multi_station_1_1_i_system.html#ad65e14df43da81b2b7f17a98218c515f", null ],
+    [ "OnUpdate", "class_multi_station_1_1_i_system.html#a0988bdcbbb39c0c5d5fca600cfd24856", null ]
 ];

@@ -1,0 +1,93 @@
+\doxysection{Multi\+Station\+::Serialization\+Registry Class Reference}
+\hypertarget{class_multi_station_1_1_serialization_registry}{}\label{class_multi_station_1_1_serialization_registry}\index{MultiStation::SerializationRegistry@{MultiStation::SerializationRegistry}}
+
+
+Responsible for for registration serialization and deserialization of Components , Systems and General Objects . ~\newline
+ Is used by the scene to serialize / deserialize all it\textquotesingle{}s entities , components , systems and General Objects . This class makes it eazy a System\+Module to register for serialization their own Components , System (Settings for the System from their point of view) and supports extra object\textquotesingle{}s for serialization (Meaning their changes remain for ever in a scene ) .  
+
+
+
+
+{\ttfamily \#include $<$Serialization\+Registry.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_serialization_registry_a44a8e353229905f353468b4b0ad3281b}{Register\+Component}} (Comp\+ID id, \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}} \texorpdfstring{$\ast$}{*}serialize)
+\begin{DoxyCompactList}\small\item\em Register a component. \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a4ad4d21cfd1f8982a16df4cd7761587e}\label{class_multi_station_1_1_serialization_registry_a4ad4d21cfd1f8982a16df4cd7761587e} 
+void {\bfseries Unregister\+Component} (Comp\+ID id)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a48a1f58c54ae9ae02b52bc91433baf2f}\label{class_multi_station_1_1_serialization_registry_a48a1f58c54ae9ae02b52bc91433baf2f} 
+bool {\bfseries Has\+Register\+Component} (Comp\+ID id) const
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_acae7718f91efd16899644ad69fdb20e6}\label{class_multi_station_1_1_serialization_registry_acae7718f91efd16899644ad69fdb20e6} 
+bool {\bfseries Serialize\+Component} (Comp\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchive\+Writer}} \texorpdfstring{$\ast$}{*}archive)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_aa0fe6082006c224f9f88ff9679b34754}\label{class_multi_station_1_1_serialization_registry_aa0fe6082006c224f9f88ff9679b34754} 
+bool {\bfseries Deserialize\+Component} (Comp\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchive\+Reader}} \texorpdfstring{$\ast$}{*}archive)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_aeeacb675297537417a9a5a0926917857}\label{class_multi_station_1_1_serialization_registry_aeeacb675297537417a9a5a0926917857} 
+bool {\bfseries Register\+System} (Module\+ID id, \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}} \texorpdfstring{$\ast$}{*}serialize)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a8376c9cb2164d24c7dbee715a95a945f}\label{class_multi_station_1_1_serialization_registry_a8376c9cb2164d24c7dbee715a95a945f} 
+void {\bfseries Unregister\+System} (Module\+ID id)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a9f90009aac03c8cc2f8f81654d905852}\label{class_multi_station_1_1_serialization_registry_a9f90009aac03c8cc2f8f81654d905852} 
+bool {\bfseries Has\+Register\+System} (Module\+ID id) const
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a7384fef1c2b1971b21225d0244732d52}\label{class_multi_station_1_1_serialization_registry_a7384fef1c2b1971b21225d0244732d52} 
+bool {\bfseries Serialize\+System} (Module\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchive\+Writer}} \texorpdfstring{$\ast$}{*}archive)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_acdf19983e31465e522537785647136e0}\label{class_multi_station_1_1_serialization_registry_acdf19983e31465e522537785647136e0} 
+bool {\bfseries Deserialize\+System} (Module\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchive\+Reader}} \texorpdfstring{$\ast$}{*}archive)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_ae47c70105b68fb3c4027146b7a5aa363}\label{class_multi_station_1_1_serialization_registry_ae47c70105b68fb3c4027146b7a5aa363} 
+bool {\bfseries Register\+Object} (Obj\+ID id, \mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}} \texorpdfstring{$\ast$}{*}serialize)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_ad6dc34f811efb5cf39717e27b9361f61}\label{class_multi_station_1_1_serialization_registry_ad6dc34f811efb5cf39717e27b9361f61} 
+void {\bfseries Unregister\+Object} (Obj\+ID id)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_aa8197713547f3455df233bd0406f098a}\label{class_multi_station_1_1_serialization_registry_aa8197713547f3455df233bd0406f098a} 
+bool {\bfseries Has\+Register\+Object} (Obj\+ID id) const
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_ac60ba5e42563e57e463b752c3165be13}\label{class_multi_station_1_1_serialization_registry_ac60ba5e42563e57e463b752c3165be13} 
+bool {\bfseries Serialize\+Object} (Obj\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchive\+Writer}} \texorpdfstring{$\ast$}{*}archive)
+\item 
+\Hypertarget{class_multi_station_1_1_serialization_registry_a7a3c666a0cde6fece3f5bc241f177241}\label{class_multi_station_1_1_serialization_registry_a7a3c666a0cde6fece3f5bc241f177241} 
+bool {\bfseries Deserialize\+Object} (Obj\+ID id, void \texorpdfstring{$\ast$}{*}ref, \mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchive\+Reader}} \texorpdfstring{$\ast$}{*}archive)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsible for for registration serialization and deserialization of Components , Systems and General Objects . ~\newline
+ Is used by the scene to serialize / deserialize all it\textquotesingle{}s entities , components , systems and General Objects . This class makes it eazy a System\+Module to register for serialization their own Components , System (Settings for the System from their point of view) and supports extra object\textquotesingle{}s for serialization (Meaning their changes remain for ever in a scene ) . 
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_serialization_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_serialization_registry_a44a8e353229905f353468b4b0ad3281b}\index{MultiStation::SerializationRegistry@{MultiStation::SerializationRegistry}!RegisterComponent@{RegisterComponent}}
+\index{RegisterComponent@{RegisterComponent}!MultiStation::SerializationRegistry@{MultiStation::SerializationRegistry}}
+\doxysubsubsection{\texorpdfstring{RegisterComponent()}{RegisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_serialization_registry_a44a8e353229905f353468b4b0ad3281b} 
+bool Multi\+Station\+::\+Serialization\+Registry\+::\+Register\+Component (\begin{DoxyParamCaption}\item[{Comp\+ID}]{id}{, }\item[{\mbox{\hyperlink{class_multi_station_1_1_i_serialize}{ISerialize}} \texorpdfstring{$\ast$}{*}}]{serialize}{}\end{DoxyParamCaption})}
+
+
+
+Register a component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em serialize} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Serialization/\+Registry/\mbox{\hyperlink{_serialization_registry_8hpp}{Serialization\+Registry.\+hpp}}\end{DoxyCompactItemize}

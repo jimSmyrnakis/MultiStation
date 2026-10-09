@@ -1,5 +1,6 @@
 var searchData=
 [
   ['componentarray_0',['ComponentArray',['../class_multi_station_1_1_component_array.html#ad38047a6d5e081ec8c8dbaa018c83651',1,'MultiStation::ComponentArray::ComponentArray(void) noexcept'],['../class_multi_station_1_1_component_array.html#a506204a9fd45ddf08d3fa787f5c05ff0',1,'MultiStation::ComponentArray::ComponentArray(const ComponentArray &amp;copy)=delete'],['../class_multi_station_1_1_component_array.html#aa5f6331fe77b19a0d3e93626dae21a7d',1,'MultiStation::ComponentArray::ComponentArray(ComponentArray &amp;&amp;move) noexcept']]],
-  ['createentity_1',['CreateEntity',['../class_multi_station_1_1_e_c_s_manager.html#a3b02f84b12f5ddd0c61373e02021dffe',1,'MultiStation::ECSManager']]]
+  ['count_1',['Count',['../class_multi_station_1_1_component_array.html#aab092af14c2a2e1d387d25fa586747ad',1,'MultiStation::ComponentArray::Count()'],['../class_multi_station_1_1_i_component_array.html#af0995a8396ab1830cb2c7ca8f1116175',1,'MultiStation::IComponentArray::Count()'],['../class_multi_station_1_1_registry.html#a56668bc53d9f3b87e472c9a57ed5279b',1,'MultiStation::Registry::Count(CompID component)']]],
+  ['createentity_2',['CreateEntity',['../class_multi_station_1_1_registry.html#ad18c0020a774b95e95f82413b727b0f7',1,'MultiStation::Registry::CreateEntity()'],['../class_multi_station_1_1_scene.html#a71c0f2edc4b9b84762c10e9437e783a7',1,'MultiStation::Scene::CreateEntity()']]]
 ];

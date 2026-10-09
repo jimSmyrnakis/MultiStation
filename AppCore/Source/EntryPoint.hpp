@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 	
 	app.Initialize();
 	// Run App SetUp given by the user
-	app.SetUp();
+	app.SetUp(app.GetEngine());
 	while (app.IsRunning()) {
 		app.Run();
 	}

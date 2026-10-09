@@ -26,7 +26,7 @@
 \DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ Operation\ operation;}
 \DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ operation.type\ =\ OperationType::CREATE;}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ operation.entity\ =\ entity;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{IComponentArray::GetID<T>}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ IComponentArray::GetID<T>();}
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ operation.callbackFun\ =\ [this\ ,\ ...\ args\ =\ std::forward<Args>(args)](Operation\ op\ )\ \{}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ entity\ =\ op.entity;}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity))\ \{}
@@ -40,7 +40,7 @@
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array}{ComponentArray<T>}}*\ carr\ =\ m\_registry-\/>GetComponentArray<T>();}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a78f7a3280949f893f63fcb089bca6a08}{AddComponent}}(entity,\ args...);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a79e7089f241abb6bd68ecfb737052fe8}{AddComponent}}(entity,\ args...);}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_entities.begin(),\ m\_entities.end(),\ entity);}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ std::distance(m\_entities.begin(),\ it);}
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ m\_entityComponentCounts[index]++;}
@@ -53,7 +53,7 @@
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ Operation\ operation;}
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ operation.type\ =\ OperationType::REMOVE;}
 \DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ operation.entity\ =\ entity;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{IComponentArray::GetID<T>}}();}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ IComponentArray::GetID<T>();}
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ operation.callbackFun\ =\ [\textcolor{keyword}{this},\ entity](Operation\ op)\ \{}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity))\ \{}
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MS\_ENGINE\_WARN(\textcolor{stringliteral}{"{}Entity\ \%d\ does\ not\ exist.\ Skipping\ removing\ component."{}},\ entity);}
@@ -66,7 +66,7 @@
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array}{ComponentArray<T>}}*\ carr\ =\ m\_registry-\/>GetComponentArray<T>();}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a54fb61476acd0872d5f094d47491bf99}{RemoveComponent}}(entity);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a29180a0efd99e2d7a57c0c8c76f0628b}{RemoveComponent}}(entity);}
 \DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_entities.begin(),\ m\_entities.end(),\ entity);}
 \DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ std::distance(m\_entities.begin(),\ it);}
 \DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ m\_entityComponentCounts[index]-\/-\/;}
@@ -84,7 +84,7 @@
 \DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ Operation\ operation;}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ operation.type\ =\ OperationType::REPLACE;}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ operation.entity\ =\ entity;}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ \mbox{\hyperlink{class_multi_station_1_1_i_component_array_a3c948e84372799eaaafcd6b67ee3bace}{ComponentArray<T>::GetID}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ operation.componentTypeID\ =\ \mbox{\hyperlink{class_multi_station_1_1_component_array_a19cc255c44cd78dc90b46af4201aa905}{ComponentArray<T>::GetID}}();}
 \DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ operation.callbackFun\ =\ [\textcolor{keyword}{this},\ ...\ args\ =\ std::forward<Args>(args)](Operation\ op)\ \{}
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ entity\ =\ op.entity;}
 \DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_e_c_s_manager_afa083de5c568415d8476371f6a0aef07}{HasEntity}}(entity))\ \{}
@@ -99,12 +99,12 @@
 \DoxyCodeLine{00095\ }
 \DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_component_array}{ComponentArray<T>}}*\ carr\ =\ m\_registry-\/>GetComponentArray<T>();}
 \DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a69580e89e553c7524c35f0e156c78d82}{HasEntity}}(entity))\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_aa04050bb98c4d2b6322cb34ca19e6e69}{HasEntity}}(entity))\ \{}
 \DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MS\_ENGINE\_WARN(\textcolor{stringliteral}{"{}Entity\ \%d\ does\ not\ have\ a\ component\ to\ replace.\ Skipping\ replacing\ component."{}},\ entity);}
 \DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_a5a61dd4d0a732a76316a17a13edfba70}{ReplaceComponent}}(entity,\ args...);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ carr-\/>\mbox{\hyperlink{class_multi_station_1_1_component_array_abb45a305acdcb92fd683e9761a568dde}{ReplaceComponent}}(entity,\ args...);}
 \DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ m\_componentOperationQueue.Push(operation);}

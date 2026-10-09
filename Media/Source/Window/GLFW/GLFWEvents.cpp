@@ -20,7 +20,8 @@ namespace MultiStation {
 				WindowResizeEvent event(width , height);
 				data.EventCallback(event);
 
-			});
+			}
+		);
 
 		// Window Close call back
 		glfwSetWindowCloseCallback(win, [](GLFWwindow* window) {
@@ -29,14 +30,16 @@ namespace MultiStation {
 			WindowCloseEvent event;
 			data.EventCallback(event);
 
-			});
+			}
+		);
 
 		// Window Lose Focus call back
 		glfwSetWindowFocusCallback(win, [](GLFWwindow* window, int focused) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			WindowFocusEvent e((focused == GLFW_TRUE) ? true : false);
 			data.EventCallback(e);
-			});
+			}
+		);
 
 		// Key Event call back
 		glfwSetKeyCallback(win, [](GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -53,14 +56,17 @@ namespace MultiStation {
 				MS_ENGINE_WARN("Unkown Key event !");
 			};
 
-			});
+			}
+		);
 
 		// Key Typed call back
 		glfwSetCharCallback(win, [](GLFWwindow* window, unsigned int codepoint) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			KeyTypedEvent e(codepoint);
 			data.EventCallback(e);
-			});
+			}
+		);
+
 		// Mouse Button Call back
 		glfwSetMouseButtonCallback(win, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -82,7 +88,8 @@ namespace MultiStation {
 			}
 
 
-			});
+			}
+		);
 
 		// Mouse Scroll call back 
 		glfwSetScrollCallback(win, [](GLFWwindow* window, double xoffset, double yoffset) {
@@ -90,14 +97,16 @@ namespace MultiStation {
 
 			MouseScrolledEvent e(xoffset, yoffset);
 			data.EventCallback(e);
-			});
+			}
+		);
 
 		// Mouse move call back 
 		glfwSetCursorPosCallback(win, [](GLFWwindow* window, double xpos, double ypos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			MouseMovedEvent e(xpos, ypos);
 			data.EventCallback(e);
-			});
+			}
+		);
 
 		// 
 	}

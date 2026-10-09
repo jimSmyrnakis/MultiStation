@@ -1,0 +1,64 @@
+\doxysection{Multi\+Station\+::IArchive\+Reader Class Reference}
+\hypertarget{class_multi_station_1_1_i_archive_reader}{}\label{class_multi_station_1_1_i_archive_reader}\index{MultiStation::IArchiveReader@{MultiStation::IArchiveReader}}
+Inheritance diagram for Multi\+Station\+::IArchive\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_multi_station_1_1_i_archive_reader}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a79ece84818a8672917dcd2ca48ee7130}\label{class_multi_station_1_1_i_archive_reader_a79ece84818a8672917dcd2ca48ee7130} 
+virtual void {\bfseries Begin\+Object} (const std\+::string \&name)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a3f3cf4358e8b138e51f01ece4e069dc1}\label{class_multi_station_1_1_i_archive_reader_a3f3cf4358e8b138e51f01ece4e069dc1} 
+virtual void {\bfseries End\+Object} (void)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_ac5157cbdf2003d55e5b542be56a2bce6}\label{class_multi_station_1_1_i_archive_reader_ac5157cbdf2003d55e5b542be56a2bce6} 
+virtual void {\bfseries Begin\+Array} (const std\+::string \&name, size\+\_\+t \&count)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a2bfb873ee103dceb985cdb2f93f99a7c}\label{class_multi_station_1_1_i_archive_reader_a2bfb873ee103dceb985cdb2f93f99a7c} 
+virtual void {\bfseries End\+Array} (void)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a39c5dbb7dc1d9d670b2ca17e76d18bd8}\label{class_multi_station_1_1_i_archive_reader_a39c5dbb7dc1d9d670b2ca17e76d18bd8} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t \&size)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_acff1d90714e9273a704cba637e60391e}\label{class_multi_station_1_1_i_archive_reader_acff1d90714e9273a704cba637e60391e} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, int \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a98de4ce1162db4c48d93026ccfdbc227}\label{class_multi_station_1_1_i_archive_reader_a98de4ce1162db4c48d93026ccfdbc227} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, unsigned int \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_ac4e8c106c008b9e1e44ec178af624cdc}\label{class_multi_station_1_1_i_archive_reader_ac4e8c106c008b9e1e44ec178af624cdc} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, float \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_af56f150197ea33834abfcbc3d6eb1d69}\label{class_multi_station_1_1_i_archive_reader_af56f150197ea33834abfcbc3d6eb1d69} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, double \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a8277b4e784b1f0b5cfd9f8568b421f1e}\label{class_multi_station_1_1_i_archive_reader_a8277b4e784b1f0b5cfd9f8568b421f1e} 
+virtual void {\bfseries Read\+Field} (const std\+::string \&field\+Name, std\+::string \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a322365b5955a02fa133cf0dee06f10c0}\label{class_multi_station_1_1_i_archive_reader_a322365b5955a02fa133cf0dee06f10c0} 
+virtual void {\bfseries Read\+Value} (void \texorpdfstring{$\ast$}{*}data, size\+\_\+t \&size)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a357e39162ef3eeed65fde74be9583c3f}\label{class_multi_station_1_1_i_archive_reader_a357e39162ef3eeed65fde74be9583c3f} 
+virtual void {\bfseries Read\+Value} (int \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a7c75c8e779113edc884b4ea9b537252b}\label{class_multi_station_1_1_i_archive_reader_a7c75c8e779113edc884b4ea9b537252b} 
+virtual void {\bfseries Read\+Value} (unsigned int \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_aad615b3daa25244a3595bd47db7b3c75}\label{class_multi_station_1_1_i_archive_reader_aad615b3daa25244a3595bd47db7b3c75} 
+virtual void {\bfseries Read\+Value} (float \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_a05f72e8a850169ecc4771d653f7f1048}\label{class_multi_station_1_1_i_archive_reader_a05f72e8a850169ecc4771d653f7f1048} 
+virtual void {\bfseries Read\+Value} (double \&data)=0
+\item 
+\Hypertarget{class_multi_station_1_1_i_archive_reader_af53dde255661d4dc8c426453983de5d1}\label{class_multi_station_1_1_i_archive_reader_af53dde255661d4dc8c426453983de5d1} 
+virtual void {\bfseries Read\+Value} (std\+::string \&data)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Serialization/\+Archive/\mbox{\hyperlink{_i_archive_8hpp}{IArchive.\+hpp}}\end{DoxyCompactItemize}

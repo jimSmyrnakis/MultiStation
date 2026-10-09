@@ -94,23 +94,99 @@ $(function(){initNavTree('namespace_multi_station.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:ComponentArray" id="r_ComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_component_array.html">ComponentArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities.  <a href="class_multi_station_1_1_component_array.html#details">More...</a><br /></td></tr>
-<tr class="memitem:ECSManager" id="r_ECSManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_e_c_s_manager.html">ECSManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_multi_station_1_1_e_c_s_manager.html" title="The ECSManager class is responsible for managing entities and component&#39;s . Components / Entities tha...">ECSManager</a> class is responsible for managing entities and component's . Components / Entities that Created/Removed/Replaced are not happen directly but they requested to be happen in some other safe moment from the System Manager Side , this is done to ensure that all operations are not going to create data races with the systems that are executed in the same phase .  <a href="class_multi_station_1_1_e_c_s_manager.html#details">More...</a><br /></td></tr>
-<tr class="memitem:IComponentArray" id="r_IComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html">IComponentArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types.  <a href="class_multi_station_1_1_i_component_array.html#details">More...</a><br /></td></tr>
+<tr class="memitem:EntityManager" id="r_EntityManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_entity_manager.html">EntityManager</a></td></tr>
+<tr class="memitem:EngineContext" id="r_EngineContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_multi_station_1_1_engine_context.html">EngineContext</a></td></tr>
 <tr class="memitem:Job" id="r_Job"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_multi_station_1_1_job.html">Job</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JobFunction is a function pointer that defines the signature of the function that can be executed as a job.  <a href="struct_multi_station_1_1_job.html#details">More...</a><br /></td></tr>
 <tr class="memitem:JobSystem" id="r_JobSystem"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_job_system.html">JobSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_multi_station_1_1_job.html" title="A JobFunction is a function pointer that defines the signature of the function that can be executed a...">Job</a> System with fifo schedule algorithm . Supports local/affinity queues and global for scheduling the jobs base on some specific worker or global -&gt; any worker available . The parent Thread is part of the schedule algorithm , usefull method is the waitForAll that makes him enable for schedulling with the rest workers .  <a href="class_multi_station_1_1_job_system.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ComponentArray" id="r_ComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_component_array.html">ComponentArray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class manages a dynamic array of components of type T, allowing for efficient addition, removal, and retrieval of components associated with entities.  <a href="class_multi_station_1_1_component_array.html#details">More...</a><br /></td></tr>
+<tr class="memitem:IComponentArray" id="r_IComponentArray"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html">IComponentArray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types.  <a href="class_multi_station_1_1_i_component_array.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Registry" id="r_Registry"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_registry.html">Registry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_multi_station_1_1_registry.html" title="The Registry class manages the registration and retrieval of component arrays for different component...">Registry</a> class manages the registration and retrieval of component arrays for different component types in an ECS architecture. Each component type T has its own <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> &lt;T&gt; instance, which is created upon registration and destroyed upon unregistration.  <a href="class_multi_station_1_1_registry.html#details">More...</a><br /></td></tr>
-<tr class="memitem:VersionControl" id="r_VersionControl"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_version_control.html">VersionControl</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_multi_station_1_1_registry.html" title="The Registry class manages the registration and retrieval of component with different type ,...">Registry</a> class manages the registration and retrieval of component with different type , also entity creation / remove and components types to entities signatures .  <a href="class_multi_station_1_1_registry.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Scene" id="r_Scene"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_scene.html">Scene</a></td></tr>
+<tr class="memitem:EntityNode" id="r_EntityNode"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a></td></tr>
+<tr class="memitem:SceneGraph" id="r_SceneGraph"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_scene_graph.html">SceneGraph</a></td></tr>
+<tr class="memitem:SceneSerializer" id="r_SceneSerializer"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_scene_serializer.html">SceneSerializer</a></td></tr>
+<tr class="memitem:IArchiveWriter" id="r_IArchiveWriter"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_archive_writer.html">IArchiveWriter</a></td></tr>
+<tr class="memitem:IArchiveReader" id="r_IArchiveReader"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_archive_reader.html">IArchiveReader</a></td></tr>
+<tr class="memitem:TextArchiveReader" id="r_TextArchiveReader"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_text_archive_reader.html">TextArchiveReader</a></td></tr>
+<tr class="memitem:TextArchiveWriter" id="r_TextArchiveWriter"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_text_archive_writer.html">TextArchiveWriter</a></td></tr>
+<tr class="memitem:ISerialize" id="r_ISerialize"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_serialize.html">ISerialize</a></td></tr>
+<tr class="memitem:SerializationRegistry" id="r_SerializationRegistry"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_serialization_registry.html">SerializationRegistry</a></td></tr>
+<tr class="memitem:FileReadStream" id="r_FileReadStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_file_read_stream.html">FileReadStream</a></td></tr>
+<tr class="memitem:FileWriteStream" id="r_FileWriteStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_file_write_stream.html">FileWriteStream</a></td></tr>
+<tr class="memitem:IReadStream" id="r_IReadStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_read_stream.html">IReadStream</a></td></tr>
+<tr class="memitem:IWriteStream" id="r_IWriteStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_write_stream.html">IWriteStream</a></td></tr>
+<tr class="memitem:ISystem" id="r_ISystem"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_system.html">ISystem</a></td></tr>
+<tr class="memitem:ISystemModule" id="r_ISystemModule"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a></td></tr>
+<tr class="memitem:SystemManager" id="r_SystemManager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_system_manager.html">SystemManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Responsible for managing the system modules , create them , remove update them per frame (loop) .  <a href="class_multi_station_1_1_system_manager.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aca756e49b6d63883688240ec06cebbda" id="r_aca756e49b6d63883688240ec06cebbda"><td class="memItemLeft" align="right" valign="top"><a id="aca756e49b6d63883688240ec06cebbda" name="aca756e49b6d63883688240ec06cebbda"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>CompID</b> = uint64_t</td></tr>
+<tr class="memitem:a359eac7967ffc1093fcea4a53d862df0" id="r_a359eac7967ffc1093fcea4a53d862df0"><td class="memItemLeft" align="right" valign="top"><a id="a359eac7967ffc1093fcea4a53d862df0" name="a359eac7967ffc1093fcea4a53d862df0"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>EntID</b> = uint32_t</td></tr>
+<tr class="memitem:a0187fcc0811b6a9b43318e350ddd114c" id="r_a0187fcc0811b6a9b43318e350ddd114c"><td class="memItemLeft" align="right" valign="top"><a id="a0187fcc0811b6a9b43318e350ddd114c" name="a0187fcc0811b6a9b43318e350ddd114c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ObjID</b> = uint32_t</td></tr>
+<tr class="memitem:a9597f8999da3426137c1c11ed97c4d7e" id="r_a9597f8999da3426137c1c11ed97c4d7e"><td class="memItemLeft" align="right" valign="top"><a id="a9597f8999da3426137c1c11ed97c4d7e" name="a9597f8999da3426137c1c11ed97c4d7e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ModuleID</b> = uint32_t</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af6375f12ea7c2fa0f77175c847407e8e" id="r_af6375f12ea7c2fa0f77175c847407e8e"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:af6375f12ea7c2fa0f77175c847407e8e template"><td class="memItemLeft" align="right" valign="top">CompID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6375f12ea7c2fa0f77175c847407e8e">GetComponentID</a> (void)</td></tr>
+<tr class="memdesc:af6375f12ea7c2fa0f77175c847407e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives for different types of components a unique id.  <br /></td></tr>
+<tr class="memitem:a20e5562be9b66d9e8cd3ff3d179e9e62" id="r_a20e5562be9b66d9e8cd3ff3d179e9e62"><td class="memTemplParams" colspan="2"><a id="a20e5562be9b66d9e8cd3ff3d179e9e62" name="a20e5562be9b66d9e8cd3ff3d179e9e62"></a>
+template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a20e5562be9b66d9e8cd3ff3d179e9e62 template"><td class="memItemLeft" align="right" valign="top">ObjID&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectID</b> (void)</td></tr>
+<tr class="memitem:ad855ecf342117af5384bf40b6232ed58" id="r_ad855ecf342117af5384bf40b6232ed58"><td class="memTemplParams" colspan="2"><a id="ad855ecf342117af5384bf40b6232ed58" name="ad855ecf342117af5384bf40b6232ed58"></a>
+template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ad855ecf342117af5384bf40b6232ed58 template"><td class="memItemLeft" align="right" valign="top">ModuleID&#160;</td><td class="memItemRight" valign="bottom"><b>GetModuleID</b> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a6b0a4dce317b73a65bdc4c0455772a97" id="r_a6b0a4dce317b73a65bdc4c0455772a97"><td class="memItemLeft" align="right" valign="top"><a id="a6b0a4dce317b73a65bdc4c0455772a97" name="a6b0a4dce317b73a65bdc4c0455772a97"></a>
+std::atomic&lt; CompID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>s_typeID</b></td></tr>
+<tr class="memitem:a6ffd50a304e34e8bc45a17d9767a3354" id="r_a6ffd50a304e34e8bc45a17d9767a3354"><td class="memItemLeft" align="right" valign="top"><a id="a6ffd50a304e34e8bc45a17d9767a3354" name="a6ffd50a304e34e8bc45a17d9767a3354"></a>
+EntID&#160;</td><td class="memItemRight" valign="bottom"><b>rootEntity</b></td></tr>
+<tr class="memitem:a5805edd416c71a9dc2063c399bb13c32" id="r_a5805edd416c71a9dc2063c399bb13c32"><td class="memItemLeft" align="right" valign="top"><a id="a5805edd416c71a9dc2063c399bb13c32" name="a5805edd416c71a9dc2063c399bb13c32"></a>
+EntID&#160;</td><td class="memItemRight" valign="bottom"><b>nullEntity</b></td></tr>
+<tr class="memitem:ac9c085d1e7d0ed8e452b42059089f458" id="r_ac9c085d1e7d0ed8e452b42059089f458"><td class="memItemLeft" align="right" valign="top"><a id="ac9c085d1e7d0ed8e452b42059089f458" name="ac9c085d1e7d0ed8e452b42059089f458"></a>
+std::atomic&lt; ObjID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>obj_id</b></td></tr>
+<tr class="memitem:aacc2430af61d0a5a429bc2fcb2fcf5ba" id="r_aacc2430af61d0a5a429bc2fcb2fcf5ba"><td class="memItemLeft" align="right" valign="top"><a id="aacc2430af61d0a5a429bc2fcb2fcf5ba" name="aacc2430af61d0a5a429bc2fcb2fcf5ba"></a>
+std::atomic&lt; ModuleID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>moduleIdGenerator</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis </dd></dl>
-</div></div><!-- contents -->
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="af6375f12ea7c2fa0f77175c847407e8e" name="af6375f12ea7c2fa0f77175c847407e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6375f12ea7c2fa0f77175c847407e8e">&#9670;&#160;</a></span>GetComponentID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CompID MultiStation::GetComponentID </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gives for different types of components a unique id. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

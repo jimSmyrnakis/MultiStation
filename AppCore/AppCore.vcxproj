@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -146,7 +146,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -173,7 +173,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)IMGUI_IMPL_OPENGL_LOADER_CUSTOM;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include;$(SolutionDir)GLFW\include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLAD\include;$(SolutionDir)Application\Include;$(SolutionDir)GLM\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
