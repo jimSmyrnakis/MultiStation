@@ -1,0 +1,7 @@
+
+* support drag and drop on entities at the hierarchy panel 
+* support menu elements like view we can enable / disable panels from showing 
+* support tool box save button and save all button in to existance 
+* fix the bugs like the one when using the entity name it changes the other selected next entity name too
+* Make Services and pass there the context , avoid passing it on views or controllers 
+

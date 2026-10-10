@@ -7,7 +7,8 @@ namespace MultiStation {
 	}
 
 	SystemManager::~SystemManager(void) {
-		for (ISystemModule* module : m_modules) {
+		for (int i = m_modules.size() - 1; i >= 0; i--) {
+			ISystemModule* module = m_modules[i];
 			if (!module) continue;
 			
 			module->GetSystem().OnDettach();

@@ -17,3 +17,5 @@
 #include "../Source/Layer/LayerStack.hpp"
 #include "../Source/KeyCodes.hpp"
 #include "../Source/Window/Input.hpp"
+#include "../Source/Editor/Editor.hpp"
+

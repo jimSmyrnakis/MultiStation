@@ -100,7 +100,7 @@ namespace MultiStation{
 		}
 
 		// Create module
-		T* module = new T();
+		T* module = new T;
 		if (module == nullptr) {
 			return false;
 		}

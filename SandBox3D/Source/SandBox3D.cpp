@@ -1,6 +1,7 @@
 #include "mspch.h"
 #include "SandBox3D.hpp"
-#include "ExampleModule.hpp"
+#include "ExampleModules.hpp"
+#include <Editor.hpp>
 namespace MultiStation {
 
 	
@@ -29,7 +30,7 @@ namespace MultiStation {
 		printf("Hello World!!!");
 
 		engine.AddModule<ExampleModule>();
-		
+		engine.AddModule<EditorModule>();
 
 	}
 

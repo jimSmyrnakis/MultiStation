@@ -4,17 +4,18 @@
 #include <atomic>
 #include <functional>
 #include "../Serialization/Archive/IArchive.hpp"
+#include <Platform.hpp>
 namespace MultiStation{
 
 	using CompID = uint64_t;
 	using EntID = uint32_t;
-	using ObjID = uint32_t;
+	
 
 	extern std::atomic<CompID> s_typeID ;
 
 	extern EntID rootEntity;
 	extern EntID nullEntity;
-	extern std::atomic<ObjID> obj_id;   
+	
 	
 	/**
 	 * @brief Gives for different types of components a unique id
@@ -32,16 +33,7 @@ namespace MultiStation{
 		return id ;
 	}
 
-	template<typename T>
-	ObjID GetObjectID(void) {
-		static CompID id = 1 <<
-			obj_id.fetch_add(
-				1,
-				std::memory_order_relaxed
-			);
-
-		return id;
-	}
+	
 
 	using ModuleID = uint32_t;
 	extern std::atomic <ModuleID> moduleIdGenerator;

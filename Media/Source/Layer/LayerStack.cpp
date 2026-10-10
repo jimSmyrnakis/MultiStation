@@ -8,8 +8,8 @@ namespace MultiStation {
     }
 
     LayerStack::~LayerStack(void) noexcept {
-        for (Layer* layer : m_Layers)
-            delete layer;
+        //for (Layer* layer : m_Layers)
+         //   delete layer;
     }
 
     void LayerStack::PushLayer(Layer* layer) noexcept {

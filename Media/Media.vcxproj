@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -162,7 +162,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -181,6 +181,11 @@
   <ItemGroup>
     <ClInclude Include="Include\Media.hpp" />
     <ClInclude Include="Source\Core.hpp" />
+    <ClInclude Include="Source\Editor\Editor.hpp" />
+    <ClInclude Include="Source\Editor\EditorLayer.hpp" />
+    <ClInclude Include="Source\Editor\IDrawable.hpp" />
+    <ClInclude Include="Source\Editor\IInspectable.hpp" />
+    <ClInclude Include="Source\Editor\InspectorRegistry.hpp" />
     <ClInclude Include="Source\Events\ApplicationEvent.hpp" />
     <ClInclude Include="Source\Events\Event.hpp" />
     <ClInclude Include="Source\Events\KeyEvent.hpp" />
@@ -210,6 +215,9 @@
     <ClInclude Include="Source\Window\WindowProperties.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Editor\Editor.cpp" />
+    <ClCompile Include="Source\Editor\EditorLayer.cpp" />
+    <ClCompile Include="Source\Editor\InspectorRegistry.cpp" />
     <ClCompile Include="Source\GraphicsApi\Commands\Commands.cpp" />
     <ClCompile Include="Source\GraphicsApi\Error.cpp" />
     <ClCompile Include="Source\GraphicsApi\FBuffer\FBuffer.cpp" />
@@ -231,6 +239,9 @@
     <ClCompile Include="Source\Window\Input.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
     <ClCompile Include="Source\Window\WindowProperties.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

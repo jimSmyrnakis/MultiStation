@@ -383,7 +383,7 @@ namespace MultiStation {
 
 		ComponentArray<T>* components = (ComponentArray<T>*)m_typeComponentMap[GetComponentID<T>()];
 
-		return components->GetComponent<T>(entity);
+		return components->GetComponent(entity);
 	}
 
 	

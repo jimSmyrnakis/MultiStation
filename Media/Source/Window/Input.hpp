@@ -4,19 +4,23 @@
 /**
  * @author Dimitris Smyrnakis
  * @file Input.hpp 
- * @class Input
- * @brief Gives the state of the input by polling
+ * @brief Contains The global Input class that is used to get the input for the window .
  */
 namespace MultiStation {
 
+	/**
+	 * @class Input
+	 * @brief This class is used to get the input for the window . 
+	 * It is a singleton class and it is initialized by the window that is created by the application .
+	 */
 	class Input {
 
 	public:
 		
 		/**
 		 * 
-		 * @param key ms key keycode 
-		 * @return true if key is down/pressed but haven't released yet 
+		 * @param key use ms keycode here for valid result
+		 * @return true while the key is down . 
 		 */
 		static bool IsKeyDown(uint32_t key) noexcept;
 
@@ -43,6 +47,8 @@ namespace MultiStation {
 		 * @return true if button is pressed
 		 */
 		static bool IsMouseButtonDown(uint32_t button) noexcept;
+
+
 
 		/**
 		 * .
@@ -76,6 +82,8 @@ namespace MultiStation {
 		/**
 		 * @brief Deletes the singleton , then we can call again the Init
 		 * and Get to get a new singleton. Only one instance of Ipnut at a time .
+		 * @warning Do not use it inside the modules as the engine running it will
+		 * probably make the Inupt unusable .
 		 * 
 		 */
 		static void Destroy(void) noexcept;

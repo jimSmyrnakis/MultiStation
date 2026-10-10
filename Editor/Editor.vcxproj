@@ -195,16 +195,23 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Editor\Editor.cpp" />
-    <ClCompile Include="Source\HierarchyPanel\HierarchyPanel.cpp" />
-    <ClCompile Include="Source\HierarchyPanel\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="Source\Controllers\SceneHierarchyController.cpp" />
+    <ClCompile Include="Source\Editor\EditorModule.cpp" />
+    <ClCompile Include="Source\Views\InspectorPanel.cpp" />
+    <ClCompile Include="Source\Views\SceneHierarchyPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Editor.hpp" />
-    <ClInclude Include="Source\HierarchyPanel\SceneHierarchyPanel.hpp" />
+    <ClInclude Include="Source\Components\EntityComponent.hpp" />
+    <ClInclude Include="Source\Controllers\SceneHierarchyController.hpp" />
+    <ClInclude Include="Source\System\EditorSystem.hpp" />
+    <ClInclude Include="Source\Views\InspectorPanel.hpp" />
+    <ClInclude Include="Source\Views\SceneHierarchyPanel.hpp" />
     <ClInclude Include="Source\mspch.h" />
-    <ClInclude Include="Source\Editor\Editor.hpp" />
-    <ClInclude Include="Source\HierarchyPanel\HierarchyPanel.hpp" />
+    <ClInclude Include="Source\Editor\EditorModule.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

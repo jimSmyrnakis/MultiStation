@@ -1,7 +1,7 @@
 #include "../mspch.h"
 #include "Application.hpp"
 #include <GLAD.hpp>
-
+#include <Media.hpp>
 namespace MultiStation {
 	void Application::SetUp(Engine& engine) noexcept {}
 	FBuffer* fb = nullptr;
@@ -49,7 +49,9 @@ namespace MultiStation {
 		
 		isInitialized = true;
 		// Push it front off layers
+		PushLayer(&Editor::GetLayer());
 		PushOverlay(m_ImGuiLayer);
+		
 
 	}
 	static float dt;

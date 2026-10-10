@@ -7,7 +7,14 @@
 
 
 
+extern "C" {
 
+	__declspec(dllexport)
+		unsigned long NvOptimusEnablement = 0x00000001;
+
+	__declspec(dllexport)
+		int AmdPowerXpressRequestHighPerformance = 1;
+}
 
 
 
@@ -30,7 +37,9 @@ namespace MultiStation {
 			return -1;
 		}
 		else {
-			std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;;
+			std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+			std::cout << "OpenGL Vendor : " << glGetString(GL_VENDOR) << std::endl;
+			std::cout << "OpenGL Renderer:" << glGetString(GL_RENDERER) << std::endl;
 		}
 		
 

@@ -59,7 +59,7 @@ namespace MultiStation {
 
 
 		EventsInit();
-		SetVSync(true);
+		SetVSync(false);
 	}
 
 	GLFWWindow::GLFWWindow(GLFWWindow&& win) noexcept : m_WinData() {

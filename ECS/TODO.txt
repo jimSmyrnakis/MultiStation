@@ -1,15 +1,28 @@
 
+* Make a Object Manager that takes Comp id and makes them to ObjID or Modules IDS and relates them to 
+  ObjIDs this way he have support of generic object ids and proper maps without the need for one common
+  way of ids (so better usages with internal specific ids can be used)
 
+* Make GUID support and thing where that would go 
 
+* Clean teh project and Add more functionality well documented , especially on templated methods see if you
+  can make a non templated methods but at the same time support as many templated methods as possible for the 
+  conford later .
 
+* Make SceneGraph to insert an entity between other entities and so takes the parent child relations etc. 
 
+* Make in Entity manager , registry and scene the signature of to return a component array 
 
+* Once the IO is made and has some basic functions (sync and async) prefer remaking of the streams for archives
+  to use 
 
+* Make it support proper serialization and support this on the Editor 
 
 
 * EntityManager Creates bootleneck in perfomance up to 50 times more time consuming for the registry vs the ComponentArray
   use entity id = index + generation to achive O(1) removal , creation and retreival complexity now is O(N) and in 
   registry for retreiving in checks N entities needs O(N*N) complexity :( . 
+
 * May SceneGraph at adding entities does some heavy weight calls or general adding things via SceneGraph 
   makes the Scene twice time consuming :( .
 
@@ -18,3 +31,5 @@
   for better use for later in scripts . Transfer these all the way up to Scene so a script via an engine
   api could use these ones (Make it easy to wrap it around to C that is ABI stable )
 
+* In the far future support more than 64 components types , something like 256 will be enough m use hashing
+  definition for the implementation

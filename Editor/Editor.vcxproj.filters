@@ -15,18 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Editor\Editor.cpp">
+    <ClCompile Include="Source\Editor\EditorModule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\HierarchyPanel\HierarchyPanel.cpp">
+    <ClCompile Include="Source\Views\SceneHierarchyPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\HierarchyPanel\SceneHierarchyPanel.cpp">
+    <ClCompile Include="Source\Controllers\SceneHierarchyController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Views\InspectorPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Editor\Editor.hpp">
+    <ClInclude Include="Source\Editor\EditorModule.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\mspch.h">
@@ -35,11 +38,23 @@
     <ClInclude Include="Include\Editor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\HierarchyPanel\HierarchyPanel.hpp">
+    <ClInclude Include="Source\Views\SceneHierarchyPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\HierarchyPanel\SceneHierarchyPanel.hpp">
+    <ClInclude Include="Source\System\EditorSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Controllers\SceneHierarchyController.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Components\EntityComponent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Views\InspectorPanel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\TODO.txt" />
   </ItemGroup>
 </Project>

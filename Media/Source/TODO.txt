@@ -1,0 +1,11 @@
+* Add drag and drop Editor support with templated form (type T will make the name id string of the payload )
+  this way we can drag and drop everything enywhere anytime :)
+
+* Add MainMenu support to record new options with trees format and click actions (thing more befare implementating)
+
+* Add Main ToolBox support for modules to add small iconed(if icon exist's ) buttons that do something and 
+  click action to execute when that happens 
+
+* Later take the ImGuiLayer from application and bring it here , renamed it to UILayer and make it work in generic 
+  way , for examble make it a virtual pure one and then deside the implementation to be like ImGui_GLFW_OpenGL_UILayer
+  or something .
