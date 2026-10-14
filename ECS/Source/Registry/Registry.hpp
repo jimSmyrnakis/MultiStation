@@ -2,6 +2,7 @@
 #include "ComponentArray/ComponentArray.hpp"
 #include <Platform.hpp>
 #include "../EntityManager.hpp"
+#include <stdarg.h>
 namespace MultiStation {
 	
 	/**
@@ -98,7 +99,7 @@ namespace MultiStation {
 		 * @param entity The entity id
 		 *
 		 */
-		CompID GetSignatureOf(EntID entity) const;
+		std::span<const CompID> GetSignatureOf(EntID entity) const;
 		
 	public: // Component's Operations
 
@@ -176,7 +177,7 @@ namespace MultiStation {
 		template<typename T>
 		const T* GetComponent(EntID entity) const;
 
-		// 
+		// Untemplated types
 		/**
 		 * @brief Helper function for getting the component of a entity without templates .
 		 * 
@@ -219,6 +220,15 @@ namespace MultiStation {
 		 * \return 
 		 */
 		size_t Count(CompID component) ;
+
+
+		/**
+		 * @brief Helper method of checking if the entity has a component
+		 * without a template type use .
+		 * @param entity The entity id
+		 * @return true if has a component , false otherwise .
+		 */
+		bool HasComponent(EntID entity , CompID component) ;
 
 		
 	public: // Registry operations
@@ -294,7 +304,7 @@ namespace MultiStation {
 			return nullptr;
 		}
 
-		m_entityManager.AssingToEntity<T>(entity);
+		m_entityManager.AssignToEntity<T>(entity);
 
 		return result;
 	}

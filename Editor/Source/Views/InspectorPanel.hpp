@@ -20,6 +20,7 @@ namespace MultiStation {
 	private:
 
 		void DrawElements(void) noexcept;
+		void DrawAddComponentButton(void);
 	private:
 		EntID m_SelectedEntity = nullEntity;
 		EngineContext* m_context;

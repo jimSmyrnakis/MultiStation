@@ -6,7 +6,7 @@ namespace MultiStation {
 		m_context.GetSerializer = [this]() -> SerializationRegistry& {
 			return m_serializationRegistry;
 		};
-		m_sceneManager = new SceneManager(m_context, m_serializationRegistry);
+		m_sceneManager = new SceneManager(m_context, m_serializationRegistry , m_objectMap);
 
 		m_systemManager = new SystemManager(m_context);
 		

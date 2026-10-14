@@ -9,8 +9,8 @@ namespace MultiStation {
 	SceneSerializer& GetSceneSerializer(void) {
 		return scene_serializer;
 	}
-	Scene::Scene(EngineContext& context,SerializationRegistry& registry)
-		: m_engineContext(context) , m_serializationRegistry(registry) {
+	Scene::Scene(EngineContext& context,SerializationRegistry& registry , ObjectMap& objMap)
+		: m_engineContext(context) , m_serializationRegistry(registry) , m_objectMap(objMap){
 		
 		
 		m_serializationRegistry.
@@ -72,5 +72,44 @@ namespace MultiStation {
 	}
 
 
+	// Untemplated types
+	
+	void* Scene::GetComponent(CompID component, EntID entity) {
+		return m_registry.GetComponent(component, entity);
+	}
 
+	
+	void* Scene::GetComponents(CompID component) {
+		return m_registry.GetComponents(component);
+	}
+
+	
+	bool Scene::HasRegister(CompID component) {
+		return m_registry.HasRegister(component);
+	}
+
+	
+	size_t Scene::SizeOfComponent(CompID component) {
+		return m_registry.SizeOfComponent(component);
+	}
+
+	
+	size_t Scene::Count(CompID component) {
+		return m_registry.Count(component);
+		
+	}
+
+
+	
+	bool Scene::HasComponent(EntID entity, CompID component) {
+		return m_registry.HasComponent(entity, component);
+	}
+
+	std::span< const CompID> Scene::GetEntityComponentsIDs(EntID entity) const {
+		return m_registry.GetSignatureOf(entity);
+	}
+
+	bool Scene::GetComponentObjectID(CompID component_id, ObjID& object_id) {
+		return m_objectMap.GetComponentObjectMap(component_id, object_id);
+	}
 }

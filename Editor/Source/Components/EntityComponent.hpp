@@ -2,13 +2,14 @@
 #include <ECS.hpp>
 #include <Media.hpp>
 #include <ImGui.hpp>
+#include <Platform.hpp>
 #include <string>
 namespace MultiStation{
 
 	struct EntityComponent {
 		EntID id;
 		char name[180];
-
+        UUID handle;
 		EntityComponent(void) : id(0) {
 			strncpy_s(name, "Entity" , 170);
 		}
@@ -83,6 +84,22 @@ namespace MultiStation{
                 ImGui::Text(
                     "%llu",
                     static_cast<unsigned long long>(entity->id)
+                );
+                ImGui::EndDisabled();
+
+                // GUID
+                ImGui::TableNextRow();
+
+                ImGui::TableSetColumnIndex(0);
+                ImGui::AlignTextToFramePadding();
+                ImGui::TextUnformatted("UUID");
+
+                ImGui::TableSetColumnIndex(1);
+
+                ImGui::BeginDisabled();
+                ImGui::Text(
+                    "%llu",
+                    static_cast<uint64_t>(entity->handle)
                 );
                 ImGui::EndDisabled();
 

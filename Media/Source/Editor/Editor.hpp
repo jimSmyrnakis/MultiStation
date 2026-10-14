@@ -57,6 +57,31 @@ namespace MultiStation {
 		 */
 		static bool HasInspectable(ObjID id) ;
 
+		/**
+		 * @tparam T Is the templated generic type that is translated directly to
+		 * a dragging unique id .
+		 * @param[in] ptr The pointer to drag for the UI drag action .
+		 * @brief A generic drag implementation for dragging objects and parsing
+		 * pointer to the message . A common protocol that everybody can agree what
+		 * can dragged and dropped where , without the need of each module nows other
+		 * modules drag ids to accept .
+		 */
+		template<typename T>
+		static void BeginDrag(T* ptr);
+
+
+		/**
+		 * @tparam T Is the templated generic type that is translated directly to
+		 * a dragging unique id .
+		 * @brief A common protocol for someone to let his ui accept a dropped object
+		 * without the need of communicating targets ids for drag and drop actions .
+		 * @returns nullptr if there is no drop happening or if there is a drop then returns
+		 * the dragged object address .
+		 */
+		template<typename T>
+		static T* AcceptDrop(void);
+
+
 
 	private:
 		static EditorLayer s_layer;
@@ -67,6 +92,16 @@ namespace MultiStation {
 	template<typename T>
 	void Editor::RegisterInspectable(IInspectable& inspectable) {
 		s_layer.RegisterInspectable<T>(inspectable);
+	}
+
+	template<typename T>
+	static void Editor::BeginDrag(T* value) {
+		s_layer.BeginDrag<T>(value);
+	}
+
+	template<typename T>
+	static T* Editor::AcceptDrop(void) {
+		return s_layer.AcceptDrop<T>();
 	}
 
 }

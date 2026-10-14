@@ -6,6 +6,7 @@ namespace MultiStation {
 
 
 	void EditorModule::Init(EngineContext& ctx)  {
+		MS_ENGINE_INFO("Editor Module Init called !");
 		m_EngineContext = &ctx;
 		
 		// Register Components to scene
@@ -25,11 +26,13 @@ namespace MultiStation {
 		m_HierarchyPanel->SetEngineContext(ctx);
 		m_InspectorPanel->SetEngineContext(ctx);
 		Editor::AddDrawable(m_HierarchyPanel);
+		//Editor::RegisterInspectable<EntityComponent>(*new EntityComponentInspector());
 		Editor::AddDrawable(m_InspectorPanel);
 	}
 
 
 	void EditorModule::Fini(EngineContext& ctx)  {
+		MS_ENGINE_INFO("Editor Module Fini called !");
 		delete m_HierarchyController;
 		delete m_HierarchyPanel;
 	}

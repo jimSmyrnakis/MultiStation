@@ -2,9 +2,17 @@
 #include "IDrawable.hpp"
 #include "../Layer/Layer.hpp"
 #include "InspectorRegistry.hpp"
+#include <ImGui.hpp>
 #include <vector>
 namespace MultiStation{
+	template<typename T>
+	static const char* GetDragDropType()
+	{
+		static std::string id =
+			"OBJ_" + std::to_string(GetObjectID<T>());
 
+		return id.c_str();
+	}
 	class EditorLayer : public Layer {
 
 	public:
@@ -82,6 +90,29 @@ namespace MultiStation{
 		 */
 		void OnUIRender(float dt)noexcept override;
 
+		/**
+		 * @tparam T Is the templated generic type that is translated directly to 
+		 * a dragging unique id .
+		 * @param[in] ptr The pointer to drag for the UI drag action . 
+		 * @brief A generic drag implementation for dragging objects and parsing 
+		 * pointer to the message . A common protocol that everybody can agree what
+		 * can dragged and dropped where , without the need of each module nows other
+		 * modules drag ids to accept . 
+		 */
+		template<typename T>
+		void BeginDrag(T* ptr);
+
+		/**
+		 * @tparam T Is the templated generic type that is translated directly to 
+		 * a dragging unique id .
+		 * @brief A common protocol for someone to let his ui accept a dropped object 
+		 * without the need of communicating targets ids for drag and drop actions . 
+		 * @returns nullptr if there is no drop happening or if there is a drop then returns 
+		 * the dragged object address .
+		 */
+		template<typename T>
+		T* AcceptDrop(void);
+
 	private:
 		/**
 		 * @brief Draws all the drawables in the EditorLayer.
@@ -100,6 +131,51 @@ namespace MultiStation{
 	template<typename T>
 	void EditorLayer::RegisterInspectable(IInspectable& inspectable) {
 		m_InspectorRegistry.RegisterInspectable<T>(inspectable);
+	}
+
+
+	template<typename T>
+	void EditorLayer::BeginDrag(T* ptr) {
+		if (!ptr) return;
+
+		if (ImGui::BeginDragDropSource())
+		{
+			ImGui::SetDragDropPayload(
+				GetDragDropType<T>(),
+				&ptr,
+				sizeof(T*)
+			);
+
+			ImGui::TextUnformatted(GetDragDropType<T>());
+
+			ImGui::EndDragDropSource();
+		}
+	}
+
+	
+
+
+	template<typename T>
+	T* EditorLayer::AcceptDrop()
+	{
+		if (!ImGui::BeginDragDropTarget())
+			return nullptr;
+
+		const ImGuiPayload* payload =
+			ImGui::AcceptDragDropPayload(
+				GetDragDropType<T>()
+			);
+
+		T* result = nullptr;
+
+		if (payload && payload->DataSize == sizeof(T*))
+		{
+			result = *static_cast<T* const*>(payload->Data);
+		}
+
+		ImGui::EndDragDropTarget();
+
+		return result;
 	}
 
 }

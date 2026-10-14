@@ -15,24 +15,30 @@ namespace MultiStation {
 		bool RemoveEntity(EntID entity);
 
 		template<typename T>
-		bool AssingToEntity(EntID entity);
+		bool AssignToEntity(EntID entity);
+
+		bool AssignToEntity(EntID entity, CompID component);
 
 		bool HasEntity(EntID entity) const;
 
 		template<typename T>
 		bool HasEntityComponent(EntID entity);
 
+		bool HasEntityComponent(EntID entity, CompID component);
+
 		template<typename T>
 		bool RemoveComponentOf(EntID entity);
 
+		bool RemoveComponentOf(EntID entity, CompID component);
+
 		std::span<const EntID> GetAllEntities(void) const;
 
-		CompID GetSignatureOf(EntID entity) const;
+		std::span<const CompID> GetSignatureOf(EntID entity) const;
 
 
 	private:
 		std::vector<EntID> m_entities;
-		std::vector<CompID> m_signature;
+		std::vector<std::vector<CompID>> m_signature;
 		EntID m_counter;
 	};
 
@@ -46,45 +52,20 @@ namespace MultiStation {
 
 
 	template<typename T>
-	bool EntityManager::AssingToEntity(EntID entity) {
-		size_t index = 0;
-		std::vector<EntID>::iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
-		if (it == m_entities.end()) {
-			return false;
-		}
-		index = std::distance(m_entities.begin(), it);
-
-		m_signature[index] |= GetComponentID<T>();
-		return true;
-		
+	bool EntityManager::AssignToEntity(EntID entity) {
+		return AssignToEntity(entity, GetComponentID<T>());
 	}
 
 
 
 	template<typename T>
 	bool EntityManager::HasEntityComponent(EntID entity) {
-		size_t index = 0;
-		std::vector<EntID>::iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
-		if (it == m_entities.end()) {
-			return false;
-		}
-		index = std::distance(m_entities.begin(), it);
-
-		return m_signature[index] & GetComponentID<T>();
+		return HasEntityComponent(entity, GetComponentID<T>());
 	}
 
 	template<typename T>
 	bool EntityManager::RemoveComponentOf(EntID entity) {
-		size_t index = 0;
-		std::vector<EntID>::iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
-		if (it == m_entities.end()) {
-			return false;
-		}
-		index = std::distance(m_entities.begin(), it);
-
-		m_signature[index] &= ~GetComponentID<T>();
-
-		return true;
+		return RemoveComponentOf(entity, GetComponentID<T>());
 	}
 
 }

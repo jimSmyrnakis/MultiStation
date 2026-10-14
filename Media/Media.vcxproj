@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -116,7 +116,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -162,7 +162,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLFW\include;$(SolutionDir)GLAD\include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)ECS\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui</AdditionalIncludeDirectories>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>

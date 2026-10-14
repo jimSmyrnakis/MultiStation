@@ -8,6 +8,11 @@ namespace MultiStation {
 		}
 	}
 
+	bool Registry::HasComponent(EntID entity, CompID component) {
+		return m_entityManager.HasEntityComponent(entity , component);
+	}
+	
+
 	
 
 	size_t Registry::SizeOfComponent(CompID id)  {
@@ -74,7 +79,7 @@ namespace MultiStation {
 		return m_entityManager.GetAllEntities();
 	}
 
-	CompID Registry::GetSignatureOf(EntID entity) const {
+	std::span<const CompID> Registry::GetSignatureOf(EntID entity) const {
 		return m_entityManager.GetSignatureOf(entity);
 	}
 

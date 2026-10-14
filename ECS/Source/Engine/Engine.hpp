@@ -101,6 +101,7 @@ namespace MultiStation {
 		SceneManager* m_sceneManager;
 		SystemManager* m_systemManager;
 		EngineContext m_context;
+		ObjectMap m_objectMap;
 	};
 
 	// SYSTEM
@@ -108,6 +109,7 @@ namespace MultiStation {
 
 	template<typename T>
 	bool Engine::AddModule(void) {
+		m_objectMap.AddModule<T>();
 		return m_systemManager->AddModule<T>();
 	}
 

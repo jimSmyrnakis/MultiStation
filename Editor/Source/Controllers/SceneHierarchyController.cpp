@@ -49,6 +49,16 @@ namespace MultiStation {
 			}
 		);
 
+		m_view.SetActionDropEntity(
+			[this](EntID* value) {
+				EntID selectedEntity = m_view.GetSelectedEntity();
+				Scene* scene = m_context.GetCurrentScene();
+				
+				if (!value || !scene) return;
+
+				scene->SetParent(*value, selectedEntity);
+			}
+		);
 
 	}
 

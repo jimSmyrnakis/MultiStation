@@ -4,9 +4,10 @@
 namespace MultiStation {
 
 	
-	SceneManager::SceneManager(EngineContext& ctx , SerializationRegistry& serializer) 
-		: m_context(ctx) , m_serializer(serializer) {
-		
+	SceneManager::SceneManager(EngineContext& ctx , SerializationRegistry& serializer, ObjectMap& objMap)
+		: m_context(ctx) , m_serializer(serializer) , m_objectMap(objMap) {
+		m_currentScene = new Scene(m_context, serializer, m_objectMap);
+		m_serializer.RegisterObject(GetObjectID<Scene>(), &GetSceneSerializer());
 		m_context.GetCurrentScene = [this]() -> Scene* {
 			return m_currentScene;
 		};
@@ -18,8 +19,7 @@ namespace MultiStation {
 		};
 
 
-		m_currentScene = new Scene(m_context , serializer);
-		m_serializer.RegisterObject(GetObjectID<Scene>() , &GetSceneSerializer());
+		
 	}
 
 
@@ -44,20 +44,20 @@ namespace MultiStation {
 			delete m_currentScene;
 		}
 
-		m_currentScene = new Scene(m_context, m_serializer);
+		m_currentScene = new Scene(m_context, m_serializer , m_objectMap);
 		if (!m_currentScene) {
 			return false;
 		}
 
 		
 
-		if (m_serializer.
+		if (!m_serializer.
 			DeserializeObject(GetObjectID<Scene>(), m_currentScene, archiveReader)) {
-			delete m_currentScene;
-			m_currentScene = nullptr;
+			
 			return false;
 		}
-
+		delete m_currentScene;
+		m_currentScene = nullptr;
 		return true;
 	}
 

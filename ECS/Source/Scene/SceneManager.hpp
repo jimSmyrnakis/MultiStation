@@ -5,12 +5,8 @@ namespace MultiStation{
 	class SceneManager {
 
 	public:
-		/**
-		 * @brief Creates / Contructs the SceneManager and takes to move down the engine context .
-		 * 
-		 * @param ctx The Engine context
-		 */
-		SceneManager(EngineContext& ctx , SerializationRegistry& serializer);
+		
+		SceneManager(EngineContext& ctx , SerializationRegistry& serializer , ObjectMap& objMap);
 
 
 		/**
@@ -40,7 +36,7 @@ namespace MultiStation{
 		Scene* m_currentScene;
 		EngineContext& m_context;
 		SerializationRegistry& m_serializer;
-		
+		ObjectMap& m_objectMap;
 		
 	};
 

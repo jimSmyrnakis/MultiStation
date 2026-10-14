@@ -205,12 +205,14 @@
     <ClInclude Include="Source\Image\Image.h" />
     <ClInclude Include="Source\Image\PixelBuffer.hpp" />
     <ClInclude Include="Source\Time\Time.hpp" />
+    <ClInclude Include="Source\UUID\UUID.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Debug\Debug.cpp" />
     <ClCompile Include="Source\Globals.cpp" />
     <ClCompile Include="Source\Image\bmp\bmp.cpp" />
     <ClCompile Include="Source\Time\Time.cpp" />
+    <ClCompile Include="Source\UUID\UUID.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

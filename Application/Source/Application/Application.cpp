@@ -2,6 +2,7 @@
 #include "Application.hpp"
 #include <GLAD.hpp>
 #include <Media.hpp>
+#include <IO.hpp>
 namespace MultiStation {
 	void Application::SetUp(Engine& engine) noexcept {}
 	FBuffer* fb = nullptr;
@@ -60,6 +61,9 @@ namespace MultiStation {
 
 		// poll events and update imgui and game engine events
 		m_window->PollEvents();
+
+		// Do Update IO callbacks
+		IO::PollCallbacks();
 
 		// Before all call updates for each engine
 		m_engine.OnUpdate(0.016f);

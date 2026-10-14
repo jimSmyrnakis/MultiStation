@@ -39,7 +39,7 @@ namespace MultiStation {
     {
         BeginStyle();
         ImGui::Begin("Scene Hierarchy");
-
+        
         Scene* scene = m_EngineContext->GetCurrentScene();
 
         if (scene != nullptr)
@@ -129,10 +129,19 @@ namespace MultiStation {
         if (ImGui::IsItemClicked(ImGuiMouseButton_Left))
         {
             m_SelectedEntity = entity;
+
+            
 			if (m_ActionLeftClick)
 				m_ActionLeftClick();
         }
+        // drag source
+        Editor::BeginDrag<EntID>(new EntID(entity) );
 
+        EntID* val = Editor::AcceptDrop<EntID>();
+        if (m_ActionDropEnt && val) {
+            m_SelectedEntity = entity;
+            m_ActionDropEnt(val);
+        }
 
         // Right click πάνω στη συγκεκριμένη entity.
         if (ImGui::BeginPopupContextItem())
@@ -203,6 +212,10 @@ namespace MultiStation {
     EntID SceneHierarchyPanel::GetSelectedEntity() const noexcept
     {
         return m_SelectedEntity;
+    }
+
+    void SceneHierarchyPanel::SetActionDropEntity(std::function<void(EntID* entity)> callback) {
+        m_ActionDropEnt = callback;
     }
 
     SceneHierarchyAction

@@ -4,7 +4,7 @@
 #include "../System/SystemManager.hpp"
 #include "SceneSerializer.hpp"
 #include "../Streams/Streams.hpp"
-
+#include "../Object/ObjectMap.hpp"
 #include <memory>
 
 /**
@@ -21,7 +21,7 @@ namespace MultiStation {
 
 	public:
 
-		Scene(EngineContext& context , SerializationRegistry& SerializeRegistry  );
+		Scene(EngineContext& context , SerializationRegistry& SerializeRegistry , ObjectMap& objMap  );
 
 
 	// ENTITIES
@@ -80,6 +80,12 @@ namespace MultiStation {
 		 * if there is no children or no entity with this id exist's 
 		 */
 		std::span<const EntID> GetChildren(EntID entity) const;
+
+		/** 
+		 * @param entity The entity id
+		 * @return Entity components ids if hasn't any returns a empty vector 
+		 */
+		std::span<const CompID> GetEntityComponentsIDs(EntID entity) const;
 
 	// Component's Operations
 
@@ -157,6 +163,59 @@ namespace MultiStation {
 		template<typename T>
 		const T* GetComponent(EntID entity) const;
 
+		// Untemplated types
+		/**
+		 * @brief Helper function for getting the component of a entity without templates .
+		 *
+		 * \param component The component id
+		 * \param entity The entity id
+		 * \return Returns the entity component via the void pointer or nullptr if not exist's .
+		 */
+		void* GetComponent(CompID component, EntID entity);
+
+		/**
+		 * @brief Helper function for getting the components .
+		 *
+		 * \param component The component id
+		 * \param entity The entity id
+		 * \return Returns an array of components via the void pointer .
+		 */
+		void* GetComponents(CompID component);
+
+		/**
+		 * @brief Helper function for checking if this component is register
+		 * without templates .
+		 * \param component The component ID
+		 * \return Returns true if yes false otherwise .
+		 */
+		bool HasRegister(CompID component);
+
+		/**
+		 * @brief Helper funtion for retreiving the component size in bytes
+		 *
+		 * \param component The Component id
+		 * \return Its size and is different from zero if valid otherwise 0 and means
+		 * component is not register .
+		 */
+		size_t SizeOfComponent(CompID component);
+
+		/**
+		 * @brief Helper function for retreiving the total components of this
+		 *
+		 * \param component
+		 * \return
+		 */
+		size_t Count(CompID component);
+
+
+		/**
+		 * @brief Helper method of checking if the entity has a component
+		 * without a template type use .
+		 * @param entity The entity id
+		 * @return true if has a component , false otherwise .
+		 */
+		bool HasComponent(EntID entity, CompID component);
+
 
 	// Registry operations
 
@@ -189,7 +248,18 @@ namespace MultiStation {
 
 	
 		
+	// Object Map
 
+		/**
+		 * 
+		 * 
+		 * @param component_id The Component id 
+		 * @param object_id The object id of this component
+		 * @return The Component id as a object  
+		 */
+		bool GetComponentObjectID(CompID component_id, ObjID& object_id);
+
+		
 	
 
 
@@ -209,7 +279,7 @@ namespace MultiStation {
 		SceneGraph m_sceneGraph;
 		EngineContext& m_engineContext;
 		SerializationRegistry& m_serializationRegistry;
-		
+		ObjectMap& m_objectMap;
 	};
 
 
@@ -326,6 +396,7 @@ namespace MultiStation {
 	
 	template<typename T>
 	CompID Scene::RegisterComponent(void) {
+		m_objectMap.AddComponent<T>();
 		return m_registry.RegisterComponent<T>();
 	}
 

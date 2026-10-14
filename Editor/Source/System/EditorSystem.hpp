@@ -8,11 +8,15 @@ namespace MultiStation{
 		virtual ~EditorSystem(void) = default;
 		 
 
-		inline void OnAttach(void) override {};
+		inline void OnAttach(void) override {
+			MS_ENGINE_INFO("Editor System OnAttach called !");
+		};
 
 
 		
-		inline void OnDettach(void) override {};
+		inline void OnDettach(void) override {
+			MS_ENGINE_INFO("Editor System OnDettach called !");
+		};
 
 
 		

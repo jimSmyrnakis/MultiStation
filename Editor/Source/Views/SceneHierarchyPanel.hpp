@@ -24,6 +24,8 @@ namespace MultiStation {
 
 		void SetActionLeftClick(std::function<void()> callback);
 
+		void SetActionDropEntity(std::function<void(EntID* entity)> callback);
+
 		EntID GetSelectedEntity() const noexcept;
 		
 		SceneHierarchyAction GetLastAction() const noexcept;
@@ -40,7 +42,8 @@ namespace MultiStation {
 		SceneHierarchyAction m_LastAction =
 			SceneHierarchyAction::None;
 
-		std::function<void()> m_ActionRightClick;
-		std::function<void()> m_ActionLeftClick;
+		std::function<void()>				m_ActionRightClick;
+		std::function<void()>				m_ActionLeftClick;
+		std::function<void(EntID* entity)>	m_ActionDropEnt;
 	};
 }

@@ -1,10 +1,10 @@
 #pragma once
 #include <stddef.h>
 #include <stdint.h>
-#include <vector>
 #include <mutex>
 #include <atomic>
 #include <utility>
+#include <deque>
 namespace MultiStation{
 
 	template<typename T>
@@ -33,7 +33,7 @@ namespace MultiStation{
 		void Clear(void) ;
 
 	private:
-		std::vector<T> m_data;
+		std::deque<T> m_data;
 		std::atomic<uint32_t> m_size = 0;
 		std::mutex m_mutex;
 
@@ -60,8 +60,8 @@ namespace MultiStation {
 	template<typename T>
 	void Queue<T>::Push(const T& element) {
 		std::lock_guard<std::mutex> lock(m_mutex);
-		m_data.push_back(std::move(element));
-		m_size.fetch_add(1, std::memory_order_release);
+		m_data.push_back((element));
+		m_size.fetch_add(1, std::memory_order_relaxed);
 		
 	}
 
@@ -70,7 +70,7 @@ namespace MultiStation {
 	void Queue<T>::Emplace(Args&&... args) {
 		std::lock_guard<std::mutex> lock(m_mutex);
 		m_data.emplace_back(std::forward<Args>(args)...);
-		m_size.fetch_add(1, std::memory_order_release);
+		m_size.fetch_add(1, std::memory_order_relaxed);
 	}
 
 	template<typename T>
@@ -80,14 +80,14 @@ namespace MultiStation {
 			return false;
 
 		out = std::move(m_data.front());
-		m_data.erase(m_data.begin());
-		m_size.fetch_sub(1, std::memory_order_release);
+		m_data.pop_front();
+		m_size.fetch_sub(1, std::memory_order_relaxed);
 		return true;
 	}
 
 	template<typename T>
 	uint32_t Queue<T>::Size(void) const {
-		return m_size.load(std::memory_order_acquire);
+		return m_size.load(std::memory_order_relaxed);
 	}
 
 	template<typename T>
@@ -97,7 +97,7 @@ namespace MultiStation {
 			return ;
 
 		m_data.clear();
-		m_size.store(0 , std::memory_order_release);
+		m_size.store(0 , std::memory_order_relaxed);
 	}
 
 }

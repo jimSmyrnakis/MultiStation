@@ -8,8 +8,7 @@ namespace MultiStation{
 	extern std::atomic<ObjID> obj_id;
 	template<typename T>
 	ObjID GetObjectID(void) {
-		static ObjID id = 1 <<
-			obj_id.fetch_add(
+		static ObjID id = obj_id.fetch_add(
 				1,
 				std::memory_order_relaxed
 			);

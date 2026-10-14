@@ -1,6 +1,7 @@
 #pragma once
 #include <Media.hpp>
 #include <ECS.hpp>
+#include <IO.hpp>
 #include <Application.hpp>
 #include <iostream>
 namespace MultiStation {
@@ -11,6 +12,7 @@ namespace MultiStation {
 
 int main(int argc, char** argv) {
 	MultiStation::LogInit();
+	MultiStation::IO::Init();
 	MultiStation::Application& app = *MultiStation::CreateApplication();
 	
 	app.Initialize();
@@ -19,9 +21,11 @@ int main(int argc, char** argv) {
 	while (app.IsRunning()) {
 		app.Run();
 	}
+	;
 	app.Finalize();
+	MultiStation::IO::Fini();
 	MultiStation::DestroyApplication();
-
+	
 #ifdef _DEBUG
 	std::cin.get();
 #endif 
