@@ -20,25 +20,26 @@ namespace MultiStation
             case Operation::READ_DIR:
             case Operation::CREATE_DIR:
             case Operation::REMOVE_DIR:
+            case Operation::GET_INFO_PATH:
                 return !req.path.empty();
 
             case Operation::READ_FILE:
                 return req.handle != nullptr &&
-                    req.handle->native_handle != nullptr &&
                     req.read_buffer != nullptr &&
                     req.count > 0;
 
             case Operation::WRITE_FILE:
                 return req.handle != nullptr &&
-                    req.handle->native_handle != nullptr &&
                     req.write_buffer != nullptr &&
                     req.count > 0;
 
             case Operation::SEEK_FILE:
             case Operation::TELL_FILE:
             case Operation::CLOSE_FILE:
+            case Operation::GET_INFO_HANDLE:
                 return req.handle != nullptr &&
                     req.handle->native_handle != nullptr;
+            
 
             default:
                 return false;
@@ -47,7 +48,7 @@ namespace MultiStation
 
 
         
-        bool IOManager::ExecuteSync(Request* reqio, Result* resio) {
+        bool IOManager::ExecuteSync(std::shared_ptr<Request>& reqio, std::shared_ptr<Result>& resio) {
             if (!reqio || !resio)
                 return false;
 
@@ -64,7 +65,7 @@ namespace MultiStation
             return true;
         }
 
-        bool IOManager::PushRequest(Request* reqio)
+        bool IOManager::PushRequest(std::shared_ptr<Request>& reqio)
         {
 
             if (!reqio || !IsReqGood(*reqio))
@@ -78,7 +79,7 @@ namespace MultiStation
 
 
         bool IOManager::PopResult(
-            Result*& resio)
+            std::shared_ptr<Result>& resio)
         {
             return m_resultsQueue.Pop(resio);
         }
@@ -87,7 +88,7 @@ namespace MultiStation
         
         void IOManager::UpdateIO()
         {
-            Request* req = nullptr;
+            std::shared_ptr<Request> req = nullptr;
 
             if (!m_requestsQueue.Pop(req))
                 return;
@@ -105,7 +106,7 @@ namespace MultiStation
             }
             else // async
             {
-                Result* res = new (std::nothrow) Result;
+                std::shared_ptr<Result> res = std::make_shared<Result>();
 
                 if (!res)
                     return;
@@ -123,6 +124,15 @@ namespace MultiStation
                 UpdateIO();
             }
 
+            // now close all open files 
+            // for moment trust OS file system
+
         }
+
+        IOManager& IOManager::Get(void) {
+            return s_manager;
+        }
+
+        IOManager IOManager::s_manager;
     }
 }

@@ -108,7 +108,7 @@ namespace MultiStation {
 #endif
         }
 
-        bool IOManager::ExecuteRequest(Request& req, Result& res) {
+        void IOManager::ExecuteRequest(Request& req, Result& res) {
             res.operation = req.operation;
             res.status = Status::PENDING;
             res.error = Error::GOOD;
@@ -129,7 +129,7 @@ namespace MultiStation {
                     res.error = Error::READ_FAILED;
                     break;
                 }
-
+                res.info = {};
                 FileInfo info;
 
                 fs::path path(req.path);
@@ -182,6 +182,7 @@ namespace MultiStation {
                     res.error = Error::READ_FAILED;
                     break;
                 }
+                res.info = {};
 
                 FILE* file =
                     static_cast<FILE*>(
@@ -242,9 +243,9 @@ namespace MultiStation {
 
                 res.info.exists = true;
                 res.info.size = fileSize;
-                res.info.path = res.handle->path;
-                res.info.extension = res.handle->extt;
-                res.info.name = res.handle->name;
+                res.info.path = req.handle->path;
+                res.info.extension = req.handle->extt;
+                res.info.name = req.handle->name;
                 res.info.is_directory = false;
 
                 res.handle = req.handle;
@@ -277,7 +278,13 @@ namespace MultiStation {
                     break;
                 }
 
-                Handle* handle = new Handle();
+                std::shared_ptr<Handle> handle = std::make_shared<Handle>();
+                if (!handle)
+                {
+                    res.status = Status::FAILED;
+                    res.error = Error::OPEN_FAILED;
+                    break;
+                }
 
                 handle->access = req.access;
                 handle->native_handle = file;
@@ -321,7 +328,13 @@ namespace MultiStation {
                     break;
                 }
 
-                Handle* handle = new Handle();
+                std::shared_ptr<Handle> handle = std::make_shared<Handle>();
+                if (!handle)
+                {
+                    res.status = Status::FAILED;
+                    res.error = Error::CREATE_FAILED;
+                    break;
+                }
 
                 handle->access = req.access;
                 handle->native_handle = file;
@@ -554,12 +567,6 @@ namespace MultiStation {
                 if (it != m_handels.end())
                     m_handels.erase(it);
 
-                /*
-                 * fclose invalidates FILE* even if flushing
-                 * produced an error, so the engine Handle
-                 * should no longer be used.
-                 */
-                delete req.handle;
 
                 res.handle = nullptr;
 
@@ -606,9 +613,14 @@ namespace MultiStation {
 
                     dirEntry.path =
                         entry.path().string();
+                    
+                    dirEntry.parent = 
+                        entry.path().parent_path().string();
 
                     dirEntry.is_directory =
                         entry.is_directory(ec);
+
+                    
 
                     if (ec)
                         break;
@@ -723,6 +735,8 @@ namespace MultiStation {
                 break;
             }
             }
+
+            
         }
 
 	}

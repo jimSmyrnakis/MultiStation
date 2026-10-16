@@ -9,8 +9,8 @@ namespace MultiStation
 {
     namespace IO
     {
-        IOManager s_manager;
-
+        
+        #define s_manager IOManager::Get()
         static std::thread s_ioThread;
         static std::atomic_bool s_running = false;
 
@@ -77,24 +77,17 @@ namespace MultiStation
             if (s_ioThread.joinable())
                 s_ioThread.join();
 
-            /*
-             * You may want IOManager::Fini() later to:
-             *
-             * - close remaining handles
-             * - clear pending requests
-             * - clear completed requests
-             */
+            
             
             s_manager.Fini();
-            PollCallbacks();
             
         }
 
-        Result* result = new Result;
+        
         void PollCallbacks(void)
         {
             
-
+            std::shared_ptr<Result> result;
             while (s_manager.PopResult(
                 result))
             {

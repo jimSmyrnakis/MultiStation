@@ -3,41 +3,24 @@
 namespace MultiStation {
 
 	namespace IO {
-        static Request* CreateRequest()
-        {
-            return new (std::nothrow) Request;
-        }
+        
 
-        static Result* CreateResult()
-        {
-            return new (std::nothrow) Result;
-        }
-
-        static void DestroyRequest(Request* request)
-        {
-            delete request;
-        }
-
-        static void DestroyResult(Result* result)
-        {
-            delete result;
-        }
+        #define s_manager IOManager::Get()
 
         // =========================================================
-// Sync File API
-// =========================================================
+        // Sync File API
+        // =========================================================
 
-        Handle* OpenFileSync(
+        std::shared_ptr<Handle> OpenFileSync(
             const std::string& path,
             Access access)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
+                
                 return nullptr;
             }
 
@@ -47,34 +30,30 @@ namespace MultiStation {
 
             if (!s_manager.ExecuteSync(request, result))
             {
-                DestroyRequest(request);
-                DestroyResult(result);
+                
                 return nullptr;
             }
 
-            Handle* handle = nullptr;
+            std::shared_ptr<Handle> handle = nullptr;
 
             if (result->status == Status::COMPLETED)
                 handle = result->handle;
 
-            DestroyRequest(request);
-            DestroyResult(result);
+            
 
             return handle;
         }
 
 
-        Handle* CreateFileSync(
+        std::shared_ptr<Handle> CreateFileSync(
             const std::string& path,
             Access access)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return nullptr;
             }
 
@@ -84,18 +63,14 @@ namespace MultiStation {
 
             if (!s_manager.ExecuteSync(request, result))
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return nullptr;
             }
 
-            Handle* handle = nullptr;
+            std::shared_ptr<Handle> handle = nullptr;
 
             if (result->status == Status::COMPLETED)
                 handle = result->handle;
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return handle;
         }
@@ -104,13 +79,11 @@ namespace MultiStation {
         bool RemoveFileSync(
             const std::string& path)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -121,31 +94,27 @@ namespace MultiStation {
                 s_manager.ExecuteSync(request, result) &&
                 result->status == Status::COMPLETED;
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
 
 
-        size_t ReadFileSync(
-            Handle* handle,
+        bool ReadFileSync(
+            std::shared_ptr<Handle> handle,
             void* buffer,
-            size_t count, 
+            size_t& count, 
             bool& eof)
         {
             eof = false;
             if (!handle || !buffer)
-                return 0;
+                return false;
 
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
-                return 0;
+                return false;
             }
 
             request->operation = Operation::READ_FILE;
@@ -161,30 +130,26 @@ namespace MultiStation {
                 eof = result->eof;
                 transferred = result->transferred_bytes;
             }
+            count = transferred;
 
-            DestroyRequest(request);
-            DestroyResult(result);
-
-            return transferred;
+            return true;
         }
 
 
-        size_t SeekFileSync(
-            Handle* handle,
-            size_t pos,
+        bool SeekFileSync(
+            std::shared_ptr<Handle> handle,
+            size_t& pos,
             SeekMode mode)
         {
             if (!handle)
-                return 0;
+                return false;
 
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
-                return 0;
+                return false;
             }
 
             request->operation = Operation::SEEK_FILE;
@@ -192,41 +157,7 @@ namespace MultiStation {
             request->pos = pos;
             request->mode = mode;
 
-            size_t result_pos = 0;
-
-            if (s_manager.ExecuteSync(request, result) &&
-                result->status == Status::COMPLETED)
-            {
-                result_pos = result->pos;
-            }
-
-            DestroyRequest(request);
-            DestroyResult(result);
-
-            return result_pos;
-        }
-
-
-        size_t TellFileSync(
-            Handle* handle)
-        {
-            if (!handle)
-                return 0;
-
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
-
-            if (!request || !result)
-            {
-                DestroyRequest(request);
-                DestroyResult(result);
-                return 0;
-            }
-
-            request->operation = Operation::TELL_FILE;
-            request->handle = handle;
-
-            size_t pos = 0;
+            pos = 0;
 
             if (s_manager.ExecuteSync(request, result) &&
                 result->status == Status::COMPLETED)
@@ -234,29 +165,55 @@ namespace MultiStation {
                 pos = result->pos;
             }
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
-            return pos;
+            return true;
         }
 
 
-        size_t WriteFileSync(
-            Handle* handle,
-            const void* buffer,
-            size_t count)
+        bool TellFileSync(
+            std::shared_ptr<Handle> handle , size_t& pos)
         {
-            if (!handle || !buffer)
+            if (!handle)
                 return 0;
 
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
-                return 0;
+                return false;
+            }
+
+            request->operation = Operation::TELL_FILE;
+            request->handle = handle;
+
+            pos = 0;
+
+            if (s_manager.ExecuteSync(request, result) &&
+                result->status == Status::COMPLETED)
+            {
+                pos = result->pos;
+            }
+
+
+            return true;
+        }
+
+
+        bool WriteFileSync(
+            std::shared_ptr<Handle> handle,
+            const void* buffer,
+            size_t& count)
+        {
+            if (!handle || !buffer)
+                return false;
+
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
+
+            if (!request || !result)
+            {
+                return false;
             }
 
             request->operation = Operation::WRITE_FILE;
@@ -272,26 +229,22 @@ namespace MultiStation {
                 transferred = result->transferred_bytes;
             }
 
-            DestroyRequest(request);
-            DestroyResult(result);
-
-            return transferred;
+            count = transferred;
+            return true;
         }
 
 
         bool CloseFileSync(
-            Handle* handle)
+            std::shared_ptr<Handle> handle)
         {
             if (!handle)
                 return false;
 
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -302,8 +255,6 @@ namespace MultiStation {
                 s_manager.ExecuteSync(request, result) &&
                 result->status == Status::COMPLETED;
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
@@ -317,13 +268,11 @@ namespace MultiStation {
             const std::string& path,
             std::vector<DirectoryEntry>& entries)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -337,8 +286,6 @@ namespace MultiStation {
             if (success)
                 entries = std::move(result->entries);
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
@@ -347,13 +294,11 @@ namespace MultiStation {
         bool CreateDirSync(
             const std::string& path)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -364,8 +309,6 @@ namespace MultiStation {
                 s_manager.ExecuteSync(request, result) &&
                 result->status == Status::COMPLETED;
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
@@ -374,13 +317,11 @@ namespace MultiStation {
         bool RemoveDirSync(
             const std::string& path)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -391,8 +332,6 @@ namespace MultiStation {
                 s_manager.ExecuteSync(request, result) &&
                 result->status == Status::COMPLETED;
 
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
@@ -401,13 +340,11 @@ namespace MultiStation {
             const std::string& path,
             FileInfo& info)
         {
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -424,24 +361,20 @@ namespace MultiStation {
             else {
                 info.exists = false;
             }
-            DestroyRequest(request);
-            DestroyResult(result);
 
             return success;
         }
 
-        bool GetFileInfoSync(Handle* handle, FileInfo& info)
+        bool GetFileInfoSync(std::shared_ptr<Handle> handle, FileInfo& info)
         {
             if (!handle)
                 return false;
 
-            Request* request = CreateRequest();
-            Result* result = CreateResult();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
+            std::shared_ptr<Result> result = std::make_shared<Result>();
 
             if (!request || !result)
             {
-                DestroyRequest(request);
-                DestroyResult(result);
                 return false;
             }
 
@@ -458,8 +391,7 @@ namespace MultiStation {
                 info.exists = false;
             }
 
-            DestroyRequest(request);
-            DestroyResult(result);
+            
 
             return success;
         }
@@ -482,7 +414,7 @@ namespace MultiStation {
             Access access,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -494,7 +426,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -507,7 +439,7 @@ namespace MultiStation {
             Access access,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -519,7 +451,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -531,7 +463,7 @@ namespace MultiStation {
             const std::string& path,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -542,7 +474,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                ;
                 return false;
             }
 
@@ -551,12 +483,12 @@ namespace MultiStation {
 
 
         bool ReadFileAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             void* buffer,
             size_t count,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -569,7 +501,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -578,12 +510,12 @@ namespace MultiStation {
 
 
         bool SeekFileAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             size_t pos,
             SeekMode mode,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -596,7 +528,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -605,10 +537,10 @@ namespace MultiStation {
 
 
         bool TellFileAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -619,7 +551,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -628,12 +560,12 @@ namespace MultiStation {
 
 
         bool WriteFileAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             const void* buffer,
             size_t count,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -646,7 +578,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -655,10 +587,10 @@ namespace MultiStation {
 
 
         bool CloseFileAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -669,7 +601,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -685,7 +617,7 @@ namespace MultiStation {
             const std::string& path,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -696,7 +628,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -708,7 +640,7 @@ namespace MultiStation {
             const std::string& path,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -719,7 +651,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -731,7 +663,7 @@ namespace MultiStation {
             const std::string& path,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -742,7 +674,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -753,7 +685,7 @@ namespace MultiStation {
             const std::string& path,
             RequestCallBack callback)
         {
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -764,7 +696,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
@@ -773,13 +705,13 @@ namespace MultiStation {
 
 
         bool GetFileInfoAsync(
-            Handle* handle,
+            std::shared_ptr<Handle> handle,
             RequestCallBack callback)
         {
             if (!handle)
                 return false;
 
-            Request* request = CreateRequest();
+            std::shared_ptr<Request> request = std::make_shared<Request>();
 
             if (!request)
                 return false;
@@ -790,7 +722,7 @@ namespace MultiStation {
 
             if (!s_manager.PushRequest(request))
             {
-                DestroyRequest(request);
+                
                 return false;
             }
 
