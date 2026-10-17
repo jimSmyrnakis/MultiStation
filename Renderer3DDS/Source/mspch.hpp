@@ -3,7 +3,6 @@
 #include <Media.hpp>
 #include <Platform.hpp>
 #include <Utilities.hpp>
-#include <SceneManager.hpp>
 #include <Application.hpp>
 #include <ImGui.hpp>
 

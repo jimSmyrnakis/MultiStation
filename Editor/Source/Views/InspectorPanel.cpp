@@ -125,7 +125,13 @@ namespace MultiStation {
 	InspectorPanel::InspectorPanel(void) noexcept  : IDrawable() {
 		m_SelectedEntity = nullEntity;
 		m_context = nullptr;
-		Editor::RegisterInspectable<EntityComponent>(s_entityComponentInspector);
+		Editor::RegisterInspectable<Component::Entity>(
+            s_entityComponentInspector
+        );
+        Editor::RegisterInspectable<Component::Transform3D>(
+            s_entityTransformInspector
+        );
+
 	}
 
 
@@ -216,7 +222,7 @@ namespace MultiStation {
 		
 	}
 
-	EntityComponentInspector InspectorPanel::s_entityComponentInspector;
-
+    Component::EntityInspectable InspectorPanel::s_entityComponentInspector;
+    Component::Transform3DInspectable InspectorPanel::s_entityTransformInspector;
 	
 }

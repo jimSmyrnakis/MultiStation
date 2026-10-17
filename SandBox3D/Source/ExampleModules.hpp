@@ -178,8 +178,7 @@ namespace MultiStation
 
         inline void DrawDirectoryBrowser()
         {
-            if (m_directoryLoading)
-                ImGui::BeginDisabled();
+            ImGui::BeginDisabled(m_directoryLoading);
 
             if (ImGui::Button("Up"))
                 GoUp();
@@ -203,8 +202,7 @@ namespace MultiStation
             if (enter)
                 SetDirectory(m_pathBuffer);
 
-            if (m_directoryLoading)
-                ImGui::EndDisabled();
+            ImGui::EndDisabled();
 
             ImGui::Text(
                 "Current Directory: %s",
@@ -290,14 +288,12 @@ namespace MultiStation
                 ImGui::TextUnformatted("Type: File");
                 ImGui::Text("Size: %zu bytes", entry.size);
 
-                if (m_slowReading)
-                    ImGui::BeginDisabled();
+                ImGui::BeginDisabled(m_slowReading);
 
                 if (ImGui::Button("Open Selected In Slow Reader"))
                     StartSlowRead(entry.path);
 
-                if (m_slowReading)
-                    ImGui::EndDisabled();
+                ImGui::EndDisabled();
             }
         }
 
@@ -580,14 +576,12 @@ namespace MultiStation
                 "Current step: %s",
                 m_asyncStep.c_str());
 
-            if (m_asyncRunning)
-                ImGui::BeginDisabled();
+            ImGui::BeginDisabled(m_asyncRunning);
 
             if (ImGui::Button("Run Full Async Chain"))
                 StartAsyncChain();
 
-            if (m_asyncRunning)
-                ImGui::EndDisabled();
+            ImGui::EndDisabled();
         }
 
         inline void StartAsyncChain()
@@ -1024,14 +1018,12 @@ namespace MultiStation
                 m_burstTarget,
                 m_burstFailed);
 
-            if (m_burstRunning)
-                ImGui::BeginDisabled();
+            ImGui::BeginDisabled(m_burstRunning);
 
             if (ImGui::Button("Run Async Burst Test"))
                 StartBurstTest();
 
-            if (m_burstRunning)
-                ImGui::EndDisabled();
+            ImGui::EndDisabled();
         }
 
         inline void StartBurstTest()

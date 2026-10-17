@@ -13,6 +13,7 @@
  * @brief The most important file for everyone making a system module . The scene contains 
  * all of the components , system modules , serialization , entities lifetime and entities to entities 
  * and entities to components relation .
+ * @version 0.1
  */
 namespace MultiStation {
 	

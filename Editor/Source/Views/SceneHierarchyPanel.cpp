@@ -44,12 +44,17 @@ namespace MultiStation {
 
         if (scene != nullptr)
         {
+            
             for (EntID entity : scene->GetChildren(rootEntity))
             {
+                
                 DrawEntityNode(*scene, entity);
             }
+
+            
         }
 
+        
 
         // Right click σε κενό χώρο του hierarchy.
         ImGuiPopupFlags popup_flags =

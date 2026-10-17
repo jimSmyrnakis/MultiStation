@@ -1,5 +1,5 @@
 #pragma once
-#include "../Components/EntityComponent.hpp"
+#include <Common.hpp>
 
 namespace MultiStation {
 
@@ -24,8 +24,8 @@ namespace MultiStation {
 	private:
 		EntID m_SelectedEntity = nullEntity;
 		EngineContext* m_context;
-		static EntityComponentInspector s_entityComponentInspector;
-
+		static Component::EntityInspectable s_entityComponentInspector;
+		static Component::Transform3DInspectable s_entityTransformInspector;
 	};
 
 

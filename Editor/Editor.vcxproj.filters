@@ -47,9 +47,6 @@
     <ClInclude Include="Source\Controllers\SceneHierarchyController.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Components\EntityComponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Views\InspectorPanel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -10,8 +10,8 @@ namespace MultiStation {
 		m_EngineContext = &ctx;
 		
 		// Register Components to scene
-		ctx.GetCurrentScene()->RegisterComponent<EntityComponent>();
-
+		ctx.GetCurrentScene()->RegisterComponent<Component::Entity>();
+		ctx.GetCurrentScene()->RegisterComponent<Component::Transform3D>();
 		// Register Inspectables to inspector registry in future 
 
 

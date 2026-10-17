@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Editor\Include;$(SolutionDir)Common\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Editor\Include;$(SolutionDir)Common\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -138,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Editor\Include;$(SolutionDir)Common\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -161,7 +161,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Components\Include;$(SolutionDir)SceneManager\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Source;$(SolutionDir)GLAD\Include;$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)Application\Include;$(SolutionDir)Editor\Include;$(SolutionDir)Common\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -180,16 +180,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Renderer3DDS.hpp" />
+    <ClInclude Include="Source\Globals.hpp" />
+    <ClInclude Include="Source\Module.hpp" />
     <ClInclude Include="Source\mspch.hpp" />
     <ClInclude Include="Source\Defs.hpp" />
-    <ClInclude Include="Source\Renderer\System\Renderer3DDS.hpp" />
+    <ClInclude Include="Source\System\Renderer3DDS.hpp" />
+    <ClInclude Include="Source\Views\EditorRenderViewport.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Library\.keep" />
     <None Include="Objects\.keep" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Renderer\System\Renderer3DDS.cpp" />
+    <ClCompile Include="Source\Globals.cpp" />
+    <ClCompile Include="Source\Module.cpp" />
+    <ClCompile Include="Source\System\Renderer3DDS.cpp" />
+    <ClCompile Include="Source\Views\EditorRenderViewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

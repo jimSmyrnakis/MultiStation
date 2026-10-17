@@ -18,14 +18,18 @@ namespace MultiStation {
 				case SceneHierarchyAction::CreateChildEntity: {
 					EntID selectedEntity = m_view.GetSelectedEntity();
 					EntID newEnt = scene->CreateEntity();
-					EntityComponent* ent = scene->AddComponent<EntityComponent>(newEnt);
+					Component::Entity* ent = scene->AddComponent<Component::Entity>(newEnt);
+					Component::Transform3D* tr =
+						scene->AddComponent<Component::Transform3D>(newEnt);
 					ent->id = newEnt;
 					scene->SetParent(newEnt, selectedEntity);
 					break;
 				}
 				case SceneHierarchyAction::CreateRootEntity: {
 					EntID newEnt = scene->CreateEntity();
-					EntityComponent* ent = scene->AddComponent<EntityComponent>(newEnt);
+					Component::Entity* ent = scene->AddComponent<Component::Entity>(newEnt);
+					Component::Transform3D* tr =
+						scene->AddComponent<Component::Transform3D>(newEnt);
 					ent->id = newEnt;
 					break;
 				}

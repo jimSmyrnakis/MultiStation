@@ -24,7 +24,16 @@
     <ClInclude Include="Source\mspch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Renderer\System\Renderer3DDS.hpp">
+    <ClInclude Include="Source\System\Renderer3DDS.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Views\EditorRenderViewport.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Module.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Globals.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,7 +42,16 @@
     <None Include="Library\.keep" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Renderer\System\Renderer3DDS.cpp">
+    <ClCompile Include="Source\System\Renderer3DDS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Views\EditorRenderViewport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Module.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
