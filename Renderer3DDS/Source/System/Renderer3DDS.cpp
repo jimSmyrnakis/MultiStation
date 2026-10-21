@@ -1,10 +1,12 @@
 #include "../mspch.hpp"
 #include "Renderer3DDS.hpp"
 #include <GLAD.hpp>
+#include <Common.hpp>
+#include <GLM.hpp>
 #include "../Globals.hpp"
 namespace MultiStation {
 
-    Renderer3DDS::Renderer3DDS(void) noexcept : ISystem() {
+    Renderer3DDS::Renderer3DDS(EngineContext& context) noexcept : ISystem(), m_context(context) {
 
     }
 
@@ -14,10 +16,14 @@ namespace MultiStation {
     const char* vertexShaderSource = R"(
 #version 330 core
 layout (location = 0) in vec3 aPos;
+uniform mat4 model;
+uniform mat4 viewProjection;
+out vec3 localPosition;
 
 void main()
 {
-    gl_Position = vec4(aPos, 1.0);
+    localPosition = aPos;
+    gl_Position = viewProjection * model * vec4(aPos, 1.0);
 }
 )";
 
@@ -25,27 +31,46 @@ void main()
     const char* fragmentShaderSource = R"(
 #version 330 core
 out vec4 FragColor;
+in vec3 localPosition;
 
 void main()
 {
-    FragColor = vec4(1.0, 0.5, 0.2, 1.0);
+    // Flat face normals mapped from [-1, 1] to RGB [0, 1].
+    vec3 normal = normalize(cross(dFdx(localPosition), dFdy(localPosition)));
+    vec3 faceColor = normal * 0.5 + 0.5;
+    // The second-largest coordinate reaches 0.5 at a square face's border.
+    // This avoids drawing the diagonal between the two triangles of a face.
+    vec3 p = abs(localPosition);
+    float edgeCoordinate = max(min(p.x, p.y), min(max(p.x, p.y), p.z));
+    float width = max(fwidth(edgeCoordinate), 0.0001);
+    float edge = smoothstep(0.5 - 1.5 * width, 0.5, edgeCoordinate);
+    FragColor = vec4(mix(faceColor, vec3(0.04), edge), 1.0);
 }
 )";
     unsigned int vertexShader = 0;
     unsigned int fragmentShader = 0;
     unsigned int shaderProgram = 0;
-    // Triangle vertices
+    // Unit cube: six faces, two triangles per face, centered on the entity.
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+        -0.5f,-0.5f, 0.5f,  0.5f,-0.5f, 0.5f,  0.5f, 0.5f, 0.5f,
+         0.5f, 0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f,-0.5f, 0.5f,
+         0.5f,-0.5f,-0.5f, -0.5f,-0.5f,-0.5f, -0.5f, 0.5f,-0.5f,
+        -0.5f, 0.5f,-0.5f,  0.5f, 0.5f,-0.5f,  0.5f,-0.5f,-0.5f,
+        -0.5f,-0.5f,-0.5f, -0.5f,-0.5f, 0.5f, -0.5f, 0.5f, 0.5f,
+        -0.5f, 0.5f, 0.5f, -0.5f, 0.5f,-0.5f, -0.5f,-0.5f,-0.5f,
+         0.5f,-0.5f, 0.5f,  0.5f,-0.5f,-0.5f,  0.5f, 0.5f,-0.5f,
+         0.5f, 0.5f,-0.5f,  0.5f, 0.5f, 0.5f,  0.5f,-0.5f, 0.5f,
+        -0.5f, 0.5f, 0.5f,  0.5f, 0.5f, 0.5f,  0.5f, 0.5f,-0.5f,
+         0.5f, 0.5f,-0.5f, -0.5f, 0.5f,-0.5f, -0.5f, 0.5f, 0.5f,
+        -0.5f,-0.5f,-0.5f,  0.5f,-0.5f,-0.5f,  0.5f,-0.5f, 0.5f,
+         0.5f,-0.5f, 0.5f, -0.5f,-0.5f, 0.5f, -0.5f,-0.5f,-0.5f
     };
     unsigned int VAO, VBO;
     
 
     unsigned int FBO = 0;
     
-    unsigned int RBO = 0; // depth-stencil (optional αλλά καλό)
+    unsigned int RBO = 0; // depth-stencil (optional Ξ±Ξ»Ξ»Ξ¬ ΞΊΞ±Ξ»Ο)
     ImVec2 lastViewportSize = { 0, 0 };
 	
 	/**
@@ -100,7 +125,7 @@ void main()
 
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTexture, 0);
 
-        // Depth + stencil (important για future)
+        // Depth + stencil (important Ξ³ΞΉΞ± future)
         glGenRenderbuffers(1, &RBO);
         glBindRenderbuffer(GL_RENDERBUFFER, RBO);
         glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, 800, 600);
@@ -157,36 +182,31 @@ void main()
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        Scene* scene = m_context.GetCurrentScene ? m_context.GetCurrentScene() : nullptr;
+        if (scene && viewport.x > 0 && viewport.y > 0) {
+            // Fixed camera exposes the top, front and side of a cube at the origin.
+            const glm::mat4 view = glm::lookAt(glm::vec3(6, 5, 8),
+                glm::vec3(0), glm::vec3(0, 1, 0));
+            const glm::mat4 projection = glm::perspective(glm::radians(45.0f),
+                viewport.x / viewport.y, 0.1f, 1000.0f);
+            const glm::mat4 viewProjection = projection * view;
+            glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "viewProjection"),
+                1, GL_FALSE, glm::value_ptr(viewProjection));
+            const GLint modelLocation = glGetUniformLocation(shaderProgram, "model");
+            for (EntID entity : scene->GetAllEntities()) {
+                const auto* transform = scene->GetComponent<Component::Transform3D>(entity);
+                
+                glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(transform->word_matrix));
+                glDrawArrays(GL_TRIANGLES, 0, 36);
+            }
+        }
 
         // Back to default framebuffer
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
 	
-	/*void Renderer3DDS::OnEditorUIRender(float deltaTime) noexcept {
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, { 0,0 });
-        ImGuiWindowFlags flags =
-            ImGuiWindowFlags_NoTitleBar |
-            ImGuiWindowFlags_NoCollapse |
-            ImGuiWindowFlags_NoScrollbar |
-            ImGuiWindowFlags_NoScrollWithMouse;
-        ImGui::Begin("Viewport", nullptr,
-            flags);
-
-        viewport = ImGui::GetContentRegionAvail();
-
-        ImGui::Image((void*)(uintptr_t)colorTexture,
-            viewport,
-            ImVec2(0, 1),
-            ImVec2(1, 0)
-        );
-
-        ImGui::End();
-        ImGui::PopStyleVar();
-
-        
-	}*/
+	
     void Renderer3DDS::OnEvent(Event& e) {
 
     }
@@ -201,6 +221,7 @@ void main()
         MS_INFO("Renderer On Detached");
         glDeleteVertexArrays(1, &VAO);
         glDeleteBuffers(1, &VBO);
+        glDeleteProgram(shaderProgram);
         glDeleteFramebuffers(1, &FBO);
         glDeleteTextures(1, &colorTexture);
         glDeleteRenderbuffers(1, &RBO);

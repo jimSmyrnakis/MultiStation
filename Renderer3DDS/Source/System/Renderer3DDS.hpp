@@ -5,7 +5,7 @@ namespace MultiStation {
 
 	class Renderer3DDS : public ISystem {
 	public:
-		Renderer3DDS(void) noexcept;
+		Renderer3DDS(EngineContext& context) noexcept;
 
 		/**
 		 * @brief Callback that happens once the system is inserted
@@ -38,6 +38,8 @@ namespace MultiStation {
 		void OnDettach(void)  override;
 
 		void OnEvent(Event& e) override;
+	private:
+		EngineContext& m_context;
 
 	};
 

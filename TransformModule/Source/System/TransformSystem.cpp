@@ -23,15 +23,36 @@ namespace MultiStation {
 
 	void CaculateTransform(Component::Transform3D& transform);
 
+	void RecursiveWorldMats(EntID entity, EngineContext& context) {
+
+		// for each of its childs , call them
+		auto childrens = context.GetCurrentScene()->GetChildren(entity);
+		auto* ent_tr = 
+			context.GetCurrentScene()->GetComponent<Component::Transform3D>(entity);
+		for (EntID child : childrens) {
+			auto* tr =
+				context.GetCurrentScene()->GetComponent<Component::Transform3D>(child);
+			tr->word_matrix = ent_tr->word_matrix * tr->local_matrix;
+			RecursiveWorldMats(child, context);
+			
+		}
+	}
+
 	void TransformSystem::OnUpdate(float dt) {
 		
 
 		// for each entity caculate the transform
 		auto transforms = 
 			m_context.GetCurrentScene()->GetComponents<Component::Transform3D>();
-
+		// caculate all local transforms
 		for (auto& transform : transforms) {
 			CaculateTransform(transform);
+		}
+
+		// now caculate all world transforms
+		auto root_ents = m_context.GetCurrentScene()->GetChildren(rootEntity);
+		for (EntID rootEnt : root_ents) {
+			RecursiveWorldMats(rootEnt, m_context);
 		}
 	}
 

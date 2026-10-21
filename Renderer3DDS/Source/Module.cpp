@@ -3,7 +3,7 @@
 namespace MultiStation {
 	EditorRenderViewport* view;
 	void Renderer3DDSModule::Init(EngineContext& context) {
-		m_system = new Renderer3DDS;
+		m_system = new Renderer3DDS(context);
 		view = new EditorRenderViewport;
 		Editor::AddDrawable(view);
 	}
