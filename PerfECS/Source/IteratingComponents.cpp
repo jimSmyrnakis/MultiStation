@@ -25,7 +25,7 @@ int IteratingIntComponentsPerf(ComponentArray<int>& components , uint32_t count,
 }
 
 
-int IteratingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, Registry& registry) {
+int IteratingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, ECSRegistry& registry) {
 
 
 	float start = Time::GetTimeInSeconds();

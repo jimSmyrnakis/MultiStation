@@ -94,13 +94,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLM\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Utilities.lib;ECS.lib;Platform.lib;Media.lib;GLFW.lib;GLAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utilities.lib;Platform.lib;ECS.lib;Media.lib;GLFW.lib;GLAD.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,15 +113,15 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLM\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Utilities.lib;ECS.lib;Platform.lib;Media.lib;GLFW.lib;GLAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utilities.lib;Platform.lib;ECS.lib;Media.lib;GLFW.lib;GLAD.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,13 +132,13 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLM\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Utilities.lib;ECS.lib;Platform.lib;Media.lib;GLFW.lib;GLAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utilities.lib;Platform.lib;ECS.lib;Media.lib;GLFW.lib;GLAD.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,15 +151,15 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ECS\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)ECS\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)GLM\Include;$(SolutionDir)GLAD\Include;$(SolutionDir)GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Utilities.lib;ECS.lib;Platform.lib;Media.lib;GLFW.lib;GLAD.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Media\Library\$(Configuration)\$(Platform)\;$(SolutionDir)Platform\Library\$(Configuration)\$(Platform)\;$(SolutionDir)ECS\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Utilities.lib;Platform.lib;ECS.lib;Media.lib;GLFW.lib;GLAD.lib;ImGui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Utilities\Library\$(Configuration)\$(Platform)\;$(SolutionDir)GLFW\Library\$(Configuration)\$(Platform);$(SolutionDir)Media\Library\$(Configuration)\$(Platform);$(SolutionDir)Platform\Library\$(Configuration)\$(Platform);$(SolutionDir)ECS\Library\$(Configuration)\$(Platform);$(SolutionDir)GLAD\Library\$(Configuration)\$(Platform);$(SolutionDir)ImGui\Library\$(Configuration)\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

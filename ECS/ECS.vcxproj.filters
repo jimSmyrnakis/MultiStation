@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Registry\ComponentArray\ComponentArray.hpp">
+    <ClInclude Include="Source\ECSRegistry\ComponentArray\ComponentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Registry\Registry.hpp">
+    <ClInclude Include="Source\ECSRegistry\Registry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Globals\Globals.hpp">
@@ -33,10 +33,10 @@
     <ClInclude Include="Include\ECS.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\EntityManager.hpp">
+    <ClInclude Include="Source\ECSRegistry\EntityManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Registry\ComponentArray\IComponentArray.hpp">
+    <ClInclude Include="Source\ECSRegistry\ComponentArray\IComponentArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\SceneGraph.hpp">
@@ -86,16 +86,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Registry\Registry.cpp">
+    <ClCompile Include="Source\ECSRegistry\Registry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Globals\Globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EntityManager.cpp">
+    <ClCompile Include="Source\ECSRegistry\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Registry\ComponentArray\IComponentArray.cpp">
+    <ClCompile Include="Source\ECSRegistry\ComponentArray\IComponentArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene\SceneGraph.cpp">

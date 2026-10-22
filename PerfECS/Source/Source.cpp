@@ -2,22 +2,23 @@
 #include "defs.hpp"
 using namespace MultiStation;
 int CreatingIntComponentsPerf(uint32_t count, float* duration, ComponentArray<int>& components);
-int CreatingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, Registry& registry);
+int CreatingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, ECSRegistry& registry);
 int CreatingIntEntitiesScenePerf(uint32_t count, float* duration, Scene& scene);
 int IteratingIntComponentsPerf(ComponentArray<int>& components, uint32_t count, float* duration);
-int IteratingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, Registry& registry);
+int IteratingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration, ECSRegistry& registry);
 int IteratingIntEntitiesScenePerf(uint32_t count, float* duration, Scene& scene);
 int main(void)
 {
     ComponentArray<int> comparray;
-    Registry registry;
+    ECSRegistry registry;
     EngineContext ctx;
 	FileReadStream readStream("test.txt");
 	FileWriteStream writeStream("test.txt");
 	std::shared_ptr<IArchiveReader> reader = std::make_shared<TextArchiveReader>( &readStream );
 	std::shared_ptr<IArchiveWriter> writer = std::make_shared<TextArchiveWriter>( &writeStream);
 	SerializationRegistry serializeRegistry;
-    Scene scene(ctx, serializeRegistry);
+    ObjectMap map;
+    Scene scene(ctx, serializeRegistry , map);
     constexpr int RUNS = 1;
     constexpr int COMPONENTS = 100000;
 

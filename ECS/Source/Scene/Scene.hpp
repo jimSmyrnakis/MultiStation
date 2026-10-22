@@ -1,6 +1,6 @@
 #pragma once
 #include "SceneGraph.hpp"
-#include "../Registry/Registry.hpp"
+#include "../ECSRegistry/Registry.hpp"
 #include "../System/SystemManager.hpp"
 #include "SceneSerializer.hpp"
 #include "../Streams/Streams.hpp"
@@ -276,7 +276,7 @@ namespace MultiStation {
 		
 
 	private:
-		Registry m_registry;
+		ECSRegistry m_ecsRegistry;
 		SceneGraph m_sceneGraph;
 		EngineContext& m_engineContext;
 		SerializationRegistry& m_serializationRegistry;
@@ -346,49 +346,49 @@ namespace MultiStation {
 	
 	template<typename T, typename... Args>
 	T* Scene::AddComponent(EntID entity, Args&&... args) {
-		return m_registry.AddComponent<T>(entity, std::forward<Args>(args)...);
+		return m_ecsRegistry.AddComponent<T>(entity, std::forward<Args>(args)...);
 	}
 
 	
 	template<typename T, typename... Args>
 	T* Scene::ReplaceComponent(EntID entity, Args&&... args) {
-		return m_registry.ReplaceComponent<T>(entity, std::forward<Args>(args)...);
+		return m_ecsRegistry.ReplaceComponent<T>(entity, std::forward<Args>(args)...);
 	}
 
 	
 	template<typename T>
 	bool Scene::RemoveComponent(EntID entity) {
-		return m_registry.RemoveComponent<T>(entity);
+		return m_ecsRegistry.RemoveComponent<T>(entity);
 	}
 
 	
 	template<typename T>
 	bool Scene::HasComponent(EntID entity) const {
-		return m_registry.HasComponent<T>(entity);
+		return m_ecsRegistry.HasComponent<T>(entity);
 	}
 
 	
 	template<typename T>
 	std::span<T> Scene::GetComponents(void) {
-		return m_registry.GetComponents<T>();
+		return m_ecsRegistry.GetComponents<T>();
 	}
 
 	
 	template<typename T>
 	std::span<const T> Scene::GetComponents(void) const {
-		return m_registry.GetComponents<T>();
+		return m_ecsRegistry.GetComponents<T>();
 	}
 
 	
 	template<typename T>
 	T* Scene::GetComponent(EntID entity) {
-		return m_registry.GetComponent<T>(entity);
+		return m_ecsRegistry.GetComponent<T>(entity);
 	}
 
 	
 	template<typename T>
 	const T* Scene::GetComponent(EntID entity) const {
-		return m_registry.GetComponent<T>(entity);
+		return m_ecsRegistry.GetComponent<T>(entity);
 	}
 
 
@@ -398,20 +398,20 @@ namespace MultiStation {
 	template<typename T>
 	CompID Scene::RegisterComponent(void) {
 		m_objectMap.AddComponent<T>();
-		return m_registry.RegisterComponent<T>();
+		return m_ecsRegistry.RegisterComponent<T>();
 	}
 
 
 	
 	template<typename T>
 	bool Scene::HasRegisteredComponent(void) const {
-		return m_registry.HasRegisterComponent<T>();
+		return m_ecsRegistry.HasRegisterComponent<T>();
 	}
 
 	
 	template<typename T>
 	CompID Scene::UnregisterComponent(void) {
-		return m_registry.UnregisterComponent<T>();
+		return m_ecsRegistry.UnregisterComponent<T>();
 	}
 
 

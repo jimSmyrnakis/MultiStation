@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>ComponentArray.hpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#pragma once
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;memory&gt;
+#include &lt;unordered_map&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stddef.h&gt;
+#include "../../Globals/Globals.hpp"
+#include &lt;Platform.hpp&gt;
+#include "IComponentArray.hpp"
+#include &lt;span&gt;
+#include &lt;typeinfo&gt;
+namespace MultiStation{
+
+	
+
+	/**
+	 * @author Dimitris Smyrnakis
+	 * @class ComponentArray 
+	 * @tparam T The component type
+	 * @brief This class manages a dynamic array of components of type T, allowing for efficient
+	 * addition, removal, and retrieval of components associated with entities. 
+	 * @note Unexpected exceptions terminate the application. 
+	 * @warning Adding, removing, or replacing components may invalidate
+	 * pointers, references, spans, or their association with entities.
+	 * @pre T templated object must support default contructor and copy and/or move constructor and assigments . 
+	 * @warning This ecs is not supporting multithreading .
+	 * @version 1.0
+	 */
+	template&lt;class T&gt;
+	class ComponentArray : public IComponentArray{
+
+
+		void ClearVectors(void);
+		void Move(ComponentArray* dest, ComponentArray* src);
+	public:
+
+		/**
+		 * @brief Constructs a new ComponentArray object.
+		 */
+		ComponentArray(void) noexcept;
+
+		/**
+		 * @brief Destroys the ComponentArray object.
+		 */
+		~ComponentArray(void) noexcept;
+
+		/**
+		 * @brief Deleted copy constructor to prevent copying.
+		 */
+		ComponentArray(const ComponentArray&amp; copy) = delete;
+
+		/**
+		 * @brief Deleted copy assignment operator to prevent copying.
+		 */
+		ComponentArray&amp; operator=(const ComponentArray&amp; copy) = delete;
+
+		/**
+		 * @brief Move constructor and move assignment operator for transferring ownership.
+		 * @param[in] move The ComponentArray to move from.
+		 */
+		ComponentArray(ComponentArray&amp;&amp; move) noexcept;
+
+		/**
+		 * @brief Move assignment operator for transferring ownership.
+		 * @param[in] move The ComponentArray to move from.
+		 * @returns A reference to the moved ComponentArray.
+		 */
+		ComponentArray&amp; operator=(ComponentArray&amp;&amp; move) noexcept;
+		
+
+		
+		/**
+		 * @brief Adds a new component for the specified entity , If the entity does not already have one.
+		 * @param[in] entity The entity to associate the component with.
+		 * @param[in] args The arguments to construct the component.
+		 * @returns A pointer to the newly added component, or nullptr if the entity already has one.
+		 * @note If the entity already has a component, the method returns nullptr and does not add a new component.
+		 * Use ReplaceComponent to update existing components.
+		 * 
+		 */
+		template&lt;typename... Args&gt;
+		T* AddComponent(EntID entity , Args&amp;&amp;... args) noexcept;
+
+		/**
+		 * @brief Replaces the component for the specified entity if it exists.
+		 * @param[in] entity The entity whose component is to be replaced.
+		 * @param[in] args The arguments to construct the new component.
+		 * @returns A pointer to the replaced component, or nullptr if the entity does not have one.
+		 *  
+		 */
+		template&lt;typename... Args&gt;
+		T* ReplaceComponent(EntID entity, Args&amp;&amp;... args) noexcept;
+
+		/**
+		 * @brief Removes the component associated with the specified entity.
+		 * @param[in] entity The entity whose component is to be removed.
+		 * @details If the entity does not have a component, the method does nothing.
+		 * If the component is found, it is removed efficiently by swapping it with the last component
+		 * costing O(1) time complexity.
+		 * 
+		 */
+		void RemoveComponent(EntID entity) noexcept;
+
+		/**
+		 * @brief Gets the component associated with the specified entity.
+		 * @param[in] entity The entity whose component is to be retrieved.
+		 * @return A pointer to the component if found, or nullptr if the entity does not have one.
+		 *  
+		 */
+		T* GetComponent(EntID entity) noexcept;
+
+		/**
+		 * @brief Gets the component associated with the specified entity.
+		 * @param[in] entity The entity whose component is to be retrieved.
+		 * @return A const pointer to the component if found, or nullptr if the entity does not have one.
+		 */
+		const T* GetComponent(EntID entity) const noexcept;
+
+		/**
+		 * @brief Gets the entity associated with the specified component.
+		 * @param[in] component The component whose entity is to be retrieved.
+		 * @param[out] entity The entity associated with the component.
+		 * @returns True if the component is found and the entity is set, false otherwise.
+		 * @warning Do not use this method frequently as it has O(n) time complexity.
+		 */
+		bool GetEntity(T&amp; component, EntID&amp; entity) const noexcept;
+		
+
+		/**
+		 * @returns A span of all components.
+		 */
+		std::span&lt;T&gt; GetComponents(void) noexcept;
+
+		/**
+		 * @returns A span of all components .
+		 */
+		std::span&lt;const T&gt; GetComponents(void) const noexcept;
+
+		/**
+		 * @brief Checks if the specified entity has an associated component.
+		 * @param[in] entity The entity to check.
+		 * @returns true if the entity has a component, false otherwise.
+		 */
+		bool HasEntity(EntID entity) const noexcept;
+
+		/**
+		 * @brief Returns the unique id of the component type
+		 * 
+		 */
+		CompID GetID(void) const noexcept;
+
+
+		/**
+		 * @brief Removes the component associated with the entity, if exist's .
+		 * It is a override virtual method from the IComponent class so
+		 * the registry can remove all components of a entity when the entity is destroyed
+		 * without the need of the templated type .
+		 * 
+		 * @param[in] entity The entity id to remove the component for.
+		 * 
+		 *  
+		 */
+		void RemoveComponentV(EntID entity) noexcept override ;
+
+		/**
+		 * @brief Adds the component if not exist's to the entity 
+		 * 
+		 * @param entity The entity id
+		 * @return pointer to the new component if succeded nullptr otherwise .
+		 * 
+		 * @warning Requires Component default contructor 
+		 */
+		void* AddComponentV(EntID entity) noexcept override;
+
+		/**
+		 * @brief Replaces the component of the entity  if exist's  
+		 *
+		 * @param entity The entity id
+		 * @return pointer to the replaced component if succeded nullptr otherwise .
+		 */
+		void* ReplaceComponentV(EntID entity) noexcept override;
+
+
+		/**
+		 * @brief Method of checking if the entity has a component
+		 *
+		 * @param entity The entity id
+		 * @return true if has a component , false otherwise .
+		 */
+		bool HasComponentV(EntID entity) noexcept override;
+
+
+		/**
+		 * @brief Method for getting component of a entity or nullptr if not has one .
+		 *
+		 * @param entity Entity id.
+		 *
+		 */
+		void* GetComponentV(EntID entity) noexcept override;
+
+		/**
+		 * @brief Method for getting all components of this type .
+		 *
+		 * @param entity Entity id.
+		 *
+		 */
+		void* GetComponentsV(void) noexcept override;
+
+		/**
+		 * @brief Method that returns the size of each component in bytes
+		 */
+		virtual size_t SizeOfComponent(void) const noexcept;
+
+		/**
+		 * @brief Method that returns the number of components .
+		 */
+		virtual size_t Count(void) const noexcept;
+
+		/**
+		 * @return The name of the Component type T 
+		 */
+		const std::string&amp; GetName(void) const noexcept;
+
+
+	private:
+		std::vector&lt;T&gt; m_components; // A cached component dynamic list
+		std::vector&lt;EntID&gt; m_indexToEntity; // component index mapped to entity value
+		std::unordered_map&lt;EntID, size_t&gt; m_entityToIndex; // Á
+		std::string m_name;
+
+
+		
+	};
+
+	
+	// EXTRAS
+	template&lt;typename T&gt;
+	const std::string&amp; ComponentArray&lt;T&gt;::GetName(void) const noexcept {
+		return m_name;
+	}
+
+
+
+	// OBJECT CREATION , MOVE and DESTROY METHODS
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void ComponentArray&lt;T&gt;::RemoveComponentV(EntID entity) noexcept {
+		if (m_entityToIndex.count(entity))
+			this-&gt;RemoveComponent(entity);</span>
+		
+<span style = "background-color:#dfd">	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void* ComponentArray&lt;T&gt;::AddComponentV(EntID entity) noexcept {
+		return (void*)this-&gt;AddComponent(entity);
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void* ComponentArray&lt;T&gt;::ReplaceComponentV(EntID entity) noexcept {
+		return (void*)this-&gt;ReplaceComponent(entity);
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	bool ComponentArray&lt;T&gt;::HasComponentV(EntID entity) noexcept {
+		return this-&gt;HasEntity(entity);
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void* ComponentArray&lt;T&gt;::GetComponentV(EntID entity) noexcept {
+		return (void*)this-&gt;GetComponent(entity);
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#fdd">	void* ComponentArray&lt;T&gt;::GetComponentsV(void) noexcept {
+		std::span&lt;T&gt; sp  = this-&gt;GetComponents();
+		return (void*)sp.data();
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#fdd">	size_t ComponentArray&lt;T&gt;::SizeOfComponent(void) const noexcept {
+		return sizeof(T);
+	}</span>
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	size_t ComponentArray&lt;T&gt;::Count(void) const noexcept {
+		return m_components.size();
+	}</span>
+
+
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	ComponentArray&lt;T&gt;::ComponentArray(void ) noexcept {
+		m_components.reserve(100);
+		m_indexToEntity.reserve(100);
+		m_entityToIndex.reserve(100);
+		m_name = typeid(T).name();
+	};</span>
+
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	ComponentArray&lt;T&gt;::~ComponentArray(void) noexcept {
+		ClearVectors();
+	}</span>
+
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void ComponentArray&lt;T&gt;::ClearVectors(void) {
+		m_components.clear();
+		m_entityToIndex.clear();
+		m_indexToEntity.clear();
+	}</span>
+
+	template&lt;typename T&gt;
+	void ComponentArray&lt;T&gt;::Move(ComponentArray* dest, ComponentArray* src) {
+		if (dest == src) return;
+
+		dest-&gt;m_components = std::move(src-&gt;m_components);
+		dest-&gt;m_entityToIndex = std::move(src-&gt;m_entityToIndex);
+		dest-&gt;m_indexToEntity = std::move(src-&gt;m_indexToEntity);
+		src-&gt;ClearVectors();
+	}
+
+	template&lt;typename T&gt;
+	ComponentArray&lt;T&gt;::ComponentArray(ComponentArray&amp;&amp; move) noexcept {
+		Move(this, &amp;move);
+	}
+
+	template&lt;typename T&gt;
+	ComponentArray&lt;T&gt;&amp; ComponentArray&lt;T&gt;::operator=(ComponentArray&lt;T&gt;&amp;&amp; move) noexcept {
+		if (this != &amp;move)
+			Move(this, &amp;move);
+
+		return *this;
+	}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// CREATING , REMOVING  Component's 
+	
+
+
+	template&lt;typename T&gt;
+	template&lt;typename... Args&gt;
+	T* ComponentArray&lt;T&gt;::AddComponent(EntID entity, Args&amp;&amp;... args) noexcept
+<span style = "background-color:#dfd">	{</span>
+
+		// already exists -&gt; update
+<span style = "background-color:#dfd">		if (m_entityToIndex.count(entity))</span>
+		{
+<span style = "background-color:#dfd">			MS_WARN("Entity already has a component. Use ReplaceComponent to update it.");
+			return nullptr;</span>
+		}
+		// new component
+<span style = "background-color:#dfd">		size_t newIndex = m_components.size();
+		m_components.emplace_back(std::forward&lt;Args&gt;(args)...);</span>
+
+<span style = "background-color:#dfd">		m_entityToIndex[entity] = newIndex;
+		m_indexToEntity.push_back(entity);</span>
+
+		
+
+<span style = "background-color:#dfd">		return &amp;m_components[newIndex];
+	}</span>
+
+	template&lt;typename T&gt;
+	template&lt;typename... Args&gt;
+	T* ComponentArray&lt;T&gt;::ReplaceComponent(EntID entity, Args&amp;&amp;... args) noexcept
+<span style = "background-color:#dfd">	{</span>
+		// already exists -&gt; update
+<span style = "background-color:#dfd">		if (m_entityToIndex.count(entity))</span>
+		{
+<span style = "background-color:#dfd">			size_t idx = m_entityToIndex[entity];
+			m_components[idx] = std::move(T(std::forward&lt;Args&gt;(args)...));
+			return &amp;m_components[idx];</span>
+		}
+
+<span style = "background-color:#dfd">		MS_WARN( "Entity does not have a component to replace. Use AddComponent to add it first.");
+		return nullptr;
+	}</span>
+
+
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	void ComponentArray&lt;T&gt;::RemoveComponent(EntID entity) noexcept  {
+		if (m_components.empty()) {
+			MS_WARN("No components to remove.");
+			return;</span>
+		}
+
+<span style = "background-color:#dfd">		if (!m_entityToIndex.count(entity)) { // not found entity
+			MS_WARN("Entity does not exist's.");
+			return;</span>
+		}
+
+<span style = "background-color:#dfd">		size_t index = m_entityToIndex[entity];
+		size_t lastIndex = m_components.size() - 1;</span>
+
+
+<span style = "background-color:#dfd">		if (index != lastIndex) {
+			m_components[index] = std::move(m_components[lastIndex]);
+			uint32_t lastEntity = m_indexToEntity[lastIndex];
+			m_entityToIndex[lastEntity] = index;
+			m_indexToEntity[index] = lastEntity;</span>
+		}
+		 
+
+		// pop
+<span style = "background-color:#dfd">		m_components.pop_back();
+		m_indexToEntity.pop_back();
+		m_entityToIndex.erase(entity); // erase pair entity key, index vaue</span>
+		
+<span style = "background-color:#dfd">	}</span>
+
+
+
+
+
+
+
+
+
+
+
+	// BASIC GET methods
+
+
+	
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	T* ComponentArray&lt;T&gt;::GetComponent(EntID entity) noexcept  {
+		auto it = m_entityToIndex.find(entity);
+		if (it == m_entityToIndex.end()) return nullptr;
+		return &amp;m_components[it-&gt;second];
+	}</span>
+
+	template&lt;typename T&gt;
+	const T* ComponentArray&lt;T&gt;::GetComponent(EntID entity) const noexcept {
+		auto it = m_entityToIndex.find(entity);
+		if (it == m_entityToIndex.end()) return nullptr;
+		return &amp;m_components[it-&gt;second];
+	}
+	
+	template&lt;typename T&gt;
+	bool ComponentArray&lt;T&gt;::GetEntity(T&amp; component, EntID&amp; entity) const noexcept {
+		entity = 0xFFFFFFFF;
+		for (size_t i = 0; i &lt; m_components.size(); i++) {
+			if (&amp;m_components[i] == &amp;component) {
+				entity = m_indexToEntity[i];
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	std::span&lt;T&gt; ComponentArray&lt;T&gt;::GetComponents(void)  noexcept {
+		return m_components;
+	}</span>
+
+	template&lt;typename T&gt;
+	std::span&lt;const T&gt; ComponentArray&lt;T&gt;::GetComponents(void) const noexcept {
+		return m_components;
+	}
+
+	
+	template&lt;typename T&gt;
+<span style = "background-color:#dfd">	bool ComponentArray&lt;T&gt;::HasEntity(EntID entity) const noexcept {
+		return m_entityToIndex.count(entity) != 0;
+	}</span>
+
+	template&lt;typename T&gt;
+	CompID ComponentArray&lt;T&gt;::GetID(void) const noexcept {
+		return GetComponentID&lt;T&gt;();
+	}
+
+
+
+	
+
+
+
+}</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+[2026-10-21 22:28:05] [info] Start Program:
+Path:".\\EngineTests\\Tests\\Debug\\x64\\EngineTests.exe"
+Arguments:
+Working directory: not set.
+Modules: Selected: * Excluded: 
+Sources: Selected: C:\Users\User\Desktop\Projects\MultiStation\ECS\Source Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: html EngineTests\CoverageReport cobertura EngineTests\CoverageReport.xml 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+[2026-10-21 22:28:05] [info] Module: C:\Users\User\Desktop\Projects\MultiStation\EngineTests\Tests\Debug\x64\EngineTests.exe is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\ntdll.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\kernel32.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\KernelBase.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\vcruntime140d.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\msvcp140d.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\ucrtbased.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\ucrtbased.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\vcruntime140_1d.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\vcruntime140_1d.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\kernel.appcore.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] Module: C:\Windows\System32\msvcrt.dll is selected because it matches selected pattern: *
+[2026-10-21 22:28:05] [info] ----------------------------------------------------
+[2026-10-21 22:28:05] [info] Coverage generated in Folder C:\Users\User\Desktop\Projects\MultiStation\EngineTests\CoverageReport
+[2026-10-21 22:28:05] [info] ----------------------------------------------------
+[2026-10-21 22:28:05] [info] ----------------------------------------------------
+[2026-10-21 22:28:05] [info] Cobertura report generated: EngineTests\CoverageReport.xml
+[2026-10-21 22:28:05] [info] ----------------------------------------------------
+[2026-10-21 22:28:05] [info] The code coverage report is not what you expect? See the FAQ https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/FAQ.

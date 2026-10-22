@@ -24,7 +24,7 @@ int CreatingIntComponentsPerf(uint32_t count, float* duration , ComponentArray<i
 	return 0;
 }
 
-int CreatingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration , Registry& registry) {
+int CreatingIntEntitiesRegistryCompsPerf(uint32_t count, float* duration , ECSRegistry& registry) {
 	
 
 	registry.RegisterComponent<int>();

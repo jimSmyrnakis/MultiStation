@@ -18,7 +18,7 @@ namespace MultiStation {
 	}
 	
 	bool Scene::RemoveEntity(EntID entity) {
-		if (!m_registry.HasEntity(entity)) {
+		if (!m_ecsRegistry.HasEntity(entity)) {
 			return false;
 		}
 		
@@ -26,30 +26,30 @@ namespace MultiStation {
 			return false;
 		}
 
-		return m_registry.RemoveEntity(entity);
+		return m_ecsRegistry.RemoveEntity(entity);
 	}
 
 	
 	EntID Scene::CreateEntity(void) {
-		EntID new_ent = m_registry.CreateEntity();
+		EntID new_ent = m_ecsRegistry.CreateEntity();
 		m_sceneGraph.AddEntity(new_ent);
 		return new_ent;
 	}
 
 	
 	bool Scene::HasEntity(EntID entity) const {
-		return m_registry.HasEntity(entity); 
+		return m_ecsRegistry.HasEntity(entity);
 	}
 
 	
 	std::span<const EntID> Scene::GetAllEntities(void) const {
-		return m_registry.GetAllEntities();
+		return m_ecsRegistry.GetAllEntities();
 	}
 
 	
 	bool  Scene::SetParent(EntID entity, EntID parent) {
-		if (!m_registry.HasEntity(entity) || 
-			((parent != rootEntity) && !m_registry.HasEntity(parent) ) ) {
+		if (!m_ecsRegistry.HasEntity(entity) ||
+			((parent != rootEntity) && !m_ecsRegistry.HasEntity(parent) ) ) {
 			return false;
 		}
 		return m_sceneGraph.SetParent(entity, parent);
@@ -57,7 +57,7 @@ namespace MultiStation {
 
 	
 	bool Scene::GetParent(EntID entity, EntID& out) const {
-		if (!m_registry.HasEntity(entity) ) {
+		if (!m_ecsRegistry.HasEntity(entity) ) {
 			return false;
 		}
 		return m_sceneGraph.GetParent(entity, out);
@@ -65,7 +65,7 @@ namespace MultiStation {
 
 	
 	std::span<const EntID> Scene::GetChildren(EntID entity) const {
-		if (!m_registry.HasEntity(entity) && (entity != rootEntity) ) {
+		if (!m_ecsRegistry.HasEntity(entity) && (entity != rootEntity) ) {
 			return {};
 		}
 		return m_sceneGraph.GetChilds(entity);
@@ -75,38 +75,38 @@ namespace MultiStation {
 	// Untemplated types
 	
 	void* Scene::GetComponent(CompID component, EntID entity) {
-		return m_registry.GetComponent(component, entity);
+		return m_ecsRegistry.GetComponent(component, entity);
 	}
 
 	
 	void* Scene::GetComponents(CompID component) {
-		return m_registry.GetComponents(component);
+		return m_ecsRegistry.GetComponents(component);
 	}
 
 	
 	bool Scene::HasRegister(CompID component) {
-		return m_registry.HasRegister(component);
+		return m_ecsRegistry.HasRegister(component);
 	}
 
 	
 	size_t Scene::SizeOfComponent(CompID component) {
-		return m_registry.SizeOfComponent(component);
+		return m_ecsRegistry.SizeOfComponent(component);
 	}
 
 	
 	size_t Scene::Count(CompID component) {
-		return m_registry.Count(component);
+		return m_ecsRegistry.Count(component);
 		
 	}
 
 
 	
 	bool Scene::HasComponent(EntID entity, CompID component) {
-		return m_registry.HasComponent(entity, component);
+		return m_ecsRegistry.HasComponent(entity, component);
 	}
 
 	std::span< const CompID> Scene::GetEntityComponentsIDs(EntID entity) const {
-		return m_registry.GetSignatureOf(entity);
+		return m_ecsRegistry.GetSignatureOf(entity);
 	}
 
 	bool Scene::GetComponentObjectID(CompID component_id, ObjID& object_id) {

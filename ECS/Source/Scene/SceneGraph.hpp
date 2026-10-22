@@ -1,5 +1,5 @@
 #pragma once
-#include "../Registry/Registry.hpp"
+#include "../ECSRegistry/Registry.hpp"
 #include <unordered_map>
 namespace MultiStation{
 
