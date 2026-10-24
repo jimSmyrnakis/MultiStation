@@ -60,6 +60,7 @@ namespace MultiStation{
 		
 		LayerStack m_layers;
 		Engine m_engine;
+		float m_lastUpdatedTime;
 
 	private:
 		bool OnWindowCloseEvent(WindowCloseEvent& e) noexcept;

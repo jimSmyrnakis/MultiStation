@@ -220,7 +220,7 @@ namespace MultiStation{
 		/**
 		 * @return The name of the Component type T 
 		 */
-		const std::string& GetName(void) const noexcept;
+		virtual const std::string& GetName(void) const noexcept override;
 
 
 	private:

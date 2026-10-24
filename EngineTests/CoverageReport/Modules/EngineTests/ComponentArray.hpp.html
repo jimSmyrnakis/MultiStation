@@ -231,7 +231,7 @@ namespace MultiStation{
 		/**
 		 * @return The name of the Component type T 
 		 */
-		const std::string&amp; GetName(void) const noexcept;
+		virtual const std::string&amp; GetName(void) const noexcept override;
 
 
 	private:
@@ -247,9 +247,9 @@ namespace MultiStation{
 	
 	// EXTRAS
 	template&lt;typename T&gt;
-	const std::string&amp; ComponentArray&lt;T&gt;::GetName(void) const noexcept {
+<span style = "background-color:#fdd">	const std::string&amp; ComponentArray&lt;T&gt;::GetName(void) const noexcept {
 		return m_name;
-	}
+	}</span>
 
 
 

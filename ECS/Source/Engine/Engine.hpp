@@ -64,40 +64,9 @@ namespace MultiStation {
 
 
 
-		// Serialization
-		/**
-		 * @tparam T Type of ISerialize implementation .
-		 * @tparam Component The component that will serialize from
-		 * @brief The T should inherit from ISerialize and the Component should
-		 * be already register as a component to the scene for the registation
-		 * to work (return true) otherwise we take false and no registation happens.
-		 */
-		template<typename Component, typename T>
-		bool SerializerRegisterComponent(void);
-
-		/**
-		 * @tparam T Type of ISerialize implementation .
-		 * @tparam SysModule The Module that will serialize from
-		 * @brief The T should inherit from ISerialize for the registation
-		 * to work (return true) otherwise we take false and no registation happens.
-		 */
-		template<typename SysModule, typename T>
-		bool SerializerRegisterSystem(void);
-
-		/**
-		 * @tparam T Type of ISerialize implementation .
-		 * @tparam Object The Generic Object that will serialize from
-		 * @brief The T should inherit from ISerialize  for the registation
-		 * to work (return true) otherwise we take false and no registation happens.
-		 * Objects are more special support , that can saved to the scene . This means
-		 * their changes remains for ever in the scene final file etc. So carefull on that .
-		 */
-		template<typename Object, typename T>
-		bool SerializerRegisterObject(void);
 
 
 	private:
-		SerializationRegistry m_serializationRegistry;
 		SceneManager* m_sceneManager;
 		SystemManager* m_systemManager;
 		EngineContext m_context;
@@ -131,44 +100,5 @@ namespace MultiStation {
 		return m_systemManager->GetModule<T>();
 	}
 
-	template<typename Component, typename T>
-	bool Engine::SerializerRegisterComponent(void) {
-
-		if constexpr (!std::is_base_of<ISerialize, T>()) {
-			return false;
-		}
-		T* Seriali = new T();
-		if (Seriali == nullptr) {
-			return false;
-		}
-		return m_serializationRegistry.RegisterComponent(GetComponentID<Component>(), Seriali);
-	}
-
-
-	template<typename SysModule, typename T>
-	bool Engine::SerializerRegisterSystem(void) {
-		
-		if constexpr (!std::is_base_of<ISerialize, T>()) {
-			return false;
-		}
-		T* Seriali = new T();
-		if (Seriali == nullptr) {
-			return false;
-		}
-		return m_serializationRegistry.RegisterSystem(GetModuleID<SysModule>(), Seriali);
-	}
-
-	template<typename Object, typename T>
-	bool Engine::SerializerRegisterObject(void) {
-
-
-		if constexpr (!std::is_base_of<ISerialize, T>()) {
-			return false;
-		}
-		T* Seriali = new T();
-		if (Seriali == nullptr) {
-			return false;
-		}
-		return m_serializationRegistry.RegisterObject(GetObjectID<Object>(), Seriali);
-	}
+	
 };

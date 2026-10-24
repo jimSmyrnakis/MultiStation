@@ -8,6 +8,7 @@
  * @file Registry.hpp
  * @brief This is where the ecs registry class is , this class is responsible 
  * for entities and there components .
+ * @version 0.1
  */
 namespace MultiStation {
 	
@@ -18,7 +19,6 @@ namespace MultiStation {
 	 * @warning Not thread-safe.
 	 * @note Unexpected exceptions terminate the application.
 	 * @note Components (template type T) should support assigments and default contructor .
-	 * @version 1.0
 	 */
 	class ECSRegistry {
 
@@ -93,8 +93,6 @@ namespace MultiStation {
 		/**
 		 * @brief Returns all entities ids existing on the ECSRegistry
 		 * 
-		 * @note The Returns vector is const meaning you should not change it's contents 
-		 * just use them .
 		 * @note The span is a view of the entity array meaning there is no guarantees 
 		 * if another entity added/removed that the span will be valid . 
 		 */
@@ -113,27 +111,34 @@ namespace MultiStation {
 	public: // Component's Operations
 
 		/**
-		 * @brief Creates and assigns to entity a new component of type T
-		 * @tparam T The component type/class .
-		 * @tparam Args The arguments to create a new one Component of type T.
-		 * @return Pointer to the new components if operations success ,
-		 * else if there is a component of type T on this entity then returns nullptr 
-		 * @note This method doesn't replace a existing component , if you want to replace it 
-		 * use Replace component method. Fethermore to add a component of type T first it must be 
-		 * register on the ECSRegistry .
+		 * @brief Constructs a component of type T and assigns it to an entity.
+		 * @tparam T The component type.
+		 * @tparam Args The constructor argument types.
+		 * @param entity The entity to receive the component.
+		 * @param args Arguments forwarded to the component constructor.
+		 * @return A pointer to the new component, or nullptr if T is not registered,
+		 * the entity does not exist, or the entity already has a component of type T.
+		 * @note Use ReplaceComponent() to update an existing component.
+		 * @warning Adding components of type T may reallocate their storage and invalidate
+		 * existing pointers, references, and spans. Removing components or their entities
+		 * may invalidate the returned pointer or change which entity it refers to.
+		 * Unregistering T or destroying the registry invalidates it.
 		 */
 		template<typename T, typename... Args>
 		T* AddComponent(EntID entity, Args&&... args) noexcept;
 
 		/**
-		 * @brief Replaces a already existing component with a new one .
-		 * @tparam T The component type/class .
-		 * @tparam Args The arguments to create a new one Component of type T.
-		 * @returns The pointer to the new one component inside the ECSRegistry or 
-		 * nullptr if there wasn't any component of this type before for this entity .
-		 * @note To create a new one component use AddComponent instead 
-		 * . Fethermore to add a component of type T first it must be 
-		 * register on the ECSRegistry .
+		 * @brief Assigns a newly constructed value to an entity's existing component.
+		 * @tparam T The component type.
+		 * @tparam Args The constructor argument types.
+		 * @param entity The entity whose component is replaced.
+		 * @param args Arguments forwarded to construct the replacement value.
+		 * @return A pointer to the updated component, or nullptr if T is not registered,
+		 * the entity does not exist, or it has no component of type T.
+		 * @note Use AddComponent() to create a missing component.
+		 * @warning Later additions of type T may invalidate the returned pointer through
+		 * reallocation. Removing components or their entities may invalidate it or change
+		 * which entity it refers to. Unregistering T or destroying the registry invalidates it.
 		 */
 		template<typename T, typename... Args>
 		T* ReplaceComponent(EntID entity, Args&&... args) noexcept;
@@ -175,41 +180,69 @@ namespace MultiStation {
 		std::span<const T> GetComponents(void) const noexcept ;
 
 		/**
-		 * @brief Returns the component of type T of the entity .
-		 * @tparam T The component type/class .
-		 * @return The component if is register and entity has one , otherwise nullptr .
+		 * @brief Returns an entity's component of type T.
+		 * @tparam T The component type.
+		 * @param entity The entity whose component is requested.
+		 * @return A pointer to the component, or nullptr if T is not registered,
+		 * the entity does not exist, or it has no component of type T.
+		 * @warning Adding components of type T may invalidate the pointer through
+		 * reallocation. Removing components or their entities may invalidate it or change
+		 * which entity it refers to. Unregistering T or destroying the registry invalidates it.
 		 */
 		template<typename T>
 		T* GetComponent(EntID entity) noexcept;
 
 		/**
-		 * @brief Returns the component of type T of the entity as const.
-		 * @tparam T The component type/class .
-		 * @return The component if is register and entity has one , otherwise nullptr .
+		 * @brief Returns read-only access to an entity's component of type T.
+		 * @tparam T The component type.
+		 * @param entity The entity whose component is requested.
+		 * @return A const pointer to the component, or nullptr if T is not registered,
+		 * the entity does not exist, or it has no component of type T.
+		 * @warning Adding components of type T may invalidate the pointer through
+		 * reallocation. Removing components or their entities may invalidate it or change
+		 * which entity it refers to. Unregistering T or destroying the registry invalidates it.
 		 */
 		template<typename T>
 		const T* GetComponent(EntID entity) const noexcept;
 
 
-
+		/**
+		 * @brief Returns the stored name of component type T.
+		 * @tparam T The component type whose name is requested.
+		 * @return A const reference to the registered type's name, or the shared
+		 * fallback string "none" if T is not registered.
+		 * @note Registered names come from typeid(T).name() and are implementation-defined.
+		 * @warning A reference to a registered name becomes invalid when T is unregistered
+		 * or this registry is destroyed. Copy the string if it must outlive that storage.
+		 * The fallback string has static storage duration and is independent of the registry.
+		 */
+		template<typename T>
+		const std::string& GetName(void) const noexcept;
 
 
 	public: // Untemplated component methods
 		/**
-		 * @brief Getting the component of a entity without templates .
-		 * 
-		 * @param component The component id
-		 * @param entity The entity id
-		 * @returns the entity component via the void pointer or nullptr if not exist's .
+		 * @brief Returns an entity's component using its runtime component type ID.
+		 * @param component The component type ID.
+		 * @param entity The entity whose component is requested.
+		 * @return A pointer to the component, or nullptr if the type is not registered
+		 * or no component of that type is stored for the entity.
+		 * @warning Adding components of this type may invalidate the pointer through
+		 * reallocation. Removing components or their entities may invalidate it or change
+		 * which entity it refers to. Unregistering the type or destroying the registry invalidates it.
 		 */
 		void* GetComponent(CompID component ,EntID entity) noexcept;
 
 		/**
-		 * @brief Helper method for getting the components without templates.
-		 *
-		 * @param component The component id
-		 * @param entity The entity id
-		 * @returns an array of components via the void pointer .
+		 * @brief Returns the contiguous component storage for a runtime component type ID.
+		 * @param component The component type ID.
+		 * @return A pointer to the storage, or nullptr if the type is not registered.
+		 * For an empty registered array, the pointer may be null; use Count() to determine
+		 * the number of components and SizeOfComponent() for their size in bytes.
+		 * @warning Adding components of this type may invalidate the pointer through
+		 * reallocation. Removing components or their entities changes the stored sequence
+		 * and may invalidate pointers to its elements or change their entity associations.
+		 * Unregistering the type or destroying the registry invalidates the storage pointer.
 		 */
 		void* GetComponents(CompID component) noexcept;
 
@@ -224,22 +257,27 @@ namespace MultiStation {
 		bool RemoveComponent(EntID entity , CompID component) noexcept;
 
 		/**
-		 * @brief Creates a new component for the entity if has register .
-		 * @param entity The entity id
-		 * @param component The component id 
-		 * @returns The new component address if component is registered and 
-		 * entity hasn't any otherwise nullptr .
+		 * @brief Default-constructs a component and assigns it to an entity.
+		 * @param entity The entity to receive the component.
+		 * @param component The registered component type ID.
+		 * @return A pointer to the new component, or nullptr if the type is not registered,
+		 * the entity does not exist, or it already has a component of this type.
+		 * @warning Adding components of this type may invalidate existing pointers,
+		 * references, and spans through reallocation. Removing components or their entities
+		 * may invalidate the returned pointer or change which entity it refers to.
+		 * Unregistering the type or destroying the registry invalidates it.
 		 */
 		void* AddComponent(EntID entity , CompID component) noexcept;
 
 		/**
-		 * @brief Replace's an already existing component with a new one , only
-		 * if the entity has one .
-		 * 
-		 * @param entity The entity id
-		 * @param component The component id
-		 * @returns The replaced component address if component is registerd 
-		 * and entity has one , otherwise nullptr . 
+		 * @brief Assigns a default-constructed value to an entity's existing component.
+		 * @param entity The entity whose component is replaced.
+		 * @param component The registered component type ID.
+		 * @return A pointer to the updated component, or nullptr if the type is not registered,
+		 * the entity does not exist, or it has no component of this type.
+		 * @warning Later additions of this type may invalidate the returned pointer through
+		 * reallocation. Removing components or their entities may invalidate it or change
+		 * which entity it refers to. Unregistering the type or destroying the registry invalidates it.
 		 */
 		void* ReplaceComponent(EntID entity , CompID component) noexcept ;
 
@@ -269,17 +307,31 @@ namespace MultiStation {
 		 */
 		size_t Count(CompID component) noexcept ;
 
-
+		/**
+		 * @brief Returns the stored name of a component type using its runtime ID.
+		 * @param component The component type ID whose name is requested.
+		 * @return A const reference to the registered type's name, or the shared
+		 * fallback string "none" if the ID is not registered.
+		 * @note Registered names come from typeid(T).name() and are implementation-defined.
+		 * @warning A reference to a registered name becomes invalid when that type is
+		 * unregistered or this registry is destroyed. Copy the string if it must outlive
+		 * that storage. The fallback string has static storage duration and is independent
+		 * of the registry.
+		 */
+		const std::string& GetName(CompID component) const noexcept;
 		
 
 		
 	public: // ECSRegistry Registration methods - Templated
 
 		/**
-		 * @brief Registers a new ComponentArray for the specified component type T
-		 * if this Component doesn't exist or otherwise does nothing .
-		 * @tparam T The type of the component array to register.
-		 * @returns ID of the registered component type
+		 * @brief Registers storage for component type T if it is not already registered.
+		 * @tparam T The component type to register.
+		 * @return The component type ID on success, including when T is already registered,
+		 * or 0 if allocation of the ComponentArray object returns nullptr.
+		 * @note Allocation failures inside the ComponentArray constructor or the registry
+		 * map, and any other escaping exceptions, terminate the application under the
+		 * noexcept policy; they are not reported by returning 0.
 		 */
 		template<typename T>
 		CompID RegisterComponent(void) noexcept ;
@@ -296,10 +348,16 @@ namespace MultiStation {
 		
 
 		/**
-		 * @brief Unregisters the ComponentArray for the specified component type T if is registered,
-		 * otherwise does nothing.
-		 * @tparam T The type of the component array to unregister.
-		 * @returns ID of the unregistered component type
+		 * @brief Unregisters component type T and destroys all its stored components.
+		 * @tparam T The component type to unregister.
+		 * @details Removes T from every entity's signature without removing the entities.
+		 * If T is not registered, the registry is left unchanged.
+		 * @return The unregistered component type ID, or MultiStation::BAD_ID if T
+		 * was not registered.
+		 * @note Retained for API symmetry with RegisterComponent(); normal registry use
+		 * does not require explicit unregistration. Registry destruction releases all storage.
+		 * @warning Invalidates all pointers, references, and spans to components of type T.
+		 * Views of affected entity signatures may also be invalidated or have changed contents.
 		 */
 		template<typename T>
 		CompID UnregisterComponent(void) noexcept ;
@@ -312,7 +370,7 @@ namespace MultiStation {
 		 * @param component The component ID
 		 * @returns true if registered false otherwise .
 		 */
-		bool HasRegister(CompID component) noexcept;
+		bool HasRegister(CompID component) const noexcept ;
 
 	private:
 		std::unordered_map<CompID, IComponentArray*> m_typeComponentMap;
@@ -460,10 +518,13 @@ namespace MultiStation {
 			!HasRegisterComponent<T>()
 			||
 			!m_entityManager.HasEntity(entity)
-			||
-			!m_entityManager.HasEntityComponent<T>(entity)
 			) {
 			return false;
+		}
+
+		if (
+			!m_entityManager.HasEntityComponent<T>(entity)) {
+			return true;
 		}
 
 		ComponentArray<T>* components = (ComponentArray<T>*)m_typeComponentMap[GetComponentID<T>()];
@@ -497,9 +558,9 @@ namespace MultiStation {
 			return {};
 		}
 
-		ComponentArray<T>* components = (ComponentArray<T>*)m_typeComponentMap[GetComponentID<T>()];
+		const ComponentArray<T>* components = (const ComponentArray<T>*)m_typeComponentMap.at(GetComponentID<T>());
 
-		return components->GetComponents<T>();
+		return components->GetComponents();
 	}
 
 	
@@ -537,9 +598,9 @@ namespace MultiStation {
 
 
 
-		ComponentArray<T>* components = (ComponentArray<T>*)m_typeComponentMap[GetComponentID<T>()];
+		const ComponentArray<T>* components = (const ComponentArray<T>*)m_typeComponentMap.at(GetComponentID<T>());
 
-		return components->GetComponent<T>(entity);
+		return components->GetComponent(entity);
 	}
 
 
@@ -559,14 +620,14 @@ namespace MultiStation {
 		CompID id = GetComponentID<T>();
 		if (HasRegisterComponent<T>()) {
 			MS_WARN("Component type already registered in the ECSRegistry.");
-			return id;
+			return id; // even is failed is still exists so return id
 		}
 		
 		// else register that
 		ComponentArray<T>* carr = new(std::nothrow) ComponentArray<T>();
 		if (carr == nullptr) {
 			MS_WARN( "Failed to allocate memory for ComponentArray.");
-			return id;
+			return 0; // this is failure 
 		}
 		m_typeComponentMap[id] = (IComponentArray*)carr;
 
@@ -594,11 +655,19 @@ namespace MultiStation {
 		if (it != m_typeComponentMap.end()) { 
 			delete it->second; 
 			m_typeComponentMap.erase(it); 
+			// remove all entities same signature
+			for (auto ent : m_entityManager.GetAllEntities()) {
+				m_entityManager.RemoveComponentOf(ent, id);
+			}
+			
 		}
 		return id;
 	}
 
-
+	template<typename T>
+	const std::string& ECSRegistry::GetName(void) const noexcept {
+		return GetName(GetComponentID<T>());
+	}
 	
 
 }

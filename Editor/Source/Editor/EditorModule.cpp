@@ -5,7 +5,7 @@ namespace MultiStation {
 
 
 
-	void EditorModule::Init(EngineContext& ctx)  {
+	void EditorModule::Init(EngineContext& ctx) noexcept {
 		MS_ENGINE_INFO("Editor Module Init called !");
 		m_EngineContext = &ctx;
 		
@@ -31,13 +31,13 @@ namespace MultiStation {
 	}
 
 
-	void EditorModule::Fini(EngineContext& ctx)  {
+	void EditorModule::Fini(EngineContext& ctx) noexcept {
 		MS_ENGINE_INFO("Editor Module Fini called !");
 		delete m_HierarchyController;
 		delete m_HierarchyPanel;
 	}
 
-	ISystem& EditorModule::GetSystem(void)  {
+	ISystem& EditorModule::GetSystem(void) noexcept {
 		return m_system;
 	}
 	

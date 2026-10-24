@@ -7,7 +7,7 @@
  * @author Dimitris Smyrnakis
  * @brief Has the class EntityManager that is the source of truth for 
  * what entities exist's .
- * @version 1.0 
+ * @version 0.1
  */
 namespace MultiStation {
 

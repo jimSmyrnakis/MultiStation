@@ -16,12 +16,12 @@ namespace MultiStation {
 		/**
 		 * 
 		 */
-		void Init(EngineContext& ctx)  override;
+		void Init(EngineContext& ctx) noexcept override;
 
 
-		void Fini(EngineContext& ctx)  override;
+		void Fini(EngineContext& ctx) noexcept override;
 
-		ISystem& GetSystem(void)  override;
+		ISystem& GetSystem(void) noexcept override;
 
 	private:
 		SceneHierarchyPanel* m_HierarchyPanel;

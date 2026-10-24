@@ -78,7 +78,7 @@ void main()
 		 * at the start of the application
 		 *
 		 */
-	void Renderer3DDS::OnAttach(void) {
+	void Renderer3DDS::OnAttach(void) noexcept {
         MS_INFO("Renderer on attached ");
         // Compile Vertex Shader
         vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -163,7 +163,7 @@ void main()
 	 * @param deltaTime The time step from the last frame
 	 *
 	 */
-	void Renderer3DDS::OnUpdate(float deltaTime)  {
+	void Renderer3DDS::OnUpdate(float deltaTime) noexcept {
         // Resize if needed
         if (viewport.x != lastViewportSize.x || viewport.y != lastViewportSize.y)
         {
@@ -207,9 +207,6 @@ void main()
 
 	
 	
-    void Renderer3DDS::OnEvent(Event& e) {
-
-    }
 
 
 	/**
@@ -217,7 +214,7 @@ void main()
 	 *
 	 * \return
 	 */
-	void Renderer3DDS::OnDettach(void) {
+	void Renderer3DDS::OnDettach(void) noexcept {
         MS_INFO("Renderer On Detached");
         glDeleteVertexArrays(1, &VAO);
         glDeleteBuffers(1, &VBO);

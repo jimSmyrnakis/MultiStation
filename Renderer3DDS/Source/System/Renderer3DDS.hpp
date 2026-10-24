@@ -12,7 +12,7 @@ namespace MultiStation {
 		 * at the start of the application
 		 *
 		 */
-		void OnAttach(void) override;
+		void OnAttach(void) noexcept override;
 
 		
 
@@ -24,7 +24,7 @@ namespace MultiStation {
 		 * @param deltaTime The time step from the last frame
 		 *
 		 */
-		void OnUpdate(float deltaTime) override;
+		void OnUpdate(float deltaTime) noexcept override;
 
 		
 
@@ -35,9 +35,8 @@ namespace MultiStation {
 		 *
 		 * \return
 		 */
-		void OnDettach(void)  override;
+		void OnDettach(void) noexcept  override;
 
-		void OnEvent(Event& e) override;
 	private:
 		EngineContext& m_context;
 

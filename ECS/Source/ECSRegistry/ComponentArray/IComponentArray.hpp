@@ -3,10 +3,19 @@
 #include <stddef.h>
 #include "../../Globals/Globals.hpp"
 #include <atomic>
+/**
+ * @author Dimitris Smyrnakis
+ * @file IComponentArray.hpp
+ * @brief This file contains the IComponentArray interface 
+ * that helps the templated component array to override same 
+ * methods untemplated and gives the power to registry to handle 
+ * a lot component arrays and component id relations .
+ * @version 0.1
+ */
 namespace MultiStation {
 
 	/**
-	 * @author Dimitris Smyrnakis
+	 * 
 	 * @class IComponentArray
 	 * @brief An interface for ComponentArray classes, providing a common base for different component types.
 	 * @details This way we ensure that all component arrays can be accessed polymorphically , as well for each
@@ -80,6 +89,11 @@ namespace MultiStation {
 		 * @brief Virtual method that returns the number of components . 
 		 */
 		virtual size_t Count(void) const noexcept = 0;
+
+		/**
+		 * @returns The name of the component type  
+		 */
+		virtual const std::string& GetName(void) const noexcept = 0;
 
 	};
 

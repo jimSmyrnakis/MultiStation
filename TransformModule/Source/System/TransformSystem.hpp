@@ -10,13 +10,12 @@ namespace MultiStation {
 
 		TransformSystem(EngineContext& ctx);
 
-		void OnAttach(void) override;
+		void OnAttach(void) noexcept override;
 
-		void OnDettach(void) override;
+		void OnDettach(void) noexcept override;
 
-		void OnUpdate(float dt) override;
+		void OnUpdate(float dt) noexcept override;
 
-		void OnEvent(Event& e) override;
 
 	private:
 		EngineContext& m_context;

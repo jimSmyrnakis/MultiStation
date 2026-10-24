@@ -38,7 +38,7 @@ namespace MultiStation {
 		return components->GetComponentV(entity);
 	}
 
-	bool ECSRegistry::HasRegister(CompID id) noexcept {
+	bool ECSRegistry::HasRegister(CompID id) const noexcept {
 		return m_typeComponentMap.count(id) != 0;
 	}
 
@@ -143,6 +143,16 @@ namespace MultiStation {
 		return components->ReplaceComponentV(entity);
 	}
 
+	std::string nullName = "none";
 	
+	const std::string& ECSRegistry::GetName(CompID component) const noexcept {
+		if (!HasRegister(component)) {
+			return nullName;
+		}
+
+		const IComponentArray* components = m_typeComponentMap.at(component);
+
+		return components->GetName();
+	}
 
 }

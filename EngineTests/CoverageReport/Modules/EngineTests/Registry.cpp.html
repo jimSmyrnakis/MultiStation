@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>Registry.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include "Registry.hpp"
+
+namespace MultiStation {
+
+<span style = "background-color:#dfd">	ECSRegistry::~ECSRegistry(void) noexcept {
+		for (auto&amp; it_pair : m_typeComponentMap) {
+			delete it_pair.second;
+		}
+	}</span>
+
+<span style = "background-color:#dfd">	bool ECSRegistry::HasComponent(EntID entity, CompID component) noexcept {
+		return m_entityManager.HasEntityComponent(entity , component);
+	}</span>
+	
+
+	
+
+<span style = "background-color:#fdd">	size_t ECSRegistry::SizeOfComponent(CompID id)  noexcept {
+		if (!HasRegister(id)) return 0;
+		const IComponentArray* components = (const IComponentArray*) m_typeComponentMap[id];</span>
+
+<span style = "background-color:#fdd">		return components-&gt;SizeOfComponent();
+	}</span>
+
+
+<span style = "background-color:#dfd">	size_t ECSRegistry::Count(CompID id) noexcept {
+		if (!HasRegister(id)) return 0;
+		const IComponentArray* components = (const IComponentArray*)m_typeComponentMap[id];</span>
+
+<span style = "background-color:#dfd">		return components-&gt;Count();
+	}</span>
+	
+<span style = "background-color:#dfd">	void* ECSRegistry::GetComponent(CompID id , EntID entity) noexcept {
+		if (!HasRegister(id)) return nullptr;</span>
+
+<span style = "background-color:#dfd">		IComponentArray* components =m_typeComponentMap[id];</span>
+
+<span style = "background-color:#dfd">		return components-&gt;GetComponentV(entity);
+	}</span>
+
+<span style = "background-color:#dfd">	bool ECSRegistry::HasRegister(CompID id) const noexcept {
+		return m_typeComponentMap.count(id) != 0;
+	}</span>
+
+	
+<span style = "background-color:#fdd">	void* ECSRegistry::GetComponents(CompID id) noexcept {
+		if (!HasRegister(id)) return nullptr;</span>
+
+<span style = "background-color:#fdd">		IComponentArray* components = m_typeComponentMap[id];</span>
+
+<span style = "background-color:#fdd">		return components-&gt;GetComponentsV();
+	}</span>
+
+<span style = "background-color:#dfd">	bool ECSRegistry::RemoveEntity(EntID entity) noexcept {
+		bool res = m_entityManager.RemoveEntity(entity);
+		if (res == false) return false;</span>
+
+<span style = "background-color:#dfd">		for (auto&amp; it_pair : m_typeComponentMap) {</span>
+<span style = "background-color:#fdd">			IComponentArray* carr = it_pair.second;
+			carr-&gt;RemoveComponentV(entity);</span>
+
+<span style = "background-color:#fdd">		}</span>
+
+<span style = "background-color:#dfd">		return true;
+	}</span>
+
+	
+<span style = "background-color:#dfd">	EntID ECSRegistry::CreateEntity(void) noexcept {
+		return m_entityManager.CreateEntity();
+	}</span>
+
+	
+<span style = "background-color:#dfd">	bool ECSRegistry::HasEntity(EntID entity) const noexcept {
+		return m_entityManager.HasEntity(entity);
+	}</span>
+
+	
+<span style = "background-color:#dfd">	std::span&lt;const EntID&gt; ECSRegistry::GetAllEntities(void) const noexcept {
+		return m_entityManager.GetAllEntities();
+	}</span>
+
+<span style = "background-color:#dfd">	std::span&lt;const CompID&gt; ECSRegistry::GetSignatureOf(EntID entity) const noexcept {
+		return m_entityManager.GetSignatureOf(entity);
+	}</span>
+
+	
+<span style = "background-color:#dfd">	bool ECSRegistry::RemoveComponent(EntID entity, CompID component) noexcept {</span>
+		if (
+			!HasRegister( component)
+<span style = "background-color:#dfd">			||</span>
+			!m_entityManager.HasEntity(entity)
+			) {
+<span style = "background-color:#fdd">			return false;</span>
+		}
+
+<span style = "background-color:#dfd">		IComponentArray* components = </span>
+			m_typeComponentMap[component];
+<span style = "background-color:#dfd">		m_entityManager.RemoveComponentOf(entity , component);
+		components-&gt;RemoveComponentV(entity);</span>
+
+
+
+
+<span style = "background-color:#dfd">		return true;
+	}</span>
+
+
+<span style = "background-color:#dfd">	void* ECSRegistry::AddComponent(EntID entity, CompID component) noexcept{</span>
+		if (
+			!HasRegister(component)
+<span style = "background-color:#dfd">			||</span>
+			!m_entityManager.HasEntity(entity)
+			) {
+<span style = "background-color:#fdd">			return nullptr;</span>
+		}
+
+<span style = "background-color:#dfd">		IComponentArray* components = m_typeComponentMap[component];</span>
+
+<span style = "background-color:#dfd">		void* result = components-&gt;AddComponentV(entity);
+		if (result == nullptr) {
+			return nullptr;</span>
+		}
+
+<span style = "background-color:#dfd">		m_entityManager.AssignToEntity(entity , component);</span>
+
+<span style = "background-color:#dfd">		return result;
+	}</span>
+
+
+<span style = "background-color:#dfd">	void* ECSRegistry::ReplaceComponent(EntID entity, CompID component) noexcept{</span>
+		if (
+			!HasRegister(component)
+			||
+			!m_entityManager.HasEntity(entity)
+<span style = "background-color:#dfd">			||</span>
+			!m_entityManager.HasEntityComponent(entity ,component )
+			) {
+<span style = "background-color:#dfd">			return nullptr;</span>
+		}
+
+<span style = "background-color:#dfd">		IComponentArray* components = m_typeComponentMap[component];</span>
+
+<span style = "background-color:#dfd">		return components-&gt;ReplaceComponentV(entity);
+	}</span>
+
+<span style = "background-color:#dfd">	std::string nullName = "none";</span>
+	
+<span style = "background-color:#fdd">	const std::string&amp; ECSRegistry::GetName(CompID component) const noexcept {
+		if (!HasRegister(component)) {
+			return nullName;</span>
+		}
+
+<span style = "background-color:#fdd">		const IComponentArray* components = m_typeComponentMap.at(component);</span>
+
+<span style = "background-color:#fdd">		return components-&gt;GetName();
+	}</span>
+
+}</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

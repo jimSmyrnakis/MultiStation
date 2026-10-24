@@ -3,31 +3,34 @@ namespace MultiStation {
 
 	SceneGraph::SceneGraph(void) {
 		// just make the root
-		m_tree[rootEntity].parent = nullEntity;
-		
+		m_tree[rootEntity].id = rootEntity;
+		m_root = &m_tree[rootEntity];
+		m_root->parent = nullptr;
 	}
+	
+	bool EntityNode::operator==(EntityNode& node) noexcept {
+		return id == node.id;
+	}
+	bool EntityNode::operator==(const EntityNode& node)  const noexcept{
+		return id == node.id;
+	}
+	bool SceneGraph::WouldCreateCycle(EntityNode* entity, EntityNode* parent) noexcept {
+		EntityNode* current = parent;
 
-	bool SceneGraph::WouldCreateCycle(EntID entity, EntID parent) {
-		EntID current = parent;
-
-		while (current != rootEntity && current != nullEntity) {
+		while (current && current != m_root ) {
 			if (current == entity) {
 				return true;
 			}
 
-			auto it = m_tree.find(current);
+			
 
-			if (it == m_tree.end()) {
-				return false;
-			}
-
-			current = it->second.parent;
+			current = current->parent;
 		}
 
 		return current == entity;
 	}
 
-	bool SceneGraph::AddEntity(EntID entity) {
+	bool SceneGraph::AddEntity(EntID entity) noexcept {
 
 		if (entity == nullEntity || entity == rootEntity) {
 			return false;
@@ -36,14 +39,16 @@ namespace MultiStation {
 		auto result = m_tree.try_emplace(entity);
 		if (result.second ) {
 			EntityNode* node = &result.first->second;
-			node->parent = rootEntity;
+			node->parent = m_root;
+			node->id = entity;
 			EntityNode& ref = m_tree[rootEntity];
-			ref.childs.push_back(entity);
+			ref.childs.push_back(node);
+			ref.childs_ids.push_back(node->id);
 		}
 		return result.second;
 	}
 
-	bool SceneGraph::RemoveEntity(EntID entity) {
+	bool SceneGraph::RemoveEntity(EntID entity) noexcept {
 		auto it = m_tree.find(entity);
 		if ( 
 			(it == m_tree.end())   || 
@@ -57,31 +62,28 @@ namespace MultiStation {
 		auto& childs = it->second.childs;
 
 		// find parent
-		EntID parent = it->second.parent;
-		EntityNode& parent_node = m_tree.find(parent)->second;
+		EntityNode* parent = it->second.parent;
+		EntityNode& parent_node = *parent;
 		
 		// for each child
-		for (EntID child : childs) {
+		for (EntityNode* child : childs) {
 			// update its parent
-			auto child_it = m_tree.find(child);
-			child_it->second.parent = parent;
+			child->parent = parent;
 			// and update its parent childs
 			parent_node.childs.push_back(child);
+			parent_node.childs_ids.push_back(child->id);
 		}
 
 
 
 		// Remove entity from his parent
-		auto entity_parent_it = std::find(
-			parent_node.childs.begin(),
-			parent_node.childs.end(),
-			entity);
-		if (entity_parent_it != parent_node.childs.end()) {
-			parent_node.childs.erase(
-				entity_parent_it
-			);
-		}
-		
+		auto ent_it = std::find(parent_node.childs.begin(), parent_node.childs.end(), &it->second);
+		size_t ent_it_index = std::distance(parent_node.childs.begin(), ent_it);
+
+		MS_ASSERT(ent_it != parent_node.childs.end(), "This Should not happen !");
+			
+		parent_node.childs.erase(ent_it);
+		parent_node.childs_ids.erase(parent_node.childs_ids.begin() + ent_it_index);
 
 		// remove entity from the unordered map
 		m_tree.erase(entity);
@@ -91,7 +93,7 @@ namespace MultiStation {
 		return true;
 	}
 
-	bool SceneGraph::SetParent(EntID entity, EntID parent) {
+	bool SceneGraph::SetParent(EntID entity, EntID parent) noexcept {
 		auto it_entity = m_tree.find(entity);
 		auto it_parent = m_tree.find(parent);
 
@@ -102,13 +104,13 @@ namespace MultiStation {
 			parent == nullEntity ||
 			it_entity == m_tree.end() ||
 			it_parent == m_tree.end() ||
-			WouldCreateCycle(entity, parent)
+			WouldCreateCycle(&it_entity->second, &it_parent->second)
 		){
 			return false;
 		}
 
 		// check if parent is already the same
-		if (it_entity->second.parent == parent) {
+		if (&it_parent->second == it_entity->second.parent) {
 			return true;
 		}
 
@@ -116,49 +118,44 @@ namespace MultiStation {
 
 
 		// Remove entity from old parent
-		auto it_old_parent = m_tree.find(it_entity->second.parent);
+		EntityNode* old_parent = it_entity->second.parent;
+		auto ent_child_it = std::find(
+			old_parent->childs.begin(), old_parent->childs.end(), &it_entity->second);
+		MS_ASSERT(ent_child_it != old_parent->childs.end(), "This Should not happen !");
+		size_t index = std::distance(old_parent->childs.begin(), ent_child_it);
+		old_parent->childs.erase(ent_child_it);
+		old_parent->childs_ids.erase(old_parent->childs_ids.begin() + index);
 
-		if (it_old_parent != m_tree.end()) {
-			auto& childs = it_old_parent->second.childs;
-
-			auto child_it = std::find(
-				childs.begin(),
-				childs.end(),
-				entity
-			);
-
-			if (child_it != childs.end()) {
-				childs.erase(child_it);
-			}
-		}
+		
 
 		// Set new parent
-		it_entity->second.parent = parent;
+		it_entity->second.parent = &it_parent->second;
 
 		// Add to new parent's children
-		it_parent->second.childs.push_back(entity);
+		it_parent->second.childs.push_back(&it_entity->second);
+		it_parent->second.childs_ids.push_back(it_entity->second.id);
 
 		return true;
 	}
 
-	bool SceneGraph::GetParent(EntID entity , EntID& ref) const {
+	bool SceneGraph::GetParent(EntID entity , EntID& ref) const noexcept {
 		auto it = m_tree.find(entity);
-		if (it == m_tree.end() || (entity == nullEntity)) {
+		if (it == m_tree.end() || (entity == nullEntity) || (entity == rootEntity) ) {
 			return false;
 		}
 			
 		
-		ref = it->second.parent;
+		ref = it->second.parent->id;
 		return true;
 	}
 
-	std::span< const EntID> SceneGraph::GetChilds(EntID entity) const  {
+	std::span< const EntID> SceneGraph::GetChilds(EntID entity) const noexcept {
 		auto it = m_tree.find(entity);
 		if (it == m_tree.end() || (entity == nullEntity)) {
 			return {};
 		}
 
 
-		return it->second.childs;
+		return it->second.childs_ids;
 	}
 }

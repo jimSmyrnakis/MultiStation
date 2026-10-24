@@ -7,12 +7,12 @@ namespace MultiStation {
 	
 	}
 
-	void TransformSystem::OnAttach(void) {
-
+	void TransformSystem::OnAttach(void) noexcept {
+		MS_INFO("Transform System On Attach");
 	}
 
-	void TransformSystem::OnDettach(void) {
-
+	void TransformSystem::OnDettach(void) noexcept {
+		MS_INFO("Transform System On Dettach");
 	}
 
 
@@ -38,7 +38,7 @@ namespace MultiStation {
 		}
 	}
 
-	void TransformSystem::OnUpdate(float dt) {
+	void TransformSystem::OnUpdate(float dt) noexcept {
 		
 
 		// for each entity caculate the transform
@@ -93,8 +93,5 @@ namespace MultiStation {
 
 
 
-	void TransformSystem::OnEvent(Event& e) {
-
-	}
 
 }

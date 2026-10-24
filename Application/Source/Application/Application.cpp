@@ -30,7 +30,7 @@ namespace MultiStation {
 		
 
 		isInitialized = false;
-		
+		m_lastUpdatedTime = Time::GetTimeInSeconds();
 		this->SetApplication(this);
 
 		
@@ -55,10 +55,11 @@ namespace MultiStation {
 		
 
 	}
-	static float dt;
+
 	void Application::Run(void) noexcept {
 		MS_ASSERT(isInitialized, "Application not initiallized");
-
+		float dt = Time::GetTimeInSeconds() - m_lastUpdatedTime;
+		m_lastUpdatedTime = Time::GetTimeInSeconds();
 		// poll events and update imgui and game engine events
 		m_window->PollEvents();
 
@@ -66,7 +67,7 @@ namespace MultiStation {
 		IO::PollCallbacks();
 
 		// Before all call updates for each engine
-		m_engine.OnUpdate(0.016f);
+		m_engine.OnUpdate(dt);
 
 		
 
@@ -74,7 +75,7 @@ namespace MultiStation {
 
 		// draw ui 
 		m_ImGuiLayer->Begin();
-		m_layers.OnUIRender(0.016f);
+		m_layers.OnUIRender(dt);
 		m_ImGuiLayer->End();
 
 		

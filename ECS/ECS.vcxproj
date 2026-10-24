@@ -56,6 +56,7 @@
     <ClCompile Include="Source\Scene\SceneSerializer.cpp" />
     <ClCompile Include="Source\Serialization\Archive\TextArchive.cpp" />
     <ClCompile Include="Source\Serialization\Registry\SerializationRegistry.cpp" />
+    <ClCompile Include="Source\System\ISystem.cpp" />
     <ClCompile Include="Source\System\ISystemModule.cpp" />
     <ClCompile Include="Source\System\SystemManager.cpp" />
   </ItemGroup>

@@ -18,7 +18,7 @@ int main(void)
 	std::shared_ptr<IArchiveWriter> writer = std::make_shared<TextArchiveWriter>( &writeStream);
 	SerializationRegistry serializeRegistry;
     ObjectMap map;
-    Scene scene(ctx, serializeRegistry , map);
+    Scene scene(ctx , map);
     constexpr int RUNS = 1;
     constexpr int COMPONENTS = 100000;
 

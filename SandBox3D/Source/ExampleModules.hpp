@@ -1968,13 +1968,7 @@ namespace MultiStation
             MS_INFO("IO Example System On Detach");
         }
 
-        virtual inline void OnUpdate(float) noexcept override
-        {
-        }
 
-        virtual inline void OnEvent(Event&) noexcept override
-        {
-        }
     };
 
 

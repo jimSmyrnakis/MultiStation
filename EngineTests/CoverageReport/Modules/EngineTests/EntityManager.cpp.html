@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>EntityManager.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include "EntityManager.hpp"
+
+namespace MultiStation {
+
+<span style = "background-color:#dfd">	EntityManager::EntityManager(void) noexcept {
+		m_counter = 0;
+	}</span>
+	 
+<span style = "background-color:#dfd">	EntID EntityManager::CreateEntity( void ) noexcept {
+		if (m_counter == 0xFFFFFFFE)</span>
+<span style = "background-color:#fdd">			return nullEntity;</span>
+<span style = "background-color:#dfd">		m_counter++;
+		m_entities.push_back(m_counter);
+		m_signature.push_back({});
+		return m_counter;
+	}</span>
+
+<span style = "background-color:#dfd">	bool EntityManager::RemoveEntity(EntID entity) noexcept {
+		size_t index = 0;
+		std::vector&lt;EntID&gt;::iterator it_entity = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it_entity == m_entities.end()) {
+			return false;</span>
+		}
+<span style = "background-color:#dfd">		index = std::distance(m_entities.begin(), it_entity);</span>
+
+<span style = "background-color:#dfd">		std::vector&lt;std::vector&lt;CompID&gt;&gt;::iterator it_signature = m_signature.begin() + index;</span>
+
+<span style = "background-color:#dfd">		m_entities.erase(it_entity);
+		m_signature.erase(it_signature);</span>
+
+<span style = "background-color:#dfd">		return true;
+	}</span>
+
+
+<span style = "background-color:#dfd">	bool EntityManager::HasEntity(EntID entity) const noexcept {
+		std::vector&lt;EntID&gt;::const_iterator it_entity = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it_entity == m_entities.end()) {
+			return false;</span>
+		}
+<span style = "background-color:#dfd">		return true;
+	}</span>
+
+<span style = "background-color:#dfd">	std::span&lt;const EntID&gt; EntityManager::GetAllEntities(void) const noexcept {
+		return m_entities;
+	}</span>
+	
+<span style = "background-color:#dfd">	std::span&lt; const CompID&gt; EntityManager::GetSignatureOf(EntID entity) const noexcept {
+		size_t index = 0;
+		std::vector&lt;EntID&gt;::const_iterator it_entity = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it_entity == m_entities.end()) {</span>
+<span style = "background-color:#fdd">			return {};</span>
+		}
+<span style = "background-color:#dfd">		index = std::distance(m_entities.begin(), it_entity);</span>
+
+<span style = "background-color:#dfd">		const std::vector&lt;std::vector&lt;CompID&gt;&gt;::const_iterator it_signature = m_signature.begin() + index;</span>
+
+<span style = "background-color:#dfd">		return *it_signature;
+	}</span>
+
+<span style = "background-color:#dfd">	bool EntityManager::AssignToEntity(EntID entity, CompID component) noexcept {
+		size_t index = 0;
+		std::vector&lt;EntID&gt;::iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it == m_entities.end()) {</span>
+<span style = "background-color:#fdd">			return false;</span>
+		}
+<span style = "background-color:#dfd">		index = std::distance(m_entities.begin(), it);</span>
+		
+<span style = "background-color:#dfd">		auto it_sig = std::find(m_signature[index].begin(), m_signature[index].end(), component);
+		if (it_sig != m_signature[index].end())</span>
+<span style = "background-color:#fdd">			return true;</span>
+
+<span style = "background-color:#dfd">		m_signature[index].push_back( component);
+		return true;
+	}</span>
+
+<span style = "background-color:#dfd">	bool EntityManager::HasEntityComponent(EntID entity, CompID component) const noexcept {
+		size_t index = 0;
+		std::vector&lt;EntID&gt;::const_iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it == m_entities.end()) {</span>
+<span style = "background-color:#fdd">			return false;</span>
+		}
+<span style = "background-color:#dfd">		index = std::distance(m_entities.begin(), it);
+		auto it_sig = std::find(m_signature[index].begin(), m_signature[index].end(), component);
+		return it_sig != m_signature[index].end();
+	}</span>
+
+<span style = "background-color:#dfd">	bool EntityManager::RemoveComponentOf(EntID entity, CompID component) noexcept {
+		size_t index = 0;
+		std::vector&lt;EntID&gt;::iterator it = std::find(m_entities.begin(), m_entities.end(), entity);
+		if (it == m_entities.end()) {</span>
+<span style = "background-color:#fdd">			return false;</span>
+		}
+<span style = "background-color:#dfd">		index = std::distance(m_entities.begin(), it);
+		auto it_sig = std::find(m_signature[index].begin(), m_signature[index].end(), component);
+		if (it_sig == m_signature[index].end())
+			return true;</span>
+
+<span style = "background-color:#dfd">		m_signature[index].erase(it_sig);</span>
+
+<span style = "background-color:#dfd">		return true;
+	}</span>
+
+}</pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>

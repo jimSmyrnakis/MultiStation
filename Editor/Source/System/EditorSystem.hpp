@@ -5,25 +5,21 @@ namespace MultiStation{
 	class EditorSystem : public ISystem {
 	public:
 
-		virtual ~EditorSystem(void) = default;
+		virtual ~EditorSystem(void) noexcept = default;
 		 
 
-		inline void OnAttach(void) override {
+		inline void OnAttach(void) noexcept override {
 			MS_ENGINE_INFO("Editor System OnAttach called !");
 		};
 
 
 		
-		inline void OnDettach(void) override {
+		inline void OnDettach(void) noexcept override {
 			MS_ENGINE_INFO("Editor System OnDettach called !");
 		};
 
 
 		
-		inline void OnUpdate(float delta_time) override {};
-
-		
-		inline void OnEvent(Event& e) override {};
 	};
 
 }

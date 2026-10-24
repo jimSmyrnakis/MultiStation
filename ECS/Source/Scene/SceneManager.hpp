@@ -6,7 +6,7 @@ namespace MultiStation{
 
 	public:
 		
-		SceneManager(EngineContext& ctx , SerializationRegistry& serializer , ObjectMap& objMap);
+		SceneManager(EngineContext& ctx  , ObjectMap& objMap);
 
 
 		/**
@@ -35,7 +35,6 @@ namespace MultiStation{
 	private:
 		Scene* m_currentScene;
 		EngineContext& m_context;
-		SerializationRegistry& m_serializer;
 		ObjectMap& m_objectMap;
 		
 	};

@@ -24,7 +24,7 @@ namespace MultiStation{
 	 */
 	template<typename T>
 	CompID GetComponentID(void) {
-		static CompID id = 1 <<
+		static CompID id = ((uint64_t)1) <<
 			s_typeID.fetch_add(
 				1, 
 				std::memory_order_relaxed

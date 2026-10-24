@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.92045454545454541" branch-rate="0" complexity="0" branches-covered="0" branches-valid="0" timestamp="1792616676" lines-covered="81" lines-valid="88" version="0">
+<coverage line-rate="0.86163522012578619" branch-rate="0" complexity="0" branches-covered="0" branches-valid="0" timestamp="1792786321" lines-covered="274" lines-valid="318" version="0">
   <sources>
     <source>C:</source>
   </sources>
   <packages>
-    <package name="C:\Users\User\Desktop\Projects\MultiStation\EngineTests\Tests\Debug\Win32\EngineTests.exe" line-rate="0.92045454545454541" branch-rate="0" complexity="0">
+    <package name="C:\Users\User\Desktop\Projects\MultiStation\EngineTests\Tests\Debug\Win32\EngineTests.exe" line-rate="0.86163522012578619" branch-rate="0" complexity="0">
       <classes>
-        <class name="ComponentArray.hpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\ComponentArray\ComponentArray.hpp" line-rate="0.91954022988505746" branch-rate="0" complexity="0">
+        <class name="ComponentArray.hpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\ComponentArray\ComponentArray.hpp" line-rate="0.88888888888888884" branch-rate="0" complexity="0">
           <methods/>
           <lines>
+            <line number="239" hits="0"/>
+            <line number="240" hits="0"/>
+            <line number="241" hits="0"/>
             <line number="247" hits="1"/>
             <line number="248" hits="1"/>
             <line number="249" hits="1"/>
@@ -102,6 +105,258 @@
           <methods/>
           <lines>
             <line number="23" hits="1"/>
+          </lines>
+        </class>
+        <class name="EntityManager.cpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\EntityManager.cpp" line-rate="0.9178082191780822" branch-rate="0" complexity="0">
+          <methods/>
+          <lines>
+            <line number="5" hits="1"/>
+            <line number="6" hits="1"/>
+            <line number="7" hits="1"/>
+            <line number="9" hits="1"/>
+            <line number="10" hits="1"/>
+            <line number="11" hits="0"/>
+            <line number="12" hits="1"/>
+            <line number="13" hits="1"/>
+            <line number="14" hits="1"/>
+            <line number="15" hits="1"/>
+            <line number="16" hits="1"/>
+            <line number="18" hits="1"/>
+            <line number="19" hits="1"/>
+            <line number="20" hits="1"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1"/>
+            <line number="24" hits="1"/>
+            <line number="26" hits="1"/>
+            <line number="28" hits="1"/>
+            <line number="29" hits="1"/>
+            <line number="31" hits="1"/>
+            <line number="32" hits="1"/>
+            <line number="35" hits="1"/>
+            <line number="36" hits="1"/>
+            <line number="37" hits="1"/>
+            <line number="38" hits="1"/>
+            <line number="40" hits="1"/>
+            <line number="41" hits="1"/>
+            <line number="43" hits="1"/>
+            <line number="44" hits="1"/>
+            <line number="45" hits="1"/>
+            <line number="47" hits="1"/>
+            <line number="48" hits="1"/>
+            <line number="49" hits="1"/>
+            <line number="50" hits="1"/>
+            <line number="51" hits="0"/>
+            <line number="53" hits="1"/>
+            <line number="55" hits="1"/>
+            <line number="57" hits="1"/>
+            <line number="58" hits="1"/>
+            <line number="60" hits="1"/>
+            <line number="61" hits="1"/>
+            <line number="62" hits="1"/>
+            <line number="63" hits="1"/>
+            <line number="64" hits="0"/>
+            <line number="66" hits="1"/>
+            <line number="68" hits="1"/>
+            <line number="69" hits="1"/>
+            <line number="70" hits="0"/>
+            <line number="72" hits="1"/>
+            <line number="73" hits="1"/>
+            <line number="74" hits="1"/>
+            <line number="76" hits="1"/>
+            <line number="77" hits="1"/>
+            <line number="78" hits="1"/>
+            <line number="79" hits="1"/>
+            <line number="80" hits="0"/>
+            <line number="82" hits="1"/>
+            <line number="83" hits="1"/>
+            <line number="84" hits="1"/>
+            <line number="85" hits="1"/>
+            <line number="87" hits="1"/>
+            <line number="88" hits="1"/>
+            <line number="89" hits="1"/>
+            <line number="90" hits="1"/>
+            <line number="91" hits="0"/>
+            <line number="93" hits="1"/>
+            <line number="94" hits="1"/>
+            <line number="95" hits="1"/>
+            <line number="96" hits="1"/>
+            <line number="98" hits="1"/>
+            <line number="100" hits="1"/>
+            <line number="101" hits="1"/>
+          </lines>
+        </class>
+        <class name="EntityManager.hpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\EntityManager.hpp" line-rate="1" branch-rate="0" complexity="0">
+          <methods/>
+          <lines>
+            <line number="139" hits="1"/>
+            <line number="140" hits="1"/>
+            <line number="141" hits="1"/>
+            <line number="146" hits="1"/>
+            <line number="147" hits="1"/>
+            <line number="148" hits="1"/>
+            <line number="151" hits="1"/>
+            <line number="152" hits="1"/>
+            <line number="153" hits="1"/>
+          </lines>
+        </class>
+        <class name="Registry.cpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\Registry.cpp" line-rate="0.74698795180722888" branch-rate="0" complexity="0">
+          <methods/>
+          <lines>
+            <line number="5" hits="1"/>
+            <line number="6" hits="1"/>
+            <line number="7" hits="1"/>
+            <line number="8" hits="1"/>
+            <line number="9" hits="1"/>
+            <line number="11" hits="1"/>
+            <line number="12" hits="1"/>
+            <line number="13" hits="1"/>
+            <line number="18" hits="0"/>
+            <line number="19" hits="0"/>
+            <line number="20" hits="0"/>
+            <line number="22" hits="0"/>
+            <line number="23" hits="0"/>
+            <line number="26" hits="1"/>
+            <line number="27" hits="1"/>
+            <line number="28" hits="1"/>
+            <line number="30" hits="1"/>
+            <line number="31" hits="1"/>
+            <line number="33" hits="1"/>
+            <line number="34" hits="1"/>
+            <line number="36" hits="1"/>
+            <line number="38" hits="1"/>
+            <line number="39" hits="1"/>
+            <line number="41" hits="1"/>
+            <line number="42" hits="1"/>
+            <line number="43" hits="1"/>
+            <line number="46" hits="0"/>
+            <line number="47" hits="0"/>
+            <line number="49" hits="0"/>
+            <line number="51" hits="0"/>
+            <line number="52" hits="0"/>
+            <line number="54" hits="1"/>
+            <line number="55" hits="1"/>
+            <line number="56" hits="1"/>
+            <line number="58" hits="1"/>
+            <line number="59" hits="0"/>
+            <line number="60" hits="0"/>
+            <line number="62" hits="0"/>
+            <line number="64" hits="1"/>
+            <line number="65" hits="1"/>
+            <line number="68" hits="1"/>
+            <line number="69" hits="1"/>
+            <line number="70" hits="1"/>
+            <line number="73" hits="1"/>
+            <line number="74" hits="1"/>
+            <line number="75" hits="1"/>
+            <line number="78" hits="1"/>
+            <line number="79" hits="1"/>
+            <line number="80" hits="1"/>
+            <line number="82" hits="1"/>
+            <line number="83" hits="1"/>
+            <line number="84" hits="1"/>
+            <line number="87" hits="1"/>
+            <line number="90" hits="1"/>
+            <line number="93" hits="0"/>
+            <line number="96" hits="1"/>
+            <line number="98" hits="1"/>
+            <line number="99" hits="1"/>
+            <line number="104" hits="1"/>
+            <line number="105" hits="1"/>
+            <line number="108" hits="1"/>
+            <line number="111" hits="1"/>
+            <line number="114" hits="0"/>
+            <line number="117" hits="1"/>
+            <line number="119" hits="1"/>
+            <line number="120" hits="1"/>
+            <line number="121" hits="1"/>
+            <line number="124" hits="1"/>
+            <line number="126" hits="1"/>
+            <line number="127" hits="1"/>
+            <line number="130" hits="1"/>
+            <line number="135" hits="1"/>
+            <line number="138" hits="1"/>
+            <line number="141" hits="1"/>
+            <line number="143" hits="1"/>
+            <line number="144" hits="1"/>
+            <line number="146" hits="1"/>
+            <line number="148" hits="0"/>
+            <line number="149" hits="0"/>
+            <line number="150" hits="0"/>
+            <line number="153" hits="0"/>
+            <line number="155" hits="0"/>
+            <line number="156" hits="0"/>
+          </lines>
+        </class>
+        <class name="Registry.hpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\ECSRegistry\Registry.hpp" line-rate="0.87931034482758619" branch-rate="0" complexity="0">
+          <methods/>
+          <lines>
+            <line number="33" hits="1"/>
+            <line number="462" hits="1"/>
+            <line number="463" hits="1"/>
+            <line number="464" hits="1"/>
+            <line number="475" hits="1"/>
+            <line number="478" hits="1"/>
+            <line number="481" hits="0"/>
+            <line number="484" hits="1"/>
+            <line number="486" hits="1"/>
+            <line number="487" hits="1"/>
+            <line number="488" hits="1"/>
+            <line number="491" hits="1"/>
+            <line number="493" hits="1"/>
+            <line number="494" hits="1"/>
+            <line number="498" hits="1"/>
+            <line number="503" hits="1"/>
+            <line number="506" hits="1"/>
+            <line number="509" hits="1"/>
+            <line number="511" hits="1"/>
+            <line number="512" hits="1"/>
+            <line number="516" hits="1"/>
+            <line number="519" hits="1"/>
+            <line number="522" hits="0"/>
+            <line number="526" hits="1"/>
+            <line number="527" hits="1"/>
+            <line number="530" hits="1"/>
+            <line number="531" hits="1"/>
+            <line number="532" hits="1"/>
+            <line number="537" hits="1"/>
+            <line number="538" hits="1"/>
+            <line number="542" hits="1"/>
+            <line number="543" hits="1"/>
+            <line number="545" hits="0"/>
+            <line number="548" hits="1"/>
+            <line number="550" hits="1"/>
+            <line number="551" hits="1"/>
+            <line number="568" hits="1"/>
+            <line number="573" hits="1"/>
+            <line number="576" hits="1"/>
+            <line number="581" hits="1"/>
+            <line number="583" hits="1"/>
+            <line number="584" hits="1"/>
+            <line number="619" hits="1"/>
+            <line number="620" hits="1"/>
+            <line number="621" hits="1"/>
+            <line number="622" hits="0"/>
+            <line number="623" hits="0"/>
+            <line number="627" hits="1"/>
+            <line number="628" hits="1"/>
+            <line number="629" hits="0"/>
+            <line number="630" hits="0"/>
+            <line number="632" hits="1"/>
+            <line number="634" hits="1"/>
+            <line number="635" hits="1"/>
+            <line number="638" hits="1"/>
+            <line number="639" hits="1"/>
+            <line number="640" hits="1"/>
+            <line number="641" hits="1"/>
+          </lines>
+        </class>
+        <class name="Globals.hpp" filename="Users\User\Desktop\Projects\MultiStation\ECS\Source\Globals\Globals.hpp" line-rate="1" branch-rate="0" complexity="0">
+          <methods/>
+          <lines>
+            <line number="26" hits="1"/>
+            <line number="27" hits="1"/>
+            <line number="33" hits="1"/>
+            <line number="34" hits="1"/>
           </lines>
         </class>
       </classes>
