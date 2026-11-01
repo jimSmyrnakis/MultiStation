@@ -91,14 +91,167 @@ $(function(){initNavTree('struct_multi_station_1_1_entity_node.html','','struct_
   <div class="headertitle"><div class="title">MultiStation::EntityNode Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Stores an entity's identity and links within a <a class="el" href="class_multi_station_1_1_scene_graph.html" title="Maintains an acyclic parent-child hierarchy of entity IDs. This class manages hierarchy only; it does...">SceneGraph</a>.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_scene_graph_8hpp_source.html">SceneGraph.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a09432e55b77431b2a7036d6c0558a8f2" id="r_a09432e55b77431b2a7036d6c0558a8f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09432e55b77431b2a7036d6c0558a8f2">operator==</a> (<a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a09432e55b77431b2a7036d6c0558a8f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares node IDs without comparing their hierarchy links.  <br /></td></tr>
+<tr class="memitem:a40eedf3280c3b51f625406171ef6f2ed" id="r_a40eedf3280c3b51f625406171ef6f2ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40eedf3280c3b51f625406171ef6f2ed">operator==</a> (const <a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> &amp;node) const noexcept</td></tr>
+<tr class="memdesc:a40eedf3280c3b51f625406171ef6f2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares node IDs through a const node.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a13e581a48bde2d106c432e978cf0529c" id="r_a13e581a48bde2d106c432e978cf0529c"><td class="memItemLeft" align="right" valign="top"><a id="a13e581a48bde2d106c432e978cf0529c" name="a13e581a48bde2d106c432e978cf0529c"></a>
-std::vector&lt; EntID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>childs</b></td></tr>
-<tr class="memitem:adaea2d3456ce25cd113ed42fe1a7f4e3" id="r_adaea2d3456ce25cd113ed42fe1a7f4e3"><td class="memItemLeft" align="right" valign="top"><a id="adaea2d3456ce25cd113ed42fe1a7f4e3" name="adaea2d3456ce25cd113ed42fe1a7f4e3"></a>
-EntID&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
+<tr class="memitem:aa13c1685ec9359456f0c51cc151f52a8" id="r_aa13c1685ec9359456f0c51cc151f52a8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa13c1685ec9359456f0c51cc151f52a8">childs</a></td></tr>
+<tr class="memdesc:aa13c1685ec9359456f0c51cc151f52a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct child nodes, in the same order as childs_ids.  <br /></td></tr>
+<tr class="memitem:aa9a84f1899926592a1225a80fec34441" id="r_aa9a84f1899926592a1225a80fec34441"><td class="memItemLeft" align="right" valign="top">std::vector&lt; EntID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9a84f1899926592a1225a80fec34441">childs_ids</a></td></tr>
+<tr class="memdesc:aa9a84f1899926592a1225a80fec34441"><td class="mdescLeft">&#160;</td><td class="mdescRight">IDs corresponding to the pointers in childs.  <br /></td></tr>
+<tr class="memitem:a69e5e56c8181734e7d58de493f556409" id="r_a69e5e56c8181734e7d58de493f556409"><td class="memItemLeft" align="right" valign="top">EntID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69e5e56c8181734e7d58de493f556409">id</a> = nullEntity</td></tr>
+<tr class="memdesc:a69e5e56c8181734e7d58de493f556409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entity represented by this node, or nullEntity before initialization.  <br /></td></tr>
+<tr class="memitem:a55620a66b99a75d7d380741abd836ba8" id="r_a55620a66b99a75d7d380741abd836ba8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55620a66b99a75d7d380741abd836ba8">parent</a> = nullptr</td></tr>
+<tr class="memdesc:a55620a66b99a75d7d380741abd836ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent node; nullptr for the graph's root.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Stores an entity's identity and links within a <a class="el" href="class_multi_station_1_1_scene_graph.html" title="Maintains an acyclic parent-child hierarchy of entity IDs. This class manages hierarchy only; it does...">SceneGraph</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>Node storage is owned by the graph; parent and child pointers are non-owning. </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a40eedf3280c3b51f625406171ef6f2ed" name="a40eedf3280c3b51f625406171ef6f2ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40eedf3280c3b51f625406171ef6f2ed">&#9670;&#160;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityNode::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares node IDs through a const node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>Node to compare with this node. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when both nodes have the same entity ID. </dd></dl>
+
+</div>
+</div>
+<a id="a09432e55b77431b2a7036d6c0558a8f2" name="a09432e55b77431b2a7036d6c0558a8f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09432e55b77431b2a7036d6c0558a8f2">&#9670;&#160;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityNode::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares node IDs without comparing their hierarchy links. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>Node to compare with this node. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True when both nodes have the same entity ID. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aa13c1685ec9359456f0c51cc151f52a8" name="aa13c1685ec9359456f0c51cc151f52a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13c1685ec9359456f0c51cc151f52a8">&#9670;&#160;</a></span>childs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a>*&gt; MultiStation::EntityNode::childs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Direct child nodes, in the same order as childs_ids. </p>
+
+</div>
+</div>
+<a id="aa9a84f1899926592a1225a80fec34441" name="aa9a84f1899926592a1225a80fec34441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a84f1899926592a1225a80fec34441">&#9670;&#160;</a></span>childs_ids</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;EntID&gt; MultiStation::EntityNode::childs_ids</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IDs corresponding to the pointers in childs. </p>
+
+</div>
+</div>
+<a id="a69e5e56c8181734e7d58de493f556409" name="a69e5e56c8181734e7d58de493f556409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e5e56c8181734e7d58de493f556409">&#9670;&#160;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntID MultiStation::EntityNode::id = nullEntity</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entity represented by this node, or nullEntity before initialization. </p>
+
+</div>
+</div>
+<a id="a55620a66b99a75d7d380741abd836ba8" name="a55620a66b99a75d7d380741abd836ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55620a66b99a75d7d380741abd836ba8">&#9670;&#160;</a></span>parent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_multi_station_1_1_entity_node.html">EntityNode</a>* MultiStation::EntityNode::parent = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parent node; nullptr for the graph's root. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Source/Scene/<a class="el" href="_scene_graph_8hpp_source.html">SceneGraph.hpp</a></li>
 </ul>

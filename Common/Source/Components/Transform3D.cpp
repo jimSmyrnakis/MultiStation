@@ -303,4 +303,47 @@ namespace MultiStation::Component {
         word_matrix = local_matrix = glm::mat4(1);
 	}
 
+
+    bool Transform3DSerializable::Serialize(void* ref, IArchiveWriter* archive) {
+        Transform3D* tsf = static_cast<Transform3D*>(ref);
+        if (!tsf || !archive) return false;
+
+        archive->BeginObject("Transform3D");
+        {
+            archive->WriteField("Position.x", tsf->position.x);
+            archive->WriteField("Position.y", tsf->position.y);
+            archive->WriteField("Position.z", tsf->position.z);
+            archive->WriteField("Rotation.x", tsf->rotation.x);
+            archive->WriteField("Rotation.y", tsf->rotation.y);
+            archive->WriteField("Rotation.z", tsf->rotation.z);
+            archive->WriteField("Scale.x", tsf->scale.x);
+            archive->WriteField("Scale.y", tsf->scale.y);
+            archive->WriteField("Scale.z", tsf->scale.z);
+        }
+        archive->EndObject();
+
+        return true;
+    }
+
+    bool Transform3DSerializable::Deserialize(void* ref, IArchiveReader* archive) {
+        Transform3D* tsf = static_cast<Transform3D*>(ref);
+        if (!tsf || !archive) return false;
+
+        archive->BeginObject("Transform3D");
+        {
+            archive->ReadField("Position.x", tsf->position.x);
+            archive->ReadField("Position.y", tsf->position.y);
+            archive->ReadField("Position.z", tsf->position.z);
+            archive->ReadField("Rotation.x", tsf->rotation.x);
+            archive->ReadField("Rotation.y", tsf->rotation.y);
+            archive->ReadField("Rotation.z", tsf->rotation.z);
+            archive->ReadField("Scale.x", tsf->scale.x);
+            archive->ReadField("Scale.y", tsf->scale.y);
+            archive->ReadField("Scale.z", tsf->scale.z);
+        }
+        archive->EndObject();
+
+        return true;
+    }
+
 }

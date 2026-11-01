@@ -1,0 +1,170 @@
+#pragma once
+#include <unordered_map>
+#include "ComponentArray/ComponentArray.hpp"
+namespace MultiStation{
+
+	struct ECSStorage {
+		std::unordered_map<CompID, IComponentArray*> components;
+		// callbacks
+		std::function<void(CompID)> at_unregister_call;
+	};
+
+	/**
+	 * @class CentralStorageManager
+	 * @brief Responsible for creating , destroying , getting and registration's of components
+	 * for all the ecs registrie's of the application (A common ground) . Provides already existing 
+	 * storage's and manages the registration's and lifetimes of each .
+	 */
+	class CentralStorageManager {
+
+	public:
+		/** @brief Static-only manager; instances cannot be constructed. */
+		CentralStorageManager(void) = delete;
+
+		/**
+		 * @brief Initializes all 64 storage slots as available.
+		 * @note Repeated calls preserve existing storage and registrations.
+		 */
+		static void Init(void) noexcept;
+
+		/** @return True once the storage pool has been initialized. */
+		static bool IsInitialized(void) noexcept;
+
+		/**
+		 * @brief Acquires an available storage slot for a scene or ECS registry.
+		 * @param[out] id Acquired slot ID on success; unchanged on failure.
+		 * @param at_unregister Optional callback receiving a component type ID before
+		 * its array is deleted, allowing the registry to update entity signatures.
+		 * @return True on acquisition, false if all slots are in use.
+		 * @note Initializes the pool if needed. Registered types already have
+		 * independent arrays in every slot. Release the slot with DestroyStorage().
+		 */
+		static bool CreateStorage(size_t& id , std::function<void(CompID)> at_unregister = nullptr) noexcept;
+
+		/**
+		 * @brief Clears components and releases the slot for another scene/registry.
+		 * @param id Slot ID obtained from CreateStorage().
+		 * @details Retains registered arrays and their capacity for reuse, destroys
+		 * component instances, and removes the callback. Invalid or already released
+		 * IDs have no effect. Component pointers and views must no longer be used.
+		 */
+		static void DestroyStorage(size_t id) noexcept;
+
+		/**
+		 * @brief Retrieves an acquired slot's component storage.
+		 * @param id Slot ID obtained from CreateStorage().
+		 * @return Manager-owned storage, or nullptr for an invalid or available slot.
+		 * @note Use only while the slot is acquired. Registration entries and array
+		 * ownership remain managed by CentralStorageManager.
+		 */
+		static ECSStorage* GetStorage(size_t id) noexcept;
+
+		/** @return Fixed pool capacity (64), including acquired and available slots. */
+		static uint16_t GetTotalStorages(void) noexcept;
+
+		/** @return Number of slots currently available for acquisition. */
+		static uint16_t GetTotalAvailableStorages(void) noexcept;
+
+		/**
+		 * @brief Registers T across all slots, including slots for future scenes.
+		 * @tparam T Component type supported by ComponentArray.
+		 * @details Allocates an independent empty array per slot, so scenes do not
+		 * need to register the type individually. Initializes the pool if needed.
+		 * @pre T is not already registered; duplicate calls replace existing arrays.
+		 * @note Not thread-safe; serialize registration with other ECS operations.
+		 */
+		template<typename T>
+		static void Register(void) noexcept;
+
+		/**
+		 * @brief Unregisters T globally, deleting its arrays and component instances.
+		 * @tparam T Component type to unregister.
+		 * @details Calls each slot's callback before deleting its array and erasing
+		 * the entry. Does nothing if T is not registered.
+		 * @pre Callbacks update registry bookkeeping without modifying storage maps
+		 * or reentering registration operations. ECS operations are serialized.
+		 * @warning Invalidates pointers, references, and spans to T in every scene.
+		 */
+		template<typename T>
+		static void Unregister(void) noexcept;
+
+		/**
+		 * @brief Checks the common registration set using a component type.
+		 * @tparam T Component type to check.
+		 * @return True if T is registered across the pool.
+		 * @note Initializes the pool if needed; an initially empty pool returns false.
+		 */
+		template<typename T>
+		static bool HasRegister(void) noexcept;
+
+
+		/**
+		 * @brief Checks the common registration set using a runtime component ID.
+		 * @param component Component type ID to check.
+		 * @return True if the type is registered across the pool.
+		 * @note Initializes the pool if needed; an initially empty pool returns false.
+		 */
+		static bool HasRegister(CompID component) noexcept;
+
+	private:
+
+		static ECSStorage* s_storages;
+		static uint16_t s_total;
+	};
+
+
+	template<typename T>
+	void CentralStorageManager::Register(void) noexcept {
+		if (!IsInitialized()) {
+			Init();
+		}
+
+		CompID compID = GetComponentID<T>();
+		
+		// for each storage register component type
+		for (uint16_t i = 0; i < s_total; i++) {
+			s_storages[i].components[compID] = new ComponentArray<T>();
+		}
+
+
+	}
+
+	template<typename T>
+	bool CentralStorageManager::HasRegister(void) noexcept {
+		if (!IsInitialized()) {
+			Init();
+			return false;
+		}
+
+		return s_storages[0].components.count(
+			GetComponentID<T>()
+		);
+	}
+
+	template<typename T>
+	void CentralStorageManager::Unregister(void) noexcept{
+
+		if (!IsInitialized()) {
+			Init();
+			return;
+		}
+
+		if (HasRegister<T>() == false) return;
+		CompID compID = GetComponentID<T>();
+
+		// for each storage register component type
+		for (uint16_t i = 0; i < s_total; i++) {
+			if (s_storages[i].at_unregister_call)
+				s_storages[i].at_unregister_call(compID);
+
+			delete s_storages[i].components[compID] ;
+
+			auto it = s_storages[i].components.find(compID);
+			s_storages[i].components.erase(it);
+
+		}
+	}
+
+	
+
+}

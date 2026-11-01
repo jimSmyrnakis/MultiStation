@@ -1,0 +1,137 @@
+\doxysection{Multi\+Station\+::Object\+Map Class Reference}
+\hypertarget{class_multi_station_1_1_object_map}{}\label{class_multi_station_1_1_object_map}\index{MultiStation::ObjectMap@{MultiStation::ObjectMap}}
+
+
+Catalog of known component and module types for runtime lookup.  
+
+
+
+
+{\ttfamily \#include $<$Object\+Map.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\Obj\+ID \mbox{\hyperlink{class_multi_station_1_1_object_map_a4d9fb09c12dbd9b4ac01a3b70bd54006}{Add\+Component}} (void)
+\begin{DoxyCompactList}\small\item\em Records the runtime object type ID associated with component T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\Obj\+ID \mbox{\hyperlink{class_multi_station_1_1_object_map_a9515d796bcef66d0a42b128d8203c9a1}{Add\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em Records the runtime object type ID associated with module T. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_object_map_a7851e5d3924486458e9d8044aa97ea68}{Get\+Component\+Object\+Map}} (Comp\+ID component\+\_\+id, Obj\+ID \&object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Looks up the runtime object type ID for a known component type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_object_map_afb32cdd86589a4c2da0a5c4751e8fc3e}{Get\+Module\+Object\+Map}} (Module\+ID module\+\_\+id, Obj\+ID \&object\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Looks up the runtime object type ID for a known module type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Catalog of known component and module types for runtime lookup. 
+
+Stores Comp\+ID-\/to-\/\+Obj\+ID and Module\+ID-\/to-\/\+Obj\+ID associations. Each association describes a C++ type, not an object instance. Repeated addition of the same type preserves the same association.
+
+Entries remain until this map is destroyed; removing a module or unregistering a component elsewhere does not remove its type association. A successful lookup therefore does not imply that an instance exists or that the component/module is currently registered with its manager.
+
+\begin{DoxyNote}{Note}
+IDs are runtime-\/only and must not be used as persistent identifiers in saved data. Persistent identity is handled separately, using UUIDs. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Not thread-\/safe. Serialize additions and lookups when modifying the map; it does not provide synchronization. 
+\end{DoxyWarning}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_object_map_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_object_map_a4d9fb09c12dbd9b4ac01a3b70bd54006}\index{MultiStation::ObjectMap@{MultiStation::ObjectMap}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::ObjectMap@{MultiStation::ObjectMap}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_object_map_a4d9fb09c12dbd9b4ac01a3b70bd54006} 
+template$<$typename T$>$ \\
+Obj\+ID Multi\+Station\+::\+Object\+Map\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Records the runtime object type ID associated with component T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Component type whose runtime IDs are associated. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Get\+Object\+ID$<$\+T$>$(), also stored under Get\+Component\+ID$<$\+T$>$(). 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Does not register component storage or create a component instance. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_object_map_a9515d796bcef66d0a42b128d8203c9a1}\index{MultiStation::ObjectMap@{MultiStation::ObjectMap}!AddModule@{AddModule}}
+\index{AddModule@{AddModule}!MultiStation::ObjectMap@{MultiStation::ObjectMap}}
+\doxysubsubsection{\texorpdfstring{AddModule()}{AddModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_object_map_a9515d796bcef66d0a42b128d8203c9a1} 
+template$<$typename T$>$ \\
+Obj\+ID Multi\+Station\+::\+Object\+Map\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Records the runtime object type ID associated with module T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Module type whose runtime IDs are associated. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Get\+Object\+ID$<$\+T$>$(), also stored under Get\+Module\+ID$<$\+T$>$(). 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Does not construct, initialize, or register a module with a manager. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_object_map_a7851e5d3924486458e9d8044aa97ea68}\index{MultiStation::ObjectMap@{MultiStation::ObjectMap}!GetComponentObjectMap@{GetComponentObjectMap}}
+\index{GetComponentObjectMap@{GetComponentObjectMap}!MultiStation::ObjectMap@{MultiStation::ObjectMap}}
+\doxysubsubsection{\texorpdfstring{GetComponentObjectMap()}{GetComponentObjectMap()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_object_map_a7851e5d3924486458e9d8044aa97ea68} 
+bool Multi\+Station\+::\+Object\+Map\+::\+Get\+Component\+Object\+Map (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component\+\_\+id}{, }\item[{Obj\+ID \&}]{object\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Looks up the runtime object type ID for a known component type. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em component\+\_\+id} & Runtime component type ID to find. \\
+\hline
+\mbox{\texttt{out}}  & {\em object\+\_\+id} & Associated object type ID; unchanged if not found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an association exists; false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Does not insert an entry or check component registration elsewhere. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_object_map_afb32cdd86589a4c2da0a5c4751e8fc3e}\index{MultiStation::ObjectMap@{MultiStation::ObjectMap}!GetModuleObjectMap@{GetModuleObjectMap}}
+\index{GetModuleObjectMap@{GetModuleObjectMap}!MultiStation::ObjectMap@{MultiStation::ObjectMap}}
+\doxysubsubsection{\texorpdfstring{GetModuleObjectMap()}{GetModuleObjectMap()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_object_map_afb32cdd86589a4c2da0a5c4751e8fc3e} 
+bool Multi\+Station\+::\+Object\+Map\+::\+Get\+Module\+Object\+Map (\begin{DoxyParamCaption}\item[{Module\+ID}]{module\+\_\+id}{, }\item[{Obj\+ID \&}]{object\+\_\+id}{}\end{DoxyParamCaption})}
+
+
+
+Looks up the runtime object type ID for a known module type. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em module\+\_\+id} & Runtime module type ID to find. \\
+\hline
+\mbox{\texttt{out}}  & {\em object\+\_\+id} & Associated object type ID; unchanged if not found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if an association exists; false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Does not insert an entry or check whether a module instance exists. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Object/\mbox{\hyperlink{_object_map_8hpp}{Object\+Map.\+hpp}}\end{DoxyCompactItemize}

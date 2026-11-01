@@ -13,10 +13,23 @@
 
 namespace MultiStation {
 
+<span style = "background-color:#dfd">	ECSRegistry::ECSRegistry(void) noexcept {</span>
+
+<span style = "background-color:#dfd">		MS_ASSERT(CentralStorageManager::CreateStorage(m_storageID , </span>
+			[this](CompID id) {
+				for (auto ent : m_entityManager.GetAllEntities()) {
+					if (m_entityManager.HasEntityComponent(ent , id))
+						m_entityManager.RemoveComponentOf(ent, id);
+				}
+			}), "No Available storage");
+<span style = "background-color:#dfd">		m_storage = CentralStorageManager::GetStorage(m_storageID);
+		MS_ASSERT(m_storage != nullptr, "No available storage");
+	}</span>
+
+
 <span style = "background-color:#dfd">	ECSRegistry::~ECSRegistry(void) noexcept {
-		for (auto&amp; it_pair : m_typeComponentMap) {
-			delete it_pair.second;
-		}
+		m_storage = nullptr;
+		CentralStorageManager::DestroyStorage(m_storageID);
 	}</span>
 
 <span style = "background-color:#dfd">	bool ECSRegistry::HasComponent(EntID entity, CompID component) noexcept {
@@ -28,7 +41,7 @@ namespace MultiStation {
 
 <span style = "background-color:#fdd">	size_t ECSRegistry::SizeOfComponent(CompID id)  noexcept {
 		if (!HasRegister(id)) return 0;
-		const IComponentArray* components = (const IComponentArray*) m_typeComponentMap[id];</span>
+		const IComponentArray* components = (const IComponentArray*) m_storage-&gt;components[id];</span>
 
 <span style = "background-color:#fdd">		return components-&gt;SizeOfComponent();
 	}</span>
@@ -36,7 +49,7 @@ namespace MultiStation {
 
 <span style = "background-color:#dfd">	size_t ECSRegistry::Count(CompID id) noexcept {
 		if (!HasRegister(id)) return 0;
-		const IComponentArray* components = (const IComponentArray*)m_typeComponentMap[id];</span>
+		const IComponentArray* components = (const IComponentArray*)m_storage-&gt;components[id];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;Count();
 	}</span>
@@ -44,20 +57,20 @@ namespace MultiStation {
 <span style = "background-color:#dfd">	void* ECSRegistry::GetComponent(CompID id , EntID entity) noexcept {
 		if (!HasRegister(id)) return nullptr;</span>
 
-<span style = "background-color:#dfd">		IComponentArray* components =m_typeComponentMap[id];</span>
+<span style = "background-color:#dfd">		IComponentArray* components = m_storage-&gt;components[id];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;GetComponentV(entity);
 	}</span>
 
 <span style = "background-color:#dfd">	bool ECSRegistry::HasRegister(CompID id) const noexcept {
-		return m_typeComponentMap.count(id) != 0;
+		return CentralStorageManager::HasRegister(id);
 	}</span>
 
 	
 <span style = "background-color:#fdd">	void* ECSRegistry::GetComponents(CompID id) noexcept {
 		if (!HasRegister(id)) return nullptr;</span>
 
-<span style = "background-color:#fdd">		IComponentArray* components = m_typeComponentMap[id];</span>
+<span style = "background-color:#fdd">		IComponentArray* components = m_storage-&gt;components[id];</span>
 
 <span style = "background-color:#fdd">		return components-&gt;GetComponentsV();
 	}</span>
@@ -66,11 +79,11 @@ namespace MultiStation {
 		bool res = m_entityManager.RemoveEntity(entity);
 		if (res == false) return false;</span>
 
-<span style = "background-color:#dfd">		for (auto&amp; it_pair : m_typeComponentMap) {</span>
-<span style = "background-color:#fdd">			IComponentArray* carr = it_pair.second;
+<span style = "background-color:#dfd">		for (auto&amp; it_pair : m_storage-&gt;components) {
+			IComponentArray* carr = it_pair.second;
 			carr-&gt;RemoveComponentV(entity);</span>
 
-<span style = "background-color:#fdd">		}</span>
+<span style = "background-color:#dfd">		}</span>
 
 <span style = "background-color:#dfd">		return true;
 	}</span>
@@ -105,7 +118,7 @@ namespace MultiStation {
 		}
 
 <span style = "background-color:#dfd">		IComponentArray* components = </span>
-			m_typeComponentMap[component];
+			m_storage-&gt;components[component];
 <span style = "background-color:#dfd">		m_entityManager.RemoveComponentOf(entity , component);
 		components-&gt;RemoveComponentV(entity);</span>
 
@@ -125,7 +138,7 @@ namespace MultiStation {
 <span style = "background-color:#fdd">			return nullptr;</span>
 		}
 
-<span style = "background-color:#dfd">		IComponentArray* components = m_typeComponentMap[component];</span>
+<span style = "background-color:#dfd">		IComponentArray* components = m_storage-&gt;components[component];</span>
 
 <span style = "background-color:#dfd">		void* result = components-&gt;AddComponentV(entity);
 		if (result == nullptr) {
@@ -149,7 +162,7 @@ namespace MultiStation {
 <span style = "background-color:#dfd">			return nullptr;</span>
 		}
 
-<span style = "background-color:#dfd">		IComponentArray* components = m_typeComponentMap[component];</span>
+<span style = "background-color:#dfd">		IComponentArray* components = m_storage-&gt;components[component];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;ReplaceComponentV(entity);
 	}</span>
@@ -161,9 +174,17 @@ namespace MultiStation {
 			return nullName;</span>
 		}
 
-<span style = "background-color:#fdd">		const IComponentArray* components = m_typeComponentMap.at(component);</span>
+<span style = "background-color:#fdd">		const IComponentArray* components = m_storage-&gt;components.at(component);</span>
 
 <span style = "background-color:#fdd">		return components-&gt;GetName();
+	}</span>
+
+<span style = "background-color:#fdd">	CompID ECSRegistry::GetComponentIDByName(std::string&amp; name) {
+		for (auto it = m_storage-&gt;components.begin(); it != m_storage-&gt;components.end(); it++) {
+			if (it-&gt;second-&gt;GetName() == name)
+				return it-&gt;first;
+		}
+		return 0;
 	}</span>
 
 }</pre>

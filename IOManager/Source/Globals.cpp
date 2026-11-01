@@ -16,5 +16,12 @@ namespace MultiStation::IO {
             (static_cast<uint16_t>(value) &
                 static_cast<uint16_t>(flag)) != 0;
     }
+    bool IsEqual(Access a, Access b) {
+       return  (static_cast<uint16_t>(a) &
+            static_cast<uint16_t>(b)) == static_cast<uint16_t>(a);
+    }
+    bool operator==(Access& ths, Access& other) {
+        return IsEqual(ths, other);
+    }
 
 }

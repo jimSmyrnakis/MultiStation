@@ -163,7 +163,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Source\ExampleModules.hpp" />
     <ClInclude Include="Source\mspch.h" />
     <ClInclude Include="Source\SandBox3D.hpp" />
   </ItemGroup>

@@ -1,16 +1,128 @@
 \doxysection{Multi\+Station\+::Entity\+Node Struct Reference}
 \hypertarget{struct_multi_station_1_1_entity_node}{}\label{struct_multi_station_1_1_entity_node}\index{MultiStation::EntityNode@{MultiStation::EntityNode}}
+
+
+Stores an entity\textquotesingle{}s identity and links within a \doxylink{class_multi_station_1_1_scene_graph}{Scene\+Graph}.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Graph.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a09432e55b77431b2a7036d6c0558a8f2}{operator==}} (\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \&node) noexcept
+\begin{DoxyCompactList}\small\item\em Compares node IDs without comparing their hierarchy links. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a40eedf3280c3b51f625406171ef6f2ed}{operator==}} (const \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \&node) const noexcept
+\begin{DoxyCompactList}\small\item\em Compares node IDs through a const node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{struct_multi_station_1_1_entity_node_a13e581a48bde2d106c432e978cf0529c}\label{struct_multi_station_1_1_entity_node_a13e581a48bde2d106c432e978cf0529c} 
-std\+::vector$<$ Ent\+ID $>$ {\bfseries childs}
-\item 
-\Hypertarget{struct_multi_station_1_1_entity_node_adaea2d3456ce25cd113ed42fe1a7f4e3}\label{struct_multi_station_1_1_entity_node_adaea2d3456ce25cd113ed42fe1a7f4e3} 
-Ent\+ID {\bfseries parent}
-\end{DoxyCompactItemize}
+std\+::vector$<$ \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_aa13c1685ec9359456f0c51cc151f52a8}{childs}}
+\begin{DoxyCompactList}\small\item\em Direct child nodes, in the same order as childs\+\_\+ids. \end{DoxyCompactList}\item 
+std\+::vector$<$ Ent\+ID $>$ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_aa9a84f1899926592a1225a80fec34441}{childs\+\_\+ids}}
+\begin{DoxyCompactList}\small\item\em IDs corresponding to the pointers in childs. \end{DoxyCompactList}\item 
+Ent\+ID \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a69e5e56c8181734e7d58de493f556409}{id}} = null\+Entity
+\begin{DoxyCompactList}\small\item\em Entity represented by this node, or null\+Entity before initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a55620a66b99a75d7d380741abd836ba8}{parent}} = nullptr
+\begin{DoxyCompactList}\small\item\em Parent node; nullptr for the graph\textquotesingle{}s root. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores an entity\textquotesingle{}s identity and links within a \doxylink{class_multi_station_1_1_scene_graph}{Scene\+Graph}. 
+
+\begin{DoxyNote}{Note}
+Node storage is owned by the graph; parent and child pointers are non-\/owning. 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{struct_multi_station_1_1_entity_node_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_multi_station_1_1_entity_node_a40eedf3280c3b51f625406171ef6f2ed}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!operator==@{operator==}}
+\index{operator==@{operator==}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_a40eedf3280c3b51f625406171ef6f2ed} 
+bool Multi\+Station\+::\+Entity\+Node\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \&}]{node}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Compares node IDs through a const node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Node to compare with this node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when both nodes have the same entity ID. 
+\end{DoxyReturn}
+\Hypertarget{struct_multi_station_1_1_entity_node_a09432e55b77431b2a7036d6c0558a8f2}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!operator==@{operator==}}
+\index{operator==@{operator==}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_a09432e55b77431b2a7036d6c0558a8f2} 
+bool Multi\+Station\+::\+Entity\+Node\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}} \&}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Compares node IDs without comparing their hierarchy links. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Node to compare with this node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when both nodes have the same entity ID. 
+\end{DoxyReturn}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_multi_station_1_1_entity_node_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_multi_station_1_1_entity_node_aa13c1685ec9359456f0c51cc151f52a8}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!childs@{childs}}
+\index{childs@{childs}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{childs}{childs}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_aa13c1685ec9359456f0c51cc151f52a8} 
+std\+::vector$<$\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}}\texorpdfstring{$\ast$}{*}$>$ Multi\+Station\+::\+Entity\+Node\+::childs}
+
+
+
+Direct child nodes, in the same order as childs\+\_\+ids. 
+
+\Hypertarget{struct_multi_station_1_1_entity_node_aa9a84f1899926592a1225a80fec34441}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!childs\_ids@{childs\_ids}}
+\index{childs\_ids@{childs\_ids}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{childs\_ids}{childs\_ids}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_aa9a84f1899926592a1225a80fec34441} 
+std\+::vector$<$Ent\+ID$>$ Multi\+Station\+::\+Entity\+Node\+::childs\+\_\+ids}
+
+
+
+IDs corresponding to the pointers in childs. 
+
+\Hypertarget{struct_multi_station_1_1_entity_node_a69e5e56c8181734e7d58de493f556409}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!id@{id}}
+\index{id@{id}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_a69e5e56c8181734e7d58de493f556409} 
+Ent\+ID Multi\+Station\+::\+Entity\+Node\+::id = null\+Entity}
+
+
+
+Entity represented by this node, or null\+Entity before initialization. 
+
+\Hypertarget{struct_multi_station_1_1_entity_node_a55620a66b99a75d7d380741abd836ba8}\index{MultiStation::EntityNode@{MultiStation::EntityNode}!parent@{parent}}
+\index{parent@{parent}!MultiStation::EntityNode@{MultiStation::EntityNode}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \label{struct_multi_station_1_1_entity_node_a55620a66b99a75d7d380741abd836ba8} 
+\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Entity\+Node}}\texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Entity\+Node\+::parent = nullptr}
+
+
+
+Parent node; nullptr for the graph\textquotesingle{}s root. 
+
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+Scene/Scene\+Graph.\+hpp\end{DoxyCompactItemize}
+Source/\+Scene/\mbox{\hyperlink{_scene_graph_8hpp}{Scene\+Graph.\+hpp}}\end{DoxyCompactItemize}

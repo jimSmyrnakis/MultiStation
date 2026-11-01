@@ -91,31 +91,464 @@ $(function(){initNavTree('class_multi_station_1_1_entity_manager.html','','class
   <div class="headertitle"><div class="title">MultiStation::EntityManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>The source of truth for what entities exist's in the engine scene .  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5aa6a77c8b2202a52387944609d482de" id="r_a5aa6a77c8b2202a52387944609d482de"><td class="memItemLeft" align="right" valign="top"><a id="a5aa6a77c8b2202a52387944609d482de" name="a5aa6a77c8b2202a52387944609d482de"></a>
-EntID&#160;</td><td class="memItemRight" valign="bottom"><b>CreateEntity</b> (void)</td></tr>
-<tr class="memitem:a0b7969cc2d7ea80e3815779e276f0e7e" id="r_a0b7969cc2d7ea80e3815779e276f0e7e"><td class="memItemLeft" align="right" valign="top"><a id="a0b7969cc2d7ea80e3815779e276f0e7e" name="a0b7969cc2d7ea80e3815779e276f0e7e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveEntity</b> (EntID entity)</td></tr>
-<tr class="memitem:aa55792dfaf05dcd79f5c5c9035811a7c" id="r_aa55792dfaf05dcd79f5c5c9035811a7c"><td class="memTemplParams" colspan="2"><a id="aa55792dfaf05dcd79f5c5c9035811a7c" name="aa55792dfaf05dcd79f5c5c9035811a7c"></a>
-template&lt;typename T&gt; </td></tr>
-<tr class="memitem:aa55792dfaf05dcd79f5c5c9035811a7c template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>AssingToEntity</b> (EntID entity)</td></tr>
-<tr class="memitem:a532fa49c58482078648b9036a4995c68" id="r_a532fa49c58482078648b9036a4995c68"><td class="memItemLeft" align="right" valign="top"><a id="a532fa49c58482078648b9036a4995c68" name="a532fa49c58482078648b9036a4995c68"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasEntity</b> (EntID entity) const</td></tr>
-<tr class="memitem:a4e0996d46c6f7543aaa4e0f1db4f6054" id="r_a4e0996d46c6f7543aaa4e0f1db4f6054"><td class="memTemplParams" colspan="2"><a id="a4e0996d46c6f7543aaa4e0f1db4f6054" name="a4e0996d46c6f7543aaa4e0f1db4f6054"></a>
-template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a4e0996d46c6f7543aaa4e0f1db4f6054 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasEntityComponent</b> (EntID entity)</td></tr>
-<tr class="memitem:aa8917bee7d2464a6f3b28b269c492748" id="r_aa8917bee7d2464a6f3b28b269c492748"><td class="memTemplParams" colspan="2"><a id="aa8917bee7d2464a6f3b28b269c492748" name="aa8917bee7d2464a6f3b28b269c492748"></a>
-template&lt;typename T&gt; </td></tr>
-<tr class="memitem:aa8917bee7d2464a6f3b28b269c492748 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveComponentOf</b> (EntID entity)</td></tr>
-<tr class="memitem:a5a4c467b6eea7d44145e33916f733583" id="r_a5a4c467b6eea7d44145e33916f733583"><td class="memItemLeft" align="right" valign="top"><a id="a5a4c467b6eea7d44145e33916f733583" name="a5a4c467b6eea7d44145e33916f733583"></a>
-std::span&lt; const EntID &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetAllEntities</b> (void) const</td></tr>
-<tr class="memitem:aa0d03c216a2839ad25d3c4b0dab3d637" id="r_aa0d03c216a2839ad25d3c4b0dab3d637"><td class="memItemLeft" align="right" valign="top"><a id="aa0d03c216a2839ad25d3c4b0dab3d637" name="aa0d03c216a2839ad25d3c4b0dab3d637"></a>
-CompID&#160;</td><td class="memItemRight" valign="bottom"><b>GetSignatureOf</b> (EntID entity) const</td></tr>
+<tr class="memitem:a8dd67613821b34234f7ff8f928cff160" id="r_a8dd67613821b34234f7ff8f928cff160"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dd67613821b34234f7ff8f928cff160">EntityManager</a> (void) noexcept</td></tr>
+<tr class="memdesc:a8dd67613821b34234f7ff8f928cff160"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_multi_station_1_1_entity_manager.html" title="The source of truth for what entities exist&#39;s in the engine scene .">EntityManager</a> constructor.  <br /></td></tr>
+<tr class="memitem:a0084f195069c624050148f19c7c4885c" id="r_a0084f195069c624050148f19c7c4885c"><td class="memItemLeft" align="right" valign="top">EntID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0084f195069c624050148f19c7c4885c">CreateEntity</a> (void) noexcept</td></tr>
+<tr class="memitem:a6ffc76b09124dc6f001e6e2b5a598da8" id="r_a6ffc76b09124dc6f001e6e2b5a598da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ffc76b09124dc6f001e6e2b5a598da8">RemoveEntity</a> (EntID entity) noexcept</td></tr>
+<tr class="memitem:a3642d9d13f800972606aa81301b4f9ff" id="r_a3642d9d13f800972606aa81301b4f9ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3642d9d13f800972606aa81301b4f9ff">HasEntity</a> (EntID entity) const noexcept</td></tr>
+<tr class="memitem:a6e4a5cd8170f0fe1e8d398777b17541c" id="r_a6e4a5cd8170f0fe1e8d398777b17541c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e4a5cd8170f0fe1e8d398777b17541c">AssignToEntity</a> (EntID entity, CompID component) noexcept</td></tr>
+<tr class="memdesc:a6e4a5cd8170f0fe1e8d398777b17541c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a component id to the specify entity id.  <br /></td></tr>
+<tr class="memitem:a0123b0c21767382f47b3aea35bec16f3" id="r_a0123b0c21767382f47b3aea35bec16f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0123b0c21767382f47b3aea35bec16f3">HasEntityComponent</a> (EntID entity, CompID component) const noexcept</td></tr>
+<tr class="memitem:a679974b4b66736c326f1e870695696a8" id="r_a679974b4b66736c326f1e870695696a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679974b4b66736c326f1e870695696a8">RemoveComponentOf</a> (EntID entity, CompID component) noexcept</td></tr>
+<tr class="memdesc:a679974b4b66736c326f1e870695696a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a component assingment from this entity .  <br /></td></tr>
+<tr class="memitem:af753b1c618826d5f49de6a16f518f86e" id="r_af753b1c618826d5f49de6a16f518f86e"><td class="memItemLeft" align="right" valign="top">std::span&lt; const EntID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af753b1c618826d5f49de6a16f518f86e">GetAllEntities</a> (void) const noexcept</td></tr>
+<tr class="memitem:a67286767fe28909b70d9ad8b0f7f56d8" id="r_a67286767fe28909b70d9ad8b0f7f56d8"><td class="memItemLeft" align="right" valign="top">std::span&lt; const CompID &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67286767fe28909b70d9ad8b0f7f56d8">GetSignatureOf</a> (EntID entity) const noexcept</td></tr>
+<tr class="memitem:a7d44d248db7f1e91941dc47e64706620" id="r_a7d44d248db7f1e91941dc47e64706620"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a7d44d248db7f1e91941dc47e64706620 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d44d248db7f1e91941dc47e64706620">AssignToEntity</a> (EntID entity) noexcept</td></tr>
+<tr class="memdesc:a7d44d248db7f1e91941dc47e64706620"><td class="mdescLeft">&#160;</td><td class="mdescRight">A templated version of the AssignToEntity(entity , component).  <br /></td></tr>
+<tr class="memitem:a956082ef6f9af6ab44d367438ee5b012" id="r_a956082ef6f9af6ab44d367438ee5b012"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a956082ef6f9af6ab44d367438ee5b012 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a956082ef6f9af6ab44d367438ee5b012">HasEntityComponent</a> (EntID entity) const noexcept</td></tr>
+<tr class="memdesc:a956082ef6f9af6ab44d367438ee5b012"><td class="mdescLeft">&#160;</td><td class="mdescRight">A templated version of the HasEntityComponent(entity , component).  <br /></td></tr>
+<tr class="memitem:a2e52efccc6f814063f866a474796fd61" id="r_a2e52efccc6f814063f866a474796fd61"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a2e52efccc6f814063f866a474796fd61 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e52efccc6f814063f866a474796fd61">RemoveComponentOf</a> (EntID entity) noexcept</td></tr>
+<tr class="memdesc:a2e52efccc6f814063f866a474796fd61"><td class="mdescLeft">&#160;</td><td class="mdescRight">A templated version of the RemoveComponentOf(entity , component).  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The source of truth for what entities exist's in the engine scene . </p>
+<dl class="section warning"><dt>Warning</dt><dd>Not thread-safe. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Unexpected exceptions terminate the application. </dd>
+<dd>
+This manager is for use from the ecs registry only . </dd></dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8dd67613821b34234f7ff8f928cff160" name="a8dd67613821b34234f7ff8f928cff160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd67613821b34234f7ff8f928cff160">&#9670;&#160;</a></span>EntityManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MultiStation::EntityManager::EntityManager </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_multi_station_1_1_entity_manager.html" title="The source of truth for what entities exist&#39;s in the engine scene .">EntityManager</a> constructor. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a7d44d248db7f1e91941dc47e64706620" name="a7d44d248db7f1e91941dc47e64706620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d44d248db7f1e91941dc47e64706620">&#9670;&#160;</a></span>AssignToEntity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::AssignToEntity </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A templated version of the AssignToEntity(entity , component). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The component class/primitive type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if entity exist's , false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a6e4a5cd8170f0fe1e8d398777b17541c" name="a6e4a5cd8170f0fe1e8d398777b17541c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4a5cd8170f0fe1e8d398777b17541c">&#9670;&#160;</a></span>AssignToEntity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::AssignToEntity </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CompID</td>          <td class="paramname"><span class="paramname"><em>component</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns a component id to the specify entity id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id to assign a component too </td></tr>
+    <tr><td class="paramname">component</td><td>The component id for the entity to assigned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if entity exists false otherwise . Even if the component is assigned already . </dd></dl>
+
+</div>
+</div>
+<a id="a0084f195069c624050148f19c7c4885c" name="a0084f195069c624050148f19c7c4885c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0084f195069c624050148f19c7c4885c">&#9670;&#160;</a></span>CreateEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntID MultiStation::EntityManager::CreateEntity </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A new Entity id (number) for the new entity that has been created or a nullEntity id if there is no other available id to be given; </dd></dl>
+
+</div>
+</div>
+<a id="af753b1c618826d5f49de6a16f518f86e" name="af753b1c618826d5f49de6a16f518f86e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af753b1c618826d5f49de6a16f518f86e">&#9670;&#160;</a></span>GetAllEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; const EntID &gt; MultiStation::EntityManager::GetAllEntities </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A span no owning view with all available entities in the manager . </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Do not add / remove entities will using the span , otherwise it may no longer be valid . </dd></dl>
+
+</div>
+</div>
+<a id="a67286767fe28909b70d9ad8b0f7f56d8" name="a67286767fe28909b70d9ad8b0f7f56d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67286767fe28909b70d9ad8b0f7f56d8">&#9670;&#160;</a></span>GetSignatureOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; const CompID &gt; MultiStation::EntityManager::GetSignatureOf </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A span no owning view with all assigned components for this entity , if the entity exist's otherwise is an empty storage . </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Do not assign / remove this entity components while using this span , otherwise it may no longer be valid storage . </dd></dl>
+
+</div>
+</div>
+<a id="a3642d9d13f800972606aa81301b4f9ff" name="a3642d9d13f800972606aa81301b4f9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3642d9d13f800972606aa81301b4f9ff">&#9670;&#160;</a></span>HasEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::HasEntity </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if entity with this id exist's , false otherwise . </dd></dl>
+
+</div>
+</div>
+<a id="a956082ef6f9af6ab44d367438ee5b012" name="a956082ef6f9af6ab44d367438ee5b012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a956082ef6f9af6ab44d367438ee5b012">&#9670;&#160;</a></span>HasEntityComponent() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::HasEntityComponent </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A templated version of the HasEntityComponent(entity , component). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The component class/primitive type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if entity exist's and has the component T assigned, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a0123b0c21767382f47b3aea35bec16f3" name="a0123b0c21767382f47b3aea35bec16f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0123b0c21767382f47b3aea35bec16f3">&#9670;&#160;</a></span>HasEntityComponent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::HasEntityComponent </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CompID</td>          <td class="paramname"><span class="paramname"><em>component</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id </td></tr>
+    <tr><td class="paramname">component</td><td>The component id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if entity has component assigned , false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a2e52efccc6f814063f866a474796fd61" name="a2e52efccc6f814063f866a474796fd61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e52efccc6f814063f866a474796fd61">&#9670;&#160;</a></span>RemoveComponentOf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::RemoveComponentOf </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A templated version of the RemoveComponentOf(entity , component). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The component class/primitive type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if entity exist's , false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a679974b4b66736c326f1e870695696a8" name="a679974b4b66736c326f1e870695696a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679974b4b66736c326f1e870695696a8">&#9670;&#160;</a></span>RemoveComponentOf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::RemoveComponentOf </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CompID</td>          <td class="paramname"><span class="paramname"><em>component</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes a component assingment from this entity . </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id </td></tr>
+    <tr><td class="paramname">component</td><td>The component id </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if entity exist's , false otherwise . Even if the component is removed already </dd></dl>
+
+</div>
+</div>
+<a id="a6ffc76b09124dc6f001e6e2b5a598da8" name="a6ffc76b09124dc6f001e6e2b5a598da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ffc76b09124dc6f001e6e2b5a598da8">&#9670;&#160;</a></span>RemoveEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::EntityManager::RemoveEntity </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>The entity id to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the entity removed succsfully , false otherwise </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Source/<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a></li>
+<li>Source/ECSRegistry/<a class="el" href="_entity_manager_8hpp_source.html">EntityManager.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

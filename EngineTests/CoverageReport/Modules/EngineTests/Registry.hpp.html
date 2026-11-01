@@ -14,11 +14,13 @@
 #include &lt;Platform.hpp&gt;
 #include "EntityManager.hpp"
 #include &lt;stdarg.h&gt;
+#include "CentralStorageManager.hpp"
 /**
  * @author Dimitris Smyrnakis
  * @file Registry.hpp
  * @brief This is where the ecs registry class is , this class is responsible 
  * for entities and there components .
+ * @version 0.1
  */
 namespace MultiStation {
 	
@@ -29,7 +31,6 @@ namespace MultiStation {
 	 * @warning Not thread-safe.
 	 * @note Unexpected exceptions terminate the application.
 	 * @note Components (template type T) should support assigments and default contructor .
-	 * @version 1.0
 	 */
 	class ECSRegistry {
 
@@ -38,10 +39,8 @@ namespace MultiStation {
 
 		/**
 		 * @brief Constructs a new ECSRegistry object.
-		 * 
-		 * 
 		 */
-<span style = "background-color:#dfd">		ECSRegistry(void) noexcept = default;</span>
+		ECSRegistry(void) noexcept ;
 
 		/**
 		 * @brief Destroys the ECSRegistry object and cleans up all registered component arrays
@@ -330,6 +329,8 @@ namespace MultiStation {
 		 * of the registry.
 		 */
 		const std::string&amp; GetName(CompID component) const noexcept;
+
+		CompID GetComponentIDByName(std::string&amp; name);
 		
 
 		
@@ -384,9 +385,9 @@ namespace MultiStation {
 		bool HasRegister(CompID component) const noexcept ;
 
 	private:
-		std::unordered_map&lt;CompID, IComponentArray*&gt; m_typeComponentMap;
+		ECSStorage* m_storage;
 		EntityManager m_entityManager;
-
+		size_t m_storageID;
 
 
 	};
@@ -492,7 +493,7 @@ namespace MultiStation {
 <span style = "background-color:#fdd">			return nullptr;</span>
 		}
 
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_typeComponentMap[GetComponentID&lt;T&gt;()];</span>
+<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_storage-&gt;components[GetComponentID&lt;T&gt;()];</span>
 
 <span style = "background-color:#dfd">		T* result = components-&gt;AddComponent(entity , std::forward&lt;Args&gt;(args)...);
 		if (result == nullptr) {
@@ -517,7 +518,7 @@ namespace MultiStation {
 <span style = "background-color:#dfd">			return nullptr;</span>
 		}
 
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_typeComponentMap[GetComponentID&lt;T&gt;()];</span>
+<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_storage-&gt;components[GetComponentID&lt;T&gt;()];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;ReplaceComponent(entity , std::forward&lt;Args&gt;(args)...);
 	}</span>
@@ -538,7 +539,7 @@ namespace MultiStation {
 			return true;</span>
 		}
 
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_typeComponentMap[GetComponentID&lt;T&gt;()];
+<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_storage-&gt;components[GetComponentID&lt;T&gt;()];
 		m_entityManager.RemoveComponentOf&lt;T&gt;(entity);
 		components-&gt;RemoveComponent(entity);</span>
 		
@@ -556,7 +557,7 @@ namespace MultiStation {
 <span style = "background-color:#fdd">			return {};</span>
 		}
 
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_typeComponentMap[GetComponentID&lt;T&gt;()];</span>
+<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_storage-&gt;components[GetComponentID&lt;T&gt;()];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;GetComponents();
 	}</span>
@@ -569,7 +570,7 @@ namespace MultiStation {
 			return {};
 		}
 
-		const ComponentArray&lt;T&gt;* components = (const ComponentArray&lt;T&gt;*)m_typeComponentMap.at(GetComponentID&lt;T&gt;());
+		const ComponentArray&lt;T&gt;* components = (const ComponentArray&lt;T&gt;*)m_storage-&gt;components.at(GetComponentID&lt;T&gt;());
 
 		return components-&gt;GetComponents();
 	}
@@ -577,19 +578,18 @@ namespace MultiStation {
 	
 	template&lt;typename T&gt;
 <span style = "background-color:#dfd">	T* ECSRegistry::GetComponent(EntID entity) noexcept {</span>
+		//auto it = m_typeComponentMap.find(GetComponentID&lt;T&gt;());
 		if (
 			!HasRegisterComponent&lt;T&gt;()
-			||
-			!m_entityManager.HasEntity(entity)
 <span style = "background-color:#dfd">			||</span>
-			!m_entityManager.HasEntityComponent&lt;T&gt;(entity)
+			!m_entityManager.HasEntity(entity)
 		){
-<span style = "background-color:#dfd">			return nullptr;</span>
+<span style = "background-color:#fdd">			return nullptr;</span>
 		}
 
 		
 
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_typeComponentMap[GetComponentID&lt;T&gt;()];</span>
+<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* components = (ComponentArray&lt;T&gt;*)m_storage-&gt;components[GetComponentID&lt;T&gt;()];</span>
 
 <span style = "background-color:#dfd">		return components-&gt;GetComponent(entity);
 	}</span>
@@ -601,15 +601,13 @@ namespace MultiStation {
 			!HasRegisterComponent&lt;T&gt;()
 			||
 			!m_entityManager.HasEntity(entity)
-			||
-			!m_entityManager.HasEntityComponent&lt;T&gt;(entity)
 			) {
 			return nullptr;
 		}
 
 
 
-		const ComponentArray&lt;T&gt;* components = (const ComponentArray&lt;T&gt;*)m_typeComponentMap.at(GetComponentID&lt;T&gt;());
+		const ComponentArray&lt;T&gt;* components = (const ComponentArray&lt;T&gt;*)m_storage-&gt;components.at(GetComponentID&lt;T&gt;());
 
 		return components-&gt;GetComponent(entity);
 	}
@@ -629,26 +627,20 @@ namespace MultiStation {
 	template&lt;typename T&gt;
 <span style = "background-color:#dfd">	CompID ECSRegistry::RegisterComponent(void) noexcept {
 		CompID id = GetComponentID&lt;T&gt;();
-		if (HasRegisterComponent&lt;T&gt;()) {</span>
-<span style = "background-color:#fdd">			MS_WARN("Component type already registered in the ECSRegistry.");
+		if (CentralStorageManager::HasRegister&lt;T&gt;()) {
+			MS_WARN("Component type already registered in the ECSRegistry.");
 			return id; // even is failed is still exists so return id</span>
 		}
 		
-		// else register that
-<span style = "background-color:#dfd">		ComponentArray&lt;T&gt;* carr = new(std::nothrow) ComponentArray&lt;T&gt;();
-		if (carr == nullptr) {</span>
-<span style = "background-color:#fdd">			MS_WARN( "Failed to allocate memory for ComponentArray.");
-			return 0; // this is failure </span>
-		}
-<span style = "background-color:#dfd">		m_typeComponentMap[id] = (IComponentArray*)carr;</span>
+
+<span style = "background-color:#dfd">		CentralStorageManager::Register&lt;T&gt;();</span>
 
 <span style = "background-color:#dfd">		return id;
 	}</span>
 
 	template&lt;typename T&gt;
 <span style = "background-color:#dfd">	bool ECSRegistry::HasRegisterComponent(void) const noexcept {
-		CompID id = GetComponentID&lt;T&gt;();
-		return m_typeComponentMap.count(id) != 0;
+		return CentralStorageManager::HasRegister&lt;T&gt;();
 	}</span>
 
 
@@ -659,19 +651,9 @@ namespace MultiStation {
 
 			return MultiStation::BAD_ID;
 		}
-		// else unregister that
 		CompID id = GetComponentID&lt;T&gt;();
-		// delete it first
-		auto it = m_typeComponentMap.find(id);
-		if (it != m_typeComponentMap.end()) { 
-			delete it-&gt;second; 
-			m_typeComponentMap.erase(it); 
-			// remove all entities same signature
-			for (auto ent : m_entityManager.GetAllEntities()) {
-				m_entityManager.RemoveComponentOf(ent, id);
-			}
-			
-		}
+		CentralStorageManager::Unregister&lt;T&gt;();
+
 		return id;
 	}
 

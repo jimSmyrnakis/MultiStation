@@ -1,25 +1,210 @@
 \doxysection{Multi\+Station\+::Scene\+Graph Class Reference}
 \hypertarget{class_multi_station_1_1_scene_graph}{}\label{class_multi_station_1_1_scene_graph}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+
+
+Maintains an acyclic parent-\/child hierarchy of entity IDs. This class manages hierarchy only; it does not create or destroy registry entities, manage components, or verify that IDs exist in an \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry}.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Graph.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_multi_station_1_1_scene_graph_a44f0dd09288a158c93191e8e6b98b195}\label{class_multi_station_1_1_scene_graph_a44f0dd09288a158c93191e8e6b98b195} 
-bool {\bfseries Add\+Entity} (Ent\+ID entity)
-\item 
-\Hypertarget{class_multi_station_1_1_scene_graph_a84ffd93b6932860ce28cd3e82da0713f}\label{class_multi_station_1_1_scene_graph_a84ffd93b6932860ce28cd3e82da0713f} 
-bool {\bfseries Remove\+Entity} (Ent\+ID entity)
-\item 
-\Hypertarget{class_multi_station_1_1_scene_graph_a996d3d3218cd2f9ec904f46a0f044a0e}\label{class_multi_station_1_1_scene_graph_a996d3d3218cd2f9ec904f46a0f044a0e} 
-bool {\bfseries Set\+Parent} (Ent\+ID entity, Ent\+ID parent)
-\item 
-\Hypertarget{class_multi_station_1_1_scene_graph_aa8fdc7c762c34aff9fd186100b93d791}\label{class_multi_station_1_1_scene_graph_aa8fdc7c762c34aff9fd186100b93d791} 
-bool {\bfseries Get\+Parent} (Ent\+ID entity, Ent\+ID \&out) const
-\item 
-\Hypertarget{class_multi_station_1_1_scene_graph_ab5fe4fc596f2f17f378f002000d8d276}\label{class_multi_station_1_1_scene_graph_ab5fe4fc596f2f17f378f002000d8d276} 
-std\+::span$<$ const Ent\+ID $>$ {\bfseries Get\+Childs} (Ent\+ID entity) const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a graph containing only the root\+Entity node, with no parent. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_ad69632bf4260abe6f2161b7d8285c7bb}{Scene\+Graph}} (const Scene\+Graph \&)=delete
+\begin{DoxyCompactList}\small\item\em Disables copying of internal hierarchy pointers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a48ce4bca8a21fc5ebc62c4a81676f303}{Scene\+Graph}} (Scene\+Graph \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Disables moving of the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \& \mbox{\hyperlink{class_multi_station_1_1_scene_graph_acf0f7755e8348364b6be733be9ac9f68}{operator=}} (const \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Disables replacing the graph by copying another graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \& \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a4f49c3603fcc39092328ad0bad264c23}{operator=}} (\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Disables replacing the graph by moving another graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a503a733e242aa8b49e6e2a1c6dc187e3}{Add\+Entity}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Adds an entity as a direct child of root\+Entity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_graph_adb32f6b8578e1667219082f45eceba2a}{Remove\+Entity}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Removes an entity and reparents its direct children to its parent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_graph_ac69b04e58439e2bd7a96e4a6a1f26df0}{Set\+Parent}} (Ent\+ID entity, Ent\+ID parent) noexcept
+\begin{DoxyCompactList}\small\item\em Moves an entity and its subtree beneath the requested parent. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a8357913d1fadef963acef868b2737d6a}{Get\+Parent}} (Ent\+ID entity, Ent\+ID \&out) const noexcept
+\begin{DoxyCompactList}\small\item\em Retrieves the direct parent of an entity. \end{DoxyCompactList}\item 
+std\+::span$<$ const Ent\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_adf02c81dd6d05b77af90076edd85bf14}{Get\+Childs}} (Ent\+ID entity) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a read-\/only view of an entity\textquotesingle{}s direct child IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Maintains an acyclic parent-\/child hierarchy of entity IDs. This class manages hierarchy only; it does not create or destroy registry entities, manage components, or verify that IDs exist in an \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry}. 
+
+\begin{DoxyWarning}{Warning}
+Not thread-\/safe. 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Copying and moving are disabled . 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_scene_graph_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!SceneGraph@{SceneGraph}}
+\index{SceneGraph@{SceneGraph}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{SceneGraph()}{SceneGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f} 
+Multi\+Station\+::\+Scene\+Graph\+::\+Scene\+Graph (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a graph containing only the root\+Entity node, with no parent. 
+
+\Hypertarget{class_multi_station_1_1_scene_graph_ad69632bf4260abe6f2161b7d8285c7bb}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!SceneGraph@{SceneGraph}}
+\index{SceneGraph@{SceneGraph}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{SceneGraph()}{SceneGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_ad69632bf4260abe6f2161b7d8285c7bb} 
+Multi\+Station\+::\+Scene\+Graph\+::\+Scene\+Graph (\begin{DoxyParamCaption}\item[{const Scene\+Graph \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disables copying of internal hierarchy pointers. 
+
+\Hypertarget{class_multi_station_1_1_scene_graph_a48ce4bca8a21fc5ebc62c4a81676f303}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!SceneGraph@{SceneGraph}}
+\index{SceneGraph@{SceneGraph}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{SceneGraph()}{SceneGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_a48ce4bca8a21fc5ebc62c4a81676f303} 
+Multi\+Station\+::\+Scene\+Graph\+::\+Scene\+Graph (\begin{DoxyParamCaption}\item[{Scene\+Graph \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disables moving of the graph. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_scene_graph_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_scene_graph_a503a733e242aa8b49e6e2a1c6dc187e3}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!AddEntity@{AddEntity}}
+\index{AddEntity@{AddEntity}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{AddEntity()}{AddEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_a503a733e242aa8b49e6e2a1c6dc187e3} 
+bool Multi\+Station\+::\+Scene\+Graph\+::\+Add\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Adds an entity as a direct child of root\+Entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & ID to insert into the hierarchy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if inserted; false if already present or equal to root\+Entity or null\+Entity. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_graph_adf02c81dd6d05b77af90076edd85bf14}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!GetChilds@{GetChilds}}
+\index{GetChilds@{GetChilds}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{GetChilds()}{GetChilds()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_adf02c81dd6d05b77af90076edd85bf14} 
+std\+::span$<$ const Ent\+ID $>$ Multi\+Station\+::\+Scene\+Graph\+::\+Get\+Childs (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns a read-\/only view of an entity\textquotesingle{}s direct child IDs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Parent ID; root\+Entity retrieves the top-\/level entities. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Child IDs in stored order, or an empty span if there are no children, the entity is absent, or entity equals null\+Entity. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The span borrows graph storage. Reacquire it after hierarchy changes; it must not be used after the graph is destroyed. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_scene_graph_a8357913d1fadef963acef868b2737d6a}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!GetParent@{GetParent}}
+\index{GetParent@{GetParent}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{GetParent()}{GetParent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_a8357913d1fadef963acef868b2737d6a} 
+bool Multi\+Station\+::\+Scene\+Graph\+::\+Get\+Parent (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Ent\+ID \&}]{out}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Retrieves the direct parent of an entity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em entity} & Entity whose parent is requested. \\
+\hline
+\mbox{\texttt{out}}  & {\em out} & Receives the parent\textquotesingle{}s ID on success; unchanged on failure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success; false if absent or equal to root\+Entity or null\+Entity. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_scene_graph_acf0f7755e8348364b6be733be9ac9f68}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_acf0f7755e8348364b6be733be9ac9f68} 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \& Multi\+Station\+::\+Scene\+Graph\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disables replacing the graph by copying another graph. 
+
+\Hypertarget{class_multi_station_1_1_scene_graph_a4f49c3603fcc39092328ad0bad264c23}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_a4f49c3603fcc39092328ad0bad264c23} 
+\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \& Multi\+Station\+::\+Scene\+Graph\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{Scene\+Graph}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Disables replacing the graph by moving another graph. 
+
+\Hypertarget{class_multi_station_1_1_scene_graph_adb32f6b8578e1667219082f45eceba2a}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_adb32f6b8578e1667219082f45eceba2a} 
+bool Multi\+Station\+::\+Scene\+Graph\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Removes an entity and reparents its direct children to its parent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & ID to remove from the hierarchy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if removed; false if absent or equal to root\+Entity or null\+Entity. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Descendants are preserved. The registry entity itself is not destroyed. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_scene_graph_ac69b04e58439e2bd7a96e4a6a1f26df0}\index{MultiStation::SceneGraph@{MultiStation::SceneGraph}!SetParent@{SetParent}}
+\index{SetParent@{SetParent}!MultiStation::SceneGraph@{MultiStation::SceneGraph}}
+\doxysubsubsection{\texorpdfstring{SetParent()}{SetParent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_scene_graph_ac69b04e58439e2bd7a96e4a6a1f26df0} 
+bool Multi\+Station\+::\+Scene\+Graph\+::\+Set\+Parent (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Ent\+ID}]{parent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Moves an entity and its subtree beneath the requested parent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Existing non-\/root entity to reparent. \\
+\hline
+{\em parent} & Existing parent ID; root\+Entity attaches the entity to the root. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if reparented or already attached to that parent. Returns false for missing IDs, null\+Entity, a root entity being moved, self-\/parenting, or a relationship that would create a cycle. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+Scene/Scene\+Graph.\+hpp\end{DoxyCompactItemize}
+Source/\+Scene/\mbox{\hyperlink{_scene_graph_8hpp}{Scene\+Graph.\+hpp}}\end{DoxyCompactItemize}

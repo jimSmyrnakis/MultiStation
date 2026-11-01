@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['engine_0',['Engine',['../class_multi_station_1_1_engine.html',1,'MultiStation']]],
-  ['enginecontext_1',['EngineContext',['../struct_multi_station_1_1_engine_context.html',1,'MultiStation']]],
-  ['entitymanager_2',['EntityManager',['../class_multi_station_1_1_entity_manager.html',1,'MultiStation']]],
-  ['entitynode_3',['EntityNode',['../struct_multi_station_1_1_entity_node.html',1,'MultiStation']]]
+  ['destroystorage_0',['DestroyStorage',['../class_multi_station_1_1_central_storage_manager.html#a62d2c895566d935d6b767133ad7e9ceb',1,'MultiStation::CentralStorageManager']]]
 ];

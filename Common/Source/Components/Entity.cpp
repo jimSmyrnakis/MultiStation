@@ -1,5 +1,6 @@
 #include "Entity.hpp"
 #include <ImGui.hpp>
+#include <string>
 namespace MultiStation::Component {
 
     Entity::Entity(void) : id(0) {
@@ -119,5 +120,35 @@ namespace MultiStation::Component {
     }
 
 
+
+    bool EntitySerializable::Serialize(void* ref, IArchiveWriter* archive) {
+        Entity* ent = static_cast<Entity*>(ref);
+        if (!ent || !archive) return false;
+
+        archive->BeginObject("EntityComponent");
+        archive->WriteField("name", ent->name);
+        archive->WriteField("UUID", std::to_string((uint64_t)ent->handle));
+        archive->EndObject();
+
+        return true;
     }
+
+    bool EntitySerializable::Deserialize(void* ref, IArchiveReader* archive) {
+        Entity* ent = static_cast<Entity*>(ref);
+        if (!ent || !archive) return false;
+
+        archive->BeginObject("EntityComponent");
+        std::string name;
+        archive->ReadField("name", name);
+        std::string uuid;
+        archive->ReadField("UUID", uuid);
+        archive->EndObject();
+
+        strncpy_s(ent->name, name.data(), 100 > name.length() ? name.length() : 100);
+        uint64_t number = std::stoull(uuid);
+        ent->handle = UUID(number);
+        return true;
+    }
+
+}
 

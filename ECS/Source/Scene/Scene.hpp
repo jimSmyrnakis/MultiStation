@@ -285,7 +285,7 @@ namespace MultiStation {
 		 */
 		const std::string& GetName(CompID component) const noexcept;
 
-
+		CompID GetComponentIDByName(std::string& name);
 
 	public: // ECSRegistry Registration methods - Templated
 

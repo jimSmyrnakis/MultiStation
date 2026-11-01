@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../class_multi_station_1_1_scene.html',1,'MultiStation']]],
-  ['scenegraph_1',['SceneGraph',['../class_multi_station_1_1_scene_graph.html',1,'MultiStation']]],
-  ['sceneserializer_2',['SceneSerializer',['../class_multi_station_1_1_scene_serializer.html',1,'MultiStation']]],
-  ['serializationregistry_3',['SerializationRegistry',['../class_multi_station_1_1_serialization_registry.html',1,'MultiStation']]],
-  ['setparent_4',['SetParent',['../class_multi_station_1_1_scene.html#ab08d2362cd07f8c2cd2ecd6452cf6075',1,'MultiStation::Scene']]],
-  ['shutdown_5',['Shutdown',['../class_multi_station_1_1_job_system.html#a7a7a88d069c35405ed02253fc9f50093',1,'MultiStation::JobSystem']]],
-  ['sizeofcomponent_6',['SizeOfComponent',['../class_multi_station_1_1_component_array.html#ac27c3944ec5b80fe92b0d64aa20d83d8',1,'MultiStation::ComponentArray::SizeOfComponent()'],['../class_multi_station_1_1_i_component_array.html#a76a42d42c13c4af9481f89a6564aaef2',1,'MultiStation::IComponentArray::SizeOfComponent()'],['../class_multi_station_1_1_registry.html#a0c1b8f7be9d2894976fba25fa8b34ea1',1,'MultiStation::Registry::SizeOfComponent()']]],
-  ['systemmanager_7',['SystemManager',['../class_multi_station_1_1_system_manager.html',1,'MultiStation::SystemManager'],['../class_multi_station_1_1_system_manager.html#a6263f583197445ef75c995f832457ca5',1,'MultiStation::SystemManager::SystemManager()']]]
+  ['_7ecomponentarray_0',['~ComponentArray',['../class_multi_station_1_1_component_array.html#a01f07ef338605a15a5611470ed58e2fd',1,'MultiStation::ComponentArray']]],
+  ['_7eecsregistry_1',['~ECSRegistry',['../class_multi_station_1_1_e_c_s_registry.html#acfe07b7f56455293208f57d30f66f9a4',1,'MultiStation::ECSRegistry']]],
+  ['_7eicomponentarray_2',['~IComponentArray',['../class_multi_station_1_1_i_component_array.html#aef7b10613cf2c2987fe47f1dda605de5',1,'MultiStation::IComponentArray']]],
+  ['_7eisystem_3',['~ISystem',['../class_multi_station_1_1_i_system.html#a196207ac22f9cd0ac0035bf5ce86f754',1,'MultiStation::ISystem']]],
+  ['_7esystemmanager_4',['~SystemManager',['../class_multi_station_1_1_system_manager.html#a16740f9a82c7b28a8595659d1374d731',1,'MultiStation::SystemManager']]]
 ];

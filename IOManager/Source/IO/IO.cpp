@@ -1,102 +1,130 @@
 #include "IO.hpp"
-#include "IOManager.hpp"
+#include "../FileSystem/IOReq.hpp"
+namespace MultiStation {
 
-#include <thread>
-#include <atomic>
-#include <chrono>
+	namespace IO {
 
-namespace MultiStation
-{
-    namespace IO
-    {
-        
-        #define s_manager IOManager::Get()
-        static std::thread s_ioThread;
-        static std::atomic_bool s_running = false;
+		
+
+		ErrorCode Create(const std::string& filename, bool empty_if_exists) {
+			Request req;
+			Response res;
+			req.operation_flags = empty_if_exists ? EMPTY_IF_EXISTS : 0;
+			req.file_path = filename;
 
 
-        // ---------------------------------------------------------
-        // Internal
-        // ---------------------------------------------------------
+			return CreateReq(req, res);
+		}
 
-        
-
-
-        static void WorkerLoop()
-        {
-            while (s_running.load())
-            {
-                /*
-                 * UpdateIO currently processes one request.
-                 *
-                 * Later you can replace this tiny sleep with:
-                 * condition_variable / semaphore / blocking queue.
-                 */
-                s_manager.UpdateIO();
-
-                std::this_thread::sleep_for(
-                    std::chrono::milliseconds(1)
-                );
-            }
-        }
+		ErrorCode Info(const std::string& filename, FileInfo& info){
+			Request req;
+			Response res;
+			req.file_path = filename;
 
 
-        // ---------------------------------------------------------
-        // Lifetime
-        // ---------------------------------------------------------
+			ErrorCode ress = InfoReq(req, res);
 
-        bool Init(void)
-        {
-            if (s_running.load())
-                return false;
+			if (ress == SUCCESS) {
+				info = res.info;
+			}
 
-            s_running.store(true);
+			return ress;
+		}
 
-            try
-            {
-                s_ioThread =
-                    std::thread(WorkerLoop);
-            }
-            catch (...)
-            {
-                s_running.store(false);
-                return false;
-            }
+		ErrorCode Open(const std::string& filename, Access access, int& id){
+			Request req;
+			Response res;
+			req.file_path = filename;
+			req.access = access;
 
-            return true;
-        }
+			ErrorCode ress = OpenReq(req, res);
 
+			if (ress == SUCCESS) {
+				id = res.handle;
+			}
 
-        void Fini(void)
-        {
-            if (!s_running.load())
-                return;
+			return ress;
+		}
 
-            s_running.store(false);
+		ErrorCode Read(int id, void* buffer, uint32_t count, uint32_t& readed, bool& eof){
+			Request req;
+			Response res;
+			req.handle = id;
+			req.buffer = buffer;
+			req.count = count;
+			ErrorCode ress = ReadReq(req, res);
 
-            if (s_ioThread.joinable())
-                s_ioThread.join();
+			if (ress == SUCCESS) {
+				readed = res.count;
+				eof = res.eof;
+			}
 
-            
-            
-            s_manager.Fini();
-            
-        }
+			return ress;
+		}
 
-        
-        void PollCallbacks(void)
-        {
-            
-            std::shared_ptr<Result> result;
-            while (s_manager.PopResult(
-                result))
-            {
-                if (result->callback)
-                    result->callback(*result);
-            }
-        }
+		ErrorCode Write(int id, void* buffer, uint32_t count, uint32_t& writed){
+			Request req;
+			Response res;
+			req.handle = id;
+			req.buffer = buffer;
+			req.count = count;
+			ErrorCode ress = WriteReq(req, res);
 
+			if (ress == SUCCESS) {
+				writed = res.count;
 
-        
-    }
+			}
+
+			return ress;
+		}
+
+		ErrorCode Flush(int id){
+			Request req;
+			Response res;
+			req.handle = id;
+			ErrorCode ress = FlushReq(req, res);
+
+			return ress;
+		}
+
+		ErrorCode Seek(int id, int64_t pos, SeekMode mode, int64_t& final_pos){
+			Request req;
+			Response res;
+			req.handle = id;
+			req.pos = pos;
+			req.seek_mode = mode;
+
+			ErrorCode ress = SeekReq(req, res);
+
+			if (ress == SUCCESS) {
+				final_pos = res.pos;
+			}
+
+			return ress;
+		}
+
+		ErrorCode Tell(int id, int64_t& pos){
+			Request req;
+			Response res;
+			req.handle = id;
+
+			ErrorCode ress = TellReq(req, res);
+
+			if (ress == SUCCESS) {
+				pos = res.pos;
+			}
+
+			return ress;
+		}
+
+		ErrorCode Close(int id){
+			Request req;
+			Response res;
+			req.handle = id;
+			ErrorCode ress = CloseReq(req, res);
+			return ress;
+		}
+
+	}
+
 }

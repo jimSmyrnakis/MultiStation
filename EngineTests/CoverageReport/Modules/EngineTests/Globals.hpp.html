@@ -14,7 +14,7 @@
 #include &lt;stddef.h&gt;
 #include &lt;atomic&gt;
 #include &lt;functional&gt;
-#include "../Serialization/Archive/IArchive.hpp"
+#include "../Serialization/IArchive.hpp"
 #include &lt;Platform.hpp&gt;
 namespace MultiStation{
 
@@ -31,7 +31,7 @@ namespace MultiStation{
 	/**
 	 * @brief Gives for different types of components a unique id
 	 * 
-	 * \return 
+	 * \return  
 	 */
 	template&lt;typename T&gt;
 <span style = "background-color:#dfd">	CompID GetComponentID(void) {
@@ -65,20 +65,10 @@ namespace MultiStation{
 		std::function&lt;Scene* ()&gt; GetCurrentScene;
 
 		/**
-		 * @brief Returns the serialization registry of the engine
+		 * @brief Returns the serializer to register components and objects 
+		 * for scene serialization.
 		 */
-		std::function&lt;SerializationRegistry&amp; ()&gt; GetSerializer;
-
-		/**
-		 * @brief Loads a scene from the given archive
-		 */
-		std::function&lt;bool(IArchiveReader* )&gt; LoadScene;
-
-		/**
-		 * @brief Saves the current scene to the given archive
-		 */
-		std::function&lt;bool(IArchiveWriter*)&gt; SaveScene;
-
+		std::function&lt;SerializationRegistry* ()&gt; GetSerializer;
 
 
 	};

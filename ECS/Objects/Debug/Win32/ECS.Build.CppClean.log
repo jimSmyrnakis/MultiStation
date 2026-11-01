@@ -2,6 +2,7 @@ c:\users\user\desktop\projects\multistation\ecs\library\debug\win32\ecs.pdb
 c:\users\user\desktop\projects\multistation\ecs\library\debug\win32\ecs.idb
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\systemmanager.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\isystemmodule.obj
+c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\isystem.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\serializationregistry.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\textarchive.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\sceneserializer.obj
@@ -14,6 +15,7 @@ c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\entitymanage
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\icomponentarray.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\objectmap.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\engine.obj
+c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\centralstoragemanager.obj
 c:\users\user\desktop\projects\multistation\ecs\library\debug\win32\ecs.lib
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\ecs.vcxproj.filelistabsolute.txt
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\win32\ecs.tlog\cl.command.1.tlog

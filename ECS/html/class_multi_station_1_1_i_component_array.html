@@ -110,26 +110,28 @@ Inheritance diagram for MultiStation::IComponentArray:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aef7b10613cf2c2987fe47f1dda605de5" id="r_aef7b10613cf2c2987fe47f1dda605de5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef7b10613cf2c2987fe47f1dda605de5">~IComponentArray</a> (void) noexcept=default</td></tr>
 <tr class="memdesc:aef7b10613cf2c2987fe47f1dda605de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual destructor to allow for proper cleanup of derived classes.  <br /></td></tr>
-<tr class="memitem:ac181f18c3da28a8b31cc3a3614e1bfc8" id="r_ac181f18c3da28a8b31cc3a3614e1bfc8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac181f18c3da28a8b31cc3a3614e1bfc8">RemoveComponentV</a> (EntID entity)=0</td></tr>
-<tr class="memdesc:ac181f18c3da28a8b31cc3a3614e1bfc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method of removing component.  <br /></td></tr>
-<tr class="memitem:a76c13bfff0de26ef390341fd71074e5e" id="r_a76c13bfff0de26ef390341fd71074e5e"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76c13bfff0de26ef390341fd71074e5e">AddComponentV</a> (EntID entity)=0</td></tr>
-<tr class="memdesc:a76c13bfff0de26ef390341fd71074e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of adding components.  <br /></td></tr>
-<tr class="memitem:a522af491dfa92a8ff5195a67f815ad9c" id="r_a522af491dfa92a8ff5195a67f815ad9c"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a522af491dfa92a8ff5195a67f815ad9c">ReplaceComponentV</a> (EntID entity)=0</td></tr>
-<tr class="memdesc:a522af491dfa92a8ff5195a67f815ad9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of replacing existing components.  <br /></td></tr>
-<tr class="memitem:ac69c1405df90a8377612fea480410733" id="r_ac69c1405df90a8377612fea480410733"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac69c1405df90a8377612fea480410733">HasComponentV</a> (EntID entity)=0</td></tr>
-<tr class="memdesc:ac69c1405df90a8377612fea480410733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of checking if the entity has a component.  <br /></td></tr>
-<tr class="memitem:a313b55c3f7b28019a5d36868c1d3aab3" id="r_a313b55c3f7b28019a5d36868c1d3aab3"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a313b55c3f7b28019a5d36868c1d3aab3">GetComponentV</a> (EntID entity)=0</td></tr>
-<tr class="memdesc:a313b55c3f7b28019a5d36868c1d3aab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method for getting component of a entity or nullptr if not has one .  <br /></td></tr>
-<tr class="memitem:a3c9de8b0b47913688e8de5ee45f9584d" id="r_a3c9de8b0b47913688e8de5ee45f9584d"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c9de8b0b47913688e8de5ee45f9584d">GetComponentsV</a> (void)=0</td></tr>
-<tr class="memdesc:a3c9de8b0b47913688e8de5ee45f9584d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Method for getting all components .  <br /></td></tr>
-<tr class="memitem:a76a42d42c13c4af9481f89a6564aaef2" id="r_a76a42d42c13c4af9481f89a6564aaef2"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76a42d42c13c4af9481f89a6564aaef2">SizeOfComponent</a> (void) const =0</td></tr>
-<tr class="memdesc:a76a42d42c13c4af9481f89a6564aaef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that returns the size of each component in bytes.  <br /></td></tr>
-<tr class="memitem:af0995a8396ab1830cb2c7ca8f1116175" id="r_af0995a8396ab1830cb2c7ca8f1116175"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0995a8396ab1830cb2c7ca8f1116175">Count</a> (void) const =0</td></tr>
-<tr class="memdesc:af0995a8396ab1830cb2c7ca8f1116175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that returns the number of components .  <br /></td></tr>
+<tr class="memitem:a8ccfeb2cfa4b38d9213b1622e975d48c" id="r_a8ccfeb2cfa4b38d9213b1622e975d48c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ccfeb2cfa4b38d9213b1622e975d48c">RemoveComponentV</a> (EntID entity) noexcept=0</td></tr>
+<tr class="memdesc:a8ccfeb2cfa4b38d9213b1622e975d48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method of removing component.  <br /></td></tr>
+<tr class="memitem:a4a126772e66a891bfeae3090c7f64d1d" id="r_a4a126772e66a891bfeae3090c7f64d1d"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a126772e66a891bfeae3090c7f64d1d">AddComponentV</a> (EntID entity) noexcept=0</td></tr>
+<tr class="memdesc:a4a126772e66a891bfeae3090c7f64d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of adding components.  <br /></td></tr>
+<tr class="memitem:a7bf13f2a488ea22903659259e63836ee" id="r_a7bf13f2a488ea22903659259e63836ee"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bf13f2a488ea22903659259e63836ee">ReplaceComponentV</a> (EntID entity) noexcept=0</td></tr>
+<tr class="memdesc:a7bf13f2a488ea22903659259e63836ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of replacing existing components.  <br /></td></tr>
+<tr class="memitem:afd6af163ee856a6f4f30c2783b67b061" id="r_afd6af163ee856a6f4f30c2783b67b061"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd6af163ee856a6f4f30c2783b67b061">HasComponentV</a> (EntID entity) noexcept=0</td></tr>
+<tr class="memdesc:afd6af163ee856a6f4f30c2783b67b061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method of checking if the entity has a component.  <br /></td></tr>
+<tr class="memitem:ace949ed244d5650e1bb418bb7dc4fe58" id="r_ace949ed244d5650e1bb418bb7dc4fe58"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace949ed244d5650e1bb418bb7dc4fe58">GetComponentV</a> (EntID entity) noexcept=0</td></tr>
+<tr class="memdesc:ace949ed244d5650e1bb418bb7dc4fe58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method for getting component of a entity or nullptr if not has one .  <br /></td></tr>
+<tr class="memitem:ae9434b20b68b730de432829621f33a9e" id="r_ae9434b20b68b730de432829621f33a9e"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9434b20b68b730de432829621f33a9e">GetComponentsV</a> (void) noexcept=0</td></tr>
+<tr class="memdesc:ae9434b20b68b730de432829621f33a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual Method for getting all components .  <br /></td></tr>
+<tr class="memitem:abaf8bc78e4664a8607efff5f61838d69" id="r_abaf8bc78e4664a8607efff5f61838d69"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaf8bc78e4664a8607efff5f61838d69">SizeOfComponent</a> (void) const noexcept=0</td></tr>
+<tr class="memdesc:abaf8bc78e4664a8607efff5f61838d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that returns the size of each component in bytes.  <br /></td></tr>
+<tr class="memitem:ae1ca9239cd94a1c3c8ffd3de8f07b7c5" id="r_ae1ca9239cd94a1c3c8ffd3de8f07b7c5"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1ca9239cd94a1c3c8ffd3de8f07b7c5">Count</a> (void) const noexcept=0</td></tr>
+<tr class="memdesc:ae1ca9239cd94a1c3c8ffd3de8f07b7c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method that returns the number of components .  <br /></td></tr>
+<tr class="memitem:ae99c63adca5e5c6927a10fcb5345b94a" id="r_ae99c63adca5e5c6927a10fcb5345b94a"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae99c63adca5e5c6927a10fcb5345b94a">GetName</a> (void) const noexcept=0</td></tr>
+<tr class="memitem:a4fca3538183717736d844a9f611a44e1" id="r_a4fca3538183717736d844a9f611a44e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fca3538183717736d844a9f611a44e1">Clear</a> (void) noexcept=0</td></tr>
+<tr class="memdesc:a4fca3538183717736d844a9f611a44e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual method for clearing the storage of the component array.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface for <a class="el" href="class_multi_station_1_1_component_array.html" title="This class manages a dynamic array of components of type T, allowing for efficient addition,...">ComponentArray</a> classes, providing a common base for different component types. </p>
-<dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis</dd></dl>
 <p>This way we ensure that all component arrays can be accessed polymorphically , as well for each different component type (templates) . </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aef7b10613cf2c2987fe47f1dda605de5" name="aef7b10613cf2c2987fe47f1dda605de5"></a>
@@ -160,8 +162,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a76c13bfff0de26ef390341fd71074e5e" name="a76c13bfff0de26ef390341fd71074e5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76c13bfff0de26ef390341fd71074e5e">&#9670;&#160;</a></span>AddComponentV()</h2>
+<a id="a4a126772e66a891bfeae3090c7f64d1d" name="a4a126772e66a891bfeae3090c7f64d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a126772e66a891bfeae3090c7f64d1d">&#9670;&#160;</a></span>AddComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +180,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -192,12 +194,41 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the new added component if succeded , nullptr otherwise </dd></dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#ae8df0e5ac549e2103c5a0024f456109c">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a568201b9f45e37c6890cec5c9a7b1e95">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="af0995a8396ab1830cb2c7ca8f1116175" name="af0995a8396ab1830cb2c7ca8f1116175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0995a8396ab1830cb2c7ca8f1116175">&#9670;&#160;</a></span>Count()</h2>
+<a id="a4fca3538183717736d844a9f611a44e1" name="a4fca3538183717736d844a9f611a44e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fca3538183717736d844a9f611a44e1">&#9670;&#160;</a></span>Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MultiStation::IComponentArray::Clear </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual method for clearing the storage of the component array. </p>
+
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a3cc39dc681e10d627ecdbedb3e2544f7">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ae1ca9239cd94a1c3c8ffd3de8f07b7c5" name="ae1ca9239cd94a1c3c8ffd3de8f07b7c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ca9239cd94a1c3c8ffd3de8f07b7c5">&#9670;&#160;</a></span>Count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,19 +245,19 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Virtual method that returns the number of components . </p>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#aab092af14c2a2e1d387d25fa586747ad">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a001744cc63af4738812a745bf6e47925">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a3c9de8b0b47913688e8de5ee45f9584d" name="a3c9de8b0b47913688e8de5ee45f9584d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c9de8b0b47913688e8de5ee45f9584d">&#9670;&#160;</a></span>GetComponentsV()</h2>
+<a id="ae9434b20b68b730de432829621f33a9e" name="ae9434b20b68b730de432829621f33a9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9434b20b68b730de432829621f33a9e">&#9670;&#160;</a></span>GetComponentsV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +274,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -256,12 +287,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a2556a264470c2df3f6ef67d40ac0818e">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a85fabb4a37616fbbb1f46958ae175759">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a313b55c3f7b28019a5d36868c1d3aab3" name="a313b55c3f7b28019a5d36868c1d3aab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a313b55c3f7b28019a5d36868c1d3aab3">&#9670;&#160;</a></span>GetComponentV()</h2>
+<a id="ace949ed244d5650e1bb418bb7dc4fe58" name="ace949ed244d5650e1bb418bb7dc4fe58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace949ed244d5650e1bb418bb7dc4fe58">&#9670;&#160;</a></span>GetComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +309,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -291,12 +322,40 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a00e55c26a46e925143c0468cf21fe991">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#ab7c6aeaa7265674adc848956529df0b6">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="ac69c1405df90a8377612fea480410733" name="ac69c1405df90a8377612fea480410733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac69c1405df90a8377612fea480410733">&#9670;&#160;</a></span>HasComponentV()</h2>
+<a id="ae99c63adca5e5c6927a10fcb5345b94a" name="ae99c63adca5e5c6927a10fcb5345b94a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae99c63adca5e5c6927a10fcb5345b94a">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string &amp; MultiStation::IComponentArray::GetName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The name of the component type </dd></dl>
+
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a6a692f8e36e71be4514cc771c9b8be92">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="afd6af163ee856a6f4f30c2783b67b061" name="afd6af163ee856a6f4f30c2783b67b061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd6af163ee856a6f4f30c2783b67b061">&#9670;&#160;</a></span>HasComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +372,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -327,12 +386,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if has a component , false otherwise . </dd></dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#aa9955c98d18a6e3c205b55e3a86adff0">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#aa15766a282c5738283a189beba9eed72">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="ac181f18c3da28a8b31cc3a3614e1bfc8" name="ac181f18c3da28a8b31cc3a3614e1bfc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac181f18c3da28a8b31cc3a3614e1bfc8">&#9670;&#160;</a></span>RemoveComponentV()</h2>
+<a id="a8ccfeb2cfa4b38d9213b1622e975d48c" name="a8ccfeb2cfa4b38d9213b1622e975d48c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ccfeb2cfa4b38d9213b1622e975d48c">&#9670;&#160;</a></span>RemoveComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +408,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -362,12 +421,12 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a5d6deef5652c901aa7c43016a9448bbe">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#ad1602785cc46206466071b1eee68a4f3">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a522af491dfa92a8ff5195a67f815ad9c" name="a522af491dfa92a8ff5195a67f815ad9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a522af491dfa92a8ff5195a67f815ad9c">&#9670;&#160;</a></span>ReplaceComponentV()</h2>
+<a id="a7bf13f2a488ea22903659259e63836ee" name="a7bf13f2a488ea22903659259e63836ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf13f2a488ea22903659259e63836ee">&#9670;&#160;</a></span>ReplaceComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +443,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -398,12 +457,12 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the new replaced component if succeded , nullptr otherwise </dd></dl>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#ad5646f8329a780d0d8000dc8f6f83065">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a11b0474f58bd6f6e675eae704afde976">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a76a42d42c13c4af9481f89a6564aaef2" name="a76a42d42c13c4af9481f89a6564aaef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76a42d42c13c4af9481f89a6564aaef2">&#9670;&#160;</a></span>SizeOfComponent()</h2>
+<a id="abaf8bc78e4664a8607efff5f61838d69" name="abaf8bc78e4664a8607efff5f61838d69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaf8bc78e4664a8607efff5f61838d69">&#9670;&#160;</a></span>SizeOfComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,19 +479,19 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Virtual method that returns the size of each component in bytes. </p>
 
-<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#ac27c3944ec5b80fe92b0d64aa20d83d8">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
+<p>Implemented in <a class="el" href="class_multi_station_1_1_component_array.html#a1163e0699af34082c5a595cdcb100aeb">MultiStation::ComponentArray&lt; T &gt;</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Source/Registry/ComponentArray/<a class="el" href="_i_component_array_8hpp_source.html">IComponentArray.hpp</a></li>
+<li>Source/ECSRegistry/ComponentArray/<a class="el" href="_i_component_array_8hpp_source.html">IComponentArray.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

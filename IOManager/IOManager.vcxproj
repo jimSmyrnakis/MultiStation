@@ -19,18 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\FileSystem\Handle\Handle.cpp" />
+    <ClCompile Include="Source\FileSystem\Handle\HandleManager.cpp" />
     <ClCompile Include="Source\Globals.cpp" />
-    <ClCompile Include="Source\IO\FileIOSpecific.cpp" />
+    <ClCompile Include="Source\IOManager\IOManager.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\OperationsBackend.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\close_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\create_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\flush_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\info_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\make_dir_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\open_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\read_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\read_dir_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\remove_dir_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\seek_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\tell_req.cpp" />
+    <ClCompile Include="Source\FileSystem\Ops\write_req.cpp" />
     <ClCompile Include="Source\IO\IO.cpp" />
-    <ClCompile Include="Source\IO\IOManager.cpp" />
-    <ClCompile Include="Source\IO\IO_CALLS.cpp" />
-    <ClCompile Include="Source\IO\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\IO.hpp" />
+    <ClInclude Include="Source\DirectoryEntry.hpp" />
+    <ClInclude Include="Source\FileSystem\Handle\Handle.hpp" />
+    <ClInclude Include="Source\FileSystem\Handle\HandleManager.hpp" />
+    <ClInclude Include="Source\FileSystem\IOReq.hpp" />
     <ClInclude Include="Source\Globals.hpp" />
+    <ClInclude Include="Source\IO.hpp" />
+    <ClInclude Include="Source\IOManager\IOManager.hpp" />
     <ClInclude Include="Source\IO\IO.hpp" />
-    <ClInclude Include="Source\IO\IOManager.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

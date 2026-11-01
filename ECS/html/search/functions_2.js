@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fini_0',['Fini',['../class_multi_station_1_1_i_system_module.html#ab001daf96fbe25e88f826bfca989327f',1,'MultiStation::ISystemModule']]]
+  ['destroystorage_0',['DestroyStorage',['../class_multi_station_1_1_central_storage_manager.html#a62d2c895566d935d6b767133ad7e9ceb',1,'MultiStation::CentralStorageManager']]]
 ];

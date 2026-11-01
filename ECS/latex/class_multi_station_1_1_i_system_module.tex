@@ -1,61 +1,155 @@
 \doxysection{Multi\+Station\+::ISystem\+Module Class Reference}
 \hypertarget{class_multi_station_1_1_i_system_module}{}\label{class_multi_station_1_1_i_system_module}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}}
+
+
+Contains the interface of system module for developers to implement.  
+
+
+
+
+{\ttfamily \#include $<$ISystem\+Module.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a47866ea4db1a9f48446f425949c3696e}{Init}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context)=0
-\begin{DoxyCompactList}\small\item\em Virtual method for initiallize the system module , things like views on editor registry , controllers for handling events services for the system to execute and communicate settings and properties with the user via editor registry . \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_ab001daf96fbe25e88f826bfca989327f}{Fini}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context)=0
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a6a5ec73776f7a6cc7638c624246dea81}{Init}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context) noexcept=0
+\begin{DoxyCompactList}\small\item\em Virtual method for initiallize the system module , things like views on editor registry , controllers for handling events services for the system to execute and communicate settings and properties with the user via editor ui . \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_ae0b5c6f46891668f7b190ce3b2446d2c}{Fini}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context) noexcept=0
 \begin{DoxyCompactList}\small\item\em Virtual method for when the system module is unregister from the scene , this is where operations like editor.\+unregister , components unregister , assets shared sources unregister must happen for the system completly remove it self from the scene. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}{Get\+System}} (void)=0
-\end{DoxyCompactItemize}
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \& \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a6ca8ea4b73438c540f8190bdcd693613}{Get\+System}} (void) noexcept=0
+\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a}{On\+Scene\+Create}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Prepares module resources for a newly created or loaded scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_a907e4e8d054a0bc16f7679e98f6ac362}{On\+Scene\+Activate}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Applies module state for a scene entering active use. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_aa6fd66f5cef01e21ba454a7563e50d5c}{On\+Scene\+Deactivate}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Stops using a scene as the active scene without destroying it. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_module_ab31cadef79618103f4eba8451947218c}{On\+Scene\+Destroy}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Releases module resources and references before scene destruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the interface of system module for developers to implement. 
+
+\begin{DoxyWarning}{Warning}
+Exceptions terminate the engine , prefer catch them inside the methods and handle them there . 
+\end{DoxyWarning}
 
 
 \label{doc-func-members}
 \Hypertarget{class_multi_station_1_1_i_system_module_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_multi_station_1_1_i_system_module_ab001daf96fbe25e88f826bfca989327f}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!Fini@{Fini}}
+\Hypertarget{class_multi_station_1_1_i_system_module_ae0b5c6f46891668f7b190ce3b2446d2c}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!Fini@{Fini}}
 \index{Fini@{Fini}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
 \doxysubsubsection{\texorpdfstring{Fini()}{Fini()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_ab001daf96fbe25e88f826bfca989327f} 
-virtual void Multi\+Station\+::\+ISystem\+Module\+::\+Fini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_ae0b5c6f46891668f7b190ce3b2446d2c} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+Fini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
 
 
 
 Virtual method for when the system module is unregister from the scene , this is where operations like editor.\+unregister , components unregister , assets shared sources unregister must happen for the system completly remove it self from the scene. 
 
-\begin{DoxyWarning}{Warning}
-Do not use scene module unregister for this method to execute it is already called . 
-\end{DoxyWarning}
-\Hypertarget{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!GetSystem@{GetSystem}}
+\Hypertarget{class_multi_station_1_1_i_system_module_a6ca8ea4b73438c540f8190bdcd693613}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!GetSystem@{GetSystem}}
 \index{GetSystem@{GetSystem}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
 \doxysubsubsection{\texorpdfstring{GetSystem()}{GetSystem()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9} 
-virtual \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ISystem\+Module\+::\+Get\+System (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a6ca8ea4b73438c540f8190bdcd693613} 
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}} \& Multi\+Station\+::\+ISystem\+Module\+::\+Get\+System (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
 
 \begin{DoxyReturn}{Returns}
 It should return the \doxylink{class_multi_station_1_1_i_system}{ISystem} implementation of this module . 
 \end{DoxyReturn}
-\Hypertarget{class_multi_station_1_1_i_system_module_a47866ea4db1a9f48446f425949c3696e}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!Init@{Init}}
+\Hypertarget{class_multi_station_1_1_i_system_module_a6a5ec73776f7a6cc7638c624246dea81}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!Init@{Init}}
 \index{Init@{Init}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a47866ea4db1a9f48446f425949c3696e} 
-virtual void Multi\+Station\+::\+ISystem\+Module\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a6a5ec73776f7a6cc7638c624246dea81} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
 
 
 
-Virtual method for initiallize the system module , things like views on editor registry , controllers for handling events services for the system to execute and communicate settings and properties with the user via editor registry . 
+Virtual method for initiallize the system module , things like views on editor registry , controllers for handling events services for the system to execute and communicate settings and properties with the user via editor ui . 
 
 
 \begin{DoxyParams}{Parameters}
-{\em context} & It has all necessery engine context like scene (and in the future editor and asset registry ) for the system loading / save / UI / scene operations.\\
+{\em context} & It has all necessery engine context methods like getting the active scene or loading / saving a new scene etc. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_i_system_module_a907e4e8d054a0bc16f7679e98f6ac362}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!OnSceneActivate@{OnSceneActivate}}
+\index{OnSceneActivate@{OnSceneActivate}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
+\doxysubsubsection{\texorpdfstring{OnSceneActivate()}{OnSceneActivate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a907e4e8d054a0bc16f7679e98f6ac362} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+On\+Scene\+Activate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Applies module state for a scene entering active use. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Live scene selected as active by the caller.\\
+\hline
+\end{DoxyParams}
+Use this to bind scene resources or apply its settings. A loaded scene can be activated repeatedly, with deactivation between activations. The default implementation does nothing. \begin{DoxyPrecond}{Precondition}
+\doxylink{class_multi_station_1_1_scene}{Scene} creation/loading is complete. The safe-\/stage and callback restrictions documented on \doxylink{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a}{On\+Scene\+Create()} apply. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!OnSceneCreate@{OnSceneCreate}}
+\index{OnSceneCreate@{OnSceneCreate}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
+\doxysubsubsection{\texorpdfstring{OnSceneCreate()}{OnSceneCreate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+On\+Scene\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Prepares module resources for a newly created or loaded scene. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Live scene with its initial data ready for use.\\
+\hline
+\end{DoxyParams}
+Use this to prepare per-\/scene settings or resources without making the scene active. The default implementation does nothing. \begin{DoxyNote}{Note}
+\doxylink{class_multi_station_1_1_system_manager}{System\+Manager} notifies initialized modules even when their system updates are disabled. Notifications are synchronous in registration order. 
+\end{DoxyNote}
 \begin{DoxyWarning}{Warning}
-Do not use the scene to upload the module , for init to execute the module is already given to the scene . 
+Run scene callbacks at a safe stage with no jobs accessing the affected scene. Do not mutate module registration, initialize/finalize modules, or trigger nested lifecycle dispatch from these callbacks. 
 \end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_i_system_module_aa6fd66f5cef01e21ba454a7563e50d5c}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!OnSceneDeactivate@{OnSceneDeactivate}}
+\index{OnSceneDeactivate@{OnSceneDeactivate}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
+\doxysubsubsection{\texorpdfstring{OnSceneDeactivate()}{OnSceneDeactivate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_aa6fd66f5cef01e21ba454a7563e50d5c} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+On\+Scene\+Deactivate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Stops using a scene as the active scene without destroying it. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Previously active scene, still valid during the call.\\
+\hline
+\end{DoxyParams}
+Release active-\/scene bindings here. The scene may remain loaded and become active again, or be destroyed afterward. No replacement scene is guaranteed. The default implementation does nothing. \begin{DoxyPrecond}{Precondition}
+The safe-\/stage and callback restrictions of \doxylink{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a}{On\+Scene\+Create()} apply. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_i_system_module_ab31cadef79618103f4eba8451947218c}\index{MultiStation::ISystemModule@{MultiStation::ISystemModule}!OnSceneDestroy@{OnSceneDestroy}}
+\index{OnSceneDestroy@{OnSceneDestroy}!MultiStation::ISystemModule@{MultiStation::ISystemModule}}
+\doxysubsubsection{\texorpdfstring{OnSceneDestroy()}{OnSceneDestroy()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_module_ab31cadef79618103f4eba8451947218c} 
+virtual void Multi\+Station\+::\+ISystem\+Module\+::\+On\+Scene\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Releases module resources and references before scene destruction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & \doxylink{class_multi_station_1_1_scene}{Scene} that is still alive for the duration of the call.\\
+\hline
+\end{DoxyParams}
+Do not retain references to the scene after destruction. This notification does not save the scene; settings needed by serialization must be synchronized before saving. The default implementation does nothing. \begin{DoxyPrecond}{Precondition}
+If active, the scene has received \doxylink{class_multi_station_1_1_i_system_module_aa6fd66f5cef01e21ba454a7563e50d5c}{On\+Scene\+Deactivate()} first. The safe-\/stage and callback restrictions of \doxylink{class_multi_station_1_1_i_system_module_a9d20875a24137f3815a7197d9e9b471a}{On\+Scene\+Create()} apply. 
+\end{DoxyPrecond}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+System/ISystem\+Module.\+hpp\end{DoxyCompactItemize}
+Source/\+System/\mbox{\hyperlink{_i_system_module_8hpp}{ISystem\+Module.\+hpp}}\end{DoxyCompactItemize}

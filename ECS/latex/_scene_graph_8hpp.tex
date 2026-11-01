@@ -1,0 +1,27 @@
+\doxysection{Source/\+Scene/\+Scene\+Graph.hpp File Reference}
+\hypertarget{_scene_graph_8hpp}{}\label{_scene_graph_8hpp}\index{Source/Scene/SceneGraph.hpp@{Source/Scene/SceneGraph.hpp}}
+
+
+This file contains the class responsible for managing entities hierarchy presentation .  
+
+
+{\ttfamily \#include "{}../\+ECSRegistry/\+Registry.\+hpp"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{Multi\+Station\+::\+Entity\+Node}}
+\begin{DoxyCompactList}\small\item\em Stores an entity\textquotesingle{}s identity and links within a \doxylink{class_multi_station_1_1_scene_graph}{Scene\+Graph}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_multi_station_1_1_scene_graph}{Multi\+Station\+::\+Scene\+Graph}}
+\begin{DoxyCompactList}\small\item\em Maintains an acyclic parent-\/child hierarchy of entity IDs. This class manages hierarchy only; it does not create or destroy registry entities, manage components, or verify that IDs exist in an \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the class responsible for managing entities hierarchy presentation . 
+
+\begin{DoxyAuthor}{Author}
+Dimitris Smyrnakis 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}

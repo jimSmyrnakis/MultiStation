@@ -1,5 +1,114 @@
 \doxysection{Multi\+Station\+::Engine Class Reference}
 \hypertarget{class_multi_station_1_1_engine}{}\label{class_multi_station_1_1_engine}\index{MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_multi_station_1_1_engine_a797d239884d02292a03137e683ae0082}{On\+Event}} (Event \&e)
+\begin{DoxyCompactList}\small\item\em Updates the engine with a event , this way every system receives them. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_engine_a1db9b7486f60217403893fb640db50fa}{On\+Update}} (float dt)
+\begin{DoxyCompactList}\small\item\em Updates all systems of the modules (all logic). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_engine_ad42f19b35e75849908f866b1528e11b7}{Add\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_engine_a3977e482a94220ddc26e1d2c9faa83ec}{Remove\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_engine_a3acf7ce81e67f78bb4dc0e93be938c3c}{Has\+Module}} (void) const
+\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_engine_acfa2dcff0e6f149d0fed1193726eede5}{Get\+Module}} (void) const
+\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_engine_a08d556faeec1f46d3aaea84216d108e6}\label{class_multi_station_1_1_engine_a08d556faeec1f46d3aaea84216d108e6} 
+void {\bfseries Init} (void) noexcept
+\item 
+\Hypertarget{class_multi_station_1_1_engine_a284853e5cd0fe8af821a5766b1319ed3}\label{class_multi_station_1_1_engine_a284853e5cd0fe8af821a5766b1319ed3} 
+void {\bfseries Fini} (void) noexcept
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_engine_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_engine_ad42f19b35e75849908f866b1528e11b7}\index{MultiStation::Engine@{MultiStation::Engine}!AddModule@{AddModule}}
+\index{AddModule@{AddModule}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{AddModule()}{AddModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_ad42f19b35e75849908f866b1528e11b7} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Engine\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . 
+
+\begin{DoxyWarning}{Warning}
+Do not use this method inside the module init , Fini or System methods . 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_engine_acfa2dcff0e6f149d0fed1193726eede5}\index{MultiStation::Engine@{MultiStation::Engine}!GetModule@{GetModule}}
+\index{GetModule@{GetModule}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_acfa2dcff0e6f149d0fed1193726eede5} 
+template$<$typename T$>$ \\
+const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Engine\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . 
+
+\Hypertarget{class_multi_station_1_1_engine_a3acf7ce81e67f78bb4dc0e93be938c3c}\index{MultiStation::Engine@{MultiStation::Engine}!HasModule@{HasModule}}
+\index{HasModule@{HasModule}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{HasModule()}{HasModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_a3acf7ce81e67f78bb4dc0e93be938c3c} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Engine\+::\+Has\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . 
+
+\Hypertarget{class_multi_station_1_1_engine_a797d239884d02292a03137e683ae0082}\index{MultiStation::Engine@{MultiStation::Engine}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_a797d239884d02292a03137e683ae0082} 
+void Multi\+Station\+::\+Engine\+::\+On\+Event (\begin{DoxyParamCaption}\item[{Event \&}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Updates the engine with a event , this way every system receives them. 
+
+\begin{DoxyNote}{Note}
+For moment each system takes every event
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The event \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_engine_a1db9b7486f60217403893fb640db50fa}\index{MultiStation::Engine@{MultiStation::Engine}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_a1db9b7486f60217403893fb640db50fa} 
+void Multi\+Station\+::\+Engine\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Updates all systems of the modules (all logic). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Delta Time \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_engine_a3977e482a94220ddc26e1d2c9faa83ec}\index{MultiStation::Engine@{MultiStation::Engine}!RemoveModule@{RemoveModule}}
+\index{RemoveModule@{RemoveModule}!MultiStation::Engine@{MultiStation::Engine}}
+\doxysubsubsection{\texorpdfstring{RemoveModule()}{RemoveModule()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_engine_a3977e482a94220ddc26e1d2c9faa83ec} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Engine\+::\+Remove\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . 
+
+\begin{DoxyWarning}{Warning}
+Do not use this method inside the module init , Fini or System methods . 
+\end{DoxyWarning}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

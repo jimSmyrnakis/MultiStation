@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['onattach_0',['OnAttach',['../class_multi_station_1_1_i_system.html#ab744cd12437a1bb2d42b640eb5796f04',1,'MultiStation::ISystem']]],
-  ['ondettach_1',['OnDettach',['../class_multi_station_1_1_i_system.html#ad65e14df43da81b2b7f17a98218c515f',1,'MultiStation::ISystem']]],
-  ['onupdate_2',['OnUpdate',['../class_multi_station_1_1_i_system.html#a0988bdcbbb39c0c5d5fca600cfd24856',1,'MultiStation::ISystem']]],
-  ['operator_3d_3',['operator=',['../class_multi_station_1_1_component_array.html#a3448603a7c1ba3d07efc88827f55daf7',1,'MultiStation::ComponentArray::operator=(const ComponentArray &amp;copy)=delete'],['../class_multi_station_1_1_component_array.html#a42485190e95291a34084cc545819853f',1,'MultiStation::ComponentArray::operator=(ComponentArray &amp;&amp;move) noexcept'],['../class_multi_station_1_1_registry.html#acef85d8806a22e62a14b8894b0fa11e6',1,'MultiStation::Registry::operator=(const Registry &amp;) noexcept=delete'],['../class_multi_station_1_1_registry.html#a0dd835c16bf5b0eb577e70fc9e814b68',1,'MultiStation::Registry::operator=(Registry &amp;&amp;) noexcept=delete']]]
+  ['init_0',['Init',['../class_multi_station_1_1_central_storage_manager.html#ab159372f76f2f934da784c4e6afade7f',1,'MultiStation::CentralStorageManager::Init()'],['../class_multi_station_1_1_i_system_module.html#a6a5ec73776f7a6cc7638c624246dea81',1,'MultiStation::ISystemModule::Init()']]],
+  ['initmodules_1',['InitModules',['../class_multi_station_1_1_system_manager.html#ac9e288c1066ed06d5feab46d721f6839',1,'MultiStation::SystemManager']]],
+  ['isenable_2',['IsEnable',['../class_multi_station_1_1_i_system.html#a7c0930d0dd1fb4e6cb3db344b227078a',1,'MultiStation::ISystem']]],
+  ['isinitialized_3',['IsInitialized',['../class_multi_station_1_1_central_storage_manager.html#aca0e8eaa0831ce4e32bc6fef8796cf66',1,'MultiStation::CentralStorageManager']]],
+  ['isystem_4',['ISystem',['../class_multi_station_1_1_i_system.html#ad176d0765056ed6a5e60207bc4344484',1,'MultiStation::ISystem']]]
 ];

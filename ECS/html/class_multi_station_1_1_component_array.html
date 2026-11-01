@@ -120,44 +120,48 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5f6331fe77b19a0d3e93626dae21a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor and move assignment operator for transferring ownership.  <br /></td></tr>
 <tr class="memitem:a42485190e95291a34084cc545819853f" id="r_a42485190e95291a34084cc545819853f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ad38047a6d5e081ec8c8dbaa018c83651">ComponentArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42485190e95291a34084cc545819853f">operator=</a> (<a class="el" href="#ad38047a6d5e081ec8c8dbaa018c83651">ComponentArray</a> &amp;&amp;move) noexcept</td></tr>
 <tr class="memdesc:a42485190e95291a34084cc545819853f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator for transferring ownership.  <br /></td></tr>
-<tr class="memitem:a79e7089f241abb6bd68ecfb737052fe8" id="r_a79e7089f241abb6bd68ecfb737052fe8"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a79e7089f241abb6bd68ecfb737052fe8 template"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79e7089f241abb6bd68ecfb737052fe8">AddComponent</a> (EntID entity, Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a79e7089f241abb6bd68ecfb737052fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new component for the specified entity , If the entity does not already have one.  <br /></td></tr>
-<tr class="memitem:abb45a305acdcb92fd683e9761a568dde" id="r_abb45a305acdcb92fd683e9761a568dde"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:abb45a305acdcb92fd683e9761a568dde template"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb45a305acdcb92fd683e9761a568dde">ReplaceComponent</a> (EntID entity, Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:abb45a305acdcb92fd683e9761a568dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the component for the specified entity if it exists.  <br /></td></tr>
-<tr class="memitem:a29180a0efd99e2d7a57c0c8c76f0628b" id="r_a29180a0efd99e2d7a57c0c8c76f0628b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29180a0efd99e2d7a57c0c8c76f0628b">RemoveComponent</a> (EntID entity)</td></tr>
-<tr class="memdesc:a29180a0efd99e2d7a57c0c8c76f0628b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component associated with the specified entity.  <br /></td></tr>
-<tr class="memitem:a9d2b1f266d0244e60f185b83ac4baf6f" id="r_a9d2b1f266d0244e60f185b83ac4baf6f"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d2b1f266d0244e60f185b83ac4baf6f">GetComponent</a> (EntID entity)</td></tr>
-<tr class="memdesc:a9d2b1f266d0244e60f185b83ac4baf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the component associated with the specified entity.  <br /></td></tr>
-<tr class="memitem:a35b8ccaa1c4baf878f45f55ad79a5a53" id="r_a35b8ccaa1c4baf878f45f55ad79a5a53"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35b8ccaa1c4baf878f45f55ad79a5a53">GetComponent</a> (EntID entity) const</td></tr>
-<tr class="memdesc:a35b8ccaa1c4baf878f45f55ad79a5a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the component associated with the specified entity.  <br /></td></tr>
-<tr class="memitem:a0859da88d619eb4fedb28c0fbbb677bd" id="r_a0859da88d619eb4fedb28c0fbbb677bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0859da88d619eb4fedb28c0fbbb677bd">GetEntity</a> (T &amp;component, EntID &amp;entity) const</td></tr>
-<tr class="memdesc:a0859da88d619eb4fedb28c0fbbb677bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity associated with the specified component.  <br /></td></tr>
-<tr class="memitem:a340adf0ebaab72bb5a9096c1d8c177c0" id="r_a340adf0ebaab72bb5a9096c1d8c177c0"><td class="memItemLeft" align="right" valign="top">std::span&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340adf0ebaab72bb5a9096c1d8c177c0">GetComponents</a> (void)</td></tr>
-<tr class="memdesc:a340adf0ebaab72bb5a9096c1d8c177c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a const reference to the vector of all components.  <br /></td></tr>
-<tr class="memitem:a90e3634467dad3f9b099a4484c21cf35" id="r_a90e3634467dad3f9b099a4484c21cf35"><td class="memItemLeft" align="right" valign="top">std::span&lt; const T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e3634467dad3f9b099a4484c21cf35">GetComponents</a> (void) const</td></tr>
-<tr class="memdesc:a90e3634467dad3f9b099a4484c21cf35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a const reference to the vector of all components.  <br /></td></tr>
-<tr class="memitem:aa04050bb98c4d2b6322cb34ca19e6e69" id="r_aa04050bb98c4d2b6322cb34ca19e6e69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa04050bb98c4d2b6322cb34ca19e6e69">HasEntity</a> (EntID entity) const</td></tr>
-<tr class="memdesc:aa04050bb98c4d2b6322cb34ca19e6e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the specified entity has an associated component.  <br /></td></tr>
-<tr class="memitem:a19cc255c44cd78dc90b46af4201aa905" id="r_a19cc255c44cd78dc90b46af4201aa905"><td class="memItemLeft" align="right" valign="top">CompID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19cc255c44cd78dc90b46af4201aa905">GetID</a> (void) const</td></tr>
-<tr class="memdesc:a19cc255c44cd78dc90b46af4201aa905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique id of the component type.  <br /></td></tr>
-<tr class="memitem:a5d6deef5652c901aa7c43016a9448bbe" id="r_a5d6deef5652c901aa7c43016a9448bbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d6deef5652c901aa7c43016a9448bbe">RemoveComponentV</a> (EntID entity) override</td></tr>
-<tr class="memdesc:a5d6deef5652c901aa7c43016a9448bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component associated with the entity, if exist's . It is a override virtual method from the IComponent class so the registry can remove all components of a entity when the entity is destroyed without the need of the templated type .  <br /></td></tr>
-<tr class="memitem:ae8df0e5ac549e2103c5a0024f456109c" id="r_ae8df0e5ac549e2103c5a0024f456109c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8df0e5ac549e2103c5a0024f456109c">AddComponentV</a> (EntID entity) override</td></tr>
-<tr class="memdesc:ae8df0e5ac549e2103c5a0024f456109c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the component if not exist's to the entity.  <br /></td></tr>
-<tr class="memitem:ad5646f8329a780d0d8000dc8f6f83065" id="r_ad5646f8329a780d0d8000dc8f6f83065"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5646f8329a780d0d8000dc8f6f83065">ReplaceComponentV</a> (EntID entity) override</td></tr>
-<tr class="memdesc:ad5646f8329a780d0d8000dc8f6f83065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the component if not exist's to the entity.  <br /></td></tr>
-<tr class="memitem:aa9955c98d18a6e3c205b55e3a86adff0" id="r_aa9955c98d18a6e3c205b55e3a86adff0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9955c98d18a6e3c205b55e3a86adff0">HasComponentV</a> (EntID entity) override</td></tr>
-<tr class="memdesc:aa9955c98d18a6e3c205b55e3a86adff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method of checking if the entity has a component.  <br /></td></tr>
-<tr class="memitem:a00e55c26a46e925143c0468cf21fe991" id="r_a00e55c26a46e925143c0468cf21fe991"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00e55c26a46e925143c0468cf21fe991">GetComponentV</a> (EntID entity) override</td></tr>
-<tr class="memdesc:a00e55c26a46e925143c0468cf21fe991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for getting component of a entity or nullptr if not has one .  <br /></td></tr>
-<tr class="memitem:a2556a264470c2df3f6ef67d40ac0818e" id="r_a2556a264470c2df3f6ef67d40ac0818e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2556a264470c2df3f6ef67d40ac0818e">GetComponentsV</a> (void) override</td></tr>
-<tr class="memdesc:a2556a264470c2df3f6ef67d40ac0818e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for getting all components of this type .  <br /></td></tr>
-<tr class="memitem:ac27c3944ec5b80fe92b0d64aa20d83d8" id="r_ac27c3944ec5b80fe92b0d64aa20d83d8"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac27c3944ec5b80fe92b0d64aa20d83d8">SizeOfComponent</a> (void) const</td></tr>
-<tr class="memdesc:ac27c3944ec5b80fe92b0d64aa20d83d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that returns the size of each component in bytes.  <br /></td></tr>
-<tr class="memitem:aab092af14c2a2e1d387d25fa586747ad" id="r_aab092af14c2a2e1d387d25fa586747ad"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab092af14c2a2e1d387d25fa586747ad">Count</a> (void) const</td></tr>
-<tr class="memdesc:aab092af14c2a2e1d387d25fa586747ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that returns the number of components .  <br /></td></tr>
+<tr class="memitem:a0366808e7ea245b9a5b5d862953e90b9" id="r_a0366808e7ea245b9a5b5d862953e90b9"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a0366808e7ea245b9a5b5d862953e90b9 template"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0366808e7ea245b9a5b5d862953e90b9">AddComponent</a> (EntID entity, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:a0366808e7ea245b9a5b5d862953e90b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new component for the specified entity , If the entity does not already have one.  <br /></td></tr>
+<tr class="memitem:a002c35c3132c2cd52ea819127f2edfd8" id="r_a002c35c3132c2cd52ea819127f2edfd8"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a002c35c3132c2cd52ea819127f2edfd8 template"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a002c35c3132c2cd52ea819127f2edfd8">ReplaceComponent</a> (EntID entity, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:a002c35c3132c2cd52ea819127f2edfd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the component for the specified entity if it exists.  <br /></td></tr>
+<tr class="memitem:ab02f60d7ea2db0e4554770c0a6682512" id="r_ab02f60d7ea2db0e4554770c0a6682512"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab02f60d7ea2db0e4554770c0a6682512">RemoveComponent</a> (EntID entity) noexcept</td></tr>
+<tr class="memdesc:ab02f60d7ea2db0e4554770c0a6682512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component associated with the specified entity.  <br /></td></tr>
+<tr class="memitem:a0230b2da2b77ba3310263b03712e54c5" id="r_a0230b2da2b77ba3310263b03712e54c5"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0230b2da2b77ba3310263b03712e54c5">GetComponent</a> (EntID entity) noexcept</td></tr>
+<tr class="memdesc:a0230b2da2b77ba3310263b03712e54c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the component associated with the specified entity.  <br /></td></tr>
+<tr class="memitem:a58bc86b5d352a88e0205d0616a08861e" id="r_a58bc86b5d352a88e0205d0616a08861e"><td class="memItemLeft" align="right" valign="top">const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58bc86b5d352a88e0205d0616a08861e">GetComponent</a> (EntID entity) const noexcept</td></tr>
+<tr class="memdesc:a58bc86b5d352a88e0205d0616a08861e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the component associated with the specified entity.  <br /></td></tr>
+<tr class="memitem:a9679d10b911e26f94507428a99474216" id="r_a9679d10b911e26f94507428a99474216"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9679d10b911e26f94507428a99474216">GetEntity</a> (T &amp;component, EntID &amp;entity) const noexcept</td></tr>
+<tr class="memdesc:a9679d10b911e26f94507428a99474216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the entity associated with the specified component.  <br /></td></tr>
+<tr class="memitem:a4352a57bef7dac6686536ac7ffbbde48" id="r_a4352a57bef7dac6686536ac7ffbbde48"><td class="memItemLeft" align="right" valign="top">std::span&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4352a57bef7dac6686536ac7ffbbde48">GetComponents</a> (void) noexcept</td></tr>
+<tr class="memitem:a34e9573bafdf32302f0c762d1f423664" id="r_a34e9573bafdf32302f0c762d1f423664"><td class="memItemLeft" align="right" valign="top">std::span&lt; const T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34e9573bafdf32302f0c762d1f423664">GetComponents</a> (void) const noexcept</td></tr>
+<tr class="memitem:a58a19730898a3ab80ad7a73f7b1746c1" id="r_a58a19730898a3ab80ad7a73f7b1746c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58a19730898a3ab80ad7a73f7b1746c1">HasEntity</a> (EntID entity) const noexcept</td></tr>
+<tr class="memdesc:a58a19730898a3ab80ad7a73f7b1746c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the specified entity has an associated component.  <br /></td></tr>
+<tr class="memitem:ac4c56708573fb8e2540f376634d846e0" id="r_ac4c56708573fb8e2540f376634d846e0"><td class="memItemLeft" align="right" valign="top">CompID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4c56708573fb8e2540f376634d846e0">GetID</a> (void) const noexcept</td></tr>
+<tr class="memdesc:ac4c56708573fb8e2540f376634d846e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique id of the component type.  <br /></td></tr>
+<tr class="memitem:ad1602785cc46206466071b1eee68a4f3" id="r_ad1602785cc46206466071b1eee68a4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1602785cc46206466071b1eee68a4f3">RemoveComponentV</a> (EntID entity) noexcept override</td></tr>
+<tr class="memdesc:ad1602785cc46206466071b1eee68a4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component associated with the entity, if exist's . It is a override virtual method from the IComponent class so the registry can remove all components of a entity when the entity is destroyed without the need of the templated type .  <br /></td></tr>
+<tr class="memitem:a568201b9f45e37c6890cec5c9a7b1e95" id="r_a568201b9f45e37c6890cec5c9a7b1e95"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a568201b9f45e37c6890cec5c9a7b1e95">AddComponentV</a> (EntID entity) noexcept override</td></tr>
+<tr class="memdesc:a568201b9f45e37c6890cec5c9a7b1e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the component if not exist's to the entity.  <br /></td></tr>
+<tr class="memitem:a11b0474f58bd6f6e675eae704afde976" id="r_a11b0474f58bd6f6e675eae704afde976"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11b0474f58bd6f6e675eae704afde976">ReplaceComponentV</a> (EntID entity) noexcept override</td></tr>
+<tr class="memdesc:a11b0474f58bd6f6e675eae704afde976"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the component of the entity if exist's.  <br /></td></tr>
+<tr class="memitem:aa15766a282c5738283a189beba9eed72" id="r_aa15766a282c5738283a189beba9eed72"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa15766a282c5738283a189beba9eed72">HasComponentV</a> (EntID entity) noexcept override</td></tr>
+<tr class="memdesc:aa15766a282c5738283a189beba9eed72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method of checking if the entity has a component.  <br /></td></tr>
+<tr class="memitem:ab7c6aeaa7265674adc848956529df0b6" id="r_ab7c6aeaa7265674adc848956529df0b6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7c6aeaa7265674adc848956529df0b6">GetComponentV</a> (EntID entity) noexcept override</td></tr>
+<tr class="memdesc:ab7c6aeaa7265674adc848956529df0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for getting component of a entity or nullptr if not has one .  <br /></td></tr>
+<tr class="memitem:a85fabb4a37616fbbb1f46958ae175759" id="r_a85fabb4a37616fbbb1f46958ae175759"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85fabb4a37616fbbb1f46958ae175759">GetComponentsV</a> (void) noexcept override</td></tr>
+<tr class="memdesc:a85fabb4a37616fbbb1f46958ae175759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method for getting all components of this type .  <br /></td></tr>
+<tr class="memitem:a1163e0699af34082c5a595cdcb100aeb" id="r_a1163e0699af34082c5a595cdcb100aeb"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1163e0699af34082c5a595cdcb100aeb">SizeOfComponent</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a1163e0699af34082c5a595cdcb100aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that returns the size of each component in bytes.  <br /></td></tr>
+<tr class="memitem:a001744cc63af4738812a745bf6e47925" id="r_a001744cc63af4738812a745bf6e47925"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a001744cc63af4738812a745bf6e47925">Count</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a001744cc63af4738812a745bf6e47925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that returns the number of components .  <br /></td></tr>
+<tr class="memitem:a6a692f8e36e71be4514cc771c9b8be92" id="r_a6a692f8e36e71be4514cc771c9b8be92"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a692f8e36e71be4514cc771c9b8be92">GetName</a> (void) const noexcept override</td></tr>
+<tr class="memitem:a3cc39dc681e10d627ecdbedb3e2544f7" id="r_a3cc39dc681e10d627ecdbedb3e2544f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cc39dc681e10d627ecdbedb3e2544f7">Clear</a> (void) noexcept override</td></tr>
+<tr class="memdesc:a3cc39dc681e10d627ecdbedb3e2544f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all the component array storage .  <br /></td></tr>
+<tr class="inherit_header pub_methods_class_multi_station_1_1_i_component_array"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_multi_station_1_1_i_component_array')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_multi_station_1_1_i_component_array.html">MultiStation::IComponentArray</a></td></tr>
+<tr class="memitem:aef7b10613cf2c2987fe47f1dda605de5 inherit pub_methods_class_multi_station_1_1_i_component_array" id="r_aef7b10613cf2c2987fe47f1dda605de5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_multi_station_1_1_i_component_array.html#aef7b10613cf2c2987fe47f1dda605de5">~IComponentArray</a> (void) noexcept=default</td></tr>
+<tr class="memdesc:aef7b10613cf2c2987fe47f1dda605de5 inherit pub_methods_class_multi_station_1_1_i_component_array"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual destructor to allow for proper cleanup of derived classes.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
@@ -169,7 +173,11 @@ class MultiStation::ComponentArray&lt; T &gt;</div><p>This class manages a dynam
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The address of each component may or may not change when components are added or removed, so users should not rely on component addresses remaining stable. Instead, they should use the provided methods to access components based on their associated entities. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Unexpected exceptions terminate the application. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Adding, removing, or replacing components may invalidate pointers, references, spans, or their association with entities. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>T templated object must support default contructor and copy and/or move constructor and assigments . </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This ecs is not supporting multithreading . </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad38047a6d5e081ec8c8dbaa018c83651" name="ad38047a6d5e081ec8c8dbaa018c83651"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad38047a6d5e081ec8c8dbaa018c83651">&#9670;&#160;</a></span>ComponentArray() <span class="overload">[1/3]</span></h2>
@@ -294,8 +302,8 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a79e7089f241abb6bd68ecfb737052fe8" name="a79e7089f241abb6bd68ecfb737052fe8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79e7089f241abb6bd68ecfb737052fe8">&#9670;&#160;</a></span>AddComponent()</h2>
+<a id="a0366808e7ea245b9a5b5d862953e90b9" name="a0366808e7ea245b9a5b5d862953e90b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0366808e7ea245b9a5b5d862953e90b9">&#9670;&#160;</a></span>AddComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,6 +311,9 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
 <div class="memtemplate">
 template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T * <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::AddComponent </td>
@@ -315,6 +326,11 @@ template&lt;typename... Args&gt; </div>
           <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Adds a new component for the specified entity , If the entity does not already have one. </p>
@@ -330,8 +346,8 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="ae8df0e5ac549e2103c5a0024f456109c" name="ae8df0e5ac549e2103c5a0024f456109c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8df0e5ac549e2103c5a0024f456109c">&#9670;&#160;</a></span>AddComponentV()</h2>
+<a id="a568201b9f45e37c6890cec5c9a7b1e95" name="a568201b9f45e37c6890cec5c9a7b1e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568201b9f45e37c6890cec5c9a7b1e95">&#9670;&#160;</a></span>AddComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,7 +366,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -362,14 +378,46 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>pointer to the new component if succeded nullptr otherwise . </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the new component if succeded nullptr otherwise .</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Requires Component default contructor </dd></dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a76c13bfff0de26ef390341fd71074e5e">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a4a126772e66a891bfeae3090c7f64d1d">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="aab092af14c2a2e1d387d25fa586747ad" name="aab092af14c2a2e1d387d25fa586747ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab092af14c2a2e1d387d25fa586747ad">&#9670;&#160;</a></span>Count()</h2>
+<a id="a3cc39dc681e10d627ecdbedb3e2544f7" name="a3cc39dc681e10d627ecdbedb3e2544f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cc39dc681e10d627ecdbedb3e2544f7">&#9670;&#160;</a></span>Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::Clear </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears all the component array storage . </p>
+
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a4fca3538183717736d844a9f611a44e1">MultiStation::IComponentArray</a>.</p>
+
+</div>
+</div>
+<a id="a001744cc63af4738812a745bf6e47925" name="a001744cc63af4738812a745bf6e47925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001744cc63af4738812a745bf6e47925">&#9670;&#160;</a></span>Count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,52 +436,27 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Method that returns the number of components . </p>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#af0995a8396ab1830cb2c7ca8f1116175">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ae1ca9239cd94a1c3c8ffd3de8f07b7c5">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="a9d2b1f266d0244e60f185b83ac4baf6f" name="a9d2b1f266d0244e60f185b83ac4baf6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d2b1f266d0244e60f185b83ac4baf6f">&#9670;&#160;</a></span>GetComponent() <span class="overload">[1/2]</span></h2>
+<a id="a58bc86b5d352a88e0205d0616a08861e" name="a58bc86b5d352a88e0205d0616a08861e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bc86b5d352a88e0205d0616a08861e">&#9670;&#160;</a></span>GetComponent() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T * <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponent </td>
-          <td>(</td>
-          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the component associated with the specified entity. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity whose component is to be retrieved. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the component if found, or nullptr if the entity does not have one. </dd></dl>
-
-</div>
-</div>
-<a id="a35b8ccaa1c4baf878f45f55ad79a5a53" name="a35b8ccaa1c4baf878f45f55ad79a5a53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35b8ccaa1c4baf878f45f55ad79a5a53">&#9670;&#160;</a></span>GetComponent() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const T * <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponent </td>
@@ -442,6 +465,47 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the component associated with the specified entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity whose component is to be retrieved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A const pointer to the component if found, or nullptr if the entity does not have one. </dd></dl>
+
+</div>
+</div>
+<a id="a0230b2da2b77ba3310263b03712e54c5" name="a0230b2da2b77ba3310263b03712e54c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0230b2da2b77ba3310263b03712e54c5">&#9670;&#160;</a></span>GetComponent() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T * <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponent </td>
+          <td>(</td>
+          <td class="paramtype">EntID</td>          <td class="paramname"><span class="paramname"><em>entity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Gets the component associated with the specified entity. </p>
@@ -455,35 +519,16 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a340adf0ebaab72bb5a9096c1d8c177c0" name="a340adf0ebaab72bb5a9096c1d8c177c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a340adf0ebaab72bb5a9096c1d8c177c0">&#9670;&#160;</a></span>GetComponents() <span class="overload">[1/2]</span></h2>
+<a id="a34e9573bafdf32302f0c762d1f423664" name="a34e9573bafdf32302f0c762d1f423664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e9573bafdf32302f0c762d1f423664">&#9670;&#160;</a></span>GetComponents() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; T &gt; <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponents </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets a const reference to the vector of all components. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the vector containing all components. </dd></dl>
-
-</div>
-</div>
-<a id="a90e3634467dad3f9b099a4484c21cf35" name="a90e3634467dad3f9b099a4484c21cf35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e3634467dad3f9b099a4484c21cf35">&#9670;&#160;</a></span>GetComponents() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::span&lt; const T &gt; <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponents </td>
@@ -492,15 +537,46 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-
-<p>Gets a const reference to the vector of all components. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the vector containing all components. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A span of all components . </dd></dl>
 
 </div>
 </div>
-<a id="a2556a264470c2df3f6ef67d40ac0818e" name="a2556a264470c2df3f6ef67d40ac0818e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2556a264470c2df3f6ef67d40ac0818e">&#9670;&#160;</a></span>GetComponentsV()</h2>
+<a id="a4352a57bef7dac6686536ac7ffbbde48" name="a4352a57bef7dac6686536ac7ffbbde48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4352a57bef7dac6686536ac7ffbbde48">&#9670;&#160;</a></span>GetComponents() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; T &gt; <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetComponents </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A span of all components. </dd></dl>
+
+</div>
+</div>
+<a id="a85fabb4a37616fbbb1f46958ae175759" name="a85fabb4a37616fbbb1f46958ae175759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85fabb4a37616fbbb1f46958ae175759">&#9670;&#160;</a></span>GetComponentsV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -519,7 +595,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -532,12 +608,12 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a3c9de8b0b47913688e8de5ee45f9584d">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ae9434b20b68b730de432829621f33a9e">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="a00e55c26a46e925143c0468cf21fe991" name="a00e55c26a46e925143c0468cf21fe991"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00e55c26a46e925143c0468cf21fe991">&#9670;&#160;</a></span>GetComponentV()</h2>
+<a id="ab7c6aeaa7265674adc848956529df0b6" name="ab7c6aeaa7265674adc848956529df0b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c6aeaa7265674adc848956529df0b6">&#9670;&#160;</a></span>GetComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,7 +632,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -569,17 +645,20 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a313b55c3f7b28019a5d36868c1d3aab3">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ace949ed244d5650e1bb418bb7dc4fe58">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="a0859da88d619eb4fedb28c0fbbb677bd" name="a0859da88d619eb4fedb28c0fbbb677bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0859da88d619eb4fedb28c0fbbb677bd">&#9670;&#160;</a></span>GetEntity()</h2>
+<a id="a9679d10b911e26f94507428a99474216" name="a9679d10b911e26f94507428a99474216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9679d10b911e26f94507428a99474216">&#9670;&#160;</a></span>GetEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetEntity </td>
@@ -592,6 +671,11 @@ template&lt;typename T&gt; </div>
           <td class="paramtype">EntID &amp;</td>          <td class="paramname"><span class="paramname"><em>entity</em></span>&#160;) const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Gets the entity associated with the specified component. </p>
@@ -607,13 +691,16 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a19cc255c44cd78dc90b46af4201aa905" name="a19cc255c44cd78dc90b46af4201aa905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19cc255c44cd78dc90b46af4201aa905">&#9670;&#160;</a></span>GetID()</h2>
+<a id="ac4c56708573fb8e2540f376634d846e0" name="ac4c56708573fb8e2540f376634d846e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c56708573fb8e2540f376634d846e0">&#9670;&#160;</a></span>GetID()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CompID <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetID </td>
@@ -622,14 +709,49 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the unique id of the component type. </p>
 
 </div>
 </div>
-<a id="aa9955c98d18a6e3c205b55e3a86adff0" name="aa9955c98d18a6e3c205b55e3a86adff0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9955c98d18a6e3c205b55e3a86adff0">&#9670;&#160;</a></span>HasComponentV()</h2>
+<a id="a6a692f8e36e71be4514cc771c9b8be92" name="a6a692f8e36e71be4514cc771c9b8be92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a692f8e36e71be4514cc771c9b8be92">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::GetName </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The name of the Component type T </dd></dl>
+
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ae99c63adca5e5c6927a10fcb5345b94a">MultiStation::IComponentArray</a>.</p>
+
+</div>
+</div>
+<a id="aa15766a282c5738283a189beba9eed72" name="aa15766a282c5738283a189beba9eed72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15766a282c5738283a189beba9eed72">&#9670;&#160;</a></span>HasComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -648,7 +770,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -662,17 +784,20 @@ template&lt;typename T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if has a component , false otherwise . </dd></dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ac69c1405df90a8377612fea480410733">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#afd6af163ee856a6f4f30c2783b67b061">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="aa04050bb98c4d2b6322cb34ca19e6e69" name="aa04050bb98c4d2b6322cb34ca19e6e69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa04050bb98c4d2b6322cb34ca19e6e69">&#9670;&#160;</a></span>HasEntity()</h2>
+<a id="a58a19730898a3ab80ad7a73f7b1746c1" name="a58a19730898a3ab80ad7a73f7b1746c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a19730898a3ab80ad7a73f7b1746c1">&#9670;&#160;</a></span>HasEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::HasEntity </td>
@@ -681,6 +806,11 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Checks if the specified entity has an associated component. </p>
@@ -759,13 +889,16 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
-<a id="a29180a0efd99e2d7a57c0c8c76f0628b" name="a29180a0efd99e2d7a57c0c8c76f0628b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29180a0efd99e2d7a57c0c8c76f0628b">&#9670;&#160;</a></span>RemoveComponent()</h2>
+<a id="ab02f60d7ea2db0e4554770c0a6682512" name="ab02f60d7ea2db0e4554770c0a6682512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab02f60d7ea2db0e4554770c0a6682512">&#9670;&#160;</a></span>RemoveComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::RemoveComponent </td>
@@ -774,6 +907,11 @@ template&lt;typename T&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the component associated with the specified entity. </p>
@@ -787,8 +925,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a5d6deef5652c901aa7c43016a9448bbe" name="a5d6deef5652c901aa7c43016a9448bbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d6deef5652c901aa7c43016a9448bbe">&#9670;&#160;</a></span>RemoveComponentV()</h2>
+<a id="ad1602785cc46206466071b1eee68a4f3" name="ad1602785cc46206466071b1eee68a4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1602785cc46206466071b1eee68a4f3">&#9670;&#160;</a></span>RemoveComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -807,7 +945,7 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -815,18 +953,17 @@ template&lt;typename T&gt; </div>
 <p>Removes the component associated with the entity, if exist's . It is a override virtual method from the IComponent class so the registry can remove all components of a entity when the entity is destroyed without the need of the templated type . </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity id to remove the component for.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>The entity id to remove the component for. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if succeded , false otherwise . </dd></dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#ac181f18c3da28a8b31cc3a3614e1bfc8">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a8ccfeb2cfa4b38d9213b1622e975d48c">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="abb45a305acdcb92fd683e9761a568dde" name="abb45a305acdcb92fd683e9761a568dde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb45a305acdcb92fd683e9761a568dde">&#9670;&#160;</a></span>ReplaceComponent()</h2>
+<a id="a002c35c3132c2cd52ea819127f2edfd8" name="a002c35c3132c2cd52ea819127f2edfd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002c35c3132c2cd52ea819127f2edfd8">&#9670;&#160;</a></span>ReplaceComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -834,6 +971,9 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
 <div class="memtemplate">
 template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T * <a class="el" href="class_multi_station_1_1_component_array.html">MultiStation::ComponentArray</a>&lt; T &gt;::ReplaceComponent </td>
@@ -846,6 +986,11 @@ template&lt;typename... Args&gt; </div>
           <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Replaces the component for the specified entity if it exists. </p>
@@ -860,8 +1005,8 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="ad5646f8329a780d0d8000dc8f6f83065" name="ad5646f8329a780d0d8000dc8f6f83065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5646f8329a780d0d8000dc8f6f83065">&#9670;&#160;</a></span>ReplaceComponentV()</h2>
+<a id="a11b0474f58bd6f6e675eae704afde976" name="a11b0474f58bd6f6e675eae704afde976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11b0474f58bd6f6e675eae704afde976">&#9670;&#160;</a></span>ReplaceComponentV()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -880,12 +1025,12 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Replaces the component if not exist's to the entity. </p>
+<p>Replaces the component of the entity if exist's. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">entity</td><td>The entity id </td></tr>
@@ -894,12 +1039,12 @@ template&lt;typename T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the replaced component if succeded nullptr otherwise . </dd></dl>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a522af491dfa92a8ff5195a67f815ad9c">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a7bf13f2a488ea22903659259e63836ee">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
-<a id="ac27c3944ec5b80fe92b0d64aa20d83d8" name="ac27c3944ec5b80fe92b0d64aa20d83d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac27c3944ec5b80fe92b0d64aa20d83d8">&#9670;&#160;</a></span>SizeOfComponent()</h2>
+<a id="a1163e0699af34082c5a595cdcb100aeb" name="a1163e0699af34082c5a595cdcb100aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1163e0699af34082c5a595cdcb100aeb">&#9670;&#160;</a></span>SizeOfComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -918,19 +1063,19 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Method that returns the size of each component in bytes. </p>
 
-<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#a76a42d42c13c4af9481f89a6564aaef2">MultiStation::IComponentArray</a>.</p>
+<p>Implements <a class="el" href="class_multi_station_1_1_i_component_array.html#abaf8bc78e4664a8607efff5f61838d69">MultiStation::IComponentArray</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Source/Registry/ComponentArray/<a class="el" href="_component_array_8hpp_source.html">ComponentArray.hpp</a></li>
+<li>Source/ECSRegistry/ComponentArray/<a class="el" href="_component_array_8hpp_source.html">ComponentArray.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

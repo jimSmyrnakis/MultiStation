@@ -1,34 +1,270 @@
 \doxysection{Multi\+Station\+::Entity\+Manager Class Reference}
 \hypertarget{class_multi_station_1_1_entity_manager}{}\label{class_multi_station_1_1_entity_manager}\index{MultiStation::EntityManager@{MultiStation::EntityManager}}
+
+
+The source of truth for what entities exist\textquotesingle{}s in the engine scene .  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_a5aa6a77c8b2202a52387944609d482de}\label{class_multi_station_1_1_entity_manager_a5aa6a77c8b2202a52387944609d482de} 
-Ent\+ID {\bfseries Create\+Entity} (void)
+\mbox{\hyperlink{class_multi_station_1_1_entity_manager_a8dd67613821b34234f7ff8f928cff160}{Entity\+Manager}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em \doxylink{class_multi_station_1_1_entity_manager}{Entity\+Manager} constructor. \end{DoxyCompactList}\item 
+Ent\+ID \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a0084f195069c624050148f19c7c4885c}{Create\+Entity}} (void) noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_a0b7969cc2d7ea80e3815779e276f0e7e}\label{class_multi_station_1_1_entity_manager_a0b7969cc2d7ea80e3815779e276f0e7e} 
-bool {\bfseries Remove\+Entity} (Ent\+ID entity)
+bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a6ffc76b09124dc6f001e6e2b5a598da8}{Remove\+Entity}} (Ent\+ID entity) noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_aa55792dfaf05dcd79f5c5c9035811a7c}\label{class_multi_station_1_1_entity_manager_aa55792dfaf05dcd79f5c5c9035811a7c} 
-{\footnotesize template$<$typename T$>$ }\\bool {\bfseries Assing\+To\+Entity} (Ent\+ID entity)
+bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a3642d9d13f800972606aa81301b4f9ff}{Has\+Entity}} (Ent\+ID entity) const noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_a532fa49c58482078648b9036a4995c68}\label{class_multi_station_1_1_entity_manager_a532fa49c58482078648b9036a4995c68} 
-bool {\bfseries Has\+Entity} (Ent\+ID entity) const
+bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a6e4a5cd8170f0fe1e8d398777b17541c}{Assign\+To\+Entity}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Assigns a component id to the specify entity id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a0123b0c21767382f47b3aea35bec16f3}{Has\+Entity\+Component}} (Ent\+ID entity, Comp\+ID component) const noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_a4e0996d46c6f7543aaa4e0f1db4f6054}\label{class_multi_station_1_1_entity_manager_a4e0996d46c6f7543aaa4e0f1db4f6054} 
-{\footnotesize template$<$typename T$>$ }\\bool {\bfseries Has\+Entity\+Component} (Ent\+ID entity)
+bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a679974b4b66736c326f1e870695696a8}{Remove\+Component\+Of}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Removes a component assingment from this entity . \end{DoxyCompactList}\item 
+std\+::span$<$ const Ent\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_entity_manager_af753b1c618826d5f49de6a16f518f86e}{Get\+All\+Entities}} (void) const noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_aa8917bee7d2464a6f3b28b269c492748}\label{class_multi_station_1_1_entity_manager_aa8917bee7d2464a6f3b28b269c492748} 
-{\footnotesize template$<$typename T$>$ }\\bool {\bfseries Remove\+Component\+Of} (Ent\+ID entity)
+std\+::span$<$ const Comp\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a67286767fe28909b70d9ad8b0f7f56d8}{Get\+Signature\+Of}} (Ent\+ID entity) const noexcept
 \item 
-\Hypertarget{class_multi_station_1_1_entity_manager_a5a4c467b6eea7d44145e33916f733583}\label{class_multi_station_1_1_entity_manager_a5a4c467b6eea7d44145e33916f733583} 
-std\+::span$<$ const Ent\+ID $>$ {\bfseries Get\+All\+Entities} (void) const
-\item 
-\Hypertarget{class_multi_station_1_1_entity_manager_aa0d03c216a2839ad25d3c4b0dab3d637}\label{class_multi_station_1_1_entity_manager_aa0d03c216a2839ad25d3c4b0dab3d637} 
-Comp\+ID {\bfseries Get\+Signature\+Of} (Ent\+ID entity) const
-\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a7d44d248db7f1e91941dc47e64706620}{Assign\+To\+Entity}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em A templated version of the Assign\+To\+Entity(entity , component). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a956082ef6f9af6ab44d367438ee5b012}{Has\+Entity\+Component}} (Ent\+ID entity) const noexcept
+\begin{DoxyCompactList}\small\item\em A templated version of the Has\+Entity\+Component(entity , component). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_entity_manager_a2e52efccc6f814063f866a474796fd61}{Remove\+Component\+Of}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em A templated version of the Remove\+Component\+Of(entity , component). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The source of truth for what entities exist\textquotesingle{}s in the engine scene . 
+
+\begin{DoxyWarning}{Warning}
+Not thread-\/safe. 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Unexpected exceptions terminate the application. 
+
+This manager is for use from the ecs registry only . 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_entity_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_entity_manager_a8dd67613821b34234f7ff8f928cff160}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a8dd67613821b34234f7ff8f928cff160} 
+Multi\+Station\+::\+Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\doxylink{class_multi_station_1_1_entity_manager}{Entity\+Manager} constructor. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_entity_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_entity_manager_a7d44d248db7f1e91941dc47e64706620}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!AssignToEntity@{AssignToEntity}}
+\index{AssignToEntity@{AssignToEntity}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{AssignToEntity()}{AssignToEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a7d44d248db7f1e91941dc47e64706620} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Assign\+To\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+A templated version of the Assign\+To\+Entity(entity , component). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component class/primitive type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity exist\textquotesingle{}s , false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a6e4a5cd8170f0fe1e8d398777b17541c}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!AssignToEntity@{AssignToEntity}}
+\index{AssignToEntity@{AssignToEntity}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{AssignToEntity()}{AssignToEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a6e4a5cd8170f0fe1e8d398777b17541c} 
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Assign\+To\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Assigns a component id to the specify entity id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id to assign a component too \\
+\hline
+{\em component} & The component id for the entity to assigned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if entity exists false otherwise . Even if the component is assigned already . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a0084f195069c624050148f19c7c4885c}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a0084f195069c624050148f19c7c4885c} 
+Ent\+ID Multi\+Station\+::\+Entity\+Manager\+::\+Create\+Entity (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A new Entity id (number) for the new entity that has been created or a null\+Entity id if there is no other available id to be given; 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_af753b1c618826d5f49de6a16f518f86e}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!GetAllEntities@{GetAllEntities}}
+\index{GetAllEntities@{GetAllEntities}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{GetAllEntities()}{GetAllEntities()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_af753b1c618826d5f49de6a16f518f86e} 
+std\+::span$<$ const Ent\+ID $>$ Multi\+Station\+::\+Entity\+Manager\+::\+Get\+All\+Entities (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+A span no owning view with all available entities in the manager . 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Do not add / remove entities will using the span , otherwise it may no longer be valid . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_entity_manager_a67286767fe28909b70d9ad8b0f7f56d8}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!GetSignatureOf@{GetSignatureOf}}
+\index{GetSignatureOf@{GetSignatureOf}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{GetSignatureOf()}{GetSignatureOf()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a67286767fe28909b70d9ad8b0f7f56d8} 
+std\+::span$<$ const Comp\+ID $>$ Multi\+Station\+::\+Entity\+Manager\+::\+Get\+Signature\+Of (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A span no owning view with all assigned components for this entity , if the entity exist\textquotesingle{}s otherwise is an empty storage . 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Do not assign / remove this entity components while using this span , otherwise it may no longer be valid storage . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_entity_manager_a3642d9d13f800972606aa81301b4f9ff}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!HasEntity@{HasEntity}}
+\index{HasEntity@{HasEntity}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{HasEntity()}{HasEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a3642d9d13f800972606aa81301b4f9ff} 
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Has\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity with this id exist\textquotesingle{}s , false otherwise . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a956082ef6f9af6ab44d367438ee5b012}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!HasEntityComponent@{HasEntityComponent}}
+\index{HasEntityComponent@{HasEntityComponent}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{HasEntityComponent()}{HasEntityComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a956082ef6f9af6ab44d367438ee5b012} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Has\+Entity\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+A templated version of the Has\+Entity\+Component(entity , component). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component class/primitive type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity exist\textquotesingle{}s and has the component T assigned, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a0123b0c21767382f47b3aea35bec16f3}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!HasEntityComponent@{HasEntityComponent}}
+\index{HasEntityComponent@{HasEntityComponent}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{HasEntityComponent()}{HasEntityComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a0123b0c21767382f47b3aea35bec16f3} 
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Has\+Entity\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+{\em component} & The component id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity has component assigned , false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a2e52efccc6f814063f866a474796fd61}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!RemoveComponentOf@{RemoveComponentOf}}
+\index{RemoveComponentOf@{RemoveComponentOf}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{RemoveComponentOf()}{RemoveComponentOf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a2e52efccc6f814063f866a474796fd61} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Remove\+Component\+Of (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+A templated version of the Remove\+Component\+Of(entity , component). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component class/primitive type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity exist\textquotesingle{}s , false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a679974b4b66736c326f1e870695696a8}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!RemoveComponentOf@{RemoveComponentOf}}
+\index{RemoveComponentOf@{RemoveComponentOf}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{RemoveComponentOf()}{RemoveComponentOf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a679974b4b66736c326f1e870695696a8} 
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Remove\+Component\+Of (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Removes a component assingment from this entity . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+{\em component} & The component id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if entity exist\textquotesingle{}s , false otherwise . Even if the component is removed already 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_entity_manager_a6ffc76b09124dc6f001e6e2b5a598da8}\index{MultiStation::EntityManager@{MultiStation::EntityManager}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::EntityManager@{MultiStation::EntityManager}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_entity_manager_a6ffc76b09124dc6f001e6e2b5a598da8} 
+bool Multi\+Station\+::\+Entity\+Manager\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the entity removed succsfully , false otherwise 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/Entity\+Manager.\+hpp\end{DoxyCompactItemize}
+Source/\+ECSRegistry/\mbox{\hyperlink{_entity_manager_8hpp}{Entity\+Manager.\+hpp}}\end{DoxyCompactItemize}

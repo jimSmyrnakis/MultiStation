@@ -1,23 +1,25 @@
 \doxysection{File List}
 Here is a list of all documented files with brief descriptions\+:\begin{DoxyCompactList}
-\item\contentsline{section}{Source/\mbox{\hyperlink{_entity_manager_8hpp_source}{Entity\+Manager.\+hpp}} }{\pageref{_entity_manager_8hpp_source}}{}
 \item\contentsline{section}{Source/\mbox{\hyperlink{_init_8hpp_source}{Init.\+hpp}} }{\pageref{_init_8hpp_source}}{}
+\item\contentsline{section}{Source/\+ECSRegistry/\mbox{\hyperlink{_central_storage_manager_8hpp_source}{Central\+Storage\+Manager.\+hpp}} }{\pageref{_central_storage_manager_8hpp_source}}{}
+\item\contentsline{section}{Source/\+ECSRegistry/\mbox{\hyperlink{_entity_manager_8hpp}{Entity\+Manager.\+hpp}} \\*Has the class Entity\+Manager that is the source of truth for what entities exist\textquotesingle{}s }{\pageref{_entity_manager_8hpp}}{}
+\item\contentsline{section}{Source/\+ECSRegistry/\mbox{\hyperlink{_registry_8hpp}{Registry.\+hpp}} \\*This is where the ecs registry class is , this class is responsible for entities and there components }{\pageref{_registry_8hpp}}{}
+\item\contentsline{section}{Source/\+ECSRegistry/\+Component\+Array/\mbox{\hyperlink{_component_array_8hpp_source}{Component\+Array.\+hpp}} }{\pageref{_component_array_8hpp_source}}{}
+\item\contentsline{section}{Source/\+ECSRegistry/\+Component\+Array/\mbox{\hyperlink{_i_component_array_8hpp}{IComponent\+Array.\+hpp}} \\*This file contains the IComponent\+Array interface that helps the templated component array to override same methods untemplated and gives the power to registry to handle a lot component arrays and component id relations }{\pageref{_i_component_array_8hpp}}{}
 \item\contentsline{section}{Source/\+Engine/\mbox{\hyperlink{_engine_8hpp_source}{Engine.\+hpp}} }{\pageref{_engine_8hpp_source}}{}
 \item\contentsline{section}{Source/\+Globals/\mbox{\hyperlink{_globals_8hpp_source}{Globals.\+hpp}} }{\pageref{_globals_8hpp_source}}{}
-\item\contentsline{section}{Source/\+Registry/\mbox{\hyperlink{_registry_8hpp_source}{Registry.\+hpp}} }{\pageref{_registry_8hpp_source}}{}
-\item\contentsline{section}{Source/\+Registry/\+Component\+Array/\mbox{\hyperlink{_component_array_8hpp_source}{Component\+Array.\+hpp}} }{\pageref{_component_array_8hpp_source}}{}
-\item\contentsline{section}{Source/\+Registry/\+Component\+Array/\mbox{\hyperlink{_i_component_array_8hpp_source}{IComponent\+Array.\+hpp}} }{\pageref{_i_component_array_8hpp_source}}{}
-\item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}} \\*The most important file for everyone making a system module . The scene contains all of the components , system modules , serialization , entities lifetime and entities to entities and entities to components relation }{\pageref{_scene_8hpp}}{}
-\item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_graph_8hpp_source}{Scene\+Graph.\+hpp}} }{\pageref{_scene_graph_8hpp_source}}{}
+\item\contentsline{section}{Source/\+Object/\mbox{\hyperlink{_object_map_8hpp}{Object\+Map.\+hpp}} \\*Maps ECS component and module type IDs to runtime object type IDs }{\pageref{_object_map_8hpp}}{}
+\item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}} \\*The most important file for everyone making a system module . The scene contains all of the components , entities lifetime and entities to entities and entities to components relation }{\pageref{_scene_8hpp}}{}
+\item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_graph_8hpp}{Scene\+Graph.\+hpp}} \\*This file contains the class responsible for managing entities hierarchy presentation }{\pageref{_scene_graph_8hpp}}{}
 \item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_manager_8hpp_source}{Scene\+Manager.\+hpp}} }{\pageref{_scene_manager_8hpp_source}}{}
 \item\contentsline{section}{Source/\+Scene/\mbox{\hyperlink{_scene_serializer_8hpp_source}{Scene\+Serializer.\+hpp}} }{\pageref{_scene_serializer_8hpp_source}}{}
+\item\contentsline{section}{Source/\+Serialization/\mbox{\hyperlink{_i_archive_8hpp}{IArchive.\+hpp}} \\*This file contains the Interface for the archives . These Interface\textquotesingle{}s are used for serialization / deserialization with the implementation of the io stream remains hiden }{\pageref{_i_archive_8hpp}}{}
 \item\contentsline{section}{Source/\+Serialization/\mbox{\hyperlink{_i_serialize_8hpp_source}{ISerialize.\+hpp}} }{\pageref{_i_serialize_8hpp_source}}{}
-\item\contentsline{section}{Source/\+Serialization/\+Archive/\mbox{\hyperlink{_i_archive_8hpp}{IArchive.\+hpp}} \\*This file contains the Interface for the archives . These Interface\textquotesingle{}s are used for serialization / deserialization with the implementation of the io stream remains hiden }{\pageref{_i_archive_8hpp}}{}
 \item\contentsline{section}{Source/\+Serialization/\+Archive/\mbox{\hyperlink{_text_archive_8hpp_source}{Text\+Archive.\+hpp}} }{\pageref{_text_archive_8hpp_source}}{}
 \item\contentsline{section}{Source/\+Serialization/\+Registry/\mbox{\hyperlink{_serialization_registry_8hpp}{Serialization\+Registry.\+hpp}} \\*This file contains the Serialization Registry class , responsible for registration serialization and deserialization of Components , Systems and General Objects }{\pageref{_serialization_registry_8hpp}}{}
 \item\contentsline{section}{Source/\+Streams/\mbox{\hyperlink{_file_stream_8hpp_source}{File\+Stream.\+hpp}} }{\pageref{_file_stream_8hpp_source}}{}
 \item\contentsline{section}{Source/\+Streams/\mbox{\hyperlink{_streams_8hpp_source}{Streams.\+hpp}} }{\pageref{_streams_8hpp_source}}{}
-\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_i_system_8hpp_source}{ISystem.\+hpp}} }{\pageref{_i_system_8hpp_source}}{}
-\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_i_system_module_8hpp_source}{ISystem\+Module.\+hpp}} }{\pageref{_i_system_module_8hpp_source}}{}
-\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_system_manager_8hpp_source}{System\+Manager.\+hpp}} }{\pageref{_system_manager_8hpp_source}}{}
+\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_i_system_8hpp}{ISystem.\+hpp}} \\*System lifecycle callbacks and runtime settings }{\pageref{_i_system_8hpp}}{}
+\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_i_system_module_8hpp}{ISystem\+Module.\+hpp}} \\*Here is the definition of the system module virtual methods that should implement }{\pageref{_i_system_module_8hpp}}{}
+\item\contentsline{section}{Source/\+System/\mbox{\hyperlink{_system_manager_8hpp}{System\+Manager.\+hpp}} \\*Module ownership and system lifecycle management }{\pageref{_system_manager_8hpp}}{}
 \end{DoxyCompactList}

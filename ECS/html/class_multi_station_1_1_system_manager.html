@@ -92,43 +92,66 @@ $(function(){initNavTree('class_multi_station_1_1_system_manager.html','','class
 </div><!--header-->
 <div class="contents">
 
-<p>Responsible for managing the system modules , create them , remove update them per frame (loop) .  
+<p>Owns one module per C++ type and runs its system lifecycle.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_system_manager_8hpp_source.html">SystemManager.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6263f583197445ef75c995f832457ca5" id="r_a6263f583197445ef75c995f832457ca5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6263f583197445ef75c995f832457ca5">SystemManager</a> (<a class="el" href="struct_multi_station_1_1_engine_context.html">EngineContext</a> &amp;context)</td></tr>
-<tr class="memdesc:a6263f583197445ef75c995f832457ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiallize the context internal reference.  <br /></td></tr>
-<tr class="memitem:a52b093b0da1440346eeec71221847678" id="r_a52b093b0da1440346eeec71221847678"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52b093b0da1440346eeec71221847678">~SystemManager</a> (void)</td></tr>
-<tr class="memdesc:a52b093b0da1440346eeec71221847678"><td class="mdescLeft">&#160;</td><td class="mdescRight">For each module system calls OnDettach and on module calls Fini <br  />
- then deletes it from memory.  <br /></td></tr>
-<tr class="memitem:a91b8f7179d518cf96ecb2b3b672d2a0a" id="r_a91b8f7179d518cf96ecb2b3b672d2a0a"><td class="memItemLeft" align="right" valign="top"><a id="a91b8f7179d518cf96ecb2b3b672d2a0a" name="a91b8f7179d518cf96ecb2b3b672d2a0a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateModules</b> (void)</td></tr>
-<tr class="memitem:ac2b9d15e4f3a6727c3da1ba27cb6498e" id="r_ac2b9d15e4f3a6727c3da1ba27cb6498e"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:ac2b9d15e4f3a6727c3da1ba27cb6498e template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2b9d15e4f3a6727c3da1ba27cb6498e">AddModule</a> (void)</td></tr>
-<tr class="memdesc:ac2b9d15e4f3a6727c3da1ba27cb6498e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> then it creates and adds the new module . Ofcourse calls Init and the system OnAttach methods parsing the context or scene .  <br /></td></tr>
-<tr class="memitem:a6753fc48c6293136896d337ae119c6d9" id="r_a6753fc48c6293136896d337ae119c6d9"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a6753fc48c6293136896d337ae119c6d9 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6753fc48c6293136896d337ae119c6d9">RemoveModule</a> (void)</td></tr>
-<tr class="memdesc:a6753fc48c6293136896d337ae119c6d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> then it removes and deletes the new module . Ofcourse calls system OnDettach and module Fini methods parsing the context or scene before it deletes them .  <br /></td></tr>
-<tr class="memitem:a97c70820f0215b16cb0c2c4ed3c4097f" id="r_a97c70820f0215b16cb0c2c4ed3c4097f"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a97c70820f0215b16cb0c2c4ed3c4097f template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97c70820f0215b16cb0c2c4ed3c4097f">HasModule</a> (void) const</td></tr>
-<tr class="memdesc:a97c70820f0215b16cb0c2c4ed3c4097f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> and exist's it returns true otherwise false .  <br /></td></tr>
-<tr class="memitem:a8ebeb4f702bf2da2f2a1b28e2ded11ef" id="r_a8ebeb4f702bf2da2f2a1b28e2ded11ef"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a8ebeb4f702bf2da2f2a1b28e2ded11ef template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ebeb4f702bf2da2f2a1b28e2ded11ef">GetModule</a> (void) const</td></tr>
-<tr class="memdesc:a8ebeb4f702bf2da2f2a1b28e2ded11ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> and exist's it returns the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> pointer to this module otherwise nullptr .  <br /></td></tr>
+<tr class="memitem:a46776cf9dea88dad79cddf5a3ac549d9" id="r_a46776cf9dea88dad79cddf5a3ac549d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46776cf9dea88dad79cddf5a3ac549d9">SystemManager</a> (<a class="el" href="struct_multi_station_1_1_engine_context.html">EngineContext</a> &amp;context) noexcept</td></tr>
+<tr class="memdesc:a46776cf9dea88dad79cddf5a3ac549d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty manager using the supplied engine context.  <br /></td></tr>
+<tr class="memitem:ad02061e7054ebc33e8d1fe1555e6bef5" id="r_ad02061e7054ebc33e8d1fe1555e6bef5"><td class="memItemLeft" align="right" valign="top"><a id="ad02061e7054ebc33e8d1fe1555e6bef5" name="ad02061e7054ebc33e8d1fe1555e6bef5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SystemManager</b> (SystemManager &amp;&amp;)=delete</td></tr>
+<tr class="memitem:af1221f6ecee2139a4a96f1e529ac543d" id="r_af1221f6ecee2139a4a96f1e529ac543d"><td class="memItemLeft" align="right" valign="top"><a id="af1221f6ecee2139a4a96f1e529ac543d" name="af1221f6ecee2139a4a96f1e529ac543d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SystemManager</b> (const SystemManager &amp;)=delete</td></tr>
+<tr class="memitem:a3b0d21b4896dfbacf4da2931168a3f82" id="r_a3b0d21b4896dfbacf4da2931168a3f82"><td class="memItemLeft" align="right" valign="top"><a id="a3b0d21b4896dfbacf4da2931168a3f82" name="a3b0d21b4896dfbacf4da2931168a3f82"></a>
+<a class="el" href="#a46776cf9dea88dad79cddf5a3ac549d9">SystemManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="#a46776cf9dea88dad79cddf5a3ac549d9">SystemManager</a> &amp;)=delete</td></tr>
+<tr class="memitem:acd22bfcceb24313b9814fc81a4f893f0" id="r_acd22bfcceb24313b9814fc81a4f893f0"><td class="memItemLeft" align="right" valign="top"><a id="acd22bfcceb24313b9814fc81a4f893f0" name="acd22bfcceb24313b9814fc81a4f893f0"></a>
+<a class="el" href="#a46776cf9dea88dad79cddf5a3ac549d9">SystemManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="#a46776cf9dea88dad79cddf5a3ac549d9">SystemManager</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a16740f9a82c7b28a8595659d1374d731" id="r_a16740f9a82c7b28a8595659d1374d731"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16740f9a82c7b28a8595659d1374d731">~SystemManager</a> (void) noexcept</td></tr>
+<tr class="memdesc:a16740f9a82c7b28a8595659d1374d731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down and deletes remaining modules in reverse registration order.  <br /></td></tr>
+<tr class="memitem:ad95e5242d219c0e0be48b4e77d027e21" id="r_ad95e5242d219c0e0be48b4e77d027e21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad95e5242d219c0e0be48b4e77d027e21">OnUpdate</a> (float dt) noexcept</td></tr>
+<tr class="memdesc:ad95e5242d219c0e0be48b4e77d027e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes enabled-state changes, then updates enabled systems.  <br /></td></tr>
+<tr class="memitem:a60ea867119c4cd7dbc52d21ff365fdef" id="r_a60ea867119c4cd7dbc52d21ff365fdef"><td class="memTemplParams" colspan="2">template&lt;typename T, typename... Args&gt; </td></tr>
+<tr class="memitem:a60ea867119c4cd7dbc52d21ff365fdef template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60ea867119c4cd7dbc52d21ff365fdef">AddModule</a> (Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:a60ea867119c4cd7dbc52d21ff365fdef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and owns a module unless its type is already registered.  <br /></td></tr>
+<tr class="memitem:a3831af91ca544fcd1bc7a16bea2dafc9" id="r_a3831af91ca544fcd1bc7a16bea2dafc9"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a3831af91ca544fcd1bc7a16bea2dafc9 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3831af91ca544fcd1bc7a16bea2dafc9">RemoveModule</a> (void) noexcept</td></tr>
+<tr class="memdesc:a3831af91ca544fcd1bc7a16bea2dafc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down and deletes the module registered for T.  <br /></td></tr>
+<tr class="memitem:a4b98615bffbde3f82065147e684ee18c" id="r_a4b98615bffbde3f82065147e684ee18c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a4b98615bffbde3f82065147e684ee18c template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b98615bffbde3f82065147e684ee18c">HasModule</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a4b98615bffbde3f82065147e684ee18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a module of type T is registered.  <br /></td></tr>
+<tr class="memitem:a7785516c3642bddd06a875d0a093af27" id="r_a7785516c3642bddd06a875d0a093af27"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a7785516c3642bddd06a875d0a093af27 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7785516c3642bddd06a875d0a093af27">GetModule</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a7785516c3642bddd06a875d0a093af27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a borrowed, read-only interface to the module of type T.  <br /></td></tr>
+<tr class="memitem:ac9e288c1066ed06d5feab46d721f6839" id="r_ac9e288c1066ed06d5feab46d721f6839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9e288c1066ed06d5feab46d721f6839">InitModules</a> (void) noexcept</td></tr>
+<tr class="memdesc:ac9e288c1066ed06d5feab46d721f6839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all pending modules in registration order.  <br /></td></tr>
+<tr class="memitem:a7bbd5490664de7f8831940cf016dbc8e" id="r_a7bbd5490664de7f8831940cf016dbc8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bbd5490664de7f8831940cf016dbc8e">FiniModules</a> (void) noexcept</td></tr>
+<tr class="memdesc:a7bbd5490664de7f8831940cf016dbc8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down, deletes, and unregisters every module in reverse order.  <br /></td></tr>
+<tr class="memitem:acf5e0c4424a92459e081e06ee707e150" id="r_acf5e0c4424a92459e081e06ee707e150"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf5e0c4424a92459e081e06ee707e150">OnSceneActivate</a> (<a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;scene) noexcept</td></tr>
+<tr class="memdesc:acf5e0c4424a92459e081e06ee707e150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies initialized modules that a scene has become active.  <br /></td></tr>
+<tr class="memitem:af7715273b2483fdd86f0740199d96452" id="r_af7715273b2483fdd86f0740199d96452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7715273b2483fdd86f0740199d96452">OnSceneDeactivate</a> (<a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;scene) noexcept</td></tr>
+<tr class="memdesc:af7715273b2483fdd86f0740199d96452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies initialized modules that a scene is leaving active use.  <br /></td></tr>
+<tr class="memitem:a9b35df38517860b8fa5c546d05928f43" id="r_a9b35df38517860b8fa5c546d05928f43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b35df38517860b8fa5c546d05928f43">OnSceneCreate</a> (<a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;scene) noexcept</td></tr>
+<tr class="memdesc:a9b35df38517860b8fa5c546d05928f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies initialized modules that a scene is ready for setup.  <br /></td></tr>
+<tr class="memitem:a34014c0db9f9a8db9e02373638492f38" id="r_a34014c0db9f9a8db9e02373638492f38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34014c0db9f9a8db9e02373638492f38">OnSceneDestroy</a> (<a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;scene) noexcept</td></tr>
+<tr class="memdesc:a34014c0db9f9a8db9e02373638492f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies initialized modules before a scene is destroyed.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Responsible for managing the system modules , create them , remove update them per frame (loop) . </p>
-<dl class="section author"><dt>Author</dt><dd>Dimitris Smyrnakis</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Modules should avoid accessing these methods for themselfs . </dd></dl>
+<div class="textblock"><p>Owns one module per C++ type and runs its system lifecycle. </p>
+<p><a class="el" href="#a60ea867119c4cd7dbc52d21ff365fdef" title="Constructs and owns a module unless its type is already registered.">AddModule()</a> constructs and registers modules without initializing them. <a class="el" href="#ac9e288c1066ed06d5feab46d721f6839" title="Initializes all pending modules in registration order.">InitModules()</a> initializes pending modules in registration order. Only initialized modules receive system callbacks and frame updates. <a class="el" href="#a7bbd5490664de7f8831940cf016dbc8e" title="Shuts down, deletes, and unregisters every module in reverse order.">FiniModules()</a> shuts down and deletes all modules in reverse registration order; the destructor calls it automatically.</p>
+<p>Typical usage: <a class="el" href="#a60ea867119c4cd7dbc52d21ff365fdef" title="Constructs and owns a module unless its type is already registered.">AddModule&lt;T&gt;()</a>, <a class="el" href="#ac9e288c1066ed06d5feab46d721f6839" title="Initializes all pending modules in registration order.">InitModules()</a>, OnUpdate(dt) each frame, then <a class="el" href="#a7bbd5490664de7f8831940cf016dbc8e" title="Shuts down, deletes, and unregisters every module in reverse order.">FiniModules()</a> or destruction. Modules added later remain pending until the next explicit <a class="el" href="#ac9e288c1066ed06d5feab46d721f6839" title="Initializes all pending modules in registration order.">InitModules()</a> call.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Not thread-safe. From module/system callbacks, do not add or remove modules, initialize/finalize modules, or recursively call <a class="el" href="#ad95e5242d219c0e0be48b4e77d027e21" title="Processes enabled-state changes, then updates enabled systems.">OnUpdate()</a>. </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6263f583197445ef75c995f832457ca5" name="a6263f583197445ef75c995f832457ca5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6263f583197445ef75c995f832457ca5">&#9670;&#160;</a></span>SystemManager()</h2>
+<a id="a46776cf9dea88dad79cddf5a3ac549d9" name="a46776cf9dea88dad79cddf5a3ac549d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46776cf9dea88dad79cddf5a3ac549d9">&#9670;&#160;</a></span>SystemManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">MultiStation::SystemManager::SystemManager </td>
@@ -137,23 +160,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateModules</b> (vo
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Initiallize the context internal reference. </p>
+<p>Creates an empty manager using the supplied engine context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>The context reference </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">context</td><td>Context passed to module Init() and Fini() callbacks. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>context must remain valid until this manager has been destroyed. </dd></dl>
 
 </div>
 </div>
-<a id="a52b093b0da1440346eeec71221847678" name="a52b093b0da1440346eeec71221847678"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52b093b0da1440346eeec71221847678">&#9670;&#160;</a></span>~SystemManager()</h2>
+<a id="a16740f9a82c7b28a8595659d1374d731" name="a16740f9a82c7b28a8595659d1374d731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16740f9a82c7b28a8595659d1374d731">&#9670;&#160;</a></span>~SystemManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">MultiStation::SystemManager::~SystemManager </td>
@@ -162,43 +194,105 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateModules</b> (vo
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>For each module system calls OnDettach and on module calls Fini <br  />
- then deletes it from memory. </p>
+<p>Shuts down and deletes remaining modules in reverse registration order. </p>
+<p>For each module, calls OnDisable() if the system was last processed as enabled, then OnDettach(), Fini(context), and deletes the module. Uninitialized modules are deleted without lifecycle callbacks. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac2b9d15e4f3a6727c3da1ba27cb6498e" name="ac2b9d15e4f3a6727c3da1ba27cb6498e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b9d15e4f3a6727c3da1ba27cb6498e">&#9670;&#160;</a></span>AddModule()</h2>
+<a id="a60ea867119c4cd7dbc52d21ff365fdef" name="a60ea867119c4cd7dbc52d21ff365fdef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ea867119c4cd7dbc52d21ff365fdef">&#9670;&#160;</a></span>AddModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T, typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool MultiStation::SystemManager::AddModule </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs and owns a module unless its type is already registered. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Concrete module type derived from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a>. </td></tr>
+    <tr><td class="paramname">Args</td><td>Constructor argument types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Arguments forwarded to T's constructor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the module was added or its type was already registered. An existing module is left unchanged and receives no callbacks.</dd></dl>
+<p>Registration does not call Init() or any system callbacks. Call <a class="el" href="#ac9e288c1066ed06d5feab46d721f6839" title="Initializes all pending modules in registration order.">InitModules()</a> explicitly before expecting the module to update.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Do not call from module or system lifecycle/update callbacks. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Exceptions escaping construction or allocation terminate the process because this operation is noexcept. </dd></dl>
+
+</div>
+</div>
+<a id="a7bbd5490664de7f8831940cf016dbc8e" name="a7bbd5490664de7f8831940cf016dbc8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbd5490664de7f8831940cf016dbc8e">&#9670;&#160;</a></span>FiniModules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::FiniModules </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> then it creates and adds the new module . Ofcourse calls Init and the system OnAttach methods parsing the context or scene . </p>
-<dl class="section warning"><dt>Warning</dt><dd>Do not use this method inside the module init , Fini or System methods . </dd></dl>
+<p>Shuts down, deletes, and unregisters every module in reverse order. </p>
+<p>For initialized modules, calls OnDisable() if last processed as enabled, then OnDettach() and Fini(context). Uninitialized modules receive no callbacks. Every module is deleted and all corresponding metadata erased. Calling this on an empty manager has no effect. New modules may be added and initialized afterward; finalized instances are not retained.</p>
+<dl class="section post"><dt>Postcondition</dt><dd>The manager is empty; all borrowed module pointers are invalid. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Do not call from module or system callbacks. </dd></dl>
 
 </div>
 </div>
-<a id="a8ebeb4f702bf2da2f2a1b28e2ded11ef" name="a8ebeb4f702bf2da2f2a1b28e2ded11ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ebeb4f702bf2da2f2a1b28e2ded11ef">&#9670;&#160;</a></span>GetModule()</h2>
+<a id="a7785516c3642bddd06a875d0a093af27" name="a7785516c3642bddd06a875d0a093af27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7785516c3642bddd06a875d0a093af27">&#9670;&#160;</a></span>GetModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> * MultiStation::SystemManager::GetModule </td>
@@ -207,19 +301,35 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> and exist's it returns the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> pointer to this module otherwise nullptr . </p>
+<p>Returns a borrowed, read-only interface to the module of type T. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Module type to look up. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The module interface, or nullptr if absent or T is not a module type. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Ownership stays with the manager. The pointer is valid until the module is removed, <a class="el" href="#a7bbd5490664de7f8831940cf016dbc8e" title="Shuts down, deletes, and unregisters every module in reverse order.">FiniModules()</a> is called, or the manager is destroyed. The returned module may still be awaiting initialization. </dd></dl>
 
 </div>
 </div>
-<a id="a97c70820f0215b16cb0c2c4ed3c4097f" name="a97c70820f0215b16cb0c2c4ed3c4097f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c70820f0215b16cb0c2c4ed3c4097f">&#9670;&#160;</a></span>HasModule()</h2>
+<a id="a4b98615bffbde3f82065147e684ee18c" name="a4b98615bffbde3f82065147e684ee18c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b98615bffbde3f82065147e684ee18c">&#9670;&#160;</a></span>HasModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool MultiStation::SystemManager::HasModule </td>
@@ -228,19 +338,239 @@ template&lt;typename T&gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> and exist's it returns true otherwise false . </p>
+<p>Checks whether a module of type T is registered. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Module type to look up. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if registered; false if absent or T is not a module type. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Registration does not imply initialization. </dd></dl>
 
 </div>
 </div>
-<a id="a6753fc48c6293136896d337ae119c6d9" name="a6753fc48c6293136896d337ae119c6d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6753fc48c6293136896d337ae119c6d9">&#9670;&#160;</a></span>RemoveModule()</h2>
+<a id="ac9e288c1066ed06d5feab46d721f6839" name="ac9e288c1066ed06d5feab46d721f6839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9e288c1066ed06d5feab46d721f6839">&#9670;&#160;</a></span>InitModules()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::InitModules </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes all pending modules in registration order. </p>
+<p>Calls module Init(context), then system OnAttach(). After attachment, records IsEnable() and calls OnEnable() only if that flag is true. Initially disabled systems receive neither OnEnable() nor OnDisable(). Already initialized modules are skipped, so repeated calls initialize only modules added since the previous call.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Each module must provide a valid GetSystem() after Init() returns. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Do not call from module or system callbacks. </dd></dl>
+
+</div>
+</div>
+<a id="acf5e0c4424a92459e081e06ee707e150" name="acf5e0c4424a92459e081e06ee707e150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf5e0c4424a92459e081e06ee707e150">&#9670;&#160;</a></span>OnSceneActivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::OnSceneActivate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies initialized modules that a scene has become active. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">scene</td><td>Live scene selected for active use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Dispatches in registration order, including modules whose system updates are disabled. Does not change the active scene itself. </p><dl class="section pre"><dt>Precondition</dt><dd>The caller has completed scene creation/loading and deactivated the previous active scene, if any. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Call at a safe stage after jobs accessing the scene have finished. Callbacks must not mutate module registration or trigger nested lifecycle dispatch. These requirements apply to all scene notification methods. </dd></dl>
+
+</div>
+</div>
+<a id="a9b35df38517860b8fa5c546d05928f43" name="a9b35df38517860b8fa5c546d05928f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b35df38517860b8fa5c546d05928f43">&#9670;&#160;</a></span>OnSceneCreate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::OnSceneCreate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies initialized modules that a scene is ready for setup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">scene</td><td>Newly created or fully deserialized scene.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Dispatches in registration order regardless of system enabled state. Does not activate the scene. Modules initialized after this call do not automatically receive this notification for existing scenes. </p><dl class="section pre"><dt>Precondition</dt><dd>The scene data is ready and the caller provides the safe-stage guarantees of <a class="el" href="#acf5e0c4424a92459e081e06ee707e150" title="Notifies initialized modules that a scene has become active.">OnSceneActivate()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af7715273b2483fdd86f0740199d96452" name="af7715273b2483fdd86f0740199d96452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7715273b2483fdd86f0740199d96452">&#9670;&#160;</a></span>OnSceneDeactivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::OnSceneDeactivate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies initialized modules that a scene is leaving active use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">scene</td><td>Previously active scene, still alive during dispatch.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Dispatches in registration order regardless of system enabled state. The scene may remain loaded and be activated again later. </p><dl class="section pre"><dt>Precondition</dt><dd>The caller provides the safe-stage guarantees of <a class="el" href="#acf5e0c4424a92459e081e06ee707e150" title="Notifies initialized modules that a scene has become active.">OnSceneActivate()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a34014c0db9f9a8db9e02373638492f38" name="a34014c0db9f9a8db9e02373638492f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34014c0db9f9a8db9e02373638492f38">&#9670;&#160;</a></span>OnSceneDestroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::OnSceneDestroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_multi_station_1_1_scene.html">Scene</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scene</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notifies initialized modules before a scene is destroyed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">scene</td><td><a class="el" href="class_multi_station_1_1_scene.html">Scene</a> that remains valid until all callbacks return.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Dispatches in registration order regardless of system enabled state. Modules can release scene resources and references here. This method neither deletes the scene nor saves it to persistent storage. </p><dl class="section pre"><dt>Precondition</dt><dd>An active scene has first received <a class="el" href="#af7715273b2483fdd86f0740199d96452" title="Notifies initialized modules that a scene is leaving active use.">OnSceneDeactivate()</a>. The caller provides the safe-stage guarantees of <a class="el" href="#acf5e0c4424a92459e081e06ee707e150" title="Notifies initialized modules that a scene has become active.">OnSceneActivate()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ad95e5242d219c0e0be48b4e77d027e21" name="ad95e5242d219c0e0be48b4e77d027e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95e5242d219c0e0be48b4e77d027e21">&#9670;&#160;</a></span>OnUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::SystemManager::OnUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Processes enabled-state changes, then updates enabled systems. </p>
+<p>First checks every system's IsEnable() flag and calls OnEnable() or OnDisable() when it differs from the last processed state. A second pass calls OnUpdate(dt) for systems processed as enabled. Both passes run sequentially in registration order. Uninitialized modules are skipped in both passes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dt</td><td>Frame delta time forwarded unchanged to each enabled system. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>SetEnable() changes are processed during the state-check pass. Changes made during system <a class="el" href="#ad95e5242d219c0e0be48b4e77d027e21" title="Processes enabled-state changes, then updates enabled systems.">OnUpdate()</a> callbacks take effect on the next manager update, including changes to systems that have not updated yet. </dd>
+<dd>
+No fixed timestep updates are performed. </dd></dl>
+
+</div>
+</div>
+<a id="a3831af91ca544fcd1bc7a16bea2dafc9" name="a3831af91ca544fcd1bc7a16bea2dafc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3831af91ca544fcd1bc7a16bea2dafc9">&#9670;&#160;</a></span>RemoveModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool MultiStation::SystemManager::RemoveModule </td>
@@ -249,10 +579,23 @@ template&lt;typename T&gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> then it removes and deletes the new module . Ofcourse calls system OnDettach and module Fini methods parsing the context or scene before it deletes them . </p>
-<dl class="section warning"><dt>Warning</dt><dd>Do not use this method inside the module init , Fini or System methods . </dd></dl>
+<p>Shuts down and deletes the module registered for T. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Module type derived from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if removed; false if absent or T is not a module type.</dd></dl>
+<p>Calls OnDisable() if the system was last processed as enabled, followed by OnDettach(), Fini(context), and module deletion. Any pointer returned by <a class="el" href="#a7785516c3642bddd06a875d0a093af27" title="Returns a borrowed, read-only interface to the module of type T.">GetModule&lt;T&gt;()</a> becomes invalid. If the module has not been initialized, only deletion is performed.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Do not call from module or system lifecycle/update callbacks. </dd></dl>
 
 </div>
 </div>

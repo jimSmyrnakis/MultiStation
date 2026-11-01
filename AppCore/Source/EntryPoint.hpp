@@ -12,18 +12,19 @@ namespace MultiStation {
 
 int main(int argc, char** argv) {
 	MultiStation::LogInit();
-	MultiStation::IO::Init();
+	//MultiStation::IO::Init();
 	MultiStation::Application& app = *MultiStation::CreateApplication();
 	
 	app.Initialize();
 	// Run App SetUp given by the user
 	app.SetUp(app.GetEngine());
+	app.GetEngine().Init();
 	while (app.IsRunning()) {
 		app.Run();
 	}
-	;
+	app.GetEngine().Fini();
 	app.Finalize();
-	MultiStation::IO::Fini();
+	//MultiStation::IO::Fini();
 	MultiStation::DestroyApplication();
 	
 #ifdef _DEBUG

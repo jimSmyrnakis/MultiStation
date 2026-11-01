@@ -1,169 +1,200 @@
 \doxysection{System\+Manager.\+hpp}
 \hypertarget{_system_manager_8hpp_source}{}\label{_system_manager_8hpp_source}\index{Source/System/SystemManager.hpp@{Source/System/SystemManager.hpp}}
-
+\mbox{\hyperlink{_system_manager_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}ISystemModule.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_system_module_8hpp}{ISystemModule.hpp}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }MultiStation\{}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_system_manager_a6263f583197445ef75c995f832457ca5}{SystemManager}}\ \{}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6263f583197445ef75c995f832457ca5}{SystemManager}}(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ context);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a52b093b0da1440346eeec71221847678}{\string~SystemManager}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateModules(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\ \{}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ac2b9d15e4f3a6727c3da1ba27cb6498e}{AddModule}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ context)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6753fc48c6293136896d337ae119c6d9}{RemoveModule}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a97c70820f0215b16cb0c2c4ed3c4097f}{HasModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a8ebeb4f702bf2da2f2a1b28e2ded11ef}{GetModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::vector<ISystemModule*>\ m\_modules;}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::vector<float>\ m\_moduleLastFrameTime;}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::vector<ModuleID>\ m\_modulesIds;}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ m\_context;}
-\DoxyCodeLine{00069\ \ \ \ \ \};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ac2b9d15e4f3a6727c3da1ba27cb6498e}{SystemManager::AddModule}}(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}(\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&\ operator=(\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{SystemManager}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a16740f9a82c7b28a8595659d1374d731}{\string~SystemManager}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21}{OnUpdate}}(\textcolor{keywordtype}{float}\ dt)\textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00074\ }
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<ISystemModule,\ T>\ ==\ \textcolor{keyword}{false})\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ m\_modulesIds.end())\ \{}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ already\ there\ }}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ module}}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ T*\ module\ =\ \textcolor{keyword}{new}\ T();}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (module\ ==\ \textcolor{keyword}{nullptr})\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ imodule\ =\ (\mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*)module;}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ has\ system\ to\ return}}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}{GetSystem}}()\ ==\ \textcolor{keyword}{nullptr})\ \{}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//insert\ the\ module\ and\ it's\ ids}}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ m\_modules.push\_back(imodule);}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ m\_modulesIds.push\_back(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ m\_moduleLastFrameTime.push\_back(0.016);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initiallize\ module}}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a47866ea4db1a9f48446f425949c3696e}{Init}}(m\_context);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Call\ system\ OnAttach}}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}{GetSystem}}()-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_ab744cd12437a1bb2d42b640eb5796f04}{OnAttach}}(*m\_context.scene);}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00114\ \ \ \ \ \}}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6753fc48c6293136896d337ae119c6d9}{SystemManager::RemoveModule}}(\textcolor{keywordtype}{void})\ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T\ ,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}{AddModule}}(Args\&\&...\ args)\textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3831af91ca544fcd1bc7a16bea2dafc9}{RemoveModule}}(\textcolor{keywordtype}{void})\textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4b98615bffbde3f82065147e684ee18c}{HasModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27}{GetModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ module}}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ std::distance(m\_modules.begin(),\ it);}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ imodule\ =\ m\_modules[index];}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OnDettached\ callback\ on\ system}}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a407a391e96e6827e733f0a371c7578e9}{GetSystem}}()-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_ad65e14df43da81b2b7f17a98218c515f}{OnDettach}}(*m\_context.scene);}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Finilize\ the\ module\ }}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_ab001daf96fbe25e88f826bfca989327f}{Fini}}(m\_context);}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//remove\ the\ module\ and\ it's\ ids}}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_imodule\ =\ m\_modules.begin()\ +\ index;}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_lastFrameTime\ =\ m\_moduleLastFrameTime.begin()\ +\ index;}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ m\_modules.erase(it\_imodule);}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ m\_modulesIds.erase(it);}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ m\_moduleLastFrameTime.erase(it\_lastFrameTime);}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ imodule;}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00154\ \ \ \ \ \}}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a97c70820f0215b16cb0c2c4ed3c4097f}{SystemManager::HasModule}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{InitModules}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}{FiniModules}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ Scene\ Callbacks}}
 \DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}{OnSceneActivate}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00175\ \ \ \ \ \}}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a8ebeb4f702bf2da2f2a1b28e2ded11ef}{SystemManager::GetModule}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ module\ =\ *it;}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{module};}
-\DoxyCodeLine{00196\ \ \ \ \ \}}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_af7715273b2483fdd86f0740199d96452}{OnSceneDeactivate}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a9b35df38517860b8fa5c546d05928f43}{OnSceneCreate}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a34014c0db9f9a8db9e02373638492f38}{OnSceneDestroy}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ std::vector<ISystemModule*>\ m\_modules;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ std::vector<bool>\ m\_moduleSystemsState;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ std::vector<bool>\ m\_moduleIsInit;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::vector<ModuleID>\ m\_modulesIds;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ m\_context;}
+\DoxyCodeLine{00218\ \ \ \ \ \};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}{SystemManager::AddModule}}(Args\&\&...\ args)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_base\_of\_v<ISystemModule,\ T>\ ==\ \textcolor{keyword}{false})\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ m\_modulesIds.end())\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ already\ there\ }}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ module}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ T*\ module\ =\ \textcolor{keyword}{new}\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (module\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ imodule\ =\ (\mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*)module;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{comment}{//insert\ the\ module\ and\ it's\ ids}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ m\_modules.push\_back(imodule);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ m\_modulesIds.push\_back(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ m\_moduleSystemsState.push\_back(\textcolor{keyword}{true});}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ m\_moduleIsInit.push\_back(\textcolor{keyword}{false});}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3831af91ca544fcd1bc7a16bea2dafc9}{SystemManager::RemoveModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ module}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ std::distance(m\_modulesIds.begin(),\ it);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ imodule\ =\ m\_modules[index];}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ state\ =\ m\_moduleSystemsState[index];}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_moduleIsInit[index])\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a6ca8ea4b73438c540f8190bdcd693613}{GetSystem}}().\mbox{\hyperlink{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}{OnDisable}}();}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ OnDettached\ callback\ on\ system}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_a6ca8ea4b73438c540f8190bdcd693613}{GetSystem}}().\mbox{\hyperlink{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597}{OnDettach}}();}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Finilize\ the\ module\ }}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ imodule-\/>\mbox{\hyperlink{class_multi_station_1_1_i_system_module_ae0b5c6f46891668f7b190ce3b2446d2c}{Fini}}(m\_context);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{comment}{//remove\ the\ module\ and\ it's\ ids}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_imodule\ =\ m\_modules.begin()\ +\ index;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_state\ =\ m\_moduleSystemsState.begin()\ +\ index;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_init\ =\ m\_moduleIsInit.begin()\ +\ index;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ m\_modules.erase(it\_imodule);}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ m\_modulesIds.erase(it);}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ m\_moduleSystemsState.erase(it\_state);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ m\_moduleIsInit.erase(it\_init);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ imodule;}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4b98615bffbde3f82065147e684ee18c}{SystemManager::HasModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ \mbox{\hyperlink{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27}{SystemManager::GetModule}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const}\ \ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (!std::is\_base\_of\_v<ISystemModule,\ T>)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ T\ does\ not\ derive\ from\ ISystemModule}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ ModuleID\ \textcolor{keywordtype}{id}\ =\ GetModuleID<T>();}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(m\_modulesIds.begin(),\ m\_modulesIds.end(),\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ m\_modulesIds.end())\ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ not\ exists\ }}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ index\ =\ std::distance(m\_modulesIds.begin(),\ it);}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystemModule}}*\ imodule\ =\ m\_modules[index];}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ imodule;}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \}}
 
 \end{DoxyCode}

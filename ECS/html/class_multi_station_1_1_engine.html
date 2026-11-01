@@ -91,6 +91,168 @@ $(function(){initNavTree('class_multi_station_1_1_engine.html','','class_multi_s
   <div class="headertitle"><div class="title">MultiStation::Engine Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a797d239884d02292a03137e683ae0082" id="r_a797d239884d02292a03137e683ae0082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a797d239884d02292a03137e683ae0082">OnEvent</a> (Event &amp;e)</td></tr>
+<tr class="memdesc:a797d239884d02292a03137e683ae0082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the engine with a event , this way every system receives them.  <br /></td></tr>
+<tr class="memitem:a1db9b7486f60217403893fb640db50fa" id="r_a1db9b7486f60217403893fb640db50fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1db9b7486f60217403893fb640db50fa">OnUpdate</a> (float dt)</td></tr>
+<tr class="memdesc:a1db9b7486f60217403893fb640db50fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all systems of the modules (all logic).  <br /></td></tr>
+<tr class="memitem:ad42f19b35e75849908f866b1528e11b7" id="r_ad42f19b35e75849908f866b1528e11b7"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ad42f19b35e75849908f866b1528e11b7 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad42f19b35e75849908f866b1528e11b7">AddModule</a> (void)</td></tr>
+<tr class="memdesc:ad42f19b35e75849908f866b1528e11b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> then it creates and adds the new module . Ofcourse calls Init and the system OnAttach methods parsing the context or scene .  <br /></td></tr>
+<tr class="memitem:a3977e482a94220ddc26e1d2c9faa83ec" id="r_a3977e482a94220ddc26e1d2c9faa83ec"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a3977e482a94220ddc26e1d2c9faa83ec template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3977e482a94220ddc26e1d2c9faa83ec">RemoveModule</a> (void)</td></tr>
+<tr class="memdesc:a3977e482a94220ddc26e1d2c9faa83ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> then it removes and deletes the new module . Ofcourse calls system OnDettach and module Fini methods parsing the context or scene before it deletes them .  <br /></td></tr>
+<tr class="memitem:a3acf7ce81e67f78bb4dc0e93be938c3c" id="r_a3acf7ce81e67f78bb4dc0e93be938c3c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a3acf7ce81e67f78bb4dc0e93be938c3c template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3acf7ce81e67f78bb4dc0e93be938c3c">HasModule</a> (void) const</td></tr>
+<tr class="memdesc:a3acf7ce81e67f78bb4dc0e93be938c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> and exist's it returns true otherwise false .  <br /></td></tr>
+<tr class="memitem:acfa2dcff0e6f149d0fed1193726eede5" id="r_acfa2dcff0e6f149d0fed1193726eede5"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:acfa2dcff0e6f149d0fed1193726eede5 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfa2dcff0e6f149d0fed1193726eede5">GetModule</a> (void) const</td></tr>
+<tr class="memdesc:acfa2dcff0e6f149d0fed1193726eede5"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> and exist's it returns the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> pointer to this module otherwise nullptr .  <br /></td></tr>
+<tr class="memitem:a08d556faeec1f46d3aaea84216d108e6" id="r_a08d556faeec1f46d3aaea84216d108e6"><td class="memItemLeft" align="right" valign="top"><a id="a08d556faeec1f46d3aaea84216d108e6" name="a08d556faeec1f46d3aaea84216d108e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> (void) noexcept</td></tr>
+<tr class="memitem:a284853e5cd0fe8af821a5766b1319ed3" id="r_a284853e5cd0fe8af821a5766b1319ed3"><td class="memItemLeft" align="right" valign="top"><a id="a284853e5cd0fe8af821a5766b1319ed3" name="a284853e5cd0fe8af821a5766b1319ed3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Fini</b> (void) noexcept</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ad42f19b35e75849908f866b1528e11b7" name="ad42f19b35e75849908f866b1528e11b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42f19b35e75849908f866b1528e11b7">&#9670;&#160;</a></span>AddModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::Engine::AddModule </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> then it creates and adds the new module . Ofcourse calls Init and the system OnAttach methods parsing the context or scene . </p>
+<dl class="section warning"><dt>Warning</dt><dd>Do not use this method inside the module init , Fini or System methods . </dd></dl>
+
+</div>
+</div>
+<a id="acfa2dcff0e6f149d0fed1193726eede5" name="acfa2dcff0e6f149d0fed1193726eede5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa2dcff0e6f149d0fed1193726eede5">&#9670;&#160;</a></span>GetModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a> * MultiStation::Engine::GetModule </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> and exist's it returns the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> pointer to this module otherwise nullptr . </p>
+
+</div>
+</div>
+<a id="a3acf7ce81e67f78bb4dc0e93be938c3c" name="a3acf7ce81e67f78bb4dc0e93be938c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3acf7ce81e67f78bb4dc0e93be938c3c">&#9670;&#160;</a></span>HasModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::Engine::HasModule </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the T inherits from <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> and exist's it returns true otherwise false . </p>
+
+</div>
+</div>
+<a id="a797d239884d02292a03137e683ae0082" name="a797d239884d02292a03137e683ae0082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797d239884d02292a03137e683ae0082">&#9670;&#160;</a></span>OnEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::Engine::OnEvent </td>
+          <td>(</td>
+          <td class="paramtype">Event &amp;</td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the engine with a event , this way every system receives them. </p>
+<dl class="section note"><dt>Note</dt><dd>For moment each system takes every event</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1db9b7486f60217403893fb640db50fa" name="a1db9b7486f60217403893fb640db50fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db9b7486f60217403893fb640db50fa">&#9670;&#160;</a></span>OnUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiStation::Engine::OnUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates all systems of the modules (all logic). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>Delta Time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3977e482a94220ddc26e1d2c9faa83ec" name="a3977e482a94220ddc26e1d2c9faa83ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3977e482a94220ddc26e1d2c9faa83ec">&#9670;&#160;</a></span>RemoveModule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MultiStation::Engine::RemoveModule </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the type T inherits from the <a class="el" href="class_multi_station_1_1_i_system_module.html" title="Contains the interface of system module for developers to implement.">ISystemModule</a> then it removes and deletes the new module . Ofcourse calls system OnDettach and module Fini methods parsing the context or scene before it deletes them . </p>
+<dl class="section warning"><dt>Warning</dt><dd>Do not use this method inside the module init , Fini or System methods . </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Source/Engine/<a class="el" href="_engine_8hpp_source.html">Engine.hpp</a></li>
 </ul>

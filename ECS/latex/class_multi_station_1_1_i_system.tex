@@ -1,58 +1,235 @@
 \doxysection{Multi\+Station\+::ISystem Class Reference}
 \hypertarget{class_multi_station_1_1_i_system}{}\label{class_multi_station_1_1_i_system}\index{MultiStation::ISystem@{MultiStation::ISystem}}
+
+
+Base interface for a module\textquotesingle{}s system, driven by \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}.  
+
+
+
+
+{\ttfamily \#include $<$ISystem.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_ab744cd12437a1bb2d42b640eb5796f04}{On\+Attach}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene)=0
-\begin{DoxyCompactList}\small\item\em Virtual method that executes when the system is first attached to the engine. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_ad65e14df43da81b2b7f17a98218c515f}{On\+Dettach}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene)=0
-\begin{DoxyCompactList}\small\item\em Virtual method that executes when the system is dettached from the engine. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a0988bdcbbb39c0c5d5fca600cfd24856}{On\+Update}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene, float delta\+\_\+time)=0
-\begin{DoxyCompactList}\small\item\em Virtual method that executes every frame (engine loop) . \end{DoxyCompactList}\end{DoxyCompactItemize}
+virtual \mbox{\hyperlink{class_multi_station_1_1_i_system_a196207ac22f9cd0ac0035bf5ce86f754}{\texorpdfstring{$\sim$}{\string~}\+ISystem}} (void)=default
+\begin{DoxyCompactList}\small\item\em Destroys the system; lifecycle shutdown is handled by \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_i_system_ad176d0765056ed6a5e60207bc4344484}{ISystem}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Starts enabled, named "{}\+System"{}, with a fixed delta time of 1/60. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}{On\+Attach}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Called once after module initialization, before the initial \doxylink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{On\+Enable()}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{On\+Enable}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Called after attachment and when the manager processes re-\/enabling. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_ae33de4bfba0297647ded209f4bebdca5}{On\+Update}} (float delta\+\_\+time) noexcept
+\begin{DoxyCompactList}\small\item\em Called once per manager update while processed as enabled. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}{On\+Disable}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Called when the manager processes disabling, or before detachment if the system was last processed as enabled. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597}{On\+Dettach}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Called once on module removal or manager shutdown, before module Fini(). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_i_system_a2cab273690a06b3635faac281485141e}{Set\+Enable}} (bool enable)
+\begin{DoxyCompactList}\small\item\em Requests an enabled state without immediately invoking callbacks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_i_system_a7c0930d0dd1fb4e6cb3db344b227078a}{Is\+Enable}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns the requested enabled state, which may not yet be processed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_i_system_a9523784588af396f3262ecfdc3fb852e}{Set\+Fixed\+Delta\+Time}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Stores a fixed delta time if it is at least 1/60. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_multi_station_1_1_i_system_ac5145f81b278273dbcbf4f178ac9c6bc}{Get\+Fixed\+Delta\+Time}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns the stored fixed delta time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_i_system_ac4f2584781fae9bc5b32cfde88af38f7}{Set\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Sets the system\textquotesingle{}s name; it does not affect module identity or update order. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_multi_station_1_1_i_system_a846df74c863911080fba2e8784a8325e}{Get\+Name}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns a reference to the system\textquotesingle{}s stored name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base interface for a module\textquotesingle{}s system, driven by \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. 
+
+After module Init(), the manager calls \doxylink{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}{On\+Attach()}, then \doxylink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{On\+Enable()}. Each frame it processes enable/disable changes before calling \doxylink{class_multi_station_1_1_i_system_ae33de4bfba0297647ded209f4bebdca5}{On\+Update()} on enabled systems, in module registration order. \doxylink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{On\+Enable()} and \doxylink{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}{On\+Disable()} may repeat as the requested enabled state changes.
+
+When the module is removed or the manager shuts down, \doxylink{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}{On\+Disable()} is called if the system was last processed as enabled, then \doxylink{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597}{On\+Dettach()}, followed by module Fini(). Destruction alone does not invoke these callbacks.
+
+\begin{DoxyNote}{Note}
+All lifecycle callbacks have empty default implementations. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Callbacks must not let exceptions escape, add or remove modules, or recursively update the manager. 
+\end{DoxyWarning}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_i_system_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_i_system_a196207ac22f9cd0ac0035bf5ce86f754}\index{MultiStation::ISystem@{MultiStation::ISystem}!````~ISystem@{\texorpdfstring{$\sim$}{\string~}ISystem}}
+\index{````~ISystem@{\texorpdfstring{$\sim$}{\string~}ISystem}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ISystem()}{\string~ISystem()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a196207ac22f9cd0ac0035bf5ce86f754} 
+virtual Multi\+Station\+::\+ISystem\+::\texorpdfstring{$\sim$}{\string~}\+ISystem (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destroys the system; lifecycle shutdown is handled by \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. 
+
+\Hypertarget{class_multi_station_1_1_i_system_ad176d0765056ed6a5e60207bc4344484}\index{MultiStation::ISystem@{MultiStation::ISystem}!ISystem@{ISystem}}
+\index{ISystem@{ISystem}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{ISystem()}{ISystem()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ad176d0765056ed6a5e60207bc4344484} 
+Multi\+Station\+::\+ISystem\+::\+ISystem (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Starts enabled, named "{}\+System"{}, with a fixed delta time of 1/60. 
+
 
 
 \label{doc-func-members}
 \Hypertarget{class_multi_station_1_1_i_system_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_multi_station_1_1_i_system_ab744cd12437a1bb2d42b640eb5796f04}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnAttach@{OnAttach}}
+\Hypertarget{class_multi_station_1_1_i_system_ac5145f81b278273dbcbf4f178ac9c6bc}\index{MultiStation::ISystem@{MultiStation::ISystem}!GetFixedDeltaTime@{GetFixedDeltaTime}}
+\index{GetFixedDeltaTime@{GetFixedDeltaTime}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{GetFixedDeltaTime()}{GetFixedDeltaTime()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ac5145f81b278273dbcbf4f178ac9c6bc} 
+float Multi\+Station\+::\+ISystem\+::\+Get\+Fixed\+Delta\+Time (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the stored fixed delta time. 
+
+\Hypertarget{class_multi_station_1_1_i_system_a846df74c863911080fba2e8784a8325e}\index{MultiStation::ISystem@{MultiStation::ISystem}!GetName@{GetName}}
+\index{GetName@{GetName}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a846df74c863911080fba2e8784a8325e} 
+const std\+::string \& Multi\+Station\+::\+ISystem\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns a reference to the system\textquotesingle{}s stored name. 
+
+\Hypertarget{class_multi_station_1_1_i_system_a7c0930d0dd1fb4e6cb3db344b227078a}\index{MultiStation::ISystem@{MultiStation::ISystem}!IsEnable@{IsEnable}}
+\index{IsEnable@{IsEnable}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{IsEnable()}{IsEnable()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a7c0930d0dd1fb4e6cb3db344b227078a} 
+bool Multi\+Station\+::\+ISystem\+::\+Is\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the requested enabled state, which may not yet be processed. 
+
+\Hypertarget{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnAttach@{OnAttach}}
 \index{OnAttach@{OnAttach}!MultiStation::ISystem@{MultiStation::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnAttach()}{OnAttach()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ab744cd12437a1bb2d42b640eb5796f04} 
-virtual void Multi\+Station\+::\+ISystem\+::\+On\+Attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Attach (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
 
 
 
-Virtual method that executes when the system is first attached to the engine. 
+Called once after module initialization, before the initial \doxylink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{On\+Enable()}. 
 
-\Hypertarget{class_multi_station_1_1_i_system_ad65e14df43da81b2b7f17a98218c515f}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnDettach@{OnDettach}}
+\Hypertarget{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnDettach@{OnDettach}}
 \index{OnDettach@{OnDettach}!MultiStation::ISystem@{MultiStation::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnDettach()}{OnDettach()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ad65e14df43da81b2b7f17a98218c515f} 
-virtual void Multi\+Station\+::\+ISystem\+::\+On\+Dettach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Dettach (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
 
 
 
-Virtual method that executes when the system is dettached from the engine. 
+Called once on module removal or manager shutdown, before module Fini(). 
 
-\Hypertarget{class_multi_station_1_1_i_system_a0988bdcbbb39c0c5d5fca600cfd24856}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnUpdate@{OnUpdate}}
+\Hypertarget{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnDisable@{OnDisable}}
+\index{OnDisable@{OnDisable}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnDisable()}{OnDisable()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Disable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called when the manager processes disabling, or before detachment if the system was last processed as enabled. 
+
+\Hypertarget{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnEnable@{OnEnable}}
+\index{OnEnable@{OnEnable}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{OnEnable()}{OnEnable()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Called after attachment and when the manager processes re-\/enabling. 
+
+\begin{DoxyNote}{Note}
+The initial call occurs even if \doxylink{class_multi_station_1_1_i_system_a7c0930d0dd1fb4e6cb3db344b227078a}{Is\+Enable()} is false; the manager processes that disabled state on its next update. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_i_system_ae33de4bfba0297647ded209f4bebdca5}\index{MultiStation::ISystem@{MultiStation::ISystem}!OnUpdate@{OnUpdate}}
 \index{OnUpdate@{OnUpdate}!MultiStation::ISystem@{MultiStation::ISystem}}
 \doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a0988bdcbbb39c0c5d5fca600cfd24856} 
-virtual void Multi\+Station\+::\+ISystem\+::\+On\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{, }\item[{float}]{delta\+\_\+time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ae33de4bfba0297647ded209f4bebdca5} 
+virtual void Multi\+Station\+::\+ISystem\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+\_\+time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
 
 
 
-Virtual method that executes every frame (engine loop) . 
+Called once per manager update while processed as enabled. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em scene} & The current scene that the system executes on \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em delta\+\_\+time} & Frame delta time supplied by the manager. \\
 \hline
-{\em delta\+\_\+time} & The time step from the last time it was executed (last frame time difference) \\
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Enable changes made during frame updates take effect on the next manager update, including changes to systems that have not updated yet. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_i_system_a2cab273690a06b3635faac281485141e}\index{MultiStation::ISystem@{MultiStation::ISystem}!SetEnable@{SetEnable}}
+\index{SetEnable@{SetEnable}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{SetEnable()}{SetEnable()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a2cab273690a06b3635faac281485141e} 
+void Multi\+Station\+::\+ISystem\+::\+Set\+Enable (\begin{DoxyParamCaption}\item[{bool}]{enable}{}\end{DoxyParamCaption})}
+
+
+
+Requests an enabled state without immediately invoking callbacks. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em enable} & Whether the system should receive frame updates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+\doxylink{class_multi_station_1_1_system_manager}{System\+Manager} processes the flag during its next state-\/check pass. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_i_system_a9523784588af396f3262ecfdc3fb852e}\index{MultiStation::ISystem@{MultiStation::ISystem}!SetFixedDeltaTime@{SetFixedDeltaTime}}
+\index{SetFixedDeltaTime@{SetFixedDeltaTime}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{SetFixedDeltaTime()}{SetFixedDeltaTime()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_a9523784588af396f3262ecfdc3fb852e} 
+bool Multi\+Station\+::\+ISystem\+::\+Set\+Fixed\+Delta\+Time (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+
+
+Stores a fixed delta time if it is at least 1/60. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em delta\+Time} & Requested fixed delta time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if accepted; false leaves the previous value unchanged. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This setting does not schedule updates; \doxylink{class_multi_station_1_1_system_manager}{System\+Manager} does not use it. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_i_system_ac4f2584781fae9bc5b32cfde88af38f7}\index{MultiStation::ISystem@{MultiStation::ISystem}!SetName@{SetName}}
+\index{SetName@{SetName}!MultiStation::ISystem@{MultiStation::ISystem}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_i_system_ac4f2584781fae9bc5b32cfde88af38f7} 
+void Multi\+Station\+::\+ISystem\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Sets the system\textquotesingle{}s name; it does not affect module identity or update order. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em name} & Name to store. \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+System/ISystem.\+hpp\end{DoxyCompactItemize}
+Source/\+System/\mbox{\hyperlink{_i_system_8hpp}{ISystem.\+hpp}}\end{DoxyCompactItemize}

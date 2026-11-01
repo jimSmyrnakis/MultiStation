@@ -1,24 +1,59 @@
 \doxysection{ISystem.\+hpp}
 \hypertarget{_i_system_8hpp_source}{}\label{_i_system_8hpp_source}\index{Source/System/ISystem.hpp@{Source/System/ISystem.hpp}}
-
+\mbox{\hyperlink{_i_system_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../Globals/Globals.hpp"{}}}
-\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }MultiStation\{}
-\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}};}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_system}{ISystem}}\ \{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_ab744cd12437a1bb2d42b640eb5796f04}{OnAttach}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ =\ 0;}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_ad65e14df43da81b2b7f17a98218c515f}{OnDettach}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene)\ =\ 0;}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a0988bdcbbb39c0c5d5fca600cfd24856}{OnUpdate}}(\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}\&\ scene,\ \textcolor{keywordtype}{float}\ delta\_time)\ =\ 0;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Media.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Platform.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_i_system_ad176d0765056ed6a5e60207bc4344484}{ISystem}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a196207ac22f9cd0ac0035bf5ce86f754}{\string~ISystem}}(\textcolor{keywordtype}{void})\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_i_system_ad176d0765056ed6a5e60207bc4344484}{ISystem}}(\textcolor{keywordtype}{void})\ noexcept\ ;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ Main\ FSM\ callbacks}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a3d01487555ed588dff7a18d0230a7831}{OnAttach}}(\textcolor{keywordtype}{void})\ noexcept\ ;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_af85a7080085389cad6ba8a7453f584eb}{OnEnable}}(\textcolor{keywordtype}{void})\ noexcept\ ;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_ae33de4bfba0297647ded209f4bebdca5}{OnUpdate}}(\textcolor{keywordtype}{float}\ delta\_time)\ noexcept\ ;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a734f6915740708e24a68bd46abb08ac3}{OnDisable}}(\textcolor{keywordtype}{void})\ noexcept\ ;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a590d9fa521e0d7206af511769e799597}{OnDettach}}(\textcolor{keywordtype}{void})\ noexcept\ ;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a2cab273690a06b3635faac281485141e}{SetEnable}}(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a7c0930d0dd1fb4e6cb3db344b227078a}{IsEnable}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a9523784588af396f3262ecfdc3fb852e}{SetFixedDeltaTime}}(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_ac5145f81b278273dbcbf4f178ac9c6bc}{GetFixedDeltaTime}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_i_system_ac4f2584781fae9bc5b32cfde88af38f7}{SetName}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_multi_station_1_1_i_system_a846df74c863911080fba2e8784a8325e}{GetName}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_enable;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_fixedDeltaTime;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::string\ m\_name;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \}}
 
 \end{DoxyCode}

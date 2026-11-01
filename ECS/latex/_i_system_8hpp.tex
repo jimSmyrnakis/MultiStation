@@ -1,24 +1,26 @@
-\doxysection{Source/\+Interfaces/\+ISystem.hpp File Reference}
-\hypertarget{_i_system_8hpp}{}\label{_i_system_8hpp}\index{Source/Interfaces/ISystem.hpp@{Source/Interfaces/ISystem.hpp}}
-{\ttfamily \#include $<$stdint.\+h$>$}\newline
-{\ttfamily \#include $<$stddef.\+h$>$}\newline
-{\ttfamily \#include "{}../\+Registry/\+Registry.\+hpp"{}}\newline
-{\ttfamily \#include "{}../\+Job\+System/\+Job\+System.\+hpp"{}}\newline
-{\ttfamily \#include "{}../\+ECSManager/\+ECSManager.\+hpp"{}}\newline
+\doxysection{Source/\+System/\+ISystem.hpp File Reference}
+\hypertarget{_i_system_8hpp}{}\label{_i_system_8hpp}\index{Source/System/ISystem.hpp@{Source/System/ISystem.hpp}}
+
+
+System lifecycle callbacks and runtime settings.  
+
+
+{\ttfamily \#include "{}../\+Globals/\+Globals.\+hpp"{}}\newline
 {\ttfamily \#include $<$Media.\+hpp$>$}\newline
+{\ttfamily \#include $<$Platform.\+hpp$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_multi_station_1_1_i_system}{Multi\+Station\+::\+ISystem}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Base interface for a module\textquotesingle{}s system, driven by \doxylink{class_multi_station_1_1_system_manager}{System\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+System lifecycle callbacks and runtime settings. 
+
 \begin{DoxyAuthor}{Author}
-Dimitris Smyrnakis 
+Dimitris Smyrnakis
 \end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}

@@ -1,14 +1,7 @@
 #include "Scene.hpp"
 
 namespace MultiStation {
-	static SceneSerializer scene_serializer;
-
-
 	
-
-	SceneSerializer& GetSceneSerializer(void) {
-		return scene_serializer;
-	}
 	Scene::Scene(EngineContext& context , ObjectMap& objMap) noexcept
 		: m_engineContext(context)  , m_objectMap(objMap){
 		
@@ -130,5 +123,9 @@ namespace MultiStation {
 
 	const std::string& Scene::GetName(CompID component) const noexcept {
 		return m_ecsRegistry.GetName(component);
+	}
+
+	CompID Scene::GetComponentIDByName(std::string& name) {
+		return m_ecsRegistry.GetComponentIDByName(name);
 	}
 }

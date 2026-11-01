@@ -1,0 +1,6 @@
+The Registry and Central Storage Manager should change to support the registration for multiple 
+threads . May Registry can keep it's storage pointer if system modules init are called on a single thread
+and registration happens once at the app start , otherwise the registry should call GetStorage to let the 
+central storage manager to handle multithreading , but this destroyes the perfomance of the ecs if allowed
+so better prefer the first method when engine will have a Init Modules to call by the app . This way we ensure 
+no need for registration to be multithreaded . KEEEP IN MIND

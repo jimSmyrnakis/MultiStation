@@ -1,0 +1,575 @@
+Basic Info { 
+Entities : 26
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 12 , Entity161430 ) 
+UUID : ( 20 , 16143072063521853437 ) 
+ } 
+Transform3D { 
+Position.x : -2.45
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 12 , Entity392741 ) 
+UUID : ( 19 , 3927412735857416348 ) 
+ } 
+Transform3D { 
+Position.x : 3.74999
+Position.y : 0.85
+Position.z : -6.5
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 12 , Entity200783 ) 
+UUID : ( 18 , 200783524216241472 ) 
+ } 
+Transform3D { 
+Position.x : -6.55
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1.92
+Scale.y : 1.9
+Scale.z : 2.38
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 18289427992612794629 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 10302564138810201956 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 11597312388333766022 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 1917006148787536619 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 12291494831407429057 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 6419857782974851646 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 18 , 591055536267442620 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 1165032970211593876 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 2665927465005188824 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 12731174109099439237 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : -1.45
+Position.z : -8.60001
+Rotation.x : -0.75
+Rotation.y : -186
+Rotation.z : -360
+Scale.x : -18.25
+Scale.y : -1.20001
+Scale.z : -28.21
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 18 , 391256038322247905 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 14082154333088020097 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 11611546118338743956 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 8360186548646256338 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 12771427178398175462 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 14505766790262306188 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 15100707347577186356 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 14883266417180911107 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 11506900228562588722 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : -50.25
+Rotation.y : -54.75
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 18 , 552485467129835758 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 19 , 5556977947754400065 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 12228254203312767690 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : 0
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 1
+Scale.y : 2.03
+Scale.z : 1
+ } 
+ } 
+Entity { 
+Count Components : 2
+Component0 : ( 38 , struct MultiStation::Component::Entity ) 
+Saved : 1
+Component1 : ( 43 , struct MultiStation::Component::Transform3D ) 
+Saved : 1
+EntityComponent { 
+name : ( 6 , Entity ) 
+UUID : ( 20 , 11684063757217797441 ) 
+ } 
+Transform3D { 
+Position.x : 0
+Position.y : 0
+Position.z : 0
+Rotation.x : -148.25
+Rotation.y : 0
+Rotation.z : 0
+Scale.x : 2.55
+Scale.y : 1
+Scale.z : 1
+ } 
+ } 

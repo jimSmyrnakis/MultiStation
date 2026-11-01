@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ECSRegistry\CentralStorageManager.hpp" />
     <ClInclude Include="Source\Engine\Engine.hpp" />
     <ClInclude Include="Source\Object\ObjectMap.hpp" />
     <ClInclude Include="Source\ECSRegistry\ComponentArray\IComponentArray.hpp" />
@@ -32,7 +33,7 @@
     <ClInclude Include="Source\Scene\SceneGraph.hpp" />
     <ClInclude Include="Source\Scene\SceneManager.hpp" />
     <ClInclude Include="Source\Scene\SceneSerializer.hpp" />
-    <ClInclude Include="Source\Serialization\Archive\IArchive.hpp" />
+    <ClInclude Include="Source\Serialization\IArchive.hpp" />
     <ClInclude Include="Source\Serialization\Archive\TextArchive.hpp" />
     <ClInclude Include="Source\Serialization\ISerialize.hpp" />
     <ClInclude Include="Source\Serialization\Registry\SerializationRegistry.hpp" />
@@ -44,6 +45,7 @@
     <ClInclude Include="Source\TaskManager\TaskScheduller.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\ECSRegistry\CentralStorageManager.cpp" />
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Object\ObjectMap.cpp" />
     <ClCompile Include="Source\ECSRegistry\ComponentArray\IComponentArray.cpp" />
@@ -64,6 +66,7 @@
     <None Include="DoxyFile\Doxyfile" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Source\ECSRegistry\WarningforMultiThreaded.txt" />
     <Text Include="TODO.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -141,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include;$(SolutionDir)IOManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -172,7 +175,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include;$(SolutionDir)IOManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -203,7 +206,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include;$(SolutionDir)IOManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -234,7 +237,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLM\Include;$(SolutionDir)Platform\Include;$(SolutionDir)Utilities\Include;$(SolutionDir)Media\Include;$(SolutionDir)ImGui\Source\ImGui;$(SolutionDir)ImGui\Include;$(SolutionDir)IOManager\Include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>

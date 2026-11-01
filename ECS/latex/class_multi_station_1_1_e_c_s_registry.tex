@@ -1,0 +1,733 @@
+\doxysection{Multi\+Station\+::ECSRegistry Class Reference}
+\hypertarget{class_multi_station_1_1_e_c_s_registry}{}\label{class_multi_station_1_1_e_c_s_registry}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+
+
+The \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} class manages the registration and retrieval of component with different types , also entity creation / remove and components types to entities signatures .  
+
+
+
+
+{\ttfamily \#include $<$Registry.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs a new \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_acfe07b7f56455293208f57d30f66f9a4}{\texorpdfstring{$\sim$}{\string~}\+ECSRegistry}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} object and cleans up all registered component arrays that have been registered. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_ae2abf32d0ce06df079341c7cd3ddc29a}{ECSRegistry}} (const ECSRegistry \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy Register not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a4da6c1db3eb3404ab8e7916d64eecd97}{ECSRegistry}} (ECSRegistry \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Move Register not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a2d27125bba0a787e3994e7ae09afdcd3}{operator=}} (const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment not allowed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a1f7b12ded29e71b0647c2829c1896d9e}{operator=}} (\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \&\&) noexcept=delete
+\begin{DoxyCompactList}\small\item\em Move assignment not allowed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a974fb9ba55ee5b79c49476b317523a91}{Remove\+Entity}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Deletes the entity and all components associated with it. \end{DoxyCompactList}\item 
+Ent\+ID \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_aaf11dfd5c6b0bc2b306dc8d696996d0c}{Create\+Entity}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Creates a new Entity . \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a665376c7bdd735504e6a8a2950983cee}{Has\+Entity}} (Ent\+ID entity) const noexcept
+\item 
+std\+::span$<$ const Ent\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a30edd0348258a6c15740fe858e2e624e}{Get\+All\+Entities}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns all entities ids existing on the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry}. \end{DoxyCompactList}\item 
+std\+::span$<$ const Comp\+ID $>$ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_ab463260f89f8fbc28680377693c7969e}{Get\+Signature\+Of}} (Ent\+ID entity) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns all Components IDS of the entity . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a345e2dc894e6799f261238403f5dc451}{Add\+Component}} (Ent\+ID entity, Args \&\&... args) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs a component of type T and assigns it to an entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a01fe2f8b01da2d5bae597b890a176786}{Replace\+Component}} (Ent\+ID entity, Args \&\&... args) noexcept
+\begin{DoxyCompactList}\small\item\em Assigns a newly constructed value to an entity\textquotesingle{}s existing component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a0c8fd13846d625c717dd735020724f27}{Remove\+Component}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Removes an existing component from the entity . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a52a8f64976e487ea21af2324927d6781}{Has\+Component}} (Ent\+ID entity) const noexcept
+\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::span$<$ T $>$ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a8008c16b12fb3114d614215680e728ca}{Get\+Components}} (void) noexcept
+\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::span$<$ const T $>$ \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_aaa6f109a13920360fc0c7cc9bf7eac01}{Get\+Components}} (void) const noexcept
+\item 
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_aa48261799ce98c0dae06219f72b36365}{Get\+Component}} (Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Returns an entity\textquotesingle{}s component of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_ab7ead8138ebb0186dd0362a74dbc4994}{Get\+Component}} (Ent\+ID entity) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns read-\/only access to an entity\textquotesingle{}s component of type T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const std\+::string \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a55ff1079ec57c998f7bd49645c44a38d}{Get\+Name}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the stored name of component type T. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a540ac9baa9fb19187cdd1ca51995d0e9}{Get\+Component}} (Comp\+ID component, Ent\+ID entity) noexcept
+\begin{DoxyCompactList}\small\item\em Returns an entity\textquotesingle{}s component using its runtime component type ID. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_ab18f470f227f012593a1f43b0f8faa97}{Get\+Components}} (Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Returns the contiguous component storage for a runtime component type ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_afe90a6403c069e7d20ed4758fed2dd08}{Remove\+Component}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Removes the component from the entity . As well the component is destroyed . \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a471edbbdaf07e700e4a5cf1add7f9463}{Add\+Component}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Default-\/constructs a component and assigns it to an entity. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_ada7f97993d0cd0993a93aea9d24e1e97}{Replace\+Component}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Assigns a default-\/constructed value to an entity\textquotesingle{}s existing component. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a5f1ee2d2f45905d0418e1402f969a19e}{Has\+Component}} (Ent\+ID entity, Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Helper method of checking if the entity has a component without a template type use . \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a3d4811eccee788fc3e07c7a69befa571}{Size\+Of\+Component}} (Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Helper funtion for retreiving the component size in bytes. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a2f36834dd1cd00b069a65bea905c7c81}{Count}} (Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Helper function for retreiving the total components of this. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a26d2ce07276eaada486b22ba93781585}{Get\+Name}} (Comp\+ID component) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns the stored name of a component type using its runtime ID. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\Comp\+ID \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a8c5534c58ab87d1fcac8740f15997542}{Register\+Component}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Registers storage for component type T if it is not already registered. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a630c8a8425bbee33e8bbce3eda666ede}{Has\+Register\+Component}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\Comp\+ID \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a3e96e02e833f14da5ba5ac7d806c80fb}{Unregister\+Component}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Unregisters component type T and destroys all its stored components. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a4c1b5222584f7b470afb7a9a261d8702}{Has\+Register}} (Comp\+ID component) const noexcept
+\begin{DoxyCompactList}\small\item\em Helper function for checking if this component is register without templates . \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} class manages the registration and retrieval of component with different types , also entity creation / remove and components types to entities signatures . 
+
+\begin{DoxyWarning}{Warning}
+Not thread-\/safe. 
+\end{DoxyWarning}
+\begin{DoxyNote}{Note}
+Unexpected exceptions terminate the application. 
+
+Components (template type T) should support assigments and default contructor . 
+\end{DoxyNote}
+
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!ECSRegistry@{ECSRegistry}}
+\index{ECSRegistry@{ECSRegistry}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{ECSRegistry()}{ECSRegistry()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca} 
+Multi\+Station\+::\+ECSRegistry\+::\+ECSRegistry (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Constructs a new \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} object. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_acfe07b7f56455293208f57d30f66f9a4}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!````~ECSRegistry@{\texorpdfstring{$\sim$}{\string~}ECSRegistry}}
+\index{````~ECSRegistry@{\texorpdfstring{$\sim$}{\string~}ECSRegistry}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ECSRegistry()}{\string~ECSRegistry()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_acfe07b7f56455293208f57d30f66f9a4} 
+Multi\+Station\+::\+ECSRegistry\+::\texorpdfstring{$\sim$}{\string~}\+ECSRegistry (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Destroys the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} object and cleans up all registered component arrays that have been registered. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_ae2abf32d0ce06df079341c7cd3ddc29a}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!ECSRegistry@{ECSRegistry}}
+\index{ECSRegistry@{ECSRegistry}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{ECSRegistry()}{ECSRegistry()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_ae2abf32d0ce06df079341c7cd3ddc29a} 
+Multi\+Station\+::\+ECSRegistry\+::\+ECSRegistry (\begin{DoxyParamCaption}\item[{const ECSRegistry \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy Register not allowed. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a4da6c1db3eb3404ab8e7916d64eecd97}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!ECSRegistry@{ECSRegistry}}
+\index{ECSRegistry@{ECSRegistry}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{ECSRegistry()}{ECSRegistry()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a4da6c1db3eb3404ab8e7916d64eecd97} 
+Multi\+Station\+::\+ECSRegistry\+::\+ECSRegistry (\begin{DoxyParamCaption}\item[{ECSRegistry \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Move Register not allowed. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a345e2dc894e6799f261238403f5dc451}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a345e2dc894e6799f261238403f5dc451} 
+template$<$typename T, typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Constructs a component of type T and assigns it to an entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type. \\
+\hline
+{\em Args} & The constructor argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to receive the component. \\
+\hline
+{\em args} & Arguments forwarded to the component constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the new component, or nullptr if T is not registered, the entity does not exist, or the entity already has a component of type T. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use \doxylink{class_multi_station_1_1_e_c_s_registry_a01fe2f8b01da2d5bae597b890a176786}{Replace\+Component()} to update an existing component. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Adding components of type T may reallocate their storage and invalidate existing pointers, references, and spans. Removing components or their entities may invalidate the returned pointer or change which entity it refers to. Unregistering T or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a471edbbdaf07e700e4a5cf1add7f9463}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a471edbbdaf07e700e4a5cf1add7f9463} 
+void \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Default-\/constructs a component and assigns it to an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to receive the component. \\
+\hline
+{\em component} & The registered component type ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the new component, or nullptr if the type is not registered, the entity does not exist, or it already has a component of this type. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Adding components of this type may invalidate existing pointers, references, and spans through reallocation. Removing components or their entities may invalidate the returned pointer or change which entity it refers to. Unregistering the type or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a2f36834dd1cd00b069a65bea905c7c81}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!Count@{Count}}
+\index{Count@{Count}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{Count()}{Count()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a2f36834dd1cd00b069a65bea905c7c81} 
+size\+\_\+t Multi\+Station\+::\+ECSRegistry\+::\+Count (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Helper function for retreiving the total components of this. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The Component id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total components number available in the span list with this component id . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_aaf11dfd5c6b0bc2b306dc8d696996d0c}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_aaf11dfd5c6b0bc2b306dc8d696996d0c} 
+Ent\+ID Multi\+Station\+::\+ECSRegistry\+::\+Create\+Entity (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Creates a new Entity . 
+
+\begin{DoxyReturn}{Returns}
+The new entity id or null\+Entity if there is no available ids . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a30edd0348258a6c15740fe858e2e624e}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetAllEntities@{GetAllEntities}}
+\index{GetAllEntities@{GetAllEntities}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetAllEntities()}{GetAllEntities()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a30edd0348258a6c15740fe858e2e624e} 
+std\+::span$<$ const Ent\+ID $>$ Multi\+Station\+::\+ECSRegistry\+::\+Get\+All\+Entities (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns all entities ids existing on the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry}. 
+
+\begin{DoxyNote}{Note}
+The span is a view of the entity array meaning there is no guarantees if another entity added/removed that the span will be valid . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a540ac9baa9fb19187cdd1ca51995d0e9}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a540ac9baa9fb19187cdd1ca51995d0e9} 
+void \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{, }\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns an entity\textquotesingle{}s component using its runtime component type ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The component type ID. \\
+\hline
+{\em entity} & The entity whose component is requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component, or nullptr if the type is not registered or no component of that type is stored for the entity. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Adding components of this type may invalidate the pointer through reallocation. Removing components or their entities may invalidate it or change which entity it refers to. Unregistering the type or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_ab7ead8138ebb0186dd0362a74dbc4994}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_ab7ead8138ebb0186dd0362a74dbc4994} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns read-\/only access to an entity\textquotesingle{}s component of type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity whose component is requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const pointer to the component, or nullptr if T is not registered, the entity does not exist, or it has no component of type T. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Adding components of type T may invalidate the pointer through reallocation. Removing components or their entities may invalidate it or change which entity it refers to. Unregistering T or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_aa48261799ce98c0dae06219f72b36365}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_aa48261799ce98c0dae06219f72b36365} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns an entity\textquotesingle{}s component of type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity whose component is requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component, or nullptr if T is not registered, the entity does not exist, or it has no component of type T. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Adding components of type T may invalidate the pointer through reallocation. Removing components or their entities may invalidate it or change which entity it refers to. Unregistering T or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_ab18f470f227f012593a1f43b0f8faa97}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_ab18f470f227f012593a1f43b0f8faa97} 
+void \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns the contiguous component storage for a runtime component type ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The component type ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the storage, or nullptr if the type is not registered. For an empty registered array, the pointer may be null; use \doxylink{class_multi_station_1_1_e_c_s_registry_a2f36834dd1cd00b069a65bea905c7c81}{Count()} to determine the number of components and \doxylink{class_multi_station_1_1_e_c_s_registry_a3d4811eccee788fc3e07c7a69befa571}{Size\+Of\+Component()} for their size in bytes. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Adding components of this type may invalidate the pointer through reallocation. Removing components or their entities changes the stored sequence and may invalidate pointers to its elements or change their entity associations. Unregistering the type or destroying the registry invalidates the storage pointer. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_aaa6f109a13920360fc0c7cc9bf7eac01}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_aaa6f109a13920360fc0c7cc9bf7eac01} 
+template$<$typename T$>$ \\
+std\+::span$<$ const T $>$ Multi\+Station\+::\+ECSRegistry\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+a span of type T with all existing components of this type . 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The span is just a view , if used at the same time with adding/removing components then the span will probably be not valid . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a8008c16b12fb3114d614215680e728ca}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a8008c16b12fb3114d614215680e728ca} 
+template$<$typename T$>$ \\
+std\+::span$<$ T $>$ Multi\+Station\+::\+ECSRegistry\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+a span of type T with all existing components of this type . 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+The span is just a view , if used at the same time with adding/removing components then the span will probably be not valid . 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a26d2ce07276eaada486b22ba93781585}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetName@{GetName}}
+\index{GetName@{GetName}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a26d2ce07276eaada486b22ba93781585} 
+const std\+::string \& Multi\+Station\+::\+ECSRegistry\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns the stored name of a component type using its runtime ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The component type ID whose name is requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A const reference to the registered type\textquotesingle{}s name, or the shared fallback string "{}none"{} if the ID is not registered. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Registered names come from typeid(\+T).name() and are implementation-\/defined. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+A reference to a registered name becomes invalid when that type is unregistered or this registry is destroyed. Copy the string if it must outlive that storage. The fallback string has static storage duration and is independent of the registry. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a55ff1079ec57c998f7bd49645c44a38d}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetName@{GetName}}
+\index{GetName@{GetName}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a55ff1079ec57c998f7bd49645c44a38d} 
+template$<$typename T$>$ \\
+const std\+::string \& Multi\+Station\+::\+ECSRegistry\+::\+Get\+Name (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns the stored name of component type T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type whose name is requested. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+A const reference to the registered type\textquotesingle{}s name, or the shared fallback string "{}none"{} if T is not registered. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Registered names come from typeid(\+T).name() and are implementation-\/defined. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+A reference to a registered name becomes invalid when T is unregistered or this registry is destroyed. Copy the string if it must outlive that storage. The fallback string has static storage duration and is independent of the registry. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_ab463260f89f8fbc28680377693c7969e}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!GetSignatureOf@{GetSignatureOf}}
+\index{GetSignatureOf@{GetSignatureOf}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{GetSignatureOf()}{GetSignatureOf()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_ab463260f89f8fbc28680377693c7969e} 
+std\+::span$<$ const Comp\+ID $>$ Multi\+Station\+::\+ECSRegistry\+::\+Get\+Signature\+Of (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns all Components IDS of the entity . 
+
+\begin{DoxyNote}{Note}
+The span is a view of the entity components array meaning there is no guarantees if entity added/removed component that the span will be valid .
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a52a8f64976e487ea21af2324927d6781}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a52a8f64976e487ea21af2324927d6781} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+ECSRegistry\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+true if these entity has a component of type T assign , otherwise false . 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a5f1ee2d2f45905d0418e1402f969a19e}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a5f1ee2d2f45905d0418e1402f969a19e} 
+bool Multi\+Station\+::\+ECSRegistry\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Helper method of checking if the entity has a component without a template type use . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if has a component , false otherwise . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a665376c7bdd735504e6a8a2950983cee}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!HasEntity@{HasEntity}}
+\index{HasEntity@{HasEntity}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{HasEntity()}{HasEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a665376c7bdd735504e6a8a2950983cee} 
+bool Multi\+Station\+::\+ECSRegistry\+::\+Has\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+true if entity with this id exists otherwise false
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id . \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a4c1b5222584f7b470afb7a9a261d8702}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!HasRegister@{HasRegister}}
+\index{HasRegister@{HasRegister}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{HasRegister()}{HasRegister()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a4c1b5222584f7b470afb7a9a261d8702} 
+bool Multi\+Station\+::\+ECSRegistry\+::\+Has\+Register (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Helper function for checking if this component is register without templates . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The component ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if registered false otherwise . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a630c8a8425bbee33e8bbce3eda666ede}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!HasRegisterComponent@{HasRegisterComponent}}
+\index{HasRegisterComponent@{HasRegisterComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{HasRegisterComponent()}{HasRegisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a630c8a8425bbee33e8bbce3eda666ede} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+ECSRegistry\+::\+Has\+Register\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Checks if a \doxylink{class_multi_station_1_1_component_array}{Component\+Array} for the specified component type T is registered . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component array to check. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if registered, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a2d27125bba0a787e3994e7ae09afdcd3}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a2d27125bba0a787e3994e7ae09afdcd3} 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \& Multi\+Station\+::\+ECSRegistry\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Copy assignment not allowed. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a1f7b12ded29e71b0647c2829c1896d9e}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a1f7b12ded29e71b0647c2829c1896d9e} 
+\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \& Multi\+Station\+::\+ECSRegistry\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_e_c_s_registry_a6f49c5b76dc1c8b409199e15b019dcca}{ECSRegistry}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}, {\ttfamily [noexcept]}}
+
+
+
+Move assignment not allowed. 
+
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a8c5534c58ab87d1fcac8740f15997542}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!RegisterComponent@{RegisterComponent}}
+\index{RegisterComponent@{RegisterComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{RegisterComponent()}{RegisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a8c5534c58ab87d1fcac8740f15997542} 
+template$<$typename T$>$ \\
+Comp\+ID Multi\+Station\+::\+ECSRegistry\+::\+Register\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Registers storage for component type T if it is not already registered. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type to register. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The component type ID on success, including when T is already registered, or 0 if allocation of the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} object returns nullptr. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Allocation failures inside the \doxylink{class_multi_station_1_1_component_array}{Component\+Array} constructor or the registry map, and any other escaping exceptions, terminate the application under the noexcept policy; they are not reported by returning 0. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a0c8fd13846d625c717dd735020724f27}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a0c8fd13846d625c717dd735020724f27} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+ECSRegistry\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Removes an existing component from the entity . 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type/class . \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if entity exist\textquotesingle{}s and component is registered , otherwise false . So even if there is no component of this type it will still return true . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_afe90a6403c069e7d20ed4758fed2dd08}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!RemoveComponent@{RemoveComponent}}
+\index{RemoveComponent@{RemoveComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_afe90a6403c069e7d20ed4758fed2dd08} 
+bool Multi\+Station\+::\+ECSRegistry\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Removes the component from the entity . As well the component is destroyed . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity id \\
+\hline
+{\em component} & The Component id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if entity exist\textquotesingle{}s , component is registered otherwise false . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a974fb9ba55ee5b79c49476b317523a91}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!RemoveEntity@{RemoveEntity}}
+\index{RemoveEntity@{RemoveEntity}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{RemoveEntity()}{RemoveEntity()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a974fb9ba55ee5b79c49476b317523a91} 
+bool Multi\+Station\+::\+ECSRegistry\+::\+Remove\+Entity (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Deletes the entity and all components associated with it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & that will be removed from the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if entity found and deleted (+the components) and false if there is no entity matching this id in the \doxylink{class_multi_station_1_1_e_c_s_registry}{ECSRegistry} . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a01fe2f8b01da2d5bae597b890a176786}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!ReplaceComponent@{ReplaceComponent}}
+\index{ReplaceComponent@{ReplaceComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a01fe2f8b01da2d5bae597b890a176786} 
+template$<$typename T, typename... Args$>$ \\
+T \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Replace\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Assigns a newly constructed value to an entity\textquotesingle{}s existing component. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type. \\
+\hline
+{\em Args} & The constructor argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity whose component is replaced. \\
+\hline
+{\em args} & Arguments forwarded to construct the replacement value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the updated component, or nullptr if T is not registered, the entity does not exist, or it has no component of type T. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use \doxylink{class_multi_station_1_1_e_c_s_registry_a345e2dc894e6799f261238403f5dc451}{Add\+Component()} to create a missing component. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Later additions of type T may invalidate the returned pointer through reallocation. Removing components or their entities may invalidate it or change which entity it refers to. Unregistering T or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_ada7f97993d0cd0993a93aea9d24e1e97}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!ReplaceComponent@{ReplaceComponent}}
+\index{ReplaceComponent@{ReplaceComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{ReplaceComponent()}{ReplaceComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_ada7f97993d0cd0993a93aea9d24e1e97} 
+void \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+ECSRegistry\+::\+Replace\+Component (\begin{DoxyParamCaption}\item[{Ent\+ID}]{entity}{, }\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Assigns a default-\/constructed value to an entity\textquotesingle{}s existing component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity whose component is replaced. \\
+\hline
+{\em component} & The registered component type ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the updated component, or nullptr if the type is not registered, the entity does not exist, or it has no component of this type. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Later additions of this type may invalidate the returned pointer through reallocation. Removing components or their entities may invalidate it or change which entity it refers to. Unregistering the type or destroying the registry invalidates it. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a3d4811eccee788fc3e07c7a69befa571}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!SizeOfComponent@{SizeOfComponent}}
+\index{SizeOfComponent@{SizeOfComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{SizeOfComponent()}{SizeOfComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a3d4811eccee788fc3e07c7a69befa571} 
+size\+\_\+t Multi\+Station\+::\+ECSRegistry\+::\+Size\+Of\+Component (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Helper funtion for retreiving the component size in bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & The Component id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Its size and is different from zero if valid otherwise 0 and means component is not register . 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_e_c_s_registry_a3e96e02e833f14da5ba5ac7d806c80fb}\index{MultiStation::ECSRegistry@{MultiStation::ECSRegistry}!UnregisterComponent@{UnregisterComponent}}
+\index{UnregisterComponent@{UnregisterComponent}!MultiStation::ECSRegistry@{MultiStation::ECSRegistry}}
+\doxysubsubsection{\texorpdfstring{UnregisterComponent()}{UnregisterComponent()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_e_c_s_registry_a3e96e02e833f14da5ba5ac7d806c80fb} 
+template$<$typename T$>$ \\
+Comp\+ID Multi\+Station\+::\+ECSRegistry\+::\+Unregister\+Component (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Unregisters component type T and destroys all its stored components. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The component type to unregister.\\
+\hline
+\end{DoxyTemplParams}
+Removes T from every entity\textquotesingle{}s signature without removing the entities. If T is not registered, the registry is left unchanged. \begin{DoxyReturn}{Returns}
+The unregistered component type ID, or Multi\+Station\+::\+BAD\+\_\+\+ID if T was not registered. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Retained for API symmetry with \doxylink{class_multi_station_1_1_e_c_s_registry_a8c5534c58ab87d1fcac8740f15997542}{Register\+Component()}; normal registry use does not require explicit unregistration. Registry destruction releases all storage. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Invalidates all pointers, references, and spans to components of type T. Views of affected entity signatures may also be invalidated or have changed contents. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+ECSRegistry/\mbox{\hyperlink{_registry_8hpp}{Registry.\+hpp}}\end{DoxyCompactItemize}

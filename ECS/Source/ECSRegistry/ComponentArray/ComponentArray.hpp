@@ -222,6 +222,11 @@ namespace MultiStation{
 		 */
 		virtual const std::string& GetName(void) const noexcept override;
 
+		/**
+		 * @brief Clears all the component array storage . 
+		 */
+		virtual void Clear(void) noexcept override;
+
 
 	private:
 		std::vector<T> m_components; // A cached component dynamic list
@@ -240,6 +245,12 @@ namespace MultiStation{
 		return m_name;
 	}
 
+	template<typename T>
+	void ComponentArray<T>::Clear(void) noexcept {
+		m_components.clear();
+		m_entityToIndex.clear();
+		m_indexToEntity.clear();
+	}
 
 
 	// OBJECT CREATION , MOVE and DESTROY METHODS

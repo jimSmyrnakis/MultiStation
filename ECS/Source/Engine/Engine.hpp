@@ -63,7 +63,9 @@ namespace MultiStation {
 		const ISystemModule* GetModule(void) const;
 
 
+		void Init(void) noexcept;
 
+		void Fini(void) noexcept;
 
 
 	private:
@@ -71,6 +73,7 @@ namespace MultiStation {
 		SystemManager* m_systemManager;
 		EngineContext m_context;
 		ObjectMap m_objectMap;
+		SerializationRegistry m_sregistry;
 	};
 
 	// SYSTEM

@@ -195,7 +195,7 @@ void main()
             const GLint modelLocation = glGetUniformLocation(shaderProgram, "model");
             for (EntID entity : scene->GetAllEntities()) {
                 const auto* transform = scene->GetComponent<Component::Transform3D>(entity);
-                
+                if (!transform) continue;
                 glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(transform->word_matrix));
                 glDrawArrays(GL_TRIANGLES, 0, 36);
             }

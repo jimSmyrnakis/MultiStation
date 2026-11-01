@@ -93,24 +93,104 @@ $(function(){initNavTree('_engine_8hpp_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../Scene/SceneManager.hpp&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span>MultiStation {</div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html">    4</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_multi_station_1_1_engine.html">Engine</a> {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="comment">//Engine(void);</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Media.hpp&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_serialization_registry_8hpp.html">../Serialization/Registry/SerializationRegistry.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_system_manager_8hpp.html">../System/SystemManager.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>MultiStation {</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html">    8</a></span>    <span class="keyword">class </span>Engine {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_struct" href="struct_multi_station_1_1_engine_context.html">EngineContext</a> m_context;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_class" href="class_multi_station_1_1_scene_manager.html">SceneManager</a>* m_sceneManager;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    };</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        Engine(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        ~Engine(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#a797d239884d02292a03137e683ae0082">   22</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a797d239884d02292a03137e683ae0082">OnEvent</a>(Event&amp; e);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#a1db9b7486f60217403893fb640db50fa">   29</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a1db9b7486f60217403893fb640db50fa">OnUpdate</a>(<span class="keywordtype">float</span> dt);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment">// SYSTEMS</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#ad42f19b35e75849908f866b1528e11b7">AddModule</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a3977e482a94220ddc26e1d2c9faa83ec">RemoveModule</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a3acf7ce81e67f78bb4dc0e93be938c3c">HasModule</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">const</span> <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* <a class="code hl_function" href="class_multi_station_1_1_engine.html#acfa2dcff0e6f149d0fed1193726eede5">GetModule</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordtype">void</span> Init(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> Fini(<span class="keywordtype">void</span>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_class" href="class_multi_station_1_1_scene_manager.html">SceneManager</a>* m_sceneManager;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="class_multi_station_1_1_system_manager.html">SystemManager</a>* m_systemManager;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_struct" href="struct_multi_station_1_1_engine_context.html">EngineContext</a> m_context;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <a class="code hl_class" href="class_multi_station_1_1_object_map.html">ObjectMap</a> m_objectMap;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
-<div class="ttc" id="aclass_multi_station_1_1_engine_html"><div class="ttname"><a href="class_multi_station_1_1_engine.html">MultiStation::Engine</a></div><div class="ttdef"><b>Definition</b> Engine.hpp:4</div></div>
-<div class="ttc" id="aclass_multi_station_1_1_scene_manager_html"><div class="ttname"><a href="class_multi_station_1_1_scene_manager.html">MultiStation::SceneManager</a></div><div class="ttdef"><b>Definition</b> SceneManager.hpp:5</div></div>
-<div class="ttc" id="astruct_multi_station_1_1_engine_context_html"><div class="ttname"><a href="struct_multi_station_1_1_engine_context.html">MultiStation::EngineContext</a></div><div class="ttdef"><b>Definition</b> Globals.hpp:45</div></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// SYSTEM</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#ad42f19b35e75849908f866b1528e11b7">   82</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#ad42f19b35e75849908f866b1528e11b7">Engine::AddModule</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        m_objectMap.<a class="code hl_function" href="class_multi_station_1_1_object_map.html#a9515d796bcef66d0a42b128d8203c9a1">AddModule</a>&lt;T&gt;();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> m_systemManager-&gt;AddModule&lt;T&gt;();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#a3977e482a94220ddc26e1d2c9faa83ec">   89</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a3977e482a94220ddc26e1d2c9faa83ec">Engine::RemoveModule</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">return</span> m_systemManager-&gt;RemoveModule&lt;T&gt;();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#a3acf7ce81e67f78bb4dc0e93be938c3c">   95</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_multi_station_1_1_engine.html#a3acf7ce81e67f78bb4dc0e93be938c3c">Engine::HasModule</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> m_systemManager-&gt;HasModule&lt;T&gt;();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_multi_station_1_1_engine.html#acfa2dcff0e6f149d0fed1193726eede5">  101</a></span>    <span class="keyword">const</span> <a class="code hl_class" href="class_multi_station_1_1_i_system_module.html">ISystemModule</a>* <a class="code hl_function" href="class_multi_station_1_1_engine.html#acfa2dcff0e6f149d0fed1193726eede5">Engine::GetModule</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> m_systemManager-&gt;GetModule&lt;T&gt;();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    }</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+<div class="ttc" id="a_serialization_registry_8hpp_html"><div class="ttname"><a href="_serialization_registry_8hpp.html">SerializationRegistry.hpp</a></div><div class="ttdoc">This file contains the Serialization Registry class , responsible for registration serialization and ...</div></div>
+<div class="ttc" id="a_system_manager_8hpp_html"><div class="ttname"><a href="_system_manager_8hpp.html">SystemManager.hpp</a></div><div class="ttdoc">Module ownership and system lifecycle management.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_a1db9b7486f60217403893fb640db50fa"><div class="ttname"><a href="class_multi_station_1_1_engine.html#a1db9b7486f60217403893fb640db50fa">MultiStation::Engine::OnUpdate</a></div><div class="ttdeci">void OnUpdate(float dt)</div><div class="ttdoc">Updates all systems of the modules (all logic).</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_a3977e482a94220ddc26e1d2c9faa83ec"><div class="ttname"><a href="class_multi_station_1_1_engine.html#a3977e482a94220ddc26e1d2c9faa83ec">MultiStation::Engine::RemoveModule</a></div><div class="ttdeci">bool RemoveModule(void)</div><div class="ttdoc">If the type T inherits from the ISystemModule then it removes and deletes the new module ....</div><div class="ttdef"><b>Definition</b> Engine.hpp:89</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_a3acf7ce81e67f78bb4dc0e93be938c3c"><div class="ttname"><a href="class_multi_station_1_1_engine.html#a3acf7ce81e67f78bb4dc0e93be938c3c">MultiStation::Engine::HasModule</a></div><div class="ttdeci">bool HasModule(void) const</div><div class="ttdoc">If the T inherits from ISystemModule and exist&#39;s it returns true otherwise false .</div><div class="ttdef"><b>Definition</b> Engine.hpp:95</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_a797d239884d02292a03137e683ae0082"><div class="ttname"><a href="class_multi_station_1_1_engine.html#a797d239884d02292a03137e683ae0082">MultiStation::Engine::OnEvent</a></div><div class="ttdeci">void OnEvent(Event &amp;e)</div><div class="ttdoc">Updates the engine with a event , this way every system receives them.</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_acfa2dcff0e6f149d0fed1193726eede5"><div class="ttname"><a href="class_multi_station_1_1_engine.html#acfa2dcff0e6f149d0fed1193726eede5">MultiStation::Engine::GetModule</a></div><div class="ttdeci">const ISystemModule * GetModule(void) const</div><div class="ttdoc">If the T inherits from ISystemModule and exist&#39;s it returns the ISystemModule pointer to this module ...</div><div class="ttdef"><b>Definition</b> Engine.hpp:101</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_engine_html_ad42f19b35e75849908f866b1528e11b7"><div class="ttname"><a href="class_multi_station_1_1_engine.html#ad42f19b35e75849908f866b1528e11b7">MultiStation::Engine::AddModule</a></div><div class="ttdeci">bool AddModule(void)</div><div class="ttdoc">If the type T inherits from the ISystemModule then it creates and adds the new module ....</div><div class="ttdef"><b>Definition</b> Engine.hpp:82</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_i_system_module_html"><div class="ttname"><a href="class_multi_station_1_1_i_system_module.html">MultiStation::ISystemModule</a></div><div class="ttdoc">Contains the interface of system module for developers to implement.</div><div class="ttdef"><b>Definition</b> ISystemModule.hpp:20</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_object_map_html"><div class="ttname"><a href="class_multi_station_1_1_object_map.html">MultiStation::ObjectMap</a></div><div class="ttdoc">Catalog of known component and module types for runtime lookup.</div><div class="ttdef"><b>Definition</b> ObjectMap.hpp:29</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_object_map_html_a9515d796bcef66d0a42b128d8203c9a1"><div class="ttname"><a href="class_multi_station_1_1_object_map.html#a9515d796bcef66d0a42b128d8203c9a1">MultiStation::ObjectMap::AddModule</a></div><div class="ttdeci">ObjID AddModule(void)</div><div class="ttdoc">Records the runtime object type ID associated with module T.</div><div class="ttdef"><b>Definition</b> ObjectMap.hpp:84</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_scene_manager_html"><div class="ttname"><a href="class_multi_station_1_1_scene_manager.html">MultiStation::SceneManager</a></div><div class="ttdef"><b>Definition</b> SceneManager.hpp:6</div></div>
+<div class="ttc" id="aclass_multi_station_1_1_system_manager_html"><div class="ttname"><a href="class_multi_station_1_1_system_manager.html">MultiStation::SystemManager</a></div><div class="ttdoc">Owns one module per C++ type and runs its system lifecycle.</div><div class="ttdef"><b>Definition</b> SystemManager.hpp:30</div></div>
+<div class="ttc" id="astruct_multi_station_1_1_engine_context_html"><div class="ttname"><a href="struct_multi_station_1_1_engine_context.html">MultiStation::EngineContext</a></div><div class="ttdef"><b>Definition</b> Globals.hpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

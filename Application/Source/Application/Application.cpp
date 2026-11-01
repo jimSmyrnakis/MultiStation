@@ -52,19 +52,22 @@ namespace MultiStation {
 		// Push it front off layers
 		PushLayer(&Editor::GetLayer());
 		PushOverlay(m_ImGuiLayer);
+
 		
 
 	}
 
 	void Application::Run(void) noexcept {
 		MS_ASSERT(isInitialized, "Application not initiallized");
+
 		float dt = Time::GetTimeInSeconds() - m_lastUpdatedTime;
 		m_lastUpdatedTime = Time::GetTimeInSeconds();
+		
 		// poll events and update imgui and game engine events
 		m_window->PollEvents();
 
 		// Do Update IO callbacks
-		IO::PollCallbacks();
+		//IO::PollCallbacks();
 
 		// Before all call updates for each engine
 		m_engine.OnUpdate(dt);
@@ -88,7 +91,6 @@ namespace MultiStation {
 	void Application::Finalize(void) noexcept {
 		
 		
-
 		
 		
 

@@ -4,7 +4,6 @@
 * Make SceneGraph to insert an entity between other entities and so takes the parent child relations etc.
 
 
-* Make GUID support and thing where that would go 
 
 * Clean teh project and Add more functionality well documented , especially on templated methods see if you
   can make a non templated methods but at the same time support as many templated methods as possible for the 

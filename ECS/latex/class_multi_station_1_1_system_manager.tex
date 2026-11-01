@@ -2,7 +2,7 @@
 \hypertarget{class_multi_station_1_1_system_manager}{}\label{class_multi_station_1_1_system_manager}\index{MultiStation::SystemManager@{MultiStation::SystemManager}}
 
 
-Responsible for managing the system modules , create them , remove update them per frame (loop) .  
+Owns one module per C++ type and runs its system lifecycle.  
 
 
 
@@ -12,121 +12,331 @@ Responsible for managing the system modules , create them , remove update them p
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_multi_station_1_1_system_manager_a6263f583197445ef75c995f832457ca5}{System\+Manager}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context)
-\begin{DoxyCompactList}\small\item\em Initiallize the context internal reference. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_multi_station_1_1_system_manager_a52b093b0da1440346eeec71221847678}{\texorpdfstring{$\sim$}{\string~}\+System\+Manager}} (void)
-\begin{DoxyCompactList}\small\item\em For each module system calls On\+Dettach and on module calls Fini ~\newline
- then deletes it from memory. \end{DoxyCompactList}\item 
-\Hypertarget{class_multi_station_1_1_system_manager_a91b8f7179d518cf96ecb2b3b672d2a0a}\label{class_multi_station_1_1_system_manager_a91b8f7179d518cf96ecb2b3b672d2a0a} 
-void {\bfseries Update\+Modules} (void)
+\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{System\+Manager}} (\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&context) noexcept
+\begin{DoxyCompactList}\small\item\em Creates an empty manager using the supplied engine context. \end{DoxyCompactList}\item 
+\Hypertarget{class_multi_station_1_1_system_manager_ad02061e7054ebc33e8d1fe1555e6bef5}\label{class_multi_station_1_1_system_manager_ad02061e7054ebc33e8d1fe1555e6bef5} 
+{\bfseries System\+Manager} (System\+Manager \&\&)=delete
 \item 
-{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_ac2b9d15e4f3a6727c3da1ba27cb6498e}{Add\+Module}} (void)
-\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_a6753fc48c6293136896d337ae119c6d9}{Remove\+Module}} (void)
-\begin{DoxyCompactList}\small\item\em If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_a97c70820f0215b16cb0c2c4ed3c4097f}{Has\+Module}} (void) const
-\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T$>$ }\\const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_system_manager_a8ebeb4f702bf2da2f2a1b28e2ded11ef}{Get\+Module}} (void) const
-\begin{DoxyCompactList}\small\item\em If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . \end{DoxyCompactList}\end{DoxyCompactItemize}
+\Hypertarget{class_multi_station_1_1_system_manager_af1221f6ecee2139a4a96f1e529ac543d}\label{class_multi_station_1_1_system_manager_af1221f6ecee2139a4a96f1e529ac543d} 
+{\bfseries System\+Manager} (const System\+Manager \&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_a3b0d21b4896dfbacf4da2931168a3f82}\label{class_multi_station_1_1_system_manager_a3b0d21b4896dfbacf4da2931168a3f82} 
+\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{System\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{System\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_multi_station_1_1_system_manager_acd22bfcceb24313b9814fc81a4f893f0}\label{class_multi_station_1_1_system_manager_acd22bfcceb24313b9814fc81a4f893f0} 
+\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{System\+Manager}} \& {\bfseries operator=} (\mbox{\hyperlink{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}{System\+Manager}} \&\&)=delete
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_system_manager_a16740f9a82c7b28a8595659d1374d731}{\texorpdfstring{$\sim$}{\string~}\+System\+Manager}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Shuts down and deletes remaining modules in reverse registration order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21}{On\+Update}} (float dt) noexcept
+\begin{DoxyCompactList}\small\item\em Processes enabled-\/state changes, then updates enabled systems. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}{Add\+Module}} (Args \&\&... args) noexcept
+\begin{DoxyCompactList}\small\item\em Constructs and owns a module unless its type is already registered. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_a3831af91ca544fcd1bc7a16bea2dafc9}{Remove\+Module}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Shuts down and deletes the module registered for T. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{class_multi_station_1_1_system_manager_a4b98615bffbde3f82065147e684ee18c}{Has\+Module}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Checks whether a module of type T is registered. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27}{Get\+Module}} (void) const noexcept
+\begin{DoxyCompactList}\small\item\em Returns a borrowed, read-\/only interface to the module of type T. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{Init\+Modules}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Initializes all pending modules in registration order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}{Fini\+Modules}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Shuts down, deletes, and unregisters every module in reverse order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}{On\+Scene\+Activate}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Notifies initialized modules that a scene has become active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_af7715273b2483fdd86f0740199d96452}{On\+Scene\+Deactivate}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Notifies initialized modules that a scene is leaving active use. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a9b35df38517860b8fa5c546d05928f43}{On\+Scene\+Create}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Notifies initialized modules that a scene is ready for setup. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_multi_station_1_1_system_manager_a34014c0db9f9a8db9e02373638492f38}{On\+Scene\+Destroy}} (\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&scene) noexcept
+\begin{DoxyCompactList}\small\item\em Notifies initialized modules before a scene is destroyed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Responsible for managing the system modules , create them , remove update them per frame (loop) . 
+Owns one module per C++ type and runs its system lifecycle. 
 
-\begin{DoxyAuthor}{Author}
-Dimitris Smyrnakis
-\end{DoxyAuthor}
+\doxylink{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}{Add\+Module()} constructs and registers modules without initializing them. \doxylink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{Init\+Modules()} initializes pending modules in registration order. Only initialized modules receive system callbacks and frame updates. \doxylink{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}{Fini\+Modules()} shuts down and deletes all modules in reverse registration order; the destructor calls it automatically.
+
+Typical usage\+: \doxylink{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}{Add\+Module$<$\+T$>$()}, \doxylink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{Init\+Modules()}, On\+Update(dt) each frame, then \doxylink{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}{Fini\+Modules()} or destruction. Modules added later remain pending until the next explicit \doxylink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{Init\+Modules()} call.
+
 \begin{DoxyWarning}{Warning}
-Modules should avoid accessing these methods for themselfs . 
+Not thread-\/safe. From module/system callbacks, do not add or remove modules, initialize/finalize modules, or recursively call \doxylink{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21}{On\+Update()}. 
 \end{DoxyWarning}
 
 
 \label{doc-constructors}
 \Hypertarget{class_multi_station_1_1_system_manager_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_multi_station_1_1_system_manager_a6263f583197445ef75c995f832457ca5}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!SystemManager@{SystemManager}}
+\Hypertarget{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!SystemManager@{SystemManager}}
 \index{SystemManager@{SystemManager}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{SystemManager()}{SystemManager()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a6263f583197445ef75c995f832457ca5} 
-Multi\+Station\+::\+System\+Manager\+::\+System\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a46776cf9dea88dad79cddf5a3ac549d9} 
+Multi\+Station\+::\+System\+Manager\+::\+System\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{Engine\+Context}} \&}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-Initiallize the context internal reference. 
+Creates an empty manager using the supplied engine context. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{in}}  & {\em context} & The context reference \\
+\mbox{\texttt{in}}  & {\em context} & Context passed to module Init() and Fini() callbacks. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_multi_station_1_1_system_manager_a52b093b0da1440346eeec71221847678}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!````~SystemManager@{\texorpdfstring{$\sim$}{\string~}SystemManager}}
+\begin{DoxyPrecond}{Precondition}
+context must remain valid until this manager has been destroyed. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_system_manager_a16740f9a82c7b28a8595659d1374d731}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!````~SystemManager@{\texorpdfstring{$\sim$}{\string~}SystemManager}}
 \index{````~SystemManager@{\texorpdfstring{$\sim$}{\string~}SystemManager}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SystemManager()}{\string~SystemManager()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a52b093b0da1440346eeec71221847678} 
-Multi\+Station\+::\+System\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+System\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a16740f9a82c7b28a8595659d1374d731} 
+Multi\+Station\+::\+System\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+System\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-For each module system calls On\+Dettach and on module calls Fini ~\newline
- then deletes it from memory. 
+Shuts down and deletes remaining modules in reverse registration order. 
 
-
+For each module, calls On\+Disable() if the system was last processed as enabled, then On\+Dettach(), Fini(context), and deletes the module. Uninitialized modules are deleted without lifecycle callbacks. 
 
 \label{doc-func-members}
 \Hypertarget{class_multi_station_1_1_system_manager_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_multi_station_1_1_system_manager_ac2b9d15e4f3a6727c3da1ba27cb6498e}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!AddModule@{AddModule}}
+\Hypertarget{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!AddModule@{AddModule}}
 \index{AddModule@{AddModule}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{AddModule()}{AddModule()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_ac2b9d15e4f3a6727c3da1ba27cb6498e} 
-template$<$typename T$>$ \\
-bool Multi\+Station\+::\+System\+Manager\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a60ea867119c4cd7dbc52d21ff365fdef} 
+template$<$typename T, typename... Args$>$ \\
+bool Multi\+Station\+::\+System\+Manager\+::\+Add\+Module (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it creates and adds the new module . Ofcourse calls Init and the system On\+Attach methods parsing the context or scene . 
+Constructs and owns a module unless its type is already registered. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Concrete module type derived from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module}. \\
+\hline
+{\em Args} & Constructor argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em args} & Arguments forwarded to T\textquotesingle{}s constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the module was added or its type was already registered. An existing module is left unchanged and receives no callbacks.
+\end{DoxyReturn}
+Registration does not call Init() or any system callbacks. Call \doxylink{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}{Init\+Modules()} explicitly before expecting the module to update.
 
 \begin{DoxyWarning}{Warning}
-Do not use this method inside the module init , Fini or System methods . 
+Do not call from module or system lifecycle/update callbacks. 
 \end{DoxyWarning}
-\Hypertarget{class_multi_station_1_1_system_manager_a8ebeb4f702bf2da2f2a1b28e2ded11ef}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetModule@{GetModule}}
+\begin{DoxyNote}{Note}
+Exceptions escaping construction or allocation terminate the process because this operation is noexcept. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!FiniModules@{FiniModules}}
+\index{FiniModules@{FiniModules}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{FiniModules()}{FiniModules()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e} 
+void Multi\+Station\+::\+System\+Manager\+::\+Fini\+Modules (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Shuts down, deletes, and unregisters every module in reverse order. 
+
+For initialized modules, calls On\+Disable() if last processed as enabled, then On\+Dettach() and Fini(context). Uninitialized modules receive no callbacks. Every module is deleted and all corresponding metadata erased. Calling this on an empty manager has no effect. New modules may be added and initialized afterward; finalized instances are not retained.
+
+\begin{DoxyPostcond}{Postcondition}
+The manager is empty; all borrowed module pointers are invalid. 
+\end{DoxyPostcond}
+\begin{DoxyWarning}{Warning}
+Do not call from module or system callbacks. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!GetModule@{GetModule}}
 \index{GetModule@{GetModule}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a8ebeb4f702bf2da2f2a1b28e2ded11ef} 
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27} 
 template$<$typename T$>$ \\
-const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+System\+Manager\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+const \mbox{\hyperlink{class_multi_station_1_1_i_system_module}{ISystem\+Module}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+System\+Manager\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} pointer to this module otherwise nullptr . 
+Returns a borrowed, read-\/only interface to the module of type T. 
 
-\Hypertarget{class_multi_station_1_1_system_manager_a97c70820f0215b16cb0c2c4ed3c4097f}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!HasModule@{HasModule}}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Module type to look up. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+The module interface, or nullptr if absent or T is not a module type. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Ownership stays with the manager. The pointer is valid until the module is removed, \doxylink{class_multi_station_1_1_system_manager_a7bbd5490664de7f8831940cf016dbc8e}{Fini\+Modules()} is called, or the manager is destroyed. The returned module may still be awaiting initialization. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_system_manager_a4b98615bffbde3f82065147e684ee18c}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!HasModule@{HasModule}}
 \index{HasModule@{HasModule}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{HasModule()}{HasModule()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a97c70820f0215b16cb0c2c4ed3c4097f} 
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a4b98615bffbde3f82065147e684ee18c} 
 template$<$typename T$>$ \\
-bool Multi\+Station\+::\+System\+Manager\+::\+Has\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+bool Multi\+Station\+::\+System\+Manager\+::\+Has\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-If the T inherits from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} and exist\textquotesingle{}s it returns true otherwise false . 
+Checks whether a module of type T is registered. 
 
-\Hypertarget{class_multi_station_1_1_system_manager_a6753fc48c6293136896d337ae119c6d9}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!RemoveModule@{RemoveModule}}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Module type to look up. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if registered; false if absent or T is not a module type. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Registration does not imply initialization. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!InitModules@{InitModules}}
+\index{InitModules@{InitModules}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{InitModules()}{InitModules()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_ac9e288c1066ed06d5feab46d721f6839} 
+void Multi\+Station\+::\+System\+Manager\+::\+Init\+Modules (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Initializes all pending modules in registration order. 
+
+Calls module Init(context), then system On\+Attach(). After attachment, records Is\+Enable() and calls On\+Enable() only if that flag is true. Initially disabled systems receive neither On\+Enable() nor On\+Disable(). Already initialized modules are skipped, so repeated calls initialize only modules added since the previous call.
+
+\begin{DoxyPrecond}{Precondition}
+Each module must provide a valid Get\+System() after Init() returns. 
+\end{DoxyPrecond}
+\begin{DoxyWarning}{Warning}
+Do not call from module or system callbacks. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!OnSceneActivate@{OnSceneActivate}}
+\index{OnSceneActivate@{OnSceneActivate}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnSceneActivate()}{OnSceneActivate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150} 
+void Multi\+Station\+::\+System\+Manager\+::\+On\+Scene\+Activate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Notifies initialized modules that a scene has become active. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Live scene selected for active use.\\
+\hline
+\end{DoxyParams}
+Dispatches in registration order, including modules whose system updates are disabled. Does not change the active scene itself. \begin{DoxyPrecond}{Precondition}
+The caller has completed scene creation/loading and deactivated the previous active scene, if any. 
+\end{DoxyPrecond}
+\begin{DoxyWarning}{Warning}
+Call at a safe stage after jobs accessing the scene have finished. Callbacks must not mutate module registration or trigger nested lifecycle dispatch. These requirements apply to all scene notification methods. 
+\end{DoxyWarning}
+\Hypertarget{class_multi_station_1_1_system_manager_a9b35df38517860b8fa5c546d05928f43}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!OnSceneCreate@{OnSceneCreate}}
+\index{OnSceneCreate@{OnSceneCreate}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnSceneCreate()}{OnSceneCreate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a9b35df38517860b8fa5c546d05928f43} 
+void Multi\+Station\+::\+System\+Manager\+::\+On\+Scene\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Notifies initialized modules that a scene is ready for setup. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Newly created or fully deserialized scene.\\
+\hline
+\end{DoxyParams}
+Dispatches in registration order regardless of system enabled state. Does not activate the scene. Modules initialized after this call do not automatically receive this notification for existing scenes. \begin{DoxyPrecond}{Precondition}
+The scene data is ready and the caller provides the safe-\/stage guarantees of \doxylink{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}{On\+Scene\+Activate()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_system_manager_af7715273b2483fdd86f0740199d96452}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!OnSceneDeactivate@{OnSceneDeactivate}}
+\index{OnSceneDeactivate@{OnSceneDeactivate}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnSceneDeactivate()}{OnSceneDeactivate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_af7715273b2483fdd86f0740199d96452} 
+void Multi\+Station\+::\+System\+Manager\+::\+On\+Scene\+Deactivate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Notifies initialized modules that a scene is leaving active use. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & Previously active scene, still alive during dispatch.\\
+\hline
+\end{DoxyParams}
+Dispatches in registration order regardless of system enabled state. The scene may remain loaded and be activated again later. \begin{DoxyPrecond}{Precondition}
+The caller provides the safe-\/stage guarantees of \doxylink{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}{On\+Scene\+Activate()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_system_manager_a34014c0db9f9a8db9e02373638492f38}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!OnSceneDestroy@{OnSceneDestroy}}
+\index{OnSceneDestroy@{OnSceneDestroy}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnSceneDestroy()}{OnSceneDestroy()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a34014c0db9f9a8db9e02373638492f38} 
+void Multi\+Station\+::\+System\+Manager\+::\+On\+Scene\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}} \&}]{scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Notifies initialized modules before a scene is destroyed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em scene} & \doxylink{class_multi_station_1_1_scene}{Scene} that remains valid until all callbacks return.\\
+\hline
+\end{DoxyParams}
+Dispatches in registration order regardless of system enabled state. Modules can release scene resources and references here. This method neither deletes the scene nor saves it to persistent storage. \begin{DoxyPrecond}{Precondition}
+An active scene has first received \doxylink{class_multi_station_1_1_system_manager_af7715273b2483fdd86f0740199d96452}{On\+Scene\+Deactivate()}. The caller provides the safe-\/stage guarantees of \doxylink{class_multi_station_1_1_system_manager_acf5e0c4424a92459e081e06ee707e150}{On\+Scene\+Activate()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!MultiStation::SystemManager@{MultiStation::SystemManager}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21} 
+void Multi\+Station\+::\+System\+Manager\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Processes enabled-\/state changes, then updates enabled systems. 
+
+First checks every system\textquotesingle{}s Is\+Enable() flag and calls On\+Enable() or On\+Disable() when it differs from the last processed state. A second pass calls On\+Update(dt) for systems processed as enabled. Both passes run sequentially in registration order. Uninitialized modules are skipped in both passes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em dt} & Frame delta time forwarded unchanged to each enabled system. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Set\+Enable() changes are processed during the state-\/check pass. Changes made during system \doxylink{class_multi_station_1_1_system_manager_ad95e5242d219c0e0be48b4e77d027e21}{On\+Update()} callbacks take effect on the next manager update, including changes to systems that have not updated yet. 
+
+No fixed timestep updates are performed. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_system_manager_a3831af91ca544fcd1bc7a16bea2dafc9}\index{MultiStation::SystemManager@{MultiStation::SystemManager}!RemoveModule@{RemoveModule}}
 \index{RemoveModule@{RemoveModule}!MultiStation::SystemManager@{MultiStation::SystemManager}}
 \doxysubsubsection{\texorpdfstring{RemoveModule()}{RemoveModule()}}
-{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a6753fc48c6293136896d337ae119c6d9} 
+{\footnotesize\ttfamily \label{class_multi_station_1_1_system_manager_a3831af91ca544fcd1bc7a16bea2dafc9} 
 template$<$typename T$>$ \\
-bool Multi\+Station\+::\+System\+Manager\+::\+Remove\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+bool Multi\+Station\+::\+System\+Manager\+::\+Remove\+Module (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
-If the type T inherits from the \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module} then it removes and deletes the new module . Ofcourse calls system On\+Dettach and module Fini methods parsing the context or scene before it deletes them . 
+Shuts down and deletes the module registered for T. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Module type derived from \doxylink{class_multi_station_1_1_i_system_module}{ISystem\+Module}. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true if removed; false if absent or T is not a module type.
+\end{DoxyReturn}
+Calls On\+Disable() if the system was last processed as enabled, followed by On\+Dettach(), Fini(context), and module deletion. Any pointer returned by \doxylink{class_multi_station_1_1_system_manager_a7785516c3642bddd06a875d0a093af27}{Get\+Module$<$\+T$>$()} becomes invalid. If the module has not been initialized, only deletion is performed.
 
 \begin{DoxyWarning}{Warning}
-Do not use this method inside the module init , Fini or System methods . 
+Do not call from module or system lifecycle/update callbacks. 
 \end{DoxyWarning}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Source/\+System/System\+Manager.\+hpp\end{DoxyCompactItemize}
+Source/\+System/\mbox{\hyperlink{_system_manager_8hpp}{System\+Manager.\+hpp}}\end{DoxyCompactItemize}

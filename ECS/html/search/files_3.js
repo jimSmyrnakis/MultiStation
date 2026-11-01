@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemmanager_2ehpp_0',['SystemManager.hpp',['../_system_manager_8hpp.html',1,'']]]
+  ['registry_2ehpp_0',['Registry.hpp',['../_registry_8hpp.html',1,'']]]
 ];

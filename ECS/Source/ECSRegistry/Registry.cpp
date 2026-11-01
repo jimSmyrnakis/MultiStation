@@ -2,10 +2,23 @@
 
 namespace MultiStation {
 
+	ECSRegistry::ECSRegistry(void) noexcept {
+
+		MS_ASSERT(CentralStorageManager::CreateStorage(m_storageID , 
+			[this](CompID id) {
+				for (auto ent : m_entityManager.GetAllEntities()) {
+					if (m_entityManager.HasEntityComponent(ent , id))
+						m_entityManager.RemoveComponentOf(ent, id);
+				}
+			}), "No Available storage");
+		m_storage = CentralStorageManager::GetStorage(m_storageID);
+		MS_ASSERT(m_storage != nullptr, "No available storage");
+	}
+
+
 	ECSRegistry::~ECSRegistry(void) noexcept {
-		for (auto& it_pair : m_typeComponentMap) {
-			delete it_pair.second;
-		}
+		m_storage = nullptr;
+		CentralStorageManager::DestroyStorage(m_storageID);
 	}
 
 	bool ECSRegistry::HasComponent(EntID entity, CompID component) noexcept {
@@ -17,7 +30,7 @@ namespace MultiStation {
 
 	size_t ECSRegistry::SizeOfComponent(CompID id)  noexcept {
 		if (!HasRegister(id)) return 0;
-		const IComponentArray* components = (const IComponentArray*) m_typeComponentMap[id];
+		const IComponentArray* components = (const IComponentArray*) m_storage->components[id];
 
 		return components->SizeOfComponent();
 	}
@@ -25,7 +38,7 @@ namespace MultiStation {
 
 	size_t ECSRegistry::Count(CompID id) noexcept {
 		if (!HasRegister(id)) return 0;
-		const IComponentArray* components = (const IComponentArray*)m_typeComponentMap[id];
+		const IComponentArray* components = (const IComponentArray*)m_storage->components[id];
 
 		return components->Count();
 	}
@@ -33,20 +46,20 @@ namespace MultiStation {
 	void* ECSRegistry::GetComponent(CompID id , EntID entity) noexcept {
 		if (!HasRegister(id)) return nullptr;
 
-		IComponentArray* components =m_typeComponentMap[id];
+		IComponentArray* components = m_storage->components[id];
 
 		return components->GetComponentV(entity);
 	}
 
 	bool ECSRegistry::HasRegister(CompID id) const noexcept {
-		return m_typeComponentMap.count(id) != 0;
+		return CentralStorageManager::HasRegister(id);
 	}
 
 	
 	void* ECSRegistry::GetComponents(CompID id) noexcept {
 		if (!HasRegister(id)) return nullptr;
 
-		IComponentArray* components = m_typeComponentMap[id];
+		IComponentArray* components = m_storage->components[id];
 
 		return components->GetComponentsV();
 	}
@@ -55,7 +68,7 @@ namespace MultiStation {
 		bool res = m_entityManager.RemoveEntity(entity);
 		if (res == false) return false;
 
-		for (auto& it_pair : m_typeComponentMap) {
+		for (auto& it_pair : m_storage->components) {
 			IComponentArray* carr = it_pair.second;
 			carr->RemoveComponentV(entity);
 
@@ -94,7 +107,7 @@ namespace MultiStation {
 		}
 
 		IComponentArray* components = 
-			m_typeComponentMap[component];
+			m_storage->components[component];
 		m_entityManager.RemoveComponentOf(entity , component);
 		components->RemoveComponentV(entity);
 
@@ -114,7 +127,7 @@ namespace MultiStation {
 			return nullptr;
 		}
 
-		IComponentArray* components = m_typeComponentMap[component];
+		IComponentArray* components = m_storage->components[component];
 
 		void* result = components->AddComponentV(entity);
 		if (result == nullptr) {
@@ -138,7 +151,7 @@ namespace MultiStation {
 			return nullptr;
 		}
 
-		IComponentArray* components = m_typeComponentMap[component];
+		IComponentArray* components = m_storage->components[component];
 
 		return components->ReplaceComponentV(entity);
 	}
@@ -150,9 +163,17 @@ namespace MultiStation {
 			return nullName;
 		}
 
-		const IComponentArray* components = m_typeComponentMap.at(component);
+		const IComponentArray* components = m_storage->components.at(component);
 
 		return components->GetName();
+	}
+
+	CompID ECSRegistry::GetComponentIDByName(std::string& name) {
+		for (auto it = m_storage->components.begin(); it != m_storage->components.end(); it++) {
+			if (it->second->GetName() == name)
+				return it->first;
+		}
+		return 0;
 	}
 
 }

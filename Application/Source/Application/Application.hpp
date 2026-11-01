@@ -13,6 +13,7 @@ namespace MultiStation{
 		Application(const std::string name ) noexcept;
 		virtual ~Application(void) noexcept;
 	public:
+
 		void Initialize(void) noexcept;
 
 		void Run(void) noexcept;
@@ -20,8 +21,11 @@ namespace MultiStation{
 		void Finalize(void) noexcept;
 
 		void PushLayer(Layer* layer) noexcept;
+
 		void PushOverlay(Layer* layer) noexcept;
+
 		void PopLayer(Layer* layer) noexcept;
+
 		void PopOverlay(Layer* layer) noexcept;
 
 		

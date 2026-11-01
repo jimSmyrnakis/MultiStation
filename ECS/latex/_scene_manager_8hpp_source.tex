@@ -4,35 +4,37 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_scene_8hpp}{Scene.hpp}}"{}}}
-\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }MultiStation\{}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_scene_manager_ab6fede8d8f277fb9ac32bfa9a9f58236}{SceneManager}}\ \{}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_ab6fede8d8f277fb9ac32bfa9a9f58236}{SceneManager}}(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ ctx);}
-\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Utilities.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }SceneManager\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ CMDType\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ CREATE\ ,\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ DESTROY\ ,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ ACTIVATE,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ DEACTIVATE}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}*\ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_ab70a45e5ac0bca67eef4668b3861675d}{GetCurrentScene}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_a7a134439cf9b635357c1fa5807a27430}{Update}}(\textcolor{keywordtype}{float}\ dt);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ SceneManager(\mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ ctx\ \ ,\ \mbox{\hyperlink{class_multi_station_1_1_object_map}{ObjectMap}}\&\ objMap);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \string~SceneManager(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}*\ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_ab70a45e5ac0bca67eef4668b3861675d}{GetCurrentScene}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessPendingCommands(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_afc3fea20c0c8e1379b8da0b6a08e8cf3}{LoadScene}}(\mbox{\hyperlink{class_multi_station_1_1_i_archive_reader}{IArchiveReader}}*\ archiveReader);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_scene_manager_a48950326fe0264eaf908338050e55ef8}{SaveScene}}(\mbox{\hyperlink{class_multi_station_1_1_i_archive_writer}{IArchiveWriter}}*\ archiveWriter);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}*\ m\_currentScene;}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ m\_context;}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_serialization_registry}{SerializationRegistry}}\ m\_serializer;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00053\ \ \ \ \ \};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene}{Scene}}*\ m\_currentScene;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_engine_context}{EngineContext}}\&\ m\_context;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_object_map}{ObjectMap}}\&\ m\_objectMap;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \}}
 
 \end{DoxyCode}

@@ -197,6 +197,7 @@
   <ItemGroup>
     <ClInclude Include="Include\Platform.hpp" />
     <ClInclude Include="Source\Allocator.h" />
+    <ClInclude Include="Source\Buffer\Buffer.hpp" />
     <ClInclude Include="Source\Debug\Debug.hpp" />
     <ClInclude Include="Source\Definitions.h" />
     <ClInclude Include="Source\Error\Error.hpp" />

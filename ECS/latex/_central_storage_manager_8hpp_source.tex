@@ -1,0 +1,110 @@
+\doxysection{Central\+Storage\+Manager.\+hpp}
+\hypertarget{_central_storage_manager_8hpp_source}{}\label{_central_storage_manager_8hpp_source}\index{Source/ECSRegistry/CentralStorageManager.hpp@{Source/ECSRegistry/CentralStorageManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}ComponentArray/ComponentArray.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_e_c_s_storage}{ECSStorage}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ std::unordered\_map<CompID,\ IComponentArray*>\ components;}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ callbacks}}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ std::function<void(CompID)>\ at\_unregister\_call;}
+\DoxyCodeLine{00010\ \ \ \ \ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397}{CentralStorageManager}}\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397}{CentralStorageManager}}(\textcolor{keywordtype}{void})\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}{Init}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}{IsInitialized}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927}{CreateStorage}}(\textcolor{keywordtype}{size\_t}\&\ \textcolor{keywordtype}{id}\ ,\ std::function<\textcolor{keywordtype}{void}(CompID)>\ at\_unregister\ =\ \textcolor{keyword}{nullptr})\ noexcept;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a62d2c895566d935d6b767133ad7e9ceb}{DestroyStorage}}(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id})\ noexcept;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ static\ \mbox{\hyperlink{struct_multi_station_1_1_e_c_s_storage}{ECSStorage}}*\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aee3e95941396140e459a604afb3e4b38}{GetStorage}}(\textcolor{keywordtype}{size\_t}\ \textcolor{keywordtype}{id})\ noexcept;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ static\ uint16\_t\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ad643cb9f76fa3e70c361962984f45b2c}{GetTotalStorages}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ static\ uint16\_t\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_adaeba64840b30c520d5b493485c87edf}{GetTotalAvailableStorages}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a68dc135444470b311fea9234cbbbd797}{Register}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a07037a754742b05b13cf852324ce65c1}{Unregister}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}{HasRegister}}(\textcolor{keywordtype}{void})\ noexcept;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}{HasRegister}}(CompID\ component)\ noexcept;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ private:}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ static\ \mbox{\hyperlink{struct_multi_station_1_1_e_c_s_storage}{ECSStorage}}*\ s\_storages;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ static\ uint16\_t\ s\_total;}
+\DoxyCodeLine{00113\ \ \ \ \ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397}{CentralStorageManager}}::\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a68dc135444470b311fea9234cbbbd797}{Register}}(\textcolor{keywordtype}{void})\ noexcept\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}{IsInitialized}}())\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}{Init}}();}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CompID\ compID\ =\ GetComponentID<T>();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ each\ storage\ register\ component\ type}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ s\_total;\ i++)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ s\_storages[i].components[compID]\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_multi_station_1_1_component_array}{ComponentArray<T>}}();}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}{CentralStorageManager::HasRegister}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}{IsInitialized}}())\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}{Init}}();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s\_storages[0].components.count(}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ GetComponentID<T>()}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a07037a754742b05b13cf852324ce65c1}{CentralStorageManager::Unregister}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}\{}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}{IsInitialized}}())\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}{Init}}();}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}{HasRegister<T>}}()\ ==\ \textcolor{keyword}{false})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ CompID\ compID\ =\ GetComponentID<T>();}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ each\ storage\ register\ component\ type}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint16\_t\ i\ =\ 0;\ i\ <\ s\_total;\ i++)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_storages[i].at\_unregister\_call)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\_storages[i].at\_unregister\_call(compID);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ s\_storages[i].components[compID]\ ;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ s\_storages[i].components.find(compID);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ s\_storages[i].components.erase(it);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \}}
+
+\end{DoxyCode}

@@ -3,6 +3,7 @@
 #include <Media.hpp>
 #include <ImGui.hpp>
 #include <Platform.hpp>
+#include <ECS.hpp>
 #include <string>
 namespace MultiStation{
 
@@ -25,6 +26,15 @@ namespace MultiStation{
 			void DrawElement(void* data) override;
 
 
+		};
+
+		class Transform3DSerializable : public ISerialize {
+		public:
+			~Transform3DSerializable(void) = default;
+
+			virtual bool Serialize(void* ref, IArchiveWriter* archive) override;
+
+			virtual bool Deserialize(void* ref, IArchiveReader* archive) override;
 		};
 	}
 

@@ -21,6 +21,16 @@ namespace MultiStation{
             void DrawElement(void* data) override;
             
         };
+
+        class EntitySerializable : public ISerialize
+        {
+        public:
+            ~EntitySerializable(void) = default;
+
+            virtual bool Serialize(void* ref, IArchiveWriter* archive) override;
+
+            virtual bool Deserialize(void* ref, IArchiveReader* archive) override;
+        };
     }
 
 }

@@ -2,6 +2,7 @@ c:\users\user\desktop\projects\multistation\ecs\library\debug\x64\ecs.pdb
 c:\users\user\desktop\projects\multistation\ecs\library\debug\x64\ecs.idb
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\systemmanager.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\isystemmodule.obj
+c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\isystem.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\serializationregistry.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\textarchive.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\sceneserializer.obj
@@ -14,12 +15,13 @@ c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\entitymanager.
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\icomponentarray.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\objectmap.obj
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\engine.obj
+c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\centralstoragemanager.obj
 c:\users\user\desktop\projects\multistation\ecs\library\debug\x64\ecs.lib
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.vcxproj.filelistabsolute.txt
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\cl.command.1.tlog
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\cl.items.tlog
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\cl.read.1.tlog
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\cl.write.1.tlog
+c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\lib-link.read.1.tlog
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\lib-link.write.1.tlog
 c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\lib.command.1.tlog
-c:\users\user\desktop\projects\multistation\ecs\objects\debug\x64\ecs.tlog\lib.read.1.tlog

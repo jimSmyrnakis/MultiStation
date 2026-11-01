@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fun_0',['fun',['../struct_multi_station_1_1_job.html#a39e97add18dbe50ae629a8291b017881',1,'MultiStation::Job']]]
+  ['parent_0',['parent',['../struct_multi_station_1_1_entity_node.html#a55620a66b99a75d7d380741abd836ba8',1,'MultiStation::EntityNode']]]
 ];

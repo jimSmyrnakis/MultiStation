@@ -12,6 +12,12 @@ namespace MultiStation {
 		// Register Components to scene
 		ctx.GetCurrentScene()->RegisterComponent<Component::Entity>();
 		ctx.GetCurrentScene()->RegisterComponent<Component::Transform3D>();
+		// Create ISerialize 
+		Component::EntitySerializable* entity_serializer = new Component::EntitySerializable();
+		Component::Transform3DSerializable* transf3D_serializer = new Component::Transform3DSerializable();
+		// Register Serializable components
+		ctx.GetSerializer()->RegisterComponent(GetComponentID<Component::Entity>(), entity_serializer);
+		ctx.GetSerializer()->RegisterComponent(GetComponentID<Component::Transform3D>(), transf3D_serializer);
 		// Register Inspectables to inspector registry in future 
 
 

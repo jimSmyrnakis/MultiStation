@@ -1,31 +1,27 @@
-\doxysection{Source/\+System\+Manager/\+System\+Manager.hpp File Reference}
-\hypertarget{_system_manager_8hpp}{}\label{_system_manager_8hpp}\index{Source/SystemManager/SystemManager.hpp@{Source/SystemManager/SystemManager.hpp}}
+\doxysection{Source/\+System/\+System\+Manager.hpp File Reference}
+\hypertarget{_system_manager_8hpp}{}\label{_system_manager_8hpp}\index{Source/System/SystemManager.hpp@{Source/System/SystemManager.hpp}}
 
 
-The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The System\+Manager also integrates with a Job\+System to enable ~\newline
- parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request\textquotesingle{}s given by the systems for components .  
+Module ownership and system lifecycle management.  
 
 
-{\ttfamily \#include "{}../\+Job\+System/\+Job\+System.\+hpp"{}}\newline
+{\ttfamily \#include "{}ISystem\+Module.\+hpp"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$Platform.\+hpp$>$}\newline
-{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
-{\ttfamily \#include "{}../\+Interfaces/\+ISystem.\+hpp"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_multi_station_1_1_system_manager}{Multi\+Station\+::\+System\+Manager}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
-namespace \mbox{\hyperlink{namespace_multi_station}{Multi\+Station}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Owns one module per C++ type and runs its system lifecycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The System\+Manager is responsible for managing the execution of systems in different phases. It allows you to create phases, bind systems to those phases, and execute the systems in parallel each phase. The System\+Manager also integrates with a Job\+System to enable ~\newline
- parallel execution of systems when possible , as whell shares this job system with each system for use . Fethermore it handles the ecs manager , at the end of each phase the ecs manager will handle the request\textquotesingle{}s given by the systems for components . 
+Module ownership and system lifecycle management. 
 
 \begin{DoxyAuthor}{Author}
-\+: Dimitris Smyrnakis 
+Dimitris Smyrnakis 
 \end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}

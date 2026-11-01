@@ -1,4 +1,4 @@
-[2026-10-23 23:11:59] [info] Start Program:
+[2026-10-31 23:04:51] [info] Start Program:
 Path:"C:\\Users\\User\\Desktop\\Projects\\MultiStation\\EngineTests\\Tests\\Debug\\Win32\\EngineTests.exe"
 Arguments:
 Working directory: not set.
@@ -14,25 +14,25 @@ Input coverage:
 Unified diff: 
 Excluded line regular expressions: 
 Substitute pdb source paths: 
-[2026-10-23 23:11:59] [info] Module: C:\Users\User\Desktop\Projects\MultiStation\EngineTests\Tests\Debug\Win32\EngineTests.exe is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\ntdll.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\ntdll.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\wow64.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\wow64base.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\wow64win.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\wow64con.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\System32\wow64cpu.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\kernel32.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is selected because it matches selected pattern: *
-[2026-10-23 23:11:59] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is selected because it matches selected pattern: *
-[2026-10-23 23:12:01] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is selected because it matches selected pattern: *
-[2026-10-23 23:12:01] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is selected because it matches selected pattern: *
-[2026-10-23 23:12:01] [info] ----------------------------------------------------
-[2026-10-23 23:12:01] [info] Coverage generated in Folder C:\Users\User\Desktop\Projects\MultiStation\EngineTests\CoverageReport
-[2026-10-23 23:12:01] [info] ----------------------------------------------------
-[2026-10-23 23:12:01] [info] ----------------------------------------------------
-[2026-10-23 23:12:01] [info] Cobertura report generated: C:\Users\User\Desktop\Projects\MultiStation\EngineTests\CoverageReport.xml
-[2026-10-23 23:12:01] [info] ----------------------------------------------------
-[2026-10-23 23:12:01] [info] The code coverage report is not what you expect? See the FAQ https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/FAQ.
+[2026-10-31 23:04:52] [info] Module: C:\Users\User\Desktop\Projects\MultiStation\EngineTests\Tests\Debug\Win32\EngineTests.exe is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\ntdll.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\ntdll.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\wow64.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\wow64base.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\wow64win.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\wow64con.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\System32\wow64cpu.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\kernel32.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\KernelBase.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\vcruntime140d.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\ucrtbased.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:52] [info] Module: C:\Windows\SysWOW64\msvcp140d.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:53] [info] Module: C:\Windows\SysWOW64\kernel.appcore.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:53] [info] Module: C:\Windows\SysWOW64\msvcrt.dll is selected because it matches selected pattern: *
+[2026-10-31 23:04:53] [info] ----------------------------------------------------
+[2026-10-31 23:04:53] [info] Coverage generated in Folder C:\Users\User\Desktop\Projects\MultiStation\EngineTests\CoverageReport
+[2026-10-31 23:04:53] [info] ----------------------------------------------------
+[2026-10-31 23:04:53] [info] ----------------------------------------------------
+[2026-10-31 23:04:53] [info] Cobertura report generated: C:\Users\User\Desktop\Projects\MultiStation\EngineTests\CoverageReport.xml
+[2026-10-31 23:04:53] [info] ----------------------------------------------------
+[2026-10-31 23:04:53] [info] The code coverage report is not what you expect? See the FAQ https://github.com/OpenCppCoverage/OpenCppCoverage/wiki/FAQ.

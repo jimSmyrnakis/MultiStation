@@ -1,46 +1,63 @@
 \doxysection{Scene\+Graph.\+hpp}
 \hypertarget{_scene_graph_8hpp_source}{}\label{_scene_graph_8hpp_source}\index{Source/Scene/SceneGraph.hpp@{Source/Scene/SceneGraph.hpp}}
-
+\mbox{\hyperlink{_scene_graph_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../Registry/Registry.hpp"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_registry_8hpp}{../ECSRegistry/Registry.hpp}}"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }MultiStation\{}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}\ \{}
-\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ std::vector<EntID>\ childs;}
-\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ EntID\ parent;}
-\DoxyCodeLine{00009\ \ \ \ \ \};}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }SceneGraph\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ SceneGraph(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ AddEntity(EntID\ entity);}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ RemoveEntity(EntID\ entity);}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ SetParent(EntID\ entity,\ EntID\ parent);}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ GetParent(EntID\ entity\ ,\ EntID\&\ out)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::span<const\ EntID>\ GetChilds(EntID\ entity)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ WouldCreateCycle(EntID\ parent,\ EntID\ entity);}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::unordered\_map<EntID,\ EntityNode>\ m\_tree;}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }MultiStation\{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<EntityNode*>\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_aa13c1685ec9359456f0c51cc151f52a8}{childs}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::vector<EntID>\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_aa9a84f1899926592a1225a80fec34441}{childs\_ids}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ EntID\ \textcolor{keywordtype}{id}\ =\ nullEntity;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}*\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a55620a66b99a75d7d380741abd836ba8}{parent}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a09432e55b77431b2a7036d6c0558a8f2}{operator==}}(\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}\&\ node)\ noexcept\ ;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node_a40eedf3280c3b51f625406171ef6f2ed}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}\&\ node)\ \textcolor{keyword}{const}\ noexcept\ ;}
 \DoxyCodeLine{00038\ \ \ \ \ \};}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_ad69632bf4260abe6f2161b7d8285c7bb}{SceneGraph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a48ce4bca8a21fc5ebc62c4a81676f303}{SceneGraph}}(\mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_acf0f7755e8348364b6be733be9ac9f68}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a4f49c3603fcc39092328ad0bad264c23}{operator=}}(\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a6e5291ad5c4370920a979f4815fe9f2f}{SceneGraph}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a503a733e242aa8b49e6e2a1c6dc187e3}{AddEntity}}(EntID\ entity)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_adb32f6b8578e1667219082f45eceba2a}{RemoveEntity}}(EntID\ entity)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_ac69b04e58439e2bd7a96e4a6a1f26df0}{SetParent}}(EntID\ entity,\ EntID\ parent)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_a8357913d1fadef963acef868b2737d6a}{GetParent}}(EntID\ entity\ ,\ EntID\&\ out)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ std::span<const\ EntID>\ \mbox{\hyperlink{class_multi_station_1_1_scene_graph_adf02c81dd6d05b77af90076edd85bf14}{GetChilds}}(EntID\ entity)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ WouldCreateCycle(\mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}*\ entity,\ \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}*\ parent)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ std::unordered\_map<EntID,\ EntityNode>\ m\_tree;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_multi_station_1_1_entity_node}{EntityNode}}*\ m\_root;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \}}
 
 \end{DoxyCode}

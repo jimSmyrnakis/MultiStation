@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['_7ecomponentarray_0',['~ComponentArray',['../class_multi_station_1_1_component_array.html#a01f07ef338605a15a5611470ed58e2fd',1,'MultiStation::ComponentArray']]],
-  ['_7eicomponentarray_1',['~IComponentArray',['../class_multi_station_1_1_i_component_array.html#aef7b10613cf2c2987fe47f1dda605de5',1,'MultiStation::IComponentArray']]],
-  ['_7eregistry_2',['~Registry',['../class_multi_station_1_1_registry.html#ad7c3d9f08807fc900c17a0201e18481f',1,'MultiStation::Registry']]],
-  ['_7esystemmanager_3',['~SystemManager',['../class_multi_station_1_1_system_manager.html#a52b093b0da1440346eeec71221847678',1,'MultiStation::SystemManager']]]
+  ['unregister_0',['Unregister',['../class_multi_station_1_1_central_storage_manager.html#a07037a754742b05b13cf852324ce65c1',1,'MultiStation::CentralStorageManager']]],
+  ['unregistercomponent_1',['UnregisterComponent',['../class_multi_station_1_1_e_c_s_registry.html#a3e96e02e833f14da5ba5ac7d806c80fb',1,'MultiStation::ECSRegistry::UnregisterComponent()'],['../class_multi_station_1_1_scene.html#ac4aaba923c73f4e8cf86dc40e8dd2303',1,'MultiStation::Scene::UnregisterComponent()']]]
 ];

@@ -95,6 +95,11 @@ namespace MultiStation {
 		 */
 		virtual const std::string& GetName(void) const noexcept = 0;
 
+		/**
+		 * @brief Virtual method for clearing the storage of the component array   
+		 */
+		virtual void Clear(void) noexcept = 0;
+
 	};
 
 

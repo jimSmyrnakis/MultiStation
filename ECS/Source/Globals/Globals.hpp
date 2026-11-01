@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <atomic>
 #include <functional>
-#include "../Serialization/Archive/IArchive.hpp"
+#include "../Serialization/IArchive.hpp"
 #include <Platform.hpp>
 namespace MultiStation{
 
@@ -20,7 +20,7 @@ namespace MultiStation{
 	/**
 	 * @brief Gives for different types of components a unique id
 	 * 
-	 * \return 
+	 * \return  
 	 */
 	template<typename T>
 	CompID GetComponentID(void) {
@@ -54,20 +54,10 @@ namespace MultiStation{
 		std::function<Scene* ()> GetCurrentScene;
 
 		/**
-		 * @brief Returns the serialization registry of the engine
+		 * @brief Returns the serializer to register components and objects 
+		 * for scene serialization.
 		 */
-		std::function<SerializationRegistry& ()> GetSerializer;
-
-		/**
-		 * @brief Loads a scene from the given archive
-		 */
-		std::function<bool(IArchiveReader* )> LoadScene;
-
-		/**
-		 * @brief Saves the current scene to the given archive
-		 */
-		std::function<bool(IArchiveWriter*)> SaveScene;
-
+		std::function<SerializationRegistry* ()> GetSerializer;
 
 
 	};

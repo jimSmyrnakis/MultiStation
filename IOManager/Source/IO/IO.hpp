@@ -1,359 +1,93 @@
 #pragma once
-#include <string>
 #include "../Globals.hpp"
-#include "IOManager.hpp"
+#include <string>
+#include "../FileSystem/Handle/Handle.hpp"
+/**
+ * @author Dimitris Smyrnakis
+ * @file IO.hpp
+ * @brief All io operations for use in the engine are here . 
+ * @version 0.1
+ */
 namespace MultiStation{
 
 	namespace IO {
 
 		/**
-		 * @brief Initialize the io thread and the io manager , in other words
-		 * initialize the IO .
+		 * @brief Creates a file on the defined filename path if not exist's
+		 * @param filename The file path and name relative or absolute 
+		 * @param empty_if_exists If true and file exist's already then deletes it's
+		 * contents otherwise it remains unttached .
+		 * @returns 
+		 * SUCCESS if file created , 
+		 * FILE_EXISTS if file already exist's or
+		 * OPERATION_FAILED If file couldn't created .
 		 */
-		bool Init(void);
+		ErrorCode Create(const std::string& filename , bool empty_if_exists);
 
+		ErrorCode Info(const std::string& filename, FileInfo& info);
 		/**
-		 * @brief Finalize / Terminates the IO
+		 * @brief Opens only an existing file with the required access mode 
+		 * @param filename The file relative or absolute path
+		 * @param access The access mode 
+		 * @param[out] id Output id given (updated on success only)
+		 * @returns 
+		 * 1. SUCCESS : If file opened \n
+		 * 2. FILE_NOT_EXISTS : If file not exists \n
+		 * 3. OPERATION_FAILED: If file couldn't open for other reasons \n
+		 * @note Access mode 
+		 * 1. WRITE		: Destroyes containt and starts from zero pos .\n
+		 * 2. READ		: Read file from zero pos\n
+		 * 3. APPEND	: Write to file starting to the end of the file .\n
+		 * 4. BINNARY	: For no handling on special new line characters (like 
+		 * "\n" etc. that by default are handled .\n
+		 * 5. APPEND overcomes WRITE (READ | WRITE | APPEND == READ | APPEND )\n
+		 * 6. READ | WRITE : Read/Write the file at the current position , starting 
+		 * from zero .\n
+		 * 7. READ | APPEND: Read/Write the file but read starts from zero and write
+		 * is always at eof position .\n
+		 * 
 		 */
-		void Fini(void);
-
+		ErrorCode Open(const std::string& filename , Access access , int& id);
 		/**
-		 * @brief Recommend to call this function from main thread loop so operations 
-		 * in callbacks are in sync with the loop .
+		 * @brief Reads bytes from the file in the buffer with the specified count 
+		 * via the id that points to the file handle 
+		 * @param id The id of the file handler 
+		 * @param buffer The buffer address to write the file containts
+		 * @param count Number of bytes to readed from the file
+		 * @param[out] readed The actuall number of bytes readed from file
+		 * @param[out] eof True if hit end of the file , false otherwise.
+		 * @returns 
+		 * 1. SUCCESS : If we succesfully read bytes from the file (readed <= count) or 
+		 * found eof .\n
+		 * 2. BAD_PARAMS : If buffer is null or count is zero \n
+		 * 3. BAD_ID : If id is not a existing file handle\n
+		 * 4. OPERATION_FAILED : If read failed for unknown reasons .\n
 		 */
-		void PollCallbacks(void);
+		ErrorCode Read(int id, void* buffer, uint32_t count, uint32_t& readed , bool& eof);
+
+		ErrorCode Write(int id, void* buffer, uint32_t count, uint32_t& writed);
+
+		ErrorCode Flush(int id);
+
+		ErrorCode Seek(int id, int64_t pos, SeekMode mode, int64_t& final_pos);
+
+		ErrorCode Tell(int id, int64_t& pos);
+		/**
+		 * @brief Closes the file given from the specified id of the file handle
+		 * @param id Id to the implementation file handle
+		 * @returns 
+		 * 1. SUCCESS : If closed
+		 * 2. OPERATION_FAILED: If closing wasn't valid 
+		 */
+		ErrorCode Close(int id);
 
 
 
 
-        /**
-         * @brief Opens an existing file synchronously.
-         *
-         * @param path Path to the file.
-         * @param access Requested access mode.
-         * @return A valid file handle on success, otherwise nullptr.
-         */
-        std::shared_ptr<Handle> OpenFileSync(const std::string& path, Access access);
-
-        /**
-         * @brief Creates a file synchronously.
-         *
-         * @param path Path of the file to create.
-         * @param access Requested access mode.
-         * @return A valid file handle on success, otherwise nullptr.
-         */
-        std::shared_ptr<Handle> CreateFileSync(const std::string& path, Access access);
-
-        /**
-         * @brief Retrieves file information synchronously using a file path.
-         *
-         * @param path Path to the file.
-         * @param info Output structure that receives the file information.
-         * @return true if the information was retrieved successfully, otherwise false.
-         */
-        bool GetFileInfoSync(const std::string& path, FileInfo& info);
-
-        /**
-         * @brief Retrieves file information synchronously using an open file handle.
-         *
-         * @param handle Handle to the file.
-         * @param info Output structure that receives the file information.
-         * @return true if the information was retrieved successfully, otherwise false.
-         */
-        bool GetFileInfoSync(std::shared_ptr<Handle> handle, FileInfo& info);
-
-        /**
-         * @brief Removes a file synchronously.
-         *
-         * @param path Path to the file to remove.
-         * @return true if the file was removed successfully, otherwise false.
-         */
-        bool RemoveFileSync(const std::string& path);
-
-        /**
-         * @brief Reads data from an open file synchronously.
-         *
-         * @param handle Handle to the file.
-         * @param buffer Destination buffer that receives the read data.
-         * @param[inout] count Maximum number of bytes to read and returns
-         * actuall transfered bytes readed .
-         * @param eof Set to true if the end of the file was reached.
-         * @return true if the read was successfully, otherwise false..
-         */
-        bool ReadFileSync(
-            std::shared_ptr<Handle> handle,
-            void* buffer,
-            size_t& count,
-            bool& eof
-        );
-
-        /**
-         * @brief Changes the current file position synchronously.
-         *
-         * @param[in] handle Handle to the file.
-         * @param[inout] pos Offset used for the seek operation and returned with
-         * the actuall pos value on the file .
-         * @param mode Reference position used for seeking.
-         * @return true if the seek was successfully, otherwise false..
-         */
-        bool SeekFileSync(
-            std::shared_ptr<Handle> handle,
-            size_t& pos,
-            SeekMode mode
-        );
-
-        /**
-         * @brief Retrieves the current file position synchronously.
-         *
-         * @param[in]  handle Handle to the file.
-         * @param[out] pos The tell position . 
-         * @return true if the tell was successfully, otherwise false.
-         */
-        bool TellFileSync(std::shared_ptr<Handle> handle , size_t& pos);
-
-        /**
-         * @brief Writes data to an open file synchronously.
-         *
-         * @param handle Handle to the file.
-         * @param buffer Source buffer containing the data to write.
-         * @param[inout] count Number of bytes to write. And Returns
-         * actuall number of bytes writed .
-         * @return true if the write was successfully, otherwise false..
-         */
-        bool WriteFileSync(
-            std::shared_ptr<Handle> handle,
-            const void* buffer,
-            size_t& count
-        );
-
-        /**
-         * @brief Closes an open file synchronously.
-         *
-         * @param handle Handle to the file.
-         * @return true if the file was closed successfully, otherwise false.
-         */
-        bool CloseFileSync(std::shared_ptr<Handle> handle);
-
-        /**
-         * @brief Reads the contents of a directory synchronously.
-         *
-         * @param path Path to the directory.
-         * @param entries Output container that receives the directory entries.
-         * @return true if the directory was read successfully, otherwise false.
-         */
-        bool ReadDirSync(
-            const std::string& path,
-            std::vector<DirectoryEntry>& entries
-        );
-
-        /**
-         * @brief Creates a directory synchronously.
-         *
-         * @param path Path of the directory to create.
-         * @return true if the directory was created successfully, otherwise false.
-         */
-        bool CreateDirSync(const std::string& path);
-
-        /**
-         * @brief Removes a directory synchronously.
-         *
-         * @param path Path to the directory to remove.
-         * @return true if the directory was removed successfully, otherwise false.
-         */
-        bool RemoveDirSync(const std::string& path);
+		
+		 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /**
-         * @brief Queues an asynchronous request to open an existing file.
-         *
-         * @param path Path to the file.
-         * @param access Requested access mode.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool OpenFileAsync(
-            const std::string& path,
-            Access access,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to create a file.
-         *
-         * @param path Path of the file to create.
-         * @param access Requested access mode.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool CreateFileAsync(
-            const std::string& path,
-            Access access,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to retrieve file information using a path.
-         *
-         * @param path Path to the file.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool GetFileInfoAsync(
-            const std::string& path,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to retrieve file information using an open handle.
-         *
-         * @param handle Handle to the file.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool GetFileInfoAsync(
-            std::shared_ptr<Handle> handle,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to remove a file.
-         *
-         * @param path Path to the file to remove.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool RemoveFileAsync(
-            const std::string& path,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to read data from a file.
-         *
-         * @param handle Handle to the file.
-         * @param buffer Destination buffer that receives the read data.
-         * @param count Maximum number of bytes to read.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         *
-         * @note The buffer must remain valid until the completion callback is invoked.
-         */
-        bool ReadFileAsync(
-            std::shared_ptr<Handle> handle,
-            void* buffer,
-            size_t count,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to change the current file position.
-         *
-         * @param handle Handle to the file.
-         * @param pos Offset used for the seek operation.
-         * @param mode Reference position used for seeking.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool SeekFileAsync(
-            std::shared_ptr<Handle> handle,
-            size_t pos,
-            SeekMode mode,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to retrieve the current file position.
-         *
-         * @param handle Handle to the file.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool TellFileAsync(
-            std::shared_ptr<Handle> handle,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to write data to a file.
-         *
-         * @param handle Handle to the file.
-         * @param buffer Source buffer containing the data to write.
-         * @param count Number of bytes to write.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         *
-         * @note The buffer must remain valid until the completion callback is invoked.
-         */
-        bool WriteFileAsync(
-            std::shared_ptr<Handle> handle,
-            const void* buffer,
-            size_t count,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to close an open file.
-         *
-         * @param handle Handle to the file.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool CloseFileAsync(
-            std::shared_ptr<Handle> handle,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to read the contents of a directory.
-         *
-         * @param path Path to the directory.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool ReadDirAsync(
-            const std::string& path,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to create a directory.
-         *
-         * @param path Path of the directory to create.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool CreateDirAsync(
-            const std::string& path,
-            RequestCallBack callback
-        );
-
-        /**
-         * @brief Queues an asynchronous request to remove a directory.
-         *
-         * @param path Path to the directory to remove.
-         * @param callback Callback invoked when the operation completes.
-         * @return true if the request was accepted and queued, otherwise false.
-         */
-        bool RemoveDirAsync(
-            const std::string& path,
-            RequestCallBack callback
-        );
-	};
+	}
 
 }

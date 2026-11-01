@@ -1,5 +1,8 @@
 var hierarchy =
 [
+    [ "MultiStation::CentralStorageManager", "class_multi_station_1_1_central_storage_manager.html", null ],
+    [ "MultiStation::ECSRegistry", "class_multi_station_1_1_e_c_s_registry.html", null ],
+    [ "MultiStation::ECSStorage", "struct_multi_station_1_1_e_c_s_storage.html", null ],
     [ "MultiStation::Engine", "class_multi_station_1_1_engine.html", null ],
     [ "MultiStation::EngineContext", "struct_multi_station_1_1_engine_context.html", null ],
     [ "MultiStation::EntityManager", "class_multi_station_1_1_entity_manager.html", null ],
@@ -24,7 +27,7 @@ var hierarchy =
     [ "MultiStation::IWriteStream", "class_multi_station_1_1_i_write_stream.html", [
       [ "MultiStation::FileWriteStream", "class_multi_station_1_1_file_write_stream.html", null ]
     ] ],
-    [ "MultiStation::Registry", "class_multi_station_1_1_registry.html", null ],
+    [ "MultiStation::ObjectMap", "class_multi_station_1_1_object_map.html", null ],
     [ "MultiStation::Scene", "class_multi_station_1_1_scene.html", null ],
     [ "MultiStation::SceneGraph", "class_multi_station_1_1_scene_graph.html", null ],
     [ "MultiStation::SceneManager", "class_multi_station_1_1_scene_manager.html", null ],

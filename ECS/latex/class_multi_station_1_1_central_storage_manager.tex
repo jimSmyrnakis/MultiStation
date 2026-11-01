@@ -1,0 +1,255 @@
+\doxysection{Multi\+Station\+::Central\+Storage\+Manager Class Reference}
+\hypertarget{class_multi_station_1_1_central_storage_manager}{}\label{class_multi_station_1_1_central_storage_manager}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+
+
+Responsible for creating , destroying , getting and registration\textquotesingle{}s of components for all the ecs registrie\textquotesingle{}s of the application (A common ground) . Provides already existing storage\textquotesingle{}s and manages the registration\textquotesingle{}s and lifetimes of each .  
+
+
+
+
+{\ttfamily \#include $<$Central\+Storage\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397}{Central\+Storage\+Manager}} (void)=delete
+\begin{DoxyCompactList}\small\item\em Static-\/only manager; instances cannot be constructed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}{Init}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Initializes all 64 storage slots as available. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}{Is\+Initialized}} (void) noexcept
+\item 
+static bool \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927}{Create\+Storage}} (size\+\_\+t \&id, std\+::function$<$ void(Comp\+ID)$>$ at\+\_\+unregister=nullptr) noexcept
+\begin{DoxyCompactList}\small\item\em Acquires an available storage slot for a scene or ECS registry. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a62d2c895566d935d6b767133ad7e9ceb}{Destroy\+Storage}} (size\+\_\+t id) noexcept
+\begin{DoxyCompactList}\small\item\em Clears components and releases the slot for another scene/registry. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{struct_multi_station_1_1_e_c_s_storage}{ECSStorage}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_aee3e95941396140e459a604afb3e4b38}{Get\+Storage}} (size\+\_\+t id) noexcept
+\begin{DoxyCompactList}\small\item\em Retrieves an acquired slot\textquotesingle{}s component storage. \end{DoxyCompactList}\item 
+static uint16\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_ad643cb9f76fa3e70c361962984f45b2c}{Get\+Total\+Storages}} (void) noexcept
+\item 
+static uint16\+\_\+t \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_adaeba64840b30c520d5b493485c87edf}{Get\+Total\+Available\+Storages}} (void) noexcept
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a68dc135444470b311fea9234cbbbd797}{Register}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Registers T across all slots, including slots for future scenes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a07037a754742b05b13cf852324ce65c1}{Unregister}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Unregisters T globally, deleting its arrays and component instances. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static bool \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}{Has\+Register}} (void) noexcept
+\begin{DoxyCompactList}\small\item\em Checks the common registration set using a component type. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_multi_station_1_1_central_storage_manager_a4180a59969557ca2ca7147fe6be419ca}{Has\+Register}} (Comp\+ID component) noexcept
+\begin{DoxyCompactList}\small\item\em Checks the common registration set using a runtime component ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsible for creating , destroying , getting and registration\textquotesingle{}s of components for all the ecs registrie\textquotesingle{}s of the application (A common ground) . Provides already existing storage\textquotesingle{}s and manages the registration\textquotesingle{}s and lifetimes of each . 
+
+\label{doc-constructors}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!CentralStorageManager@{CentralStorageManager}}
+\index{CentralStorageManager@{CentralStorageManager}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{CentralStorageManager()}{CentralStorageManager()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a865abfb770664f2a56feb444d329e397} 
+Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Central\+Storage\+Manager (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Static-\/only manager; instances cannot be constructed. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!CreateStorage@{CreateStorage}}
+\index{CreateStorage@{CreateStorage}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{CreateStorage()}{CreateStorage()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927} 
+bool Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Create\+Storage (\begin{DoxyParamCaption}\item[{size\+\_\+t \&}]{id}{, }\item[{std\+::function$<$ void(Comp\+ID)$>$}]{at\+\_\+unregister}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Acquires an available storage slot for a scene or ECS registry. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em id} & Acquired slot ID on success; unchanged on failure. \\
+\hline
+ & {\em at\+\_\+unregister} & Optional callback receiving a component type ID before its array is deleted, allowing the registry to update entity signatures. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on acquisition, false if all slots are in use. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Initializes the pool if needed. Registered types already have independent arrays in every slot. Release the slot with \doxylink{class_multi_station_1_1_central_storage_manager_a62d2c895566d935d6b767133ad7e9ceb}{Destroy\+Storage()}. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a62d2c895566d935d6b767133ad7e9ceb}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!DestroyStorage@{DestroyStorage}}
+\index{DestroyStorage@{DestroyStorage}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{DestroyStorage()}{DestroyStorage()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a62d2c895566d935d6b767133ad7e9ceb} 
+void Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Destroy\+Storage (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Clears components and releases the slot for another scene/registry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Slot ID obtained from \doxylink{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927}{Create\+Storage()}.\\
+\hline
+\end{DoxyParams}
+Retains registered arrays and their capacity for reuse, destroys component instances, and removes the callback. Invalid or already released IDs have no effect. Component pointers and views must no longer be used. \Hypertarget{class_multi_station_1_1_central_storage_manager_aee3e95941396140e459a604afb3e4b38}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!GetStorage@{GetStorage}}
+\index{GetStorage@{GetStorage}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{GetStorage()}{GetStorage()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_aee3e95941396140e459a604afb3e4b38} 
+\mbox{\hyperlink{struct_multi_station_1_1_e_c_s_storage}{ECSStorage}} \texorpdfstring{$\ast$}{*} Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Get\+Storage (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Retrieves an acquired slot\textquotesingle{}s component storage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Slot ID obtained from \doxylink{class_multi_station_1_1_central_storage_manager_aaff55d1be14645ae2a5d04345de05927}{Create\+Storage()}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Manager-\/owned storage, or nullptr for an invalid or available slot. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Use only while the slot is acquired. Registration entries and array ownership remain managed by \doxylink{class_multi_station_1_1_central_storage_manager}{Central\+Storage\+Manager}. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_adaeba64840b30c520d5b493485c87edf}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!GetTotalAvailableStorages@{GetTotalAvailableStorages}}
+\index{GetTotalAvailableStorages@{GetTotalAvailableStorages}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{GetTotalAvailableStorages()}{GetTotalAvailableStorages()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_adaeba64840b30c520d5b493485c87edf} 
+uint16\+\_\+t Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Get\+Total\+Available\+Storages (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+Number of slots currently available for acquisition. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_ad643cb9f76fa3e70c361962984f45b2c}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!GetTotalStorages@{GetTotalStorages}}
+\index{GetTotalStorages@{GetTotalStorages}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{GetTotalStorages()}{GetTotalStorages()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_ad643cb9f76fa3e70c361962984f45b2c} 
+uint16\+\_\+t Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Get\+Total\+Storages (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+Fixed pool capacity (64), including acquired and available slots. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a4180a59969557ca2ca7147fe6be419ca}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!HasRegister@{HasRegister}}
+\index{HasRegister@{HasRegister}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{HasRegister()}{HasRegister()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a4180a59969557ca2ca7147fe6be419ca} 
+bool Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Has\+Register (\begin{DoxyParamCaption}\item[{Comp\+ID}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Checks the common registration set using a runtime component ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Component type ID to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the type is registered across the pool. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Initializes the pool if needed; an initially empty pool returns false. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!HasRegister@{HasRegister}}
+\index{HasRegister@{HasRegister}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{HasRegister()}{HasRegister()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a8d5cbe1eae81a2508883794ca2faf47a} 
+template$<$typename T$>$ \\
+bool Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Has\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Checks the common registration set using a component type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Component type to check. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+True if T is registered across the pool. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Initializes the pool if needed; an initially empty pool returns false. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!Init@{Init}}
+\index{Init@{Init}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_ab159372f76f2f934da784c4e6afade7f} 
+void Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Initializes all 64 storage slots as available. 
+
+\begin{DoxyNote}{Note}
+Repeated calls preserve existing storage and registrations. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!IsInitialized@{IsInitialized}}
+\index{IsInitialized@{IsInitialized}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{IsInitialized()}{IsInitialized()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_aca0e8eaa0831ce4e32bc6fef8796cf66} 
+bool Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Is\+Initialized (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+\begin{DoxyReturn}{Returns}
+True once the storage pool has been initialized. 
+\end{DoxyReturn}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a68dc135444470b311fea9234cbbbd797}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!Register@{Register}}
+\index{Register@{Register}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a68dc135444470b311fea9234cbbbd797} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Register (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Registers T across all slots, including slots for future scenes. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Component type supported by \doxylink{class_multi_station_1_1_component_array}{Component\+Array}.\\
+\hline
+\end{DoxyTemplParams}
+Allocates an independent empty array per slot, so scenes do not need to register the type individually. Initializes the pool if needed. \begin{DoxyPrecond}{Precondition}
+T is not already registered; duplicate calls replace existing arrays. 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+Not thread-\/safe; serialize registration with other ECS operations. 
+\end{DoxyNote}
+\Hypertarget{class_multi_station_1_1_central_storage_manager_a07037a754742b05b13cf852324ce65c1}\index{MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}!Unregister@{Unregister}}
+\index{Unregister@{Unregister}!MultiStation::CentralStorageManager@{MultiStation::CentralStorageManager}}
+\doxysubsubsection{\texorpdfstring{Unregister()}{Unregister()}}
+{\footnotesize\ttfamily \label{class_multi_station_1_1_central_storage_manager_a07037a754742b05b13cf852324ce65c1} 
+template$<$typename T$>$ \\
+void Multi\+Station\+::\+Central\+Storage\+Manager\+::\+Unregister (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+
+
+Unregisters T globally, deleting its arrays and component instances. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Component type to unregister.\\
+\hline
+\end{DoxyTemplParams}
+Calls each slot\textquotesingle{}s callback before deleting its array and erasing the entry. Does nothing if T is not registered. \begin{DoxyPrecond}{Precondition}
+Callbacks update registry bookkeeping without modifying storage maps or reentering registration operations. ECS operations are serialized. 
+\end{DoxyPrecond}
+\begin{DoxyWarning}{Warning}
+Invalidates pointers, references, and spans to T in every scene. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+ECSRegistry/Central\+Storage\+Manager.\+hpp\end{DoxyCompactItemize}

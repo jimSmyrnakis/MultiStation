@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['affine_0',['affine',['../struct_multi_station_1_1_job.html#a2848546e5895f5dd25ef46b64a381f76',1,'MultiStation::Job']]]
+  ['childs_0',['childs',['../struct_multi_station_1_1_entity_node.html#aa13c1685ec9359456f0c51cc151f52a8',1,'MultiStation::EntityNode']]],
+  ['childs_5fids_1',['childs_ids',['../struct_multi_station_1_1_entity_node.html#aa9a84f1899926592a1225a80fec34441',1,'MultiStation::EntityNode']]]
 ];
